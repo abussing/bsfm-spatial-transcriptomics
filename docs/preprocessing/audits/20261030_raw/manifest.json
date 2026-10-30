@@ -1,0 +1,117 @@
+{
+  "aggregate": {
+    "all_cells": 432794,
+    "all_glial_cells": 187100,
+    "eligible_cells": 432794,
+    "eligible_glial_cells": 187100,
+    "excluded_cells": 0,
+    "genes": 300,
+    "reason_counts": {
+      "invalid_spatial": 0,
+      "missing_cell_type": 0,
+      "missing_section_metadata": 0,
+      "negative_count": 0,
+      "nonfinite_count": 0,
+      "noninteger_count": 0,
+      "unregistered_section": 0,
+      "unsafe_total": 0,
+      "zero_total": 0
+    },
+    "registered_cells": 432794
+  },
+  "artifacts": {
+    "audit.json": {
+      "bytes": 29630,
+      "sha256": "fa833cfb9f417eb59f75b4cde542ea883ce0ccda1e1ab23f71e09aa434581e79"
+    },
+    "exclusions.csv": {
+      "bytes": 27,
+      "sha256": "290f0952e552822a42c03d6ebb74373a421ba057b6793a515e28757316eb4fa6"
+    },
+    "sections.csv": {
+      "bytes": 6130,
+      "sha256": "2e7ca801dcd4c3482f0e1776341bc86758a47d69ac1d9352ef7560d530588fd6"
+    },
+    "summary.md": {
+      "bytes": 3347,
+      "sha256": "4fe17a7ab5de9b4e43a93633e6f650f25a448868ed1f3a73e5a95f47c48fe12c"
+    }
+  },
+  "findings": [],
+  "historical_ledger": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\recovery\\SCTRANSFORM_B6_SECTION_RECIPES.csv",
+    "sha256": "5bf8f96d3cdf4686ba31d4a28fb82ea2a92957111c43798bf035687131e86bcd"
+  },
+  "implementation": {
+    "module_sha256": "56d0e07fa81366fb6ea91dc8140039367f1aee5b28c2adad1c0597675fb6c749",
+    "registry_sha256": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166"
+  },
+  "invocation": {
+    "argv": [
+      "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+      "-m",
+      "bsfm.preprocessing.raw_preflight",
+      "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+      "--historical-ledger",
+      "docs/recovery/SCTRANSFORM_B6_SECTION_RECIPES.csv",
+      "--output-dir",
+      "artifacts/sctransform_preflight/20261030_raw_final",
+      "--chunk-rows",
+      "4096"
+    ],
+    "working_directory": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics"
+  },
+  "limits": [
+    "No SCTransform executed; no generated response certified.",
+    "No external reference gene list or raw-file checksum authenticated independently.",
+    "The fixed 91-gene modeling panel and R environment are separate later checks.",
+    "Full-data depth only; not approved for training-only holdout preprocessing."
+  ],
+  "minimizing_sections": [
+    "S00__Trem2_5xFAD4"
+  ],
+  "proposed_common_depth": 124.0,
+  "runtime": {
+    "h5py": "3.12.1",
+    "hdf5": "1.14.5",
+    "interpreter": "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+    "numpy": "2.1.3",
+    "python": "3.13.5"
+  },
+  "schema": "bsfm.raw-preflight.v1.manifest",
+  "schema_checks": {
+    "cell_ids_unique": true,
+    "cell_index": "/obs/_index",
+    "cell_order_sha256": "aa341c6a3616d8abdc3f4d652452f5cff316f6f1a2aab0afb6eee33bf41fc9e6",
+    "gene_ids_unique": true,
+    "gene_index": "/var/_index",
+    "gene_order_sha256": "e7c67fcc863d783b656912b53ca02e9ebdaace3c8f6e141e0ed5d3709858cfda",
+    "ordered_hash_encoding": "uint64-LE UTF-8 byte length followed by UTF-8 bytes, per identifier",
+    "orientation": "cells_by_genes",
+    "required_paths": [
+      "layers/RNA",
+      "obs",
+      "var",
+      "obs/sample",
+      "obs/gen_fine",
+      "obs/cluster_coarse",
+      "obsm/spatial"
+    ],
+    "spatial_shape": [
+      432794,
+      2
+    ],
+    "type_mapping": {
+      "AST": "AST",
+      "MIC": "Mic",
+      "OGC": "OGC"
+    }
+  },
+  "source": {
+    "bytes": 5483600151,
+    "identity_limit": "Content fingerprint and contract checks; no independent authoritative raw-file checksum supplied.",
+    "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+    "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38"
+  },
+  "status": "pass"
+}

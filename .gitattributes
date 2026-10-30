@@ -1,0 +1,14 @@
+# Canonical text has stable LF bytes in both Git and working checkouts.
+* text=auto eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.csv text eol=lf
+*.md text eol=lf
+*.R text eol=lf
+*.r text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=lf
+
+# Historical captures are immutable evidence; preserve their original bytes.
+docs/recovery/evidence/** -text

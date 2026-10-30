@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "source_capture": "docs/recovery/evidence/sctransform_b4/bsfm-b4-root-metadata.txt",
+  "source_lines": "222-241",
+  "historical_registry_sha256": "89579b28336b459f6a0bf5c7f82db2069c83d27072154502b7a1d8853544f513",
+  "expected_genes": 300,
+  "sections": [
+    {
+      "section": "S00__Trem2_5xFAD4",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202204011403_20220401135320220401TREM5xADF12mo4hemip_VMSC00101/region_0/",
+      "gen_fine": "Trem2_5xFAD4"
+    },
+    {
+      "section": "S01__5xFAD4",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202204011403_20220401135320220401TREM5xADF12mo4hemip_VMSC00101/region_1/",
+      "gen_fine": "5xFAD4"
+    },
+    {
+      "section": "S02__Trem2_4",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202204011403_20220401135320220401TREM5xADF12mo4hemip_VMSC00101/region_2/",
+      "gen_fine": "Trem2_4"
+    },
+    {
+      "section": "S03__Trem2_5xFAD3",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202209041036_20220904-5xFAD-TREM2-AnteHip-300x05_VMSC00101/region_0/",
+      "gen_fine": "Trem2_5xFAD3"
+    },
+    {
+      "section": "S04__WT3",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202209041036_20220904-5xFAD-TREM2-AnteHip-300x05_VMSC00101/region_1/",
+      "gen_fine": "WT3"
+    },
+    {
+      "section": "S05__Trem2_3",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202209041036_20220904-5xFAD-TREM2-AnteHip-300x05_VMSC00101/region_2/",
+      "gen_fine": "Trem2_3"
+    },
+    {
+      "section": "S06__5xFAD3",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202209041036_20220904-5xFAD-TREM2-AnteHip-300x05_VMSC00101/region_3/",
+      "gen_fine": "5xFAD3"
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202302031055_20230203TREM5xFAD-VZG171x04_VMSC05201/region_0/",
+      "gen_fine": "Trem2_5xFAD5"
+    },
+    {
+      "section": "S08__5xFAD5",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202302031055_20230203TREM5xFAD-VZG171x04_VMSC05201/region_1/",
+      "gen_fine": "5xFAD5"
+    },
+    {
+      "section": "S09__Trem2_5",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202302031055_20230203TREM5xFAD-VZG171x04_VMSC05201/region_2/",
+      "gen_fine": "Trem2_5"
+    },
+    {
+      "section": "S10__WT5",
+      "sample": "Z:/Lab/MERFISH_Imaging data/202302031055_20230203TREM5xFAD-VZG171x04_VMSC05201/region_3/",
+      "gen_fine": "WT5"
+    },
+    {
+      "section": "S11__Trem2_5xFAD1",
+      "sample": "Z:/Lab/MERFISH_Imaging data/Kim2_202112171955_12172021TREM2-5x12Mo300GP_VMSC00101/region_0/",
+      "gen_fine": "Trem2_5xFAD1"
+    },
+    {
+      "section": "S12__Trem2_1",
+      "sample": "Z:/Lab/MERFISH_Imaging data/Kim2_202112171955_12172021TREM2-5x12Mo300GP_VMSC00101/region_1/",
+      "gen_fine": "Trem2_1"
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "sample": "Z:/Lab/MERFISH_Imaging data/Kim2_202112171955_12172021TREM2-5x12Mo300GP_VMSC00101/region_1/",
+      "gen_fine": "Trem2_5xFAD2"
+    },
+    {
+      "section": "S13__Trem2_2",
+      "sample": "Z:/Lab/MERFISH_Imaging data/Kim2_202112171955_12172021TREM2-5x12Mo300GP_VMSC00101/region_2/",
+      "gen_fine": "Trem2_2"
+    },
+    {
+      "section": "S14__WT1",
+      "sample": "Z:/Lab/MERFISH_Imaging data/Kim_202201111602_20220111-WT-5xFAD10518pHip300GP_VMSC00101/region_0/",
+      "gen_fine": "WT1"
+    },
+    {
+      "section": "S15__5xFAD1",
+      "sample": "Z:/Lab/MERFISH_Imaging data/Kim_202201111602_20220111-WT-5xFAD10518pHip300GP_VMSC00101/region_1/",
+      "gen_fine": "5xFAD1"
+    },
+    {
+      "section": "S16__WT2",
+      "sample": "Z:/Lab/MERFISH_Imaging data/Kim_202201111602_20220111-WT-5xFAD10518pHip300GP_VMSC00101/region_2/",
+      "gen_fine": "WT2"
+    },
+    {
+      "section": "S17__5xFAD2",
+      "sample": "Z:/Lab/MERFISH_Imaging data/Kim_202201111602_20220111-WT-5xFAD10518pHip300GP_VMSC00101/region_3/",
+      "gen_fine": "5xFAD2"
+    }
+  ]
+}

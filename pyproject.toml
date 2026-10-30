@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bsfm-spatial-transcriptomics"
+version = "0.1.0"
+description = "Provenance-controlled BSFM preprocessing tools"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "h5py>=3.8"]
+
+[project.scripts]
+bsfm-raw-preflight = "bsfm.preprocessing.raw_preflight:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"bsfm.preprocessing" = ["sections.json"]

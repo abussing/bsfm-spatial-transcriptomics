@@ -6,7 +6,8 @@ capabilities, not claims that any historical implementation is authoritative.
 ## 1. Expression preprocessing
 
 Recovery status: **historical normalization-recipe recovery completed through
-B6; canonical scientific design approved; implementation not begun**. See the
+B6; canonical scientific design approved; raw-input preflight and full-data
+depth accepted; normalization implementation not begun**. See the
 [canonical SCTransform decision](docs/decisions/SCTRANSFORM_DESIGN.md),
 [SCTransform recovery](docs/recovery/SCTRANSFORM_PREPROCESSING.md) and
 [evidence ledger](docs/recovery/SCTRANSFORM_EVIDENCE.md).
@@ -18,7 +19,7 @@ B6; canonical scientific design approved; implementation not begun**. See the
 | Historical normalization implementation | Recovered writer recipes: 10 new, 3 regional reused, 6 sct_work reused; effective defaults/execution attribution remain incomplete. |
 | Uniform cross-section comparability | Unestablished. |
 | Replacement design | Approved: uniform section-specific SCT v2, common minimum-section-median depth, log1p corrected counts and one section/type/gene centering operation. |
-| Preflights | Raw-source/eligibility/depth authentication and exact environment feasibility pending; numeric depth is not frozen. |
+| Preflights | Canonical Python raw-input audit accepted: 432,794 eligible cells, 300 unique genes, no exclusions/invalid counts, all 19 section/glial totals matched, full-data depth 124 (S00__Trem2_5xFAD4). Exact R environment feasibility remains pending. See the [accepted audit](docs/preprocessing/audits/20261030_raw/summary.md) and [preflight guide](docs/preprocessing/RAW_INPUT_PREFLIGHT.md). |
 | Spatial holdout | Training-only preprocessing approved as primary policy; fold-specific implementation design remains pending. |
 
 All recovered writers export Seurat SCT `data`, the intended
@@ -35,12 +36,19 @@ separates source behavior, runtime evidence, attribution and downstream adoption
 The approved design regenerates all 19 sections using all valid section cells
 and the complete 300-gene panel, requires the effective glmGamPoi_offset method,
 and uses correct_counts at the common minimum authenticated section median.
-The historical depth 124 is provisional. MIC/AST/OGC and the fixed 91 genes are
+The full-data depth 124 is now accepted from the canonical raw-input audit.
+MIC/AST/OGC and the fixed 91 genes are
 selected after correction; the final response is centered once without variance
 scaling. Residual-only settings do not define that response. The recovered
 environment is an initial target subject to feasibility; substitutions require
-an explicit version amendment. No preprocessing code or run is authorized by
-the documentation checkpoint. See the decision for preflights and holdout limits.
+an explicit version amendment. SCTransform implementation/execution remains
+pending. See the decision for environment and holdout limits.
+
+Accepted raw-source identity: SHA-256
+`d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38`,
+5,483,600,151 bytes. This is a project-adopted content fingerprint, not an
+independently supplied upstream checksum. The accepted 124 is the full-data
+minimum-median depth, not automatically the training-only holdout depth.
 
 - Accept raw gene-expression counts and spatial/cell metadata.
 - Run SCTransform reproducibly.
@@ -147,5 +155,8 @@ the documentation checkpoint. See the decision for preflights and holdout limits
 
 ## Status
 
-No implementation has yet been selected for any capability in this repository.
+No historical implementation has been selected. The first canonical code is
+the raw-input preflight, implemented from the frozen contract, tested and
+accepted with the aggregate audit above. No SCTransform or model execution
+is included.
 

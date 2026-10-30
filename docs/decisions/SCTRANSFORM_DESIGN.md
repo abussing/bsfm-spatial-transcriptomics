@@ -1,9 +1,11 @@
 # Canonical SCTransform preprocessing decision
 
 Decision date: 2026-10-30.
-Status: **scientific choices frozen by explicit user approval; implementation
-and execution not authorized by this documentation checkpoint**.
+Status: **scientific choices frozen by explicit user approval; canonical raw-input
+preflight and full-data depth accepted; SCTransform implementation/execution pending**.
 Evidence baseline: clean commit `8e84d872f57507d3b9937dca0e37083bbc3722f7`.
+Preflight amendment: 2026-10-30, following implementation from design checkpoint
+`909d86da682695279a456dca396a1e6b2e23b3b9` and explicit user acceptance.
 
 This decision replaces the pending scientific design gate described at the end
 of [historical recovery](../recovery/SCTRANSFORM_PREPROCESSING.md). The
@@ -68,11 +70,14 @@ Record all 19 medians, the eligible populations, the minimizing section(s), the
 median convention, numeric precision and resulting D. Reject missing sections
 or invalid depth summaries rather than changing the denominator silently.
 
-**The rule is frozen; the number 124 is not.** The historical records imply a
-minimum median of 124 and medians ranging from 124 to 387. These are provenance
-observations, not authenticated raw-count preflight results. Recompute D after
-raw-source authentication and final eligibility checks. Record any difference
-from the historical provisional value and its cause; do not hardcode 124.
+**The authenticated full-data depth is now frozen at D = 124** for the accepted
+source fingerprint and eligible population recorded in section 5. The canonical
+preflight recomputed all 19 medians, ranging from 124 to 387, and identified
+S00__Trem2_5xFAD4 as the minimizing section. This agrees with the earlier
+historical provisional value. The rule remains computed from raw counts; the
+preflight does not hardcode 124. A changed source or population requires a new
+audit and review. This full-data depth is not automatically a training-only
+holdout depth.
 
 Seurat documents minimum-median recorrection for independently fitted SCT models,
 with corrected counts and their log1p stored in counts and data. The convention
@@ -189,17 +194,43 @@ No claim of numerical reproducibility across untested platforms is made here.
 
 ### Raw-source identity and depth preflight
 
-The historical reference is Johnston_MERFISH_Data.h5ad, layers/RNA. This decision
-does not authenticate that artifact. Before execution, establish its authoritative
-location and content identity, raw-count semantics, ordered panel and cell axes,
-section registry (including the two distinct S12 labels), spatial metadata and
-cell-type mapping. Validate the full 300-gene universe and fixed 91-gene list.
+The canonical preflight has been run read-only and accepted for
+`D:\johnston_brain\Johnston_MERFISH_Data.h5ad`, `layers/RNA`.
+The path records this acquisition location; callers supply their input path.
+See the [accepted aggregate audit](../preprocessing/audits/20261030_raw/summary.md),
+[manifest](../preprocessing/audits/20261030_raw/manifest.json) and
+[19-section table](../preprocessing/audits/20261030_raw/sections.csv).
 
-Apply the approved eligibility policy, report every exclusion, and compute all
-section medians and D from that authenticated input. Any newly proposed
-expression-based exclusion requires separate scientific approval. Resolve any
-required-gene/model-eligibility failure explicitly; do not change the panel or
-normalization rule to make the check pass.
+| Accepted property | Measured result |
+| --- | --- |
+| Source SHA-256 | `d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38` |
+| Source byte size | 5,483,600,151 |
+| Eligible cells | 432,794, covering all 19 frozen section selections, including both S12 sections |
+| Measured genes | Exactly 300 unique genes; gene and cell order fingerprints recorded |
+| Input validation | All counts finite, nonnegative and integer-valued; unique cell IDs; required section/type/spatial metadata valid |
+| Exclusions | Zero invalid or zero-total cells; no exclusions |
+| Historical comparison | All 19 section totals and MIC/AST/OGC totals matched B6; 187,100 glial cells overall |
+| Full-data common correction depth | 124, minimum of the 19 authenticated section medians |
+| Minimizing section | S00__Trem2_5xFAD4 |
+
+This is a **project-adopted content fingerprint**, accepted by explicit user
+decision after contract validation. It is not an independently supplied upstream
+checksum or proof of original acquisition authenticity. No independent ordered
+gene reference was supplied. The fixed 91-gene modeling list and gene-model
+availability remain later checks. No SCTransform response has been generated
+or certified by this audit.
+
+The optional B6 ledger is a cross-check only. Eligibility and depth depend on
+the frozen registry and raw input, never on historical target counts. The
+accepted aggregate records include the absolute interpreter, dependency versions,
+exact CLI argument vector, and final module/registry hashes. Full audit and
+exclusion artifacts remain outside Git at the invocation's output directory.
+
+Any new expression-based exclusion requires separate scientific approval.
+Changed source identities or eligibility populations require a new audit; do
+not change the panel or normalization rule to make a check pass. The value 124
+applies to the full-data population above and must not be inherited silently
+by training-only spatial holdout preprocessing.
 
 ### Environment feasibility gate
 
@@ -258,7 +289,7 @@ design must match the intended prediction task.
 The policy applies to all cell types inside a held-out region, not just glia.
 Depth summaries for the primary policy must use training data only, or a genuinely
 independent reference approved in the holdout specification. The full-data D,
-including the historical provisional 124, cannot silently enter that policy.
+including the accepted full-data value 124, cannot silently enter that policy.
 Use training centering means for both training responses and held-out scoring.
 
 After predictions are fixed, held-out raw observations may be transformed with
@@ -289,9 +320,10 @@ holdout implementation specification before running validation:
 
 ## 7. Decision boundary
 
-The scientific choices above are authoritative repository decisions. Numerical
-depth and environment feasibility remain preflight tasks; holdout mechanics
-remain a separate implementation-design task. This checkpoint adds documentation
-only. It does not execute preprocessing, import legacy source, submit jobs, or
-certify a generated response. Future changes to frozen scientific choices require
-an explicit decision amendment; historical findings remain preserved as evidence.
+The scientific choices above are authoritative repository decisions. Raw-input
+preflight and full-data depth 124 are accepted for the recorded fingerprint.
+Exact R environment feasibility and holdout implementation design remain
+pending. The canonical Python preflight is the first implemented code; it
+does not run SCTransform, import legacy source, submit jobs or certify a
+generated response. Future changes to frozen scientific choices require an
+explicit decision amendment; historical findings remain preserved as evidence.
