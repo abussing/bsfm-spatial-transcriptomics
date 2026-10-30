@@ -5,8 +5,8 @@ capabilities, not claims that any historical implementation is authoritative.
 
 ## 1. Expression preprocessing
 
-Recovery status: **bounded HPC search concluded through B5/B5b; historical local
-paths newly accessible on D: and awaiting inspection**. See the
+Recovery status: **historical normalization-recipe recovery completed through
+B6; scientific design gate pending**. See the
 [SCTransform recovery](docs/recovery/SCTRANSFORM_PREPROCESSING.md) and
 [evidence ledger](docs/recovery/SCTRANSFORM_EVIDENCE.md).
 
@@ -14,20 +14,25 @@ paths newly accessible on D: and awaiting inspection**. See the
 | --- | --- |
 | Scientific response intent | Recovered: log1p(corrected counts). |
 | Downstream exporter/handoff | Recovered: implemented behavior and recorded artifact links; actual sampler invocation is not certified. |
-| Historical normalization implementation | Unresolved. |
+| Historical normalization implementation | Recovered writer recipes: 10 new, 3 regional reused, 6 sct_work reused; effective defaults/execution attribution remain incomplete. |
 | Uniform cross-section comparability | Unestablished. |
 | Replacement design | Not yet approved. |
 
-The ten-new/nine-reused historical branches are not proven comparable, and
-correction depths were explicitly not harmonized. Historical construction of
-log1p(corrected counts) is not certified for every section. This does not prove
-the procedures were wrong or permanently unrecoverable. No historical
-implementation has been selected.
+All recovered writers export Seurat SCT `data`, the intended
+`log1p(corrected counts)` representation. Ten new and three regional reused
+scripts explicitly request SCT v2; six sct_work scripts depend on unpinned
+historical defaults. Only the ten new sections have recovered normalization
+session/completion records. Full-section input does not establish the internal
+parameter-fitting cell subset. Correction depth was not harmonized; uniform
+comparability is not certified. No evidence proves the historical procedures
+wrong, and no historical implementation has been selected as authoritative.
 
-The user attached the historical drive during checkpoint preparation. All five
-known normalization paths are accessible under D:\johnston_brain. Their contents
-have not yet been inspected; this reopens targeted local recovery without changing
-the unresolved scientific statuses above.
+The [19-section recipe ledger](docs/recovery/SCTRANSFORM_B6_SECTION_RECIPES.csv)
+separates source behavior, runtime evidence, attribution and downstream adoption.
+The next step is a scientific design gate: mixed historical reproduction versus
+uniform regeneration, fitting-cell population, correction depth and the exact
+assay/layer contract. The user's preliminary preference is uniform regeneration;
+it is not an approved design or authorization to implement it.
 
 - Accept raw gene-expression counts and spatial/cell metadata.
 - Run SCTransform reproducibly.

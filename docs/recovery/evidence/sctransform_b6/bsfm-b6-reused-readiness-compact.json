@@ -1,0 +1,74 @@
+[
+    {
+        "Section":  "S01__5xFAD4",
+        "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S01__5xFAD4\\READY.json",
+        "Bytes":  609,
+        "SHA256":  "529566dd092107ef7b25cc5a35ef54aa47e41819c4f135b356577c68c164ed4c",
+        "MatchesB4":  true,
+        "Text":  "{\r\n  \"section\": \"S01__5xFAD4\",\r\n  \"N\": 11938,\r\n  \"all_cells\": 24087,\r\n  \"genes\": 300,\r\n  \"reused_SCT\": true,\r\n  \"SCT_source\": \"E:\\\\johnston_brain\\\\region_story\\\\hipp_build_ad\\\\S01_sct.csv\",\r\n  \"SCT_sha256\": \"3590bb56482792e19e1941df21608108bdead8d574a740a4488f6cfcd969a7c2\",\r\n  \"alignment\": \"Legacy full-section physical coordinates and type labels matched in order (verified global x/y axis swap).\",\r\n  \"scale\": \"SCT data, already log1p; uncentered display and GP input\",\r\n  \"normalization\": \"sample-specific SCT; legacy correction depth not harmonized across sections\",\r\n  \"raw_median_panel_depth\": 178.0\r\n}"
+    },
+    {
+        "Section":  "S04__WT3",
+        "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S04__WT3\\READY.json",
+        "Bytes":  539,
+        "SHA256":  "619a3b1c4eef7e4c5c08148a21cf4ea814dbaf9ada7d99c6cd03b952c6697dc4",
+        "MatchesB4":  true,
+        "Text":  "{\r\n  \"section\": \"S04__WT3\",\r\n  \"N\": 8308,\r\n  \"all_cells\": 17863,\r\n  \"genes\": 300,\r\n  \"reused_SCT\": true,\r\n  \"SCT_source\": \"E:\\\\johnston_brain\\\\sct_work\\\\sct4.csv\",\r\n  \"SCT_sha256\": \"7a94c01eff8d3c8bf173656cab6cd2e7a1d40d437fed12b74d2a3487c841a2d5\",\r\n  \"alignment\": \"Legacy source global row IDs and physical coordinates matched.\",\r\n  \"scale\": \"SCT data, already log1p; uncentered display and GP input\",\r\n  \"normalization\": \"sample-specific SCT; legacy correction depth not harmonized across sections\",\r\n  \"raw_median_panel_depth\": 278.0\r\n}"
+    },
+    {
+        "Section":  "S06__5xFAD3",
+        "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S06__5xFAD3\\READY.json",
+        "Bytes":  543,
+        "SHA256":  "b8e44d655d200178f7856339b5d0c993087e50c49f868d748d99fc768a1680d6",
+        "MatchesB4":  true,
+        "Text":  "{\r\n  \"section\": \"S06__5xFAD3\",\r\n  \"N\": 11387,\r\n  \"all_cells\": 22965,\r\n  \"genes\": 300,\r\n  \"reused_SCT\": true,\r\n  \"SCT_source\": \"E:\\\\johnston_brain\\\\sct_work\\\\sct6.csv\",\r\n  \"SCT_sha256\": \"010329e852f379f29bab1c1521de87c8e40ec80ecc2f19191c0177a01a23a068\",\r\n  \"alignment\": \"Legacy source global row IDs and physical coordinates matched.\",\r\n  \"scale\": \"SCT data, already log1p; uncentered display and GP input\",\r\n  \"normalization\": \"sample-specific SCT; legacy correction depth not harmonized across sections\",\r\n  \"raw_median_panel_depth\": 330.0\r\n}"
+    },
+    {
+        "Section":  "S08__5xFAD5",
+        "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S08__5xFAD5\\READY.json",
+        "Bytes":  605,
+        "SHA256":  "5eb54de4d75de8dfb84bba60e41026d77de15942aa5c29bfd349efd602ed1958",
+        "MatchesB4":  true,
+        "Text":  "{\r\n  \"section\": \"S08__5xFAD5\",\r\n  \"N\": 8609,\r\n  \"all_cells\": 19034,\r\n  \"genes\": 300,\r\n  \"reused_SCT\": true,\r\n  \"SCT_source\": \"E:\\\\johnston_brain\\\\region_story\\\\hipp_build_s08\\\\sct.csv\",\r\n  \"SCT_sha256\": \"8c0d2848f062e9004a6633290d13fe417dc7cb875c38d4a12d62a688191cb302\",\r\n  \"alignment\": \"Legacy full-section physical coordinates and type labels matched in order (verified global x/y axis swap).\",\r\n  \"scale\": \"SCT data, already log1p; uncentered display and GP input\",\r\n  \"normalization\": \"sample-specific SCT; legacy correction depth not harmonized across sections\",\r\n  \"raw_median_panel_depth\": 129.0\r\n}"
+    },
+    {
+        "Section":  "S12__Trem2_5xFAD2",
+        "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S12__Trem2_5xFAD2\\READY.json",
+        "Bytes":  614,
+        "SHA256":  "09dfbe3f350cb7bd44a94addf0780d83fa94809f4f8726ac7d72d76345db3d78",
+        "MatchesB4":  true,
+        "Text":  "{\r\n  \"section\": \"S12__Trem2_5xFAD2\",\r\n  \"N\": 13485,\r\n  \"all_cells\": 27741,\r\n  \"genes\": 300,\r\n  \"reused_SCT\": true,\r\n  \"SCT_source\": \"E:\\\\johnston_brain\\\\region_story\\\\hipp_build_s12ad\\\\sct.csv\",\r\n  \"SCT_sha256\": \"f7aea163fdb53f2c0076ccfb648424af392bf5c6c5696a26e4fe429fa7b36237\",\r\n  \"alignment\": \"Legacy full-section physical coordinates and type labels matched in order (verified global x/y axis swap).\",\r\n  \"scale\": \"SCT data, already log1p; uncentered display and GP input\",\r\n  \"normalization\": \"sample-specific SCT; legacy correction depth not harmonized across sections\",\r\n  \"raw_median_panel_depth\": 387.0\r\n}"
+    },
+    {
+        "Section":  "S14__WT1",
+        "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S14__WT1\\READY.json",
+        "Bytes":  540,
+        "SHA256":  "beb4f1815890b890713d181d3aa994369746bc8e5640cee8299a6c4a9155695c",
+        "MatchesB4":  true,
+        "Text":  "{\r\n  \"section\": \"S14__WT1\",\r\n  \"N\": 9424,\r\n  \"all_cells\": 24291,\r\n  \"genes\": 300,\r\n  \"reused_SCT\": true,\r\n  \"SCT_source\": \"E:\\\\johnston_brain\\\\sct_work\\\\sct14.csv\",\r\n  \"SCT_sha256\": \"0f5533ae0f5ac418db88effc42906f707145f0fe1ac58737ed13c9d1c919ee10\",\r\n  \"alignment\": \"Legacy source global row IDs and physical coordinates matched.\",\r\n  \"scale\": \"SCT data, already log1p; uncentered display and GP input\",\r\n  \"normalization\": \"sample-specific SCT; legacy correction depth not harmonized across sections\",\r\n  \"raw_median_panel_depth\": 267.0\r\n}"
+    },
+    {
+        "Section":  "S15__5xFAD1",
+        "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S15__5xFAD1\\READY.json",
+        "Bytes":  547,
+        "SHA256":  "90f7ba4409ce2ec276329d34de1d08108d2c51900bfc56008d9cf9491f208465",
+        "MatchesB4":  true,
+        "Text":  "{\r\n  \"section\": \"S15__5xFAD1\",\r\n  \"N\": 10875,\r\n  \"all_cells\": 23957,\r\n  \"genes\": 300,\r\n  \"reused_SCT\": true,\r\n  \"SCT_source\": \"E:\\\\johnston_brain\\\\sct_work\\\\sct15.csv\",\r\n  \"SCT_sha256\": \"62467f925d58840eda563bc2f7802ea1b6606880b9a01aff874f183860558437\",\r\n  \"alignment\": \"All legacy raw count entries matched current full-section counts.\",\r\n  \"scale\": \"SCT data, already log1p; uncentered display and GP input\",\r\n  \"normalization\": \"sample-specific SCT; legacy correction depth not harmonized across sections\",\r\n  \"raw_median_panel_depth\": 306.0\r\n}"
+    },
+    {
+        "Section":  "S16__WT2",
+        "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S16__WT2\\READY.json",
+        "Bytes":  540,
+        "SHA256":  "a3d99697e152929263fd67408c4ef43dfb491d74b0234897583c49dec3174183",
+        "MatchesB4":  true,
+        "Text":  "{\r\n  \"section\": \"S16__WT2\",\r\n  \"N\": 8200,\r\n  \"all_cells\": 21030,\r\n  \"genes\": 300,\r\n  \"reused_SCT\": true,\r\n  \"SCT_source\": \"E:\\\\johnston_brain\\\\sct_work\\\\sct16.csv\",\r\n  \"SCT_sha256\": \"16dbc75e042826281ec2e8d0897186c8d9862e479f275cbf4134d73db7c60a22\",\r\n  \"alignment\": \"Legacy source global row IDs and physical coordinates matched.\",\r\n  \"scale\": \"SCT data, already log1p; uncentered display and GP input\",\r\n  \"normalization\": \"sample-specific SCT; legacy correction depth not harmonized across sections\",\r\n  \"raw_median_panel_depth\": 282.0\r\n}"
+    },
+    {
+        "Section":  "S17__5xFAD2",
+        "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S17__5xFAD2\\READY.json",
+        "Bytes":  544,
+        "SHA256":  "e612a6d4e575179d8612405ed079b57ec245fa9c5cff5e716674e53ada0f1f10",
+        "MatchesB4":  true,
+        "Text":  "{\r\n  \"section\": \"S17__5xFAD2\",\r\n  \"N\": 11680,\r\n  \"all_cells\": 25448,\r\n  \"genes\": 300,\r\n  \"reused_SCT\": true,\r\n  \"SCT_source\": \"E:\\\\johnston_brain\\\\sct_work\\\\sct17.csv\",\r\n  \"SCT_sha256\": \"d08f1aa11414450e46ef825db0f59f6e54ea84f07a6d638fac1d90db74017833\",\r\n  \"alignment\": \"Legacy source global row IDs and physical coordinates matched.\",\r\n  \"scale\": \"SCT data, already log1p; uncentered display and GP input\",\r\n  \"normalization\": \"sample-specific SCT; legacy correction depth not harmonized across sections\",\r\n  \"raw_median_panel_depth\": 298.0\r\n}"
+    }
+]

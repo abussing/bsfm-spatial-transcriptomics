@@ -1,20 +1,24 @@
-# SCTransform evidence ledger through Stage B5/B5b
+# SCTransform evidence ledger through Stage B6
 
 Checkpoint date: 2026-10-30. Scope: B1 metadata/provenance, B2 six-file source
 inspection, accepted B3 local handoff/HPC metadata, and the accepted incomplete
-B4 exporter/provenance increment, and the accepted B5/B5b bounded search endpoint.
+B4 exporter/provenance increment, the accepted B5/B5b bounded search endpoint,
+and accepted B6 local normalization-recipe recovery.
 B1/B2 remain available at
 `d2e7e5ea9db420fe2910cd54ac1e33040a0726db`; B3 at
 `71a7dcad7a2252157c7cd8e83bfb4bdd9a6b3b7a`; B4 at
-`b746b41784e09c6223874e90f3103c5e86c913a9`. Earlier-stage sections retain their
+`b746b41784e09c6223874e90f3103c5e86c913a9`; B5/B5b at
+`4486c593b3959746613d438219777a73195ec59f`. Earlier-stage sections retain their
 stage-specific limits. No implementation has been selected. No HPC reconnection
 or broader search was made to preserve this checkpoint. Replacement design is
-not yet approved. Historical normalization and branch comparability remain unresolved.
+not yet approved. B6 recovers the writers but does not certify effective defaults,
+executed-source attribution or uniform cross-section comparability.
 
-During checkpoint preparation the user attached the historical drive. All five
-known paths became accessible on D:, while E: remained unavailable. Only exact
-path checks were performed. This new availability supersedes the current-access
-conclusion of the earlier search, not its recorded negative observations.
+During B5 checkpoint preparation the user attached the historical drive. All five
+known paths became accessible on D:, while E: remained unavailable. B5 performed
+only exact path checks. B6 then inspected the approved local sources and metadata;
+its findings below supersede current missing-source descriptions, without
+rewriting the earlier negative observations.
 Historical labels such as CURRENT and PRODUCTION confer no authority.
 
 ## Evidence classes
@@ -1006,3 +1010,173 @@ It parses completely and contains only context, drive roots and ten path/access
 results. Together with the seven original captures, the eight preserved files
 total 948206 bytes, still below 2 MiB. Its Git copy matches the local original
 byte-for-byte and contains no credential or authentication material.
+
+## Stage B6: accepted local normalization-source recovery
+
+Starting commit: `4486c593b3959746613d438219777a73195ec59f`, initially clean.
+The user approved bounded local inspection, then accepted the B6 report and
+authorized this focused documentation checkpoint. No implementation selection,
+scientific execution, HPC connection, drive modification or new scientific design
+occurred. Earlier stages retain their historical limits; B6 resolves their
+missing-local-source observations, not every runtime/attribution uncertainty.
+
+### Exact source scope and preserved identities
+
+Nonrecursive discovery used these exact roots only:
+
+- `D:\johnston_brain\artifacts\GENE_REVIEW_20261004`
+- `D:\johnston_brain\sct_work`
+- `D:\johnston_brain\region_story\hipp_build_ad`
+- `D:\johnston_brain\region_story\hipp_build_s08`
+- `D:\johnston_brain\region_story\hipp_build_s12ad`
+
+The latter four immediate listings contain 42, 7, 5 and 6 entries, respectively.
+No README/log/session/version/manifest/provenance filename was found in those
+four immediate listings. This does not establish absence elsewhere on the drive.
+Only filename-linked writers, two directly connected count writers, associated
+small records and the root README were read. No expression CSV contents, count
+matrices, NPZ/H5AD/RDS/Seurat/model objects or unrelated algorithms were inspected.
+
+The complete [inspected-file inventory](evidence/sctransform_b6/bsfm-b6-inspected-file-inventory.csv)
+contains 63 distinct paths, source byte sizes/hashes and inspection scope (some
+paths have both locator and complete-read entries). The
+[source capture index](evidence/sctransform_b6/SOURCE_CAPTURE_INDEX.csv) supplies
+exact stable external capture paths and original line ranges for nine complete
+sources and three locator-only sources. Hashes identify original source bytes;
+capture-file hashes separately identify the JSON/text envelopes. No source bytes
+are embedded in these inventory CSVs.
+
+| Root-relative source (roots as above) | Complete captured lines | Bytes |
+| --- | --- | ---: |
+| GENE_REVIEW_20261004/sct_section.R | 1-30 | 1696 |
+| sct_work/s15.R | 1-6 | 646 |
+| sct_work/s16.R | 1-5 | 643 |
+| sct_work/sct_section.R | 1-8 | 637 |
+| hipp_build_ad/run_sct_s01.R | 1-13 | 927 |
+| hipp_build_s08/run_sct.R | 1-12 | 811 |
+| hipp_build_s12ad/run_sct.R | 1-12 | 830 |
+| sct_work/extract_sections.py | 1-33 | 1702 |
+| sct_work/extract_s16.py | 1-49 | 2496 |
+
+The nine complete sources have distinct SHA-256 values. A separate locator
+capture includes output lines from those R writers and from sct_work/sct.R:5,
+sct_corr.R:6 and sct_seurat.R:9. Those three write res_glia.csv, data_glia.csv and
+sct_data_glia.csv, not the nine reused targets; they were not read completely or
+attributed to the target outputs. Locator-only source hashes are in the index.
+Local review.py was hash-checked only in B6 (25281 bytes,
+8b590e72c4333a1241d5d3fca110cabc1b0cb43da7b5d3b8a8d96788b953173f), matching B4;
+its scoped source inspection remains B4 lines 1-138. README.txt was read completely,
+3982 bytes, SHA-256 2714a689b711e6b4ea57972b005ad4d6ceb8a2432719d312c104166e642b8678,
+also matching B4.
+
+Historical strings naming E: or C:/Users/andyb/Desktop/johnston_brain are retained
+as recorded paths. D: is the recovery access location, not a silently rewritten
+historical execution path.
+
+### Metadata coverage and evidence classifications
+
+For the ten `new` rows in [SCTRANSFORM_B6_SECTION_RECIPES.csv](SCTRANSFORM_B6_SECTION_RECIPES.csv),
+the exact local prefix is D:\johnston_brain\artifacts\GENE_REVIEW_20261004\sections\<section>.
+R_SESSION.txt, SCT_PROVENANCE.txt, sct.log and READY.json were read completely
+for every row (40 files). READY.json was also read for all nine reused rows.
+Exact paths, sizes, hashes and text are in the committed metadata captures.
+
+| Class | B6 evidence and limits |
+| --- | --- |
+| User decision | Accept B6 as completed historical recipe recovery; preserve source outside Git; no implementation selected. Uniform regeneration is a preliminary recommendation pending a scientific design gate. |
+| Implemented behavior | New sct_section.R:9-17 explicitly sets both seeds to 1448145, reads all provided counts/identifiers, calls v2 with return.only.var.genes=FALSE and reads SCT/data. :17 verifies cell order; :19-30 writes model, CSV and runtime/provenance records. |
+| Implemented behavior | Regional writers R01:4-12 and R08/R12:4-11 read count CSVs, transpose/integer-convert, request v2 and return.only.var.genes=FALSE, extract SCT/data and name the exact reused CSV outputs. No seed is explicit. |
+| Implemented behavior | sct_work s15/s16:2-5 and sct_section:2-8 extract SCT/data with slot/layer fallback. Only verbose=FALSE is explicit in SCTransform. Missing flavor/seed/version settings do not establish their effective values. |
+| Documentation claim | New script :26-29 and README:13-20 identify SCT data as log1p corrected counts, all-section input and no depth harmonization. The accepted response contract agrees; library internals were not inspected. |
+| Execution evidence | Every new-section sct.log:6-7 records matching start dimensions and completion. SCT_PROVENANCE.txt:1-4 agrees on recipe, raw median depth and 300 output genes. These records do not pin executed-source hashes. |
+| Runtime evidence | All ten R_SESSION.txt files are identical (4220 bytes; hash 528c673bc16bf58b781747c03eb6b3554f62e9dfa25647ad23c3f677c4873cf3). Lines 1,19,20,74 record R 4.5.3, Seurat 5.4.0, sctransform 0.4.3, Matrix 1.7-4, SeuratObject 5.4.0, glmGamPoi 1.25.1. Identical records are not independent environment attestations. |
+| Downstream consumption | All 19 local READY hashes match B4; counts and recorded SCT/downstream hashes are carried into the recipe CSV. This preserves B4/B3 artifact adoption evidence; it does not newly verify arrays or actual sampler invocation. |
+| Unresolved gap | Nine reused normalization runs lack recovered sessions/logs/source attribution. Parameterized writer arguments are candidates, not recovered command lines. The generic writer could also create sct15/sct16. |
+| Unresolved gap | Effective correction depth and internal fitting subsampling/filtering defaults were not inspected. Passing all section cells is not proof that every cell participates in internal parameter estimation. |
+
+New-section logs contain locale startup warnings (:1-5) followed by completion.
+No log-derived evidence of a numerical normalization failure was found. Model
+objects saved by the new script were not opened. The script records median raw
+panel depth, not an independently measured effective correction depth.
+
+The count-writer connection is explicit: extract_sections.py:4,12-27 reads the
+historical H5AD layers/RNA, selects sample codes 6/17/14/4 by default, keeps ordered
+cells and original genes, rounds/int32-converts and writes cN.mtx/gN.txt.
+extract_s16.py:9-11,17-35 does the corresponding sample-16 extraction; :3 documents
+an unsaved S15 heredoc predecessor. Cell-type information is retained and counted,
+not used to restrict these normalization inputs to glia. The regional count-CSV
+creators and original S15 extractor remain unrecovered.
+
+### Chronology and scientific limits
+
+Filesystem source timestamps place regional/S15 scripts in June 2026, S16/generic
+sct_work scripts in July, and the new wrapper in October. These are filesystem
+observations, not authenticated revision history. README:13-20 documents reuse
+after identity checks and filling missing sections; the new script :18-29 retains
+models and runtime records. No inspected historical user approval or empirical
+comparison proves scientific superiority. B3/B4 establish subsequent artifact
+adoption at their recorded level; rejection/abandonment of a branch is not proven.
+
+The recovered split is 10 new / 3 regional reused / 6 sct_work reused. All target
+writers export SCT data. Thirteen section-linked writers explicitly request v2;
+six depend on unpinned defaults. Correction depth was not harmonized. Comparison
+remains unresolved, not proven identical or materially different. No evidence
+proves the mixed historical pipeline wrong; uniform comparability is not
+certified and the pipeline has not been selected as authoritative.
+
+### Capture preservation, integrity and acquisition limits
+
+Stable external evidence base:
+
+`C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_RECOVERY_EVIDENCE\sctransform_b6\`
+
+All 13 original B6 captures (4197831 bytes combined) were copied byte-for-byte
+from Temp to that directory and verified by SHA-256. The
+[capture manifest](evidence/sctransform_b6/CAPTURE_MANIFEST.csv) records every
+original capture's exact stable path, byte size, hash and Git treatment. All
+legacy source/code captures, including the output-line locator, remain outside
+Git. Their stable locations replace reliance on temporary storage.
+
+Eight small metadata captures are preserved byte-for-byte in Git. The ninth
+metadata capture, bsfm-b6-reused-readiness.json, is 4053319 bytes because Windows
+PowerShell serialized provider properties alongside nine Text values. Its
+original stays external. The committed bsfm-b6-reused-readiness-compact.json
+is an explicitly derived record-only representation: Text.value is retained as
+Text and provider properties are omitted. Every retained text reconstructs its
+recorded original READY byte size and SHA-256 exactly. This derivative is not
+claimed to be a byte-identical copy of the original capture envelope.
+
+All original JSON/CSV envelopes parse completely. Nine full source Text fields
+and all 49 section metadata Text fields were reconstructed as UTF-8 and matched
+their recorded byte sizes and SHA-256 hashes. No source/metadata payload truncation
+was detected. PowerShell's incidental provider serialization is not evidence
+about the scientific files, and no completeness claim is made for those extra
+provider properties. Original captured source newlines were preserved.
+
+Credential checks found no credential/authentication material. The only nine
+pattern matches were the oversized envelope's empty provider credential objects:
+UserName was empty and Password null in all nine. These provider properties are
+absent from the compact Git derivative. No passwords, tokens or private keys were
+printed or placed in the repository by this checkpoint.
+
+The Git evidence directory contains 11 evidence files totaling 144468 bytes
+(below 2 MiB): eight byte-identical metadata captures, the compact derivative and
+two generated identity indexes. A twelfth file, .gitattributes, disables text
+conversion for JSON/CSV to preserve their bytes in Git. Source inventories
+contain paths/hashes/line ranges only.
+The 19-section recipe CSV is a derived audit table outside that evidence directory.
+No large data/archive/matrix was hashed for this checkpoint.
+
+B6 acquisition used nonrecursive Get-ChildItem -LiteralPath, Get-Item,
+Get-FileHash -Algorithm SHA256, complete Get-Content reads of the selected small
+files and targeted rg output-filename locators over listed candidates. JSON/CSV
+parsing and comparisons operated on local captures. Checkpoint preservation used
+Copy-Item followed by hash equality checks. These are acquisition/validation
+operations, not execution of the historical R/Python/shell implementations.
+
+Consistency checks cover 19 unique section IDs, the 10/3/6 partition, 13 explicit
+v2/return.only.var.genes=FALSE rows, ten explicit-seed/runtime rows, all writer
+hash links, all 19 B4 readiness/dimension/output references, the ten-section
+audit booleans and identical session hashes. Relative documentation links and
+Git whitespace checks are also validated before commit. No scientific tests or
+models are run. Scientific design remains a separate next decision.

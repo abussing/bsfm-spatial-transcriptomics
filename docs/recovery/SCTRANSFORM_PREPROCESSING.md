@@ -1,39 +1,39 @@
-# SCTransform preprocessing recovery through Stage B5/B5b
+# SCTransform preprocessing recovery through Stage B6
 
-Checkpoint date: 2026-10-30. Status: **bounded HPC search concluded; historical
-local paths newly accessible; normalization implementation unresolved**.
+Checkpoint date: 2026-10-30. Status: **historical normalization-recipe recovery
+completed through B6; scientific design gate pending**.
 
 **No implementation has been selected.** Historical files are evidence, not
 authoritative implementations. B1/B2 are preserved at commit
 `d2e7e5ea9db420fe2910cd54ac1e33040a0726db`; B3 is preserved at
 `71a7dcad7a2252157c7cd8e83bfb4bdd9a6b3b7a`; B4 at
-`b746b41784e09c6223874e90f3103c5e86c913a9`. This increment records the accepted
-B5/B5b endpoint of the bounded normalization-source search. Earlier-stage
-sections retain their historical evidence boundaries. No HPC reconnection,
-broader search or historical scientific execution was used to prepare this
-checkpoint. Replacement design and implementation have not begun.
+`b746b41784e09c6223874e90f3103c5e86c913a9`; B5/B5b at
+`4486c593b3959746613d438219777a73195ec59f`. This increment records accepted B6
+local normalization-source recovery. Earlier-stage sections retain their
+historical evidence boundaries; the B6 findings below supersede their current
+missing-source descriptions. No HPC reconnection or historical scientific
+execution was used. Replacement design and implementation have not begun.
 
-**Availability changed during checkpoint preparation:** the user attached the
-historical drive, mounted as D:. All five exact normalization locations are now
-accessible under D:\johnston_brain, including artifacts/GENE_REVIEW_20261004/sct_section.R.
-Only path availability was checked; no legacy contents were read. Earlier E:
-inaccessibility remains a valid observation at the time of B5, not the current
-access state. Targeted local recovery can now be considered; recipe certification
-and cross-section comparability remain unresolved.
+**The historical drive enabled B6:** bounded read-only inspection under
+D:\johnston_brain recovered the missing new-section script and filename-linked
+writers for the reused exports. Earlier E: inaccessibility remains a valid B5
+observation; it does not imply that the source is still unavailable.
 
-**Certification remains incomplete:** `review.py` does not itself implement
-SCTransform. Its `sct_section.R` dependency is missing from the inspected package.
-Readiness records can reuse preexisting CSVs. Nine reused historical exports have
-separate unrecovered normalization implementations; ten sections are recorded as
-newly normalized. Comparability across these two branches is not established,
-and correction depths were explicitly not harmonized. **`log1p(corrected counts)`
-is the scientific intent, not yet a certified fact about every historical section.**
+**Recovered distinction: 10 new / 3 regional reused / 6 sct_work reused.** All
+recovered writers export SCT `data`, the intended Seurat representation of
+`log1p(corrected counts)`, without another wrapper logarithm. The ten new and
+three regional scripts explicitly request v2. The six sct_work scripts depend
+on unpinned historical defaults. The ten new sections have session/completion
+records; reused-section runtime versions and executed-source attribution remain
+missing. Full-section input is distinct from internal fitting-cell subsampling.
+Correction depth was explicitly not harmonized. Uniform comparability and the
+effective historical recipe for every section remain uncertified.
 
 The historical exporter and downstream artifact chain are recovered at the level
 of static behavior and recorded metadata links. Actual sampler invocation remains
-uncertified. The normalization recipe cannot be certified from the accessible
-evidence. This does not prove the historical procedures were wrong or permanently
-unrecoverable. Replacement design is not yet approved.
+uncertified. No evidence proves these historical procedures wrong. The mixed
+historical pipeline has not been selected as authoritative. The next step is a
+scientific design gate, not additional archaeology or implementation.
 
 ## Stated scientific intent
 
@@ -525,3 +525,140 @@ paths accessible under D:. This supersedes the earlier assumption that local
 source access was unavailable. No backup search is needed to establish that these
 paths exist. Their contents remain uninspected; the new observation is preserved
 in the evidence ledger and search table without rewriting the earlier negatives.
+
+## Stage B6: recovered local normalization recipes
+
+B6 began at clean commit `4486c593b3959746613d438219777a73195ec59f`.
+The user accepted this as the completed historical normalization-recipe recovery,
+with remaining uncertainties preserved. No historical implementation is selected.
+
+The following aliases apply within this B6 section only:
+
+| Alias | Exact local root |
+| --- | --- |
+| B6-N | `D:\johnston_brain\artifacts\GENE_REVIEW_20261004` |
+| B6-W | `D:\johnston_brain\sct_work` |
+| B6-R01 | `D:\johnston_brain\region_story\hipp_build_ad` |
+| B6-R08 | `D:\johnston_brain\region_story\hipp_build_s08` |
+| B6-R12 | `D:\johnston_brain\region_story\hipp_build_s12ad` |
+
+### Source behavior and handoff
+
+| Transition | Recovered evidence |
+| --- | --- |
+| H5AD to new-section counts | B4 `review.py:70-80,110-115`: historical Johnston_MERFISH_Data.h5ad `layers/RNA`, section selection, integer-proximity check, rounding/int32 conversion and genes x cells export. B6 local review.py hash matches B4. |
+| Counts and identifiers | B6-N/sct_section.R:10-12 reads counts.mtx, genes.txt and cells.txt. |
+| Seurat construction and SCT | :14-15 constructs from counts and explicitly supplies vst.flavor=v2, return.only.var.genes=FALSE, verbose=FALSE and seed.use=1448145. :9 also sets seed 1448145. No input assay name or active-assay setter is explicit. |
+| Response extraction | :16 reads assay SCT, layer data. The wrapper does not separately extract counts or call log1p. :26-29 describes data as already log1p corrected counts. |
+| Ordering and export | :17 checks identical cell columns; :20-24 writes genes x cells to sct_data.csv.gz through a temporary file and rename. :19 saves SCT_models.rds; it was not opened. |
+| Runtime records | :25-30 writes sessionInfo, normalization description, raw median depth, dimensions and completion marker. |
+| Exported Y | B4 review.py:121-130 aligns genes/cells, restores original gene order and selects Mic/AST/OGC; no additional log, centering or scaling. |
+| Downstream | B3/B4 recorded artifact links remain applicable. All 19 local READY hashes match B4. B2 centering findings are unchanged; actual sampler invocation remains uncertified. |
+
+All recovered writers export SCT `data`, the Seurat response representation
+identified by the accepted scientific contract as log1p(corrected counts).
+No recovered target writer adds another logarithm. The literal internal
+corrected-count/logarithm implementation remains in the libraries, which B6 did
+not inspect or execute. This is not a new numerical certification of each CSV.
+
+The new wrapper receives all section cells and measured input genes before glial
+selection. This must not be restated as proof that every cell participated in
+internal model parameter estimation: ncells and other library defaults are not
+specified by the wrapper. No explicit correction-depth target, harmonization,
+additional scaling or centering is present. Raw median panel depth recorded by
+the wrapper is not an independently measured effective correction depth.
+
+### Ten new sections: historical runtime evidence
+
+For every row below, B6-N/sections/<section> contains R_SESSION.txt,
+SCT_PROVENANCE.txt, sct.log and READY.json. All ten logs have matching START and
+COMPLETE markers at lines 6-7. Provenance lines 1-4 report the recipe, median
+depth and 300 output genes. Counts and depths agree across records and B4.
+
+| Section | All input cells | Glial output cells | Recorded raw median depth |
+| --- | ---: | ---: | ---: |
+| S00__Trem2_5xFAD4 | 20719 | 9451 | 124 |
+| S02__Trem2_4 | 26716 | 8949 | 133 |
+| S03__Trem2_5xFAD3 | 22868 | 10557 | 302 |
+| S05__Trem2_3 | 22539 | 10128 | 319 |
+| S07__Trem2_5xFAD5 | 18594 | 8054 | 133 |
+| S09__Trem2_5 | 23223 | 9015 | 138 |
+| S10__WT5 | 25307 | 9422 | 149 |
+| S11__Trem2_5xFAD1 | 23598 | 10913 | 360 |
+| S12__Trem2_1 | 28532 | 11650 | 335 |
+| S13__Trem2_2 | 14282 | 5055 | 328 |
+
+All ten session records are byte-identical, 4220 bytes, SHA-256
+`528c673bc16bf58b781747c03eb6b3554f62e9dfa25647ad23c3f677c4873cf3`.
+They report R 4.5.3 (:1), Seurat 5.4.0, sctransform 0.4.3, Matrix 1.7-4 (:19),
+SeuratObject 5.4.0 (:20) and glmGamPoi 1.25.1 (:74). These are recorded runtime
+versions, not newly executed measurements or ten independent attestations.
+Logs contain startup locale warnings followed by completion. They do not record
+the executed source hash or bind it cryptographically to an output CSV.
+
+### Nine reused exports: linked recipes and unresolved defaults
+
+| Section | Linked writer | Explicit output target / lines |
+| --- | --- | --- |
+| S01__5xFAD4 | B6-R01/run_sct_s01.R | S01_sct.csv :12 |
+| S04__WT3 | B6-W/sct_section.R | sct4.csv with argument 4; :2,8 |
+| S06__5xFAD3 | B6-W/sct_section.R | sct6.csv with argument 6; :2,8 |
+| S08__5xFAD5 | B6-R08/run_sct.R | sct.csv :11 |
+| S12__Trem2_5xFAD2 | B6-R12/run_sct.R | sct.csv :11 |
+| S14__WT1 | B6-W/sct_section.R | sct14.csv with argument 14; :2,8 |
+| S15__5xFAD1 | B6-W/s15.R | sct15.csv :5 |
+| S16__WT2 | B6-W/s16.R | sct16.csv :5 |
+| S17__5xFAD2 | B6-W/sct_section.R | sct17.csv with argument 17; :2,8 |
+
+The three regional scripts read cells x genes CSVs, transpose and convert to
+integer storage, explicitly request v2 and return.only.var.genes=FALSE, and
+extract SCT/data (R01:4-12; R08/R12:4-11). No seed is explicit. Creators of their
+input count CSVs remain unestablished in the inspected sources.
+
+The six sct_work writers load Matrix Market counts, read gene names and assign
+synthetic columns c1..cN. They specify only verbose=FALSE in SCTransform, then
+read SCT/data via slot with a layer fallback (s15.R/s16.R:2-5;
+sct_section.R:4-8). No explicit flavor, variable-gene restriction or seed is
+recorded. Omission does not prove a different flavor: historical runtime versions
+and effective defaults remain unknown. The generic script could also produce
+sct15.csv/sct16.csv, so named scripts are not authenticated exclusive creators.
+
+B6-W/extract_sections.py:4,12-27 links c4/c6/c14/c17 to the historical H5AD
+layers/RNA, original gene order and sample-code-selected cells in original order;
+it rounds to int32 and transposes. extract_s16.py:9-11,17-35 does the same for
+sample 16. Both pass all selected cells before later glial selection. The latter
+script :3 documents replication of an unsaved S15 heredoc; that predecessor
+remains missing. The raw H5AD itself was not opened or newly authenticated.
+
+The 300 input/available genes, 72 review candidates and later 91 modeled genes
+remain separate stages. Later panel selection does not establish fitting SCT
+only on the modeling panel.
+
+### Comparison, chronology and next decision
+
+The comparison classification is **still unresolved**. Ten new and three regional
+writers explicitly use v2/data; six depend on unpinned defaults. No inspected
+record establishes mathematical identity, equivalence except for versions, or a
+material numerical difference across all branches. Correction depth was
+explicitly not harmonized (B6-N/README.txt:13-20 and READY records). No evidence
+proves the historical procedures wrong; uniform comparability is not certified.
+
+Source modification timestamps place regional/S15 scripts in June 2026,
+S16/generic sct_work scripts in July, and the new wrapper in October. Timestamps
+are not authenticated revision history. README:13-20 documents authenticating
+existing exports and filling missing sections; new wrapper :18-29 adds model
+retention and runtime/provenance records. No inspected empirical comparison or
+historical user approval demonstrates scientific superiority. B3/B4 support
+later artifact adoption, not deliberate rejection of either branch.
+
+The [19-section recipe ledger](SCTRANSFORM_B6_SECTION_RECIPES.csv) records writer
+hashes, explicit settings, runtime/execution evidence, attribution limits and
+downstream adoption separately. Source and capture identities are preserved in
+the B6 evidence-ledger section; legacy source captures remain outside Git.
+
+The user accepted B6 as the endpoint of historical recipe recovery. The next
+scientific design gate must decide mixed historical reproduction versus uniform
+regeneration, section input and fitting-cell populations, correction-depth
+handling, version/seed pinning, authoritative raw inputs and the exact assay/layer
+contract. Uniform regeneration is the user's preliminary recommendation, not a
+settled design. No replacement implementation or historical promotion is approved.

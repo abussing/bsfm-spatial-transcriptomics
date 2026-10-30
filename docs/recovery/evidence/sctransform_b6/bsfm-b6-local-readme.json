@@ -1,0 +1,32 @@
+﻿{
+    "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\README.txt",
+    "Text":  {
+                 "value":  "JOHNSTON COMMON-GENE REVIEW — 2026-10-04\n\nOpen html/index.html. All pages work locally, without a server or internet.\nSTATUS.json records actual availability; missing fits remain explicitly blank.\n\nScope: 72 review candidates, union of the saved S15-42 and S6-30 panels and\n41 paper-motivated candidates. These are not a final panel and not an exhaustive\nall-300-gene screen. Paper-context entries distinguish glial findings from\nneuronal findings whose relevance to glial modeling remains unproven.\nNo factor-model MCMC has been launched.\n\nNORMALIZATION\nExisting sample-specific Seurat SCT data are reused wherever their cell order,\ncoordinates/counts and gene names can be authenticated. Remaining sections use\nthe same Seurat SCT v2 recipe: all cells and all 300 measured genes of that ONE\nsection, then subset to glia. The two S12 hemibrains are separate sections.\nNo pooling of SCT models; no Pearson-residual input; no second log1p; no SD\nstandardization. Newly normalized sections retain fitted SCT models and R\nsession versions. Legacy models/reference depths are not inferred as known.\nCross-section correction-depth harmonization has NOT been performed.\n\nGP MAPS\nSaved S6 full-data Matern 2.5 GP means are reused after coordinate, gene and\nexpression identity checks. Their training coverage differs from the screening\nfits below. Their saved statistics lack the fitted signal variance, so we do\nnot fabricate a spatial-fraction value from noise alone.\n\nMissing fits use the recovered screening model: Constant*Matern(nu=2.5)+White,\ninitial signal=1/range=.3/noise=.5, same old bounds, normalize_y=True,\nalpha=1e-6, no optimizer restarts, seed=0, up to1500 cells per type. Same\ntraining-cell subset for all genes in a section/type; predictions at all cells\nof that type. normalize_y is undone by predict, retaining SCT expression units.\nLength scales are fitted on section-normalized coordinates and stored in both\nnormalized and physical units. This inherited screen is not a formal test of\nspatial significance, and optimizer-bound warnings are retained.\n\nCandidates supported by the paper are not dropped by the old 70%-SCT-zero gate.\nTheir fits require at least10 nonzero observations and nonconstant expression.\nSparse/constant/unavailable cases are labeled, not imputed as no spatial signal.\nOther candidates retain the historical expression gate. Both raw and SCT\ndetection are reported because corrected counts can change the zero pattern.\n\nDISPLAY\nPer gene, a common pooled99th-percentile color ceiling across sections/types;\npoints above it saturate. Raw SCT and GP mean use the identical color map.\nThe optional centering checkbox subtracts the observed section/type mean from\nBOTH panels. It does not re-fit the GP. Panels keep native orientations,\nequal x/y aspect and a physical1mm scale bar. Panel bounding boxes differ;\nthey are not registered anatomy. No interpolation fills missing GP panels.\n\nLIMITS\nSame-data follow-up of the paper, not independent replication. Technical\nsections are not independent animals. Display colors do not certify common\nSCT depth across samples. Smooths are in-sample descriptive fits, not validated\nprediction or factor-model reconstructions. S6 reused smooths and new1500-cell\nfits are explicitly labeled. No automatic final gene selection has occurred.\n\nCommands (from this folder; Python requires numpy/scipy/pandas/h5py/sklearn):\n  python review.py prepare\n  python test_review.py\n  python review.py fit --jobs 1 --cap 1500\n  python review.py render\nPrepared HPC CPU array: submit_cpu.sh (19 sections, at most6 jobs concurrently,\n4 CPU workers/job, no GPU). Submission is not implied by existence of script.\nFor CPU array, use --section and --no-render so workers never rewrite HTML.\n\nInputs remain on E: under sections/\u003csection\u003e/input.npz; fit results are small\nper-gene/type npz files. Original source files and previous fit outputs are not\nmodified. READY.json is written only after shape/cell/finite-value checks.\n",
+                 "PSPath":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\README.txt",
+                 "PSParentPath":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004",
+                 "PSChildName":  "README.txt",
+                 "PSDrive":  {
+                                 "CurrentLocation":  "",
+                                 "Name":  "D",
+                                 "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                                 "Root":  "D:\\",
+                                 "Description":  "Seagate Portable Drive",
+                                 "MaximumSize":  null,
+                                 "Credential":  "System.Management.Automation.PSCredential",
+                                 "DisplayRoot":  null
+                             },
+                 "PSProvider":  {
+                                    "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                                    "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                                    "Name":  "FileSystem",
+                                    "PSSnapIn":  "Microsoft.PowerShell.Core",
+                                    "ModuleName":  "Microsoft.PowerShell.Core",
+                                    "Module":  null,
+                                    "Description":  "",
+                                    "Capabilities":  52,
+                                    "Home":  "C:\\Users\\Data Viz",
+                                    "Drives":  "C D"
+                                },
+                 "ReadCount":  1
+             }
+}

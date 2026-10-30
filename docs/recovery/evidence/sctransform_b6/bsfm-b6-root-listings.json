@@ -1,0 +1,699 @@
+﻿[
+    {
+        "Root":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004",
+        "Entries":  [
+                        {
+                            "Name":  "all300_expression_screen",
+                            "Length":  null,
+                            "Attributes":  16,
+                            "LastWriteTimeUtc":  "\/Date(1791236550457)\/"
+                        },
+                        {
+                            "Name":  "all300_gp_extension_v1",
+                            "Length":  null,
+                            "Attributes":  16,
+                            "LastWriteTimeUtc":  "\/Date(1791238320975)\/"
+                        },
+                        {
+                            "Name":  "audit",
+                            "Length":  null,
+                            "Attributes":  16,
+                            "LastWriteTimeUtc":  "\/Date(1791167214623)\/"
+                        },
+                        {
+                            "Name":  "browser_check",
+                            "Length":  null,
+                            "Attributes":  16,
+                            "LastWriteTimeUtc":  "\/Date(1791166757692)\/"
+                        },
+                        {
+                            "Name":  "browser_check2",
+                            "Length":  null,
+                            "Attributes":  16,
+                            "LastWriteTimeUtc":  "\/Date(1791166858569)\/"
+                        },
+                        {
+                            "Name":  "hpc_results_20261005",
+                            "Length":  null,
+                            "Attributes":  16,
+                            "LastWriteTimeUtc":  "\/Date(1791214832666)\/"
+                        },
+                        {
+                            "Name":  "html",
+                            "Length":  null,
+                            "Attributes":  16,
+                            "LastWriteTimeUtc":  "\/Date(1791233776599)\/"
+                        },
+                        {
+                            "Name":  "sections",
+                            "Length":  null,
+                            "Attributes":  16,
+                            "LastWriteTimeUtc":  "\/Date(1791167159312)\/"
+                        },
+                        {
+                            "Name":  "__pycache__",
+                            "Length":  null,
+                            "Attributes":  16,
+                            "LastWriteTimeUtc":  "\/Date(1791214797567)\/"
+                        },
+                        {
+                            "Name":  "all300_gp_extension_v1.tar.gz",
+                            "Length":  106905,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791237233536)\/"
+                        },
+                        {
+                            "Name":  "analyze_completed.py",
+                            "Length":  11330,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215565798)\/"
+                        },
+                        {
+                            "Name":  "ANIMAL_LEVEL_REVIEW.csv",
+                            "Length":  351695,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215120350)\/"
+                        },
+                        {
+                            "Name":  "audit_panel.py",
+                            "Length":  11351,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791233390581)\/"
+                        },
+                        {
+                            "Name":  "BUNDLE_HASHES.json",
+                            "Length":  15469,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791169900853)\/"
+                        },
+                        {
+                            "Name":  "CANDIDATES.csv",
+                            "Length":  10703,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791166451859)\/"
+                        },
+                        {
+                            "Name":  "COMPLETED_ANALYSIS_QC.json",
+                            "Length":  410,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215569519)\/"
+                        },
+                        {
+                            "Name":  "COMPLETED_FIT_REVIEW.csv",
+                            "Length":  1649273,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215120218)\/"
+                        },
+                        {
+                            "Name":  "EXAMPLE_SELECTION.csv",
+                            "Length":  761,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215349291)\/"
+                        },
+                        {
+                            "Name":  "GALLERY_VALIDATION.json",
+                            "Length":  235,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215654014)\/"
+                        },
+                        {
+                            "Name":  "gene_review19_cpu_bundle.tar.gz",
+                            "Length":  43252255,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791169903366)\/"
+                        },
+                        {
+                            "Name":  "gene_review_results_20261005.tar.gz",
+                            "Length":  102728274,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791214697566)\/"
+                        },
+                        {
+                            "Name":  "GENE_SECTION_TYPE_REVIEW.csv",
+                            "Length":  1070372,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215040842)\/"
+                        },
+                        {
+                            "Name":  "GENE_TYPE_SUMMARY.csv",
+                            "Length":  54700,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215121654)\/"
+                        },
+                        {
+                            "Name":  "GENOTYPE_DESCRIPTIVE.csv",
+                            "Length":  51569,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215121689)\/"
+                        },
+                        {
+                            "Name":  "GP_RUN_CONFIG.json",
+                            "Length":  432,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791160502679)\/"
+                        },
+                        {
+                            "Name":  "HPC_SUBMISSION.json",
+                            "Length":  1064,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215577089)\/"
+                        },
+                        {
+                            "Name":  "import_results.py",
+                            "Length":  1373,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791214645267)\/"
+                        },
+                        {
+                            "Name":  "IMPORT_VALIDATION.json",
+                            "Length":  212,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791214911493)\/"
+                        },
+                        {
+                            "Name":  "make_review_examples.py",
+                            "Length":  5401,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215287023)\/"
+                        },
+                        {
+                            "Name":  "package_cpu.py",
+                            "Length":  1332,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791167352540)\/"
+                        },
+                        {
+                            "Name":  "package_gp_extension.py",
+                            "Length":  1600,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791237041930)\/"
+                        },
+                        {
+                            "Name":  "PANEL_AUDIT_QC.json",
+                            "Length":  1219,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791233973506)\/"
+                        },
+                        {
+                            "Name":  "panel_case_plots.py",
+                            "Length":  5914,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791233893496)\/"
+                        },
+                        {
+                            "Name":  "PANEL_DECISIONS.csv",
+                            "Length":  21092,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791233973377)\/"
+                        },
+                        {
+                            "Name":  "PANEL_FLAGGED_CASES.csv",
+                            "Length":  62925,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791233973506)\/"
+                        },
+                        {
+                            "Name":  "PANEL_INPUT_AUDIT.csv",
+                            "Length":  2112997,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791233972994)\/"
+                        },
+                        {
+                            "Name":  "PANEL_VISUAL_CASES.json",
+                            "Length":  2045,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791234011313)\/"
+                        },
+                        {
+                            "Name":  "PILOT_INPUT_FLAGS.csv",
+                            "Length":  123018,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791234011423)\/"
+                        },
+                        {
+                            "Name":  "PILOT_PANEL_PROPOSAL.json",
+                            "Length":  1439,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791234011473)\/"
+                        },
+                        {
+                            "Name":  "preview.png",
+                            "Length":  220543,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791166855036)\/"
+                        },
+                        {
+                            "Name":  "PROPOSED_COMMON_PANEL.txt",
+                            "Length":  252,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791233973377)\/"
+                        },
+                        {
+                            "Name":  "PROPOSED_PILOT_PANEL_41.txt",
+                            "Length":  271,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791234011423)\/"
+                        },
+                        {
+                            "Name":  "README.txt",
+                            "Length":  3982,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791166627985)\/"
+                        },
+                        {
+                            "Name":  "RECURRENCE_DESCRIPTIVE.csv",
+                            "Length":  6439,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215654014)\/"
+                        },
+                        {
+                            "Name":  "review.py",
+                            "Length":  25281,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791169897422)\/"
+                        },
+                        {
+                            "Name":  "screen_all_genes_expression.py",
+                            "Length":  12348,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791236520934)\/"
+                        },
+                        {
+                            "Name":  "sct_section.R",
+                            "Length":  1696,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791166441530)\/"
+                        },
+                        {
+                            "Name":  "STATUS.json",
+                            "Length":  151,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215041278)\/"
+                        },
+                        {
+                            "Name":  "submit_cpu.sh",
+                            "Length":  835,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791167357612)\/"
+                        },
+                        {
+                            "Name":  "test_review.py",
+                            "Length":  2695,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791166622075)\/"
+                        },
+                        {
+                            "Name":  "validate_gallery.py",
+                            "Length":  2809,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791215639029)\/"
+                        },
+                        {
+                            "Name":  "verify_bundle.py",
+                            "Length":  365,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1791167347420)\/"
+                        }
+                    ]
+    },
+    {
+        "Root":  "D:\\johnston_brain\\sct_work",
+        "Entries":  [
+                        {
+                            "Name":  "build_s16.py",
+                            "Length":  3411,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784002846473)\/"
+                        },
+                        {
+                            "Name":  "build_section.py",
+                            "Length":  2031,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036802455)\/"
+                        },
+                        {
+                            "Name":  "c14.mtx",
+                            "Length":  19685534,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036988663)\/"
+                        },
+                        {
+                            "Name":  "c15.mtx",
+                            "Length":  19796695,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781568268275)\/"
+                        },
+                        {
+                            "Name":  "c16.mtx",
+                            "Length":  19548186,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784002773137)\/"
+                        },
+                        {
+                            "Name":  "c17.mtx",
+                            "Length":  21303419,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036985125)\/"
+                        },
+                        {
+                            "Name":  "c4.mtx",
+                            "Length":  15725935,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036991056)\/"
+                        },
+                        {
+                            "Name":  "c6.mtx",
+                            "Length":  21537744,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036980353)\/"
+                        },
+                        {
+                            "Name":  "counts.mtx",
+                            "Length":  21537744,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781561772000)\/"
+                        },
+                        {
+                            "Name":  "extract_s16.py",
+                            "Length":  2496,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784002453897)\/"
+                        },
+                        {
+                            "Name":  "extract_sections.py",
+                            "Length":  1702,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036787648)\/"
+                        },
+                        {
+                            "Name":  "g14.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036988664)\/"
+                        },
+                        {
+                            "Name":  "g15.txt",
+                            "Length":  2025,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781568268279)\/"
+                        },
+                        {
+                            "Name":  "g16.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784002773139)\/"
+                        },
+                        {
+                            "Name":  "g17.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036985127)\/"
+                        },
+                        {
+                            "Name":  "g4.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036991057)\/"
+                        },
+                        {
+                            "Name":  "g6.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036980365)\/"
+                        },
+                        {
+                            "Name":  "genes.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781561772019)\/"
+                        },
+                        {
+                            "Name":  "glia_idx.txt",
+                            "Length":  75155,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781561772051)\/"
+                        },
+                        {
+                            "Name":  "res_genes.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781561824079)\/"
+                        },
+                        {
+                            "Name":  "res_glia.csv",
+                            "Length":  63880681,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781561824078)\/"
+                        },
+                        {
+                            "Name":  "s14_cells.npz",
+                            "Length":  997699,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036988680)\/"
+                        },
+                        {
+                            "Name":  "s15.R",
+                            "Length":  646,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781568268281)\/"
+                        },
+                        {
+                            "Name":  "s16.R",
+                            "Length":  643,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784002799737)\/"
+                        },
+                        {
+                            "Name":  "s16_cells.npz",
+                            "Length":  863998,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784002773168)\/"
+                        },
+                        {
+                            "Name":  "s17_cells.npz",
+                            "Length":  1350512,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036985162)\/"
+                        },
+                        {
+                            "Name":  "s4_cells.npz",
+                            "Length":  734151,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036991071)\/"
+                        },
+                        {
+                            "Name":  "s6_cells.npz",
+                            "Length":  1218913,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036980389)\/"
+                        },
+                        {
+                            "Name":  "sct.R",
+                            "Length":  721,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781561772051)\/"
+                        },
+                        {
+                            "Name":  "sct14.csv",
+                            "Length":  39114670,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784037350498)\/"
+                        },
+                        {
+                            "Name":  "sct15.csv",
+                            "Length":  39808282,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781568320470)\/"
+                        },
+                        {
+                            "Name":  "sct16.csv",
+                            "Length":  37077715,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784002912960)\/"
+                        },
+                        {
+                            "Name":  "sct17.csv",
+                            "Length":  42301849,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784037290743)\/"
+                        },
+                        {
+                            "Name":  "sct4.csv",
+                            "Length":  30571140,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784037243150)\/"
+                        },
+                        {
+                            "Name":  "sct6.csv",
+                            "Length":  41458655,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784037291788)\/"
+                        },
+                        {
+                            "Name":  "sctg15.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781568320472)\/"
+                        },
+                        {
+                            "Name":  "sctg16.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784002912962)\/"
+                        },
+                        {
+                            "Name":  "sct_corr.R",
+                            "Length":  814,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781562292635)\/"
+                        },
+                        {
+                            "Name":  "sct_data_genes.txt",
+                            "Length":  2027,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781562603465)\/"
+                        },
+                        {
+                            "Name":  "sct_data_glia.csv",
+                            "Length":  19065254,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781562603465)\/"
+                        },
+                        {
+                            "Name":  "sct_section.R",
+                            "Length":  637,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1784036791600)\/"
+                        },
+                        {
+                            "Name":  "sct_seurat.R",
+                            "Length":  874,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781562499477)\/"
+                        }
+                    ]
+    },
+    {
+        "Root":  "D:\\johnston_brain\\region_story\\hipp_build_ad",
+        "Entries":  [
+                        {
+                            "Name":  "gene_diagnostics.csv",
+                            "Length":  8574,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781576448702)\/"
+                        },
+                        {
+                            "Name":  "panel.csv",
+                            "Length":  238,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781576452879)\/"
+                        },
+                        {
+                            "Name":  "run_sct_s01.R",
+                            "Length":  927,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781576478618)\/"
+                        },
+                        {
+                            "Name":  "S01_cellmeta.csv",
+                            "Length":  2683025,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781576452865)\/"
+                        },
+                        {
+                            "Name":  "S01_counts.csv",
+                            "Length":  29288354,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781576452626)\/"
+                        },
+                        {
+                            "Name":  "S01_sct.csv",
+                            "Length":  34902699,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781576525773)\/"
+                        },
+                        {
+                            "Name":  "section.csv",
+                            "Length":  14,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781576452882)\/"
+                        }
+                    ]
+    },
+    {
+        "Root":  "D:\\johnston_brain\\region_story\\hipp_build_s08",
+        "Entries":  [
+                        {
+                            "Name":  "cellmeta.csv",
+                            "Length":  2102106,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578920021)\/"
+                        },
+                        {
+                            "Name":  "counts.csv",
+                            "Length":  11687499,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578919712)\/"
+                        },
+                        {
+                            "Name":  "panel.csv",
+                            "Length":  242,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578920034)\/"
+                        },
+                        {
+                            "Name":  "run_sct.R",
+                            "Length":  811,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578933677)\/"
+                        },
+                        {
+                            "Name":  "sct.csv",
+                            "Length":  22752878,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578988914)\/"
+                        }
+                    ]
+    },
+    {
+        "Root":  "D:\\johnston_brain\\region_story\\hipp_build_s12ad",
+        "Entries":  [
+                        {
+                            "Name":  "cellmeta.csv",
+                            "Length":  3319571,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578553679)\/"
+                        },
+                        {
+                            "Name":  "counts.csv",
+                            "Length":  17301910,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578553434)\/"
+                        },
+                        {
+                            "Name":  "gene_diagnostics.csv",
+                            "Length":  8057,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578551974)\/"
+                        },
+                        {
+                            "Name":  "panel.csv",
+                            "Length":  242,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578553682)\/"
+                        },
+                        {
+                            "Name":  "run_sct.R",
+                            "Length":  830,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578582907)\/"
+                        },
+                        {
+                            "Name":  "sct.csv",
+                            "Length":  52840196,
+                            "Attributes":  32,
+                            "LastWriteTimeUtc":  "\/Date(1781578635752)\/"
+                        }
+                    ]
+    }
+]
