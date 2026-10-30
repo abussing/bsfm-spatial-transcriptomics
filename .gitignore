@@ -1,0 +1,29 @@
+# Data and scientific artifacts
+data/
+artifacts/
+results/
+checkpoints/
+logs/
+*.npz
+*.npy
+*.rds
+*.h5
+*.h5ad
+*.mtx
+
+# Environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.Rhistory
+.RData
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
