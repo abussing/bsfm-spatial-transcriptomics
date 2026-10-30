@@ -1,7 +1,9 @@
 # SCTransform preprocessing recovery through Stage B6
 
-Checkpoint date: 2026-10-30. Status: **historical normalization-recipe recovery
-completed through B6; scientific design gate pending**.
+Checkpoint date: 2026-10-30. Historical normalization-recipe recovery is complete
+through B6. The subsequent [canonical scientific decision](../decisions/SCTRANSFORM_DESIGN.md)
+approves uniform regeneration; implementation has not begun. Earlier-stage
+statements about pending design retain their historical scope.
 
 **No implementation has been selected.** Historical files are evidence, not
 authoritative implementations. B1/B2 are preserved at commit
@@ -12,7 +14,8 @@ authoritative implementations. B1/B2 are preserved at commit
 local normalization-source recovery. Earlier-stage sections retain their
 historical evidence boundaries; the B6 findings below supersede their current
 missing-source descriptions. No HPC reconnection or historical scientific
-execution was used. Replacement design and implementation have not begun.
+execution was used. The B6 checkpoint preceded design approval; the new decision
+is authoritative for future preprocessing and does not select legacy code.
 
 **The historical drive enabled B6:** bounded read-only inspection under
 D:\johnston_brain recovered the missing new-section script and filename-linked
@@ -32,8 +35,9 @@ effective historical recipe for every section remain uncertified.
 The historical exporter and downstream artifact chain are recovered at the level
 of static behavior and recorded metadata links. Actual sampler invocation remains
 uncertified. No evidence proves these historical procedures wrong. The mixed
-historical pipeline has not been selected as authoritative. The next step is a
-scientific design gate, not additional archaeology or implementation.
+historical pipeline has not been selected as authoritative. The subsequent
+[design decision](../decisions/SCTRANSFORM_DESIGN.md) freezes the scientific
+contract and records the remaining preflights and holdout design boundaries.
 
 ## Stated scientific intent
 
@@ -656,9 +660,10 @@ hashes, explicit settings, runtime/execution evidence, attribution limits and
 downstream adoption separately. Source and capture identities are preserved in
 the B6 evidence-ledger section; legacy source captures remain outside Git.
 
-The user accepted B6 as the endpoint of historical recipe recovery. The next
-scientific design gate must decide mixed historical reproduction versus uniform
-regeneration, section input and fitting-cell populations, correction-depth
-handling, version/seed pinning, authoritative raw inputs and the exact assay/layer
-contract. Uniform regeneration is the user's preliminary recommendation, not a
-settled design. No replacement implementation or historical promotion is approved.
+The user accepted B6 as the endpoint of historical recipe recovery. The later
+[canonical design decision](../decisions/SCTRANSFORM_DESIGN.md) approves uniform
+regeneration, all valid section cells and the full measured panel, common-depth
+correction, exactly one log1p and final section/type/gene centering. Numeric depth
+remains provisional pending authenticated raw preflight, and the recovered
+environment remains subject to feasibility. No replacement implementation or
+historical-code promotion is authorized by that documentation decision.

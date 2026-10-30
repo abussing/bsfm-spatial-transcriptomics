@@ -6,7 +6,8 @@ capabilities, not claims that any historical implementation is authoritative.
 ## 1. Expression preprocessing
 
 Recovery status: **historical normalization-recipe recovery completed through
-B6; scientific design gate pending**. See the
+B6; canonical scientific design approved; implementation not begun**. See the
+[canonical SCTransform decision](docs/decisions/SCTRANSFORM_DESIGN.md),
 [SCTransform recovery](docs/recovery/SCTRANSFORM_PREPROCESSING.md) and
 [evidence ledger](docs/recovery/SCTRANSFORM_EVIDENCE.md).
 
@@ -16,7 +17,9 @@ B6; scientific design gate pending**. See the
 | Downstream exporter/handoff | Recovered: implemented behavior and recorded artifact links; actual sampler invocation is not certified. |
 | Historical normalization implementation | Recovered writer recipes: 10 new, 3 regional reused, 6 sct_work reused; effective defaults/execution attribution remain incomplete. |
 | Uniform cross-section comparability | Unestablished. |
-| Replacement design | Not yet approved. |
+| Replacement design | Approved: uniform section-specific SCT v2, common minimum-section-median depth, log1p corrected counts and one section/type/gene centering operation. |
+| Preflights | Raw-source/eligibility/depth authentication and exact environment feasibility pending; numeric depth is not frozen. |
+| Spatial holdout | Training-only preprocessing approved as primary policy; fold-specific implementation design remains pending. |
 
 All recovered writers export Seurat SCT `data`, the intended
 `log1p(corrected counts)` representation. Ten new and three regional reused
@@ -29,10 +32,15 @@ wrong, and no historical implementation has been selected as authoritative.
 
 The [19-section recipe ledger](docs/recovery/SCTRANSFORM_B6_SECTION_RECIPES.csv)
 separates source behavior, runtime evidence, attribution and downstream adoption.
-The next step is a scientific design gate: mixed historical reproduction versus
-uniform regeneration, fitting-cell population, correction depth and the exact
-assay/layer contract. The user's preliminary preference is uniform regeneration;
-it is not an approved design or authorization to implement it.
+The approved design regenerates all 19 sections using all valid section cells
+and the complete 300-gene panel, requires the effective glmGamPoi_offset method,
+and uses correct_counts at the common minimum authenticated section median.
+The historical depth 124 is provisional. MIC/AST/OGC and the fixed 91 genes are
+selected after correction; the final response is centered once without variance
+scaling. Residual-only settings do not define that response. The recovered
+environment is an initial target subject to feasibility; substitutions require
+an explicit version amendment. No preprocessing code or run is authorized by
+the documentation checkpoint. See the decision for preflights and holdout limits.
 
 - Accept raw gene-expression counts and spatial/cell metadata.
 - Run SCTransform reproducibly.
