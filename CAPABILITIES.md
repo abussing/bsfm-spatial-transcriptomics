@@ -5,7 +5,7 @@ capabilities, not claims that any historical implementation is authoritative.
 
 ## 1. Expression preprocessing
 
-Recovery status: **in progress** (checkpoint through Stage B2). See the
+Recovery status: **in progress** (checkpoint through Stage B3). See the
 [SCTransform recovery](docs/recovery/SCTRANSFORM_PREPROCESSING.md) and
 [evidence ledger](docs/recovery/SCTRANSFORM_EVIDENCE.md).
 
