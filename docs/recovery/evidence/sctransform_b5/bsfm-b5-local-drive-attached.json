@@ -1,0 +1,50 @@
+﻿{
+    "ObservationDate":  "2026-10-30",
+    "Context":  "User attached historical drive during B5 checkpoint preparation, after B5/B5b discovery. Exact path availability only; no legacy contents inspected.",
+    "MountedFilesystemRoots":  [
+                                   "C:\\",
+                                   "D:\\"
+                               ],
+    "Checks":  [
+                   {
+                       "Path":  "D:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sct_section.R",
+                       "Accessible":  true
+                   },
+                   {
+                       "Path":  "D:\\johnston_brain\\sct_work",
+                       "Accessible":  true
+                   },
+                   {
+                       "Path":  "D:\\johnston_brain\\region_story\\hipp_build_ad",
+                       "Accessible":  true
+                   },
+                   {
+                       "Path":  "D:\\johnston_brain\\region_story\\hipp_build_s08",
+                       "Accessible":  true
+                   },
+                   {
+                       "Path":  "D:\\johnston_brain\\region_story\\hipp_build_s12ad",
+                       "Accessible":  true
+                   },
+                   {
+                       "Path":  "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sct_section.R",
+                       "Accessible":  false
+                   },
+                   {
+                       "Path":  "E:\\johnston_brain\\sct_work",
+                       "Accessible":  false
+                   },
+                   {
+                       "Path":  "E:\\johnston_brain\\region_story\\hipp_build_ad",
+                       "Accessible":  false
+                   },
+                   {
+                       "Path":  "E:\\johnston_brain\\region_story\\hipp_build_s08",
+                       "Accessible":  false
+                   },
+                   {
+                       "Path":  "E:\\johnston_brain\\region_story\\hipp_build_s12ad",
+                       "Accessible":  false
+                   }
+               ]
+}

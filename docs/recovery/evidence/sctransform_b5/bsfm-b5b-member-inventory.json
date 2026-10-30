@@ -1,0 +1,170 @@
+﻿[
+    {
+        "Member":  "README.txt",
+        "Bytes":  3982,
+        "SHA256":  "2714a689b711e6b4ea57972b005ad4d6ceb8a2432719d312c104166e642b8678",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\README.txt",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S00__Trem2_5xFAD4/READY.json",
+        "Bytes":  642,
+        "SHA256":  "90b79950ea35488dd6cbd549f227a7a06d4f5dc4f245d41258df2f84344d7149",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S00__Trem2_5xFAD4\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S01__5xFAD4/READY.json",
+        "Bytes":  609,
+        "SHA256":  "529566dd092107ef7b25cc5a35ef54aa47e41819c4f135b356577c68c164ed4c",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S01__5xFAD4\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S02__Trem2_4/READY.json",
+        "Bytes":  632,
+        "SHA256":  "7f166e54f13c9cc5449f97c41be7fdc242b8821f4cc731da292c7cf29fc346b1",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S02__Trem2_4\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S03__Trem2_5xFAD3/READY.json",
+        "Bytes":  643,
+        "SHA256":  "49f1fff86cefa8d2e4cf4eeed33cd029efe356534327271650ae3c4be4c181f6",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S03__Trem2_5xFAD3\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S04__WT3/READY.json",
+        "Bytes":  539,
+        "SHA256":  "619a3b1c4eef7e4c5c08148a21cf4ea814dbaf9ada7d99c6cd03b952c6697dc4",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S04__WT3\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S05__Trem2_3/READY.json",
+        "Bytes":  633,
+        "SHA256":  "594888eb3cdffaa85c37fd5f10a578b355fabe270448e99851e8f46cec0ce37e",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S05__Trem2_3\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S06__5xFAD3/READY.json",
+        "Bytes":  543,
+        "SHA256":  "b8e44d655d200178f7856339b5d0c993087e50c49f868d748d99fc768a1680d6",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S06__5xFAD3\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S07__Trem2_5xFAD5/READY.json",
+        "Bytes":  642,
+        "SHA256":  "217c77394a4e1e84590556a6bac8a9d75921aec8bad15138f46221ce2f6884a5",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S07__Trem2_5xFAD5\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S08__5xFAD5/READY.json",
+        "Bytes":  605,
+        "SHA256":  "5eb54de4d75de8dfb84bba60e41026d77de15942aa5c29bfd349efd602ed1958",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S08__5xFAD5\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S09__Trem2_5/READY.json",
+        "Bytes":  632,
+        "SHA256":  "d466ac80cba38a4423019358c046498f27e8ba11e447889b67f2017873471c73",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S09__Trem2_5\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S10__WT5/READY.json",
+        "Bytes":  624,
+        "SHA256":  "6043d921223efed62bfdf725594668e57e57e585118d7e19003c72daf8777889",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S10__WT5\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S11__Trem2_5xFAD1/READY.json",
+        "Bytes":  643,
+        "SHA256":  "511a6fb99efd25295680a779edf15b5a04436113db8de90a370fc48a73c414e5",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S11__Trem2_5xFAD1\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S12__Trem2_1/READY.json",
+        "Bytes":  633,
+        "SHA256":  "6c9ccae5371da1d525ebd3b8866cfdd24d7533abcde18a41d1e5a4e1be26f02e",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S12__Trem2_1\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S12__Trem2_5xFAD2/READY.json",
+        "Bytes":  614,
+        "SHA256":  "09dfbe3f350cb7bd44a94addf0780d83fa94809f4f8726ac7d72d76345db3d78",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S12__Trem2_5xFAD2\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S13__Trem2_2/READY.json",
+        "Bytes":  632,
+        "SHA256":  "4fc14cf6b85eb69e49afb307d242aa86845f196a5d31d512f8014a0ea8c0545f",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S13__Trem2_2\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S14__WT1/READY.json",
+        "Bytes":  540,
+        "SHA256":  "beb4f1815890b890713d181d3aa994369746bc8e5640cee8299a6c4a9155695c",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S14__WT1\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S15__5xFAD1/READY.json",
+        "Bytes":  547,
+        "SHA256":  "90f7ba4409ce2ec276329d34de1d08108d2c51900bfc56008d9cf9491f208465",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S15__5xFAD1\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S16__WT2/READY.json",
+        "Bytes":  540,
+        "SHA256":  "a3d99697e152929263fd67408c4ef43dfb491d74b0234897583c49dec3174183",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S16__WT2\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "sections/S17__5xFAD2/READY.json",
+        "Bytes":  544,
+        "SHA256":  "e612a6d4e575179d8612405ed079b57ec245fa9c5cff5e716674e53ada0f1f10",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\sections\\S17__5xFAD2\\READY.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    },
+    {
+        "Member":  "BUNDLE_HASHES.json",
+        "Bytes":  15469,
+        "SHA256":  "b138dc9868bbf7ee951d507f7933d90d6728dcb095d3014ccee53f4615f2655f",
+        "MatchesB4":  true,
+        "LocalPath":  "C:\\Users\\Data Viz\\AppData\\Local\\Temp\\bsfm-b5b-cpu-provenance-members\\BUNDLE_HASHES.json",
+        "Archive":  "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz"
+    }
+]

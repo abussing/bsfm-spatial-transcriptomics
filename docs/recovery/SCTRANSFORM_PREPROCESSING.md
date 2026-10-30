@@ -1,14 +1,25 @@
-# SCTransform preprocessing recovery through Stage B4
+# SCTransform preprocessing recovery through Stage B5/B5b
 
-Checkpoint date: 2026-10-30. Status: **in progress**.
+Checkpoint date: 2026-10-30. Status: **bounded HPC search concluded; historical
+local paths newly accessible; normalization implementation unresolved**.
 
 **No implementation has been selected.** Historical files are evidence, not
 authoritative implementations. B1/B2 are preserved at commit
 `d2e7e5ea9db420fe2910cd54ac1e33040a0726db`; B3 is preserved at
-`71a7dcad7a2252157c7cd8e83bfb4bdd9a6b3b7a`. This increment records the accepted,
-incomplete B4 upstream exporter recovery. Earlier-stage sections retain their
-historical evidence boundaries. No HPC reconnection or historical scientific
-execution was used to prepare this checkpoint. B5 has not begun.
+`71a7dcad7a2252157c7cd8e83bfb4bdd9a6b3b7a`; B4 at
+`b746b41784e09c6223874e90f3103c5e86c913a9`. This increment records the accepted
+B5/B5b endpoint of the bounded normalization-source search. Earlier-stage
+sections retain their historical evidence boundaries. No HPC reconnection,
+broader search or historical scientific execution was used to prepare this
+checkpoint. Replacement design and implementation have not begun.
+
+**Availability changed during checkpoint preparation:** the user attached the
+historical drive, mounted as D:. All five exact normalization locations are now
+accessible under D:\johnston_brain, including artifacts/GENE_REVIEW_20261004/sct_section.R.
+Only path availability was checked; no legacy contents were read. Earlier E:
+inaccessibility remains a valid observation at the time of B5, not the current
+access state. Targeted local recovery can now be considered; recipe certification
+and cross-section comparability remain unresolved.
 
 **Certification remains incomplete:** `review.py` does not itself implement
 SCTransform. Its `sct_section.R` dependency is missing from the inspected package.
@@ -17,6 +28,12 @@ separate unrecovered normalization implementations; ten sections are recorded as
 newly normalized. Comparability across these two branches is not established,
 and correction depths were explicitly not harmonized. **`log1p(corrected counts)`
 is the scientific intent, not yet a certified fact about every historical section.**
+
+The historical exporter and downstream artifact chain are recovered at the level
+of static behavior and recorded metadata links. Actual sampler invocation remains
+uncertified. The normalization recipe cannot be certified from the accessible
+evidence. This does not prove the historical procedures were wrong or permanently
+unrecoverable. Replacement design is not yet approved.
 
 ## Stated scientific intent
 
@@ -424,3 +441,87 @@ version/execution records for the ten new sections and the creator implementatio
 for the nine reused exports. External paths and narrow proposed discovery roots
 are recorded in the ledger. No external location was followed during B4 or this
 checkpoint. No implementation is selected or imported.
+
+## B5/B5b accepted search endpoint
+
+The user accepted B5/B5b as the endpoint of the bounded historical normalization
+search. The [search ledger](SCTRANSFORM_B5_SEARCH_LEDGER.csv) records the exact
+locations, boundaries, results and remaining gaps. The
+[evidence ledger](SCTRANSFORM_EVIDENCE.md#b5b5b-capture-preservation-and-validation)
+preserves commands, archive identities, member inventories and capture hashes.
+No further historical search or replacement work is authorized by this checkpoint.
+
+### Search boundaries and negative evidence
+
+Five exact historical Windows locations were tested: N/sct_section.R,
+W/sct_work, and W/region_story/{hipp_build_ad,hipp_build_s08,hipp_build_s12ad}.
+All were inaccessible; only C: was mounted. This is evidence of unavailable
+access to E:, not proof that the historical files were deleted. No contents of
+those locations were inspected.
+
+Under `/work/abussing/arka_trying_gpu_again`, one nonrecursive listing returned
+393 entries (267 directories, 126 files). A filename-only normalization-R search
+was limited to depth three and 45 seconds, pruning environment/cache/data/output
+trees. It completed with no matching script. A separate H-U metadata-name search
+to depth four with a 30-second limit completed with five matches but no R source,
+session/version record or sct.log. These are bounded results, not an exhaustive
+claim about the entire HPC filesystem or differently named/deeper sources.
+
+The associated all300_gp_extension_v1/MANIFEST.json had no matching normalization
+reference. Its small archive's seven member names included no R source or version
+record. No extension implementation or data member was opened.
+
+B5b then inspected the complete member listings of two explicitly authorized
+archives under H-U:
+
+| Archive | Measured bytes | Listed members | Result |
+| --- | ---: | ---: | --- |
+| gene_review19_cpu_bundle.tar.gz | 43252255 | 140 | No R source, normalization-version member or reused-export directory/file. README, manifest and all 19 READY records repeat B4 exactly. |
+| gene_review_results_20261005.tar.gz | 102728274 | 4183 | No named normalization source/version member. Contains GP artifacts/configurations and job logs, whose contents were not inspected. |
+
+Both listings completed successfully. Archive hashes and every member path/size
+are preserved in the evidence captures. Only 21 small CPU-bundle provenance
+members were streamed: README.txt, BUNDLE_HASHES.json and all 19 READY.json files.
+Their 30888 decoded bytes match B4's recorded source hashes individually. The CPU
+archive path set equals the manifest's 139 entries plus the manifest itself.
+No expression CSV, NPZ, H5AD, RDS, model, plot or unrelated source member was
+extracted or inspected. Nothing was written to the HPC. B5/B5b executed no R,
+Python or historical implementation.
+
+### Meaning of the endpoint
+
+Neither archive supplied the missing normalization implementation or new package
+version evidence. The duplicate records retain the ten-new/nine-reused split and
+the explicit statement that correction depths were not harmonized. They are not
+independent confirmation of the recipe or evidence of branch comparability.
+Absence of named provenance members is established; no claim is made about hidden
+normalization details inside the uninspected GP logs/configurations.
+
+| Capability aspect | Status at the endpoint |
+| --- | --- |
+| Scientific response intent | Recovered: log1p(corrected counts). |
+| Downstream exporter/handoff | Recovered: static implementation and recorded artifact chain; actual sampler invocation remains uncertified. |
+| Historical normalization implementation | Unresolved for both branches. |
+| Uniform cross-section comparability | Unestablished. |
+| Replacement design | Not yet approved. |
+
+The unresolved recipe includes SCTransform/v2 arguments, actual fitting population,
+assay creation/selection, corrected-count slot/layer, upstream log1p placement and
+count, correction-depth behavior, variable-gene restrictions, package versions,
+seeds and executed-source provenance. Existing identity checks and coherent
+downstream centering do not supply those facts.
+
+The narrow conclusion is that the normalization recipe cannot be certified from
+the accessible evidence. This does not prove the historical procedures were wrong
+or permanently unrecoverable. No historical implementation has been selected.
+Any later design should first document scientific choices and locate the
+authoritative raw-count source; W/Johnston_MERFISH_Data.h5ad is a historical
+reference, not newly authenticated raw data. Access to the historical E: drive or
+a known backup may resolve provenance, but no backup search or replacement design
+has begun. A broader blind HPC search is not the next authorized action.
+
+After this bounded search, the user's drive attachment made the five known local
+paths accessible under D:. This supersedes the earlier assumption that local
+source access was unavailable. No backup search is needed to establish that these
+paths exist. Their contents remain uninspected; the new observation is preserved
+in the evidence ledger and search table without rewriting the earlier negatives.

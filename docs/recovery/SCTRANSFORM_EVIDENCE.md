@@ -1,12 +1,20 @@
-# SCTransform evidence ledger through Stage B4
+# SCTransform evidence ledger through Stage B5/B5b
 
 Checkpoint date: 2026-10-30. Scope: B1 metadata/provenance, B2 six-file source
 inspection, accepted B3 local handoff/HPC metadata, and the accepted incomplete
-B4 exporter/provenance increment. B1/B2 remain available at
+B4 exporter/provenance increment, and the accepted B5/B5b bounded search endpoint.
+B1/B2 remain available at
 `d2e7e5ea9db420fe2910cd54ac1e33040a0726db`; B3 at
-`71a7dcad7a2252157c7cd8e83bfb4bdd9a6b3b7a`. Earlier-stage sections retain their
+`71a7dcad7a2252157c7cd8e83bfb4bdd9a6b3b7a`; B4 at
+`b746b41784e09c6223874e90f3103c5e86c913a9`. Earlier-stage sections retain their
 stage-specific limits. No implementation has been selected. No HPC reconnection
-was made to preserve this checkpoint; B5 has not begun.
+or broader search was made to preserve this checkpoint. Replacement design is
+not yet approved. Historical normalization and branch comparability remain unresolved.
+
+During checkpoint preparation the user attached the historical drive. All five
+known paths became accessible on D:, while E: remained unavailable. Only exact
+path checks were performed. This new availability supersedes the current-access
+conclusion of the earlier search, not its recorded negative observations.
 Historical labels such as CURRENT and PRODUCTION confer no authority.
 
 ## Evidence classes
@@ -737,3 +745,264 @@ but no large CSV, NPZ, H5AD, RDS, archive or fitted model was inspected or hashe
 Both normalization branches must be understood before declaring this capability
 recovered. B5 requires review/approval before expansion; this checkpoint selects
 no implementation and certifies neither expression scale nor branch comparability.
+
+## B5/B5b capture preservation and validation
+
+User decision U6: accept B5/B5b as the endpoint of bounded historical
+normalization-source discovery; preserve negative and duplicate evidence, update
+capability status and commit before any replacement design. No broader search or
+replacement implementation was authorized. U6 explicitly authorized hashing and
+listing the two named large archives in B5b; no large archive was rehashed while
+preparing this checkpoint.
+
+Seven existing captures were copied byte-for-byte from
+`C:\Users\Data Viz\AppData\Local\Temp\` into
+[evidence/sctransform_b5/](evidence/sctransform_b5/). Their combined size is
+**946055 bytes**, below 2 MiB (2097152 bytes). Original encodings/BOMs and line
+endings are retained. Directory-local `.gitattributes` disables text conversion
+for both TXT and JSON captures. The SHA-256 values below identify these captures,
+not the remote archives or individual members described within them.
+
+| Original/preserved basename | Bytes | Capture SHA-256 |
+| --- | ---: | --- |
+| bsfm-b5-root-discovery.txt | 35208 | 3bc90b996f9fc0acfcbabad95d0276e721a04bee8265466c3aae1a72293ef746 |
+| bsfm-b5-bounded-filename-search.txt | 1206 | 7686c380abfef1894276ae527122af2546522263829be836e16bb4f376598a01 |
+| bsfm-b5-associated-index-search.txt | 1260 | d19653c4e6ba830d1c6fa4dc1c0dbb32515b50a1ce6273c519992008e68e989a |
+| bsfm-b5b-archive-listings.txt | 812156 | fc3fbd3e08db5c9a1ea95660b2e5d657f48de8dfb068bb5318c68ae7c269e4b5 |
+| bsfm-b5b-cpu-provenance-stream.txt | 85252 | 616f861c035e103247e24cac1cb6dc70b8f9f2a9ce160ab8f638203dd2b8addc |
+| bsfm-b5b-member-inventory.json | 9750 | 25fd98c0114738e52725c9a154a5f31dc7be6181a1a9c5823b473bef2616cc68 |
+| bsfm-b5b-acquisition-commands.json | 1223 | fde26c27bba49566a4a538270dd7ee99273bbc4cfafa52cb480e15c05b343a8e |
+
+These contain discovery/metadata results, archive listings, acquisition commands
+and duplicate provenance, not legacy implementation bodies. The base64 stream
+contains only README.txt, BUNDLE_HASHES.json and 19 READY.json files. It permits
+exact reconstruction of those 30888 member bytes without duplicating them in Git.
+The inventory's LocalPath fields preserve original temporary decoded-member paths;
+the durable member evidence is the committed stream plus per-member size/hash,
+not continued availability of those temporary decoded files.
+
+Validation before preservation and consistency checks established:
+
+- All 393 root inventory lines parse as type/size/name: 267 directories and 126 files.
+- The bounded search capture has both completion markers at exit zero; its five
+  metadata matches parse completely. No source match occurred between the source
+  search markers. Depth/pruning/time limits remain part of the negative claim.
+- The associated manifest search returned grep exit 1 (no match), not a read-error
+  status. Its seven-member archive listing completed at exit zero.
+- Both large-archive listings contain completion markers at exit zero. All 140
+  and 4183 member lines parse into mode, owner, size, timestamp and path, with no
+  unexplained member lines. No output truncation cap was applied to these captures.
+- All 21 selected-member streams have exit zero; base64 decodes completely. Every
+  decoded size matches both the archive listing and the inventory; every fresh
+  decoded-byte SHA-256 matches the inventory and B4's corresponding source hash.
+  All 20 JSON members parse completely; the remaining member is the full README.
+- The CPU archive's path set is exactly the manifest's 139 entries plus
+  BUNDLE_HASHES.json. All 19 READY records retain the B4 identities/counts/paths
+  and the ten-new/nine-reused split. The two capture JSON records (inventory and
+  acquisition commands) parse completely as well.
+- All seven copied capture hashes equal their originals. Content review and
+  pattern checks cover both the captures and decoded base64 bodies: no credentials,
+  private keys, authorization/bearer material, API/access/refresh/client-secret
+  tokens, authentication prompts or terminal escapes were found. Historical
+  usernames/paths are retained as provenance, not secrets.
+
+No HPC connection, new discovery, historical code execution or repository source
+import was used to preserve this checkpoint. Validation used local PowerShell/.NET
+reading, parsing, hashing and comparison of already captured evidence. It did not
+run R, Python or any historical implementation.
+
+## B5 exact search boundaries and results
+
+H-S denotes `/work/abussing/arka_trying_gpu_again`; H-U is its
+`gene_review19_20261004_v1` child. W and N retain their B4 meanings.
+The [machine-readable search ledger](SCTRANSFORM_B5_SEARCH_LEDGER.csv) has 18 rows
+and seven columns: search_id, source_location, search_boundary, evidence_type,
+result, remaining_gap and evidence_reference. It separates inaccessible paths,
+bounded negative searches, filename inventories and measured duplicate provenance.
+The final five rows record the later drive-attachment availability change.
+
+The five exact local checks were:
+
+1. `E:\johnston_brain\artifacts\GENE_REVIEW_20261004\sct_section.R`
+2. `E:\johnston_brain\sct_work`
+3. `E:\johnston_brain\region_story\hipp_build_ad`
+4. `E:\johnston_brain\region_story\hipp_build_s08`
+5. `E:\johnston_brain\region_story\hipp_build_s12ad`
+
+Test-Path -LiteralPath returned false for each; Get-PSDrive -PSProvider FileSystem
+reported only C:. No local listing occurred because the locations were inaccessible.
+These observations were returned in the B5 conversation tool output, not a separate
+preserved local-check stdout capture. The ledger records that limitation rather
+than inventing a raw capture. They establish unavailable E: access, not deletion.
+
+| Search | Boundary and result | Evidence class / limitation |
+| --- | --- | --- |
+| H-S root | find mindepth 1 / maxdepth 1: 393 entries. | Filename inventory only; no file contents. |
+| H-S normalization R names | maxdepth 3, timeout 45s; case-insensitive *sct*.r, *sctransform*.r, *seurat*.r, *normaliz*.r. Prune env, gpu_sparse_backend_env, .git, .venv, __pycache__, plots*, outputs, errors, datasets*. No matches; exit 0. | Bounded negative search; not exhaustive for deeper/excluded paths or differently named scripts. No symlink following requested. |
+| H-U associated records | maxdepth 4, timeout 30s; names matching session, version, environment, manifest, hash, sct.log, .r, .tar.gz or .zip patterns. Five matches; exit 0. | No R/session/version/sct.log match within this boundary. Contents of data were not searched. |
+| H-U/all300_gp_extension_v1/MANIFEST.json | 206099 bytes; SHA-256 0e0dfeb6c573665505f145059e367043dbb30b3137153b9c44419d544179deb7. Targeted reference grep returned no match (exit 1). | Small metadata-reference search, not implementation inspection. |
+| H-U/all300_gp_extension_v1.tar.gz | 106905 bytes from filename discovery; name listing only, timeout 30s, seven members, exit 0. | No R/version-record filename. No archive hash or member contents inspected in this step. |
+
+The five H-U matches were BUNDLE_HASHES.json (15469 bytes), the extension manifest
+(206099), the extension archive (106905), gene_review19_cpu_bundle.tar.gz (43252255)
+and gene_review_results_20261005.tar.gz (102728274). The two larger archives were
+initially left unopened, then explicitly authorized for B5b below. The extension
+archive contained extension.py, WORKLIST.csv, submit_extension.sh, submit_smoke.sh,
+submit_report.sh, launch.sh and MANIFEST.json under all300_gp_extension_v1/.
+Their implementation/data contents were not inspected.
+
+## B5b archive identities and member evidence
+
+These hashes were measured on the two exact remote archives during B5b. They are
+distinct from capture hashes and from historically recorded scientific hashes.
+
+| Exact H-U-relative archive | Bytes | Members | Measured SHA-256 |
+| --- | ---: | ---: | --- |
+| gene_review19_cpu_bundle.tar.gz | 43252255 | 140 | cb1a79daa051083350c1036fb5bec4f327cb8cca8f4a7e6666fb261c3c117732 |
+| gene_review_results_20261005.tar.gz | 102728274 | 4183 | b286e99695cf1f24fd2da4490017dce16ebe98ab83cd45b7a50a30a89247b903 |
+
+The complete inventories, including each member path and uncompressed size, are
+in [bsfm-b5b-archive-listings.txt](evidence/sctransform_b5/bsfm-b5b-archive-listings.txt).
+Neither lists sct_section.R, any .R/.r member, an SCT/Seurat/normalization-named
+source, session/version/environment/package-version member, sct.log, sct_work,
+region_story, hipp_build_* or the reused SCT CSV names. The nine exact source
+paths being sought remain in the B4 section table; their unique basenames are
+S01_sct.csv, sct4.csv, sct6.csv, sct.csv, sct14.csv, sct15.csv, sct16.csv and sct17.csv
+(sct.csv occurs in two distinct parent directories).
+
+| Archive inventory category | CPU bundle | Results archive |
+| --- | ---: | ---: |
+| Directories | 0 | 20 |
+| Python sources | 3 | 0 |
+| Shell source | 1 | 0 |
+| CSV members | 3 | 0 |
+| TXT members | 1 | 0 |
+| JSON members | 20 | 19 |
+| NPZ artifacts | 112 | 4104 |
+| OUT/ERR logs | 0 | 40 |
+
+CPU source names are the known review.py, test_review.py, verify_bundle.py and
+submit_cpu.sh; they were not streamed or newly inspected as implementation in B5b.
+The results JSONs are section GP_RUN_CONFIG.json records. Its logs range from 0
+to 17205 bytes (296577 bytes total). Their GP-fitting role did not establish
+relevance to the missing normalization source; neither configurations nor logs
+were opened. No log was in the 512 KiB-2 MiB approval band. Absence of named
+normalization records does not prove absence of every possible detail hidden
+inside uninspected GP logs/configurations.
+
+Only these 21 exact CPU-bundle provenance members were streamed:
+
+- README.txt: 3982 bytes, SHA-256 2714a689b711e6b4ea57972b005ad4d6ceb8a2432719d312c104166e642b8678.
+- BUNDLE_HASHES.json: 15469 bytes, SHA-256 b138dc9868bbf7ee951d507f7933d90d6728dcb095d3014ccee53f4615f2655f.
+- sections/<section_id>/READY.json for all 19 exact B4 section IDs: 11437 bytes
+  total, 539-643 bytes each. Every individual path/size/hash is preserved in
+  [bsfm-b5b-member-inventory.json](evidence/sctransform_b5/bsfm-b5b-member-inventory.json)
+  and agrees with the B4 section table's readiness hash.
+
+All 21 are individually below 512 KiB; largest is 15469 bytes. Their exact bytes
+are recoverable from the base64 member stream. Full README inspection and JSON
+parsing found identical B4 content. README:13-20 repeats reuse/new-SCT claims and
+no correction-depth harmonization. READY:6-11 repeats branch/source/hash/alignment
+and scale descriptions. These are duplicates, not independent recipe verification.
+No source code, expression CSV, NPZ, H5AD, RDS, fitted model or plot member was
+extracted or inspected. Streaming wrote only local temporary evidence, never HPC
+files. The tar list/stream utilities do not execute member code.
+
+## B5/B5b acquisition commands
+
+These record prior acquisition only. No command below was rerun to prepare this
+checkpoint. Local checks used Test-Path -LiteralPath on the five exact Windows
+paths above, and Get-PSDrive -PSProvider FileSystem. Conditional nonrecursive
+listings were not reached because all paths were inaccessible.
+
+SSH used this form with each exact remote body and capture basename:
+
+```powershell
+$metadataOutput = Join-Path $env:TEMP '<capture-basename>'
+$remoteRead = '<remote-body, with embedded single quotes doubled for PowerShell>'
+& 'C:\Windows\System32\OpenSSH\ssh.exe' -p 222 -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=yes abussing@login.rci.sc.edu $remoteRead > $metadataOutput
+Write-Output "SSH exit code: $LASTEXITCODE"
+```
+
+For bsfm-b5-root-discovery.txt:
+
+```sh
+find /work/abussing/arka_trying_gpu_again -mindepth 1 -maxdepth 1 -printf '%y\t%s\t%f\n'
+```
+
+For bsfm-b5-bounded-filename-search.txt:
+
+```sh
+b=/work/abussing/arka_trying_gpu_again; echo B5_SOURCE_NAMES; timeout 45s find $b -maxdepth 3 -type d \( -name env -o -name gpu_sparse_backend_env -o -name .git -o -name .venv -o -name __pycache__ -o -name 'plots*' -o -name outputs -o -name errors -o -name 'datasets*' \) -prune -o -type f \( -iname '*sct*.r' -o -iname '*sctransform*.r' -o -iname '*seurat*.r' -o -iname '*normaliz*.r' \) -printf '%s\t%p\n'; echo SOURCE_SEARCH_EXIT:$?; echo B5_REVIEW_METADATA_NAMES; timeout 30s find $b/gene_review19_20261004_v1 -maxdepth 4 -type f \( -iname '*session*' -o -iname '*version*' -o -iname '*environment*' -o -iname '*manifest*' -o -iname '*hash*' -o -iname 'sct.log' -o -iname '*.r' -o -iname '*.tar.gz' -o -iname '*.zip' \) -printf '%s\t%p\n'; echo METADATA_SEARCH_EXIT:$?
+```
+
+For bsfm-b5-associated-index-search.txt, the submitted remote body was:
+
+```sh
+b=/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1; f=$b/all300_gp_extension_v1/MANIFEST.json; echo B5_MANIFEST:$f; wc -c < $f; sha256sum $f; grep -nEi 'sct_section[.]r|sctransform|seurat|session|version|sct[0-9]*[.]csv|sct[.]log|sct_work|hipp_build|[.]r"' $f; echo MANIFEST_MATCH_EXIT:$?; echo B5_SMALL_ARCHIVE_LISTING; timeout 30s tar -tzf $b/all300_gp_extension_v1.tar.gz; echo ARCHIVE_LIST_EXIT:$?
+```
+
+The submitted grep expression contains a final double-quote character; Windows
+native argument handling may strip it. No recipe finding relies on that optional
+generic suffix: the explicit sct_section/SCT/Seurat/version terms were separate
+alternatives, and the recorded grep outcome was no match, not a syntax error.
+
+The exact B5b listing and selected-member stream commands, including the literal
+21-member allowlist, are preserved in
+[bsfm-b5b-acquisition-commands.json](evidence/sctransform_b5/bsfm-b5b-acquisition-commands.json).
+The listing used stat -c '%s', sha256sum and tar --numeric-owner --full-time -tvzf
+on only the two named archives. The stream used tar -xOzf on each exact member,
+base64 -w0 for byte preservation, and pipefail plus a per-member status marker.
+Authentication input was never included in captures or command documentation.
+
+## Accepted conclusion and next decision boundary
+
+The historical exporter and downstream artifact chain are recovered at the level
+of inspected behavior and recorded metadata links. Actual sampler invocation
+remains uncertified. The normalization recipe cannot be certified from accessible
+evidence; the ten-new/nine-reused branches are not proven comparable. Correction
+depths were explicitly not harmonized. Historical log1p(corrected counts)
+construction remains a claim, while log1p(corrected counts) is the recovered
+scientific intent.
+
+This does not prove the historical procedures were wrong or permanently
+unrecoverable. No newly recovered execution record, user approval, empirical
+normalization comparison or creator implementation closes either branch's gap.
+No historical implementation is selected. The capability statuses are: scientific
+response intent recovered; downstream exporter/handoff recovered within the stated
+evidence limits; historical normalization implementation unresolved; uniform
+cross-section comparability unestablished; replacement design not yet approved.
+
+The bounded HPC search is closed by user decision, not by a claim that every possible
+backup or HPC file was exhausted. A later decision may consider a known historical
+E: backup and a uniform version-pinned design after settling scientific choices
+and locating authoritative raw counts. No such search, design or implementation
+is performed or approved by this checkpoint.
+
+## Local drive attached during checkpoint preparation
+
+After the B5/B5b report and while preparing this commit, the user connected the
+historical drive. Get-PSDrive reported C: and D:. Test-Path -LiteralPath succeeded
+for all five paths below; the corresponding E: checks still returned false:
+
+- `D:\johnston_brain\artifacts\GENE_REVIEW_20261004\sct_section.R`
+- `D:\johnston_brain\sct_work`
+- `D:\johnston_brain\region_story\hipp_build_ad`
+- `D:\johnston_brain\region_story\hipp_build_s08`
+- `D:\johnston_brain\region_story\hipp_build_s12ad`
+
+These are local access observations, not source inspection, execution or scientific
+verification. No directory contents or implementation files were opened. This
+availability change is preserved separately in
+[bsfm-b5-local-drive-attached.json](evidence/sctransform_b5/bsfm-b5-local-drive-attached.json).
+The initial unavailable E: observations remain historical facts; they no longer
+justify assuming that the known local evidence cannot be accessed. Targeted local
+recovery is now possible, while historical normalization remains uncertified and
+replacement design remains unapproved. No broader HPC excavation was performed.
+
+The new availability capture is 2151 bytes, SHA-256
+`31da36b18aa467051cda3e6f67f87bf2365a43aeaf2a196c06c0c37b5dc65386`.
+It parses completely and contains only context, drive roots and ten path/access
+results. Together with the seven original captures, the eight preserved files
+total 948206 bytes, still below 2 MiB. Its Git copy matches the local original
+byte-for-byte and contains no credential or authentication material.

@@ -5,15 +5,34 @@ capabilities, not claims that any historical implementation is authoritative.
 
 ## 1. Expression preprocessing
 
-Recovery status: **in progress** (incomplete checkpoint through Stage B4). See the
+Recovery status: **bounded HPC search concluded through B5/B5b; historical local
+paths newly accessible on D: and awaiting inspection**. See the
 [SCTransform recovery](docs/recovery/SCTRANSFORM_PREPROCESSING.md) and
 [evidence ledger](docs/recovery/SCTRANSFORM_EVIDENCE.md).
 
+| Aspect | Status |
+| --- | --- |
+| Scientific response intent | Recovered: log1p(corrected counts). |
+| Downstream exporter/handoff | Recovered: implemented behavior and recorded artifact links; actual sampler invocation is not certified. |
+| Historical normalization implementation | Unresolved. |
+| Uniform cross-section comparability | Unestablished. |
+| Replacement design | Not yet approved. |
+
+The ten-new/nine-reused historical branches are not proven comparable, and
+correction depths were explicitly not harmonized. Historical construction of
+log1p(corrected counts) is not certified for every section. This does not prove
+the procedures were wrong or permanently unrecoverable. No historical
+implementation has been selected.
+
+The user attached the historical drive during checkpoint preparation. All five
+known normalization paths are accessible under D:\johnston_brain. Their contents
+have not yet been inspected; this reopens targeted local recovery without changing
+the unresolved scientific statuses above.
+
 - Accept raw gene-expression counts and spatial/cell metadata.
 - Run SCTransform reproducibly.
-- Determine and document the intended modeled response, currently remembered as
-  `log1p(corrected counts)` rather than Pearson residuals or untransformed
-  corrected counts.
+- Use the recovered scientific response intent, `log1p(corrected counts)`, while
+  distinguishing it from unverified historical normalization behavior.
 - Preserve cell and gene identities, ordering, package versions, transformation
   settings, and fitted transformation state.
 
