@@ -1,10 +1,12 @@
-# SCTransform evidence ledger through Stage B3
+# SCTransform evidence ledger through Stage B4
 
 Checkpoint date: 2026-10-30. Scope: B1 metadata/provenance, B2 six-file source
-inspection, and the accepted B3 local handoff/HPC metadata increment. The B1/B2
-checkpoint remains available at `d2e7e5ea9db420fe2910cd54ac1e33040a0726db`.
-Earlier-stage sections below retain their stage-specific limits; the appended B3
-ledger records subsequent evidence. No implementation has been selected.
+inspection, accepted B3 local handoff/HPC metadata, and the accepted incomplete
+B4 exporter/provenance increment. B1/B2 remain available at
+`d2e7e5ea9db420fe2910cd54ac1e33040a0726db`; B3 at
+`71a7dcad7a2252157c7cd8e83bfb4bdd9a6b3b7a`. Earlier-stage sections retain their
+stage-specific limits. No implementation has been selected. No HPC reconnection
+was made to preserve this checkpoint; B5 has not begun.
 Historical labels such as CURRENT and PRODUCTION confer no authority.
 
 ## Evidence classes
@@ -49,7 +51,8 @@ Referenced HPC roots, not accessed during B1/B2:
 
 B3 identifies H-U as
 `/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1`.
-H-U was referenced by returned contracts but was not accessed.
+H-U was referenced by returned contracts but was not accessed during B3. B4's
+bounded inspection of that root is recorded in the appended ledger below.
 
 ## User decisions and repository context
 
@@ -480,3 +483,257 @@ response paths and locate actual sampler run-command records.
 
 No implementation is selected or imported. Neither the upstream SCTransform
 step nor actual sampler invocation is certified by this checkpoint.
+
+## B4 capture preservation and validation
+
+User decision U5: B4 was approved as bounded read-only upstream recovery, then
+accepted as an incomplete checkpoint. Preserve evidence and commit before B5.
+The user resolved the capture/code conflict explicitly: commit the three
+metadata-only captures and preserve the two source-text captures outside Git in
+the specified stable evidence directory. No HPC connection, historical program
+execution or further upstream inspection was performed to prepare this commit.
+
+**review.py does not itself implement SCTransform. sct_section.R is missing from
+the inspected package. Readiness records can reuse preexisting CSVs. Nine reused
+historical exports have separate unrecovered normalization implementations.
+Comparability across the ten-new/nine-reused branches is not established.
+log1p(corrected counts) remains the scientific intent, not a certified fact about
+every historical section.** No implementation is selected or imported.
+
+All original capture basenames below were in
+`C:\Users\Data Viz\AppData\Local\Temp\` (also exposed as the equivalent short
+path `C:\Users\DATAVI~1\AppData\Local\Temp\`). Copies preserve their UTF-16LE
+encoding/BOM and original bytes. The measured SHA-256 values below identify
+captures, not source files or scientific artifacts inside them.
+
+| Original basename | Preserved location | Bytes | Capture SHA-256 |
+| --- | --- | ---: | --- |
+| bsfm-b4-root-listing.txt | [Git: root listing](evidence/sctransform_b4/bsfm-b4-root-listing.txt) | 2938 | ac89b61748b25593e1b2b5d5c68c220dab0a4dad8c7dde4a435ab7a053c1a5f0 |
+| bsfm-b4-root-metadata.txt | [Git: README and indexes](evidence/sctransform_b4/bsfm-b4-root-metadata.txt) | 121256 | ceb96e0967a6b307eaa3486f1f56cd397ca1e164cbb492ca8833c5b15aae5b59 |
+| bsfm-b4-readiness-and-source-index.txt | [Git: readiness records and source hash](evidence/sctransform_b4/bsfm-b4-readiness-and-source-index.txt) | 33896 | 5a4699bcb15757276fd61a750d26ce77e5d2585a64fb6b9e4c0ae88c5964d9f4 |
+| bsfm-b4-source-declarations.txt | External path D below | 2892 | e142643c73f9a7c2ec75c638b760fc5073802e95fadeb2fb3f0dc60845f9683f |
+| bsfm-b4-preparation-source-excerpt.txt | External path X below | 19484 | 3a4140ada8241aecad31b4702bd4c0754a38caff471f8c19114535a96ab06da3 |
+
+Exact stable external paths (outside the repository, not included in its Git backup):
+
+- D: `C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_RECOVERY_EVIDENCE\sctransform_b4\bsfm-b4-source-declarations.txt`
+- X: `C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_RECOVERY_EVIDENCE\sctransform_b4\bsfm-b4-preparation-source-excerpt.txt`
+
+Both originate from
+`/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/review.py`.
+D contains locator matches at lines 19-22,24-25,29,31,33,39,67,139,167,215,248,279,281.
+Line 279 is an incidentally returned display-style constant; unrelated function
+bodies were not inspected. X contains exactly numbered lines 1-138, including
+preparation, candidate construction, helpers and imports. The remaining script
+was not captured. The full small source was hashed, not executed.
+
+Combined capture size is **180466 bytes**, below 2 MiB. The three Git captures
+total 158090 bytes; the two external captures total 22376 bytes. Every copy's hash
+was compared with its temporary original. A directory-local `.gitattributes`
+sets `*.txt -text`; source-text captures are deliberately excluded from Git.
+
+Validation of the existing captures established:
+
+- 23 complete metadata bodies: one README, one bundle JSON, two CSVs and 19 READY
+  JSON records. JSON decoding rejects duplicate keys, nonstandard constants and
+  trailing non-whitespace; CSV parsing checks row widths and complete fields.
+- All 23 bodies reconstruct to the remotely measured byte size and SHA-256 after
+  accounting for original LF/CRLF endings. The UTF-16LE stdout capture itself is
+  not presented as a byte-for-byte copy of each remote file.
+- The readiness acquisition had a 131072-byte size guard before cat, not a head
+  truncation limit. All 19 files were 539-643 bytes. No MISSING or TOO_LARGE result
+  occurred. The four root metadata files were read completely with cat.
+- The source excerpt contains every numbered line 1-138 exactly once. Its
+  deliberate range boundary is not accidental capture truncation. The root
+  listing and declaration locator completed successfully; no independent
+  complete-file hash exists for these generated textual outputs.
+- Content review and checks found no credential or authentication material:
+  no password/passphrase, private-key, authorization/bearer, API-key or token
+  patterns, authentication prompts, permission-denied messages, or terminal
+  escape sequences. Usernames and historical paths are provenance, not secrets.
+
+## B4 exact sources, paths and source hashes
+
+H-U retains the exact HPC root defined above. W means `E:\johnston_brain` and N
+means `E:\johnston_brain\artifacts\GENE_REVIEW_20261004`. W/N are historical
+references only; their present existence was not checked.
+
+| Inspected source | Range and evidence class |
+| --- | --- |
+| H-U and H-U/audit | One successful nonrecursive ls listing; file existence/size metadata. No archives, nested analysis directories or large data opened. |
+| H-U/README.txt | Complete, 69 content lines; documentation claims and stated rationale. |
+| H-U/BUNDLE_HASHES.json | Complete, lines 1-141, 139 entries; recorded artifact hashes/packaging relationships. |
+| H-U/audit/SECTIONS.csv | Complete, header plus 19 rows at lines 1-20; section registry and recorded counts. |
+| H-U/audit/GENE_EVIDENCE_INDEX.csv | Complete, header plus 300 gene records; historical inventory, not a new empirical comparison. |
+| H-U/sections/<section_id>/READY.json | All 19 exact section IDs in the B4 CSV; complete records, lines 1-13, fields at 2-12. Historical execution/provenance evidence with reuse limitations. |
+| H-U/review.py | Declaration locator and lines 1-138; static implemented behavior, not observed execution. |
+
+The [B4 section CSV](SCTRANSFORM_B4_SECTIONS.csv) enumerates every exact readiness
+path, its measured byte size/hash and its recorded SCT source path/hash. No
+wildcard in this ledger authorizes new reads. Source measurements below were
+made during the original B4 acquisition; no HPC rehash occurred during commit.
+
+| H-U-relative source | Remote bytes | Measured source SHA-256 |
+| --- | ---: | --- |
+| README.txt | 3982 | 2714a689b711e6b4ea57972b005ad4d6ceb8a2432719d312c104166e642b8678 |
+| BUNDLE_HASHES.json | 15469 | b138dc9868bbf7ee951d507f7933d90d6728dcb095d3014ccee53f4615f2655f |
+| audit/SECTIONS.csv | 13636 | 89579b28336b459f6a0bf5c7f82db2069c83d27072154502b7a1d8853544f513 |
+| audit/GENE_EVIDENCE_INDEX.csv | 26464 | e8f6fa2409940fa6783f39b21dfb26e8c04546e1cb8f4de96b123dcc0d4275e3 |
+| review.py | 25281 | 8b590e72c4333a1241d5d3fca110cabc1b0cb43da7b5d3b8a8d96788b953173f |
+
+The measured review.py and indexed metadata hashes match their bundle entries;
+all 19 measured READY hashes also match. Large NPZ/CSV/RDS objects were neither
+opened nor freshly hashed. SCT source and input.npz hashes remain historical
+recorded values, distinct from these fresh small-file measurements.
+
+## B4 implemented boundaries and evidence classifications
+
+| ID / class | Evidence and limit |
+| --- | --- |
+| B4-1 / User decision | Retain log1p(corrected counts) as scientific intent; accept incomplete B4 recovery; no selection/import; preserve source captures outside Git; stop before B5. |
+| B4-2 / Implemented behavior | review.py:19-22,70-80 names W/Johnston_MERFISH_Data.h5ad, reads layers/RNA, var/_index, obs/_index, obsm/spatial, sample codes, gen_fine, cluster_coarse and region_labels. Section mask combines sample code and fine label; integer-proximity and section-count assertions follow. No earlier H5AD filtering or raw-data authentication was recovered. |
+| B4-3 / Implemented behavior | review.py:82-94 reuses W/sct_work/sct{4,6,14,15,16,17}.csv. Named companions are s{number}_cells.npz (global indices/coordinate assertions), with c15.mtx as the count-comparison fallback. None was opened. |
+| B4-4 / Implemented behavior | review.py:95-109 reuses W/region_story/hipp_build_ad/S01_sct.csv with S01_cellmeta.csv; hipp_build_s08/sct.csv with cellmeta.csv; and hipp_build_s12ad/sct.csv with cellmeta.csv. It checks ordered coordinates (direct or swapped), type labels and expected column identifiers. Companions were not opened. |
+| B4-5 / Implemented behavior | review.py:110-118 prepares all selected section cells and input genes before glial selection, writes counts.mtx/genes.txt/cells.txt, then conditionally invokes OUT/sct_section.R using the configured R-4.5.3 executable path and logs to sct.log. No SCTransform function call is implemented in review.py itself. R-side filtering/fitting is unknown. |
+| B4-6 / Implemented behavior | review.py:121-130 reads the SCT CSV, checks exact expected column order and unique valid gene names, reindexes into original gene order, checks availability over all section cells and nonnegativity of available rows, then selects Mic/AST/OGC. It exports genes x glial cells without another log, centering or scaling. |
+| B4-7 / Execution evidence, limited | READY.json:2-12 records section/counts, branch, SCT source/hash, alignment proof, scale and normalization descriptions. review.py:77 skips existing READY; :112-119 skips R for an existing new-branch CSV while still describing it as newly fitted. Records do not prove that a particular preparation invocation executed R or identify executed R source bytes. Assertions can also be disabled. |
+| B4-8 / Documentation claim | README.txt:13-20 claims section-specific SCT v2, all cells/300 genes before glial subsetting, no pooling, no Pearson residuals, no second log1p and no SD standardization. It explicitly disclaims cross-section correction-depth harmonization and knowledge of legacy models/reference depths. These claims do not recover the missing recipe. |
+| B4-9 / Downstream consumption | All 19 bundle input.npz hashes match B3's recorded source_input_sha256. This links recorded exported artifacts to preparation/GPINIT, not to independently inspected NPZ bytes or actual sampler commands. |
+| B4-10 / Unresolved gap | sct_section.R is absent from the root listing and bundle manifest. No actual SCTransform arguments, corrected-count assay/slot/layer, upstream log count, Seurat/sctransform versions, runtime R version or R seed has been recovered. Nine legacy creators remain uninspected. Branch comparability and per-section response certification are not established. |
+
+Output field definitions and the complete raw-source/export graph are in the
+[B4 preprocessing increment](SCTRANSFORM_PREPROCESSING.md#b4-accepted-incomplete-increment),
+with exact review.py line references. No random operation or seed appears in the
+inspected preparation path; that does not determine R-side seeds. The configured
+R executable path is not runtime version evidence. Values in READY and README
+are not substituted for measured package versions or an executed command record.
+
+### All-section table semantics and checks
+
+SCTRANSFORM_B4_SECTIONS.csv has 19 rows in registry order and 12 columns:
+section_id, all_cell_count, glial_count, available_gene_count,
+normalization_branch, recorded_sct_source_path, recorded_sct_source_sha256,
+readiness_path, readiness_bytes, readiness_sha256, downstream_input_path and
+downstream_input_sha256. The last hash is the recorded H-U input.npz hash consumed
+by later preparation, not a GPINIT or centered-observation hash.
+
+`new_SCT_recorded` means READY reused_SCT=false (ten rows), not a freshly verified
+R execution. `historical_SCT_reused` means reused_SCT=true (nine rows). The field
+itself is generated from whether the source path begins with the destination
+path (review.py:132). All paths/hashes are exact captured values or explicit
+manifest paths. No inferred creator filename is inserted in the CSV.
+
+Every row's all-cell count equals the section registry; glial count equals
+n_Mic+n_AST+n_OGC and B3 full_cells. Every row records 300 available genes and
+matching measured READY/manifest hashes. All 19 manifest input hashes agree with
+B3. Registry section order agrees, including both different S12 identifiers.
+
+README.txt:6-9 describes 72 review candidates; review.py:39-65 derives them from
+the S15/S6 panel flags and paper-motivated candidates, but does not use them to
+restrict Y. The saved CANDIDATES.csv was indexed, not read. The 300 available genes,
+72 review candidates and later 91 modeled genes concern different stages. The
+final 91-gene selection rationale is not established by this candidate table.
+
+### Chronology, rationale and contradictions
+
+README.txt:1 dates the review to 2026-10-04. Its scope (:6-9) combines prior S15/S6
+panels with paper-motivated candidates. The stated normalization rationale
+(:13-20; review.py:3) is to authenticate/reuse prior exports and normalize missing
+sections individually. This documents intent to fill coverage, not an empirical
+demonstration of improved normalization. No inspected historical user approval
+or normalization comparison substantiates superiority.
+
+Nine exports come from sct_work/region_story; ten new-source paths point to N.
+The Windows configuration and stored paths are consistent with preparation there
+and transfer to HPC, but exact execution and transfer chronology is an inference,
+not a recovered run log. The 19 hash links establish later recorded adoption by
+the B3 chain, not normalization certification or actual sampler invocation.
+No abandonment decision was recovered.
+
+The main provenance discrepancies are the missing required R script; version/model
+retention claims without recovered records; and a uniform downstream SCT-v2-log1p
+label hiding two upstream branches. The README explicitly documents no depth
+harmonization. None of these findings proves a numerical preprocessing error.
+Identity checks do not establish normalization semantics. The prior centering
+result remains valid within its original mathematical/artifact assumptions.
+
+## B4 acquisition commands
+
+These record the completed B4 reads, not instructions to rerun them. No credentials
+or authentication input are recorded. Successful reads used this PowerShell form,
+substituting the capture basename and remote body below:
+
+```powershell
+$metadataOutput = Join-Path $env:TEMP '<capture-basename>'
+$remoteRead = '<remote-body, with embedded single quotes doubled for PowerShell>'
+& 'C:\Windows\System32\OpenSSH\ssh.exe' -p 222 -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=yes abussing@login.rci.sc.edu $remoteRead > $metadataOutput
+Write-Output "SSH exit code: $LASTEXITCODE"
+```
+
+For bsfm-b4-root-listing.txt:
+
+```sh
+ls -lan -- /work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1 /work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/audit
+```
+
+For bsfm-b4-root-metadata.txt:
+
+```sh
+b=/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1; for f in $b/README.txt $b/BUNDLE_HASHES.json $b/audit/SECTIONS.csv $b/audit/GENE_EVIDENCE_INDEX.csv; do echo BSFM_FILE:$f; wc -c < $f; sha256sum $f; cat $f; echo; done
+```
+
+For bsfm-b4-readiness-and-source-index.txt:
+
+```sh
+b=/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1; echo BSFM_SOURCE_INDEX:$b/review.py; wc -c < $b/review.py; sha256sum $b/review.py; rg -n '^(def |class |[A-Z_][A-Z_0-9]* *=)' $b/review.py; for s in S00__Trem2_5xFAD4 S01__5xFAD4 S02__Trem2_4 S03__Trem2_5xFAD3 S04__WT3 S05__Trem2_3 S06__5xFAD3 S07__Trem2_5xFAD5 S08__5xFAD5 S09__Trem2_5 S10__WT5 S11__Trem2_5xFAD1 S12__Trem2_1 S12__Trem2_5xFAD2 S13__Trem2_2 S14__WT1 S15__5xFAD1 S16__WT2 S17__5xFAD2; do f=$b/sections/$s/READY.json; echo BSFM_FILE:$f; if test -f $f; then n=$(wc -c < $f); echo $n; if test $n -le 131072; then sha256sum $f; cat $f; else echo TOO_LARGE; fi; else echo MISSING; fi; echo; done
+```
+
+rg was unavailable; that locator failed, but the source size/hash and all readiness
+reads succeeded. Consequently this capture contains no source-code declarations.
+The locator was repeated using grep, producing external capture D:
+
+```sh
+f=/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/review.py; grep -nE '^(def |class |[A-Z_][A-Z_0-9]* *=)' $f
+```
+
+For external source excerpt X:
+
+```sh
+head -n 138 /work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/review.py | nl -ba
+```
+
+An initial listing connection returned no captured output and did not record the
+SSH exit code; it supplies no evidence. The successful retry recorded exit zero.
+An earlier locator/readiness command used double quotes around the regex, which
+were stripped during native argument passing; remote shell parsing failed before
+file reads. The corrected command above supplied the retained evidence. All
+successful acquisition bodies were read-only shell utilities, not project code.
+
+Local preservation used byte copies and SHA-256 comparisons; Python standard
+library JSON/CSV parsing reconstructed remote metadata bytes from the stdout
+captures and checked counts/hashes against the B3 CSV. These checks operated only
+on existing small local evidence and did not execute any historical implementation.
+
+## B5 proposed boundary, not begun
+
+The exact missing reference is H-U/sct_section.R (review.py:118). Its historical
+Windows location is inferred as `E:\johnston_brain\artifacts\GENE_REVIEW_20261004\sct_section.R`
+from OUT and the recorded new-export destinations. Its existence was not checked.
+An approved continuation should locate that small source and directly referenced
+helpers, then small sct.log and environment/version records for the ten new sections.
+Names of additional version records are not yet known; no RDS/model is to be
+opened as a substitute for provenance.
+
+Creator filenames for the nine reused exports are not recovered. A separate
+bounded nonrecursive discovery would be needed in these exact historical roots:
+
+- `E:\johnston_brain\sct_work`
+- `E:\johnston_brain\region_story\hipp_build_ad`
+- `E:\johnston_brain\region_story\hipp_build_s08`
+- `E:\johnston_brain\region_story\hipp_build_s12ad`
+
+No such discovery occurred. Exact source CSV paths are recorded in the B4 table,
+but no large CSV, NPZ, H5AD, RDS, archive or fitted model was inspected or hashed.
+Both normalization branches must be understood before declaring this capability
+recovered. B5 requires review/approval before expansion; this checkpoint selects
+no implementation and certifies neither expression scale nor branch comparability.

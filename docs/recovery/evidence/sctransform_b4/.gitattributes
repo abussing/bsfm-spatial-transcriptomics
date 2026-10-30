@@ -1,0 +1,2 @@
+# Preserve the original UTF-16LE metadata captures byte-for-byte.
+*.txt -text

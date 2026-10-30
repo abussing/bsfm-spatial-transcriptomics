@@ -1,16 +1,22 @@
-# SCTransform preprocessing recovery through Stage B3
+# SCTransform preprocessing recovery through Stage B4
 
 Checkpoint date: 2026-10-30. Status: **in progress**.
 
 **No implementation has been selected.** Historical files are evidence, not
 authoritative implementations. B1/B2 are preserved at commit
-`d2e7e5ea9db420fe2910cd54ac1e33040a0726db`. This increment adds the accepted B3
-local handoff inspection and historical HPC metadata trace across all 19 sections.
-The B1/B2 sections retain their original evidence boundary; the B3 section below
-states what was subsequently established and what remains unresolved. The three
-existing B3 metadata captures are preserved byte-for-byte; no HPC reconnection
-or scientific execution was used to prepare this increment. No legacy
-implementation is included in this repository.
+`d2e7e5ea9db420fe2910cd54ac1e33040a0726db`; B3 is preserved at
+`71a7dcad7a2252157c7cd8e83bfb4bdd9a6b3b7a`. This increment records the accepted,
+incomplete B4 upstream exporter recovery. Earlier-stage sections retain their
+historical evidence boundaries. No HPC reconnection or historical scientific
+execution was used to prepare this checkpoint. B5 has not begun.
+
+**Certification remains incomplete:** `review.py` does not itself implement
+SCTransform. Its `sct_section.R` dependency is missing from the inspected package.
+Readiness records can reuse preexisting CSVs. Nine reused historical exports have
+separate unrecovered normalization implementations; ten sections are recorded as
+newly normalized. Comparability across these two branches is not established,
+and correction depths were explicitly not harmonized. **`log1p(corrected counts)`
+is the scientific intent, not yet a certified fact about every historical section.**
 
 ## Stated scientific intent
 
@@ -310,3 +316,111 @@ The separate sampler-consumption gap requires the response-path portions of
 must be established before expanding inspection. No implementation has been
 selected or imported; neither SCTransform creation nor actual sampler invocation
 has been certified.
+
+## B4 accepted incomplete increment
+
+The user accepted B4 as an important but incomplete provenance checkpoint.
+`H-U/review.py` was identified as the exporter; it does not implement SCTransform
+itself. The [B4 ledger](SCTRANSFORM_EVIDENCE.md#b4-capture-preservation-and-validation)
+records acquisition, source hashes and evidence limits. The
+[B4 section table](SCTRANSFORM_B4_SECTIONS.csv) records all 19 source branches and
+artifact links. Metadata captures are preserved in Git; the two captures containing
+legacy source text are preserved outside Git at the user's specified stable paths.
+
+### Raw source and export graph
+
+W denotes `E:\johnston_brain`; N denotes
+`E:\johnston_brain\artifacts\GENE_REVIEW_20261004`. These are historical Windows
+references, not newly accessed locations. Source references below are to the
+measured `H-U/review.py`, lines 1-138 only.
+
+```text
+W/Johnston_MERFISH_Data.h5ad
+  layers/RNA + var/_index + observation labels/identities + obsm/spatial
+  -> section mask: sample code AND gen_fine section label
+  -> all selected section cells and original genes
+       |
+       +-> nine reused historical SCT CSVs
+       |     -> branch-specific cell/coordinate/count identity checks
+       |
+       +-> ten recorded new sections
+             -> counts.mtx + genes.txt + cells.txt
+             -> OUT/sct_section.R [missing from inspected package]
+             -> sct_data.csv.gz [may already exist; R invocation then skipped]
+       |
+       -> read SCT CSV; check exact expected cell-column order and gene names
+       -> reindex into original gene order; compute per-gene availability
+       -> select Mic/AST/OGC cells in original source-row order
+       -> input.npz Y: genes x glial cells, no added log/centering/scaling
+       -> B1/B2 panel selection and centering -> B3 observations/GPINIT links
+```
+
+| Transition | Implemented behavior and limits |
+| --- | --- |
+| Raw source | `review.py:70-80` reads H5AD `layers/RNA` and asserts proximity to integers within 1e-8. Earlier provenance/filtering of this H5AD is not recovered; no H5AD was opened during recovery. |
+| Section selection | `:71-79` uses sample codes and `gen_fine`, checks registry cell counts, and preserves source-row order. Both S12 sections are separately selected by their fine labels. |
+| Legacy branch | `:82-94` uses six sct_work exports and checks global row/coordinate identities, or raw-count equality. `:95-109` uses three region_story exports and checks ordered coordinates (allowing a global x/y swap), labels and column identifiers. These are identity checks, not proof of the normalization recipe. |
+| New R inputs | `:110-115` rounds counts to integers, casts int32 and transposes to genes x cells before export. Glial selection occurs later. The missing R implementation prevents verification of its internal filtering or actual fitting population. |
+| R dispatch | `:22,117-118` configures `C:/Program Files/R/R-4.5.3/bin/Rscript.exe`, passes `OUT/sct_section.R` and the section directory, captures `sct.log`, and checks subprocess success. The configured executable path is not a measured runtime version. |
+| Expression alignment | `:121-125` reads the CSV, requires its column names in expected order and unique genes from the original list, reindexes rows and converts values to float. Available genes must have nonnegative expression. |
+| Glial export | `:126-130` retains Mic, AST and OGC in original source order. Y is exported without another log, centering or variance scaling. The later B1/B2 preparation performs stable type grouping and centering. |
+| Readiness | `:131-135` records dimensions, SCT source/hash, identity-check description and an already-log1p claim. A preexisting READY record skips the whole section (`:77`); a preexisting new-branch CSV skips R (`:112-119`). |
+
+| Output field | Meaning at export (`review.py:124-130`) |
+| --- | --- |
+| Y | Aligned SCT CSV values, genes x glial cells. Upstream corrected-count/log1p construction remains unverified. |
+| raw | Glial subset of layers/RNA, transposed and cast to int32. |
+| genes | Original H5AD var/_index order. |
+| types | Original cluster_coarse labels for selected cells: Mic, AST, OGC. |
+| available | Finite expression across all selected section cells, before glial subsetting; unavailable rows remain represented after reindexing. |
+| source_rows / native_cell_names | Global H5AD row indices / original observation names for retained cells. |
+| cell_names / xy / regions | Branch-specific SCT column names / native coordinates / region labels, aligned to retained cells. |
+
+### Two normalization lineages and three gene sets
+
+The 19 READY records classify **ten new SCT exports and nine reused historical
+exports**. This describes recorded provenance, not ten independently observed R
+executions. The reused branches are:
+
+- sct_work: S04, S06, S14, S15, S16 and S17;
+- region_story: S01, S08 and S12__Trem2_5xFAD2.
+
+Every exact section ID and source path is in the B4 CSV. For all 19 sections,
+readiness all-cell counts equal the registry, glial counts equal the sum of the
+three type counts and B3's full-cell counts, and 300 genes are recorded available.
+Fresh readiness hashes match the bundle; all 19 recorded bundle input hashes
+match B3's recorded upstream source hashes. These are verified metadata
+comparisons, not fresh matrix hash/content verification or sampler execution.
+
+| Gene count | Stage and evidence |
+| --- | --- |
+| 300 available | Every READY record reports 300; audit/GENE_EVIDENCE_INDEX.csv has 300 records. The exporter retains the original gene list and computes availability. This is not a newly inspected matrix shape. |
+| 72 review candidates | README.txt:6-9 describes the union of prior S15/S6 panels and paper-motivated genes. review.py:39-65 builds candidates separately; preparation does not use that list to restrict Y. The saved CANDIDATES.csv was not read in B4. |
+| 91 modeled genes | B1/B2 panel selection and B3 contracts describe the later common modeling panel. This does not imply that the 72-candidate review established that panel's final selection rationale. |
+
+### Certification gap and B5 boundary
+
+README.txt:13-20 claims per-section SCT v2, no Pearson-residual input, no second
+log1p and no SD standardization. It explicitly states that cross-section
+correction depths were not harmonized and legacy models/reference depths were
+not known. READY records repeat the already-log1p and non-harmonization claims.
+
+The exporter establishes no extra log or scaling at its own boundary. It does
+not establish the original assay/slot/layer, corrected-count definition, number
+of upstream log applications, SCTransform arguments, package versions, seeds or
+execution provenance. The two normalization branches are not yet shown comparable.
+This is a provenance gap, not a demonstrated numerical preprocessing failure.
+The earlier centering findings remain intact.
+
+The README's stated purpose was to authenticate/reuse existing exports and fill
+missing section coverage. No inspected normalization comparison or historical
+user approval establishes superiority. Subsequent artifact adoption is supported
+by the 19 recorded hash links to B3; actual sampler invocation remains unresolved.
+
+B5 is proposed, not performed. First locate the missing sct_section.R. Its
+package-relative reference is H-U/sct_section.R; the inferred historical Windows
+location is N/sct_section.R, whose existence is unverified. Then recover small
+version/execution records for the ten new sections and the creator implementations
+for the nine reused exports. External paths and narrow proposed discovery roots
+are recorded in the ledger. No external location was followed during B4 or this
+checkpoint. No implementation is selected or imported.
