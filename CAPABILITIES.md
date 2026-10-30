@@ -5,6 +5,10 @@ capabilities, not claims that any historical implementation is authoritative.
 
 ## 1. Expression preprocessing
 
+Recovery status: **in progress** (checkpoint through Stage B2). See the
+[SCTransform recovery](docs/recovery/SCTRANSFORM_PREPROCESSING.md) and
+[evidence ledger](docs/recovery/SCTRANSFORM_EVIDENCE.md).
+
 - Accept raw gene-expression counts and spatial/cell metadata.
 - Run SCTransform reproducibly.
 - Determine and document the intended modeled response, currently remembered as
