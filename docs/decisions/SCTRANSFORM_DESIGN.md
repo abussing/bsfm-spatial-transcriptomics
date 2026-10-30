@@ -232,32 +232,35 @@ not change the panel or normalization rule to make a check pass. The value 124
 applies to the full-data population above and must not be inherited silently
 by training-only spatial holdout preprocessing.
 
-### Environment feasibility gate
+### Accepted environment feasibility gate and version amendment
 
-Initially target the recovered version set, not whichever packages are newest:
+The [canonical environment decision](SCTRANSFORM_ENVIRONMENT.md) now freezes
+the following build target after the feasibility gate and explicit user approval:
 
-| Component | Initial exact version target |
+| Component | Frozen version |
 | --- | --- |
 | R | 4.5.3 |
+| Bioconductor | 3.22 |
 | Seurat | 5.4.0 |
 | sctransform | 0.4.3 |
 | Matrix | 1.7-4 |
 | SeuratObject | 5.4.0 |
-| glmGamPoi | 1.25.1 |
+| glmGamPoi | 1.22.0 |
 
-These targets come from the ten new-section session records; they are not a
-certified reproducible environment. glmGamPoi 1.25.1 is a development build.
-Its exact source/dependency identity must be reconstructed rather than resolved
-from a moving development repository.
-[Official glmGamPoi development record](https://bioconductor.org/packages/devel/bioc/html/glmGamPoi.html).
+This deliberately replaces the historically recorded glmGamPoi 1.25.1
+development target with released 1.22.0. It is not an exact historical
+reconstruction or a claim of numerical equivalence. Historical session records
+remain unchanged. See the [feasibility evidence](../environment/SCTRANSFORM_ENVIRONMENT_FEASIBILITY.md)
+for established source identities and remaining acquisition/build gaps.
 
-Require a complete dependency lockfile, immutable package-source identities and
-a reproducible container/build specification with image digest, OS/compiler/BLAS
-and thread information. If the exact development build cannot be reconstructed,
-require an explicit documented version amendment approved by the user; no silent
-substitution or fallback. A version change does not automatically reopen the
-frozen scientific choices, but its numerical consequences require validation.
-No environment is installed or built by this decision checkpoint.
+Initial execution targets an isolated, user-owned local Windows environment,
+with a real renv lock, immutable source/binary hashes and exact session/build
+records. Add a Linux verification container after the local source-locked
+environment works. Current HPC container compatibility is unresolved and no
+HPC normalization job is approved. Acquisition, installation and validation
+remain separate future steps; no environment has been built by this decision.
+The environment decision defines the required method, fitting-population,
+determinism, layer-equality, common-depth correction and bounded S00 checks.
 
 ### Artifact requirements
 
@@ -322,8 +325,9 @@ holdout implementation specification before running validation:
 
 The scientific choices above are authoritative repository decisions. Raw-input
 preflight and full-data depth 124 are accepted for the recorded fingerprint.
-Exact R environment feasibility and holdout implementation design remain
-pending. The canonical Python preflight is the first implemented code; it
+The R environment specification is approved; acquisition, build, environment
+validation and holdout implementation design remain pending. The canonical
+Python preflight is the first implemented code; it
 does not run SCTransform, import legacy source, submit jobs or certify a
 generated response. Future changes to frozen scientific choices require an
 explicit decision amendment; historical findings remain preserved as evidence.

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SCTransform frozen environment specification (pre-acquisition)",
+  "description": "Validates this decision checkpoint, not an installed environment or completed source lock.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema_version", "decision_date", "baseline_commit", "status", "authority", "frozen_versions", "amendment", "execution", "source_records", "dependency_lock", "accepted_raw_contract", "validation_contract", "current_execution_authorization", "references"],
+  "properties": {
+    "$schema": {"const": "environment-spec.schema.json"},
+    "schema_version": {"const": 1},
+    "decision_date": {"type": "string", "format": "date"},
+    "baseline_commit": {"$ref": "#/$defs/git_id"},
+    "status": {"const": "frozen_specification_not_built"},
+    "authority": {"const": "explicit_user_decision"},
+    "frozen_versions": {
+      "const": {"R": "4.5.3", "Bioconductor": "3.22", "Seurat": "5.4.0", "SeuratObject": "5.4.0", "sctransform": "0.4.3", "Matrix": "1.7-4", "glmGamPoi": "1.22.0"}
+    },
+    "amendment": {
+      "type": "object",
+      "required": ["package", "historical_version", "selected_version", "reason", "exact_historical_reconstruction", "numerical_equivalence_established"],
+      "properties": {
+        "package": {"const": "glmGamPoi"},
+        "historical_version": {"const": "1.25.1"},
+        "selected_version": {"const": "1.22.0"},
+        "reason": {"type": "string", "minLength": 1},
+        "exact_historical_reconstruction": {"const": false},
+        "numerical_equivalence_established": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "execution": {"type": "object", "required": ["initial_platform", "environment_location", "hpc_normalization_approved"], "properties": {"initial_platform": {"const": "Windows x86_64"}, "environment_location": {"type": "null"}, "hpc_normalization_approved": {"const": false}}},
+    "source_records": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"$ref": "#/$defs/source"}},
+    "dependency_lock": {"type": "object", "required": ["status", "renv_version", "transitive_dependency_versions"], "properties": {"status": {"const": "not_generated"}, "renv_version": {"type": "null"}, "transitive_dependency_versions": {"type": "null"}}},
+    "accepted_raw_contract": {"type": "object", "required": ["sha256", "full_data_depth", "holdout_depth_is_not_inherited"], "properties": {"sha256": {"$ref": "#/$defs/sha256"}, "full_data_depth": {"const": 124}, "holdout_depth_is_not_inherited": {"const": true}}},
+    "validation_contract": {
+      "type": "object",
+      "required": ["status", "effective_method", "fallback_allowed", "all_requested_fitting_cells_required", "minimum_fresh_session_synthetic_repeats", "layer_equality_tolerance", "canonical_correction", "S00_gate", "all_sections_gate"],
+      "properties": {
+        "status": {"const": "required_not_run"},
+        "effective_method": {"const": "glmGamPoi_offset"},
+        "fallback_allowed": {"const": false},
+        "all_requested_fitting_cells_required": {"const": true},
+        "minimum_fresh_session_synthetic_repeats": {"type": "integer", "minimum": 2},
+        "layer_equality_tolerance": {"const": 0},
+        "canonical_correction": {"const": "sctransform::correct_counts"},
+        "S00_gate": {"type": "string", "minLength": 1},
+        "all_sections_gate": {"type": "string", "minLength": 1}
+      }
+    },
+    "current_execution_authorization": {
+      "type": "object",
+      "required": ["package_download", "package_installation", "environment_build", "synthetic_SCTransform", "real_section_SCTransform", "HPC_jobs"],
+      "additionalProperties": {"const": false}
+    },
+    "references": {"type": "object", "additionalProperties": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "git_id": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "git_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "observed_ref", "commit", "tag_object", "description_url", "description_bytes", "description_sha256"],
+      "properties": {
+        "repository": {"type": "string", "format": "uri"},
+        "observed_ref": {"type": "string", "minLength": 1},
+        "commit": {"$ref": "#/$defs/git_id"},
+        "tag_object": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/git_id"}]},
+        "description_url": {"type": "string", "format": "uri"},
+        "description_bytes": {"type": "integer", "minimum": 1},
+        "description_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["component", "version", "archive_url", "observed_head_status", "observed_content_length", "archive_sha256", "archive_status", "git", "advertised_archive_md5", "limitation"],
+      "properties": {
+        "component": {"enum": ["R", "Seurat", "SeuratObject", "sctransform", "Matrix", "glmGamPoi"]},
+        "version": {"type": "string", "minLength": 1},
+        "archive_url": {"type": "string", "format": "uri"},
+        "observed_head_status": {"enum": [200, 403]},
+        "observed_content_length": {"type": ["integer", "null"], "minimum": 1},
+        "archive_sha256": {"type": "null"},
+        "archive_status": {"const": "not_downloaded"},
+        "git": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/git_source"}]},
+        "advertised_archive_md5": {"type": ["string", "null"], "pattern": "^[0-9a-f]{32}$"},
+        "limitation": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

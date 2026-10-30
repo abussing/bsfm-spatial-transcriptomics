@@ -1,0 +1,199 @@
+{
+  "$schema": "environment-spec.schema.json",
+  "schema_version": 1,
+  "decision_date": "2026-10-30",
+  "baseline_commit": "c88fdefd746887f0cca818b794ccfbce5035c9aa",
+  "status": "frozen_specification_not_built",
+  "authority": "explicit_user_decision",
+  "frozen_versions": {
+    "R": "4.5.3",
+    "Bioconductor": "3.22",
+    "Seurat": "5.4.0",
+    "SeuratObject": "5.4.0",
+    "sctransform": "0.4.3",
+    "Matrix": "1.7-4",
+    "glmGamPoi": "1.22.0"
+  },
+  "amendment": {
+    "package": "glmGamPoi",
+    "historical_version": "1.25.1",
+    "selected_version": "1.22.0",
+    "reason": "Explicitly select the released Bioconductor 3.22 stack for uniform regeneration; the historical development build lacks run-to-source attestation.",
+    "exact_historical_reconstruction": false,
+    "numerical_equivalence_established": false
+  },
+  "execution": {
+    "initial_platform": "Windows x86_64",
+    "environment_ownership": "user",
+    "environment_location": null,
+    "isolate_from_existing_R_and_libraries": true,
+    "future_container_platform": "Linux",
+    "container_gate": "after_source_locked_local_environment_validation",
+    "container_definition_created": false,
+    "hpc_runtime_observed": "Singularity 2.3.1-dist",
+    "modern_image_compatibility": "unverified",
+    "hpc_normalization_approved": false
+  },
+  "source_records": [
+    {
+      "component": "R",
+      "version": "4.5.3",
+      "archive_url": "https://cran.r-project.org/src/base/R-4/R-4.5.3.tar.gz",
+      "observed_head_status": 200,
+      "observed_content_length": 40518619,
+      "archive_sha256": null,
+      "archive_status": "not_downloaded",
+      "git": null,
+      "advertised_archive_md5": null,
+      "limitation": "Source archive metadata only; Windows distribution identity not yet established."
+    },
+    {
+      "component": "Seurat",
+      "version": "5.4.0",
+      "archive_url": "https://cran.r-project.org/src/contrib/Archive/Seurat/Seurat_5.4.0.tar.gz",
+      "observed_head_status": 200,
+      "observed_content_length": 2109993,
+      "archive_sha256": null,
+      "archive_status": "not_downloaded",
+      "git": {
+        "repository": "https://github.com/satijalab/seurat.git",
+        "observed_ref": "refs/tags/v5.4.0",
+        "commit": "083a1b0d6c7732f2f116883885d79d6214ce180f",
+        "tag_object": null,
+        "description_url": "https://raw.githubusercontent.com/satijalab/seurat/083a1b0d6c7732f2f116883885d79d6214ce180f/DESCRIPTION",
+        "description_bytes": 6163,
+        "description_sha256": "1004fa25ff83ce38534a991c6c72ae5236d8da03167525971238cb1219ee84ea"
+      },
+      "advertised_archive_md5": null,
+      "limitation": "Git identity is established; archive-to-Git equality has not been measured."
+    },
+    {
+      "component": "SeuratObject",
+      "version": "5.4.0",
+      "archive_url": "https://cran.r-project.org/src/contrib/SeuratObject_5.4.0.tar.gz",
+      "observed_head_status": 200,
+      "observed_content_length": 773785,
+      "archive_sha256": null,
+      "archive_status": "not_downloaded",
+      "git": {
+        "repository": "https://github.com/satijalab/seurat-object.git",
+        "observed_ref": "refs/tags/v5.4.0",
+        "commit": "61b2d5c53ce7500c7df033b129f85f95749b8b42",
+        "tag_object": null,
+        "description_url": "https://raw.githubusercontent.com/satijalab/seurat-object/61b2d5c53ce7500c7df033b129f85f95749b8b42/DESCRIPTION",
+        "description_bytes": 4064,
+        "description_sha256": "bb306822ecb234413b1d6176f9abdf830bcd1277ba51a1ab234d96320738c4f9"
+      },
+      "advertised_archive_md5": "bd4458cced57f2ebe9f11a07d206821e",
+      "limitation": "MD5 is advertised by CRAN, not independently measured; archive-to-Git equality untested."
+    },
+    {
+      "component": "sctransform",
+      "version": "0.4.3",
+      "archive_url": "https://cran.r-project.org/src/contrib/sctransform_0.4.3.tar.gz",
+      "observed_head_status": 200,
+      "observed_content_length": 187408,
+      "archive_sha256": null,
+      "archive_status": "not_downloaded",
+      "git": {
+        "repository": "https://github.com/satijalab/sctransform.git",
+        "observed_ref": "refs/tags/v0.4.3",
+        "commit": "49e35b5aeb76a602910207cbfde1561093340be3",
+        "tag_object": "8b9a9c9f395ce27f1d1222aed594794f91595c2a",
+        "description_url": "https://raw.githubusercontent.com/satijalab/sctransform/49e35b5aeb76a602910207cbfde1561093340be3/DESCRIPTION",
+        "description_bytes": 1591,
+        "description_sha256": "5622d89dbb2c301865627c0fdc5f064be311252bbcc103868fc0e993c23570fb"
+      },
+      "advertised_archive_md5": "205eb676c175048bed55b73f60f8def1",
+      "limitation": "Commit is the peeled tag target. MD5 is advertised; archive-to-Git equality untested."
+    },
+    {
+      "component": "Matrix",
+      "version": "1.7-4",
+      "archive_url": "https://cran.r-project.org/src/contrib/Archive/Matrix/Matrix_1.7-4.tar.gz",
+      "observed_head_status": 200,
+      "observed_content_length": 2485182,
+      "archive_sha256": null,
+      "archive_status": "not_downloaded",
+      "git": null,
+      "advertised_archive_md5": null,
+      "limitation": "Archive metadata only; no immutable Git identity established in this gate."
+    },
+    {
+      "component": "glmGamPoi",
+      "version": "1.22.0",
+      "archive_url": "https://bioconductor.org/packages/3.22/bioc/src/contrib/glmGamPoi_1.22.0.tar.gz",
+      "observed_head_status": 403,
+      "observed_content_length": null,
+      "archive_sha256": null,
+      "archive_status": "not_downloaded",
+      "git": {
+        "repository": "https://git.bioconductor.org/packages/glmGamPoi",
+        "observed_ref": "refs/heads/RELEASE_3_22",
+        "commit": "908cde9d595259b4a317343ddfbcf20036ef0895",
+        "tag_object": null,
+        "description_url": "https://raw.githubusercontent.com/const-ae/glmGamPoi/908cde9d595259b4a317343ddfbcf20036ef0895/DESCRIPTION",
+        "description_bytes": 1704,
+        "description_sha256": "ae961003a5705acd92c522572fba81a2912ae5646f3f925a105e3473c04aee0e"
+      },
+      "advertised_archive_md5": null,
+      "limitation": "Archive HEAD blocked for this client; release commit and version metadata accessible. No acquisition route or archive-to-Git equality validated."
+    }
+  ],
+  "dependency_lock": {
+    "status": "not_generated",
+    "renv_version": null,
+    "BiocManager_version": null,
+    "transitive_dependency_versions": null,
+    "Windows_R_distribution_sha256": null,
+    "compiler_toolchain": null,
+    "require_source_and_any_installed_binary_hashes": true,
+    "require_full_dependency_lock": true
+  },
+  "accepted_raw_contract": {
+    "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
+    "bytes": 5483600151,
+    "eligible_cells": 432794,
+    "genes": 300,
+    "sections": 19,
+    "full_data_depth": 124,
+    "holdout_depth_is_not_inherited": true,
+    "smoke_section": "S00__Trem2_5xFAD4",
+    "smoke_eligible_cells": 20719
+  },
+  "validation_contract": {
+    "status": "required_not_run",
+    "vst_flavor": "v2",
+    "effective_method": "glmGamPoi_offset",
+    "fallback_allowed": false,
+    "all_requested_fitting_cells_required": true,
+    "actual_fitting_cell_identity_evidence_required": true,
+    "minimum_fresh_session_synthetic_repeats": 2,
+    "within_environment_numerical_repeatability": "exact",
+    "layer_invariant": "SCT/data = log1p(SCT/counts)",
+    "layer_equality_tolerance": 0,
+    "canonical_correction": "sctransform::correct_counts",
+    "correction_depth_explicit": true,
+    "correction_repeats_identical": true,
+    "unequal_depth_synthetic_fixture_required": true,
+    "session_package_source_records_required": true,
+    "seed_RNG_threads_fixture_and_resource_limits": "freeze_in_future_validation_specification",
+    "S00_gate": "synthetic_validation_then_separate_approved_committed_run_specification",
+    "all_sections_gate": "review_S00_then_separate_approval",
+    "cross_platform_tolerances": "specify_before_future_Linux_validation"
+  },
+  "current_execution_authorization": {
+    "package_download": false,
+    "package_installation": false,
+    "environment_build": false,
+    "synthetic_SCTransform": false,
+    "real_section_SCTransform": false,
+    "HPC_jobs": false
+  },
+  "references": {
+    "decision": "../../docs/decisions/SCTRANSFORM_ENVIRONMENT.md",
+    "scientific_contract": "../../docs/decisions/SCTRANSFORM_DESIGN.md",
+    "feasibility": "../../docs/environment/SCTRANSFORM_ENVIRONMENT_FEASIBILITY.md",
+    "bioconductor_release": "https://new.bioconductor.org/news/bioc_3_22_release/"
+  }
+}

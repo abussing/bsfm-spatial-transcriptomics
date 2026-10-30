@@ -7,8 +7,10 @@ capabilities, not claims that any historical implementation is authoritative.
 
 Recovery status: **historical normalization-recipe recovery completed through
 B6; canonical scientific design approved; raw-input preflight and full-data
-depth accepted; normalization implementation not begun**. See the
+depth accepted; canonical environment specification approved, build and
+validation pending; normalization implementation not begun**. See the
 [canonical SCTransform decision](docs/decisions/SCTRANSFORM_DESIGN.md),
+[environment decision](docs/decisions/SCTRANSFORM_ENVIRONMENT.md),
 [SCTransform recovery](docs/recovery/SCTRANSFORM_PREPROCESSING.md) and
 [evidence ledger](docs/recovery/SCTRANSFORM_EVIDENCE.md).
 
@@ -19,7 +21,8 @@ depth accepted; normalization implementation not begun**. See the
 | Historical normalization implementation | Recovered writer recipes: 10 new, 3 regional reused, 6 sct_work reused; effective defaults/execution attribution remain incomplete. |
 | Uniform cross-section comparability | Unestablished. |
 | Replacement design | Approved: uniform section-specific SCT v2, common minimum-section-median depth, log1p corrected counts and one section/type/gene centering operation. |
-| Preflights | Canonical Python raw-input audit accepted: 432,794 eligible cells, 300 unique genes, no exclusions/invalid counts, all 19 section/glial totals matched, full-data depth 124 (S00__Trem2_5xFAD4). Exact R environment feasibility remains pending. See the [accepted audit](docs/preprocessing/audits/20261030_raw/summary.md) and [preflight guide](docs/preprocessing/RAW_INPUT_PREFLIGHT.md). |
+| Preflights | Canonical Python raw-input audit accepted: 432,794 eligible cells, 300 unique genes, no exclusions/invalid counts, all 19 section/glial totals matched, full-data depth 124 (S00__Trem2_5xFAD4). See the [accepted audit](docs/preprocessing/audits/20261030_raw/summary.md) and [preflight guide](docs/preprocessing/RAW_INPUT_PREFLIGHT.md). |
+| Environment | Feasibility gate accepted with explicit glmGamPoi 1.25.1 development to 1.22.0 release amendment. Frozen target: R 4.5.3, Bioconductor 3.22, Seurat/SeuratObject 5.4.0, sctransform 0.4.3, Matrix 1.7-4. Local user-owned Windows build first; acquisition, dependency/source locks and synthetic validation pending. Future Linux verification container; no HPC normalization job approved. See the [specification](environment/sctransform/environment-spec.json) and [feasibility evidence](docs/environment/SCTRANSFORM_ENVIRONMENT_FEASIBILITY.md). |
 | Spatial holdout | Training-only preprocessing approved as primary policy; fold-specific implementation design remains pending. |
 
 All recovered writers export Seurat SCT `data`, the intended
@@ -39,10 +42,11 @@ and uses correct_counts at the common minimum authenticated section median.
 The full-data depth 124 is now accepted from the canonical raw-input audit.
 MIC/AST/OGC and the fixed 91 genes are
 selected after correction; the final response is centered once without variance
-scaling. Residual-only settings do not define that response. The recovered
-environment is an initial target subject to feasibility; substitutions require
-an explicit version amendment. SCTransform implementation/execution remains
-pending. See the decision for environment and holdout limits.
+scaling. Residual-only settings do not define that response. The environment
+decision deliberately amends the historical development dependency; it does
+not claim exact historical reconstruction. Further substitutions require an
+explicit version amendment. SCTransform implementation/execution remains
+pending. See the decisions for environment and holdout limits.
 
 Accepted raw-source identity: SHA-256
 `d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38`,
