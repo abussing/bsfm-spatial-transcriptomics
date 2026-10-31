@@ -6,6 +6,12 @@ This runner implements the normalization portion of the
 validation tool, not the approved all-section production runner. It contains
 no historical BSFM implementation code.
 
+The subsequent [single-section gate](SINGLE_SECTION_RESPONSE.md) extracts the
+unchanged fitting/correction function into `sct_core.R`. This validation driver
+and the new production runner use that same core. Fresh synthetic signatures
+match the accepted signatures; single-section bundle validation, S00 equivalence
+and six-file portability are now accepted in the linked review report.
+
 The 2026-10-31 assignment authorizes environment acquisition, synthetic fits and
 a conditional S00 smoke before review/commit. It supersedes the earlier local
 smoke requirement for a committed run specification. This exception applies

@@ -20,6 +20,7 @@ import psutil
 
 from .raw_preflight import (REGISTRY, axis_ids, load_registry, ordered_hash,
                             require, sha256_file, strings, text)
+from .execution_evidence import embed_log, authenticate_log
 
 SOURCE_SHA256 = "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38"
 SECTION = "S00__Trem2_5xFAD4"
@@ -132,11 +133,14 @@ def s00_input(source, root, repository):
     return meta
 
 
-def run_r(envroot, input_dir, output, depth, timeout=900, memory_limit=8*1024**3):
+def run_r(envroot, input_dir, output, depth, timeout=900, memory_limit=8*1024**3,
+          runner=None, extra_args=None):
     # Launch the actual interpreter, not bin/Rscript.exe's short-lived wrapper,
     # so the memory monitor measures the R process that performs the fit.
-    command = [str(envroot / "R-4.5.3/bin/x64/Rscript.exe"), "--vanilla", str(RUNNER.resolve()),
+    command = [str(envroot / "R-4.5.3/bin/x64/Rscript.exe"), "--vanilla", str((runner or RUNNER).resolve()),
                str(envroot), str(input_dir), str(output), str(depth), str(SEED)]
+    if extra_args is not None:
+        command = command[:3] + [str(x) for x in extra_args]
     env = os.environ.copy()
     env.update({"R_LIBS_USER": str(envroot / "library"), "R_LIBS_SITE": "",
                 "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1",
@@ -164,11 +168,11 @@ def run_r(envroot, input_dir, output, depth, timeout=900, memory_limit=8*1024**3
     record = {"command": command, "exit_code": code, "elapsed_seconds": time.monotonic()-start,
               "peak_working_set_bytes": peak, "memory_observation": "Windows peak_wset sampled every 0.2 s; main R process",
               "limits": {"seconds": timeout, "working_set_bytes": memory_limit},
-              "log": {"path": str(log), **artifact(log)}, "failure": failure}
+              "log": {"path": str(log), "name": log.name, **embed_log(log.read_bytes())},
+              "failure": failure}
     write_json(output.with_suffix(".process.json"), record)
     require(code == 0 and failure is None, f"R validation failed; inspect {log}")
-    require("stack imbalance" not in log.read_text(encoding="utf-8", errors="replace").lower(),
-            f"R emitted a stack-imbalance warning; inspect {log}")
+    authenticate_log(record["log"])
     report = json.loads((output / "report.json").read_text())
     require(report["status"] == "pass", "R report failed")
     return {"process": record, "report": report, "output": str(output)}
@@ -188,7 +192,8 @@ def main():
     root.mkdir(parents=True)
     report = {"schema": "bsfm.sct-smoke.v1", "status": "running",
               "source_files": {str(p.relative_to(repository)): sha256_file(p)
-                               for p in [Path(__file__).resolve(), RUNNER, REGISTRY,
+                               for p in [Path(__file__).resolve(), RUNNER, RUNNER.with_name("sct_core.R"),
+                                         Path(__file__).with_name("execution_evidence.py"), REGISTRY,
                                          Path(__file__).with_name("raw_preflight.py"),
                                          repository / "environment/sctransform/validation-spec.json"]},
               "invocation": [sys.executable, *sys.argv],

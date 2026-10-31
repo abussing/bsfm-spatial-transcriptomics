@@ -1,0 +1,330 @@
+{
+  "schema": "bsfm.single-section-review.v2",
+  "status": "accepted",
+  "amendment": "Self-contained embedded process logs; six-file bundle isolation",
+  "baseline_commit": "51441c885ecf5f4ac19d10a8b399d7d1ade46e1f",
+  "artifact_scope": "Uncommitted S00 review evidence only; not the future all-section S00 artifact.",
+  "section": "S00__Trem2_5xFAD4",
+  "source": {
+    "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+    "bytes": 5483600151,
+    "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38"
+  },
+  "bundle_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_isolated_review_20261031\\S00__Trem2_5xFAD4",
+  "bundle_manifest": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_isolated_review_20261031\\S00__Trem2_5xFAD4\\manifest.json",
+    "bytes": 11306,
+    "sha256": "80859dfe0d77eec989126707ae4f63b58a34180c9f2f08196363ce24bad3b06a"
+  },
+  "artifacts": {
+    "response.h5": {
+      "path": "response.h5",
+      "bytes": 21102224,
+      "sha256": "df46b5c6ce37a876bf9bb7ab8b43fb87ed4b658de803fde2c018d21ce61ac4bc"
+    },
+    "fit.rds": {
+      "path": "fit.rds",
+      "bytes": 47689984,
+      "sha256": "1af5af6b5b429b488ac44a3a2910607012285767e45f2e4609c04c4b41ff1473"
+    },
+    "execution.json": {
+      "path": "execution.json",
+      "bytes": 21772,
+      "sha256": "24809af6935df7557d27bf4b4ec713e85f6c260a5acb1a978b1214adbddb4777"
+    },
+    "session.txt": {
+      "path": "session.txt",
+      "bytes": 4276,
+      "sha256": "0b3cd55fd7ceb444ba2fcb2fdefa7f5689da57934d37708015ef5a5dc6d92798"
+    },
+    "validation.json": {
+      "path": "validation.json",
+      "bytes": 19356,
+      "sha256": "c1c8837ec3442394ff805e2d662ddb379eaac6042b03c24fff076b0968501474"
+    }
+  },
+  "dimensions": {
+    "all_cells": 20719,
+    "model_cells": 9451,
+    "all_genes": 300,
+    "model_genes": 91,
+    "types": 3
+  },
+  "group_sizes": [
+    2252,
+    3157,
+    4042
+  ],
+  "metrics": {
+    "all_invariants_passed": true,
+    "readback_passed": true,
+    "max_abs_centering_mean": 2.7991793280442776e-14,
+    "max_abs_reconstruction_error": 4.440892098500626e-16,
+    "centering_atol": 1e-12,
+    "reconstruction_atol": 1e-15,
+    "reconstruction_rtol": 1e-14
+  },
+  "max_abs_mean_recalculation_difference": 2.7977620220553945e-14,
+  "tolerances": {
+    "centering_atol": 1e-12,
+    "reconstruction_atol": 1e-15,
+    "reconstruction_rtol": 1e-14,
+    "means_atol": 1e-14,
+    "means_rtol": 1e-14
+  },
+  "payload_sha256": {
+    "/all/corrected_counts": "a8cbb438809c69d233130ce05a6407ddc63c8fb18f4dc9896415ff31dc4a147d",
+    "/all/log1p_response": "e18cc2a640f056f77e0f1ab4ba64ec7b3cfa55b6b46f2f69f7e2a3b430e05a8a",
+    "/model/uncentered_response": "17f0f6e0655367b78f1f22647964c632a4401a2d5d21eaaec73a9e7640a8d071",
+    "/model/centered_response": "dc0f1ad0f4ea96743a916d04f4102f244bf40952e312c3bcc86cc63bda109a7c",
+    "/centering/means": "5dc143b179b236832f3605498f682cffb75a422ef260c3cdb998c8f2a17887fd"
+  },
+  "source_files": {
+    "src/bsfm/preprocessing/__init__.py": "989a549faa45b151c5e45af2e94b578b33f5b79126bbdeecb00818abc1b05c9e",
+    "src/bsfm/preprocessing/execution_evidence.py": "6a91b718b3f2a903c155bbfa562142bb9b13e296c26884fe179b77f98e22480f",
+    "src/bsfm/preprocessing/raw_preflight.py": "56d0e07fa81366fb6ea91dc8140039367f1aee5b28c2adad1c0597675fb6c749",
+    "src/bsfm/preprocessing/response_contract.py": "9975b42be9122b1428dcb1f0ee2e6363547781387c94ec7d47ccf95cedf49722",
+    "src/bsfm/preprocessing/response_run.py": "316ee632ad77c8b5b726097a542e65d9e9eda9e3d8f3791d1987c083a0249d35",
+    "src/bsfm/preprocessing/response_validate.py": "73d89281deb915dac147e152e454ee17eb3d204c75ad0989e08ded8e398835e6",
+    "src/bsfm/preprocessing/sct_smoke.py": "e8fd22f0177534f39253e8c290d2550c23f7c50a9cd6f477a9be0993008b228f",
+    "src/bsfm/preprocessing/sct_core.R": "0d91e7f7964b18415464fef3457162bc236b1f7d7b889bbc546c51130937f1ce",
+    "src/bsfm/preprocessing/sct_readback.R": "e55bec7c69b68477acc74f11762c66d6201d3ac6e2461b467e59c46a438c30d7",
+    "src/bsfm/preprocessing/sct_validation.R": "1037379199489d588bc174d8d0f8d897d93e2b1004788fe9f7a492088b4d0d5a"
+  },
+  "identities": {
+    "panel_registry_sha256": "85707ff1db48b697de58f2b0260daef2d40d6ac6a7710cdfa5e87da422c14f98",
+    "panel_order_sha256": "48e934a62161d7fb69e3abb3e636a979660b6e1b62cbacdcec929c2584d8bfa8",
+    "section_registry_sha256": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166",
+    "bundle_spec_sha256": "fa451ab856eaa9d7b05261ac6d79dcbdbc171a8ee391610733426938b45c7610",
+    "run_spec_sha256": "37f57ae248e4188adabb004840f2037d91770a8ba70ea89249fd579a8377e463",
+    "environment_source_lock_sha256": "2c258eef6b3284118f82e062e301019ae0c7b434cafad2958f4c8b003ca5c281",
+    "renv_lock_sha256": "b3ab89dc1bcfe7cd082b9c334e425d02cb296e468f208c22ff777a182943f3b9"
+  },
+  "normalization": {
+    "method": "glmGamPoi_offset",
+    "fitting_cells": 20719,
+    "depth": 124,
+    "warnings": [],
+    "versions": {
+      "Seurat": "5.4.0",
+      "SeuratObject": "5.4.0",
+      "sctransform": "0.4.3",
+      "Matrix": "1.7-4",
+      "glmGamPoi": "1.22.0"
+    },
+    "elapsed_seconds": 116.16192930000034,
+    "peak_working_set_bytes": 1331654656
+  },
+  "bundle_elapsed_seconds": 159.64594859999943,
+  "memory_limit": "R process peak_wset sampled every 0.2 seconds; Python/system-wide peak not measured.",
+  "accepted_equivalence": {
+    "corrected": true,
+    "response": true,
+    "fitting_cells": true,
+    "genes": true,
+    "effective_arguments": true
+  },
+  "accepted_R_semantic_sha256": {
+    "model_pars": "7be3963e6c046ce70576dba97e2e2f50f9df45c9f673790a3c07bb6a5f10905b",
+    "model_pars_fit": "e461e1b4f24052647538731e6a17f704b8b2e2a571f309ec90d9875f1f7bd5d1",
+    "cells_step1": "e50ef3c10fbcea5b35b8f2e4f13061ef3fb34bb26a8b061ceaafb6be4531b806",
+    "corrected": "cb5fb806d00209fbc1c9931d49d4adf1fd01fa2347e82f28f7be2fbf63f3edfd",
+    "response": "e9f762af55944dc337985c3a691ec480f4e40b92aace0f868184e9098ac1f629"
+  },
+  "embedded_logs": [
+    {
+      "phase": "normalization",
+      "container": "execution.json",
+      "encoding": "base64",
+      "bytes": 1058,
+      "sha256": "25bb0e92fc8b06281047758f2514b121874defeb0b635d393f8c1738edfc9721",
+      "warning_scan": {
+        "text_encoding": "utf-8",
+        "decode_errors": "replace",
+        "stack_imbalance_detected": false,
+        "warning_lines": []
+      },
+      "original_path_exists": false,
+      "external_path_authority": "provenance_only"
+    },
+    {
+      "phase": "transport_readback",
+      "container": "execution.json",
+      "encoding": "base64",
+      "bytes": 71,
+      "sha256": "58a4f4ee23751c37ca57d3366d530eac804ea6ca7bbfade97688bd29a2985194",
+      "warning_scan": {
+        "text_encoding": "utf-8",
+        "decode_errors": "replace",
+        "stack_imbalance_detected": false,
+        "warning_lines": []
+      },
+      "original_path_exists": false,
+      "external_path_authority": "provenance_only"
+    },
+    {
+      "phase": "independent_readback",
+      "container": "validation.json",
+      "encoding": "base64",
+      "bytes": 71,
+      "sha256": "58a4f4ee23751c37ca57d3366d530eac804ea6ca7bbfade97688bd29a2985194",
+      "warning_scan": {
+        "text_encoding": "utf-8",
+        "decode_errors": "replace",
+        "stack_imbalance_detected": false,
+        "warning_lines": []
+      },
+      "original_path_exists": false,
+      "external_path_authority": "provenance_only"
+    }
+  ],
+  "portability": {
+    "six_files_only": true,
+    "original_build_path_unavailable": true,
+    "original_log_paths_unavailable": [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_portability_gate_20261031\\S00-build\\.attempt-02c030ccf6a44725995b4118a9d9e8e3\\normalization.log",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_portability_gate_20261031\\S00-build\\.attempt-02c030ccf6a44725995b4118a9d9e8e3\\transport\\output.log",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_portability_gate_20261031\\S00-build\\.attempt-02c030ccf6a44725995b4118a9d9e8e3\\independent-validation\\output.log"
+    ],
+    "full_validation": "pass",
+    "bundle_unchanged": true,
+    "debug_copy_optional": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_portability_gate_20261031\\S00-build-debug-only",
+    "debug_copy_required_for_validation": false
+  },
+  "tests": {
+    "python_unittest": 46,
+    "R_count_validation_cases": 7,
+    "successful_fresh_synthetic_fits": 4,
+    "fresh_real_section_fits_this_amendment": 1,
+    "synthetic_signatures_match_accepted": true,
+    "isolated_full_validation": "pass",
+    "accepted_S00_equivalence": "pass",
+    "embedded_log_mutations": [
+      "decoded bytes",
+      "SHA-256",
+      "byte length",
+      "encoding",
+      "invalid base64",
+      "warning scan",
+      "stack imbalance with recomputed hash",
+      "independent-readback log with recomputed outer manifest hashes"
+    ],
+    "original_corruption_suite": "All existing axis/value/coordinate/centering/hash/manifest/incomplete-bundle tests passed."
+  },
+  "runtime": {
+    "interpreter": "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+    "python": "3.13.5",
+    "numpy": "2.1.3",
+    "h5py": "3.12.1",
+    "HDF5": "1.14.5",
+    "jsonschema": "4.23.0",
+    "psutil": "5.9.0"
+  },
+  "evidence": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_isolated_review_20261031\\S00__Trem2_5xFAD4\\execution.json",
+      "bytes": 21772,
+      "sha256": "24809af6935df7557d27bf4b4ec713e85f6c260a5acb1a978b1214adbddb4777"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_isolated_review_20261031\\S00__Trem2_5xFAD4\\validation.json",
+      "bytes": 19356,
+      "sha256": "c1c8837ec3442394ff805e2d662ddb379eaac6042b03c24fff076b0968501474"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_portability_gate_20261031\\isolated-validation\\portability.json",
+      "bytes": 22558,
+      "sha256": "d149e9adc9b0074dd633c74e47dcb1b0154782864cbd934f31f13e3d0f5fcfc3"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_portability_gate_20261031\\accepted-equivalence\\equivalence.json",
+      "bytes": 5817,
+      "sha256": "e90e095220a17014a4920d6a3e52a8834711fc5d24a488a75c1d231abec65825"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_portability_gate_20261031\\synthetic\\run-manifest.json",
+      "bytes": 29013,
+      "sha256": "8684e2ec156d50bdaae0762a83a0f569a7afd49aea87eb7bf902a3ceb08ef879"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_portability_gate_20261031\\python-tests.log",
+      "bytes": 14150,
+      "sha256": "e81f2cc571d59f9390872801cffd44368f6773bfbfccc573dbb7137202f19abe"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_portability_gate_20261031\\r-count-tests.log",
+      "bytes": 180,
+      "sha256": "7e7105c7a9fc70e580e4116ca29d1f189aeda183ba6155a03ebac736b106cbe9"
+    }
+  ],
+  "supersedes": {
+    "scope": "Prior uncommitted review bundle; not a production artifact. Scientific results retained as evidence, bundle-boundary defect corrected here.",
+    "bundle_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_production_gate_20261031\\S00-production\\S00__Trem2_5xFAD4",
+    "manifest": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_production_gate_20261031\\S00-production\\S00__Trem2_5xFAD4\\manifest.json",
+      "bytes": 11306,
+      "sha256": "d75cfdd8d73afed26d76e11c1c84aaa4d80795fd8330612aecb84e2def8637e7"
+    },
+    "review_record": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_production_gate_20261031\\before-portability-review.json",
+      "bytes": 10890,
+      "sha256": "6169f0b2da7ee006be75f36bdc17be62bd78f448283c8e0801b15cc4d7532998"
+    },
+    "summary": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_production_gate_20261031\\before-portability-summary.md",
+      "bytes": 7590,
+      "sha256": "c5520970c4b766417b31d0207b8923c8d50128604fb79f1de0932ef5ca8e8b5a"
+    }
+  },
+  "limits": [
+    "Accepted bounded implementation and review gate; both bundles were generated from uncommitted code and are not future all-section S00 artifacts.",
+    "No other real section, multi-section launcher, mesh, GP, holdout or HPC execution.",
+    "Full-data artifacts remain ineligible for primary holdout scoring.",
+    "Coordinates remain source_native, without physical-unit authentication.",
+    "Full recorrection requires exact code/configuration, authenticated raw source and isolated environment; original attempt/gate directories are not required.",
+    "Original build retained only for debugging under a different path; it may be deleted without invalidating the copied six-file bundle.",
+    "No package versions or scientific response choices changed."
+  ],
+  "acceptance": {
+    "authority": "Explicit user approval after amended S00 review",
+    "scope": [
+      "single-section implementation",
+      "independent bundle validation",
+      "S00 equivalence",
+      "six-file portability"
+    ],
+    "artifact_status": "Both generated S00 bundles remain review evidence from code uncommitted at execution, not future all-section production artifacts."
+  },
+  "precommit_verification": {
+    "python_tests_passed": 46,
+    "R_count_cases_passed": 7,
+    "fresh_synthetic_fits_passed": 4,
+    "synthetic_signatures_unchanged": true,
+    "saved_artifact_R_readback": "pass",
+    "isolated_six_file_validation": "pass",
+    "accepted_S00_equivalence": "pass",
+    "real_section_refits": 0,
+    "evidence": [
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_single_section_acceptance_20261031\\synthetic\\run-manifest.json",
+        "bytes": 29166,
+        "sha256": "9710750e12f08f639bea1892970f93f3b4cd7b975eda402324b414ae39090b7b"
+      },
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_single_section_acceptance_20261031\\portability\\portability.json",
+        "bytes": 22562,
+        "sha256": "85a354df49246e75fb45abac82ef1a110d7a69c8ad2607b9ca1d397b50f23ac9"
+      },
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_single_section_acceptance_20261031\\equivalence\\equivalence.json",
+        "bytes": 5817,
+        "sha256": "3a3bca4baec36fa8e2171276d3b284273e5dc92e0cb3754ebf1fcf93216d8983"
+      },
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_single_section_acceptance_20261031\\saved-artifact-readback\\readback.json",
+        "bytes": 300,
+        "sha256": "dc9d9f2f32371462407fa0d2c16248156c47504970853b25cd4703c9ffa941d5"
+      }
+    ]
+  }
+}

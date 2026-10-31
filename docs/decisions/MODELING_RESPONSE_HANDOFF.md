@@ -1,8 +1,19 @@
 # Canonical modeling-response handoff
 
-Status: **approved design; production implementation and execution pending**.
+Status: **approved design; single-section implementation and bounded S00 gate
+accepted; multi-section orchestration and remaining-section execution pending**.
 Authority: explicit user approval following the bounded metadata design gate.
 Baseline: `570bd3e41f77518e136cb3a8f17a9e6e62955f0f`.
+
+Subsequent implementation gate: the user authorized a single-section runner and
+independent validator from checkpoint `51441c885ecf5f4ac19d10a8b399d7d1ade46e1f`.
+The [S00 review report](../preprocessing/audits/20261031_response_S00/summary.md)
+records regenerated S00 review evidence, exact accepted-response equivalence and
+six-file isolation after removing the external attempt-log dependency.
+The single-section implementation, independent validation, S00 equivalence and
+six-file portability are accepted. Both generated bundles remain review evidence
+from uncommitted code, not future all-section production artifacts. The original
+frozen specification below is unchanged. This does not authorize the remaining 18 sections.
 
 This decision extends the [SCTransform design](SCTRANSFORM_DESIGN.md) and the
 [accepted bounded validation](../preprocessing/SCTRANSFORM_VALIDATION.md).
@@ -206,7 +217,8 @@ origins/scales agree with raw-order glial coordinates. The accepted whole-file
 fingerprint was reused; cell/gene order hashes were recomputed, and source size
 and modification time were stable. Expression arrays were not read.
 
-The remaining gates include production runner implementation and validation,
-explicit numeric tolerances, physical coordinate units for mesh design, and
+The single-section runner, independent validation and numeric tolerances have
+subsequently been accepted as recorded above. Remaining gates include
+multi-section orchestration, physical coordinate units for mesh design, and
 training-only holdout design. No additional normalization, response centering,
 mesh/GP work or job submission is authorized by this documentation checkpoint.

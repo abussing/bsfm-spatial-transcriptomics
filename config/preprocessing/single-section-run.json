@@ -1,0 +1,51 @@
+{
+  "schema": "bsfm.single-section-run.v1",
+  "baseline_commit": "51441c885ecf5f4ac19d10a8b399d7d1ade46e1f",
+  "scope": "general single-section implementation; this review gate executes S00 only",
+  "frozen_files": {
+    "config/preprocessing/modeling-panel.json": "85707ff1db48b697de58f2b0260daef2d40d6ac6a7710cdfa5e87da422c14f98",
+    "config/preprocessing/response-bundle.json": "fa451ab856eaa9d7b05261ac6d79dcbdbc171a8ee391610733426938b45c7610",
+    "src/bsfm/preprocessing/sections.json": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166",
+    "schemas/preprocessing/modeling-panel.schema.json": "65797e6b860dc3afb3a3f73b3d44463d2a2c44788a693e68f38906e409919b5c",
+    "schemas/preprocessing/response-bundle.schema.json": "4571c7ddcb7c86d9681508ee0bd35fe68af5615d4796443775678f234d67b8f2",
+    "schemas/preprocessing/response-manifest.schema.json": "17460f805c01335406ed8c9683f6087f70896f4c00a7f1fbc644111cfa97c2ea",
+    "environment/sctransform/validation-spec.json": "a48dd3162d02af604bc91d60d14fc84e9c68a4f7b6e76e39563039bbdd3daa83",
+    "environment/sctransform/source-lock.json": "c32690ab551d8a55bf136f3a1fdab48ff5c653ea25ac9ce5257c9456140378d8",
+    "environment/sctransform/renv.lock": "b1f9d7833be88ad131a5e643d3142b9320392cfa2ce39708e6b0097068aaf8e3",
+    "docs/preprocessing/audits/20261030_raw/manifest.json": "5a8f96f228d00ed470f6ae411a44a8c38bad0f23fb17f064ff7b99330bf650a2",
+    "docs/preprocessing/audits/20261030_raw/sections.csv": "2e7ca801dcd4c3482f0e1776341bc86758a47d69ac1d9352ef7560d530588fd6"
+  },
+  "normalization": {
+    "depth": 124,
+    "seed": 1448145,
+    "threads": 1,
+    "effective_method": "glmGamPoi_offset",
+    "vst_flavor": "v2",
+    "all_eligible_cells": true,
+    "input_genes": 300
+  },
+  "tolerances": {
+    "centering_atol": 1e-12,
+    "reconstruction_atol": 1e-15,
+    "reconstruction_rtol": 1e-14,
+    "means_atol": 1e-14,
+    "means_rtol": 1e-14
+  },
+  "storage": {
+    "compression": "gzip",
+    "compression_opts": 4,
+    "shuffle": true,
+    "numeric_order": "C",
+    "numeric_endian": "little"
+  },
+  "limits": {
+    "seconds": 900,
+    "working_set_bytes": 8589934592
+  },
+  "holdout_implemented": false,
+  "environment_files": {
+    "source-lock.json": "2c258eef6b3284118f82e062e301019ae0c7b434cafad2958f4c8b003ca5c281",
+    "renv.lock": "b3ab89dc1bcfe7cd082b9c334e425d02cb296e468f208c22ff777a182943f3b9"
+  },
+  "environment_identity_note": "External acquisition manifest is pinned by acquisition_manifest_sha256 in the enriched canonical source lock; external renv.lock has identical JSON content with original serialization. Both external and canonical byte identities are recorded."
+}
