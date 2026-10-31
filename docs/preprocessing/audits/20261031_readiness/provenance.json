@@ -1,0 +1,43 @@
+{
+  "schema": "bsfm.readiness-copy.v1",
+  "measurement_commit": "7f5b6042677ea917de4b254c05f319aa715704df",
+  "scope": "Measured aggregate input readiness, not fitting evidence. No cell-level counts, identifiers or expression values. Per-gene numbers are aggregate nonzero-cell counts.",
+  "files": [
+    {
+      "file": "report.md",
+      "external_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_readiness_20261031\\report.md",
+      "original_bytes": 10360,
+      "original_sha256": "706cf05ba9b93d960666f7e3e63de11a534e565fc5f51a5680d7d41498e81b5a",
+      "canonical_bytes": 10360,
+      "canonical_sha256": "706cf05ba9b93d960666f7e3e63de11a534e565fc5f51a5680d7d41498e81b5a",
+      "change": "LF normalization only"
+    },
+    {
+      "file": "sections.csv",
+      "external_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_readiness_20261031\\sections.csv",
+      "original_bytes": 10813,
+      "original_sha256": "896d4280936fc20e84047736eda9bf95c32ebd5c7a05416ee7846c816f283ba2",
+      "canonical_bytes": 10793,
+      "canonical_sha256": "d9e2d673841319987e23b5d502232ec48cab8334109a73c4720cb5bfdf91cd53",
+      "change": "LF normalization only"
+    },
+    {
+      "file": "gene_nonzero_counts.csv",
+      "external_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_readiness_20261031\\gene_nonzero_counts.csv",
+      "original_bytes": 224556,
+      "original_sha256": "49083c2ff49e7999c8ec67026cc2f465b6b64bb897b8b06eb0008a4b3e2bee4a",
+      "canonical_bytes": 218855,
+      "canonical_sha256": "f7d6d3c5f05474d8cc660884b3c42f2eb3513e8ad916b684a35ca546bfb9fae5",
+      "change": "LF normalization only"
+    },
+    {
+      "file": "audit.json",
+      "external_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_readiness_20261031\\audit.json",
+      "original_bytes": 48711,
+      "original_sha256": "5b9dd42d013692f493382638064fd81d5288968d0bbf50c38f32c4966826c188",
+      "canonical_bytes": 48711,
+      "canonical_sha256": "5b9dd42d013692f493382638064fd81d5288968d0bbf50c38f32c4966826c188",
+      "change": "LF normalization only"
+    }
+  ]
+}

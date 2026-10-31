@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "bsfm.production-run-specification.v1"
+    },
+    "run_root": {
+      "type": "string"
+    },
+    "code": {
+      "type": "object",
+      "properties": {
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "source_files": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "execution_authority": {
+          "const": "Committed production implementation; clean Git required at execution"
+        }
+      },
+      "required": [
+        "commit",
+        "source_files",
+        "execution_authority"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "source_initial_stat": {
+      "type": "object",
+      "properties": {
+        "st_size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "st_mtime_ns": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "st_ctime_ns": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "st_dev": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "st_ino": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "st_size",
+        "st_mtime_ns",
+        "st_ctime_ns",
+        "st_dev",
+        "st_ino"
+      ],
+      "additionalProperties": false
+    },
+    "environment_root": {
+      "type": "string"
+    },
+    "identities": {
+      "type": "object",
+      "minProperties": 7,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "single_section_configuration": {
+      "type": "object"
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "concurrency"
+      ],
+      "properties": {
+        "concurrency": {
+          "const": 1
+        }
+      }
+    },
+    "policy_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "schemas": {
+      "type": "object",
+      "minProperties": 3,
+      "maxProperties": 3,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "section_order": {
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "run_root",
+    "code",
+    "source",
+    "source_initial_stat",
+    "environment_root",
+    "identities",
+    "single_section_configuration",
+    "policy",
+    "policy_sha256",
+    "schemas",
+    "section_order"
+  ],
+  "additionalProperties": false
+}

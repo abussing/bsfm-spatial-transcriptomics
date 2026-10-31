@@ -1,4 +1,4 @@
-"""Canonical single-section runner. No multi-section launcher or holdout mode."""
+"""Canonical single-section runner used by standalone and sequential production."""
 from __future__ import annotations
 
 import argparse
@@ -18,6 +18,8 @@ from .sct_smoke import write_input, run_r
 from .response_contract import (REPO, CONFIG, META, AXES, contract, identities, code_identity,
     raw_section, readback, save_json, file_record, inventory)
 from .response_validate import validate_payload, check_final_metadata
+from .response_contract import require_clean_code
+from .production_state import layout, new_attempt, contained_attempt, run_lock
 
 
 def write_response(path, raw, corrected, response, panel, spec, cfg):
@@ -77,22 +79,25 @@ def promote(attempt_bundle, destination):
     attempt_bundle.rename(destination)
 
 
-def run(section, source, envroot, config, destination_root):
+def run(section, source, envroot, config, destination_root, *, attestation=None,
+        run_spec_sha256=None, attempt=None):
     started = time.monotonic()
     cfg, panel, spec, registry = contract(config)
     require(section in [s["section"] for s in registry["sections"]], "Unknown registered section")
+    code = require_clean_code()
     root = destination_root.resolve()
     require(not root.is_relative_to(REPO), "Bundles must stay outside Git")
-    require(not root.exists(), "Fresh destination root required; existing sections are never overwritten")
+    root = layout(root)
+    destination = root / 'sections' / section
+    require(not destination.exists(), 'Refusing to overwrite finalized section')
     expected_identities = identities(config, envroot)
-    code = code_identity()
-    root.mkdir(parents=True, exist_ok=False)
-    attempt = root / ('.attempt-'+uuid.uuid4().hex)
+    attempt = new_attempt(root, section) if attempt is None else contained_attempt(root, attempt)
+    require(not any(attempt.iterdir()), 'Use a fresh empty attempt')
     bundle = attempt / 'bundle'
     bundle.mkdir(parents=True)
     save_json(attempt / 'attempt.json', {"state":"writing", "section":section, "code":code, "identities":expected_identities})
     try:
-        raw = raw_section(source, section, config)
+        raw = raw_section(source, section, config, attestation=attestation)
         write_input(attempt / 'input', raw["counts"], raw["genes"], raw["cells"], raw["source"])
         normalization = run_r(envroot, attempt / 'input', attempt / 'normalization', cfg["normalization"]["depth"],
                               timeout=cfg["limits"]["seconds"], memory_limit=cfg["limits"]["working_set_bytes"])
@@ -102,6 +107,7 @@ def run(section, source, envroot, config, destination_root):
         shutil.copyfile(attempt / 'normalization/session.txt', bundle / 'session.txt')
         physical = write_response(bundle / 'response.h5', raw, transported["corrected"], transported["response"], panel, spec, cfg)
         execution = {"schema":"bsfm.single-section-execution.v1", "section":section,
+            "production_run_spec_sha256":run_spec_sha256, "attempt_id":attempt.name,
             "source":raw["source"], "code":code, "identities":expected_identities,
             "run_configuration":cfg, "environment_root":str(envroot.resolve()),
             "command":[sys.executable,*sys.argv], "normalization":normalization,
@@ -111,7 +117,7 @@ def run(section, source, envroot, config, destination_root):
         for name in ('fit.rds','session.txt'):
             with (bundle/name).open('r+b') as stream:
                 os.fsync(stream.fileno())
-        report = validate_payload(bundle, source, envroot, config, attempt / 'independent-validation')
+        report = validate_payload(bundle, source, envroot, config, attempt / 'independent-validation', attestation=attestation)
         save_json(bundle / 'validation.json', report)
         manifest = {"schema":spec["bundle_schema"], "status":"complete",
             **{k:report[k] for k in ('section','animal_label','genotype','source','identities','code_commit','dimensions','axes','datasets')},
@@ -119,14 +125,14 @@ def run(section, source, envroot, config, destination_root):
             "artifacts":{name:file_record(bundle/name) for name in spec["required_files"]}}
         save_json(bundle / 'manifest.json', manifest)
         check_final_metadata(bundle, manifest, report, spec)
-        require(code_identity() == code and identities(config, envroot) == expected_identities, "Producer identities changed during run")
-        destination = root / section
+        require(require_clean_code() == code and identities(config, envroot) == expected_identities, "Producer identities changed during run")
         promote(bundle, destination)
         receipt = {"schema":"bsfm.section-promotion.v1", "section":section,
             "manifest":file_record(destination/'manifest.json'), "bundle":str(destination),
             "elapsed_seconds":time.monotonic()-started, "metrics":report["metrics"],
-            "normalization_peak_working_set_bytes":normalization["process"]["peak_working_set_bytes"]}
-        save_json(root/'promotion.json', receipt)
+            "normalization_peak_working_set_bytes":normalization["process"]["peak_working_set_bytes"],
+            "attempt_id":attempt.name, "validation":"deep_saved_model_recorrection"}
+        save_json(root/'receipts'/(attempt.name+'.json'), receipt)
         return receipt
     except Exception as exc:
         save_json(attempt/'failure.json', {"state":"failed", "error":str(exc), "section":section})
@@ -141,7 +147,13 @@ def main():
     p.add_argument('--config', type=Path, required=True)
     p.add_argument('--destination-root', type=Path, required=True)
     a = p.parse_args()
-    print(json.dumps(run(a.section, a.raw_source.resolve(), a.environment.resolve(), a.config.resolve(), a.destination_root)))
+    require_clean_code()
+    root = a.destination_root.resolve()
+    require(not root.is_relative_to(REPO), 'Bundles must stay outside Git')
+    root = layout(root)
+    with run_lock(root):
+        require(not (root/'run-specification.json').exists(), 'Managed run must be resumed through production launcher')
+        print(json.dumps(run(a.section, a.raw_source.resolve(), a.environment.resolve(), a.config.resolve(), root)))
 
 
 if __name__ == '__main__':

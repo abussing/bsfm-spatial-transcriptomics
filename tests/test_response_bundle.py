@@ -149,10 +149,10 @@ class ResponseBundleTests(unittest.TestCase):
 
     def test_failed_fit_leaves_no_final_bundle(self):
         fake=copy.deepcopy(self.raw);fake['counts']=np.ones((32,300));fake['source']={}
-        with patch('bsfm.preprocessing.response_run.identities',return_value={}),patch('bsfm.preprocessing.response_run.raw_section',return_value=fake),patch('bsfm.preprocessing.response_run.run_r',side_effect=ContractError('interrupted')):
+        with patch('bsfm.preprocessing.response_run.require_clean_code',return_value={}),patch('bsfm.preprocessing.response_run.identities',return_value={}),patch('bsfm.preprocessing.response_run.raw_section',return_value=fake),patch('bsfm.preprocessing.response_run.run_r',side_effect=ContractError('interrupted')):
             with self.assertRaisesRegex(ContractError,'interrupted'): run(self.section,Path('unused'),Path('unused'),CONFIG,self.root/'failed')
-        self.assertFalse((self.root/'failed'/self.section).exists())
-        self.assertEqual(len(list((self.root/'failed').glob('.attempt-*/failure.json'))),1)
+        self.assertFalse((self.root/'failed'/'sections'/self.section).exists())
+        self.assertEqual(len(list((self.root/'failed'/'attempts').glob('.attempt-*/failure.json'))),1)
 
     def test_incomplete_final_and_false_completion_rejected(self):
         with self.assertRaises(FileNotFoundError):

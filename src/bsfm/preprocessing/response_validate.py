@@ -124,11 +124,11 @@ def check_execution(execution, raw, config, envroot):
                 "Recorded stack imbalance warning")
 
 
-def validate_payload(bundle, source, envroot, config, work):
+def validate_payload(bundle, source, envroot, config, work, *, attestation=None):
     """Pre-manifest validation of closed payloads; cannot declare a final bundle."""
     cfg, panel, spec, _ = contract(config)
     execution = load_json(bundle / "execution.json")
-    raw = raw_section(source, execution["section"], config)
+    raw = raw_section(source, execution["section"], config, attestation=attestation)
     check_execution(execution, raw, config, envroot)
     expected_fit = next(a for a in execution["normalization"]["report"]["artifacts"] if a["name"] == "fit.rds")
     require(file_record(bundle / "fit.rds") == {"path":"fit.rds", "bytes":expected_fit["bytes"], "sha256":expected_fit["sha256"]}, "Fitted object identity mismatch")
@@ -173,6 +173,36 @@ def validate_bundle(bundle, source, envroot, config, work):
         require(recorded[key] == fresh[key], f"Saved validation differs from fresh readback: {key}")
     check_final_metadata(bundle, manifest, fresh, spec)
     return fresh
+
+
+def fast_validate_bundle(bundle, section, source_identity, envroot, config, run_spec_sha256):
+    """Resume integrity, not a new numerical/R validation. No attempt logs required."""
+    require(bundle.name == section and not any(p.startswith('.attempt-') for p in bundle.parts),
+            'Resume requires a finalized section directory')
+    require(not bundle.is_symlink() and not getattr(bundle, 'is_junction', lambda: False)(), 'Linked bundle')
+    cfg, panel, spec, registry = contract(config)
+    require(section in [s['section'] for s in registry['sections']], 'Unknown section')
+    manifest = load_json(bundle/'manifest.json')
+    report = load_json(bundle/'validation.json')
+    check_final_metadata(bundle, manifest, report, spec)
+    require(manifest['section'] == section and manifest['source'] == source_identity, 'Resume section/source mismatch')
+    require(report['schema'] == 'bsfm.response-validation.v1' and report['status'] == 'pass'
+            and report['metrics']['all_invariants_passed'] and report['metrics']['readback_passed'],
+            'Original deep validation did not pass')
+    require(report['tolerances'] == cfg['tolerances'], 'Resume tolerances differ')
+    execution = load_json(bundle/'execution.json')
+    require(execution['section'] == section and execution['production_run_spec_sha256'] == run_spec_sha256,
+            'Bundle belongs to another run specification')
+    check_execution(execution, {'source': source_identity, 'cells': range(manifest['dimensions']['all_cells'])}, config, envroot)
+    require(manifest['code_commit'] == execution['code']['commit'] and manifest['identities'] == execution['identities'],
+            'Resume manifest provenance mismatch')
+    require(report['independent_readback']['report']['semantic_sha256'] == execution['normalization']['report']['semantic_sha256'],
+            'Original deep readback signatures differ')
+    require(report['independent_readback']['report']['effective_arguments'] == execution['transport_readback']['report']['effective_arguments'],
+            'Original deep readback arguments differ')
+    return {'section': section, 'manifest': file_record(bundle/'manifest.json'),
+            'validation': 'fast_closed_file_schema_hash_provenance', 'original_deep_validation': 'pass',
+            'attempt_id': execution['attempt_id']}
 
 
 def main():

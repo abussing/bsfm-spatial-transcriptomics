@@ -1,0 +1,602 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "bsfm.production-run-manifest.v1"
+    },
+    "status": {
+      "const": "complete"
+    },
+    "pass": {
+      "const": true
+    },
+    "run_spec_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "run_specification": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "code": {
+      "type": "object",
+      "properties": {
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "source_files": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "execution_authority": {
+          "const": "Committed production implementation; clean Git required at execution"
+        }
+      },
+      "required": [
+        "commit",
+        "source_files",
+        "execution_authority"
+      ],
+      "additionalProperties": false
+    },
+    "identities": {
+      "type": "object",
+      "minProperties": 7,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "policy_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_start": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "initial_stat": {
+          "type": "object",
+          "properties": {
+            "st_size": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "st_mtime_ns": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "st_ctime_ns": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "st_dev": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "st_ino": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "st_size",
+            "st_mtime_ns",
+            "st_ctime_ns",
+            "st_dev",
+            "st_ino"
+          ],
+          "additionalProperties": false
+        },
+        "authenticated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "initial_stat",
+        "authenticated_at"
+      ],
+      "additionalProperties": false
+    },
+    "source_final": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "initial_stat": {
+          "type": "object",
+          "properties": {
+            "st_size": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "st_mtime_ns": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "st_ctime_ns": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "st_dev": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "st_ino": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "st_size",
+            "st_mtime_ns",
+            "st_ctime_ns",
+            "st_dev",
+            "st_ino"
+          ],
+          "additionalProperties": false
+        },
+        "authenticated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "initial_stat",
+        "authenticated_at"
+      ],
+      "additionalProperties": false
+    },
+    "section_order": {
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "items": {
+        "type": "object",
+        "properties": {
+          "section": {
+            "type": "string"
+          },
+          "manifest": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "validation": {
+            "const": "fast_closed_file_schema_hash_provenance"
+          },
+          "original_deep_validation": {
+            "const": "pass"
+          }
+        },
+        "required": [
+          "section",
+          "manifest",
+          "validation",
+          "original_deep_validation"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string"
+          },
+          "source_start": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "initial_stat": {
+                "type": "object",
+                "properties": {
+                  "st_size": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "st_mtime_ns": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "st_ctime_ns": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "st_dev": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "st_ino": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "st_size",
+                  "st_mtime_ns",
+                  "st_ctime_ns",
+                  "st_dev",
+                  "st_ino"
+                ],
+                "additionalProperties": false
+              },
+              "authenticated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "initial_stat",
+              "authenticated_at"
+            ],
+            "additionalProperties": false
+          },
+          "end": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source_final": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "bytes": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "initial_stat": {
+                    "type": "object",
+                    "properties": {
+                      "st_size": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "st_mtime_ns": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "st_ctime_ns": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "st_dev": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "st_ino": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "st_size",
+                      "st_mtime_ns",
+                      "st_ctime_ns",
+                      "st_dev",
+                      "st_ino"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "authenticated_at": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "bytes",
+                  "sha256",
+                  "initial_stat",
+                  "authenticated_at"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "start",
+          "source_start",
+          "end",
+          "source_final"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "section_records": {
+      "type": "object",
+      "minProperties": 19,
+      "maxProperties": 19,
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "pending",
+              "running",
+              "failed",
+              "promoted"
+            ]
+          },
+          "attempts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^\\.attempt-[A-Za-z0-9_-]+$"
+                },
+                "state": {
+                  "enum": [
+                    "started",
+                    "interrupted",
+                    "failed",
+                    "promoted"
+                  ]
+                },
+                "cleanup": {
+                  "enum": [
+                    "retained",
+                    "pending",
+                    "removed",
+                    "already_absent",
+                    "retained_failed"
+                  ]
+                },
+                "started": {
+                  "type": "string"
+                },
+                "ended": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "state",
+                "cleanup",
+                "started",
+                "ended"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "observed_at": {
+                  "type": "string"
+                },
+                "available_ram_bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "free_disk_bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "observed_at",
+                "available_ram_bytes",
+                "free_disk_bytes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "time": {
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "fast_closed_file_schema_hash_provenance",
+                    "deep_before_promotion_plus_fast_after"
+                  ]
+                },
+                "elapsed_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "time",
+                "kind"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "manifest": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "bytes": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "path",
+                  "bytes",
+                  "sha256"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "receipt": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "state",
+          "attempts",
+          "resources",
+          "checks",
+          "manifest",
+          "receipt"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "completed_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "status",
+    "pass",
+    "run_spec_sha256",
+    "run_specification",
+    "code",
+    "identities",
+    "policy_sha256",
+    "source_start",
+    "source_final",
+    "section_order",
+    "sections",
+    "sessions",
+    "section_records",
+    "completed_at"
+  ],
+  "additionalProperties": false
+}

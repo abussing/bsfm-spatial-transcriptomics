@@ -1,0 +1,20 @@
+{
+  "schema": "bsfm.production-policy.v1",
+  "concurrency": 1,
+  "section_order": "frozen_registry",
+  "minimum_available_ram_bytes": 7516192768,
+  "minimum_free_disk_bytes": 10737418240,
+  "cleanup_successful_attempts": true,
+  "retain_failed_attempts": true,
+  "source_authentication": "whole_file_start_and_closure_each_process",
+  "resume_validation": "fast_closed_file_schema_hash_provenance",
+  "promotion_validation": "deep_saved_model_recorrection",
+  "preprocessing_regime": "full_data",
+  "planning_evidence": "docs/preprocessing/audits/20261031_readiness/sections.csv",
+  "planning_estimates": {
+    "sequential_minutes": 56,
+    "final_storage_GiB": 1.34,
+    "min_cells_passing_section_gene_pairs": 5700,
+    "guarantee": false
+  }
+}

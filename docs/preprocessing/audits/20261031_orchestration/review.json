@@ -1,0 +1,167 @@
+{
+  "schema": "bsfm.orchestration-implementation-review.v1",
+  "status": "accepted",
+  "baseline_commit": "7f5b6042677ea917de4b254c05f319aa715704df",
+  "production_executed": false,
+  "real_section_refits": 0,
+  "tests": {
+    "python_passed": 74,
+    "R_count_validation_cases_passed": 7,
+    "fresh_synthetic_fits_passed": 4,
+    "all_five_synthetic_hashes_match_accepted": true,
+    "saved_artifact_readback": "pass",
+    "test_orchestration": "Synthetic section stubs for fault/state tests; real fast validator separately tested on synthetic six-file bundles. No scientific completion inferred from stubs."
+  },
+  "scientific_preservation": {
+    "R_sources_byte_identical_to_baseline": true,
+    "panel_and_bundle_contracts_byte_identical": true,
+    "write_response_AST_identical": true,
+    "check_response_check_execution_check_final_metadata_AST_identical": true
+  },
+  "evidence": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_orchestration_gate_20261031\\synthetic\\run-manifest.json",
+      "bytes": 29047,
+      "sha256": "f9aea69f9ea3e8a8803c6692d26da99bdab49acf01c38dbbfeb5005d0446c7b5"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_orchestration_gate_20261031\\saved-artifact-readback\\readback.json",
+      "bytes": 300,
+      "sha256": "dc9d9f2f32371462407fa0d2c16248156c47504970853b25cd4703c9ffa941d5"
+    }
+  ],
+  "implementation_files": [
+    {
+      "path": "src\\bsfm\\preprocessing\\__init__.py",
+      "bytes": 78,
+      "sha256": "989a549faa45b151c5e45af2e94b578b33f5b79126bbdeecb00818abc1b05c9e"
+    },
+    {
+      "path": "src\\bsfm\\preprocessing\\execution_evidence.py",
+      "bytes": 2297,
+      "sha256": "6a91b718b3f2a903c155bbfa562142bb9b13e296c26884fe179b77f98e22480f"
+    },
+    {
+      "path": "src\\bsfm\\preprocessing\\production_run.py",
+      "bytes": 13037,
+      "sha256": "0dc45add8bf91791831996f45db7f0ce7fff373552bc77f3cc14928c1a5ea9a8"
+    },
+    {
+      "path": "src\\bsfm\\preprocessing\\production_state.py",
+      "bytes": 4179,
+      "sha256": "f6991bdfc129f5aa795cfab80ce810f4068e0e0f4cb8f75733d8bf26fbd1ad43"
+    },
+    {
+      "path": "src\\bsfm\\preprocessing\\raw_preflight.py",
+      "bytes": 23371,
+      "sha256": "56d0e07fa81366fb6ea91dc8140039367f1aee5b28c2adad1c0597675fb6c749"
+    },
+    {
+      "path": "src\\bsfm\\preprocessing\\response_contract.py",
+      "bytes": 10065,
+      "sha256": "fce19a71401fe8e5d966c4ecffdc1655459725578a446d0edf2a92e82364f3b1"
+    },
+    {
+      "path": "src\\bsfm\\preprocessing\\response_run.py",
+      "bytes": 9655,
+      "sha256": "8c8744b4a112ee4a91cea2919010943898c88f2d24f0f2d182fccbc6c8412d36"
+    },
+    {
+      "path": "src\\bsfm\\preprocessing\\response_validate.py",
+      "bytes": 15893,
+      "sha256": "2364ba673dcd72f3d0a0c7a8daaf42dc24034a56589ab4189bf1d3d531558b7b"
+    },
+    {
+      "path": "src\\bsfm\\preprocessing\\sct_smoke.py",
+      "bytes": 12186,
+      "sha256": "e8fd22f0177534f39253e8c290d2550c23f7c50a9cd6f477a9be0993008b228f"
+    },
+    {
+      "path": "src\\bsfm\\preprocessing\\source_attestation.py",
+      "bytes": 2464,
+      "sha256": "313837feac318dc9eb64b4510c7dbe44664adeb3d1ada937db72f5ab4cd43164"
+    }
+  ],
+  "configuration_and_schemas": [
+    {
+      "path": "config\\preprocessing\\production-run.json",
+      "bytes": 747,
+      "sha256": "094aa8b79b7ba70cb1fb209fea1a39638476785e6dc5739666c6aca120eb97f9"
+    },
+    {
+      "path": "config\\preprocessing\\single-section-run.json",
+      "bytes": 2690,
+      "sha256": "2cbf6c31284254c1b16ff7a7193ec1774d8c1ce1159c342fe6f883df1e072f24"
+    },
+    {
+      "path": "schemas\\preprocessing\\production-ledger.schema.json",
+      "bytes": 10093,
+      "sha256": "6e4a6374ea80de8958d2aa504347dd2cc67f0e5257e63a6adb83f9fe47337997"
+    },
+    {
+      "path": "schemas\\preprocessing\\production-manifest.schema.json",
+      "bytes": 14933,
+      "sha256": "ecd7c846f5fdf9abcd8d15227aa9215c99f6bd4b897411502acb437b34fc5e77"
+    },
+    {
+      "path": "schemas\\preprocessing\\production-specification.schema.json",
+      "bytes": 3231,
+      "sha256": "67a2bc9dbee6288af87dd8a451cd772938b68b4d76b33270142acdd410044103"
+    }
+  ],
+  "commands": {
+    "python_tests": "C:\\Users\\Data Viz\\anaconda3\\python.exe -B -m unittest discover -s tests -v",
+    "R_count_tests": "Isolated Rscript --vanilla tests/test_sct_validation.R REPO_ROOT",
+    "synthetic": "python -B -m bsfm.preprocessing.sct_smoke --environment ISOLATED_ENV --output-dir EXTERNAL_SYNTHETIC_DIRECTORY (no --raw-source)",
+    "saved_readback": "Isolated Rscript --vanilla tests/check_sct_artifacts.R ISOLATED_ENV EXTERNAL_COPIES_OF_ACCEPTED_OBJECTS"
+  },
+  "limits": [
+    "No real production section or launcher execution occurred.",
+    "Implementation commit/push approved; no real production, HPC, mesh, GP or holdout execution.",
+    "Existing S00 bundles remain review evidence; source_native coordinates preserved.",
+    "Production execution requires a clean committed checkout and separate run approval.",
+    "Resume fast integrity is distinct from original deep saved-model recorrection.",
+    "Source stat checks between whole-file start and closure hashes are change detection, not continuous cryptographic authentication.",
+    "Windows checkpoint file fsync and atomic replacement do not guarantee resilience to every storage-controller failure."
+  ],
+  "acceptance": {
+    "authority": "Explicit user approval of orchestration implementation, tests and readiness evidence",
+    "production_execution_approved": false
+  },
+  "precommit_verification": {
+    "python_passed": 74,
+    "R_count_cases_passed": 7,
+    "fresh_synthetic_fits_passed": 4,
+    "five_semantic_hashes_unchanged_per_fit": true,
+    "saved_object_readback": "pass",
+    "real_section_refits": 0,
+    "schema_hash_credential_diff_checks": "pass",
+    "evidence": [
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_orchestration_acceptance_20261031\\python-tests.log",
+        "bytes": 10966,
+        "sha256": "26511b5f75c9e32cac30888c9ef32405c2c1f91d65599112220d13d7708b0e45"
+      },
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_orchestration_acceptance_20261031\\r-count-tests.log",
+        "bytes": 89,
+        "sha256": "1a29a893afd0887d05570098fcb7a63b955307edad9e60fcfacc292c5e407ec3"
+      },
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_orchestration_acceptance_20261031\\synthetic\\run-manifest.json",
+        "bytes": 29154,
+        "sha256": "b1401c9e9790d7662f957536cd983729c4abb68c50ef852436ead675e2b70e04"
+      },
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_orchestration_acceptance_20261031\\saved-readback.log",
+        "bytes": 100,
+        "sha256": "114e0fe9e6624b4558725593a65d1476369f7f732a378e9cfdec2a69519aab70"
+      },
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_orchestration_acceptance_20261031\\saved-artifact-readback\\readback.json",
+        "bytes": 300,
+        "sha256": "dc9d9f2f32371462407fa0d2c16248156c47504970853b25cd4703c9ffa941d5"
+      }
+    ]
+  }
+}

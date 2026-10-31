@@ -1,7 +1,9 @@
 # Canonical single-section modeling response
 
 Status: single-section implementation, independent validation, S00 equivalence
-and six-file portability accepted by explicit user approval.
+and six-file portability accepted by explicit user approval. The subsequent
+shared-root/committed-provenance orchestration implementation and tests are
+accepted; see [production orchestration](PRODUCTION_ORCHESTRATION.md).
 Execution baseline: `51441c885ecf5f4ac19d10a8b399d7d1ade46e1f`.
 The user authorized the single-section runner, independent validator, refactor
 tests and one fresh S00 bundle before commit. Other real sections, holdout
@@ -37,12 +39,15 @@ python -m bsfm.preprocessing.response_run `
   --destination-root '<fresh external directory>'
 ```
 
-The interface is general; this gate executes S00 only. It rejects unknown
+The interface is general; only the earlier bounded gate executed real S00.
+Production requires a clean committed checkout; this orchestration gate runs
+only synthetic tests. It rejects unknown
 sections and inconsistent configuration before fitting. The authenticated source
 has no excluded cells, so v1 requires exact agreement with the accepted eligible
 population and rejects any changed count/metadata/source rather than introducing
-new eligibility rules. The source is rehashed in full as opaque bytes; expression
-extraction is bounded and restricted to the selected section. IDs, raw rows,
+new eligibility rules. Standalone use rehashes the source in full as opaque bytes; a launcher may
+supply its active process-local start authentication. Expression extraction is
+bounded and restricted to the selected section. IDs, raw rows,
 animal labels and coordinates come from the canonical source/registries.
 
 The bundle contains exactly response.h5, fit.rds, execution.json, session.txt,
@@ -118,12 +123,14 @@ The run configuration pins both external hashes and canonical lock hashes. The
 gate separately audits all installed package files against authenticated package
 archives; the runner checks lock identities and actual effective package versions.
 
-A fresh root contains a unique .attempt directory holding fit/transport logs and
-validation evidence, plus a temporary bundle. Payloads are closed, flushed and
+An existing external root is permitted. Each invocation creates a unique
+`attempts/.attempt-<section>-<uuid>` directory holding fit/transport logs,
+validation evidence and a temporary bundle. Final `sections/<section-id>` must
+be absent and is never overwritten. Payloads are closed, flushed and
 read back before the final manifest is written. The complete bundle is validated
 again against that manifest, then renamed on the same filesystem to the section
-directory. Existing roots/final sections are refused. The parent promotion record
-contains the final manifest hash, elapsed time and normalization memory peak.
+directory. Existing final sections are refused. A receipt under `receipts/` contains
+the final manifest hash, elapsed time and normalization memory peak.
 
 The six-file bundle is the authoritative artifact boundary. After promotion,
 attempt directories and the surrounding gate directory may be deleted or kept
@@ -135,8 +142,9 @@ to a separate external work directory without changing the copied bundle.
 
 Readers reject .attempt paths, missing manifests, incomplete contents and failed
 hashes. Failed attempts retain failure.json and never become finalized sections.
-This version does not automatically resume partial stages: rerun into a fresh
-root. It deliberately revalidates completion rather than trusting a previous
+Partial scientific stages are not resumed: a new attempt is required. The
+sequential launcher may reuse validated finalized bundles through its documented
+fast integrity check. It deliberately revalidates completion rather than trusting a previous
 process exit. Full-data depth remains 124 and primary_holdout_scoring_eligible
 remains false; no holdout transformation is implemented.
 
@@ -165,7 +173,8 @@ results, exact external locations and the isolation test. The prior S00 review
 bundle was produced by uncommitted code and depended on external attempt logs;
 it is superseded as review evidence and is not a future all-section S00 artifact.
 The regenerated isolated bundle is accepted review evidence from uncommitted
-code, not the future all-section production artifact. No multi-section
-orchestration exists.
+code, not the future all-section production artifact. Sequential orchestration is accepted; no all-section production run has
+occurred. The new committed-production wording does not relabel these review
+artifacts or require them to validate under a new execution identity.
 No remaining-section execution follows
 automatically from a passing S00 gate.

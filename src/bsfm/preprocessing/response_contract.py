@@ -84,10 +84,21 @@ def code_identity():
     sources = sorted(Path(__file__).parent.glob("*.py")) + sorted(Path(__file__).parent.glob("*.R"))
     return {"commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip(),
             "source_files": {p.relative_to(REPO).as_posix(): sha256_file(p) for p in sources},
-            "execution_authority": "User-authorized local review gate; source hashes identify uncommitted implementation"}
+            "execution_authority": "Committed production implementation; clean Git required at execution"}
 
 
-def raw_section(source, section, config=CONFIG):
+def require_clean_code():
+    require(not subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all'],
+                                       cwd=REPO, text=True).strip(), 'Production requires a clean Git working tree')
+    code = code_identity()
+    subprocess.check_call(['git', 'cat-file', '-e', code['commit'] + '^{commit}'], cwd=REPO)
+    for name, digest in code['source_files'].items():
+        committed = subprocess.check_output(['git', 'show', code['commit'] + ':' + name], cwd=REPO)
+        require(hashlib.sha256(committed).hexdigest() == digest, 'Production source is not committed: ' + name)
+    return code
+
+
+def raw_section(source, section, config=CONFIG, *, attestation=None):
     """Authenticate the entire source; read only selected expression rows."""
     _, panel, _, reg = contract(config)
     matches = [s for s in reg["sections"] if s["section"] == section]
@@ -96,7 +107,11 @@ def raw_section(source, section, config=CONFIG):
     audit = load_json(REPO / "docs/preprocessing/audits/20261030_raw/manifest.json")
     before = source.stat()
     require(before.st_size == audit["source"]["bytes"], "Raw source size mismatch")
-    require(sha256_file(source) == audit["source"]["sha256"], "Raw source fingerprint mismatch")
+    if attestation is None:
+        require(sha256_file(source) == audit["source"]["sha256"], "Raw source fingerprint mismatch")
+    else:
+        from .source_attestation import check_attestation
+        check_attestation(attestation, source, audit['source'])
     with h5py.File(source, "r") as f:
         genes, _ = axis_ids(f["var"])
         cells, _ = axis_ids(f["obs"])
@@ -126,6 +141,8 @@ def raw_section(source, section, config=CONFIG):
     require(len(set(metadata["gen"])) == len(set(metadata["gen_coarse"])) == 1, "Ambiguous animal/genotype")
     after = source.stat()
     require((before.st_size, before.st_mtime_ns) == (after.st_size, after.st_mtime_ns), "Source changed while reading")
+    if attestation is not None:
+        check_attestation(attestation, source, audit['source'])
     return {"genes": genes, "cells": cells, "rows": rows, "coordinates": xy,
             "metadata": metadata, "counts": counts,
             "source": {"path": str(source.resolve()), "bytes": before.st_size, "sha256": audit["source"]["sha256"]}}

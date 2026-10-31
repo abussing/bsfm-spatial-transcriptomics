@@ -1,7 +1,7 @@
 {
   "schema": "bsfm.single-section-run.v1",
   "baseline_commit": "51441c885ecf5f4ac19d10a8b399d7d1ade46e1f",
-  "scope": "general single-section implementation; this review gate executes S00 only",
+  "scope": "committed single-section production; execution requires a clean checkout and explicit run authorization",
   "frozen_files": {
     "config/preprocessing/modeling-panel.json": "85707ff1db48b697de58f2b0260daef2d40d6ac6a7710cdfa5e87da422c14f98",
     "config/preprocessing/response-bundle.json": "fa451ab856eaa9d7b05261ac6d79dcbdbc171a8ee391610733426938b45c7610",
