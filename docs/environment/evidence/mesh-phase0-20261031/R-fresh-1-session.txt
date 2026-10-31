@@ -1,0 +1,27 @@
+R version 4.5.3 (2026-03-11 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26300)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] C
+system code page: 65001
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base
+
+other attached packages:
+[1] jsonlite_2.0.0 Matrix_1.7-4   sf_1.1-0       fmesher_0.7.0
+
+loaded via a namespace (and not attached):
+ [1] lattice_0.22-9     e1071_1.7-17       magrittr_2.0.4     glue_1.8.0
+ [5] tibble_3.3.1       KernSmooth_2.23-26 pkgconfig_2.0.3    lifecycle_1.0.5
+ [9] classInt_0.4-11    cli_3.6.5          vctrs_0.7.1        grid_4.5.3
+[13] DBI_1.3.0          proxy_0.4-29       class_7.3-23       compiler_4.5.3
+[17] tools_4.5.3        pillar_1.11.1      Rcpp_1.1.1         rlang_1.1.7
+[21] units_1.0-1

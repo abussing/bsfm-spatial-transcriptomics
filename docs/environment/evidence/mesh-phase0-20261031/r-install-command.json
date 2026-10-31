@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+    "--vanilla",
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\install.R",
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031"
+  ],
+  "returncode": 0
+}

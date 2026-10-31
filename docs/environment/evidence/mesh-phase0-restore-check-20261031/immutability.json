@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "roots": [
+    {
+      "root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031",
+      "mode": "content",
+      "exists": true,
+      "files": 7732,
+      "bytes": 662710438,
+      "sha256": "6a51d946b43c097e6727330aac256a5190269297f1f097f5df00a431b47713db",
+      "unchanged": true
+    },
+    {
+      "root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3",
+      "mode": "content",
+      "exists": true,
+      "files": 4472,
+      "bytes": 199241259,
+      "sha256": "6870481507d5437200322ceb4ca56aabaeae9b6f42d9845b082ae4f057d57f76",
+      "unchanged": true
+    },
+    {
+      "root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\library",
+      "mode": "content",
+      "exists": true,
+      "files": 23785,
+      "bytes": 549881662,
+      "sha256": "771ceb8f4d6d24d6f13fd5047b931002aca657dbf06cd4cdb90fe37fbf5f080e",
+      "unchanged": true
+    },
+    {
+      "root": "C:\\Users\\Data Viz\\anaconda3\\Lib\\site-packages",
+      "mode": "metadata",
+      "exists": true,
+      "files": 101285,
+      "bytes": 1764841624,
+      "sha256": "4bfc5efc1c777b5d8f868d9d6dbad682845dceac742bb7fcad73985e03bc5070",
+      "unchanged": true
+    },
+    {
+      "root": "C:\\Users\\Data Viz\\AppData\\Local\\R\\win-library",
+      "mode": "metadata",
+      "exists": true,
+      "files": 13879,
+      "bytes": 825341461,
+      "sha256": "68f473eebda01a4607be24f458a2af2541728428bdcebe475842fa62a2323996",
+      "unchanged": true
+    },
+    {
+      "root": "C:\\Users\\Data Viz\\AppData\\Roaming\\Python",
+      "mode": "metadata",
+      "exists": true,
+      "files": 27824,
+      "bytes": 956969240,
+      "sha256": "063030a86c75bd50bc6a448b8246cb57425d1736074cdb2ac295138b48a65675",
+      "unchanged": true
+    },
+    {
+      "root": "C:\\Users\\Data Viz\\Documents\\R",
+      "mode": "metadata",
+      "exists": false,
+      "files": 0,
+      "bytes": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "unchanged": true
+    },
+    {
+      "root": "C:\\Program Files\\R\\R-4.4.1\\library",
+      "mode": "metadata",
+      "exists": true,
+      "files": 2239,
+      "bytes": 75542629,
+      "sha256": "43ad954258960d99dab2e6d4f60ca8d0606d3d4863efa6c85a1a1a8750ebaed0",
+      "unchanged": true
+    },
+    {
+      "root": "C:\\Program Files\\Python312\\Lib",
+      "mode": "metadata",
+      "exists": true,
+      "files": 2001,
+      "bytes": 33878961,
+      "sha256": "d31ae8ab52a9b2204ee6731b622de23794244acb7ea954da492788dfadc4bbdb",
+      "unchanged": true
+    }
+  ]
+}

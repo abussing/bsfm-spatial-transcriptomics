@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "scope": "bounded synthetic environment checks only",
+  "R": {
+    "fresh_sessions": 2,
+    "mesh": "unit square boundary plus central point; fmesher 0.7.0; cutoff=1e-12; min.angle=21; max.edge=0.6; extend=false",
+    "queries": [
+      "vertex",
+      "first triangle edge midpoint",
+      "first triangle centroid"
+    ],
+    "vertices_max_exclusive": 200,
+    "triangles_max_exclusive": 400,
+    "row_sum_atol_exclusive": 1e-12,
+    "affine_atol_exclusive": 1e-12,
+    "basis_weight_atol_exclusive": 1e-12,
+    "matrix_market_atol_exclusive": 1e-15,
+    "nonbase_library": "mesh-only",
+    "stack_imbalance": "fatal"
+  },
+  "Python": {
+    "generalized_eigenproblem": "G=diag(2,12,45), M=diag(2,3,5); eigenvalues 1,4,9",
+    "eigenvalue_residual_orthogonality_atol_exclusive": 1e-12,
+    "bessel_orders": [
+      5,
+      0.5
+    ],
+    "bessel_arguments": [
+      1e-08,
+      0.1,
+      1,
+      10
+    ],
+    "half_order_closed_form_rtol_exclusive": 1e-14,
+    "HDF5": "synthetic arrays only; exact",
+    "memory": "live child included in recursive process-tree RSS; functionality check, not workload peak"
+  },
+  "cross_language": {
+    "triangles_R": 1,
+    "triangles_wire": 0,
+    "Matrix_Market": "standard one-based file indices handled by library readers; do not subtract again",
+    "coordinate_order": "first then second axis unchanged; future source mapping center_y,center_x",
+    "scalar_order": "row-major little-endian float64 for coordinates/projector; int32 for triangles",
+    "semantic_hash": "SHA-256 of logical dense row-major wire bytes; dimension/dtype checked separately",
+    "repeat": "four logical payload hashes identical",
+    "reverse_sparse": "exact dimensions, indptr, indices, values",
+    "deliberate_rejections": [
+      "one-based triangle values declared zero-based",
+      "zero-based triangle values declared one-based"
+    ]
+  },
+  "allowed_canonical_metadata": {
+    "run_manifest": "03b83d93891080f15b6a85684e2cb5de8d9a9b7cdf72f8c25dd8103403e1e06f",
+    "section_registry": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166"
+  },
+  "forbidden": [
+    "response arrays",
+    "raw H5AD",
+    "S10",
+    "candidate buffers",
+    "FEM accuracy study",
+    "MCMC"
+  ]
+}

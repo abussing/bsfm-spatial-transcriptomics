@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "accepted_materialized_offline_restored",
+  "baseline_commit": "cfd00047d884021bed52194eb70189fd9cddc268",
+  "scope": "mesh environment only; not Phase-0 harness",
+  "platform": "Windows x86_64",
+  "external_root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031",
+  "machine_local": true,
+  "runtime_versions": {
+    "R": "4.5.3",
+    "Python": "3.12.0"
+  },
+  "R_packages": {
+    "DBI": "1.3.0",
+    "KernSmooth": "2.23-26",
+    "MASS": "7.3-65",
+    "Matrix": "1.7-4",
+    "R6": "2.6.1",
+    "Rcpp": "1.1.1",
+    "class": "7.3-23",
+    "classInt": "0.4-11",
+    "cli": "3.6.5",
+    "dplyr": "1.2.0",
+    "e1071": "1.7-17",
+    "fmesher": "0.7.0",
+    "generics": "0.1.4",
+    "glue": "1.8.0",
+    "jsonlite": "2.0.0",
+    "lattice": "0.22-9",
+    "lifecycle": "1.0.5",
+    "magrittr": "2.0.4",
+    "pillar": "1.11.1",
+    "pkgconfig": "2.0.3",
+    "proxy": "0.4-29",
+    "rlang": "1.1.7",
+    "s2": "1.1.9",
+    "sf": "1.1-0",
+    "sp": "2.2-1",
+    "splancs": "2.01-45",
+    "tibble": "3.3.1",
+    "tidyselect": "1.2.1",
+    "units": "1.0-1",
+    "utf8": "1.2.6",
+    "vctrs": "0.7.1",
+    "withr": "3.0.2",
+    "wk": "0.9.5"
+  },
+  "Python_packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "h5py": "3.16.0",
+    "psutil": "7.2.2",
+    "jsonschema": "4.26.0",
+    "attrs": "26.1.0",
+    "jsonschema-specifications": "2025.9.1",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.9.1",
+    "typing_extensions": "4.16.0",
+    "pip": "23.2.1"
+  },
+  "locks": [
+    "runtime-lock.json",
+    "r-source-lock.json",
+    "r-packages.lock.json",
+    "python-source-lock.json",
+    "python-requirements.lock.txt",
+    "python-freeze.txt"
+  ],
+  "isolation": {
+    "R": "--vanilla; .libPaths(c(mesh_library,.Library), include.site=FALSE); non-base namespace path assertion",
+    "Python": "venv; include-system-site-packages=false; pinned wheel installation; distribution-path assertion",
+    "system_libraries_modified": false,
+    "SCT_runtime_reused_read_only": true
+  },
+  "validation": "validation-spec.json",
+  "execution_limits": {
+    "real_meshes": false,
+    "Phase0_harness_implemented": false,
+    "HPC": false,
+    "production_response_arrays_opened": false
+  }
+}

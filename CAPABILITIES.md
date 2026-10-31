@@ -106,6 +106,15 @@ No historical implementation has been selected; no canonical mesh generation,
 GP initialization or HPC execution has occurred. Full-prior numerical coverage,
 physical units and an authenticated flat-model implementation remain unresolved.
 
+The isolated [mesh environment build](docs/environment/MESH_ENVIRONMENT_BUILD.md)
+is materialized and passes bounded synthetic mesh/projector, eigensystem and
+cross-language checks; fresh offline restoration and environment acceptance have
+passed. The [restoration receipt](docs/environment/MESH_ENVIRONMENT_RESTORATION.md)
+records exact package/semantic agreement and immutability evidence. It preserves
+fmesher 0.7.0 and uses a separate R library and unified Python venv. These are
+environment checks only: the Phase-0 harness and real S10 meshes have not been
+implemented or run.
+
 - Construct meshes from tissue cell locations using the adaptive method.
 - Use multiple layers of resolution that become coarser outside the cell hull.
 - Recover and document the settled refinement and outer-buffer choices.

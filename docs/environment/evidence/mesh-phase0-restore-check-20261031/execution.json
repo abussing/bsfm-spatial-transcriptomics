@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "baseline": "cfd00047d884021bed52194eb70189fd9cddc268",
+  "original": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031",
+  "restored": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031",
+  "network_resolution": false,
+  "installed_libraries_copied": false,
+  "steps": [
+    {
+      "name": "restore",
+      "command": [
+        "C:\\Program Files\\Python312\\python.exe",
+        "-B",
+        "environment/mesh/restore.py",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031",
+        "--rscript",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+        "--python-base",
+        "C:\\Program Files\\Python312\\python.exe",
+        "--offline"
+      ],
+      "returncode": 0,
+      "seconds": 151.15292358398438,
+      "log": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031-evidence\\restore.log",
+      "log_bytes": 414,
+      "log_sha256": "51bb7df3b585b230c8728ca99f828b6b3b59f403ce4ba7a7c8f670ffc547d348"
+    },
+    {
+      "name": "validate",
+      "command": [
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\python\\Scripts\\python.exe",
+        "-B",
+        "environment/mesh/validate.py",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031",
+        "--run-root",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2",
+        "--validation-name",
+        "validation-offline-restore"
+      ],
+      "returncode": 0,
+      "seconds": 10.669177293777466,
+      "log": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031-evidence\\validate.log",
+      "log_bytes": 4483,
+      "log_sha256": "9a29d939f12c082a30adb421a339c9973a3e4f9c3d70879f91605c3399310735"
+    },
+    {
+      "name": "audit",
+      "command": [
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\python\\Scripts\\python.exe",
+        "-B",
+        "environment/mesh/audit.py",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031"
+      ],
+      "returncode": 0,
+      "seconds": 5.447325706481934,
+      "log": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031-evidence\\audit.log",
+      "log_bytes": 1865,
+      "log_sha256": "66893aa09c685f6db6ab0adc7c5dc76d15728d73b5e38f386307ad149b49d119"
+    },
+    {
+      "name": "compare",
+      "command": [
+        "C:\\Program Files\\Python312\\python.exe",
+        "-B",
+        "environment/mesh/restoration_check.py",
+        "compare",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031-evidence\\comparison.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.19010043144226074,
+      "log": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031-evidence\\compare.log",
+      "log_bytes": 14,
+      "log_sha256": "ba472da4bb69f4f122aad3d8c6df713e0424133a7638dc915b1bd4b8317527e7"
+    },
+    {
+      "name": "immutability",
+      "command": [
+        "C:\\Program Files\\Python312\\python.exe",
+        "-u",
+        "-B",
+        "environment/mesh/restoration_check.py",
+        "verify",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031-evidence\\before.json",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031-evidence\\immutability.json"
+      ],
+      "returncode": 0,
+      "seconds": 95.44679808616638,
+      "log": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031-evidence\\immutability.log",
+      "log_bytes": 594,
+      "log_sha256": "09a80f20a0aa3fbb223fdab043fb77654edb1dee14d98205a81d46c5eb4500df"
+    }
+  ],
+  "status": "pass"
+}

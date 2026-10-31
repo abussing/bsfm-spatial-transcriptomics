@@ -1,0 +1,734 @@
+{
+  "status": "pass",
+  "exact_validation_fields": [
+    "status",
+    "scope",
+    "python",
+    "platform",
+    "packages",
+    "hdf5",
+    "r_runs",
+    "deterministic_semantics",
+    "coordinate_order",
+    "metadata_authentication",
+    "generalized_eigenvalue_error",
+    "orthogonality_error",
+    "eigen_residual",
+    "bessel_half_order_relative_error",
+    "bessel_order5_values",
+    "hdf5_roundtrip",
+    "python_to_r_matrix_market",
+    "stack_imbalance_detected"
+  ],
+  "package_and_runtime_comparison": "exact after environment-path normalization",
+  "R_packages": {
+    "DBI": "1.3.0",
+    "KernSmooth": "2.23-26",
+    "MASS": "7.3-65",
+    "Matrix": "1.7-4",
+    "R6": "2.6.1",
+    "Rcpp": "1.1.1",
+    "class": "7.3-23",
+    "classInt": "0.4-11",
+    "cli": "3.6.5",
+    "dplyr": "1.2.0",
+    "e1071": "1.7-17",
+    "fmesher": "0.7.0",
+    "generics": "0.1.4",
+    "glue": "1.8.0",
+    "jsonlite": "2.0.0",
+    "lattice": "0.22-9",
+    "lifecycle": "1.0.5",
+    "magrittr": "2.0.4",
+    "pillar": "1.11.1",
+    "pkgconfig": "2.0.3",
+    "proxy": "0.4-29",
+    "rlang": "1.1.7",
+    "s2": "1.1.9",
+    "sf": "1.1-0",
+    "sp": "2.2-1",
+    "splancs": "2.01-45",
+    "tibble": "3.3.1",
+    "tidyselect": "1.2.1",
+    "units": "1.0-1",
+    "utf8": "1.2.6",
+    "vctrs": "0.7.1",
+    "withr": "3.0.2",
+    "wk": "0.9.5"
+  },
+  "python_freeze": [
+    "attrs==26.1.0",
+    "h5py==3.16.0",
+    "jsonschema==4.26.0",
+    "jsonschema-specifications==2025.9.1",
+    "numpy==2.5.4",
+    "pip==23.2.1",
+    "psutil==7.2.2",
+    "referencing==0.37.0",
+    "rpds-py==2026.9.1",
+    "scipy==1.18.1",
+    "typing_extensions==4.16.0"
+  ],
+  "authenticated_archives": [
+    {
+      "package": "DBI",
+      "version": "1.3.0",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/DBI_1.3.0.tar.gz",
+      "bytes": 744704,
+      "sha256": "13def8e90cbe41205a0dfcf585a6a7ea79ce10d45969789e82613c7ce3d5fb18"
+    },
+    {
+      "package": "DBI",
+      "version": "1.3.0",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/DBI_1.3.0.zip",
+      "bytes": 965010,
+      "sha256": "bdbd19b3fce9b3c4b9caf9a7a23be4f1620198ac1b326b45bdeb2cae24458199"
+    },
+    {
+      "package": "KernSmooth",
+      "version": "2.23-26",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/KernSmooth/KernSmooth_2.23-26.tar.gz",
+      "bytes": 27607,
+      "sha256": "b465bdac197f7faa787e625412ae03d1b7c2c134b1c924cfeb775faf9c4da73e"
+    },
+    {
+      "package": "KernSmooth",
+      "version": "2.23-26",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/KernSmooth_2.23-26.zip",
+      "bytes": 102784,
+      "sha256": "9b6df9b8eff042f9db17df3ad7824eb4c0daa03e0fc1c198b26e752954264580"
+    },
+    {
+      "package": "MASS",
+      "version": "7.3-65",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/MASS/MASS_7.3-65.tar.gz",
+      "bytes": 510322,
+      "sha256": "b07ef1e3c364ce56269b4a8a7759cc9f87c876554f91293437bb578cfe38172f"
+    },
+    {
+      "package": "MASS",
+      "version": "7.3-65",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/MASS_7.3-65.zip",
+      "bytes": 1174166,
+      "sha256": "72faf1eface3ab1bb0601cf05f28dd8268cc47f56629181cdb506ed73c71dd05"
+    },
+    {
+      "package": "Matrix",
+      "version": "1.7-4",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/Matrix/Matrix_1.7-4.tar.gz",
+      "bytes": 2485182,
+      "sha256": "7b131ecb6a21ff09a33691dac7bf8a7bc2eab9fd1dd09ef14856d74346eb4779"
+    },
+    {
+      "package": "Matrix",
+      "version": "1.7-4",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/Matrix_1.7-4.zip",
+      "bytes": 4995874,
+      "sha256": "30161ab224a331438d21eaba841dedbf0c0e73c6b85331ea5307b3150872bb5f"
+    },
+    {
+      "package": "R6",
+      "version": "2.6.1",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/R6_2.6.1.tar.gz",
+      "bytes": 64507,
+      "sha256": "59c6eba8b1b912eb7e104f65053235604be853425ee67c152ac4e86a1f2073b4"
+    },
+    {
+      "package": "R6",
+      "version": "2.6.1",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/R6_2.6.1.zip",
+      "bytes": 88741,
+      "sha256": "653177a6caafbd9a754360b277405f894f0f2fede5ccec5df86690ee5956495a"
+    },
+    {
+      "package": "Rcpp",
+      "version": "1.1.1",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/Rcpp/Rcpp_1.1.1.tar.gz",
+      "bytes": 1883133,
+      "sha256": "da0c616a71c82150397259516b2ea7558dbd31a5b4a217423ec9666b3a0fcfb7"
+    },
+    {
+      "package": "Rcpp",
+      "version": "1.1.1",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/Rcpp_1.1.1.zip",
+      "bytes": 2929489,
+      "sha256": "b9d51255124a3c058a699086af8f6bd5fa340fff99768466b0156f8e7d738e65"
+    },
+    {
+      "package": "class",
+      "version": "7.3-23",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/class/class_7.3-23.tar.gz",
+      "bytes": 22058,
+      "sha256": "4d1adb12eae045f15641516d795177dd1d3074c0a86ac633000507c4822891f1"
+    },
+    {
+      "package": "class",
+      "version": "7.3-23",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/class_7.3-23.zip",
+      "bytes": 99627,
+      "sha256": "7335f408c83e26975649dd68edb4351dc67a1080a1d798bfa61c3aa8cc3209f6"
+    },
+    {
+      "package": "classInt",
+      "version": "0.4-11",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/classInt_0.4-11.tar.gz",
+      "bytes": 440406,
+      "sha256": "8d366844cf7f951cc5b65423c3ccf50ebc3c11cf9d1fc90f8208e7d869c5d0a6"
+    },
+    {
+      "package": "classInt",
+      "version": "0.4-11",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/classInt_0.4-11.zip",
+      "bytes": 503338,
+      "sha256": "2971dc2474aa0cc651a4cd61cff57e7104fbdaff08f5bbdfe3a68a2fcf409387"
+    },
+    {
+      "package": "cli",
+      "version": "3.6.5",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/cli/cli_3.6.5.tar.gz",
+      "bytes": 640240,
+      "sha256": "8ebe3146e66a285d8ad6ddcff87e2a9790ea7c9cdfce7fdd8bf13095fa459679"
+    },
+    {
+      "package": "cli",
+      "version": "3.6.5",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/cli_3.6.5.zip",
+      "bytes": 1392626,
+      "sha256": "82fadf2b4093a449bfd013f82fb8749c227eef8af9cd8578d12d0cc33f254121"
+    },
+    {
+      "package": "dplyr",
+      "version": "1.2.0",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/dplyr/dplyr_1.2.0.tar.gz",
+      "bytes": 922393,
+      "sha256": "a82c292f2249d439157986b504edd1d99741f467c75bf08969254ca8d441bfa3"
+    },
+    {
+      "package": "dplyr",
+      "version": "1.2.0",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/dplyr_1.2.0.zip",
+      "bytes": 1614538,
+      "sha256": "ad5aa63f7a40b8a79bccf8be074cb4425647b03506a3076f82000ec31617a079"
+    },
+    {
+      "package": "e1071",
+      "version": "1.7-17",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/e1071_1.7-17.tar.gz",
+      "bytes": 318056,
+      "sha256": "6debc371ad478c2aa6de1f6510e254e80e797de4974b855f63b35509a3c2ac87"
+    },
+    {
+      "package": "e1071",
+      "version": "1.7-17",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/e1071_1.7-17.zip",
+      "bytes": 667490,
+      "sha256": "750f87c9a680c40f469ad92eeb2f95ebf35fc25fceb983999b6004f893fe8b4b"
+    },
+    {
+      "package": "fmesher",
+      "version": "0.7.0",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/fmesher/fmesher_0.7.0.tar.gz",
+      "bytes": 1447820,
+      "sha256": "6a1c4e69c5d2a235edcc3a613cb0cff0015ceee78b65c2d342bc05e12ff8a185"
+    },
+    {
+      "package": "fmesher",
+      "version": "0.7.0",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/fmesher_0.7.0.zip",
+      "bytes": 2796824,
+      "sha256": "47a4f6fb693a859b5245193be2113b2cd527c3f45e00cad6f0e1d834aed395a1"
+    },
+    {
+      "package": "generics",
+      "version": "0.1.4",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/generics_0.1.4.tar.gz",
+      "bytes": 47224,
+      "sha256": "bbe95a097792d38fc3b7e677738af1b95b66ea5e5017e33b8beac6a6088d0801"
+    },
+    {
+      "package": "generics",
+      "version": "0.1.4",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/generics_0.1.4.zip",
+      "bytes": 84997,
+      "sha256": "1e2896baceaec6f19973902b98eceb2f140dbdab77b3b1518257b8e20859b961"
+    },
+    {
+      "package": "glue",
+      "version": "1.8.0",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/glue/glue_1.8.0.tar.gz",
+      "bytes": 126682,
+      "sha256": "c86f364ba899b8662f5da3e1a75f43ae081ab04e0d51171d052356e7ee4b72a0"
+    },
+    {
+      "package": "glue",
+      "version": "1.8.0",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/glue_1.8.0.zip",
+      "bytes": 183159,
+      "sha256": "09163cd1282b1fa11f2027402f16dbc53c334d3225deabee5dc46948040b141f"
+    },
+    {
+      "package": "jsonlite",
+      "version": "2.0.0",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/jsonlite_2.0.0.tar.gz",
+      "bytes": 1055849,
+      "sha256": "75eb910c82b350ec33f094779da0f87bff154c232e4ae39c9896a9b89f3ac82d"
+    },
+    {
+      "package": "jsonlite",
+      "version": "2.0.0",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/jsonlite_2.0.0.zip",
+      "bytes": 1108305,
+      "sha256": "1f739a7bb1f524013d74cd7154f0bc44ec91f216ace7d435bc01f010464e959c"
+    },
+    {
+      "package": "lattice",
+      "version": "0.22-9",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/lattice/lattice_0.22-9.tar.gz",
+      "bytes": 636784,
+      "sha256": "b72ad4ed2e5269fa7cf668e46f83a9b5d9d5f8fdcbc5b9886531ca19dffca4ba"
+    },
+    {
+      "package": "lattice",
+      "version": "0.22-9",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/lattice_0.22-9.zip",
+      "bytes": 1442300,
+      "sha256": "c94ec3d39ab467d3390c06bb777b31414daeacfc523c4ca69424ba3f3dfb093f"
+    },
+    {
+      "package": "lifecycle",
+      "version": "1.0.5",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/lifecycle_1.0.5.tar.gz",
+      "bytes": 107137,
+      "sha256": "61841e3e6edba056a88355a3f1d6698ab8d5d9cb3c05f2af0ec5a44ab516f8ee"
+    },
+    {
+      "package": "lifecycle",
+      "version": "1.0.5",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/lifecycle_1.0.5.zip",
+      "bytes": 149504,
+      "sha256": "de11f5b701c436233a6b8c75a9fa1acfefce99811f77eb62040c1b47cee7775f"
+    },
+    {
+      "package": "magrittr",
+      "version": "2.0.4",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/magrittr/magrittr_2.0.4.tar.gz",
+      "bytes": 281790,
+      "sha256": "6aba790c40de70d8fb4d2db4bebb377418971761b0da7df2141b5d4ad95981f3"
+    },
+    {
+      "package": "magrittr",
+      "version": "2.0.4",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/magrittr_2.0.4.zip",
+      "bytes": 228102,
+      "sha256": "0b8c298fed6e64f5972c64d7015bf0fe461de9a0a459f83ce8c7d5a15dc215cd"
+    },
+    {
+      "package": "pillar",
+      "version": "1.11.1",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/pillar_1.11.1.tar.gz",
+      "bytes": 409508,
+      "sha256": "056ce154238c9b5b8d5dcbcb52e1bc51d33870ce08c8a9ca9496478bd59f4653"
+    },
+    {
+      "package": "pillar",
+      "version": "1.11.1",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/pillar_1.11.1.zip",
+      "bytes": 672875,
+      "sha256": "42773dfb4774fccd9209a67148e0d00ddae8b8a7225767c89517c131fe977bca"
+    },
+    {
+      "package": "pkgconfig",
+      "version": "2.0.3",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/pkgconfig_2.0.3.tar.gz",
+      "bytes": 6080,
+      "sha256": "330fef440ffeb842a7dcfffc8303743f1feae83e8d6131078b5a44ff11bc3850"
+    },
+    {
+      "package": "pkgconfig",
+      "version": "2.0.3",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/pkgconfig_2.0.3.zip",
+      "bytes": 23021,
+      "sha256": "40ccd3f2ebbd1f85a08f399ef2115ab4e18803b4e8862a0a83e8189807bf73af"
+    },
+    {
+      "package": "proxy",
+      "version": "0.4-29",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/proxy_0.4-29.tar.gz",
+      "bytes": 71437,
+      "sha256": "c6eb0e36ef2eecb1b8564f0188ca8d2c91a80865c86698386a7b5d5baa92c35b"
+    },
+    {
+      "package": "proxy",
+      "version": "0.4-29",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/proxy_0.4-29.zip",
+      "bytes": 176816,
+      "sha256": "55c3e93493ee4486f0111b2fb4c15abc8ca89d3b1742ae4ff79aa899580250e6"
+    },
+    {
+      "package": "rlang",
+      "version": "1.1.7",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/rlang/rlang_1.1.7.tar.gz",
+      "bytes": 770338,
+      "sha256": "123c91e7eaacd3514a368a31c30617d36a874def37f6cafdacc0c7d1409be373"
+    },
+    {
+      "package": "rlang",
+      "version": "1.1.7",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/rlang_1.1.7.zip",
+      "bytes": 1616231,
+      "sha256": "4f23e375311e93902cbf7e9f8ae0931d2abe3225c7264a106335863562c737a8"
+    },
+    {
+      "package": "s2",
+      "version": "1.1.9",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/s2/s2_1.1.9.tar.gz",
+      "bytes": 2967364,
+      "sha256": "4dcd2bff738be5a89b925fed29acb6e224e0f514b4530dc9987a0a72c5a99b55"
+    },
+    {
+      "package": "s2",
+      "version": "1.1.9",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/s2_1.1.9.zip",
+      "bytes": 4515698,
+      "sha256": "edf20919914fb04829f171f6225234087b17b87b2c56877343054e27b14b6814"
+    },
+    {
+      "package": "sf",
+      "version": "1.1-0",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/sf/sf_1.1-0.tar.gz",
+      "bytes": 9876822,
+      "sha256": "7ce76026eb51c789c123639901ad655273fedea29be508e3afd35000a122da25"
+    },
+    {
+      "package": "sf",
+      "version": "1.1-0",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/sf_1.1-0.zip",
+      "bytes": 51235713,
+      "sha256": "0da53a81a9d561a302b133a84f73b00a1191deb8af6d771e4c9a7bd4bd16f1ac"
+    },
+    {
+      "package": "sp",
+      "version": "2.2-1",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/sp/sp_2.2-1.tar.gz",
+      "bytes": 4472598,
+      "sha256": "277a4533bc784a08fdbb710757b6af0c7a492691bfb07d8f0b2aa8ad7c857652"
+    },
+    {
+      "package": "sp",
+      "version": "2.2-1",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/sp_2.2-1.zip",
+      "bytes": 5310192,
+      "sha256": "e10ae77c6ffa027dacc18bb7ce30c528b65d766f66d268a281e74f54f80f4708"
+    },
+    {
+      "package": "splancs",
+      "version": "2.01-45",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/splancs_2.01-45.tar.gz",
+      "bytes": 101473,
+      "sha256": "8bccf1d61d7feaab52da07a9c95aa66bcd3986a6b214f13b232c1e2bea4b76d3"
+    },
+    {
+      "package": "splancs",
+      "version": "2.01-45",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/splancs_2.01-45.zip",
+      "bytes": 326194,
+      "sha256": "163da633fddd3911e4da402968e3260ed7a3008afa8c448684c9765ce719bb43"
+    },
+    {
+      "package": "tibble",
+      "version": "3.3.1",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/tibble_3.3.1.tar.gz",
+      "bytes": 557135,
+      "sha256": "fb309f8a1939021b237c7e85ff7ad6e8ff5acd57a6230d220a452094b492b28f"
+    },
+    {
+      "package": "tibble",
+      "version": "3.3.1",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/tibble_3.3.1.zip",
+      "bytes": 665965,
+      "sha256": "9f1b2d7c04023439679711fce974204ecddbca54e7c5d20bbc8e558a889dc69b"
+    },
+    {
+      "package": "tidyselect",
+      "version": "1.2.1",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/tidyselect_1.2.1.tar.gz",
+      "bytes": 103591,
+      "sha256": "169e97ba0bbfbcdf4a80534322751f87a04370310c40e27f04aac6525d45903c"
+    },
+    {
+      "package": "tidyselect",
+      "version": "1.2.1",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/tidyselect_1.2.1.zip",
+      "bytes": 228144,
+      "sha256": "63e8269d72c9742804261345099cf51691d4a5a9242ba02152d9097ce9936b93"
+    },
+    {
+      "package": "units",
+      "version": "1.0-1",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/units_1.0-1.tar.gz",
+      "bytes": 369348,
+      "sha256": "09ec534a9d4ab7f171809cad1788074452f9b30620d5f54d959d799f5952fbf3"
+    },
+    {
+      "package": "units",
+      "version": "1.0-1",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/units_1.0-1.zip",
+      "bytes": 924055,
+      "sha256": "13bc410063eadcc10e639328c53ae64bdc71934c5c289c87fb195273d6b3938b"
+    },
+    {
+      "package": "utf8",
+      "version": "1.2.6",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/utf8_1.2.6.tar.gz",
+      "bytes": 243856,
+      "sha256": "4589f8b72291329e70b7f3a8c20f2feb4e7764eebad2e6976bc9a3eee7686ce9"
+    },
+    {
+      "package": "utf8",
+      "version": "1.2.6",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/utf8_1.2.6.zip",
+      "bytes": 152349,
+      "sha256": "31f27a7e79c165aaa5eff7283729cdb451d22b4c810df35377ea10c7d8fad235"
+    },
+    {
+      "package": "vctrs",
+      "version": "0.7.1",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/vctrs/vctrs_0.7.1.tar.gz",
+      "bytes": 1078115,
+      "sha256": "2f93519dfcffabc08bc508c2f47b5c23151cc667250b08a8b90be367ef1317c0"
+    },
+    {
+      "package": "vctrs",
+      "version": "0.7.1",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/vctrs_0.7.1.zip",
+      "bytes": 1479885,
+      "sha256": "cbe12267b495c675b3308dd8caa5b9022fa4daeddd311cb089b4ef2a76e2023e"
+    },
+    {
+      "package": "withr",
+      "version": "3.0.2",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/Archive/withr/withr_3.0.2.tar.gz",
+      "bytes": 103240,
+      "sha256": "0a3a05f493d275cca4bf13c8c1b95a1a4eed7f83b2493f41fde02ce3fc92c1a3"
+    },
+    {
+      "package": "withr",
+      "version": "3.0.2",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/withr_3.0.2.zip",
+      "bytes": 232479,
+      "sha256": "7b79af1afb3885f28f263d60b1028bd5aa6876e3fd896b865aa4ce238c77d6fc"
+    },
+    {
+      "package": "wk",
+      "version": "0.9.5",
+      "kind": "source",
+      "url": "https://cran.r-project.org/src/contrib/wk_0.9.5.tar.gz",
+      "bytes": 1041465,
+      "sha256": "b720282890f8d322ff8217bd857bab8f5549343ea2a635a3c2ada63ce1206aed"
+    },
+    {
+      "package": "wk",
+      "version": "0.9.5",
+      "kind": "binary",
+      "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/wk_0.9.5.zip",
+      "bytes": 2050666,
+      "sha256": "b4d8e79e30f73ca3f6726cdaac3d87d1d0edfdcbd20a888c7f73ed845cdca989"
+    },
+    {
+      "package": "numpy",
+      "version": "2.5.4",
+      "url": "https://files.pythonhosted.org/packages/12/33/fefe62073dc8acfd0f2b9ed7c003af2f50aa61555e113e6db02b8f79f145/numpy-2.5.4-cp312-cp312-win_amd64.whl",
+      "bytes": 12573091,
+      "sha256": "a7b1b6353e36a7e50de2973a38d705c88ee93adcf120673cee7f45a4a3fa223a",
+      "kind": "wheel"
+    },
+    {
+      "package": "scipy",
+      "version": "1.18.1",
+      "url": "https://files.pythonhosted.org/packages/39/e7/979fd14e75008623df31ba70d6bb144700f68feadcea042021c06a05bf82/scipy-1.18.1-cp312-cp312-win_amd64.whl",
+      "bytes": 36658278,
+      "sha256": "5e4d44984abc0020154ea81b247adeddcc3ac5527b975ff798bd1ba0adc513c2",
+      "kind": "wheel"
+    },
+    {
+      "package": "h5py",
+      "version": "3.16.0",
+      "url": "https://files.pythonhosted.org/packages/03/c1/0976b235cf29ead553e22f2fb6385a8252b533715e00d0ae52ed7b900582/h5py-3.16.0-cp312-cp312-win_amd64.whl",
+      "bytes": 3182868,
+      "sha256": "96b422019a1c8975c2d5dadcf61d4ba6f01c31f92bbde6e4649607885fe502d6",
+      "kind": "wheel"
+    },
+    {
+      "package": "psutil",
+      "version": "7.2.2",
+      "url": "https://files.pythonhosted.org/packages/b4/90/e2159492b5426be0c1fef7acba807a03511f97c5f86b3caeda6ad92351a7/psutil-7.2.2-cp37-abi3-win_amd64.whl",
+      "bytes": 137737,
+      "sha256": "eb7e81434c8d223ec4a219b5fc1c47d0417b12be7ea866e24fb5ad6e84b3d988",
+      "kind": "wheel"
+    },
+    {
+      "package": "jsonschema",
+      "version": "4.26.0",
+      "url": "https://files.pythonhosted.org/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl",
+      "bytes": 90630,
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+      "kind": "wheel"
+    },
+    {
+      "package": "attrs",
+      "version": "26.1.0",
+      "url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+      "bytes": 67548,
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "kind": "wheel"
+    },
+    {
+      "package": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "bytes": 18437,
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "kind": "wheel"
+    },
+    {
+      "package": "referencing",
+      "version": "0.37.0",
+      "url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl",
+      "bytes": 26766,
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "kind": "wheel"
+    },
+    {
+      "package": "rpds-py",
+      "version": "2026.9.1",
+      "url": "https://files.pythonhosted.org/packages/1c/84/1700cc748d0eaa747486e4e82882d2575224e6e9a3148df583058850c629/rpds_py-2026.9.1-cp312-cp312-win_amd64.whl",
+      "bytes": 222923,
+      "sha256": "5ce8943f79c2210f7abcc28e86367b03b28d95027fd01c46d2472373ae70c86f",
+      "kind": "wheel"
+    },
+    {
+      "package": "typing_extensions",
+      "version": "4.16.0",
+      "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "bytes": 45571,
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "kind": "wheel"
+    }
+  ],
+  "original_semantic_hashes": {
+    "vertices": "a64132f6df2c763f23c9342829038d67f0820855e1f779ec1fd7648293c42595",
+    "triangles": "f16ab81c72a64d80472d418fe587136b2c190acbf2303b3fa8389b62765a8924",
+    "queries": "71ea2286a0f368fc3c644c5b52cf840e1b6a3a29c481a7c5bc82e51115c136e5",
+    "projector": "0c2c5005c001f032861838dedf404de0d416e434246ca66a9de867529244b6b3"
+  },
+  "restored_semantic_hashes": {
+    "vertices": "a64132f6df2c763f23c9342829038d67f0820855e1f779ec1fd7648293c42595",
+    "triangles": "f16ab81c72a64d80472d418fe587136b2c190acbf2303b3fa8389b62765a8924",
+    "queries": "71ea2286a0f368fc3c644c5b52cf840e1b6a3a29c481a7c5bc82e51115c136e5",
+    "projector": "0c2c5005c001f032861838dedf404de0d416e434246ca66a9de867529244b6b3"
+  },
+  "original_numerical_results": {
+    "generalized_eigenvalue_error": 1.7763568394002505e-15,
+    "orthogonality_error": 2.220446049250313e-16,
+    "eigen_residual": 3.552713678800501e-15,
+    "bessel_half_order_relative_error": 2.220446049250313e-16,
+    "bessel_order5_values": [
+      3.84e+42,
+      38376009.99583593,
+      360.96058960124066,
+      5.754184998531228e-05
+    ]
+  },
+  "restored_numerical_results": {
+    "generalized_eigenvalue_error": 1.7763568394002505e-15,
+    "orthogonality_error": 2.220446049250313e-16,
+    "eigen_residual": 3.552713678800501e-15,
+    "bessel_half_order_relative_error": 2.220446049250313e-16,
+    "bessel_order5_values": [
+      3.84e+42,
+      38376009.99583593,
+      360.96058960124066,
+      5.754184998531228e-05
+    ]
+  },
+  "original_process_tree": {
+    "processes": 3,
+    "rss_bytes": 94371840,
+    "child_detected": true
+  },
+  "restored_process_tree": {
+    "processes": 3,
+    "rss_bytes": 94392320,
+    "child_detected": true
+  },
+  "expected_nonsemantic_differences": [
+    "environment paths",
+    "process IDs and RSS",
+    "installation timestamps and path-specific metadata"
+  ],
+  "installed_directory_byte_equality_required": false
+}

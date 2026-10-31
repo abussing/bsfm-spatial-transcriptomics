@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "R": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+    "bytes": 94720,
+    "sha256": "7cfe6803693daed5e6336413b848e44e2238af7e0104b3614e657e0a2c196586"
+  },
+  "R_version": "4.5.3",
+  "R_tree": {
+    "root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3",
+    "files": 4472,
+    "sha256": "b3cfc3b180947eee6cd6bf54ba594e75ecbad54aec73055a7ef0279f3c346437",
+    "unchanged_since_before_installation": true
+  },
+  "python_version": "3.12.0",
+  "python_base": {
+    "path": "C:\\Program Files\\Python312\\python.exe",
+    "bytes": 103192,
+    "sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0"
+  },
+  "python_base_companions": [
+    {
+      "path": "C:\\Program Files\\Python312\\python312.dll",
+      "bytes": 6972184,
+      "sha256": "e7890e38256f04ee0b55ac5276bbf3ac61392c3a3ce150bb5497b709803e17ce"
+    },
+    {
+      "path": "C:\\Program Files\\Python312\\python3.dll",
+      "bytes": 68376,
+      "sha256": "1e9224ba7190b6301ef47befa8e383d0c55700255d04a36f7dac88ea9573f2fb"
+    }
+  ],
+  "python_venv": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python\\Scripts\\python.exe",
+    "bytes": 270616,
+    "sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb"
+  },
+  "pip_bootstrap": {
+    "path": "C:\\Program Files\\Python312\\Lib\\ensurepip\\_bundled\\pip-23.2.1-py3-none-any.whl",
+    "bytes": 2086091,
+    "sha256": "7ccf472345f20d35bdc9d1841ff5f313260c2c33fe417f48c30ac46cccabf5be"
+  },
+  "python_source": "https://www.python.org/downloads/release/python-3120/",
+  "python_installation_origin": "existing local runtime; executable/DLL fingerprints measured, installer not reacquired",
+  "R_distribution_record": "../sctransform/source-lock.json"
+}

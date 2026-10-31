@@ -1,0 +1,700 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "r_packages": [
+    {
+      "package": "DBI",
+      "version": "1.3.0",
+      "files": 53,
+      "tree_sha256": "68186f3e450bf46c296a11649266c784439ded7de99868d233e05334f31dc573",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\DBI\\DESCRIPTION",
+          "bytes": 1996,
+          "sha256": "2cda03e9b90c551dec6d2818b643d47e6d05f95a182459b0890e99e1c53d8786"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\DBI\\Meta\\package.rds",
+          "bytes": 1676,
+          "sha256": "8d2c5f37e0fef297743e3ea65aaf1b37235833ab28061dde4b61e6ea2919da07"
+        }
+      ]
+    },
+    {
+      "package": "KernSmooth",
+      "version": "2.23-26",
+      "files": 27,
+      "tree_sha256": "258e070fb02c6c8c9191e62efc5cff0c0e8fd88b321c2b94d6b7a0398a350283",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\KernSmooth\\DESCRIPTION",
+          "bytes": 1283,
+          "sha256": "23dd7f9da70d0c198f5a77926836197532c6731892032bb1997df5a917080775"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\KernSmooth\\Meta\\package.rds",
+          "bytes": 1086,
+          "sha256": "caf80b90198cdd0eb4eaf24e8eb80d0386933fe7feb56ab1874f37f2ce06bdbb"
+        }
+      ]
+    },
+    {
+      "package": "MASS",
+      "version": "7.3-65",
+      "files": 49,
+      "tree_sha256": "b0cdbe532b2171da9fc7f861d80451c0963546ea90f9ee7db2533611ca7fc5d4",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\MASS\\DESCRIPTION",
+          "bytes": 1627,
+          "sha256": "fa89eb404483d08273e710952fe61ef651bebc83283735d3ee472c8193612fb2"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\MASS\\Meta\\package.rds",
+          "bytes": 1241,
+          "sha256": "5e0a5116475999428ea4bd90c9e9706062b6ec8c8065adf1b0d4f1f438dbd7c5"
+        }
+      ]
+    },
+    {
+      "package": "Matrix",
+      "version": "1.7-4",
+      "files": 120,
+      "tree_sha256": "ea69fd8c02f7ccc6aee358b620be1353562cb13f4f9a2da7e980507035f7f28c",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\Matrix\\DESCRIPTION",
+          "bytes": 3545,
+          "sha256": "3e13f28024d8ddaa710e93bb6de9e8d1131728fe4ca72dd7f4a2d99e867ea775"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\Matrix\\Meta\\package.rds",
+          "bytes": 1934,
+          "sha256": "6934d3b8ba3bf0cd1df57a19c926062fa99e21cc234069f2196d2130b21528a4"
+        }
+      ]
+    },
+    {
+      "package": "R6",
+      "version": "2.6.1",
+      "files": 24,
+      "tree_sha256": "857cb52470df9ab0667e93063c77e029097e14827668963819747a2669f92a5d",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\R6\\DESCRIPTION",
+          "bytes": 1295,
+          "sha256": "ce23589da912b16eb15666cb1b37c96c7bb58cc271220b61ee8a9f764536ca3c"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\R6\\Meta\\package.rds",
+          "bytes": 1128,
+          "sha256": "56e9fe05500c4153861a4f3700e785cb5be17cc0877fea01ede9159193303eae"
+        }
+      ]
+    },
+    {
+      "package": "Rcpp",
+      "version": "1.1.1",
+      "files": 637,
+      "tree_sha256": "d172e28ba8462242d49eb41066aecffc938663050ea5ef02f22cfc805793fdb5",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\Rcpp\\DESCRIPTION",
+          "bytes": 3048,
+          "sha256": "84d5ce8121d5c96c2a0257a734fbe5bce5bff8a1e4cc00e74eee73ac0e7c99ba"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\Rcpp\\Meta\\package.rds",
+          "bytes": 1720,
+          "sha256": "32720c56ea03465c841243b4503c9640d2a74e5b1145d89d2c25d070d501f785"
+        }
+      ]
+    },
+    {
+      "package": "class",
+      "version": "7.3-23",
+      "files": 29,
+      "tree_sha256": "01d8b39361784fb889b5f704728a079bf85620ebdd54413a79f63ad472cd5a59",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\class\\DESCRIPTION",
+          "bytes": 925,
+          "sha256": "9b816115b2384bdf5c28546ccd075d6add9ea25e245cea97da5d1639bcfab4d2"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\class\\Meta\\package.rds",
+          "bytes": 957,
+          "sha256": "d302b7e4d3e76d3400bbad1a200da11ca7ff250673d87e11e054953367c07bc7"
+        }
+      ]
+    },
+    {
+      "package": "classInt",
+      "version": "0.4-11",
+      "files": 31,
+      "tree_sha256": "3d710395344481bfdabcf462ba3060e16b7e01f4a4dffc8b4fc84d10453bbf9a",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\classInt\\DESCRIPTION",
+          "bytes": 1813,
+          "sha256": "d734b729d135777357717343ad7856a9a3c0fa3cd161c0c819c9c34212d9ac4c"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\classInt\\Meta\\package.rds",
+          "bytes": 1346,
+          "sha256": "6dd93ffe2ff0db1f168f640eb19e658a1a63dc4f158c00707d69b420d014d49a"
+        }
+      ]
+    },
+    {
+      "package": "cli",
+      "version": "3.6.5",
+      "files": 62,
+      "tree_sha256": "c42e23d9356682188e2115e4981f54cc49a4dde07ff13da8bdf96a458ca13c65",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\cli\\DESCRIPTION",
+          "bytes": 1980,
+          "sha256": "00a5483df141fe16e3dc6ab864c31241e2c8946ec9443f5da423ca624974cc52"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\cli\\Meta\\package.rds",
+          "bytes": 1744,
+          "sha256": "f641c3ce3493874f246b571aea16036f34cd0621284a5d100397062dc0e8143d"
+        }
+      ]
+    },
+    {
+      "package": "dplyr",
+      "version": "1.2.0",
+      "files": 70,
+      "tree_sha256": "934dc095e58a362172955929cd726bc8a7ebea10ad895a9db2545c9b4d54cb5e",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\dplyr\\DESCRIPTION",
+          "bytes": 2240,
+          "sha256": "eb40857d91c32eadd7ca1a169755ab2305cec8690e8c674824b3881fc196cf17"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\dplyr\\Meta\\package.rds",
+          "bytes": 1825,
+          "sha256": "e34b5446e4d1f203265b499ca02dddb5cb617e2049966407f471b7941eef3b10"
+        }
+      ]
+    },
+    {
+      "package": "e1071",
+      "version": "1.7-17",
+      "files": 29,
+      "tree_sha256": "bbea8812f74fa3052b2ce3880dc0a1e657dd34445a07cb932e70c65c40eeef21",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\e1071\\DESCRIPTION",
+          "bytes": 2074,
+          "sha256": "52efda1845ad7057c8487fde12d2c19efa036f5e5149beb0c749cde73075d66a"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\e1071\\Meta\\package.rds",
+          "bytes": 1411,
+          "sha256": "e0c7f7a7f79de0386e05ed2f936425a73462a99fafa0ecb802b45ba4ccdd57d3"
+        }
+      ]
+    },
+    {
+      "package": "fmesher",
+      "version": "0.7.0",
+      "files": 58,
+      "tree_sha256": "68eb6cf73aa787ccadd9ffc8383dcca768195fb000e05cd93bf0a5f6f41d7168",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\fmesher\\DESCRIPTION",
+          "bytes": 3533,
+          "sha256": "aa934ef848859b5d5317179d3655c48f97c3fca2bb7028dd246c299abc64709f"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\fmesher\\Meta\\package.rds",
+          "bytes": 2241,
+          "sha256": "d44ee4e85317cd49eac53b478a6c9bc1c3903e66ad5986fa84cedc8f48e14aab"
+        }
+      ]
+    },
+    {
+      "package": "generics",
+      "version": "0.1.4",
+      "files": 22,
+      "tree_sha256": "8d2b702418603197bf94b7a83b1eb064743b15263aabf97d8eb691d33ac9cc44",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\generics\\DESCRIPTION",
+          "bytes": 1464,
+          "sha256": "8eb738ea792e7adca1bcf7019b1e45fadac337e4c1f5af34574179126056bc52"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\generics\\Meta\\package.rds",
+          "bytes": 1219,
+          "sha256": "a719fe4f5f5440f6dbc9a502d7927edb4a2bcca0ba5db35891299d5ec9517d76"
+        }
+      ]
+    },
+    {
+      "package": "glue",
+      "version": "1.8.0",
+      "files": 38,
+      "tree_sha256": "f6dd76614e78ab1c5b146d529c6555bab4e928152967c4d42a4213128d6d7be0",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\glue\\DESCRIPTION",
+          "bytes": 1761,
+          "sha256": "518d60ef3e674f8bad1d21b1d1fd2f529adfb414b50559a202e40f9c91fce7bb"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\glue\\Meta\\package.rds",
+          "bytes": 1457,
+          "sha256": "4b4dce69cf34b84a3e054ab5e62ba059e6fa4b6d0b155ac9c7a8a8474ffeaabc"
+        }
+      ]
+    },
+    {
+      "package": "jsonlite",
+      "version": "2.0.0",
+      "files": 37,
+      "tree_sha256": "7148d4b4575384f3c63e3fcab48df1d603fb45c9aebe0ac582b8821357f089ba",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\jsonlite\\DESCRIPTION",
+          "bytes": 1772,
+          "sha256": "dc6fe625bfb619edad16152a6a9594937d68a92743919ba7bb3b64e4871207e4"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\jsonlite\\Meta\\package.rds",
+          "bytes": 1408,
+          "sha256": "2c1e2531e2dcfbad284df924b9aae5bea7be05ba2c7c1d48575f06b06bcda68d"
+        }
+      ]
+    },
+    {
+      "package": "lattice",
+      "version": "0.22-9",
+      "files": 44,
+      "tree_sha256": "665ff19ddee09d81f26853f1c3382d798144cefe43826122bfeb561a2425c9a1",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\lattice\\DESCRIPTION",
+          "bytes": 2417,
+          "sha256": "aa7d29171a440cc543412bc1fb674e8d9a9ee6b5835c202f8ae1a96176b63e1c"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\lattice\\Meta\\package.rds",
+          "bytes": 1573,
+          "sha256": "600255d874b596c3aa6cbdb3fae77daee0e27f02d599aae3b704848a419d5808"
+        }
+      ]
+    },
+    {
+      "package": "lifecycle",
+      "version": "1.0.5",
+      "files": 45,
+      "tree_sha256": "92e9059287dc4e3ca85c44d50542bf76554ee95d804e31875ae520d330ebd6fb",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\lifecycle\\DESCRIPTION",
+          "bytes": 1388,
+          "sha256": "39eb5c7a776208ed4379bfe142e1fc8ea0e93dfff4bccd975a8b180436b04920"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\lifecycle\\Meta\\package.rds",
+          "bytes": 1290,
+          "sha256": "ef0635e97ecd95ce36a19956a16d723bf98d5638acff620208a290b730269fdb"
+        }
+      ]
+    },
+    {
+      "package": "magrittr",
+      "version": "2.0.4",
+      "files": 37,
+      "tree_sha256": "539e191bc0e41833298126e243c8c3cfcadb26ebf8a92adb328a32b26e1151f1",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\magrittr\\DESCRIPTION",
+          "bytes": 1727,
+          "sha256": "5eb5fc141c3656f8d2dbb43a3bd91b13393604daad0ade228dd99317a283ee15"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\magrittr\\Meta\\package.rds",
+          "bytes": 1354,
+          "sha256": "eb3669c52b79dd61c61f8ba6c596cc2266a98694acd5eb6d99fb90e4745a1fb1"
+        }
+      ]
+    },
+    {
+      "package": "pillar",
+      "version": "1.11.1",
+      "files": 48,
+      "tree_sha256": "8e08bba4a0e46a35dd60df36ff0b8f673760d96d8be7afc1e86baaeda904ca93",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\pillar\\DESCRIPTION",
+          "bytes": 1933,
+          "sha256": "0bc006eab7e168c9e2b592da7a4e4b5cc47abf140621246985f66fd6e2317086"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\pillar\\Meta\\package.rds",
+          "bytes": 1683,
+          "sha256": "2de235e4180dbe4982413b6a470dc92edfa86287883c75ba20019cb3b98dae97"
+        }
+      ]
+    },
+    {
+      "package": "pkgconfig",
+      "version": "2.0.3",
+      "files": 24,
+      "tree_sha256": "5b11e8492e7645e7172972a7c52fc6d841d63eba0ae87f18c35b72fb0e8a4662",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\pkgconfig\\DESCRIPTION",
+          "bytes": 738,
+          "sha256": "b6163821f0ee0b46bb992a25f5863f10d333694914c5f15d52f1ca418c6309d8"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\pkgconfig\\Meta\\package.rds",
+          "bytes": 840,
+          "sha256": "6314f3e927289ef57a01699b59a6ace12940bd6fab8fa47da7a47daa7732f0ae"
+        }
+      ]
+    },
+    {
+      "package": "proxy",
+      "version": "0.4-29",
+      "files": 27,
+      "tree_sha256": "07fa53f0f13814bc59015240c009ddd132f39945af88ae4fd7ab1faa9b226557",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\proxy\\DESCRIPTION",
+          "bytes": 1090,
+          "sha256": "7aa9c93216f0679e67e8fec3d1689dbe79864ace7b32b77f185e6e78615bc390"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\proxy\\Meta\\package.rds",
+          "bytes": 1031,
+          "sha256": "14b164f1fea29cc9cf788b3bbda877cbcc544393c2f91de983346c4d146614bb"
+        }
+      ]
+    },
+    {
+      "package": "rlang",
+      "version": "1.1.7",
+      "files": 35,
+      "tree_sha256": "67d4c6d79eac658872fca062b1f567129c64ab3da60ba5b9cdb583921dc30337",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\rlang\\DESCRIPTION",
+          "bytes": 1845,
+          "sha256": "5192c01bbf650eb74baaf3a959e912c453d12b2e2439dbe63d05010b878ce93d"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\rlang\\Meta\\package.rds",
+          "bytes": 1514,
+          "sha256": "54214d2bb1e643cc484e26457d893f841b7886db7564583978c544b0d726beca"
+        }
+      ]
+    },
+    {
+      "package": "s2",
+      "version": "1.1.9",
+      "files": 28,
+      "tree_sha256": "884680b77c90d499e7e444b4e61e546b63a876b63a3e06afb1cfaa4e76248f3a",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\s2\\DESCRIPTION",
+          "bytes": 2236,
+          "sha256": "a267e9cf3084da83dd1bb210638bfadbe11cbc0f8f4029f59d2aa3f08a797a11"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\s2\\Meta\\package.rds",
+          "bytes": 1546,
+          "sha256": "8cafe91b55514f1747b2b94455f48a2b90ad90232f6f4860cfa8a8668218297b"
+        }
+      ]
+    },
+    {
+      "package": "sf",
+      "version": "1.1-0",
+      "files": 286,
+      "tree_sha256": "98f5ac3959be7e552107cbfe3f96c6fe97669305ed5a119d449398eee68bd60a",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\sf\\DESCRIPTION",
+          "bytes": 4736,
+          "sha256": "5f67f56e139ddf9829ee43b5c2b8f13353f97b9654eaf38c06acc519e5433b1c"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\sf\\Meta\\package.rds",
+          "bytes": 2791,
+          "sha256": "42da6775b40f3737886259929f22694b12cf1ba65d7b221deedc601f04f593d7"
+        }
+      ]
+    },
+    {
+      "package": "sp",
+      "version": "2.2-1",
+      "files": 57,
+      "tree_sha256": "f676ec715670bf5e5471db720f54bd8c25710cc5d4867806711483d8b7d50a5c",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\sp\\DESCRIPTION",
+          "bytes": 3542,
+          "sha256": "870d5ef00b3666d9c5ad4910963c5ac8dc16857d90bc2de1eb049955a5c8009d"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\sp\\Meta\\package.rds",
+          "bytes": 1954,
+          "sha256": "702c22798bb566b8913298f1a3a170db96acf2fcba25d25d1d04b29779b4d8ca"
+        }
+      ]
+    },
+    {
+      "package": "splancs",
+      "version": "2.01-45",
+      "files": 32,
+      "tree_sha256": "ecdb230ffa58cddeb026557c453d2701fff1c4bd7e990bd0f5463cab2160eedd",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\splancs\\DESCRIPTION",
+          "bytes": 1271,
+          "sha256": "12fda0882e89797035247291e1be3d7590c67682385bd10ef4b3a5141586c5e0"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\splancs\\Meta\\package.rds",
+          "bytes": 1107,
+          "sha256": "7502a8aad89413585f4cfae21b3790d9637b68b031d74b0a0f1656a65cdd696e"
+        }
+      ]
+    },
+    {
+      "package": "tibble",
+      "version": "3.3.1",
+      "files": 56,
+      "tree_sha256": "8a0039dcf6c9ed474593d764a16a6f18f265e13a284ee088eb6a5643f754fc29",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\tibble\\DESCRIPTION",
+          "bytes": 2129,
+          "sha256": "5002d0dd8539c01ced32fbae876d7b67f1782fa8494166ef5a18d23f4bbb4c39"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\tibble\\Meta\\package.rds",
+          "bytes": 1838,
+          "sha256": "398849a775782c538652aaa6b36806ffdb23f10087dcbb546aee510fddc0f88d"
+        }
+      ]
+    },
+    {
+      "package": "tidyselect",
+      "version": "1.2.1",
+      "files": 30,
+      "tree_sha256": "d04f5209e797431979c340633592c938305929aae214b38e44af788978b7d4e4",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\tidyselect\\DESCRIPTION",
+          "bytes": 1423,
+          "sha256": "4d92e4c4c19a30e7626b7a730ac072720ee531be1572ed7d494d3d270c1ac3f5"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\tidyselect\\Meta\\package.rds",
+          "bytes": 1356,
+          "sha256": "97fb9e8df5a2d1cf7e520863fa245e01e7a81e9952b8518ac207ff4612d7b154"
+        }
+      ]
+    },
+    {
+      "package": "units",
+      "version": "1.0-1",
+      "files": 41,
+      "tree_sha256": "0f2e79870e5d9d46fc889d1eb344519a2febe89b5a862929d4c9b78797d6bfb1",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\units\\DESCRIPTION",
+          "bytes": 2259,
+          "sha256": "cd2aec03b877d7ada9a5216f7ee4e8dd2ed8ca106659b191223be51fd3358082"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\units\\Meta\\package.rds",
+          "bytes": 1699,
+          "sha256": "faaae6a625cb920f7e4cc332761fe59725b7416eb041950389cc74b9a2515a4d"
+        }
+      ]
+    },
+    {
+      "package": "utf8",
+      "version": "1.2.6",
+      "files": 27,
+      "tree_sha256": "ac75b8785b6f3e1b74de12bac51765fee81ab80bb893c0887f6e625659a1773b",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\utf8\\DESCRIPTION",
+          "bytes": 1471,
+          "sha256": "ee0fba452e45cd8044ba439cc50ae9bb338e85342d23f88e7eed96eac6a4002e"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\utf8\\Meta\\package.rds",
+          "bytes": 1233,
+          "sha256": "d4c90e5cf7cc3d36974826399bf417206fbdbb9fa0dfcd88a7fb87cd8be3eb70"
+        }
+      ]
+    },
+    {
+      "package": "vctrs",
+      "version": "0.7.1",
+      "files": 56,
+      "tree_sha256": "2bddd8d215762c84d153c0c3ee6da0ecfc11051f66859c74ef4fbcb5563108dd",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\vctrs\\DESCRIPTION",
+          "bytes": 1938,
+          "sha256": "78e0281d55b3a9d6d3be51d80c2037bda8a4855fcbe2d6aee209f44b25d8b073"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\vctrs\\Meta\\package.rds",
+          "bytes": 1643,
+          "sha256": "a2d8747e9959aa934841181ef49ff57429f626cf303bc0a9838b8d82c14dc27e"
+        }
+      ]
+    },
+    {
+      "package": "withr",
+      "version": "3.0.2",
+      "files": 38,
+      "tree_sha256": "e79c6def25f9e2431e0d974949992ab74583b33c8b18fe00b2bc842dd89146a9",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\withr\\DESCRIPTION",
+          "bytes": 2214,
+          "sha256": "552e112d58b3723da81909180360e1710408bcd76df7d5f8e789b614d67c6e0c"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\withr\\Meta\\package.rds",
+          "bytes": 1586,
+          "sha256": "ee188844b84dcf719095cf20fffb72ccc6795fa72372a3fcdd9fae692fac1346"
+        }
+      ]
+    },
+    {
+      "package": "wk",
+      "version": "0.9.5",
+      "files": 32,
+      "tree_sha256": "fd95ee8a95ca0e3e5169dcff5ce26c017236a35059907fd6ca592770ca4f938b",
+      "metadata": [
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\wk\\DESCRIPTION",
+          "bytes": 1924,
+          "sha256": "3225a1e245de127d020fe8298ae1d1efc50d764916c0f10b4c8096347337b66d"
+        },
+        {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\r-library\\wk\\Meta\\package.rds",
+          "bytes": 1387,
+          "sha256": "5784eb721334754b7aecd0350529690c0b1dc452f9d21c312e3c4fecf1cfee9a"
+        }
+      ]
+    }
+  ],
+  "authenticated_r_archives": 66,
+  "authenticated_python_wheels": 10,
+  "r_runtime_tree": {
+    "root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3",
+    "files": 4472,
+    "sha256": "b3cfc3b180947eee6cd6bf54ba594e75ecbad54aec73055a7ef0279f3c346437",
+    "unchanged_since_before_installation": true
+  },
+  "python_runtime": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\python\\Scripts\\python.exe",
+      "bytes": 270616,
+      "sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb"
+    },
+    {
+      "path": "C:\\Program Files\\Python312\\python.exe",
+      "bytes": 103192,
+      "sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0"
+    },
+    {
+      "path": "C:\\Program Files\\Python312\\python312.dll",
+      "bytes": 6972184,
+      "sha256": "e7890e38256f04ee0b55ac5276bbf3ac61392c3a3ce150bb5497b709803e17ce"
+    },
+    {
+      "path": "C:\\Program Files\\Python312\\python3.dll",
+      "bytes": 68376,
+      "sha256": "1e9224ba7190b6301ef47befa8e383d0c55700255d04a36f7dac88ea9573f2fb"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\python\\pyvenv.cfg",
+      "bytes": 300,
+      "sha256": "d35e28fdbcf375cd15de99fc94eab4c707ef735bd1a2f75a9917f0b9d0274a6b"
+    }
+  ],
+  "python_bootstrap": [
+    {
+      "path": "C:\\Program Files\\Python312\\Lib\\ensurepip\\_bundled\\pip-23.2.1-py3-none-any.whl",
+      "bytes": 2086091,
+      "sha256": "7ccf472345f20d35bdc9d1841ff5f313260c2c33fe417f48c30ac46cccabf5be"
+    }
+  ],
+  "python_sys_path": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh",
+    "C:\\Program Files\\Python312\\python312.zip",
+    "C:\\Program Files\\Python312\\DLLs",
+    "C:\\Program Files\\Python312\\Lib",
+    "C:\\Program Files\\Python312",
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\python",
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\python\\Lib\\site-packages"
+  ],
+  "python_isolated_site_packages": true,
+  "pip_check": "No broken requirements found.",
+  "environment_tools": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\acquire.py",
+      "bytes": 5712,
+      "sha256": "cf498bd8953446032a1b6131b6b20056da98a1ac9b6a8f08b030ff9469f0c6e3"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\audit.py",
+      "bytes": 3764,
+      "sha256": "b66d676b244e456743c993fee494ba9b53cd929b856afe24356a57573893cc1a"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\build.py",
+      "bytes": 6649,
+      "sha256": "616b44aa801684f32d41a0b6d18361009be0bbfb4d2bde81d6fedb1a6ff81a22"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\install.R",
+      "bytes": 1588,
+      "sha256": "cd39181f5a6766e93e4600d8a5e7d8db26ec22a94ccfb9e5a698572d6c847938"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\restoration_check.py",
+      "bytes": 7202,
+      "sha256": "8cf5a8d9d64c0a70db9ecacb3d0e64886469889b6c94508fc85d4b03197fcadb"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\restore.py",
+      "bytes": 4392,
+      "sha256": "b469818212eaf69aed824b41ecd43546cd2c7ce46470e54273f4a9875b1d667c"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\roundtrip.R",
+      "bytes": 698,
+      "sha256": "f40d91dd0e08d2ff09d5a7fcf334015a8a068fdb405eb1af8cb1600abbf055ea"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\validate.py",
+      "bytes": 7781,
+      "sha256": "790f579f77a9dd7266dcec6686a5d47429c555bbf86231aa754ab5ebce4bbb3c"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\validate.R",
+      "bytes": 4139,
+      "sha256": "30136383a044f00806f1230d63dae133a98c1e1e3f9179c925ee63060409a91a"
+    }
+  ]
+}

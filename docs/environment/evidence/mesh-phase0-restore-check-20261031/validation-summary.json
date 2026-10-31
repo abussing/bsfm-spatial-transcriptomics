@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "scope": "environment validation only; no real mesh",
+  "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\python\\Scripts\\python.exe",
+  "base_executable": "C:\\Program Files\\Python312\\python.exe",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "h5py": "3.16.0",
+    "psutil": "7.2.2",
+    "jsonschema": "4.26.0"
+  },
+  "hdf5": "2.0.0",
+  "r_commands": [
+    [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+      "--vanilla",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\validate.R",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\validation-offline-restore\\fresh-1"
+    ],
+    [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+      "--vanilla",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\validate.R",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\validation-offline-restore\\fresh-2"
+    ]
+  ],
+  "reverse_command": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+    "--vanilla",
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\roundtrip.R",
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031",
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-restore-check-20261031\\validation-offline-restore"
+  ],
+  "r_runs": [
+    {
+      "vertices": 13,
+      "triangles": 16,
+      "projector_shape": [
+        3,
+        13
+      ],
+      "projector_nnz": 6,
+      "row_sum_error": 0.0,
+      "affine_error": 0.0,
+      "matrix_market_error": 0.0,
+      "rejected_index_corruptions": 2,
+      "semantic_hashes": {
+        "vertices": "a64132f6df2c763f23c9342829038d67f0820855e1f779ec1fd7648293c42595",
+        "triangles": "f16ab81c72a64d80472d418fe587136b2c190acbf2303b3fa8389b62765a8924",
+        "queries": "71ea2286a0f368fc3c644c5b52cf840e1b6a3a29c481a7c5bc82e51115c136e5",
+        "projector": "0c2c5005c001f032861838dedf404de0d416e434246ca66a9de867529244b6b3"
+      }
+    },
+    {
+      "vertices": 13,
+      "triangles": 16,
+      "projector_shape": [
+        3,
+        13
+      ],
+      "projector_nnz": 6,
+      "row_sum_error": 0.0,
+      "affine_error": 0.0,
+      "matrix_market_error": 0.0,
+      "rejected_index_corruptions": 2,
+      "semantic_hashes": {
+        "vertices": "a64132f6df2c763f23c9342829038d67f0820855e1f779ec1fd7648293c42595",
+        "triangles": "f16ab81c72a64d80472d418fe587136b2c190acbf2303b3fa8389b62765a8924",
+        "queries": "71ea2286a0f368fc3c644c5b52cf840e1b6a3a29c481a7c5bc82e51115c136e5",
+        "projector": "0c2c5005c001f032861838dedf404de0d416e434246ca66a9de867529244b6b3"
+      }
+    }
+  ],
+  "deterministic_semantics": true,
+  "coordinate_order": "coordinate_0, coordinate_1; no swap",
+  "metadata_authentication": {
+    "run_manifest": "03b83d93891080f15b6a85684e2cb5de8d9a9b7cdf72f8c25dd8103403e1e06f",
+    "section_registry": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166"
+  },
+  "generalized_eigenvalue_error": 1.7763568394002505e-15,
+  "orthogonality_error": 2.220446049250313e-16,
+  "eigen_residual": 3.552713678800501e-15,
+  "bessel_half_order_relative_error": 2.220446049250313e-16,
+  "bessel_order5_values": [
+    3.84e+42,
+    38376009.99583593,
+    360.96058960124066,
+    5.754184998531228e-05
+  ],
+  "process_tree": {
+    "processes": 3,
+    "rss_bytes": 94392320,
+    "child_detected": true
+  },
+  "hdf5_roundtrip": "exact",
+  "python_to_r_matrix_market": "exact",
+  "stack_imbalance_detected": false
+}

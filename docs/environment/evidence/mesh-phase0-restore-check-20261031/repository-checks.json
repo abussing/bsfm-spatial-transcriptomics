@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "files_checked": 44,
+  "schema": "pass",
+  "lock_consistency": "pass",
+  "source_hashes": "pass",
+  "documentation_links": "pass",
+  "credentials": "no matched patterns",
+  "staged_files": 0,
+  "existing_root_restore_rejected": true,
+  "baseline": "cfd00047d884021bed52194eb70189fd9cddc268",
+  "source_syntax": "pass",
+  "diff_check": "pass",
+  "restoration_capture_hashes": "pass",
+  "restoration_execution": "all five steps exited zero",
+  "restoration_tables": "pass",
+  "restoration_semantics": "exact",
+  "scope": "pre-staging checks; this receipt excluded from its own file count"
+}

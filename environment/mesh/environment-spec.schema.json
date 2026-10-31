@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Materialized mesh environment review specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "baseline_commit",
+    "scope",
+    "platform",
+    "external_root",
+    "machine_local",
+    "runtime_versions",
+    "R_packages",
+    "Python_packages",
+    "locks",
+    "isolation",
+    "validation",
+    "execution_limits"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "const": "accepted_materialized_offline_restored"
+    },
+    "baseline_commit": {
+      "const": "cfd00047d884021bed52194eb70189fd9cddc268"
+    },
+    "scope": {
+      "const": "mesh environment only; not Phase-0 harness"
+    },
+    "platform": {
+      "const": "Windows x86_64"
+    },
+    "external_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "machine_local": {
+      "const": true
+    },
+    "runtime_versions": {
+      "const": {
+        "R": "4.5.3",
+        "Python": "3.12.0"
+      }
+    },
+    "R_packages": {
+      "type": "object",
+      "minProperties": 33,
+      "maxProperties": 33,
+      "required": [
+        "fmesher",
+        "sf",
+        "Matrix",
+        "jsonlite"
+      ],
+      "properties": {
+        "fmesher": {
+          "const": "0.7.0"
+        }
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "Python_packages": {
+      "type": "object",
+      "minProperties": 11,
+      "maxProperties": 11,
+      "required": [
+        "numpy",
+        "scipy",
+        "h5py",
+        "psutil",
+        "jsonschema",
+        "pip"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "locks": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "isolation": {
+      "type": "object",
+      "required": [
+        "R",
+        "Python",
+        "system_libraries_modified",
+        "SCT_runtime_reused_read_only"
+      ],
+      "properties": {
+        "R": {
+          "type": "string"
+        },
+        "Python": {
+          "type": "string"
+        },
+        "system_libraries_modified": {
+          "const": false
+        },
+        "SCT_runtime_reused_read_only": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation": {
+      "const": "validation-spec.json"
+    },
+    "execution_limits": {
+      "const": {
+        "real_meshes": false,
+        "Phase0_harness_implemented": false,
+        "HPC": false,
+        "production_response_arrays_opened": false
+      }
+    }
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "kind": "complete resolved package record; equivalent lock, not renv format",
+  "R": {
+    "version": "4.5.3",
+    "base_packages": {
+      "base": {
+        "Package": "base",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "compiler": {
+        "Package": "compiler",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "datasets": {
+        "Package": "datasets",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "grDevices": {
+        "Package": "grDevices",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "graphics": {
+        "Package": "graphics",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "grid": {
+        "Package": "grid",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "methods": {
+        "Package": "methods",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "parallel": {
+        "Package": "parallel",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "splines": {
+        "Package": "splines",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "stats": {
+        "Package": "stats",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "stats4": {
+        "Package": "stats4",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "tcltk": {
+        "Package": "tcltk",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "tools": {
+        "Package": "tools",
+        "Version": "4.5.3",
+        "Priority": "base"
+      },
+      "utils": {
+        "Package": "utils",
+        "Version": "4.5.3",
+        "Priority": "base"
+      }
+    }
+  },
+  "repository": "https://packagemanager.posit.co/cran/2026-03-12",
+  "library_policy": "new mesh library first; immutable R base library only as fallback; every non-base namespace must resolve to mesh library",
+  "packages": {
+    "DBI": {
+      "version": "1.3.0",
+      "source_sha256": "13def8e90cbe41205a0dfcf585a6a7ea79ce10d45969789e82613c7ce3d5fb18",
+      "binary_sha256": "bdbd19b3fce9b3c4b9caf9a7a23be4f1620198ac1b326b45bdeb2cae24458199"
+    },
+    "KernSmooth": {
+      "version": "2.23-26",
+      "source_sha256": "b465bdac197f7faa787e625412ae03d1b7c2c134b1c924cfeb775faf9c4da73e",
+      "binary_sha256": "9b6df9b8eff042f9db17df3ad7824eb4c0daa03e0fc1c198b26e752954264580"
+    },
+    "MASS": {
+      "version": "7.3-65",
+      "source_sha256": "b07ef1e3c364ce56269b4a8a7759cc9f87c876554f91293437bb578cfe38172f",
+      "binary_sha256": "72faf1eface3ab1bb0601cf05f28dd8268cc47f56629181cdb506ed73c71dd05"
+    },
+    "Matrix": {
+      "version": "1.7-4",
+      "source_sha256": "7b131ecb6a21ff09a33691dac7bf8a7bc2eab9fd1dd09ef14856d74346eb4779",
+      "binary_sha256": "30161ab224a331438d21eaba841dedbf0c0e73c6b85331ea5307b3150872bb5f"
+    },
+    "R6": {
+      "version": "2.6.1",
+      "source_sha256": "59c6eba8b1b912eb7e104f65053235604be853425ee67c152ac4e86a1f2073b4",
+      "binary_sha256": "653177a6caafbd9a754360b277405f894f0f2fede5ccec5df86690ee5956495a"
+    },
+    "Rcpp": {
+      "version": "1.1.1",
+      "source_sha256": "da0c616a71c82150397259516b2ea7558dbd31a5b4a217423ec9666b3a0fcfb7",
+      "binary_sha256": "b9d51255124a3c058a699086af8f6bd5fa340fff99768466b0156f8e7d738e65"
+    },
+    "class": {
+      "version": "7.3-23",
+      "source_sha256": "4d1adb12eae045f15641516d795177dd1d3074c0a86ac633000507c4822891f1",
+      "binary_sha256": "7335f408c83e26975649dd68edb4351dc67a1080a1d798bfa61c3aa8cc3209f6"
+    },
+    "classInt": {
+      "version": "0.4-11",
+      "source_sha256": "8d366844cf7f951cc5b65423c3ccf50ebc3c11cf9d1fc90f8208e7d869c5d0a6",
+      "binary_sha256": "2971dc2474aa0cc651a4cd61cff57e7104fbdaff08f5bbdfe3a68a2fcf409387"
+    },
+    "cli": {
+      "version": "3.6.5",
+      "source_sha256": "8ebe3146e66a285d8ad6ddcff87e2a9790ea7c9cdfce7fdd8bf13095fa459679",
+      "binary_sha256": "82fadf2b4093a449bfd013f82fb8749c227eef8af9cd8578d12d0cc33f254121"
+    },
+    "dplyr": {
+      "version": "1.2.0",
+      "source_sha256": "a82c292f2249d439157986b504edd1d99741f467c75bf08969254ca8d441bfa3",
+      "binary_sha256": "ad5aa63f7a40b8a79bccf8be074cb4425647b03506a3076f82000ec31617a079"
+    },
+    "e1071": {
+      "version": "1.7-17",
+      "source_sha256": "6debc371ad478c2aa6de1f6510e254e80e797de4974b855f63b35509a3c2ac87",
+      "binary_sha256": "750f87c9a680c40f469ad92eeb2f95ebf35fc25fceb983999b6004f893fe8b4b"
+    },
+    "fmesher": {
+      "version": "0.7.0",
+      "source_sha256": "6a1c4e69c5d2a235edcc3a613cb0cff0015ceee78b65c2d342bc05e12ff8a185",
+      "binary_sha256": "47a4f6fb693a859b5245193be2113b2cd527c3f45e00cad6f0e1d834aed395a1"
+    },
+    "generics": {
+      "version": "0.1.4",
+      "source_sha256": "bbe95a097792d38fc3b7e677738af1b95b66ea5e5017e33b8beac6a6088d0801",
+      "binary_sha256": "1e2896baceaec6f19973902b98eceb2f140dbdab77b3b1518257b8e20859b961"
+    },
+    "glue": {
+      "version": "1.8.0",
+      "source_sha256": "c86f364ba899b8662f5da3e1a75f43ae081ab04e0d51171d052356e7ee4b72a0",
+      "binary_sha256": "09163cd1282b1fa11f2027402f16dbc53c334d3225deabee5dc46948040b141f"
+    },
+    "jsonlite": {
+      "version": "2.0.0",
+      "source_sha256": "75eb910c82b350ec33f094779da0f87bff154c232e4ae39c9896a9b89f3ac82d",
+      "binary_sha256": "1f739a7bb1f524013d74cd7154f0bc44ec91f216ace7d435bc01f010464e959c"
+    },
+    "lattice": {
+      "version": "0.22-9",
+      "source_sha256": "b72ad4ed2e5269fa7cf668e46f83a9b5d9d5f8fdcbc5b9886531ca19dffca4ba",
+      "binary_sha256": "c94ec3d39ab467d3390c06bb777b31414daeacfc523c4ca69424ba3f3dfb093f"
+    },
+    "lifecycle": {
+      "version": "1.0.5",
+      "source_sha256": "61841e3e6edba056a88355a3f1d6698ab8d5d9cb3c05f2af0ec5a44ab516f8ee",
+      "binary_sha256": "de11f5b701c436233a6b8c75a9fa1acfefce99811f77eb62040c1b47cee7775f"
+    },
+    "magrittr": {
+      "version": "2.0.4",
+      "source_sha256": "6aba790c40de70d8fb4d2db4bebb377418971761b0da7df2141b5d4ad95981f3",
+      "binary_sha256": "0b8c298fed6e64f5972c64d7015bf0fe461de9a0a459f83ce8c7d5a15dc215cd"
+    },
+    "pillar": {
+      "version": "1.11.1",
+      "source_sha256": "056ce154238c9b5b8d5dcbcb52e1bc51d33870ce08c8a9ca9496478bd59f4653",
+      "binary_sha256": "42773dfb4774fccd9209a67148e0d00ddae8b8a7225767c89517c131fe977bca"
+    },
+    "pkgconfig": {
+      "version": "2.0.3",
+      "source_sha256": "330fef440ffeb842a7dcfffc8303743f1feae83e8d6131078b5a44ff11bc3850",
+      "binary_sha256": "40ccd3f2ebbd1f85a08f399ef2115ab4e18803b4e8862a0a83e8189807bf73af"
+    },
+    "proxy": {
+      "version": "0.4-29",
+      "source_sha256": "c6eb0e36ef2eecb1b8564f0188ca8d2c91a80865c86698386a7b5d5baa92c35b",
+      "binary_sha256": "55c3e93493ee4486f0111b2fb4c15abc8ca89d3b1742ae4ff79aa899580250e6"
+    },
+    "rlang": {
+      "version": "1.1.7",
+      "source_sha256": "123c91e7eaacd3514a368a31c30617d36a874def37f6cafdacc0c7d1409be373",
+      "binary_sha256": "4f23e375311e93902cbf7e9f8ae0931d2abe3225c7264a106335863562c737a8"
+    },
+    "s2": {
+      "version": "1.1.9",
+      "source_sha256": "4dcd2bff738be5a89b925fed29acb6e224e0f514b4530dc9987a0a72c5a99b55",
+      "binary_sha256": "edf20919914fb04829f171f6225234087b17b87b2c56877343054e27b14b6814"
+    },
+    "sf": {
+      "version": "1.1-0",
+      "source_sha256": "7ce76026eb51c789c123639901ad655273fedea29be508e3afd35000a122da25",
+      "binary_sha256": "0da53a81a9d561a302b133a84f73b00a1191deb8af6d771e4c9a7bd4bd16f1ac"
+    },
+    "sp": {
+      "version": "2.2-1",
+      "source_sha256": "277a4533bc784a08fdbb710757b6af0c7a492691bfb07d8f0b2aa8ad7c857652",
+      "binary_sha256": "e10ae77c6ffa027dacc18bb7ce30c528b65d766f66d268a281e74f54f80f4708"
+    },
+    "splancs": {
+      "version": "2.01-45",
+      "source_sha256": "8bccf1d61d7feaab52da07a9c95aa66bcd3986a6b214f13b232c1e2bea4b76d3",
+      "binary_sha256": "163da633fddd3911e4da402968e3260ed7a3008afa8c448684c9765ce719bb43"
+    },
+    "tibble": {
+      "version": "3.3.1",
+      "source_sha256": "fb309f8a1939021b237c7e85ff7ad6e8ff5acd57a6230d220a452094b492b28f",
+      "binary_sha256": "9f1b2d7c04023439679711fce974204ecddbca54e7c5d20bbc8e558a889dc69b"
+    },
+    "tidyselect": {
+      "version": "1.2.1",
+      "source_sha256": "169e97ba0bbfbcdf4a80534322751f87a04370310c40e27f04aac6525d45903c",
+      "binary_sha256": "63e8269d72c9742804261345099cf51691d4a5a9242ba02152d9097ce9936b93"
+    },
+    "units": {
+      "version": "1.0-1",
+      "source_sha256": "09ec534a9d4ab7f171809cad1788074452f9b30620d5f54d959d799f5952fbf3",
+      "binary_sha256": "13bc410063eadcc10e639328c53ae64bdc71934c5c289c87fb195273d6b3938b"
+    },
+    "utf8": {
+      "version": "1.2.6",
+      "source_sha256": "4589f8b72291329e70b7f3a8c20f2feb4e7764eebad2e6976bc9a3eee7686ce9",
+      "binary_sha256": "31f27a7e79c165aaa5eff7283729cdb451d22b4c810df35377ea10c7d8fad235"
+    },
+    "vctrs": {
+      "version": "0.7.1",
+      "source_sha256": "2f93519dfcffabc08bc508c2f47b5c23151cc667250b08a8b90be367ef1317c0",
+      "binary_sha256": "cbe12267b495c675b3308dd8caa5b9022fa4daeddd311cb089b4ef2a76e2023e"
+    },
+    "withr": {
+      "version": "3.0.2",
+      "source_sha256": "0a3a05f493d275cca4bf13c8c1b95a1a4eed7f83b2493f41fde02ce3fc92c1a3",
+      "binary_sha256": "7b79af1afb3885f28f263d60b1028bd5aa6876e3fd896b865aa4ce238c77d6fc"
+    },
+    "wk": {
+      "version": "0.9.5",
+      "source_sha256": "b720282890f8d322ff8217bd857bab8f5549343ea2a635a3c2ada63ce1206aed",
+      "binary_sha256": "b4d8e79e30f73ca3f6726cdaac3d87d1d0edfdcbd20a888c7f73ed845cdca989"
+    }
+  },
+  "acquisition_record": "r-source-lock.json",
+  "install_includes": [
+    "Depends",
+    "Imports",
+    "LinkingTo"
+  ],
+  "excludes": "Suggests/Enhances not required by these environment checks; no guarantee for unimplemented future harness features"
+}

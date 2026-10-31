@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "scope": "offline environment acceptance; no Phase-0 study",
+  "network": "cached archives only; fail before installation on missing or mismatched cache; R repos=NULL and pip --no-index --require-hashes",
+  "installed_directory_byte_equality_required": false,
+  "exact_comparisons": [
+    "runtime versions and architecture",
+    "all R and Python package names/versions",
+    "R source/binary and Python wheel URL/size/SHA-256 identities",
+    "Python freeze",
+    "R sessionInfo and sf external libraries",
+    "NumPy/SciPy numerical configuration",
+    "four semantic mesh hashes and all projector metrics",
+    "generalized eigenvalue/residual/orthogonality results",
+    "Bessel values and comparison error",
+    "canonical metadata authentication"
+  ],
+  "path_equivalence": "replace each environment root with ENVIRONMENT_ROOT; retain the shared base-R path unchanged",
+  "functional_comparisons": {
+    "process_tree": "live child detected, at least two processes and positive RSS; RSS/PIDs are not deterministic semantic outputs",
+    "HDF5": "exact logical synthetic array roundtrip",
+    "sparse_roundtrip": "exact dimensions, pointers, indices and values",
+    "index_corruptions": "both rejected in both fresh sessions"
+  },
+  "immutability": "accepted mesh environment/shared R runtime/SCT library: full path-size-SHA256 inventories; global/user libraries: path-size-mtime_ns-ctime_ns inventories plus installer isolation; additions/removals or recorded changes fail",
+  "retention": "retain restoration root and external inventory evidence; no automatic cleanup",
+  "limitations": ["Windows-only validation", "no real-section mesh or FEM accuracy/resource certification"]
+}

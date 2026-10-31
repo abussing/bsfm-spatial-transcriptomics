@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "normalization": "UTF-8/LF; presentation line-end whitespace stripped; JSON values unchanged",
+  "captures": [
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\r-source-lock.json",
+        "bytes": 173380,
+        "sha256": "df7f13808b288311c77f1a363de30ad417160b0bbff72f5aa93849091dad38ac"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\r-source-lock.json",
+        "bytes": 173380,
+        "sha256": "df7f13808b288311c77f1a363de30ad417160b0bbff72f5aa93849091dad38ac"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python-source-lock.json",
+        "bytes": 6014,
+        "sha256": "bcee17bf13d4fb9779ee1c5442e998fdbc31751841beb6c9e2e2afae2f01a7cf"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\python-source-lock.json",
+        "bytes": 5907,
+        "sha256": "adce4fcd7f516174bd314b39182fa9270ece5676255b832a08079d0fcd67d500"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python-requirements.lock.txt",
+        "bytes": 987,
+        "sha256": "94943c3e6e11a44b35d7591414ac01dca691b5c8a67f5d6eccea31d8f127ef07"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\python-requirements.lock.txt",
+        "bytes": 977,
+        "sha256": "e20ea2033c6ec41bdb043cedf867cdd852497528ffe96220685fd56a07453b51"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python-freeze.txt",
+        "bytes": 210,
+        "sha256": "96e501a210cad1ea2a565faf25980804eff8e237489c4b2c39b8b119fda26e85"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\python-freeze.txt",
+        "bytes": 199,
+        "sha256": "ed72ba2b1d1abb6331b5fb193bbd44e614407ac06f154299af9347bd13cec5b9"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\validation-summary.json",
+        "bytes": 4385,
+        "sha256": "392053cc1088aa3b3b593cc94e006a27b90149f9b73b20d8702578d0ba1db47e"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\environment\\evidence\\mesh-phase0-20261031\\validation-summary.json",
+        "bytes": 4281,
+        "sha256": "f6b4be367b0e7d3617f8f6828334f12fef34ca36aa1d41a5501f44ba52821320"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\installed-integrity.json",
+        "bytes": 29636,
+        "sha256": "b9f3d59265bd7951cc53c7ebe50a2e79d28a080a6751eda452812cd27c6e16ac"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\environment\\evidence\\mesh-phase0-20261031\\installed-integrity.json",
+        "bytes": 28941,
+        "sha256": "a5e336859c5fad12e68cdebb77456615fe2818e0195fba878ba6c3dc3275601a"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python-numerical-config.json",
+        "bytes": 5452,
+        "sha256": "b90be8834c9b48179d61854bac1c639b33b9d674bba4b4d55ca684ed94747f17"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\environment\\evidence\\mesh-phase0-20261031\\python-numerical-config.json",
+        "bytes": 5298,
+        "sha256": "89ccfcd6b0601a5e22417ec2b12ffd0895f4623d3ad9ea1d2f3c15816bc323b6"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\r-install-command.json",
+        "bytes": 394,
+        "sha256": "9872b086f926e1d13f2318b8f38a66b0abe6b83860bfaf61788b16cf28df955d"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\environment\\evidence\\mesh-phase0-20261031\\r-install-command.json",
+        "bytes": 385,
+        "sha256": "4f788208536ae02d519193d09f6b550cb2ae126f59b5cd5bfa9ab89a1423cebf"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\dependency-constraints.csv",
+        "bytes": 3256,
+        "sha256": "68a5ad70ec003c3170106b0cd9ea10835d1ee8ea11a04238163333725eb8d789"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\environment\\evidence\\mesh-phase0-20261031\\dependency-constraints.csv",
+        "bytes": 3256,
+        "sha256": "68a5ad70ec003c3170106b0cd9ea10835d1ee8ea11a04238163333725eb8d789"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\validation-review-complete\\fresh-1\\result.json",
+        "bytes": 5224,
+        "sha256": "49e994152bb4ad1839cfc3aa18454078126f138b40b08d7a28af9e00934003a7"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\environment\\evidence\\mesh-phase0-20261031\\R-fresh-1-result.json",
+        "bytes": 5150,
+        "sha256": "98cf3866198def0b52fe11f785cfab60a7591c50b9186907ca1d94522557c688"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\validation-review-complete\\fresh-1\\session.txt",
+        "bytes": 942,
+        "sha256": "04a90186c3c7ce745f449fc7c34d3d3e6dccd77c78cfb8089406579961d5099e"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\environment\\evidence\\mesh-phase0-20261031\\R-fresh-1-session.txt",
+        "bytes": 872,
+        "sha256": "6b048d98f4e670568459ca68addf3b89b00fc13cb2a26571d0bd5290ed662fda"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\validation-review-complete\\fresh-2\\result.json",
+        "bytes": 5224,
+        "sha256": "49e994152bb4ad1839cfc3aa18454078126f138b40b08d7a28af9e00934003a7"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\environment\\evidence\\mesh-phase0-20261031\\R-fresh-2-result.json",
+        "bytes": 5150,
+        "sha256": "98cf3866198def0b52fe11f785cfab60a7591c50b9186907ca1d94522557c688"
+      }
+    },
+    {
+      "external": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\validation-review-complete\\fresh-2\\session.txt",
+        "bytes": 942,
+        "sha256": "04a90186c3c7ce745f449fc7c34d3d3e6dccd77c78cfb8089406579961d5099e"
+      },
+      "repository": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\environment\\evidence\\mesh-phase0-20261031\\R-fresh-2-session.txt",
+        "bytes": 872,
+        "sha256": "6b048d98f4e670568459ca68addf3b89b00fc13cb2a26571d0bd5290ed662fda"
+      }
+    }
+  ]
+}
