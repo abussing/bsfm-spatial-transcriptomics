@@ -1,0 +1,1102 @@
+{
+  "label": "planning estimate only; no candidate mesh or FEM generated",
+  "formula": "V~2/sqrt(3)*(A_collar/h^2 + integral_0^B (P_collar+2*pi*d)/h(d)^2 dd); rectangle bounds; mesh counts uncertain",
+  "central99": [
+    0.27584541747697255,
+    3.6252188241752448
+  ],
+  "inner_targets": [
+    0.13792270873848628,
+    0.06896135436924314,
+    0.03448067718462157
+  ],
+  "collar": 0.13792270873848628,
+  "buffer_candidates": [
+    3.6252188241752448,
+    7.2504376483504895
+  ],
+  "rows": [
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 579.2177667276522,
+      "threefold_vertex_allowance": 1737.6533001829566,
+      "idealized_dense16_arrays_GiB": 0.039993908559437866,
+      "threefold_dense16_arrays_GiB": 0.3599451770349408
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 799.7958427386059,
+      "threefold_vertex_allowance": 2399.387528215818,
+      "idealized_dense16_arrays_GiB": 0.07625501037382565,
+      "threefold_dense16_arrays_GiB": 0.686295093364431
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 328.0085737810033,
+      "threefold_vertex_allowance": 984.0257213430099,
+      "idealized_dense16_arrays_GiB": 0.012825682696562753,
+      "threefold_dense16_arrays_GiB": 0.11543114426906477
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 388.19225776600814,
+      "threefold_vertex_allowance": 1164.5767732980244,
+      "idealized_dense16_arrays_GiB": 0.01796403276794802,
+      "threefold_dense16_arrays_GiB": 0.16167629491153218
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1312.0342951240132,
+      "threefold_vertex_allowance": 3936.1028853720395,
+      "idealized_dense16_arrays_GiB": 0.20521092314500405,
+      "threefold_dense16_arrays_GiB": 1.8468983083050363
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1552.7690310640326,
+      "threefold_vertex_allowance": 4658.307093192097,
+      "idealized_dense16_arrays_GiB": 0.2874245242871683,
+      "threefold_dense16_arrays_GiB": 2.586820718584515
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 814.9092394736771,
+      "threefold_vertex_allowance": 2444.727718421031,
+      "idealized_dense16_arrays_GiB": 0.0791641555523356,
+      "threefold_dense16_arrays_GiB": 0.7124773999710202
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 878.5955880251003,
+      "threefold_vertex_allowance": 2635.7867640753007,
+      "idealized_dense16_arrays_GiB": 0.09202125159468313,
+      "threefold_dense16_arrays_GiB": 0.8281912643521482
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 3259.6369578947083,
+      "threefold_vertex_allowance": 9778.910873684124,
+      "idealized_dense16_arrays_GiB": 1.2666264888373695,
+      "threefold_dense16_arrays_GiB": 11.399638399536324
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 3514.382352100401,
+      "threefold_vertex_allowance": 10543.147056301203,
+      "idealized_dense16_arrays_GiB": 1.4723400255149302,
+      "threefold_dense16_arrays_GiB": 13.251060229634371
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2352.953146836015,
+      "threefold_vertex_allowance": 7058.859440508046,
+      "idealized_dense16_arrays_GiB": 0.6599889410979158,
+      "threefold_dense16_arrays_GiB": 5.939900469881244
+    },
+    {
+      "section": "S01__5xFAD4",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 2418.691893447668,
+      "threefold_vertex_allowance": 7256.075680343004,
+      "idealized_dense16_arrays_GiB": 0.6973827451979476,
+      "threefold_dense16_arrays_GiB": 6.276444706781529
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 570.9429920905781,
+      "threefold_vertex_allowance": 1712.828976271734,
+      "idealized_dense16_arrays_GiB": 0.03885935547558569,
+      "threefold_dense16_arrays_GiB": 0.3497341992802711
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 790.9705500604057,
+      "threefold_vertex_allowance": 2372.911650181217,
+      "idealized_dense16_arrays_GiB": 0.07458143366132507,
+      "threefold_dense16_arrays_GiB": 0.6712329029519255
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 321.612228414818,
+      "threefold_vertex_allowance": 964.836685244454,
+      "idealized_dense16_arrays_GiB": 0.012330344374888547,
+      "threefold_dense16_arrays_GiB": 0.11097309937399692
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 381.6434358074573,
+      "threefold_vertex_allowance": 1144.930307422372,
+      "idealized_dense16_arrays_GiB": 0.017363037120690438,
+      "threefold_dense16_arrays_GiB": 0.15626733408621396
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1286.448913659272,
+      "threefold_vertex_allowance": 3859.346740977816,
+      "idealized_dense16_arrays_GiB": 0.19728550999821676,
+      "threefold_dense16_arrays_GiB": 1.7755695899839508
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1526.5737432298292,
+      "threefold_vertex_allowance": 4579.721229689488,
+      "idealized_dense16_arrays_GiB": 0.277808593931047,
+      "threefold_dense16_arrays_GiB": 2.5002773453794234
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 793.7527580668684,
+      "threefold_vertex_allowance": 2381.2582742006052,
+      "idealized_dense16_arrays_GiB": 0.07510703098043925,
+      "threefold_dense16_arrays_GiB": 0.6759632788239532
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 857.2765044142033,
+      "threefold_vertex_allowance": 2571.8295132426097,
+      "idealized_dense16_arrays_GiB": 0.08760964930303519,
+      "threefold_dense16_arrays_GiB": 0.7884868437273167
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 3175.0110322674736,
+      "threefold_vertex_allowance": 9525.033096802421,
+      "idealized_dense16_arrays_GiB": 1.201712495687028,
+      "threefold_dense16_arrays_GiB": 10.815412461183252
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 3429.106017656813,
+      "threefold_vertex_allowance": 10287.318052970439,
+      "idealized_dense16_arrays_GiB": 1.401754388848563,
+      "threefold_dense16_arrays_GiB": 12.615789499637067
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2278.001626503173,
+      "threefold_vertex_allowance": 6834.004879509519,
+      "idealized_dense16_arrays_GiB": 0.6186117422999265,
+      "threefold_dense16_arrays_GiB": 5.567505680699338
+    },
+    {
+      "section": "S02__Trem2_4",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 2343.571887275784,
+      "threefold_vertex_allowance": 7030.715661827351,
+      "idealized_dense16_arrays_GiB": 0.6547366608177876,
+      "threefold_dense16_arrays_GiB": 5.892629947360088
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 537.7691737561131,
+      "threefold_vertex_allowance": 1613.3075212683393,
+      "idealized_dense16_arrays_GiB": 0.03447481205968053,
+      "threefold_dense16_arrays_GiB": 0.31027330853712476
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 755.4218268905487,
+      "threefold_vertex_allowance": 2266.265480671646,
+      "idealized_dense16_arrays_GiB": 0.06802822787078072,
+      "threefold_dense16_arrays_GiB": 0.6122540508370264
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 296.54185161199234,
+      "threefold_vertex_allowance": 889.625554835977,
+      "idealized_dense16_arrays_GiB": 0.010482915610965357,
+      "threefold_dense16_arrays_GiB": 0.09434624049868821
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 355.9152832925908,
+      "threefold_vertex_allowance": 1067.7458498777723,
+      "idealized_dense16_arrays_GiB": 0.015100918874889036,
+      "threefold_dense16_arrays_GiB": 0.13590826987400131
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1186.1674064479694,
+      "threefold_vertex_allowance": 3558.502219343908,
+      "idealized_dense16_arrays_GiB": 0.1677266497754457,
+      "threefold_dense16_arrays_GiB": 1.5095398479790114
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1423.6611331703632,
+      "threefold_vertex_allowance": 4270.983399511089,
+      "idealized_dense16_arrays_GiB": 0.24161470199822457,
+      "threefold_dense16_arrays_GiB": 2.174532317984021
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 712.5772844045146,
+      "threefold_vertex_allowance": 2137.7318532135437,
+      "idealized_dense16_arrays_GiB": 0.06053047016254812,
+      "threefold_dense16_arrays_GiB": 0.544774231462933
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 775.3995737025125,
+      "threefold_vertex_allowance": 2326.1987211075375,
+      "idealized_dense16_arrays_GiB": 0.0716739295599506,
+      "threefold_dense16_arrays_GiB": 0.6450653660395554
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2850.3091376180582,
+      "threefold_vertex_allowance": 8550.927412854175,
+      "idealized_dense16_arrays_GiB": 0.9684875226007699,
+      "threefold_dense16_arrays_GiB": 8.716387703406928
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 3101.59829481005,
+      "threefold_vertex_allowance": 9304.79488443015,
+      "idealized_dense16_arrays_GiB": 1.1467828729592096,
+      "threefold_dense16_arrays_GiB": 10.321045856632887
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1995.0345892005,
+      "threefold_vertex_allowance": 5985.1037676015,
+      "idealized_dense16_arrays_GiB": 0.47447240496950244,
+      "threefold_dense16_arrays_GiB": 4.270251644725522
+    },
+    {
+      "section": "S04__WT3",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 2059.8780112431436,
+      "threefold_vertex_allowance": 6179.634033729431,
+      "idealized_dense16_arrays_GiB": 0.5058166290763627,
+      "threefold_dense16_arrays_GiB": 4.5523496616872645
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 536.9082860392786,
+      "threefold_vertex_allowance": 1610.7248581178355,
+      "idealized_dense16_arrays_GiB": 0.034364522411541434,
+      "threefold_dense16_arrays_GiB": 0.30928070170387284
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 754.4996365687699,
+      "threefold_vertex_allowance": 2263.49890970631,
+      "idealized_dense16_arrays_GiB": 0.06786223668842385,
+      "threefold_dense16_arrays_GiB": 0.6107601301958148
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 295.89013525541543,
+      "threefold_vertex_allowance": 887.6704057662463,
+      "idealized_dense16_arrays_GiB": 0.010436889188464646,
+      "threefold_dense16_arrays_GiB": 0.09393200269618181
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 355.24658799689337,
+      "threefold_vertex_allowance": 1065.73976399068,
+      "idealized_dense16_arrays_GiB": 0.015044228825978577,
+      "threefold_dense16_arrays_GiB": 0.1353980594338072
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1183.5605410216617,
+      "threefold_vertex_allowance": 3550.681623064985,
+      "idealized_dense16_arrays_GiB": 0.16699022701543434,
+      "threefold_dense16_arrays_GiB": 1.502912043138909
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1420.9863519875735,
+      "threefold_vertex_allowance": 4262.95905596272,
+      "idealized_dense16_arrays_GiB": 0.24070766121565723,
+      "threefold_dense16_arrays_GiB": 2.166368950940915
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 710.4635964770458,
+      "threefold_vertex_allowance": 2131.3907894311374,
+      "idealized_dense16_arrays_GiB": 0.06017190479267819,
+      "threefold_dense16_arrays_GiB": 0.5415471431341037
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 773.2677793045277,
+      "threefold_vertex_allowance": 2319.803337913583,
+      "idealized_dense16_arrays_GiB": 0.07128036719686458,
+      "threefold_dense16_arrays_GiB": 0.6415233047717812
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2841.8543859081833,
+      "threefold_vertex_allowance": 8525.56315772455,
+      "idealized_dense16_arrays_GiB": 0.9627504766828511,
+      "threefold_dense16_arrays_GiB": 8.664754290145659
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 3093.071117218111,
+      "threefold_vertex_allowance": 9279.213351654333,
+      "idealized_dense16_arrays_GiB": 1.1404858751498332,
+      "threefold_dense16_arrays_GiB": 10.2643728763485
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1987.6571250661937,
+      "threefold_vertex_allowance": 5962.971375198581,
+      "idealized_dense16_arrays_GiB": 0.4709697779210098,
+      "threefold_dense16_arrays_GiB": 4.238728001289088
+    },
+    {
+      "section": "S05__Trem2_3",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 2052.481785469694,
+      "threefold_vertex_allowance": 6157.445356409082,
+      "idealized_dense16_arrays_GiB": 0.5021907662969664,
+      "threefold_dense16_arrays_GiB": 4.519716896672698
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 523.0114907969707,
+      "threefold_vertex_allowance": 1569.0344723909122,
+      "idealized_dense16_arrays_GiB": 0.032608630598267296,
+      "threefold_dense16_arrays_GiB": 0.29347767538440567
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 739.7119294392596,
+      "threefold_vertex_allowance": 2219.135788317779,
+      "idealized_dense16_arrays_GiB": 0.06522819263395693,
+      "threefold_dense16_arrays_GiB": 0.5870537337056124
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 285.03323124588394,
+      "threefold_vertex_allowance": 855.0996937376518,
+      "idealized_dense16_arrays_GiB": 0.009685032715138143,
+      "threefold_dense16_arrays_GiB": 0.08716529443624328
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 344.14292875227335,
+      "threefold_vertex_allowance": 1032.42878625682,
+      "idealized_dense16_arrays_GiB": 0.014118475366853749,
+      "threefold_dense16_arrays_GiB": 0.12706627830168374
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1140.1329249835358,
+      "threefold_vertex_allowance": 3420.3987749506073,
+      "idealized_dense16_arrays_GiB": 0.15496052344221029,
+      "threefold_dense16_arrays_GiB": 1.3946447109798925
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1376.5717150090934,
+      "threefold_vertex_allowance": 4129.71514502728,
+      "idealized_dense16_arrays_GiB": 0.22589560586965998,
+      "threefold_dense16_arrays_GiB": 2.03306045282694
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 674.2033381167424,
+      "threefold_vertex_allowance": 2022.6100143502272,
+      "idealized_dense16_arrays_GiB": 0.05418659938904745,
+      "threefold_dense16_arrays_GiB": 0.48767939450142694
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 736.7443792745865,
+      "threefold_vertex_allowance": 2210.2331378237595,
+      "idealized_dense16_arrays_GiB": 0.06470588211926172,
+      "threefold_dense16_arrays_GiB": 0.5823529390733554
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2696.8133524669697,
+      "threefold_vertex_allowance": 8090.440057400909,
+      "idealized_dense16_arrays_GiB": 0.8669855902247592,
+      "threefold_dense16_arrays_GiB": 7.802870312022831
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 2946.977517098346,
+      "threefold_vertex_allowance": 8840.932551295038,
+      "idealized_dense16_arrays_GiB": 1.0352941139081875,
+      "threefold_dense16_arrays_GiB": 9.317647025173686
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1858.272331810608,
+      "threefold_vertex_allowance": 5574.816995431824,
+      "idealized_dense16_arrays_GiB": 0.4116506647077601,
+      "threefold_dense16_arrays_GiB": 3.704855982369841
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1922.8243289667407,
+      "threefold_vertex_allowance": 5768.472986900222,
+      "idealized_dense16_arrays_GiB": 0.44074695111112555,
+      "threefold_dense16_arrays_GiB": 3.96672256000013
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 579.5797353792804,
+      "threefold_vertex_allowance": 1738.739206137841,
+      "idealized_dense16_arrays_GiB": 0.040043910701551035,
+      "threefold_dense16_arrays_GiB": 0.3603951963139593
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 800.2653435832212,
+      "threefold_vertex_allowance": 2400.7960307496637,
+      "idealized_dense16_arrays_GiB": 0.0763445639777626,
+      "threefold_dense16_arrays_GiB": 0.6871010757998633
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 328.0036305355082,
+      "threefold_vertex_allowance": 984.0108916065246,
+      "idealized_dense16_arrays_GiB": 0.012825296121176978,
+      "threefold_dense16_arrays_GiB": 0.11542766509059281
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 388.2170976359269,
+      "threefold_vertex_allowance": 1164.6512929077808,
+      "idealized_dense16_arrays_GiB": 0.01796633182726655,
+      "threefold_dense16_arrays_GiB": 0.16169698644539898
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1312.0145221420328,
+      "threefold_vertex_allowance": 3936.0435664260986,
+      "idealized_dense16_arrays_GiB": 0.20520473793883165,
+      "threefold_dense16_arrays_GiB": 1.846842641449485
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1552.8683905437076,
+      "threefold_vertex_allowance": 4658.605171631123,
+      "idealized_dense16_arrays_GiB": 0.2874613092362648,
+      "threefold_dense16_arrays_GiB": 2.5871517831263837
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 814.0243734335713,
+      "threefold_vertex_allowance": 2442.073120300714,
+      "idealized_dense16_arrays_GiB": 0.07899232870863895,
+      "threefold_dense16_arrays_GiB": 0.7109309583777506
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 877.7424829270236,
+      "threefold_vertex_allowance": 2633.227448781071,
+      "idealized_dense16_arrays_GiB": 0.09184263543306545,
+      "threefold_dense16_arrays_GiB": 0.8265837188975892
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 3256.0974937342853,
+      "threefold_vertex_allowance": 9768.292481202856,
+      "idealized_dense16_arrays_GiB": 1.2638772593382233,
+      "threefold_dense16_arrays_GiB": 11.374895334044009
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 3510.9699317080945,
+      "threefold_vertex_allowance": 10532.909795124284,
+      "idealized_dense16_arrays_GiB": 1.4694821669290472,
+      "threefold_dense16_arrays_GiB": 13.225339502361427
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2347.523989805535,
+      "threefold_vertex_allowance": 7042.5719694166055,
+      "idealized_dense16_arrays_GiB": 0.6569467643156646,
+      "threefold_dense16_arrays_GiB": 5.912520878840981
+    },
+    {
+      "section": "S10__WT5",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 2413.2956466043324,
+      "threefold_vertex_allowance": 7239.886939812997,
+      "idealized_dense16_arrays_GiB": 0.694274410953453,
+      "threefold_dense16_arrays_GiB": 6.248469698581077
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 562.3026018922335,
+      "threefold_vertex_allowance": 1686.9078056767005,
+      "idealized_dense16_arrays_GiB": 0.0376920957678289,
+      "threefold_dense16_arrays_GiB": 0.3392288619104601
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 781.7116317338969,
+      "threefold_vertex_allowance": 2345.1348952016906,
+      "idealized_dense16_arrays_GiB": 0.07284558715678115,
+      "threefold_dense16_arrays_GiB": 0.6556102844110303
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 315.08232552845266,
+      "threefold_vertex_allowance": 945.246976585358,
+      "idealized_dense16_arrays_GiB": 0.011834725363304354,
+      "threefold_dense16_arrays_GiB": 0.10651252826973918
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 374.94221962303584,
+      "threefold_vertex_allowance": 1124.8266588691076,
+      "idealized_dense16_arrays_GiB": 0.016758640772801498,
+      "threefold_dense16_arrays_GiB": 0.15082776695521352
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1260.3293021138106,
+      "threefold_vertex_allowance": 3780.987906341432,
+      "idealized_dense16_arrays_GiB": 0.18935560581286967,
+      "threefold_dense16_arrays_GiB": 1.704200452315827
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1499.7688784921434,
+      "threefold_vertex_allowance": 4499.3066354764305,
+      "idealized_dense16_arrays_GiB": 0.26813825236482397,
+      "threefold_dense16_arrays_GiB": 2.4132442712834163
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 772.609185557398,
+      "threefold_vertex_allowance": 2317.827556672194,
+      "idealized_dense16_arrays_GiB": 0.07115899963470289,
+      "threefold_dense16_arrays_GiB": 0.6404309967123262
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 835.9502420936515,
+      "threefold_vertex_allowance": 2507.8507262809544,
+      "idealized_dense16_arrays_GiB": 0.08330497828202658,
+      "threefold_dense16_arrays_GiB": 0.7497448045382393
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 3090.436742229592,
+      "threefold_vertex_allowance": 9271.310226688776,
+      "idealized_dense16_arrays_GiB": 1.1385439941552462,
+      "threefold_dense16_arrays_GiB": 10.246895947397219
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 3343.800968374606,
+      "threefold_vertex_allowance": 10031.402905123818,
+      "idealized_dense16_arrays_GiB": 1.3328796525124254,
+      "threefold_dense16_arrays_GiB": 11.99591687261183
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2204.2969017671026,
+      "threefold_vertex_allowance": 6612.890705301308,
+      "idealized_dense16_arrays_GiB": 0.5792289771008547,
+      "threefold_dense16_arrays_GiB": 5.213060793907694
+    },
+    {
+      "section": "S12__Trem2_1",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 2269.6778622391607,
+      "threefold_vertex_allowance": 6809.033586717482,
+      "idealized_dense16_arrays_GiB": 0.6140992162631186,
+      "threefold_dense16_arrays_GiB": 5.526892946368067
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 543.2065320050175,
+      "threefold_vertex_allowance": 1629.6195960150526,
+      "idealized_dense16_arrays_GiB": 0.03517548279916264,
+      "threefold_dense16_arrays_GiB": 0.3165793451924638
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 761.271654932347,
+      "threefold_vertex_allowance": 2283.8149647970413,
+      "idealized_dense16_arrays_GiB": 0.06908589990179949,
+      "threefold_dense16_arrays_GiB": 0.6217730991161956
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 300.57181668855867,
+      "threefold_vertex_allowance": 901.715450065676,
+      "idealized_dense16_arrays_GiB": 0.01076977455466515,
+      "threefold_dense16_arrays_GiB": 0.09692797099198636
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 360.05948983587734,
+      "threefold_vertex_allowance": 1080.1784695076321,
+      "idealized_dense16_arrays_GiB": 0.015454630401238472,
+      "threefold_dense16_arrays_GiB": 0.13909167361114627
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1202.2872667542347,
+      "threefold_vertex_allowance": 3606.861800262704,
+      "idealized_dense16_arrays_GiB": 0.1723163928746424,
+      "threefold_dense16_arrays_GiB": 1.5508475358717817
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1440.2379593435094,
+      "threefold_vertex_allowance": 4320.713878030529,
+      "idealized_dense16_arrays_GiB": 0.24727408641981555,
+      "threefold_dense16_arrays_GiB": 2.2254667777783403
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 725.3788384007678,
+      "threefold_vertex_allowance": 2176.1365152023036,
+      "idealized_dense16_arrays_GiB": 0.06272488346095648,
+      "threefold_dense16_arrays_GiB": 0.5645239511486084
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 788.3229556724817,
+      "threefold_vertex_allowance": 2364.968867017445,
+      "idealized_dense16_arrays_GiB": 0.07408298044683904,
+      "threefold_dense16_arrays_GiB": 0.6667468240215514
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2901.515353603071,
+      "threefold_vertex_allowance": 8704.546060809214,
+      "idealized_dense16_arrays_GiB": 1.0035981353753036,
+      "threefold_dense16_arrays_GiB": 9.032383218377735
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 3153.291822689927,
+      "threefold_vertex_allowance": 9459.87546806978,
+      "idealized_dense16_arrays_GiB": 1.1853276871494247,
+      "threefold_dense16_arrays_GiB": 10.667949184344822
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2038.9923598121522,
+      "threefold_vertex_allowance": 6116.977079436457,
+      "idealized_dense16_arrays_GiB": 0.49561141054300417,
+      "threefold_dense16_arrays_GiB": 4.460502694887038
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 2103.9620180794855,
+      "threefold_vertex_allowance": 6311.886054238456,
+      "idealized_dense16_arrays_GiB": 0.5276985375310304,
+      "threefold_dense16_arrays_GiB": 4.749286837779273
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 456.27698910802656,
+      "threefold_vertex_allowance": 1368.8309673240797,
+      "idealized_dense16_arrays_GiB": 0.024818025921521925,
+      "threefold_dense16_arrays_GiB": 0.2233622332936973
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.13792270873848628,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 667.7428170275272,
+      "threefold_vertex_allowance": 2003.2284510825816,
+      "idealized_dense16_arrays_GiB": 0.053153094016535,
+      "threefold_dense16_arrays_GiB": 0.47837784614881507
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 236.15980815717185,
+      "threefold_vertex_allowance": 708.4794244715156,
+      "idealized_dense16_arrays_GiB": 0.006648475526432063,
+      "threefold_dense16_arrays_GiB": 0.05983627973788857
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.13792270873848628,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 293.8196792350973,
+      "threefold_vertex_allowance": 881.4590377052918,
+      "idealized_dense16_arrays_GiB": 0.01029133843252843,
+      "threefold_dense16_arrays_GiB": 0.09262204589275588
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 944.6392326286874,
+      "threefold_vertex_allowance": 2833.9176978860623,
+      "idealized_dense16_arrays_GiB": 0.106375608422913,
+      "threefold_dense16_arrays_GiB": 0.9573804758062171
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.06896135436924314,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1175.2787169403891,
+      "threefold_vertex_allowance": 3525.8361508211674,
+      "idealized_dense16_arrays_GiB": 0.16466141492045488,
+      "threefold_dense16_arrays_GiB": 1.4819527342840941
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 520.8219218391694,
+      "threefold_vertex_allowance": 1562.465765517508,
+      "idealized_dense16_arrays_GiB": 0.03233617237427781,
+      "threefold_dense16_arrays_GiB": 0.2910255513685003
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.06896135436924314,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 581.8168570068642,
+      "threefold_vertex_allowance": 1745.4505710205926,
+      "idealized_dense16_arrays_GiB": 0.04035363854138206,
+      "threefold_dense16_arrays_GiB": 0.3631827468724385
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 2083.2876873566775,
+      "threefold_vertex_allowance": 6249.863062070032,
+      "idealized_dense16_arrays_GiB": 0.517378757988445,
+      "threefold_dense16_arrays_GiB": 4.6564088218960045
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.03448067718462157,
+      "grading": "conservative",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 2327.267428027457,
+      "threefold_vertex_allowance": 6981.8022840823705,
+      "idealized_dense16_arrays_GiB": 0.645658216662113,
+      "threefold_dense16_arrays_GiB": 5.810923949959016
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 3.6252188241752448,
+      "idealized_vertices": 1336.7359239225914,
+      "threefold_vertex_allowance": 4010.207771767774,
+      "idealized_dense16_arrays_GiB": 0.21301066044630815,
+      "threefold_dense16_arrays_GiB": 1.917095944016773
+    },
+    {
+      "section": "S13__Trem2_2",
+      "h": 0.03448067718462157,
+      "grading": "aggressive",
+      "buffer": 7.2504376483504895,
+      "idealized_vertices": 1399.6858704395045,
+      "threefold_vertex_allowance": 4199.057611318513,
+      "idealized_dense16_arrays_GiB": 0.2335453672299377,
+      "threefold_dense16_arrays_GiB": 2.1019083050694394
+    }
+  ],
+  "mesh_candidates": 108,
+  "range_evaluations": 2484
+}

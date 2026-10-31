@@ -1,0 +1,174 @@
+{
+  "status": "proposed; not approved or executed",
+  "baseline": "35a22212528d24daba218e48da54a9f8ee8f0c76",
+  "target": {
+    "law": "stationary continuum Matern on ambient reference coordinates, restricted to observed tissue",
+    "nu": 5,
+    "kappa": "sqrt(40)/ell",
+    "unit_variance": true,
+    "warp_amplitude": "ell*r/sqrt(10)",
+    "limitation": "Composition with a warped paint field is not itself asserted stationary."
+  },
+  "coordinates": {
+    "units": "source_native",
+    "axis_order": [
+      "center_y",
+      "center_x"
+    ],
+    "translation": "componentwise all-cell minimum per section",
+    "shared_scale": 6532.1214803230505,
+    "forward": "z=(x-origin)/scale",
+    "inverse": "x=scale*z+origin",
+    "raw_preservation": "unchanged raw float64 coordinates; inverse is algebraic, not promised bitwise floating-point roundtrip"
+  },
+  "support": "all eligible cells; glial observation rows unchanged; tissue holes are labels, not automatic internal boundary conditions",
+  "domain": "convex hull of all eligible section coordinates, fine collar, then outward buffer; scientific tissue labels remain separate; proposal only",
+  "representatives": {
+    "initial_predeclared_six": [
+      "S12__Trem2_1",
+      "S12__Trem2_5xFAD2",
+      "S13__Trem2_2",
+      "S07__Trem2_5xFAD5",
+      "S02__Trem2_4",
+      "S04__WT3"
+    ],
+    "additional_extreme_rules": {
+      "maximum_all_span": "S10__WT5",
+      "maximum_all_MST_edge": "S01__5xFAD4",
+      "minimum_all_NN_median": "S05__Trem2_3"
+    },
+    "union": [
+      "S12__Trem2_1",
+      "S12__Trem2_5xFAD2",
+      "S13__Trem2_2",
+      "S07__Trem2_5xFAD5",
+      "S02__Trem2_4",
+      "S04__WT3",
+      "S10__WT5",
+      "S01__5xFAD4",
+      "S05__Trem2_3"
+    ],
+    "rationale": "Supplement coverage with geometry extremes before any candidate covariance evaluation; proposed not frozen"
+  },
+  "inner_targets": [
+    0.13792270873848628,
+    0.06896135436924314,
+    0.03448067718462157
+  ],
+  "fine_collar": 0.13792270873848628,
+  "grading": [
+    {
+      "name": "conservative",
+      "target": "min(h_inner+0.15*d,ell_high/4)"
+    },
+    {
+      "name": "aggressive",
+      "target": "min(h_inner+0.30*d,ell_high/2)"
+    }
+  ],
+  "grading_distance": "d outward from fine collar; h_inner retained inside collar",
+  "buffers_beyond_collar": [
+    3.6252188241752448,
+    7.2504376483504895
+  ],
+  "quality": {
+    "requested_min_angle_degrees": 25,
+    "target_adjacent_edge_ratio_max": 1.5,
+    "positive_areas_required": true
+  },
+  "ranges": [
+    0.15,
+    0.27584541747697255,
+    0.3,
+    0.3240280087060004,
+    0.38062677055253497,
+    0.447111776046196,
+    0.5252098794548448,
+    0.6,
+    0.6169495688891719,
+    0.7247136534210217,
+    0.851301153189059,
+    1.0,
+    1.1746724367210126,
+    1.3798553335920816,
+    1.6208780270330962,
+    1.65,
+    1.9040007416425142,
+    2.2365771907038274,
+    2.627245578518702,
+    2.72,
+    3.08615296558307,
+    3.6252188241752448,
+    5.0
+  ],
+  "central99": [
+    0.27584541747697255,
+    3.6252188241752448
+  ],
+  "outside_interval_diagnostics": [
+    0.15,
+    5.0
+  ],
+  "probes": {
+    "count": 256,
+    "strata": [
+      "boundary",
+      "interior",
+      "dense",
+      "sparse"
+    ],
+    "per_stratum": 64,
+    "density": "20-nearest-neighbor radius",
+    "boundary": "distance to convex hull plus detected persistent-empty-region boundary; require separated reporting",
+    "selection": "deterministic farthest-point selection; source-row tie breaks; no repeated identity; mandatory extreme sparse observations included in sparse allocation",
+    "strata_rule": "boundary lowest-distance quartile, interior highest-distance quartile, dense lowest-density-radius quartile, sparse highest-density-radius quartile; fill sequentially without duplication",
+    "all_observation_checks": "coverage, row identity, partition of unity and affine coordinate reproduction for every modeled cell"
+  },
+  "primary_proposed_tolerances": {
+    "max_unit_variance_error": 0.02,
+    "max_absolute_correlation_error": 0.02,
+    "relative_covariance_frobenius_error": 0.02
+  },
+  "secondary_targets": {
+    "correlation_rmse": 0.005,
+    "p95_unit_variance_error": 0.01,
+    "full_active_relative_error": 2e-10,
+    "derivative_relative_error_away_from_zero": 2e-05
+  },
+  "derivatives": {
+    "variables": [
+      "log(ell)",
+      "log(r)"
+    ],
+    "finite_difference_steps": [
+      0.0001,
+      1e-05,
+      1e-06
+    ],
+    "checks": [
+      "covariance",
+      "active covariance root with positive diagonal QR convention",
+      "coupled variance derivative",
+      "directional likelihood-algebra tests on synthetic vectors, not MCMC"
+    ],
+    "near_zero": "report absolute error normalized by covariance/root scale; never divide by a vanishing derivative"
+  },
+  "range_guarantee": "No proven uniform continuum guarantee. Proposed empirical acceptance over central99 range grid and fixed probes. Between-grid bounds or separate certification required before a formal interval-wide guarantee.",
+  "tails": "Original prior remains unbounded; no silent truncation or rejected draws. Report 1% prior tail and diagnostics at .15 and 5. A future run leaving certified coverage requires a preapproved policy; stop and revise the numerical specification in a new run rather than change its mesh within a chain.",
+  "workload": {
+    "initial_geometries": 108,
+    "ranges_each": 23,
+    "initial_range_evaluations": 2484,
+    "maximum_finalists": 2,
+    "additional_sections": 10,
+    "additional_geometries_max": 20,
+    "additional_range_evaluations_max": 460
+  },
+  "resources": {
+    "concurrency": 1,
+    "proposed_total_process_RSS_cap_GiB": 10,
+    "minimum_available_RAM_headroom_GiB": 8,
+    "runtime": "unmeasured; benchmark one representative before extrapolation; no invented walltime forecast"
+  },
+  "selection": "Pareto comparison of accuracy, total/active vertices, memory, build/eigensolve/QR/derivative time; no candidate chosen by active vertex count alone; resource failures are not accuracy passes"
+}

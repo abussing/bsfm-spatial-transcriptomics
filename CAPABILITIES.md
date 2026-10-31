@@ -81,18 +81,30 @@ minimum-median depth, not automatically the training-only holdout depth.
 
 ## 3. Adaptive tissue meshes
 
-Recovery status: **adaptive-mesh historical recovery through M2 is complete
-within its bounded evidence scope; no canonical mesh implementation or numerical
-design has been selected**. The next gate is a scientific mesh design and bounded
-accuracy/resource study. See the [M1/M2 recovery](docs/recovery/ADAPTIVE_MESH.md),
-[evidence ledger](docs/recovery/ADAPTIVE_MESH_EVIDENCE.md) and
-[unresolved decisions](docs/recovery/ADAPTIVE_MESH_DECISIONS.csv).
-The October 26 four-stage fmesher lineage is the best-supported historical
-candidate, not an authoritative selection. All 19 authenticated numerical reports
-show excellent discrete full-to-active agreement; substantial short/long-range
-continuum discrepancies remain. Units remain source_native. Support population,
-topology, range/buffer accuracy and an authenticated flat-model comparison still
-require decisions. No canonical mesh generation or GP initialization has run.
+Recovery status: **historical recovery through M2 and the M3 coordinate/topology
+audit are complete; broad canonical mesh scientific design is frozen; numerical
+resolution, production grading and buffer remain pending**. See the
+[canonical decision](docs/decisions/ADAPTIVE_MESH_DESIGN.md),
+[M3 evidence receipt](docs/mesh/audits/M3/README.md),
+[staged study specification](config/mesh/study-design.json),
+[M1/M2 recovery](docs/recovery/ADAPTIVE_MESH.md) and
+[evidence ledger](docs/recovery/ADAPTIVE_MESH_EVIDENCE.md).
+
+The target is a unit-amplitude stationary continuum Matern reference field,
+nu=5, with all-cell empirical support, canonical glial observation rows, one
+common numerical scale and source_native units. Each registered section uses a
+connected ambient computational domain; holes are not automatic internal
+boundaries. Consistent P1 FEM, full spectrum and exact active marginalization
+are requirements. The sampler amplitude relationship is deferred to sampler
+recovery. The 2% trial accuracy targets are not production acceptance thresholds.
+
+The next implementation is an experimental Phase-0 study harness, not a
+production mesh builder. Phase 0 must finish and be reviewed before Phase 1 is
+authorized. The plan has six S10 pilot geometries, 48 additional representative
+geometries, and at most 20 confirmation geometries. No phase has been executed.
+No historical implementation has been selected; no canonical mesh generation,
+GP initialization or HPC execution has occurred. Full-prior numerical coverage,
+physical units and an authenticated flat-model implementation remain unresolved.
 
 - Construct meshes from tissue cell locations using the adaptive method.
 - Use multiple layers of resolution that become coarser outside the cell hull.

@@ -1,5 +1,9 @@
 # Adaptive tissue mesh recovery through M2
 
+Current decision: the subsequent [canonical M3 design](../decisions/ADAPTIVE_MESH_DESIGN.md)
+freezes broad scientific choices and a staged study. The M1/M2 status and open
+questions below describe that historical checkpoint; no implementation was selected.
+
 Status: **historical recovery through M2 complete within its bounded scope; no
 canonical mesh implementation or numerical design selected**. Baseline:
 `1c9f36331fd55d3ddd1953199499fe084f30293f`. This checkpoint records the reviewed
