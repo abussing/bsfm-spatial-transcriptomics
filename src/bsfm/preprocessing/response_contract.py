@@ -14,6 +14,7 @@ from jsonschema import Draft202012Validator
 
 from .raw_preflight import axis_ids, ordered_hash, require, sha256_file, strings
 from .sct_smoke import selected_counts, write_input, run_r
+from .mean_roundoff import MEAN_POLICY
 
 REPO = Path(__file__).resolve().parents[3]
 CONFIG = REPO / "config/preprocessing/single-section-run.json"
@@ -54,7 +55,8 @@ def contract(config=CONFIG):
             "effective_method":"glmGamPoi_offset", "vst_flavor":"v2", "all_eligible_cells":True,
             "input_genes":300}, "Normalization configuration changed")
     require(cfg["tolerances"] == {"centering_atol":1e-12, "reconstruction_atol":1e-15,
-            "reconstruction_rtol":1e-14, "means_atol":1e-14, "means_rtol":1e-14}, "Unreviewed numeric tolerances")
+            "reconstruction_rtol":1e-14}, "Unreviewed numeric tolerances")
+    require(cfg['mean_comparison'] == MEAN_POLICY, 'Unreviewed mean roundoff policy')
     for path, digest in cfg["frozen_files"].items():
         require(sha256_file(REPO / path) == digest, f"Frozen identity changed: {path}")
     panel = load_json(REPO / "config/preprocessing/modeling-panel.json")

@@ -1,0 +1,186 @@
+{
+  "schema": "bsfm.mean-roundoff-audit.v1",
+  "status": "accepted",
+  "baseline_commit": "3999bcc2f7cadb3e3ffdc77e510a69b70424a213",
+  "v1_immutable": {
+    "all_file_hashes_and_sizes_identical": true,
+    "file_count": 51,
+    "status": "failed",
+    "run_manifest_exists": false,
+    "S01_final_exists": false
+  },
+  "scope": "Forensic payload audit, not production promotion/reuse. Original source/code/config/environment checks were performed under the clean v1 baseline before editing. Current checks do not override ordinary production provenance guards.",
+  "comparisons": 546,
+  "failing_old_comparisons": [
+    {
+      "section": "S01__5xFAD4",
+      "gene": "Sox10",
+      "type": "OGC",
+      "n": "4720",
+      "mean_absolute_response": "1.4270851667900435",
+      "stored_writer": "1.4270851667900744",
+      "numpy_sum_div_n": "1.4270851667900435",
+      "numpy_mean_1d": "1.4270851667900435",
+      "numpy_mean_writer_layout": "1.4270851667900744",
+      "numpy_mean_C_layout": "1.4270851667900435",
+      "numpy_mean_F_layout": "1.4270851667900744",
+      "math_fsum_div_n": "1.4270851667900435",
+      "stored_writer_abs_diff": "3.086420008457935e-14",
+      "stored_writer_rel_diff": "2.1627440886378557e-14",
+      "numpy_sum_div_n_abs_diff": "0.0",
+      "numpy_sum_div_n_rel_diff": "0.0",
+      "numpy_mean_1d_abs_diff": "0.0",
+      "numpy_mean_1d_rel_diff": "0.0",
+      "numpy_mean_writer_layout_abs_diff": "3.086420008457935e-14",
+      "numpy_mean_writer_layout_rel_diff": "2.1627440886378557e-14",
+      "numpy_mean_C_layout_abs_diff": "0.0",
+      "numpy_mean_C_layout_rel_diff": "0.0",
+      "numpy_mean_F_layout_abs_diff": "3.086420008457935e-14",
+      "numpy_mean_F_layout_rel_diff": "2.1627440886378557e-14",
+      "math_fsum_div_n_abs_diff": "0.0",
+      "math_fsum_div_n_rel_diff": "0.0",
+      "old_allowed_difference": "2.4270851667900437e-14",
+      "old_comparison_pass": "False",
+      "roundoff_bound": "2.9913147457954244e-12",
+      "roundoff_pass": "True",
+      "discrepancy_to_bound_ratio": "0.01031793799965781"
+    }
+  ],
+  "all_new_comparisons_pass": true,
+  "section_summary": [
+    {
+      "section": "S00__Trem2_5xFAD4",
+      "metrics": {
+        "all_invariants_passed": true,
+        "readback_passed": true,
+        "max_abs_centering_mean": 2.7991793280442776e-14,
+        "max_abs_reconstruction_error": 4.440892098500626e-16,
+        "centering_atol": 1e-12,
+        "reconstruction_atol": 1e-15,
+        "reconstruction_rtol": 1e-14
+      },
+      "max_mean_discrepancy": 2.7977620220553945e-14,
+      "max_allowed_bound": 5.999861910848039e-12,
+      "max_discrepancy_to_bound_ratio": 0.013884978232559396,
+      "material_mean_mutation_rejected": true
+    },
+    {
+      "section": "S01__5xFAD4",
+      "metrics": {
+        "all_invariants_passed": true,
+        "readback_passed": true,
+        "max_abs_centering_mean": 3.1697502438252984e-14,
+        "max_abs_reconstruction_error": 4.440892098500626e-16,
+        "centering_atol": 1e-12,
+        "reconstruction_atol": 1e-15,
+        "reconstruction_rtol": 1e-14
+      },
+      "max_mean_discrepancy": 3.086420008457935e-14,
+      "max_allowed_bound": 6.645717706002109e-12,
+      "max_discrepancy_to_bound_ratio": 0.015277539754715106,
+      "material_mean_mutation_rejected": true
+    }
+  ],
+  "S00_accepted_payload_hashes_unchanged": true,
+  "S00_five_R_semantic_hashes_unchanged": true,
+  "evidence": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\v1-before.json",
+      "bytes": 11574,
+      "sha256": "3c64d06788e9786b2d81925d98d38df6d1cfa209cfbbd253fc1b481c7e436bce"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\baseline.json",
+      "bytes": 20011,
+      "sha256": "442b26fa7a2b680371b3767a862073d3cdaca8f58906d00e9f71028086b61ebd"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\reference_n_amendment\\means-amended.csv",
+      "bytes": 252782,
+      "sha256": "8a5999da77a612ca9daee3fbc79eb01478ba175b6d579f5ca5b87dbe61f9e4be"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\reference_n_amendment\\S00__Trem2_5xFAD4-amended-check.json",
+      "bytes": 72414,
+      "sha256": "5ba1a8c62937671993a140e36df25bb2f9824f0ce60212deabea45ee2730ccc0"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\reference_n_amendment\\S01__5xFAD4-amended-check.json",
+      "bytes": 72554,
+      "sha256": "908d481b10ec52916049cdd0a5dd14ff5e9cb34dfadbd35ecf255951d5679db0"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\reference_n_amendment\\v1-unchanged.json",
+      "bytes": 153,
+      "sha256": "5182b5241286f65e559ab1ce92342595ad57556d910f1a4e39c3fff294bf3eae"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\reference_n_amendment\\synthetic\\run-manifest.json",
+      "bytes": 29371,
+      "sha256": "d1da023ac6dd77267e5fe1679db68a0c000b573019e91f6fdda84ef3edc200cb"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\reference_n_amendment\\python-tests-final.log",
+      "bytes": 11890,
+      "sha256": "28314b643499e893e2c143a25fba8077212208acf3eb3ebb6865b321c0aa6e9e"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\reference_n_amendment\\R-tests.log",
+      "bytes": 89,
+      "sha256": "1a29a893afd0887d05570098fcb7a63b955307edad9e60fcfacc292c5e407ec3"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_roundoff_audit_20261031\\reference_n_amendment\\R-tests-command.json",
+      "bytes": 322,
+      "sha256": "f0fe095358d3dfda623b1e2aace85c743f5ecc6377cbb6584c1dbce55595886c"
+    }
+  ],
+  "canonical_tables": [
+    {
+      "path": "docs\\preprocessing\\audits\\20261031_mean_roundoff\\means.csv",
+      "bytes": 252782,
+      "sha256": "8a5999da77a612ca9daee3fbc79eb01478ba175b6d579f5ca5b87dbe61f9e4be"
+    },
+    {
+      "path": "docs\\preprocessing\\audits\\20261031_mean_roundoff\\summary.csv",
+      "bytes": 1796,
+      "sha256": "d5c1a6a3de36837f74604f1582c060239b8b2749d16085fb43fcf41c8578a872"
+    }
+  ],
+  "csv_normalization": "LF only; all numeric values preserved",
+  "remaining_gate": "Separate approval of the exact production command and fresh v2 destination after this correction is committed. V1 must never be resumed or modified.",
+  "tests": {
+    "python_passed": 81,
+    "R_count_cases_passed": 7,
+    "fresh_synthetic_fits_passed": 4,
+    "synthetic_five_semantic_hashes_unchanged_per_fit": true,
+    "fresh_saved_model_readbacks": [
+      "S00__Trem2_5xFAD4",
+      "S01__5xFAD4"
+    ],
+    "real_section_refits": 0,
+    "read_only_payload_checks": 2,
+    "writer_R_code_and_scientific_contracts_byte_identical": true,
+    "execution_and_manifest_checks_AST_identical": true,
+    "final_python_runtime_seconds": 61.248,
+    "per_pair_ratio_reporting_tested": true
+  },
+  "changed_source_hashes": {
+    "src\\bsfm\\preprocessing\\mean_roundoff.py": "be9be035db2ae6b90d353e17dad2156dd842f6f616e94c4473f9e520c845f2ef",
+    "src\\bsfm\\preprocessing\\response_validate.py": "dd042bf70f43564cdcbc85cdb928dffbb1c4ce87040ed356f4ee8a1810b87ac7",
+    "src\\bsfm\\preprocessing\\response_contract.py": "d2391a004a4d2b171ba60bf94b843cb38c769703d9983088bdd18c659023f0a3",
+    "config\\preprocessing\\single-section-run.json": "64eae68d04864b29746e31fb0d4367f7488e005310bf90614009c84502d9de83"
+  },
+  "amendment": "Reference receives conservative gamma_n allowance; no formal fsum gamma_3 claim. B=upward(2*(gamma_n+gamma_n)*A_upper).",
+  "mean_policy": {
+    "schema": "bsfm.mean-roundoff.v1",
+    "reference": "math.fsum_in_canonical_cell_order_divided_by_n",
+    "unit_roundoff": "float64_eps_divided_by_2",
+    "writer_operation_bound": "n",
+    "reference_operation_bound": "n",
+    "safety_factor": 2.0
+  },
+  "all_546_positive_1e_minus_10_alterations_rejected": true,
+  "scientific_payloads_identical_to_previous_audit": true,
+  "supersedes": "Previous uncommitted gamma_3 comparison policy; original external evidence retained unchanged."
+}

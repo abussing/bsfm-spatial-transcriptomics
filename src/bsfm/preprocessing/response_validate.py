@@ -10,6 +10,7 @@ import numpy as np
 
 from .raw_preflight import require, sha256_file
 from .execution_evidence import authenticate_process, scan_log
+from .mean_roundoff import check_means
 from .response_contract import (CONFIG, META, AXES, contract, load_json, save_json,
     file_record, validate_json, identities, code_identity, raw_section, readback, inventory)
 
@@ -80,10 +81,7 @@ def check_response(path, raw, panel, spec, cfg, reconstructed):
         mu = values["/centering/means"]
         y = values["/model/centered_response"]
         tol = cfg["tolerances"]
-        # Independent reduction: separate per-gene sums over each actual group.
-        measured = np.array([[np.sum(chosen[g, types == t], dtype=np.float64) / groups[t]
-                              for t in range(3)] for g in range(91)])
-        require(np.allclose(mu, measured, atol=tol["means_atol"], rtol=tol["means_rtol"]), "Centering means differ")
+        mean_comparison = check_means(chosen, types, mu, cfg['mean_comparison'])
         equal(y, chosen - mu[:, types], "Centered response is not exactly L minus recorded means")
         error = float(np.max(np.abs(y + mu[:, types] - chosen)))
         residual = float(max(np.max(np.abs(y[:, types == t].mean(axis=1))) for t in range(3)))
@@ -96,7 +94,8 @@ def check_response(path, raw, panel, spec, cfg, reconstructed):
                "max_abs_centering_mean": residual, "max_abs_reconstruction_error": error,
                **{k: tol[k] for k in ("centering_atol", "reconstruction_atol", "reconstruction_rtol")}}
     return {"metrics": metrics, "datasets": datasets, "axes": axes, "physical_storage": physical,
-            "group_sizes": groups.tolist(), "max_abs_mean_recalculation_difference": float(np.max(np.abs(mu-measured))),
+            "group_sizes": groups.tolist(), "mean_comparison": mean_comparison,
+            "max_abs_mean_recalculation_difference": mean_comparison['max_abs_discrepancy'],
             "dimensions": {"all_cells": lengths["N"], "model_cells": lengths["M"], "all_genes": 300, "model_genes": 91, "types": 3}}
 
 
@@ -169,7 +168,7 @@ def validate_bundle(bundle, source, envroot, config, work):
     # Check hashes/schema before expensive recorrection; then independently repeat all checks.
     check_final_metadata(bundle, manifest, recorded, spec)
     fresh = validate_payload(bundle, source, envroot, config, work)
-    for key in ("metrics", "datasets", "axes", "dimensions", "group_sizes", "tolerances", "physical_storage"):
+    for key in ("metrics", "datasets", "axes", "dimensions", "group_sizes", "tolerances", "physical_storage", "mean_comparison"):
         require(recorded[key] == fresh[key], f"Saved validation differs from fresh readback: {key}")
     check_final_metadata(bundle, manifest, fresh, spec)
     return fresh
@@ -190,6 +189,8 @@ def fast_validate_bundle(bundle, section, source_identity, envroot, config, run_
             and report['metrics']['all_invariants_passed'] and report['metrics']['readback_passed'],
             'Original deep validation did not pass')
     require(report['tolerances'] == cfg['tolerances'], 'Resume tolerances differ')
+    require(report['mean_comparison']['policy'] == cfg['mean_comparison']
+            and report['mean_comparison']['all_passed'], 'Resume mean comparison policy/pass differs')
     execution = load_json(bundle/'execution.json')
     require(execution['section'] == section and execution['production_run_spec_sha256'] == run_spec_sha256,
             'Bundle belongs to another run specification')

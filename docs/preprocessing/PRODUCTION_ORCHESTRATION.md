@@ -1,7 +1,9 @@
 # Sequential SCTransform production orchestration
 
-Status: implementation and tests accepted by explicit user approval. No real section has
-been fitted by this orchestration layer. Existing S00 bundles remain evidence
+Status: implementation and tests accepted by explicit user approval. The first real run stopped on an over-strict S01 centering-mean validator check;
+v1 remains failed and immutable. S00 was promoted, S01 was retained/unpromoted,
+and 17 sections did not start. The accepted [numerical correction](MEAN_ROUNDOFF_VALIDATION.md)
+requires a new commit and a fresh v2 run; v1 must not be resumed or changed. Existing S00 bundles remain evidence
 from code uncommitted at their execution, not future production artifacts.
 
 The launcher calls `response_run.run`; the single-section fitting core, response
@@ -125,10 +127,11 @@ $env:PYTHONPATH = Join-Path (Get-Location) 'src'
   --environment 'C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_ENVIRONMENTS\sctransform-20261031' `
   --config 'config/preprocessing/single-section-run.json' `
   --production-config 'config/preprocessing/production-run.json' `
-  --run-root 'C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_PRODUCTION\sctransform_full_data_v1'
+  --run-root 'C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_PRODUCTION\sctransform_full_data_v2'
 ```
 
-The identical command resumes an existing compatible root. Paths are CLI
+The identical command can resume an existing compatible v2 root after approval.
+It must never be pointed at the immutable failed v1 root. Paths are CLI
 arguments, not scientific code constants. The root is a proposed destination;
 this implementation gate does not create it or execute the command.
 

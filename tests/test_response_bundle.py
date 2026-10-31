@@ -69,6 +69,18 @@ class ResponseBundleTests(unittest.TestCase):
         self.assertEqual(report['group_sizes'],[8,8,8])
         self.assertLess(report['metrics']['max_abs_centering_mean'],1e-12)
         self.assertEqual(report['dimensions']['model_cells'],24)
+        self.assertTrue(report['mean_comparison']['all_passed'])
+        self.assertEqual(np.shape(report['mean_comparison']['allowed_bounds']),(91,3))
+
+    def test_small_but_material_mean_corruption_fails_independently(self):
+        # Alter both saved mean and Y consistently, so exact L-mu alone cannot catch it.
+        with h5py.File(self.bundle/'response.h5','r+') as f:
+            f['/centering/means'][0,0]+=1e-10
+            values=f['/model/centered_response'][:]
+            types=f['/metadata/model_type_code'][:]
+            values[0,types==0]=f['/model/uncentered_response'][0,types==0]-f['/centering/means'][0,0]
+            f['/model/centered_response'][:]=values
+        with self.assertRaisesRegex(ContractError,'forward-error'):self.check()
 
     def test_payload_hash_is_logical_C_order_not_storage_order(self):
         a=np.arange(12,dtype=float).reshape(3,4)

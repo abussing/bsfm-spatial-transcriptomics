@@ -87,11 +87,15 @@ reduction and arithmetic reconstruction use these explicit limits:
 
 | Check | Absolute tolerance | Relative tolerance |
 | --- | ---: | ---: |
-| Mean recomputation | 1e-14 | 1e-14 |
 | Centered group-mean residual | 1e-12 | 0 |
 | Reconstruction of L from Y + means | 1e-15 | 1e-14 |
 
-Both maxima and tolerances are retained. No tolerance changes count identity,
+Mean recomputation now uses the accepted [forward-error check](MEAN_ROUNDOFF_VALIDATION.md)
+against math.fsum/n, with a group-size/magnitude-dependent allowance and frozen
+safety factor two. Every discrepancy and bound is retained. The generic
+means_atol/means_rtol check is removed; writer output is unchanged.
+
+Both reconstruction/residual maxima and tolerances are retained. No tolerance changes count identity,
 allows an additional transform, or changes the scientific centering equation.
 Stack-imbalance text in any normalization/readback log or recorded warning is
 fatal; no warning is suppressed and no package version changes. Exact closed
