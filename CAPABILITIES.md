@@ -8,7 +8,9 @@ capabilities, not claims that any historical implementation is authoritative.
 Recovery status: **historical normalization-recipe recovery completed through
 B6; canonical scientific design approved; raw-input preflight and full-data
 depth accepted; isolated canonical environment materialized; synthetic and
-bounded S00 normalization validation accepted**. See the
+bounded S00 normalization validation accepted; canonical full-data production
+implemented and production-validated for all 19 sections in v2**. See the
+[production receipt](docs/preprocessing/audits/20261031_production_v2/README.md),
 [canonical SCTransform decision](docs/decisions/SCTRANSFORM_DESIGN.md),
 [environment decision](docs/decisions/SCTRANSFORM_ENVIRONMENT.md),
 [SCTransform recovery](docs/recovery/SCTRANSFORM_PREPROCESSING.md) and
@@ -19,14 +21,14 @@ bounded S00 normalization validation accepted**. See the
 | Scientific response intent | Recovered: log1p(corrected counts). |
 | Downstream exporter/handoff | Recovered: implemented behavior and recorded artifact links; actual sampler invocation is not certified. |
 | Historical normalization implementation | Recovered writer recipes: 10 new, 3 regional reused, 6 sct_work reused; effective defaults/execution attribution remain incomplete. |
-| Uniform cross-section comparability | Unestablished. |
+| Uniform cross-section comparability | Historical mixed-pipeline comparability remains unestablished. Canonical v2 uses the frozen uniform recipe and common depth across all 19 sections, with production validation. |
 | Replacement design | Approved: uniform section-specific SCT v2, common minimum-section-median depth, log1p corrected counts and one section/type/gene centering operation. |
 | Preflights | Canonical Python raw-input audit accepted: 432,794 eligible cells, 300 unique genes, no exclusions/invalid counts, all 19 section/glial totals matched, full-data depth 124 (S00__Trem2_5xFAD4). See the [accepted audit](docs/preprocessing/audits/20261030_raw/summary.md) and [preflight guide](docs/preprocessing/RAW_INPUT_PREFLIGHT.md). |
 | Environment | Feasibility gate accepted with explicit glmGamPoi 1.25.1 development to 1.22.0 release amendment. Frozen target: R 4.5.3, Bioconductor 3.22, Seurat/SeuratObject 5.4.0, sctransform 0.4.3, Matrix 1.7-4. Local user-owned Windows environment materialized with real dependency/source locks; synthetic and S00 checks accepted. Future Linux verification container; no HPC normalization job approved. See the [specification](environment/sctransform/environment-spec.json) and [feasibility evidence](docs/environment/SCTRANSFORM_ENVIRONMENT_FEASIBILITY.md). |
 | All-section input readiness | [Measured audit](docs/preprocessing/audits/20261031_readiness/README.md): all 5,700 section/gene combinations pass min_cells=5; all 19 input metadata/count contracts pass. This is input eligibility, not fitted-output certification. |
-| Spatial holdout | Training-only preprocessing approved as primary policy; fold-specific implementation design remains pending. |
-| Bounded canonical normalization | New canonical validation runner passed deterministic synthetic fits and S00 at depth 124 using all 20,719 cells and 300 genes. Effective method, actual fitting cells and exact log1p layer equality verified. Remaining 18 sections, model-panel selection, response centering and GP initialization have not run. See the [validation evidence](docs/preprocessing/audits/20261031_sct_smoke/summary.md). |
-| Canonical response handoff | Approved [decision](docs/decisions/MODELING_RESPONSE_HANDOFF.md), [ordered 91-gene registry](config/preprocessing/modeling-panel.json) and [bundle specification](config/preprocessing/response-bundle.json). Metadata audit confirms 19 sections, 15 recorded animal labels and 187,100 selected glial cells. Coordinates remain unchanged in center_y/center_x order with source_native units; verified microns are not claimed. Amended single-section runner/validator passes S00 equivalence and isolated six-file validation with original attempt logs unavailable. Embedded execution evidence removes the external-log dependency. The single-section implementation, independent validation, S00 equivalence and six-file portability are accepted. Both S00 bundles remain review evidence generated from uncommitted code, not future all-section artifacts. The sequential all-section orchestration implementation and tests are accepted, with clean-commit provenance, durable resume, resource gates and bounded cleanup. The approved first real run promoted S00, then stopped on an over-strict S01 mean-validation check. The failed v1 root is immutable. A [roundoff-aware validator correction](docs/preprocessing/MEAN_ROUNDOFF_VALIDATION.md) is accepted; no v2 production has run. See the [orchestration design](docs/preprocessing/PRODUCTION_ORCHESTRATION.md). Attempt directories are optional debugging evidence. See the [runner guide](docs/preprocessing/SINGLE_SECTION_RESPONSE.md) and [review report](docs/preprocessing/audits/20261031_response_S00/summary.md). S01 normalization ran but its bundle was not promoted; the remaining 17 sections did not start. |
+| Spatial holdout | Full-data production artifacts are not eligible for primary holdout scoring. Training-only preprocessing is required; fold-specific implementation design remains pending. |
+| Bounded canonical normalization | New canonical validation runner passed deterministic synthetic fits and S00 at depth 124 using all 20,719 cells and 300 genes. Effective method, actual fitting cells and exact log1p layer equality verified. This bounded gate was followed by the separately approved all-19 v2 production run below. GP initialization has not run. See the [validation evidence](docs/preprocessing/audits/20261031_sct_smoke/summary.md). |
+| Canonical response handoff | Approved [decision](docs/decisions/MODELING_RESPONSE_HANDOFF.md), [ordered 91-gene registry](config/preprocessing/modeling-panel.json) and [bundle specification](config/preprocessing/response-bundle.json). Metadata audit confirms 19 sections, 15 recorded animal labels and 187,100 selected glial cells. Coordinates remain unchanged in center_y/center_x order with source_native units; verified microns are not claimed. Amended single-section runner/validator passes S00 equivalence and isolated six-file validation with original attempt logs unavailable. Embedded execution evidence removes the external-log dependency. The single-section implementation, independent validation, S00 equivalence and six-file portability are accepted. Both S00 bundles remain review evidence generated from uncommitted code, not future all-section artifacts. The sequential all-section orchestration implementation and tests are accepted, with clean-commit provenance, durable resume, resource gates and bounded cleanup. The approved first real run promoted S00, then stopped on an over-strict S01 mean-validation check. The failed v1 root is immutable. The accepted [roundoff-aware validator correction](docs/preprocessing/MEAN_ROUNDOFF_VALIDATION.md) generated successful v2 production at commit `6eb672bebbaf5cde6c9d50391aac275a210832a6`. All 19 sections were recomputed from raw counts, with no v1 artifact reuse; all six-file bundles passed deep and closure integrity validation. See the [production receipt](docs/preprocessing/audits/20261031_production_v2/README.md). See the [orchestration design](docs/preprocessing/PRODUCTION_ORCHESTRATION.md). Attempt directories are optional debugging evidence. See the [runner guide](docs/preprocessing/SINGLE_SECTION_RESPONSE.md) and [review report](docs/preprocessing/audits/20261031_response_S00/summary.md). In failed v1, S01 was not promoted and the remaining 17 sections did not start. V1 remains immutable; v2 is a separate complete full-data run. |
 
 All recovered writers export Seurat SCT `data`, the intended
 `log1p(corrected counts)` representation. Ten new and three regional reused
@@ -51,8 +53,9 @@ not claim exact historical reconstruction. Further substitutions require an
 explicit version amendment. The [local build](docs/environment/SCTRANSFORM_ENVIRONMENT_BUILD.md)
 now has actual dependency/source locks and bounded validation evidence. A
 namespace-loading diagnostic warning remains documented; it did not occur in
-the tested normalization path. Full-section regeneration beyond S00 remains
-pending. See the decisions for environment and holdout limits.
+the tested normalization path. All-19 full-data regeneration and canonical
+response preparation have now passed production validation; training-only holdout
+preprocessing remains pending. See the decisions for environment and holdout limits.
 
 Accepted raw-source identity: SHA-256
 `d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38`,
@@ -167,7 +170,9 @@ minimum-median depth, not automatically the training-only holdout depth.
 
 No historical implementation has been selected. The first canonical code is
 the raw-input preflight, implemented from the frozen contract, tested and
-accepted with the aggregate audit above. The new SCT validation runner has now
-executed synthetic checks and one bounded S00 smoke; the bounded implementation
-and results are accepted. No GP/BSFM model or HPC execution is included.
+accepted with the aggregate audit above. The SCT validation runner passed
+synthetic checks and a bounded S00 smoke.
+The subsequent canonical v2 production run recomputed and validated all 19
+full-data section bundles; its [receipt](docs/preprocessing/audits/20261031_production_v2/README.md)
+registers the external artifacts. No GP/BSFM model, mesh or HPC execution is included.
 

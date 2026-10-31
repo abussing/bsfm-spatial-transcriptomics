@@ -1,7 +1,8 @@
 # Canonical modeling-response handoff
 
 Status: **approved design; single-section implementation and bounded S00 gate
-accepted; multi-section orchestration and remaining-section execution pending**.
+accepted; canonical all-19 full-data production implemented and production-validated**.
+See the [production receipt](../preprocessing/audits/20261031_production_v2/README.md).
 Authority: explicit user approval following the bounded metadata design gate.
 Baseline: `570bd3e41f77518e136cb3a8f17a9e6e62955f0f`.
 
@@ -13,11 +14,12 @@ six-file isolation after removing the external attempt-log dependency.
 The single-section implementation, independent validation, S00 equivalence and
 six-file portability are accepted. Both generated bundles remain review evidence
 from uncommitted code, not future all-section production artifacts. The original
-frozen specification below is unchanged. This does not authorize the remaining 18 sections.
+frozen specification below is unchanged. The later, separately approved v2 run
+recomputed all 19 sections under committed code; the receipt above records it.
 
 This decision extends the [SCTransform design](SCTRANSFORM_DESIGN.md) and the
 [accepted bounded validation](../preprocessing/SCTRANSFORM_VALIDATION.md).
-It authorizes registries, schemas and documentation, not a production runner,
+The original design-only gate authorized registries, schemas and documentation, not a production runner,
 additional normalization, centering, meshes, GP initialization or HPC execution.
 No historical implementation is selected or imported.
 
@@ -102,8 +104,8 @@ The [machine-readable bundle specification](../../config/preprocessing/response-
 defines the dataset paths, dimensions, types, ordering and completion rules.
 Its [schema](../../schemas/preprocessing/response-bundle.schema.json) freezes the
 approved specification. The [final-manifest schema](../../schemas/preprocessing/response-manifest.schema.json)
-describes completed full-data bundles only. These are contracts, not an
-implemented HDF5 writer or validator.
+describes completed full-data bundles only. The original design contracts are
+now implemented by the canonical writer and independent validator.
 
 Each external section bundle contains `response.h5`, `fit.rds`, `execution.json`,
 `session.txt`, `validation.json` and final `manifest.json`. All large artifacts
@@ -219,6 +221,6 @@ and modification time were stable. Expression arrays were not read.
 
 The single-section runner, independent validation and numeric tolerances have
 subsequently been accepted as recorded above. Remaining gates include
-multi-section orchestration, physical coordinate units for mesh design, and
-training-only holdout design. No additional normalization, response centering,
+physical coordinate units for mesh design and training-only holdout design;
+multi-section orchestration and full-data execution are now production-validated. No additional normalization, response centering,
 mesh/GP work or job submission is authorized by this documentation checkpoint.

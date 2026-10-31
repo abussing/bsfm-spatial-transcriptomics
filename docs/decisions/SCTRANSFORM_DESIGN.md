@@ -3,7 +3,9 @@
 Decision date: 2026-10-30.
 Status: **scientific choices frozen by explicit user approval; canonical raw-input
 preflight and full-data depth accepted; bounded SCT implementation validated on
-synthetic data and S00, accepted; all-section execution pending**.
+synthetic data and S00, accepted; canonical full-data production implemented
+and production-validated for all 19 sections**. See the
+[production receipt](../preprocessing/audits/20261031_production_v2/README.md).
 Evidence baseline: clean commit `8e84d872f57507d3b9937dca0e37083bbc3722f7`.
 Preflight amendment: 2026-10-30, following implementation from design checkpoint
 `909d86da682695279a456dca396a1e6b2e23b3b9` and explicit user acceptance.
@@ -18,8 +20,9 @@ with amendments, not a claim that the historical pipeline was scientifically wro
 
 The approved [modeling-response handoff](MODELING_RESPONSE_HANDOFF.md) now freezes
 the exact ordered 91-gene registry, cell/animal identities, source-native
-coordinates, section bundle schema and completion protocol. It is a design
-checkpoint; production response generation and centering have not run.
+coordinates, section bundle schema and completion protocol. Subsequent canonical
+v2 production implemented and validated response generation and centering for
+all 19 sections without changing these scientific choices.
 
 ## 1. Frozen scientific choices
 
@@ -337,6 +340,7 @@ The R environment specification is approved. The 2026-10-31 assignment authorize
 acquisition, local build and bounded validation before commit; its
 [results](../preprocessing/audits/20261031_sct_smoke/summary.md) are accepted by explicit user approval.
 The Python preflight remains a raw-input audit; the separate canonical SCT
-runner has passed synthetic and S00 checks. Remaining-section execution and
-holdout implementation design remain pending. Future changes to frozen scientific choices require an
+runner passed synthetic and S00 checks, followed by the separately approved
+all-19 full-data v2 production run. Training-only holdout implementation design
+remains pending; these full-data artifacts are not eligible for primary holdout scoring. Future changes to frozen scientific choices require an
 explicit decision amendment; historical findings remain preserved as evidence.

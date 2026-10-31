@@ -3,7 +3,10 @@
 Status: single-section implementation, independent validation, S00 equivalence
 and six-file portability accepted by explicit user approval. The subsequent
 shared-root/committed-provenance orchestration implementation and tests are
-accepted; see [production orchestration](PRODUCTION_ORCHESTRATION.md).
+accepted. Canonical full-data v2 production subsequently passed for all 19
+sections; see the [production receipt](audits/20261031_production_v2/README.md)
+and [production orchestration](PRODUCTION_ORCHESTRATION.md). Full-data artifacts
+are not eligible for primary holdout scoring.
 Execution baseline: `51441c885ecf5f4ac19d10a8b399d7d1ade46e1f`.
 The user authorized the single-section runner, independent validator, refactor
 tests and one fresh S00 bundle before commit. Other real sections, holdout
@@ -177,8 +180,9 @@ results, exact external locations and the isolation test. The prior S00 review
 bundle was produced by uncommitted code and depended on external attempt logs;
 it is superseded as review evidence and is not a future all-section S00 artifact.
 The regenerated isolated bundle is accepted review evidence from uncommitted
-code, not the future all-section production artifact. Sequential orchestration is accepted; no all-section production run has
-occurred. The new committed-production wording does not relabel these review
+code, not an all-section production artifact. Separately approved v2 production
+recomputed all 19 sections under the committed generating identity recorded in
+the receipt above. This does not relabel these review
 artifacts or require them to validate under a new execution identity.
 No remaining-section execution follows
 automatically from a passing S00 gate.

@@ -1,6 +1,8 @@
 # Independent centering-mean roundoff check
 
-Status: validator correction accepted by explicit user approval; no production restart.
+Status: validator correction accepted by explicit user approval. The later
+separately approved v2 production run passed for all 19 sections; see the
+[production receipt](audits/20261031_production_v2/README.md).
 Baseline: `3999bcc2f7cadb3e3ffdc77e510a69b70424a213`.
 
 The first production run stopped during S01 payload validation because a generic
@@ -117,8 +119,8 @@ ordering, centering populations and stored means/Y are unchanged. Exact
 `Y=L-mu`, reconstruction atol=1e-15/rtol=1e-14, group-residual atol=1e-12,
 all hashes, provenance and source/environment checks remain enforced.
 
-After this correction is committed and a separate production-run approval,
-S00 and S01 must be recomputed from scratch in
+After this correction was committed and production separately approved,
+S00, S01 and all remaining sections were recomputed from scratch in
 `C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_PRODUCTION\sctransform_full_data_v2`.
 Do not resume, edit or merge the immutable failed v1 run. No production restart
 is included in this correction gate.

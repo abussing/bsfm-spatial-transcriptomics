@@ -1,0 +1,1341 @@
+{
+  "schema": "bsfm.production-run-manifest.v1",
+  "status": "complete",
+  "pass": true,
+  "run_spec_sha256": "63175bd28c0b4b8abde349e27816904a932831bcc52feda978d9e0197ba34b0d",
+  "run_specification": {
+    "path": "run-specification.json",
+    "bytes": 7905,
+    "sha256": "63175bd28c0b4b8abde349e27816904a932831bcc52feda978d9e0197ba34b0d"
+  },
+  "code": {
+    "commit": "6eb672bebbaf5cde6c9d50391aac275a210832a6",
+    "source_files": {
+      "src/bsfm/preprocessing/__init__.py": "989a549faa45b151c5e45af2e94b578b33f5b79126bbdeecb00818abc1b05c9e",
+      "src/bsfm/preprocessing/execution_evidence.py": "6a91b718b3f2a903c155bbfa562142bb9b13e296c26884fe179b77f98e22480f",
+      "src/bsfm/preprocessing/mean_roundoff.py": "be9be035db2ae6b90d353e17dad2156dd842f6f616e94c4473f9e520c845f2ef",
+      "src/bsfm/preprocessing/production_run.py": "0dc45add8bf91791831996f45db7f0ce7fff373552bc77f3cc14928c1a5ea9a8",
+      "src/bsfm/preprocessing/production_state.py": "f6991bdfc129f5aa795cfab80ce810f4068e0e0f4cb8f75733d8bf26fbd1ad43",
+      "src/bsfm/preprocessing/raw_preflight.py": "56d0e07fa81366fb6ea91dc8140039367f1aee5b28c2adad1c0597675fb6c749",
+      "src/bsfm/preprocessing/response_contract.py": "d2391a004a4d2b171ba60bf94b843cb38c769703d9983088bdd18c659023f0a3",
+      "src/bsfm/preprocessing/response_run.py": "8c8744b4a112ee4a91cea2919010943898c88f2d24f0f2d182fccbc6c8412d36",
+      "src/bsfm/preprocessing/response_validate.py": "dd042bf70f43564cdcbc85cdb928dffbb1c4ce87040ed356f4ee8a1810b87ac7",
+      "src/bsfm/preprocessing/sct_smoke.py": "e8fd22f0177534f39253e8c290d2550c23f7c50a9cd6f477a9be0993008b228f",
+      "src/bsfm/preprocessing/source_attestation.py": "313837feac318dc9eb64b4510c7dbe44664adeb3d1ada937db72f5ab4cd43164",
+      "src/bsfm/preprocessing/sct_core.R": "0d91e7f7964b18415464fef3457162bc236b1f7d7b889bbc546c51130937f1ce",
+      "src/bsfm/preprocessing/sct_readback.R": "e55bec7c69b68477acc74f11762c66d6201d3ac6e2461b467e59c46a438c30d7",
+      "src/bsfm/preprocessing/sct_validation.R": "1037379199489d588bc174d8d0f8d897d93e2b1004788fe9f7a492088b4d0d5a"
+    },
+    "execution_authority": "Committed production implementation; clean Git required at execution"
+  },
+  "identities": {
+    "panel_registry_sha256": "85707ff1db48b697de58f2b0260daef2d40d6ac6a7710cdfa5e87da422c14f98",
+    "panel_order_sha256": "48e934a62161d7fb69e3abb3e636a979660b6e1b62cbacdcec929c2584d8bfa8",
+    "section_registry_sha256": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166",
+    "bundle_spec_sha256": "fa451ab856eaa9d7b05261ac6d79dcbdbc171a8ee391610733426938b45c7610",
+    "run_spec_sha256": "64eae68d04864b29746e31fb0d4367f7488e005310bf90614009c84502d9de83",
+    "environment_source_lock_sha256": "2c258eef6b3284118f82e062e301019ae0c7b434cafad2958f4c8b003ca5c281",
+    "renv_lock_sha256": "b3ab89dc1bcfe7cd082b9c334e425d02cb296e468f208c22ff777a182943f3b9"
+  },
+  "policy_sha256": "094aa8b79b7ba70cb1fb209fea1a39638476785e6dc5739666c6aca120eb97f9",
+  "source_start": {
+    "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+    "bytes": 5483600151,
+    "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
+    "initial_stat": {
+      "st_size": 5483600151,
+      "st_mtime_ns": 1781473585652014500,
+      "st_ctime_ns": 1781471376924339800,
+      "st_dev": 14726939724044201131,
+      "st_ino": 1125899906850870
+    },
+    "authenticated_at": "2026-10-31T20:16:02.775616+00:00"
+  },
+  "source_final": {
+    "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+    "bytes": 5483600151,
+    "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
+    "initial_stat": {
+      "st_size": 5483600151,
+      "st_mtime_ns": 1781473585652014500,
+      "st_ctime_ns": 1781471376924339800,
+      "st_dev": 14726939724044201131,
+      "st_ino": 1125899906850870
+    },
+    "authenticated_at": "2026-10-31T20:56:23.878632+00:00"
+  },
+  "section_order": [
+    "S00__Trem2_5xFAD4",
+    "S01__5xFAD4",
+    "S02__Trem2_4",
+    "S03__Trem2_5xFAD3",
+    "S04__WT3",
+    "S05__Trem2_3",
+    "S06__5xFAD3",
+    "S07__Trem2_5xFAD5",
+    "S08__5xFAD5",
+    "S09__Trem2_5",
+    "S10__WT5",
+    "S11__Trem2_5xFAD1",
+    "S12__Trem2_1",
+    "S12__Trem2_5xFAD2",
+    "S13__Trem2_2",
+    "S14__WT1",
+    "S15__5xFAD1",
+    "S16__WT2",
+    "S17__5xFAD2"
+  ],
+  "sections": [
+    {
+      "section": "S00__Trem2_5xFAD4",
+      "manifest": {
+        "path": "sections/S00__Trem2_5xFAD4/manifest.json",
+        "bytes": 11306,
+        "sha256": "2627105a06e1a541b915c98bbb492f8ef98c080041b1caa47459fe2905f7d54d"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S01__5xFAD4",
+      "manifest": {
+        "path": "sections/S01__5xFAD4/manifest.json",
+        "bytes": 11297,
+        "sha256": "0ccee738bd4a50bae18335f21a58271f73b4feab2176389beec3ca9c9d7e5e18"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S02__Trem2_4",
+      "manifest": {
+        "path": "sections/S02__Trem2_4/manifest.json",
+        "bytes": 11290,
+        "sha256": "8564080d36578ab5ade3c7f3548bb3158d9d7170832dfa382363b43c44fbd7b6"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S03__Trem2_5xFAD3",
+      "manifest": {
+        "path": "sections/S03__Trem2_5xFAD3/manifest.json",
+        "bytes": 11315,
+        "sha256": "39a067192da2157ab54a89ea8fb0694c540cdd94734d9bc277ed58a567592678"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S04__WT3",
+      "manifest": {
+        "path": "sections/S04__WT3/manifest.json",
+        "bytes": 11279,
+        "sha256": "ef2b270278d7fd1d5363f30d33c6bff8fb14ea51c08ac1cbf5b83485b88503d2"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S05__Trem2_3",
+      "manifest": {
+        "path": "sections/S05__Trem2_3/manifest.json",
+        "bytes": 11298,
+        "sha256": "143bf820d97de692f875766e96b6ac190ea9d4cdf893d540c5cb7be238d96ff7"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S06__5xFAD3",
+      "manifest": {
+        "path": "sections/S06__5xFAD3/manifest.json",
+        "bytes": 11297,
+        "sha256": "c068ec5bf62556216bf2b0e6576981b1e5df00ca50b687753f2ae0b1791fa00e"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "manifest": {
+        "path": "sections/S07__Trem2_5xFAD5/manifest.json",
+        "bytes": 11305,
+        "sha256": "afab48da3138ea2c48400e683369bd495be9a917d005099059b45a576047b7ce"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S08__5xFAD5",
+      "manifest": {
+        "path": "sections/S08__5xFAD5/manifest.json",
+        "bytes": 11287,
+        "sha256": "59ef7c2ec908e0fd8c154249ea59a460d036a6b027b9d97ac406d576f66dbcc5"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S09__Trem2_5",
+      "manifest": {
+        "path": "sections/S09__Trem2_5/manifest.json",
+        "bytes": 11289,
+        "sha256": "6fa867cff6044280cffb854a20f8c26b43c8e5f56566b377f26c0ad336d8f113"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S10__WT5",
+      "manifest": {
+        "path": "sections/S10__WT5/manifest.json",
+        "bytes": 11279,
+        "sha256": "40e2028f2aeff0cec2e9ba3a23b748702da65947d4637db304a136e52599ff13"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S11__Trem2_5xFAD1",
+      "manifest": {
+        "path": "sections/S11__Trem2_5xFAD1/manifest.json",
+        "bytes": 11314,
+        "sha256": "e3d6d17246c9bb4699e89a857ad0cc8c284b278f97566e3155847bed3400d199"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S12__Trem2_1",
+      "manifest": {
+        "path": "sections/S12__Trem2_1/manifest.json",
+        "bytes": 11298,
+        "sha256": "98b21a83bd904c3153db114ce59174055e5e80d29d1d6961339b628109dc85d6"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "manifest": {
+        "path": "sections/S12__Trem2_5xFAD2/manifest.json",
+        "bytes": 11314,
+        "sha256": "b2e33be3df8129848c9ad88b2c0f180be692976134f6635d4b739ddd60f8fe0e"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S13__Trem2_2",
+      "manifest": {
+        "path": "sections/S13__Trem2_2/manifest.json",
+        "bytes": 11289,
+        "sha256": "11e089c6a0be167e41a0959b7369b009dfff76f66142804557161a8884e66769"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S14__WT1",
+      "manifest": {
+        "path": "sections/S14__WT1/manifest.json",
+        "bytes": 11279,
+        "sha256": "5967be379de462e96fdc36867ac16ded53a224429f15e56304b6f023f0376ed5"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S15__5xFAD1",
+      "manifest": {
+        "path": "sections/S15__5xFAD1/manifest.json",
+        "bytes": 11296,
+        "sha256": "be4fdc70d5fb23bb13f7b0b6aa23911a11db2f3c0e9b33a0a1b646f7efc8f231"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S16__WT2",
+      "manifest": {
+        "path": "sections/S16__WT2/manifest.json",
+        "bytes": 11279,
+        "sha256": "39d7cbb1725d5fc252b6ee29b9021fc451059434f320b94ae73a227309ac8802"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    },
+    {
+      "section": "S17__5xFAD2",
+      "manifest": {
+        "path": "sections/S17__5xFAD2/manifest.json",
+        "bytes": 11297,
+        "sha256": "32c0f99dddcdf09aa58e12a9754c3e3eb94223440e7828b9734cf1b25756c5a0"
+      },
+      "validation": "fast_closed_file_schema_hash_provenance",
+      "original_deep_validation": "pass"
+    }
+  ],
+  "sessions": [
+    {
+      "start": "2026-10-31T20:16:02.923177+00:00",
+      "source_start": {
+        "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+        "bytes": 5483600151,
+        "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
+        "initial_stat": {
+          "st_size": 5483600151,
+          "st_mtime_ns": 1781473585652014500,
+          "st_ctime_ns": 1781471376924339800,
+          "st_dev": 14726939724044201131,
+          "st_ino": 1125899906850870
+        },
+        "authenticated_at": "2026-10-31T20:16:02.775616+00:00"
+      },
+      "end": "2026-10-31T20:56:24.736646+00:00",
+      "source_final": {
+        "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+        "bytes": 5483600151,
+        "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
+        "initial_stat": {
+          "st_size": 5483600151,
+          "st_mtime_ns": 1781473585652014500,
+          "st_ctime_ns": 1781471376924339800,
+          "st_dev": 14726939724044201131,
+          "st_ino": 1125899906850870
+        },
+        "authenticated_at": "2026-10-31T20:56:23.878632+00:00"
+      }
+    }
+  ],
+  "section_records": {
+    "S00__Trem2_5xFAD4": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S00__Trem2_5xFAD4-44da29ae55c84f20a6bb87e939ee01d0",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:16:03.684583+00:00",
+          "ended": "2026-10-31T20:18:18.225265+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:16:03.667305+00:00",
+          "available_ram_bytes": 21475471360,
+          "free_disk_bytes": 704468168704
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:18:18.225277+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 134.52429870000014
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11306,
+        "sha256": "2627105a06e1a541b915c98bbb492f8ef98c080041b1caa47459fe2905f7d54d"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S00__Trem2_5xFAD4",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11306,
+          "sha256": "2627105a06e1a541b915c98bbb492f8ef98c080041b1caa47459fe2905f7d54d"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S00__Trem2_5xFAD4",
+        "elapsed_seconds": 134.10133830000086,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 2.7991793280442776e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1332305920,
+        "attempt_id": ".attempt-S00__Trem2_5xFAD4-44da29ae55c84f20a6bb87e939ee01d0",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S01__5xFAD4": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S01__5xFAD4-84dd3388d7ab4d1eb0a0d1a44cd99d3a",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:18:19.171039+00:00",
+          "ended": "2026-10-31T20:20:36.654760+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:18:19.151027+00:00",
+          "available_ram_bytes": 21649481728,
+          "free_disk_bytes": 704404123648
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:20:36.654775+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 137.4654929999997
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11297,
+        "sha256": "0ccee738bd4a50bae18335f21a58271f73b4feab2176389beec3ca9c9d7e5e18"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S01__5xFAD4",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11297,
+          "sha256": "0ccee738bd4a50bae18335f21a58271f73b4feab2176389beec3ca9c9d7e5e18"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S01__5xFAD4",
+        "elapsed_seconds": 137.0412176000009,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 3.1697502438252984e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1672077312,
+        "attempt_id": ".attempt-S01__5xFAD4-84dd3388d7ab4d1eb0a0d1a44cd99d3a",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S02__Trem2_4": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S02__Trem2_4-084512b89f6a4719aac673927dbfb9a0",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:20:37.567779+00:00",
+          "ended": "2026-10-31T20:22:49.207184+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:20:37.549175+00:00",
+          "available_ram_bytes": 21593886720,
+          "free_disk_bytes": 704320729088
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:22:49.207198+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 131.62202529999922
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11290,
+        "sha256": "8564080d36578ab5ade3c7f3548bb3158d9d7170832dfa382363b43c44fbd7b6"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S02__Trem2_4",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11290,
+          "sha256": "8564080d36578ab5ade3c7f3548bb3158d9d7170832dfa382363b43c44fbd7b6"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S02__Trem2_4",
+        "elapsed_seconds": 131.15577940000003,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 4.3915137049697337e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1635086336,
+        "attempt_id": ".attempt-S02__Trem2_4-084512b89f6a4719aac673927dbfb9a0",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S03__Trem2_5xFAD3": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S03__Trem2_5xFAD3-24b24f67f035443ab947a7dfbe5f8d1d",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:22:50.121643+00:00",
+          "ended": "2026-10-31T20:23:46.040634+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:22:50.103234+00:00",
+          "available_ram_bytes": 21580181504,
+          "free_disk_bytes": 704236154880
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:23:46.040645+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 55.90009949999876
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11315,
+        "sha256": "39a067192da2157ab54a89ea8fb0694c540cdd94734d9bc277ed58a567592678"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S03__Trem2_5xFAD3",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11315,
+          "sha256": "39a067192da2157ab54a89ea8fb0694c540cdd94734d9bc277ed58a567592678"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S03__Trem2_5xFAD3",
+        "elapsed_seconds": 55.46051809999881,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 3.5846189822454974e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1459359744,
+        "attempt_id": ".attempt-S03__Trem2_5xFAD3-24b24f67f035443ab947a7dfbe5f8d1d",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S04__WT3": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S04__WT3-13895d7cc3d74cb68a28224e584ccfe3",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:23:46.980189+00:00",
+          "ended": "2026-10-31T20:25:39.910162+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:23:46.959243+00:00",
+          "available_ram_bytes": 21570248704,
+          "free_disk_bytes": 704153833472
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:25:39.910175+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 112.91224930000135
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11279,
+        "sha256": "ef2b270278d7fd1d5363f30d33c6bff8fb14ea51c08ac1cbf5b83485b88503d2"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S04__WT3",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11279,
+          "sha256": "ef2b270278d7fd1d5363f30d33c6bff8fb14ea51c08ac1cbf5b83485b88503d2"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S04__WT3",
+        "elapsed_seconds": 112.53346310000052,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 2.6268422429902285e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1463037952,
+        "attempt_id": ".attempt-S04__WT3-13895d7cc3d74cb68a28224e584ccfe3",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S05__Trem2_3": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S05__Trem2_3-33725c6f7f60436a9146d647e2d79662",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:25:40.811351+00:00",
+          "ended": "2026-10-31T20:27:42.417244+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:25:40.789641+00:00",
+          "available_ram_bytes": 21575696384,
+          "free_disk_bytes": 704091107328
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:27:42.417256+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 121.58664599999975
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11298,
+        "sha256": "143bf820d97de692f875766e96b6ac190ea9d4cdf893d540c5cb7be238d96ff7"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S05__Trem2_3",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11298,
+          "sha256": "143bf820d97de692f875766e96b6ac190ea9d4cdf893d540c5cb7be238d96ff7"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S05__Trem2_3",
+        "elapsed_seconds": 121.14823739999883,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 4.007442696479629e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1442373632,
+        "attempt_id": ".attempt-S05__Trem2_3-33725c6f7f60436a9146d647e2d79662",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S06__5xFAD3": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S06__5xFAD3-98de5a698e9b4c4ca31cdb6180911ebe",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:27:43.369114+00:00",
+          "ended": "2026-10-31T20:28:41.556019+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:27:43.348548+00:00",
+          "available_ram_bytes": 21385506816,
+          "free_disk_bytes": 704019976192
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:28:41.556039+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 58.167824300000575
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11297,
+        "sha256": "c068ec5bf62556216bf2b0e6576981b1e5df00ca50b687753f2ae0b1791fa00e"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S06__5xFAD3",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11297,
+          "sha256": "c068ec5bf62556216bf2b0e6576981b1e5df00ca50b687753f2ae0b1791fa00e"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S06__5xFAD3",
+        "elapsed_seconds": 57.72434409999914,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 4.7868695382654763e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1477459968,
+        "attempt_id": ".attempt-S06__5xFAD3-98de5a698e9b4c4ca31cdb6180911ebe",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S07__Trem2_5xFAD5": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S07__Trem2_5xFAD5-f80b813848c94bb9bcb3e2ea43dc0408",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:28:42.544155+00:00",
+          "ended": "2026-10-31T20:30:44.139881+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:28:42.522415+00:00",
+          "available_ram_bytes": 21226995712,
+          "free_disk_bytes": 703913574400
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:30:44.139894+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 121.5773021999994
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11305,
+        "sha256": "afab48da3138ea2c48400e683369bd495be9a917d005099059b45a576047b7ce"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S07__Trem2_5xFAD5",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11305,
+          "sha256": "afab48da3138ea2c48400e683369bd495be9a917d005099059b45a576047b7ce"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S07__Trem2_5xFAD5",
+        "elapsed_seconds": 121.16232579999996,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 5.921414647059861e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1354440704,
+        "attempt_id": ".attempt-S07__Trem2_5xFAD5-f80b813848c94bb9bcb3e2ea43dc0408",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S08__5xFAD5": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S08__5xFAD5-e712ddb994494e40b2295c10e229e7f1",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:30:45.103496+00:00",
+          "ended": "2026-10-31T20:32:47.743531+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:30:45.081653+00:00",
+          "available_ram_bytes": 21252493312,
+          "free_disk_bytes": 703856754688
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:32:47.743544+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 122.62018250000074
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11287,
+        "sha256": "59ef7c2ec908e0fd8c154249ea59a460d036a6b027b9d97ac406d576f66dbcc5"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S08__5xFAD5",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11287,
+          "sha256": "59ef7c2ec908e0fd8c154249ea59a460d036a6b027b9d97ac406d576f66dbcc5"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S08__5xFAD5",
+        "elapsed_seconds": 122.22083019999991,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 3.067787435412346e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1328967680,
+        "attempt_id": ".attempt-S08__5xFAD5-e712ddb994494e40b2295c10e229e7f1",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S09__Trem2_5": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S09__Trem2_5-e1e1bbee259b4c5182815f4b12474e43",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:32:48.668637+00:00",
+          "ended": "2026-10-31T20:34:57.207592+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:32:48.644083+00:00",
+          "available_ram_bytes": 21197537280,
+          "free_disk_bytes": 703793139712
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:34:57.207608+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 128.51732489999995
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11289,
+        "sha256": "6fa867cff6044280cffb854a20f8c26b43c8e5f56566b377f26c0ad336d8f113"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S09__Trem2_5",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11289,
+          "sha256": "6fa867cff6044280cffb854a20f8c26b43c8e5f56566b377f26c0ad336d8f113"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S09__Trem2_5",
+        "elapsed_seconds": 128.0631758999989,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 5.507017843691548e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1455099904,
+        "attempt_id": ".attempt-S09__Trem2_5-e1e1bbee259b4c5182815f4b12474e43",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S10__WT5": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S10__WT5-ee024760da204b8ca0ac4dea6f31adb2",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:34:58.195222+00:00",
+          "ended": "2026-10-31T20:38:19.797287+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:34:58.172022+00:00",
+          "available_ram_bytes": 21140762624,
+          "free_disk_bytes": 703501160448
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:38:19.797310+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 201.57931669999925
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11279,
+        "sha256": "40e2028f2aeff0cec2e9ba3a23b748702da65947d4637db304a136e52599ff13"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S10__WT5",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11279,
+          "sha256": "40e2028f2aeff0cec2e9ba3a23b748702da65947d4637db304a136e52599ff13"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S10__WT5",
+        "elapsed_seconds": 201.11398589999953,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 4.0138107461863816e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1723154432,
+        "attempt_id": ".attempt-S10__WT5-ee024760da204b8ca0ac4dea6f31adb2",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S11__Trem2_5xFAD1": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S11__Trem2_5xFAD1-1c6cd0e4b9a64671b92fe753ffb772a8",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:38:20.760850+00:00",
+          "ended": "2026-10-31T20:40:37.431951+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:38:20.739327+00:00",
+          "available_ram_bytes": 21624643584,
+          "free_disk_bytes": 703330430976
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:40:37.431970+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 136.64966549999917
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11314,
+        "sha256": "e3d6d17246c9bb4699e89a857ad0cc8c284b278f97566e3155847bed3400d199"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S11__Trem2_5xFAD1",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11314,
+          "sha256": "e3d6d17246c9bb4699e89a857ad0cc8c284b278f97566e3155847bed3400d199"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S11__Trem2_5xFAD1",
+        "elapsed_seconds": 136.19772849999936,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 3.399895200878808e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1572483072,
+        "attempt_id": ".attempt-S11__Trem2_5xFAD1-1c6cd0e4b9a64671b92fe753ffb772a8",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S12__Trem2_1": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S12__Trem2_1-b980d57045a245ed8e86b7047e5b81eb",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:40:38.387037+00:00",
+          "ended": "2026-10-31T20:43:08.808431+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:40:38.365695+00:00",
+          "available_ram_bytes": 21623488512,
+          "free_disk_bytes": 703181479936
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:43:08.808445+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 150.3976659
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11298,
+        "sha256": "98b21a83bd904c3153db114ce59174055e5e80d29d1d6961339b628109dc85d6"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S12__Trem2_1",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11298,
+          "sha256": "98b21a83bd904c3153db114ce59174055e5e80d29d1d6961339b628109dc85d6"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S12__Trem2_1",
+        "elapsed_seconds": 149.89247729999988,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 4.522256946286879e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1723596800,
+        "attempt_id": ".attempt-S12__Trem2_1-b980d57045a245ed8e86b7047e5b81eb",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S12__Trem2_5xFAD2": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S12__Trem2_5xFAD2-e409eb338a5647ad9c9ff051f4c5f648",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:43:09.799065+00:00",
+          "ended": "2026-10-31T20:45:32.494143+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:43:09.771365+00:00",
+          "available_ram_bytes": 21705682944,
+          "free_disk_bytes": 702816210944
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:45:32.494161+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 142.66829569999936
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11314,
+        "sha256": "b2e33be3df8129848c9ad88b2c0f180be692976134f6635d4b739ddd60f8fe0e"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S12__Trem2_5xFAD2",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11314,
+          "sha256": "b2e33be3df8129848c9ad88b2c0f180be692976134f6635d4b739ddd60f8fe0e"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S12__Trem2_5xFAD2",
+        "elapsed_seconds": 142.15140969999993,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 3.540657845183825e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1687076864,
+        "attempt_id": ".attempt-S12__Trem2_5xFAD2-e409eb338a5647ad9c9ff051f4c5f648",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S13__Trem2_2": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S13__Trem2_2-f92883ded56d4bc6a057b8097010d9ce",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:45:33.509230+00:00",
+          "ended": "2026-10-31T20:47:26.118301+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:45:33.481325+00:00",
+          "available_ram_bytes": 21704589312,
+          "free_disk_bytes": 702669688832
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:47:26.118316+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 112.58265700000084
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11289,
+        "sha256": "11e089c6a0be167e41a0959b7369b009dfff76f66142804557161a8884e66769"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S13__Trem2_2",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11289,
+          "sha256": "11e089c6a0be167e41a0959b7369b009dfff76f66142804557161a8884e66769"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S13__Trem2_2",
+        "elapsed_seconds": 112.21015039999838,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 1.658165383774236e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1429090304,
+        "attempt_id": ".attempt-S13__Trem2_2-f92883ded56d4bc6a057b8097010d9ce",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S14__WT1": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S14__WT1-633de6bbad894cd0876e3f8c88875aec",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:47:27.021575+00:00",
+          "ended": "2026-10-31T20:49:33.222493+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:47:26.997188+00:00",
+          "available_ram_bytes": 21688573952,
+          "free_disk_bytes": 702583074816
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:49:33.222509+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 126.17832899999848
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11279,
+        "sha256": "5967be379de462e96fdc36867ac16ded53a224429f15e56304b6f023f0376ed5"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S14__WT1",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11279,
+          "sha256": "5967be379de462e96fdc36867ac16ded53a224429f15e56304b6f023f0376ed5"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S14__WT1",
+        "elapsed_seconds": 125.67409179999959,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 3.0141501658458095e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1551360000,
+        "attempt_id": ".attempt-S14__WT1-633de6bbad894cd0876e3f8c88875aec",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S15__5xFAD1": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S15__5xFAD1-7dc77134e3ef41b081da44ed5ac22cad",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:49:34.265067+00:00",
+          "ended": "2026-10-31T20:51:41.974319+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:49:34.234775+00:00",
+          "available_ram_bytes": 21580836864,
+          "free_disk_bytes": 702433443840
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:51:41.974332+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 127.68427450000127
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11296,
+        "sha256": "be4fdc70d5fb23bb13f7b0b6aa23911a11db2f3c0e9b33a0a1b646f7efc8f231"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S15__5xFAD1",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11296,
+          "sha256": "be4fdc70d5fb23bb13f7b0b6aa23911a11db2f3c0e9b33a0a1b646f7efc8f231"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S15__5xFAD1",
+        "elapsed_seconds": 127.23234260000027,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 2.199843439797329e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1460940800,
+        "attempt_id": ".attempt-S15__5xFAD1-7dc77134e3ef41b081da44ed5ac22cad",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S16__WT2": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S16__WT2-956a33bb154c4b8792a18fda6614aea4",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:51:42.961395+00:00",
+          "ended": "2026-10-31T20:53:48.512157+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:51:42.936560+00:00",
+          "available_ram_bytes": 21660348416,
+          "free_disk_bytes": 702256975872
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:53:48.512172+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 125.5240088999999
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11279,
+        "sha256": "39d7cbb1725d5fc252b6ee29b9021fc451059434f320b94ae73a227309ac8802"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S16__WT2",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11279,
+          "sha256": "39d7cbb1725d5fc252b6ee29b9021fc451059434f320b94ae73a227309ac8802"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S16__WT2",
+        "elapsed_seconds": 125.0967256999993,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 2.6816160431279505e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1444667392,
+        "attempt_id": ".attempt-S16__WT2-956a33bb154c4b8792a18fda6614aea4",
+        "validation": "deep_saved_model_recorrection"
+      }
+    },
+    "S17__5xFAD2": {
+      "state": "promoted",
+      "attempts": [
+        {
+          "id": ".attempt-S17__5xFAD2-397136dba92d4c349e8dc3d07393cd5a",
+          "state": "promoted",
+          "cleanup": "removed",
+          "started": "2026-10-31T20:53:49.455706+00:00",
+          "ended": "2026-10-31T20:56:03.769054+00:00"
+        }
+      ],
+      "resources": [
+        {
+          "observed_at": "2026-10-31T20:53:49.431260+00:00",
+          "available_ram_bytes": 21703335936,
+          "free_disk_bytes": 702111477760
+        }
+      ],
+      "checks": [
+        {
+          "time": "2026-10-31T20:56:03.769068+00:00",
+          "kind": "deep_before_promotion_plus_fast_after",
+          "elapsed_seconds": 134.2887077000014
+        }
+      ],
+      "manifest": {
+        "path": "manifest.json",
+        "bytes": 11297,
+        "sha256": "32c0f99dddcdf09aa58e12a9754c3e3eb94223440e7828b9734cf1b25756c5a0"
+      },
+      "receipt": {
+        "schema": "bsfm.section-promotion.v1",
+        "section": "S17__5xFAD2",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11297,
+          "sha256": "32c0f99dddcdf09aa58e12a9754c3e3eb94223440e7828b9734cf1b25756c5a0"
+        },
+        "bundle": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S17__5xFAD2",
+        "elapsed_seconds": 133.83313740000085,
+        "metrics": {
+          "all_invariants_passed": true,
+          "readback_passed": true,
+          "max_abs_centering_mean": 2.9072339692571134e-14,
+          "max_abs_reconstruction_error": 4.440892098500626e-16,
+          "centering_atol": 1e-12,
+          "reconstruction_atol": 1e-15,
+          "reconstruction_rtol": 1e-14
+        },
+        "normalization_peak_working_set_bytes": 1663479808,
+        "attempt_id": ".attempt-S17__5xFAD2-397136dba92d4c349e8dc3d07393cd5a",
+        "validation": "deep_saved_model_recorrection"
+      }
+    }
+  },
+  "completed_at": "2026-10-31T20:56:24.764524+00:00"
+}

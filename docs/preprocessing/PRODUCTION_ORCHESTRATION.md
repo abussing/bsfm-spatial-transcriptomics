@@ -1,10 +1,16 @@
 # Sequential SCTransform production orchestration
 
-Status: implementation and tests accepted by explicit user approval. The first real run stopped on an over-strict S01 centering-mean validator check;
-v1 remains failed and immutable. S00 was promoted, S01 was retained/unpromoted,
-and 17 sections did not start. The accepted [numerical correction](MEAN_ROUNDOFF_VALIDATION.md)
-requires a new commit and a fresh v2 run; v1 must not be resumed or changed. Existing S00 bundles remain evidence
-from code uncommitted at their execution, not future production artifacts.
+Status: **implemented and production-validated for canonical full-data preprocessing**.
+The explicitly approved v2 run recomputed all 19 sections from raw counts at
+commit `6eb672bebbaf5cde6c9d50391aac275a210832a6`; all deep and closure checks passed.
+See the [production receipt](audits/20261031_production_v2/README.md).
+Full-data bundles are ineligible for primary holdout scoring; future primary
+holdout experiments require training-only preprocessing.
+
+The first run, v1, stopped on an over-strict S01 mean check and remains failed
+and immutable. The accepted [numerical correction](MEAN_ROUNDOFF_VALIDATION.md)
+was committed before the fresh v2 run. No v1 artifacts were reused. Earlier
+uncommitted S00 review bundles remain review evidence, not production artifacts.
 
 The launcher calls `response_run.run`; the single-section fitting core, response
 construction, ordering, panel, depth 124, centering and deep numerical validation
@@ -115,10 +121,12 @@ observations, sessions and cleanup states. Schema definitions are
 Schemas supplement executable identity/state checks; schemas alone do not certify
 that scientific code ran or that a matrix is valid.
 
-## Future command â€” not authorized for execution in this gate
+## Recorded v2 production command
 
-After commit and separate explicit production-run approval, from the clean
-repository checkout in PowerShell:
+The user explicitly approved this exact command at generating commit
+`6eb672bebbaf5cde6c9d50391aac275a210832a6`. The fresh destination was absent before
+launch and now holds completed artifacts. This is an execution record, not a
+new run authorization or an instruction to overwrite the completed root.
 
 ```powershell
 $env:PYTHONPATH = Join-Path (Get-Location) 'src'
@@ -130,16 +138,18 @@ $env:PYTHONPATH = Join-Path (Get-Location) 'src'
   --run-root 'C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_PRODUCTION\sctransform_full_data_v2'
 ```
 
-The identical command can resume an existing compatible v2 root after approval.
-It must never be pointed at the immutable failed v1 root. Paths are CLI
-arguments, not scientific code constants. The root is a proposed destination;
-this implementation gate does not create it or execute the command.
+Any later integrity validation or approved resume must use the exact generating
+checkout; a later documentation commit is not an interchangeable run identity.
+Never point this command at the immutable failed v1 root. Paths remain CLI
+arguments, not scientific code constants.
 
 Tests use temporary Git repositories, raw byte fixtures, simulated section
 execution for state transitions, and separate synthetic six-file bundles for
 the real fast validator. They do not pretend that mocked section completion is
 scientific execution evidence. Existing Python corruption tests, R count tests
-and fresh synthetic semantic-repeat tests remain required. No real S00 rerun,
-other-section normalization, holdout preprocessing, mesh, GP or HPC work is
-included. Coordinates remain source_native and full-data bundles remain
+and fresh synthetic semantic-repeat tests remain required. Those implementation
+tests did not constitute real-section production. The
+separately approved v2 execution is documented above. No holdout preprocessing,
+mesh, GP or HPC work is included. Coordinates remain source_native and full-data
+bundles remain
 ineligible for primary holdout scoring.
