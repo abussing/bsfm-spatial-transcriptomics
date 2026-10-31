@@ -1,0 +1,1613 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Completed full-data modeling response manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "status",
+    "section",
+    "animal_label",
+    "genotype",
+    "source",
+    "regime",
+    "coordinates",
+    "identities",
+    "code_commit",
+    "dimensions",
+    "axes",
+    "datasets",
+    "artifacts",
+    "validation"
+  ],
+  "properties": {
+    "schema": {
+      "const": "bsfm.modeling-response.full-data.v1"
+    },
+    "status": {
+      "const": "complete"
+    },
+    "section": {
+      "enum": [
+        "S00__Trem2_5xFAD4",
+        "S01__5xFAD4",
+        "S02__Trem2_4",
+        "S03__Trem2_5xFAD3",
+        "S04__WT3",
+        "S05__Trem2_3",
+        "S06__5xFAD3",
+        "S07__Trem2_5xFAD5",
+        "S08__5xFAD5",
+        "S09__Trem2_5",
+        "S10__WT5",
+        "S11__Trem2_5xFAD1",
+        "S12__Trem2_1",
+        "S12__Trem2_5xFAD2",
+        "S13__Trem2_2",
+        "S14__WT1",
+        "S15__5xFAD1",
+        "S16__WT2",
+        "S17__5xFAD2"
+      ]
+    },
+    "animal_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "genotype": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sha256",
+        "bytes",
+        "path"
+      ],
+      "properties": {
+        "sha256": {
+          "const": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38"
+        },
+        "bytes": {
+          "const": 5483600151
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "regime": {
+      "const": {
+        "preprocessing_regime": "full_data",
+        "correction_depth": 124,
+        "primary_holdout_scoring_eligible": false,
+        "fold_id": null,
+        "panel_selection_independent_of_holdouts": "unestablished"
+      }
+    },
+    "coordinates": {
+      "const": {
+        "source": "/obsm/spatial",
+        "axis_order": [
+          "center_y",
+          "center_x"
+        ],
+        "units": "source_native",
+        "raw_unit_declaration_status": "not_found",
+        "historical_claim": {
+          "units": "microns",
+          "evidence": "docs/recovery/evidence/sctransform_b3/all_19_section_contracts_and_certificates.txt",
+          "field": "coordinate_scale_microns"
+        },
+        "transformation": "none",
+        "physical_unit_authentication_gate": "later_mesh_design"
+      }
+    },
+    "identities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "panel_registry_sha256",
+        "panel_order_sha256",
+        "section_registry_sha256",
+        "bundle_spec_sha256",
+        "run_spec_sha256",
+        "environment_source_lock_sha256",
+        "renv_lock_sha256"
+      ],
+      "properties": {
+        "panel_registry_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "panel_order_sha256": {
+          "const": "48e934a62161d7fb69e3abb3e636a979660b6e1b62cbacdcec929c2584d8bfa8"
+        },
+        "section_registry_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "bundle_spec_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "run_spec_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "environment_source_lock_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "renv_lock_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "code_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_cells",
+        "model_cells",
+        "all_genes",
+        "model_genes",
+        "types"
+      ],
+      "properties": {
+        "all_cells": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "model_cells": {
+          "type": "integer",
+          "minimum": 3
+        },
+        "all_genes": {
+          "const": 300
+        },
+        "model_genes": {
+          "const": 91
+        },
+        "types": {
+          "const": 3
+        }
+      }
+    },
+    "axes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "genes300",
+        "genes91",
+        "cells_all",
+        "cells_model",
+        "types",
+        "coordinates"
+      ],
+      "properties": {
+        "genes300": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ids_dataset",
+            "length",
+            "ordered_sha256"
+          ],
+          "properties": {
+            "ids_dataset": {
+              "type": "string",
+              "minLength": 1
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "ordered_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "genes91": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ids_dataset",
+            "length",
+            "ordered_sha256"
+          ],
+          "properties": {
+            "ids_dataset": {
+              "type": "string",
+              "minLength": 1
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "ordered_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "cells_all": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ids_dataset",
+            "length",
+            "ordered_sha256"
+          ],
+          "properties": {
+            "ids_dataset": {
+              "type": "string",
+              "minLength": 1
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "ordered_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "cells_model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ids_dataset",
+            "length",
+            "ordered_sha256"
+          ],
+          "properties": {
+            "ids_dataset": {
+              "type": "string",
+              "minLength": 1
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "ordered_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "types": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ids_dataset",
+            "length",
+            "ordered_sha256"
+          ],
+          "properties": {
+            "ids_dataset": {
+              "type": "string",
+              "minLength": 1
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "ordered_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "coordinates": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ids_dataset",
+            "length",
+            "ordered_sha256"
+          ],
+          "properties": {
+            "ids_dataset": {
+              "type": "string",
+              "minLength": 1
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "ordered_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    "datasets": {
+      "type": "object",
+      "required": [
+        "/axes/genes300/ids",
+        "/axes/genes300/raw_gene_index",
+        "/axes/genes91/ids",
+        "/axes/genes91/raw_gene_index",
+        "/axes/cells_all/ids",
+        "/axes/cells_all/source_row",
+        "/axes/cells_model/ids",
+        "/axes/cells_model/source_row",
+        "/axes/cells_model/all_cell_index",
+        "/axes/genes91/all_gene_index",
+        "/axes/types/labels",
+        "/axes/types/codes",
+        "/axes/coordinates/labels",
+        "/all/corrected_counts",
+        "/all/log1p_response",
+        "/model/uncentered_response",
+        "/model/centered_response",
+        "/centering/means",
+        "/coordinates/all_source",
+        "/coordinates/model_source",
+        "/centering/group_sizes",
+        "/metadata/model_type_code",
+        "/metadata/all/sample",
+        "/metadata/all/gen_fine",
+        "/metadata/all/gen",
+        "/metadata/all/gen_coarse",
+        "/metadata/all/cluster_coarse",
+        "/metadata/all/coarse_batch",
+        "/metadata/all/region_labels",
+        "/metadata/all/region_labels_coarse"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "/axes/genes300/ids": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "const": 300
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/genes300/raw_gene_index": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "const": 300
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "int64"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/genes91/ids": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "const": 91
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/genes91/raw_gene_index": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "const": 91
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "int64"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/cells_all/ids": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/cells_all/source_row": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "int64"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/cells_model/ids": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/cells_model/source_row": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "int64"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/cells_model/all_cell_index": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "int64"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/genes91/all_gene_index": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "const": 91
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "int64"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/types/labels": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "const": 3
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/types/codes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "const": 3
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "int64"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/axes/coordinates/labels": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "const": 2
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": []
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/all/corrected_counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "const": 300
+                },
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "float64"
+            },
+            "axes": {
+              "const": [
+                "genes300",
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/all/log1p_response": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "const": 300
+                },
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "float64"
+            },
+            "axes": {
+              "const": [
+                "genes300",
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/model/uncentered_response": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "const": 91
+                },
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "float64"
+            },
+            "axes": {
+              "const": [
+                "genes91",
+                "cells_model"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/model/centered_response": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "const": 91
+                },
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "float64"
+            },
+            "axes": {
+              "const": [
+                "genes91",
+                "cells_model"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/centering/means": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "const": 91
+                },
+                {
+                  "const": 3
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "float64"
+            },
+            "axes": {
+              "const": [
+                "genes91",
+                "types"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/coordinates/all_source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                {
+                  "const": 2
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "float64"
+            },
+            "axes": {
+              "const": [
+                "cells_all",
+                "coordinates"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/coordinates/model_source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                {
+                  "const": 2
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "float64"
+            },
+            "axes": {
+              "const": [
+                "cells_model",
+                "coordinates"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/centering/group_sizes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "const": 3
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "int64"
+            },
+            "axes": {
+              "const": [
+                "types"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/metadata/model_type_code": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "int64"
+            },
+            "axes": {
+              "const": [
+                "cells_model"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/metadata/all/sample": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": [
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/metadata/all/gen_fine": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": [
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/metadata/all/gen": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": [
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/metadata/all/gen_coarse": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": [
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/metadata/all/cluster_coarse": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": [
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/metadata/all/coarse_batch": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": [
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/metadata/all/region_labels": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": [
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "/metadata/all/region_labels_coarse": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shape",
+            "dtype",
+            "axes",
+            "semantic_sha256"
+          ],
+          "properties": {
+            "shape": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              ],
+              "items": false
+            },
+            "dtype": {
+              "const": "utf8"
+            },
+            "axes": {
+              "const": [
+                "cells_all"
+              ]
+            },
+            "semantic_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "response.h5",
+        "fit.rds",
+        "execution.json",
+        "session.txt",
+        "validation.json"
+      ],
+      "properties": {
+        "response.h5": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "const": "response.h5"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "fit.rds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "const": "fit.rds"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "execution.json": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "const": "execution.json"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "session.txt": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "const": "session.txt"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "validation.json": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "const": "validation.json"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_invariants_passed",
+        "readback_passed",
+        "max_abs_centering_mean",
+        "max_abs_reconstruction_error",
+        "centering_atol",
+        "reconstruction_atol",
+        "reconstruction_rtol"
+      ],
+      "properties": {
+        "all_invariants_passed": {
+          "const": true
+        },
+        "readback_passed": {
+          "const": true
+        },
+        "max_abs_centering_mean": {
+          "type": "number",
+          "minimum": 0
+        },
+        "max_abs_reconstruction_error": {
+          "type": "number",
+          "minimum": 0
+        },
+        "centering_atol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "reconstruction_atol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "reconstruction_rtol": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "$comment": "This validates JSON structure only. Require independent dataset/readback/hash/identity/numeric checks and the frozen bundle specification. A manifest is not proof that checks ran. Holdout artifacts require a separately approved schema."
+}

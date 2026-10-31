@@ -1,0 +1,441 @@
+{
+  "$schema": "../../schemas/preprocessing/response-bundle.schema.json",
+  "schema_version": 1,
+  "bundle_schema": "bsfm.modeling-response.full-data.v1",
+  "status": "frozen_design_not_implemented",
+  "authority": "explicit_user_decision",
+  "baseline_commit": "570bd3e41f77518e136cb3a8f17a9e6e62955f0f",
+  "panel_registry": "config/preprocessing/modeling-panel.json",
+  "section_registry": "src/bsfm/preprocessing/sections.json",
+  "manifest_schema": "schemas/preprocessing/response-manifest.schema.json",
+  "dimensions": {
+    "N": "All eligible section cells; every eligible cell participates in fitting",
+    "M": "All MIC/AST/OGC cells selected after correction; no thinning"
+  },
+  "identity": {
+    "cell": [
+      "original_cell_id",
+      "zero_based_raw_source_row"
+    ],
+    "source_namespace": "accepted raw source SHA-256",
+    "section": [
+      "obs/sample",
+      "obs/gen_fine"
+    ],
+    "animal": "obs/gen",
+    "genotype": "obs/gen_coarse",
+    "sections": 19,
+    "recorded_animal_labels": 15,
+    "infer_animal_from_section_suffix": false
+  },
+  "ordering": {
+    "all_cells": "increasing raw source row",
+    "genes300": "raw var/_index order",
+    "genes91": "canonical panel order",
+    "model_cells": "MIC, AST, OGC blocks; increasing raw source row within each block",
+    "type_mapping": [
+      {
+        "raw": "Mic",
+        "canonical": "MIC",
+        "code": 0
+      },
+      {
+        "raw": "AST",
+        "canonical": "AST",
+        "code": 1
+      },
+      {
+        "raw": "OGC",
+        "canonical": "OGC",
+        "code": 2
+      }
+    ]
+  },
+  "coordinates": {
+    "source": "/obsm/spatial",
+    "axis_order": [
+      "center_y",
+      "center_x"
+    ],
+    "units": "source_native",
+    "raw_unit_declaration_status": "not_found",
+    "historical_claim": {
+      "units": "microns",
+      "evidence": "docs/recovery/evidence/sctransform_b3/all_19_section_contracts_and_certificates.txt",
+      "field": "coordinate_scale_microns"
+    },
+    "transformation": "none",
+    "physical_unit_authentication_gate": "later_mesh_design"
+  },
+  "regime": {
+    "preprocessing_regime": "full_data",
+    "correction_depth": 124,
+    "primary_holdout_scoring_eligible": false,
+    "fold_id": null,
+    "panel_selection_independent_of_holdouts": "unestablished"
+  },
+  "centering": {
+    "response": "L[g,i] = log1p(C[g,i])",
+    "mean": "mu[s,t,g] = sum(L[g,i] for i in I[s,t]) / len(I[s,t])",
+    "centered_response": "Y[g,i] = L[g,i] - mu[s,type(i),g]",
+    "population": "actual modeled cells after selection, separately per section and cell type",
+    "variance_scaling": false,
+    "second_logarithm": false,
+    "operations": 1
+  },
+  "required_files": {
+    "response.h5": "Explicit axes, metadata, corrected counts, uncentered and centered responses, means, coordinates.",
+    "fit.rds": "Complete fitted SCT state with effective arguments, realized fitting cells and gene availability.",
+    "execution.json": "Exact command, code/config/input/environment identities, effective fit settings, RNG/threads, timings, warnings and exit status.",
+    "session.txt": "R/platform/package and numerical-library session record.",
+    "validation.json": "Measured invariants and numeric residuals, explicit tolerances, pass/fail and artifact readback evidence."
+  },
+  "datasets": {
+    "/axes/genes300/ids": {
+      "shape": [
+        300
+      ],
+      "dtype": "utf8",
+      "axes": [],
+      "meaning": "Ordered unique original gene identifiers"
+    },
+    "/axes/genes300/raw_gene_index": {
+      "shape": [
+        300
+      ],
+      "dtype": "int64",
+      "axes": [],
+      "meaning": "Zero-based positions in authenticated raw gene axis"
+    },
+    "/axes/genes91/ids": {
+      "shape": [
+        91
+      ],
+      "dtype": "utf8",
+      "axes": [],
+      "meaning": "Ordered unique original gene identifiers"
+    },
+    "/axes/genes91/raw_gene_index": {
+      "shape": [
+        91
+      ],
+      "dtype": "int64",
+      "axes": [],
+      "meaning": "Zero-based positions in authenticated raw gene axis"
+    },
+    "/axes/cells_all/ids": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "utf8",
+      "axes": [],
+      "meaning": "Ordered original cell identifiers"
+    },
+    "/axes/cells_all/source_row": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "int64",
+      "axes": [],
+      "meaning": "Zero-based global raw-source rows"
+    },
+    "/axes/cells_model/ids": {
+      "shape": [
+        "M"
+      ],
+      "dtype": "utf8",
+      "axes": [],
+      "meaning": "Ordered original cell identifiers"
+    },
+    "/axes/cells_model/source_row": {
+      "shape": [
+        "M"
+      ],
+      "dtype": "int64",
+      "axes": [],
+      "meaning": "Zero-based global raw-source rows"
+    },
+    "/axes/cells_model/all_cell_index": {
+      "shape": [
+        "M"
+      ],
+      "dtype": "int64",
+      "axes": [],
+      "meaning": "Zero-based positions in cells_all, cross-checked by original IDs and source rows"
+    },
+    "/axes/genes91/all_gene_index": {
+      "shape": [
+        91
+      ],
+      "dtype": "int64",
+      "axes": [],
+      "meaning": "Zero-based positions in genes300, cross-checked by gene IDs"
+    },
+    "/axes/types/labels": {
+      "shape": [
+        3
+      ],
+      "dtype": "utf8",
+      "axes": [],
+      "meaning": "Exactly MIC, AST, OGC"
+    },
+    "/axes/types/codes": {
+      "shape": [
+        3
+      ],
+      "dtype": "int64",
+      "axes": [],
+      "meaning": "Exactly 0, 1, 2"
+    },
+    "/axes/coordinates/labels": {
+      "shape": [
+        2
+      ],
+      "dtype": "utf8",
+      "axes": [],
+      "meaning": "Exactly center_y, center_x"
+    },
+    "/all/corrected_counts": {
+      "shape": [
+        300,
+        "N"
+      ],
+      "dtype": "float64",
+      "axes": [
+        "genes300",
+        "cells_all"
+      ],
+      "meaning": "Finite, nonnegative, integer-valued corrected counts at depth 124"
+    },
+    "/all/log1p_response": {
+      "shape": [
+        300,
+        "N"
+      ],
+      "dtype": "float64",
+      "axes": [
+        "genes300",
+        "cells_all"
+      ],
+      "meaning": "Exactly log1p of all/corrected_counts"
+    },
+    "/model/uncentered_response": {
+      "shape": [
+        91,
+        "M"
+      ],
+      "dtype": "float64",
+      "axes": [
+        "genes91",
+        "cells_model"
+      ],
+      "meaning": "Exact selected submatrix of all/log1p_response"
+    },
+    "/model/centered_response": {
+      "shape": [
+        91,
+        "M"
+      ],
+      "dtype": "float64",
+      "axes": [
+        "genes91",
+        "cells_model"
+      ],
+      "meaning": "Final immutable Y; identical downstream GPINIT and BSFM input"
+    },
+    "/centering/means": {
+      "shape": [
+        91,
+        3
+      ],
+      "dtype": "float64",
+      "axes": [
+        "genes91",
+        "types"
+      ],
+      "meaning": "Arithmetic means over actual modeled cells by section/type/gene"
+    },
+    "/coordinates/all_source": {
+      "shape": [
+        "N",
+        2
+      ],
+      "dtype": "float64",
+      "axes": [
+        "cells_all",
+        "coordinates"
+      ],
+      "meaning": "Unchanged source coordinates"
+    },
+    "/coordinates/model_source": {
+      "shape": [
+        "M",
+        2
+      ],
+      "dtype": "float64",
+      "axes": [
+        "cells_model",
+        "coordinates"
+      ],
+      "meaning": "Exact identity-aligned selected source coordinates"
+    },
+    "/centering/group_sizes": {
+      "shape": [
+        3
+      ],
+      "dtype": "int64",
+      "axes": [
+        "types"
+      ],
+      "meaning": "Actual modeled cells per type; positive for each of the three types"
+    },
+    "/metadata/model_type_code": {
+      "shape": [
+        "M"
+      ],
+      "dtype": "int64",
+      "axes": [
+        "cells_model"
+      ],
+      "meaning": "MIC=0, AST=1, OGC=2"
+    },
+    "/metadata/all/sample": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "utf8",
+      "axes": [
+        "cells_all"
+      ],
+      "meaning": "Decoded raw obs/sample preserved without rewriting"
+    },
+    "/metadata/all/gen_fine": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "utf8",
+      "axes": [
+        "cells_all"
+      ],
+      "meaning": "Decoded raw obs/gen_fine preserved without rewriting"
+    },
+    "/metadata/all/gen": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "utf8",
+      "axes": [
+        "cells_all"
+      ],
+      "meaning": "Decoded raw obs/gen preserved without rewriting"
+    },
+    "/metadata/all/gen_coarse": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "utf8",
+      "axes": [
+        "cells_all"
+      ],
+      "meaning": "Decoded raw obs/gen_coarse preserved without rewriting"
+    },
+    "/metadata/all/cluster_coarse": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "utf8",
+      "axes": [
+        "cells_all"
+      ],
+      "meaning": "Decoded raw obs/cluster_coarse preserved without rewriting"
+    },
+    "/metadata/all/coarse_batch": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "utf8",
+      "axes": [
+        "cells_all"
+      ],
+      "meaning": "Decoded raw obs/coarse_batch preserved without rewriting"
+    },
+    "/metadata/all/region_labels": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "utf8",
+      "axes": [
+        "cells_all"
+      ],
+      "meaning": "Decoded raw obs/region_labels preserved without rewriting"
+    },
+    "/metadata/all/region_labels_coarse": {
+      "shape": [
+        "N"
+      ],
+      "dtype": "utf8",
+      "axes": [
+        "cells_all"
+      ],
+      "meaning": "Decoded raw obs/region_labels_coarse preserved without rewriting"
+    }
+  },
+  "storage": {
+    "format": "HDF5",
+    "numeric_byte_order": "little_endian",
+    "matrix_orientation": "genes_by_cells",
+    "float_type": "IEEE754_binary64",
+    "compression": "lossless_only; physical chunking left to implementation",
+    "strings": "UTF-8, original values, no case or whitespace normalization",
+    "axis_hash": "SHA-256 over uint64-LE byte length plus UTF-8 identifier bytes in order",
+    "numeric_hash": "SHA-256 over little-endian declared-dtype values in logical C order; dataset shape and axis hashes recorded separately"
+  },
+  "validation": {
+    "structural_json_schema_does_not_validate_hdf5": true,
+    "required_invariants": [
+      "source, panel, registry, environment and code identities match frozen run specification",
+      "all-cell and model axes are unique, complete and ordered as specified",
+      "cell IDs and raw source rows resolve to the same source records",
+      "each matrix axis explicitly references the matching identity dataset and ordered hash",
+      "actual fitting cell IDs equal all eligible section cell IDs",
+      "effective method is glmGamPoi_offset without fallback",
+      "all required 300 output genes are present; gene estimation/availability recorded; no silent fill",
+      "corrected counts finite, nonnegative and integer-valued",
+      "all/log1p_response equals log1p(all/corrected_counts)",
+      "selected response and coordinates equal identity-based all-cell subsets",
+      "means computed once from actual model population; no variance scaling",
+      "Y plus saved group means reconstructs selected response within explicit float64 tolerance",
+      "group mean residuals pass documented tolerance; actual residuals retained",
+      "coordinate values and source column order unchanged",
+      "stack imbalance is fatal; no warning suppression",
+      "all output files closed and reopened for readback before completion"
+    ],
+    "numeric_tolerances": "Must be explicit in frozen runner configuration and validation report before execution; not silently supplied by a consumer"
+  },
+  "completion": {
+    "states": [
+      "writing",
+      "validating",
+      "validated",
+      "promoted"
+    ],
+    "temporary_directory": "unique attempt directory on destination filesystem",
+    "final_manifest": "written only after closed-file readback validation and hashes pass",
+    "promotion": "same-filesystem directory rename to previously absent immutable destination",
+    "success": "final destination plus complete manifest plus validated matching hashes",
+    "resume": "reuse only closed validated stages with identical input/code/config/environment/dependency identities; otherwise new attempt",
+    "overwrite_final": false,
+    "run_complete": "all 19 section manifests valid and consistent with one run specification"
+  },
+  "future_holdout": {
+    "implemented": false,
+    "requires_separate_schema": true,
+    "required_population_identities": [
+      "training-only SCT fitting cells",
+      "training-only depth-estimation population",
+      "training-only centering cells",
+      "frozen held-out scoring transformation"
+    ],
+    "full_data_depth_or_means_inherited": false
+  }
+}

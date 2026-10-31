@@ -16,6 +16,11 @@ remain historical evidence. No legacy implementation is selected or imported.
 The authority for the choices below is the user's acceptance of the design memo
 with amendments, not a claim that the historical pipeline was scientifically wrong.
 
+The approved [modeling-response handoff](MODELING_RESPONSE_HANDOFF.md) now freezes
+the exact ordered 91-gene registry, cell/animal identities, source-native
+coordinates, section bundle schema and completion protocol. It is a design
+checkpoint; production response generation and centering have not run.
+
 ## 1. Frozen scientific choices
 
 | Item | Approved choice |
@@ -217,8 +222,9 @@ See the [accepted aggregate audit](../preprocessing/audits/20261030_raw/summary.
 This is a **project-adopted content fingerprint**, accepted by explicit user
 decision after contract validation. It is not an independently supplied upstream
 checksum or proof of original acquisition authenticity. No independent ordered
-gene reference was supplied. The fixed 91-gene modeling list and gene-model
-availability remain later checks. No SCTransform response has been generated
+gene reference was supplied. The fixed 91-gene list was subsequently adopted in
+the handoff decision above after exact raw-panel matching; gene-model availability
+remains a per-run check. No SCTransform response has been generated
 or certified by this audit.
 
 The optional B6 ledger is a cross-check only. Eligibility and depth depend on

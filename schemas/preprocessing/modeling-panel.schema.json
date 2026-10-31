@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical ordered modeling panel v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "panel_id",
+    "authority",
+    "baseline_commit",
+    "ordered_hash",
+    "raw_source_sha256",
+    "raw_gene_order_sha256",
+    "historical_order_limitation",
+    "panel_selection_independent_of_holdouts",
+    "genes",
+    "raw_300_positions_zero_based",
+    "evidence"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "../../schemas/preprocessing/modeling-panel.schema.json"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "panel_id": {
+      "const": "bsfm-modeling-91-v1"
+    },
+    "authority": {
+      "const": "explicit_user_decision"
+    },
+    "baseline_commit": {
+      "const": "570bd3e41f77518e136cb3a8f17a9e6e62955f0f"
+    },
+    "ordered_hash": {
+      "const": {
+        "algorithm": "SHA-256",
+        "encoding": "uint64-LE UTF-8 byte length followed by UTF-8 bytes, per identifier",
+        "value": "48e934a62161d7fb69e3abb3e636a979660b6e1b62cbacdcec929c2584d8bfa8"
+      }
+    },
+    "raw_source_sha256": {
+      "const": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38"
+    },
+    "raw_gene_order_sha256": {
+      "const": "e7c67fcc863d783b656912b53ca02e9ebdaace3c8f6e141e0ed5d3709858cfda"
+    },
+    "historical_order_limitation": {
+      "const": "The shared preparation contract declares this order. Individual section contracts record only genes=91; historical matrix gene-axis order was not independently verified for every section."
+    },
+    "panel_selection_independent_of_holdouts": {
+      "const": "unestablished"
+    },
+    "genes": {
+      "type": "array",
+      "minItems": 91,
+      "maxItems": 91,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "raw_300_positions_zero_based": {
+      "type": "array",
+      "minItems": 91,
+      "maxItems": 91,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 299
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "lines": {
+            "type": "string",
+            "minLength": 1
+          },
+          "original_path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$comment": "Content hash, exact genes/positions and evidence hashes require semantic validation against the approved registry and raw axis; structural JSON Schema validation is insufficient."
+}

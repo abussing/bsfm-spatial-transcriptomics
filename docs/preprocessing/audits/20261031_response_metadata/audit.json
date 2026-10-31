@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "kind": "bsfm.response-metadata-audit",
+  "baseline_commit": "570bd3e41f77518e136cb3a8f17a9e6e62955f0f",
+  "status": "pass_with_documented_limits",
+  "acquisition": "Read-only h5py metadata audit; independent JSON decoding of committed UTF-16 B3 captures; no historical code executed.",
+  "interpreter": "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+  "metadata_value_paths": [
+    "obs/_index",
+    "var/_index",
+    "obs/sample",
+    "obs/gen_fine",
+    "obs/gen",
+    "obs/gen_coarse",
+    "obs/cluster_coarse",
+    "obs/coarse_batch",
+    "obs/region_labels",
+    "obs/region_labels_coarse",
+    "obs/center_x",
+    "obs/center_y",
+    "obsm/spatial"
+  ],
+  "source": {
+    "bytes": 5483600151,
+    "identity_limit": "Content fingerprint and contract checks; no independent authoritative raw-file checksum supplied.",
+    "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+    "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
+    "full_file_hash_recomputed": false,
+    "size_and_mtime_stable_during_read": true
+  },
+  "cell_order_sha256": "aa341c6a3616d8abdc3f4d652452f5cff316f6f1a2aab0afb6eee33bf41fc9e6",
+  "gene_order_sha256": "e7c67fcc863d783b656912b53ca02e9ebdaace3c8f6e141e0ed5d3709858cfda",
+  "panel_order_sha256": "48e934a62161d7fb69e3abb3e636a979660b6e1b62cbacdcec929c2584d8bfa8",
+  "section_registry_sha256": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166",
+  "all_cells": 432794,
+  "selected_cells": 187100,
+  "sections": 19,
+  "recorded_animal_labels": 15,
+  "every_raw_row_selected_by_exactly_one_section": true,
+  "spatial_equals_center_y_center_x": true,
+  "coordinate_units": "source_native",
+  "raw_unit_declaration_status": "not_found",
+  "historical_units_claim": "microns",
+  "individually_recorded_gene_orders": 0,
+  "individual_contracts_equal_shared_contract_entries": true,
+  "accepted_raw_audit_counts_match_all_sections": true,
+  "evidence_files": [
+    {
+      "path": "docs/recovery/evidence/sctransform_b3/s00_and_preparation_summary.txt",
+      "bytes": 74706,
+      "sha256": "e5f049a487a68c38d04873855b54df0b5042b1ebe8c0d10998a7369ff3f8b008"
+    },
+    {
+      "path": "docs/recovery/evidence/sctransform_b3/all_19_section_contracts_and_certificates.txt",
+      "bytes": 444006,
+      "sha256": "7fe50386f3660c2b7ed60e9d3f5517c096c57373c597823fc9948d5c1eeb7717"
+    },
+    {
+      "path": "docs/preprocessing/audits/20261030_raw/manifest.json",
+      "bytes": 3807,
+      "sha256": "5a8f96f228d00ed470f6ae411a44a8c38bad0f23fb17f064ff7b99330bf650a2"
+    },
+    {
+      "path": "docs/preprocessing/audits/20261030_raw/sections.csv",
+      "bytes": 6130,
+      "sha256": "2e7ca801dcd4c3482f0e1776341bc86758a47d69ac1d9352ef7560d530588fd6"
+    },
+    {
+      "path": "src/bsfm/preprocessing/sections.json",
+      "bytes": 3865,
+      "sha256": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166"
+    }
+  ],
+  "section_table": {
+    "path": "sections.csv",
+    "bytes": 2186,
+    "sha256": "28627b7eecf85272ead79b0df472ac4c90449441434df75e8540b2d6c427e4f9"
+  },
+  "limits": [
+    "Accepted full-source fingerprint reused, not recomputed; metadata order hashes freshly verified.",
+    "No expression arrays or historical response matrices inspected.",
+    "No independent physical-unit declaration found in inspected coordinate attributes or spatial metadata.",
+    "Recorded animal labels corroborated against B3, not independently authenticated against an animal sample sheet.",
+    "Shared gene order is adopted by decision, not independently verified in all historical matrices.",
+    "Panel selection independence from future holdouts is unestablished."
+  ]
+}
