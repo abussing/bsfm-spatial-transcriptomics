@@ -3,8 +3,12 @@
 Decision date: 2026-10-30. Authority: explicit user approval following the
 [feasibility report](../environment/SCTRANSFORM_ENVIRONMENT_FEASIBILITY.md).
 Baseline: `c88fdefd746887f0cca818b794ccfbce5035c9aa`.
-Status: **environment specification frozen; acquisition, installation, build
-and normalization execution not yet approved**.
+Status: **environment specification frozen; local build and bounded synthetic/S00
+validation completed under the 2026-10-31 authorization and accepted**.
+The original approval boundaries below describe this 2026-10-30 decision.
+The later assignment authorized materialization and bounded validation before
+commit; see the [build evidence](../environment/SCTRANSFORM_ENVIRONMENT_BUILD.md).
+It did not authorize the other 18 sections, HPC execution or a version change.
 
 ## Frozen environment and deliberate amendment
 

@@ -1,0 +1,169 @@
+{
+  "schema": "bsfm.environment-execution-record.v1",
+  "date": "2026-10-31",
+  "commands": {
+    "R_install_original": [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\R-4.5.3-win.exe",
+      "/CURRENTUSER",
+      "/VERYSILENT",
+      "/SUPPRESSMSGBOXES",
+      "/NORESTART",
+      "/SP-",
+      "/TASKS=",
+      "/NOICONS",
+      "/DIR=C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3",
+      "/LOG=C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-install.log"
+    ],
+    "R_repair": "Same installer arguments, log changed to R-install-post-shutdown.log; exit 0",
+    "package_acquisition": [
+      "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\acquire_packages.py",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031"
+    ],
+    "package_post_shutdown_repair": [
+      "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\audit_installed.py",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+      "--output-prefix",
+      "post-shutdown-audit",
+      "--repair"
+    ],
+    "version_namespace_lock_verification": [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+      "--vanilla",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\install_locked.R",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\post-shutdown-audit.txt"
+    ],
+    "validation": [
+      "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_smoke.py",
+      "--environment",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+      "--output-dir",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1",
+      "--raw-source",
+      "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad"
+    ],
+    "artifact_readback": [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+      "--vanilla",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\tests\\check_sct_artifacts.R",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-full"
+    ],
+    "Python_tests": [
+      "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "R_tests": [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+      "--vanilla",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\tests\\test_sct_validation.R",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics"
+    ],
+    "locked_archive_verification": [
+      "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\acquire_packages.py",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+      "--lock",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\source-lock.json",
+      "--verify-only"
+    ]
+  },
+  "working_directory": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics",
+  "environment_overrides": {
+    "R_LIBS_USER": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\library",
+    "R_LIBS_SITE": "",
+    "LANG": "C",
+    "LC_ALL": "C",
+    "validation_threads": 1
+  },
+  "Python": {
+    "executable": "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+    "version": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "NumPy": "2.1.3",
+    "h5py": "3.12.1",
+    "HDF5": "1.14.5",
+    "psutil": "5.9.0"
+  },
+  "checks": {
+    "Python_tests": 23,
+    "Python_tests_passed": true,
+    "R_count_contract_tests": "pass",
+    "all_locked_archive_hashes": "pass",
+    "saved_S00_readback": "pass"
+  },
+  "code": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\acquire_packages.py",
+      "bytes": 8671,
+      "sha256": "82869cb4f3f9aa55c3f876a965bf86ce81be9305b81e1b90563730a60c887591"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\audit_installed.py",
+      "bytes": 4842,
+      "sha256": "b8863d2436d63e804ac5a7f6a9073cf9e8480e1d4719a00092b8a3a6c7611d11"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\install_locked.R",
+      "bytes": 2685,
+      "sha256": "8cc499e138eea8a02267076ff77324c0225c2ec7126a57c0da87a8bcff258326"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_smoke.py",
+      "bytes": 11939,
+      "sha256": "335b1378a1e8e9efe7a5fabfd7e24b7ac3fefeb1243313c5af9594a0cd9aaeef"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_validation.R",
+      "bytes": 10364,
+      "sha256": "f8f0d06aba58c9dd34cfa794c9da68fffa236f8bc8c4c9dc3a60e023b8af1b08"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\tests\\check_sct_artifacts.R",
+      "bytes": 1688,
+      "sha256": "a3ab31f5e3463042b808dd01d62418ffc394255de1b7a45a92fd1e2b4f7ef2d7"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\tests\\test_sct_validation.R",
+      "bytes": 915,
+      "sha256": "2efdb4ee6144ececb5fc0ffda8e02a852c44290ed12b6786cb06738ce777d522"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\tests\\test_sct_smoke.py",
+      "bytes": 4605,
+      "sha256": "6a2ed0b945164a61bfc2f430a635199e4b2a13a64478601c92d9559717f27e92"
+    }
+  ],
+  "build_logs": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-install-post-shutdown.log",
+      "bytes": 2306635,
+      "sha256": "e3b712a9ca6438684df4a8b1d5d5743c963b2b8675b3480104621c132a63e36f"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\package-verify-lock.log",
+      "bytes": 15908,
+      "sha256": "f056a728f819e133af360bc6c71314824b8c2d1b132276925dcd0dcb5e960502"
+    }
+  ],
+  "lockfiles": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\source-lock.json",
+      "bytes": 188446,
+      "sha256": "c32690ab551d8a55bf136f3a1fdab48ff5c653ea25ac9ce5257c9456140378d8"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sctransform\\renv.lock",
+      "bytes": 421423,
+      "sha256": "b1f9d7833be88ad131a5e643d3142b9320392cfa2ce39708e6b0097068aaf8e3"
+    }
+  ],
+  "repository_metadata_line_endings": "LF; external-original hashes remain separately recorded"
+}

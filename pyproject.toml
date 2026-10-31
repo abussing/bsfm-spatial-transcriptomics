@@ -9,11 +9,15 @@ description = "Provenance-controlled BSFM preprocessing tools"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24", "h5py>=3.8"]
 
+[project.optional-dependencies]
+validation = ["psutil>=5.9"]
+
 [project.scripts]
 bsfm-raw-preflight = "bsfm.preprocessing.raw_preflight:main"
+bsfm-sct-smoke = "bsfm.preprocessing.sct_smoke:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-"bsfm.preprocessing" = ["sections.json"]
+"bsfm.preprocessing" = ["sections.json", "*.R"]

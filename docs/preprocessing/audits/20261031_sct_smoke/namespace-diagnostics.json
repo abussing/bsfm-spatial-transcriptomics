@@ -1,0 +1,98 @@
+[
+  {
+    "package": "Rcpp",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:Rcpp>\nLOADED Rcpp \n",
+    "stderr": ""
+  },
+  {
+    "package": "beachmat",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:beachmat>\nLOADED beachmat \n",
+    "stderr": ""
+  },
+  {
+    "package": "DelayedMatrixStats",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:DelayedMatrixStats>\nLOADED DelayedMatrixStats \n",
+    "stderr": ""
+  },
+  {
+    "package": "matrixStats",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:matrixStats>\nLOADED matrixStats \n",
+    "stderr": ""
+  },
+  {
+    "package": "MatrixGenerics",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:MatrixGenerics>\nLOADED MatrixGenerics \n",
+    "stderr": ""
+  },
+  {
+    "package": "SparseArray",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:SparseArray>\nLOADED SparseArray \n",
+    "stderr": ""
+  },
+  {
+    "package": "S4Vectors",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:S4Vectors>\nLOADED S4Vectors \n",
+    "stderr": ""
+  },
+  {
+    "package": "DelayedArray",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:DelayedArray>\nLOADED DelayedArray \n",
+    "stderr": ""
+  },
+  {
+    "package": "HDF5Array",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:HDF5Array>\nLOADED HDF5Array \n",
+    "stderr": ""
+  },
+  {
+    "package": "Matrix",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:Matrix>\nLOADED Matrix \n",
+    "stderr": ""
+  },
+  {
+    "package": "SummarizedExperiment",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:SummarizedExperiment>\nLOADED SummarizedExperiment \n",
+    "stderr": ""
+  },
+  {
+    "package": "SingleCellExperiment",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:SingleCellExperiment>\nLOADED SingleCellExperiment \n",
+    "stderr": ""
+  },
+  {
+    "package": "BiocGenerics",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:BiocGenerics>\nLOADED BiocGenerics \n",
+    "stderr": ""
+  },
+  {
+    "package": "rlang",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:rlang>\nLOADED rlang \n",
+    "stderr": ""
+  },
+  {
+    "package": "vctrs",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:vctrs>\nLOADED vctrs \n",
+    "stderr": ""
+  },
+  {
+    "package": "glmGamPoi",
+    "exit_code": 0,
+    "stdout": "<environment: namespace:glmGamPoi>\nLOADED glmGamPoi \n",
+    "stderr": ""
+  }
+]

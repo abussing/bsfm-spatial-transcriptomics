@@ -1,0 +1,1054 @@
+{
+  "schema": "bsfm.sct-smoke-review.v1",
+  "date": "2026-10-31",
+  "status": "accepted",
+  "baseline_commit": "f7d40588840887953b2cda2c562e58a21a9fa1dd",
+  "environment_root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+  "artifact_root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1",
+  "run_manifest": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\run-manifest.json",
+    "bytes": 38350,
+    "sha256": "2ad0144c0c7dcdd356b38a730e11411473ad22e5c89de0a2c5bdf2968aaf721e"
+  },
+  "run_evidence": {
+    "schema": "bsfm.sct-smoke.v1",
+    "status": "pass",
+    "source_files": {
+      "src\\bsfm\\preprocessing\\sct_smoke.py": "335b1378a1e8e9efe7a5fabfd7e24b7ac3fefeb1243313c5af9594a0cd9aaeef",
+      "src\\bsfm\\preprocessing\\sct_validation.R": "f8f0d06aba58c9dd34cfa794c9da68fffa236f8bc8c4c9dc3a60e023b8af1b08",
+      "src\\bsfm\\preprocessing\\sections.json": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166",
+      "src\\bsfm\\preprocessing\\raw_preflight.py": "56d0e07fa81366fb6ea91dc8140039367f1aee5b28c2adad1c0597675fb6c749",
+      "environment\\sctransform\\validation-spec.json": "a48dd3162d02af604bc91d60d14fc84e9c68a4f7b6e76e39563039bbdd3daa83"
+    },
+    "invocation": [
+      "C:\\Users\\Data Viz\\anaconda3\\python.exe",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_smoke.py",
+      "--environment",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+      "--output-dir",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1",
+      "--raw-source",
+      "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad"
+    ],
+    "environment_source_lock_sha256": "2c258eef6b3284118f82e062e301019ae0c7b434cafad2958f4c8b003ca5c281",
+    "runs": {
+      "synthetic-A-run1": {
+        "process": {
+          "command": [
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+            "--vanilla",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_validation.R",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-A",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-A-run1",
+            "662.0",
+            "1448145"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 9.82608259999995,
+          "peak_working_set_bytes": 976248832,
+          "memory_observation": "Windows peak_wset sampled every 0.2 s; main R process",
+          "limits": {
+            "seconds": 900,
+            "working_set_bytes": 8589934592
+          },
+          "log": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-A-run1.log",
+            "name": "synthetic-A-run1.log",
+            "bytes": 1054,
+            "sha256": "0aeb9ca14baa09f3a9bf5c4785ccd643dd632cdab7f04443c413b8f9a05bdd32"
+          },
+          "failure": null
+        },
+        "report": {
+          "schema": "bsfm.sct-validation.v1",
+          "status": "pass",
+          "input_manifest_sha256": "ecf7a6483946abf978ed68d6ff75dcb4f8e1aae953f3eeb91159578d877ffd08",
+          "input_genes": 300,
+          "input_cells": 240,
+          "fitting_cells": 240,
+          "actual_fitting_order_matches": true,
+          "effective_method": "glmGamPoi_offset",
+          "versions": {
+            "Seurat": "5.4.0",
+            "SeuratObject": "5.4.0",
+            "sctransform": "0.4.3",
+            "Matrix": "1.7-4",
+            "glmGamPoi": "1.22.0"
+          },
+          "R": "4.5.3",
+          "Bioconductor": "3.22",
+          "depth": 662,
+          "seed": 1448145,
+          "RNG": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "library_paths": [
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/library",
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/R-4.5.3/library"
+          ],
+          "threads": {
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1"
+          },
+          "gene_availability": {
+            "modeled_by_SCT": 300,
+            "unavailable": []
+          },
+          "corrected_shape": [
+            300,
+            240
+          ],
+          "response_shape": [
+            300,
+            240
+          ],
+          "corrected_finite_nonnegative_integer": true,
+          "response_finite": true,
+          "exact_log1p_reconstruction": true,
+          "log1p_max_absolute_difference": 0,
+          "correction_repeat_identical": true,
+          "independent_depth_reconstruction_exact": true,
+          "semantic_sha256": {
+            "model_pars": "01b08d8e9b8a0af36b859f3b8c8b41ae5bdbc33a21ad13336dfe089eff3be77b",
+            "model_pars_fit": "4f53d75700550b27ad2bc493406b72868519ec21b6161991fc6f56ee719c92f8",
+            "cells_step1": "e2eb3e0a1dabbe14a1033872a6821d194c1bf9ceaeb6b030c0ed548654af87e8",
+            "corrected": "a5fddd72a02f229af3922f597c4f116aed5de5acd8f8bc68fbf6c72edbb2acaf",
+            "response": "84d6bfe5533fca41eb07d527d9b0c7c552bc70752ff2a4bfbb81ce858da8e2db"
+          },
+          "within_process_elapsed_seconds": 9.44,
+          "warnings": [],
+          "artifacts": [
+            {
+              "name": "assays.rds",
+              "bytes": 222068,
+              "sha256": "e9af454ea0de637958bf13bfd8b3f370a9014578e5c6c86b5451840294e4cbb3"
+            },
+            {
+              "name": "corrected-counts.rds",
+              "bytes": 63566,
+              "sha256": "fb30506ba4720fea3cbcbb1b544189d0ff7cdbd22c09aec564372ab764c177fc"
+            },
+            {
+              "name": "effective-arguments.json",
+              "bytes": 846,
+              "sha256": "55d39a5e2a4be58696dd114bb649171aef928a302b60a7d5b5777f78ad9d5289"
+            },
+            {
+              "name": "fit.rds",
+              "bytes": 642879,
+              "sha256": "4c86666262b87398329a6ef1c77e884bf1bd40d1181f50480bd87559ce198228"
+            },
+            {
+              "name": "log1p-response.rds",
+              "bytes": 62710,
+              "sha256": "15a6a69d32cf3d5d7f4203473606d5475b88195f847130b727a4326ea5e59434"
+            },
+            {
+              "name": "session.txt",
+              "bytes": 4276,
+              "sha256": "0b3cd55fd7ceb444ba2fcb2fdefa7f5689da57934d37708015ef5a5dc6d92798"
+            }
+          ]
+        },
+        "output": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-A-run1"
+      },
+      "synthetic-A-run2": {
+        "process": {
+          "command": [
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+            "--vanilla",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_validation.R",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-A",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-A-run2",
+            "662.0",
+            "1448145"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 9.625979499999971,
+          "peak_working_set_bytes": 969555968,
+          "memory_observation": "Windows peak_wset sampled every 0.2 s; main R process",
+          "limits": {
+            "seconds": 900,
+            "working_set_bytes": 8589934592
+          },
+          "log": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-A-run2.log",
+            "name": "synthetic-A-run2.log",
+            "bytes": 1054,
+            "sha256": "117b5d2f92372e2af54df6ae97768d4b4cb153f947d51d219caf9c8c782e4a13"
+          },
+          "failure": null
+        },
+        "report": {
+          "schema": "bsfm.sct-validation.v1",
+          "status": "pass",
+          "input_manifest_sha256": "ecf7a6483946abf978ed68d6ff75dcb4f8e1aae953f3eeb91159578d877ffd08",
+          "input_genes": 300,
+          "input_cells": 240,
+          "fitting_cells": 240,
+          "actual_fitting_order_matches": true,
+          "effective_method": "glmGamPoi_offset",
+          "versions": {
+            "Seurat": "5.4.0",
+            "SeuratObject": "5.4.0",
+            "sctransform": "0.4.3",
+            "Matrix": "1.7-4",
+            "glmGamPoi": "1.22.0"
+          },
+          "R": "4.5.3",
+          "Bioconductor": "3.22",
+          "depth": 662,
+          "seed": 1448145,
+          "RNG": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "library_paths": [
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/library",
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/R-4.5.3/library"
+          ],
+          "threads": {
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1"
+          },
+          "gene_availability": {
+            "modeled_by_SCT": 300,
+            "unavailable": []
+          },
+          "corrected_shape": [
+            300,
+            240
+          ],
+          "response_shape": [
+            300,
+            240
+          ],
+          "corrected_finite_nonnegative_integer": true,
+          "response_finite": true,
+          "exact_log1p_reconstruction": true,
+          "log1p_max_absolute_difference": 0,
+          "correction_repeat_identical": true,
+          "independent_depth_reconstruction_exact": true,
+          "semantic_sha256": {
+            "model_pars": "01b08d8e9b8a0af36b859f3b8c8b41ae5bdbc33a21ad13336dfe089eff3be77b",
+            "model_pars_fit": "4f53d75700550b27ad2bc493406b72868519ec21b6161991fc6f56ee719c92f8",
+            "cells_step1": "e2eb3e0a1dabbe14a1033872a6821d194c1bf9ceaeb6b030c0ed548654af87e8",
+            "corrected": "a5fddd72a02f229af3922f597c4f116aed5de5acd8f8bc68fbf6c72edbb2acaf",
+            "response": "84d6bfe5533fca41eb07d527d9b0c7c552bc70752ff2a4bfbb81ce858da8e2db"
+          },
+          "within_process_elapsed_seconds": 9.28,
+          "warnings": [],
+          "artifacts": [
+            {
+              "name": "assays.rds",
+              "bytes": 222068,
+              "sha256": "e9af454ea0de637958bf13bfd8b3f370a9014578e5c6c86b5451840294e4cbb3"
+            },
+            {
+              "name": "corrected-counts.rds",
+              "bytes": 63566,
+              "sha256": "fb30506ba4720fea3cbcbb1b544189d0ff7cdbd22c09aec564372ab764c177fc"
+            },
+            {
+              "name": "effective-arguments.json",
+              "bytes": 846,
+              "sha256": "55d39a5e2a4be58696dd114bb649171aef928a302b60a7d5b5777f78ad9d5289"
+            },
+            {
+              "name": "fit.rds",
+              "bytes": 642877,
+              "sha256": "5e5edb80b60f91012cc6f3b7c947d1f10164903ff0360a7ab3035bd34fd4b5d4"
+            },
+            {
+              "name": "log1p-response.rds",
+              "bytes": 62710,
+              "sha256": "15a6a69d32cf3d5d7f4203473606d5475b88195f847130b727a4326ea5e59434"
+            },
+            {
+              "name": "session.txt",
+              "bytes": 4276,
+              "sha256": "0b3cd55fd7ceb444ba2fcb2fdefa7f5689da57934d37708015ef5a5dc6d92798"
+            }
+          ]
+        },
+        "output": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-A-run2"
+      },
+      "synthetic-B-run1": {
+        "process": {
+          "command": [
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+            "--vanilla",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_validation.R",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-B",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-B-run1",
+            "662.0",
+            "1448145"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 9.423375400000054,
+          "peak_working_set_bytes": 962662400,
+          "memory_observation": "Windows peak_wset sampled every 0.2 s; main R process",
+          "limits": {
+            "seconds": 900,
+            "working_set_bytes": 8589934592
+          },
+          "log": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-B-run1.log",
+            "name": "synthetic-B-run1.log",
+            "bytes": 979,
+            "sha256": "7f3fde3ef3909a0008a748275f61e5702bee6d58e0883fd7093fa84a2ffb7f60"
+          },
+          "failure": null
+        },
+        "report": {
+          "schema": "bsfm.sct-validation.v1",
+          "status": "pass",
+          "input_manifest_sha256": "7a7316abe7eb3689673b40288c71ad0e0dd0a26bd001a30172bbdf7f24c42f6e",
+          "input_genes": 300,
+          "input_cells": 320,
+          "fitting_cells": 320,
+          "actual_fitting_order_matches": true,
+          "effective_method": "glmGamPoi_offset",
+          "versions": {
+            "Seurat": "5.4.0",
+            "SeuratObject": "5.4.0",
+            "sctransform": "0.4.3",
+            "Matrix": "1.7-4",
+            "glmGamPoi": "1.22.0"
+          },
+          "R": "4.5.3",
+          "Bioconductor": "3.22",
+          "depth": 662,
+          "seed": 1448145,
+          "RNG": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "library_paths": [
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/library",
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/R-4.5.3/library"
+          ],
+          "threads": {
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1"
+          },
+          "gene_availability": {
+            "modeled_by_SCT": 300,
+            "unavailable": []
+          },
+          "corrected_shape": [
+            300,
+            320
+          ],
+          "response_shape": [
+            300,
+            320
+          ],
+          "corrected_finite_nonnegative_integer": true,
+          "response_finite": true,
+          "exact_log1p_reconstruction": true,
+          "log1p_max_absolute_difference": 0,
+          "correction_repeat_identical": true,
+          "independent_depth_reconstruction_exact": true,
+          "semantic_sha256": {
+            "model_pars": "dce403041a258c7f445fc7fc12a4380c7d23265511478e0ff2962daeae2b7217",
+            "model_pars_fit": "2edc595123dcde250715486d2eb6ca123dac60785fb32537a33137ff303beb67",
+            "cells_step1": "7b85b82125244a8e3f06068d6ad9d469d089bdb1d8a9c0a4bcdcce93011d4265",
+            "corrected": "eade55a7a52d642c6090e689e2b631e8cfb5986c6dc8c9993e237ed3d70704ef",
+            "response": "489e7a27551523fae17be34fc58606899a21753c0ae1357e0d6c5b846da58892"
+          },
+          "within_process_elapsed_seconds": 9,
+          "warnings": [],
+          "artifacts": [
+            {
+              "name": "assays.rds",
+              "bytes": 314034,
+              "sha256": "65b147d3b291b286c3a1bd32af65bee4d481193d20038714f0be6f6509246f2f"
+            },
+            {
+              "name": "corrected-counts.rds",
+              "bytes": 85958,
+              "sha256": "a9482ae1b4e49135e44327fce6d9c25f726c94b8998583632e66fb948a930829"
+            },
+            {
+              "name": "effective-arguments.json",
+              "bytes": 846,
+              "sha256": "687c927ee218c61a3f16c6c6c6a30f58d209b0ce6fd171ae269be73686c5a69e"
+            },
+            {
+              "name": "fit.rds",
+              "bytes": 873237,
+              "sha256": "a9d586f4d3c9061b5eda4fe1e9d86bec51f3571752e640c8280bc82fced4657f"
+            },
+            {
+              "name": "log1p-response.rds",
+              "bytes": 84540,
+              "sha256": "539ffbf647ad46937a1cdc9547daa4713cc0f822ac87d9674c0bf2ea6532ac04"
+            },
+            {
+              "name": "session.txt",
+              "bytes": 4276,
+              "sha256": "0b3cd55fd7ceb444ba2fcb2fdefa7f5689da57934d37708015ef5a5dc6d92798"
+            }
+          ]
+        },
+        "output": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-B-run1"
+      },
+      "synthetic-B-run2": {
+        "process": {
+          "command": [
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+            "--vanilla",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_validation.R",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-B",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-B-run2",
+            "662.0",
+            "1448145"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 9.625981600000046,
+          "peak_working_set_bytes": 960409600,
+          "memory_observation": "Windows peak_wset sampled every 0.2 s; main R process",
+          "limits": {
+            "seconds": 900,
+            "working_set_bytes": 8589934592
+          },
+          "log": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-B-run2.log",
+            "name": "synthetic-B-run2.log",
+            "bytes": 979,
+            "sha256": "07028a1cf654b11ee77b9a198e637a99be8eaea65f80562c0b9bc98d218ab430"
+          },
+          "failure": null
+        },
+        "report": {
+          "schema": "bsfm.sct-validation.v1",
+          "status": "pass",
+          "input_manifest_sha256": "7a7316abe7eb3689673b40288c71ad0e0dd0a26bd001a30172bbdf7f24c42f6e",
+          "input_genes": 300,
+          "input_cells": 320,
+          "fitting_cells": 320,
+          "actual_fitting_order_matches": true,
+          "effective_method": "glmGamPoi_offset",
+          "versions": {
+            "Seurat": "5.4.0",
+            "SeuratObject": "5.4.0",
+            "sctransform": "0.4.3",
+            "Matrix": "1.7-4",
+            "glmGamPoi": "1.22.0"
+          },
+          "R": "4.5.3",
+          "Bioconductor": "3.22",
+          "depth": 662,
+          "seed": 1448145,
+          "RNG": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "library_paths": [
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/library",
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/R-4.5.3/library"
+          ],
+          "threads": {
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1"
+          },
+          "gene_availability": {
+            "modeled_by_SCT": 300,
+            "unavailable": []
+          },
+          "corrected_shape": [
+            300,
+            320
+          ],
+          "response_shape": [
+            300,
+            320
+          ],
+          "corrected_finite_nonnegative_integer": true,
+          "response_finite": true,
+          "exact_log1p_reconstruction": true,
+          "log1p_max_absolute_difference": 0,
+          "correction_repeat_identical": true,
+          "independent_depth_reconstruction_exact": true,
+          "semantic_sha256": {
+            "model_pars": "dce403041a258c7f445fc7fc12a4380c7d23265511478e0ff2962daeae2b7217",
+            "model_pars_fit": "2edc595123dcde250715486d2eb6ca123dac60785fb32537a33137ff303beb67",
+            "cells_step1": "7b85b82125244a8e3f06068d6ad9d469d089bdb1d8a9c0a4bcdcce93011d4265",
+            "corrected": "eade55a7a52d642c6090e689e2b631e8cfb5986c6dc8c9993e237ed3d70704ef",
+            "response": "489e7a27551523fae17be34fc58606899a21753c0ae1357e0d6c5b846da58892"
+          },
+          "within_process_elapsed_seconds": 9.17,
+          "warnings": [],
+          "artifacts": [
+            {
+              "name": "assays.rds",
+              "bytes": 314034,
+              "sha256": "65b147d3b291b286c3a1bd32af65bee4d481193d20038714f0be6f6509246f2f"
+            },
+            {
+              "name": "corrected-counts.rds",
+              "bytes": 85958,
+              "sha256": "a9482ae1b4e49135e44327fce6d9c25f726c94b8998583632e66fb948a930829"
+            },
+            {
+              "name": "effective-arguments.json",
+              "bytes": 846,
+              "sha256": "687c927ee218c61a3f16c6c6c6a30f58d209b0ce6fd171ae269be73686c5a69e"
+            },
+            {
+              "name": "fit.rds",
+              "bytes": 873237,
+              "sha256": "6b81748cd5fbdf250ea6d77f757d8cc1f29743fdfa7ce97569c8e4948a52227f"
+            },
+            {
+              "name": "log1p-response.rds",
+              "bytes": 84540,
+              "sha256": "539ffbf647ad46937a1cdc9547daa4713cc0f822ac87d9674c0bf2ea6532ac04"
+            },
+            {
+              "name": "session.txt",
+              "bytes": 4276,
+              "sha256": "0b3cd55fd7ceb444ba2fcb2fdefa7f5689da57934d37708015ef5a5dc6d92798"
+            }
+          ]
+        },
+        "output": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\synthetic-B-run2"
+      },
+      "S00-full": {
+        "process": {
+          "command": [
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+            "--vanilla",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_validation.R",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-input",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-full",
+            "124",
+            "1448145"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 32.4721174,
+          "peak_working_set_bytes": 1327030272,
+          "memory_observation": "Windows peak_wset sampled every 0.2 s; main R process",
+          "limits": {
+            "seconds": 900,
+            "working_set_bytes": 8589934592
+          },
+          "log": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-full.log",
+            "name": "S00-full.log",
+            "bytes": 1058,
+            "sha256": "39c16600c6393796c9a7f6e8c75a87076d57c2c8a7cb67e973aa6e4fe0eea693"
+          },
+          "failure": null
+        },
+        "report": {
+          "schema": "bsfm.sct-validation.v1",
+          "status": "pass",
+          "input_manifest_sha256": "8543d44087f0d748abc4f0e52e91032757b0682a1dcb77ef5704050fbd59446c",
+          "input_genes": 300,
+          "input_cells": 20719,
+          "fitting_cells": 20719,
+          "actual_fitting_order_matches": true,
+          "effective_method": "glmGamPoi_offset",
+          "versions": {
+            "Seurat": "5.4.0",
+            "SeuratObject": "5.4.0",
+            "sctransform": "0.4.3",
+            "Matrix": "1.7-4",
+            "glmGamPoi": "1.22.0"
+          },
+          "R": "4.5.3",
+          "Bioconductor": "3.22",
+          "depth": 124,
+          "seed": 1448145,
+          "RNG": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "library_paths": [
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/library",
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/R-4.5.3/library"
+          ],
+          "threads": {
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1"
+          },
+          "gene_availability": {
+            "modeled_by_SCT": 300,
+            "unavailable": []
+          },
+          "corrected_shape": [
+            300,
+            20719
+          ],
+          "response_shape": [
+            300,
+            20719
+          ],
+          "corrected_finite_nonnegative_integer": true,
+          "response_finite": true,
+          "exact_log1p_reconstruction": true,
+          "log1p_max_absolute_difference": 0,
+          "correction_repeat_identical": true,
+          "independent_depth_reconstruction_exact": true,
+          "semantic_sha256": {
+            "model_pars": "7be3963e6c046ce70576dba97e2e2f50f9df45c9f673790a3c07bb6a5f10905b",
+            "model_pars_fit": "e461e1b4f24052647538731e6a17f704b8b2e2a571f309ec90d9875f1f7bd5d1",
+            "cells_step1": "e50ef3c10fbcea5b35b8f2e4f13061ef3fb34bb26a8b061ceaafb6be4531b806",
+            "corrected": "cb5fb806d00209fbc1c9931d49d4adf1fd01fa2347e82f28f7be2fbf63f3edfd",
+            "response": "e9f762af55944dc337985c3a691ec480f4e40b92aace0f868184e9098ac1f629"
+          },
+          "within_process_elapsed_seconds": 32.16,
+          "warnings": [],
+          "artifacts": [
+            {
+              "name": "assays.rds",
+              "bytes": 5735475,
+              "sha256": "02810adf020ade15f02ea3f31325386fe49a8d223018c40527b9b82fc236a099"
+            },
+            {
+              "name": "corrected-counts.rds",
+              "bytes": 1576159,
+              "sha256": "4c9b6a2f607ab7fc23da3651d28d1b1733b3f19e398302d82dbda8ab0ff5ba49"
+            },
+            {
+              "name": "effective-arguments.json",
+              "bytes": 848,
+              "sha256": "19511d6ce621e5a0b0b1d7c63d0030ced499f1584b481def87b9bc309484689f"
+            },
+            {
+              "name": "fit.rds",
+              "bytes": 47689983,
+              "sha256": "5036e6265e3b36a188998509fa5b397463f4ec14ba9b593d266d4a2541ece468"
+            },
+            {
+              "name": "log1p-response.rds",
+              "bytes": 1556748,
+              "sha256": "a678cf6155b9553763900afe3f121f2ddf29aa3a4c77bdcc0d05ce29f4d781fa"
+            },
+            {
+              "name": "session.txt",
+              "bytes": 4276,
+              "sha256": "0b3cd55fd7ceb444ba2fcb2fdefa7f5689da57934d37708015ef5a5dc6d92798"
+            }
+          ]
+        },
+        "output": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-full"
+      },
+      "S00-subset-run1": {
+        "process": {
+          "command": [
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+            "--vanilla",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_validation.R",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-repeat-subset",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-subset-run1",
+            "124",
+            "1448145"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 9.82758739999997,
+          "peak_working_set_bytes": 1040216064,
+          "memory_observation": "Windows peak_wset sampled every 0.2 s; main R process",
+          "limits": {
+            "seconds": 900,
+            "working_set_bytes": 8589934592
+          },
+          "log": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-subset-run1.log",
+            "name": "S00-subset-run1.log",
+            "bytes": 1057,
+            "sha256": "baba43e4cd0f5ac5ed94920809fd9a49fa9b978b7c373bfb9db4620bd8587402"
+          },
+          "failure": null
+        },
+        "report": {
+          "schema": "bsfm.sct-validation.v1",
+          "status": "pass",
+          "input_manifest_sha256": "f5d1ebc92186ef2f94dae4ec858fe43910524c213a9ffa19a43f212ce9990441",
+          "input_genes": 300,
+          "input_cells": 1024,
+          "fitting_cells": 1024,
+          "actual_fitting_order_matches": true,
+          "effective_method": "glmGamPoi_offset",
+          "versions": {
+            "Seurat": "5.4.0",
+            "SeuratObject": "5.4.0",
+            "sctransform": "0.4.3",
+            "Matrix": "1.7-4",
+            "glmGamPoi": "1.22.0"
+          },
+          "R": "4.5.3",
+          "Bioconductor": "3.22",
+          "depth": 124,
+          "seed": 1448145,
+          "RNG": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "library_paths": [
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/library",
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/R-4.5.3/library"
+          ],
+          "threads": {
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1"
+          },
+          "gene_availability": {
+            "modeled_by_SCT": 300,
+            "unavailable": []
+          },
+          "corrected_shape": [
+            300,
+            1024
+          ],
+          "response_shape": [
+            300,
+            1024
+          ],
+          "corrected_finite_nonnegative_integer": true,
+          "response_finite": true,
+          "exact_log1p_reconstruction": true,
+          "log1p_max_absolute_difference": 0,
+          "correction_repeat_identical": true,
+          "independent_depth_reconstruction_exact": true,
+          "semantic_sha256": {
+            "model_pars": "02cab7190463c9fdd986162d391ad415ccb6707323325aa77f0fe61a9ff8dc02",
+            "model_pars_fit": "1ac4272553a2645d93c9898d9a119b7e6b3838e0ce6ee07ed37d854a5c3ce218",
+            "cells_step1": "9b894f1a42c9942634b19141204fb0145dc9dacbee26ff223c92d4a476b0d124",
+            "corrected": "bffcfbbd7ab3b9681ce0372d5b2d4e2d5d56cfc4e7e5a9d9537411a0cacb14be",
+            "response": "c32b98f1a2bd522db7a6f28f5ee738c035edf7e16ef990630fc213d05c83b501"
+          },
+          "within_process_elapsed_seconds": 9.52,
+          "warnings": [],
+          "artifacts": [
+            {
+              "name": "assays.rds",
+              "bytes": 354125,
+              "sha256": "e1c27967b8a69fdcf75f07e03a299b1d7ecbdbb9a0f4f0825211a511f9cdecd6"
+            },
+            {
+              "name": "corrected-counts.rds",
+              "bytes": 87739,
+              "sha256": "e3dc4b5e44b0bc89caf5442ed8ac8982645aaff3dce29dd70c7a8a859292cbeb"
+            },
+            {
+              "name": "effective-arguments.json",
+              "bytes": 819,
+              "sha256": "f5e7efc9bebe5cccb84d5bc12115f14fbb9c68b4905bfb3d18a776263efa1c71"
+            },
+            {
+              "name": "fit.rds",
+              "bytes": 2375958,
+              "sha256": "567e043624d8adcacc678a6ba1e5e93eb956b14fa2d48dd86fc277494fd2ff08"
+            },
+            {
+              "name": "log1p-response.rds",
+              "bytes": 87503,
+              "sha256": "b631d2af54b1352a79aea9f3c282c3ac0c79e10d9e6e038551fb5385cb62cf29"
+            },
+            {
+              "name": "session.txt",
+              "bytes": 4276,
+              "sha256": "0b3cd55fd7ceb444ba2fcb2fdefa7f5689da57934d37708015ef5a5dc6d92798"
+            }
+          ]
+        },
+        "output": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-subset-run1"
+      },
+      "S00-subset-run2": {
+        "process": {
+          "command": [
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+            "--vanilla",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_validation.R",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-repeat-subset",
+            "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-subset-run2",
+            "124",
+            "1448145"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 11.02857860000006,
+          "peak_working_set_bytes": 1041350656,
+          "memory_observation": "Windows peak_wset sampled every 0.2 s; main R process",
+          "limits": {
+            "seconds": 900,
+            "working_set_bytes": 8589934592
+          },
+          "log": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-subset-run2.log",
+            "name": "S00-subset-run2.log",
+            "bytes": 1057,
+            "sha256": "e70ed44c15c5b01f656ef100ba18cdc2088170a6d1aebb7c17cd77be7fa22bd9"
+          },
+          "failure": null
+        },
+        "report": {
+          "schema": "bsfm.sct-validation.v1",
+          "status": "pass",
+          "input_manifest_sha256": "f5d1ebc92186ef2f94dae4ec858fe43910524c213a9ffa19a43f212ce9990441",
+          "input_genes": 300,
+          "input_cells": 1024,
+          "fitting_cells": 1024,
+          "actual_fitting_order_matches": true,
+          "effective_method": "glmGamPoi_offset",
+          "versions": {
+            "Seurat": "5.4.0",
+            "SeuratObject": "5.4.0",
+            "sctransform": "0.4.3",
+            "Matrix": "1.7-4",
+            "glmGamPoi": "1.22.0"
+          },
+          "R": "4.5.3",
+          "Bioconductor": "3.22",
+          "depth": 124,
+          "seed": 1448145,
+          "RNG": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "library_paths": [
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/library",
+            "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/R-4.5.3/library"
+          ],
+          "threads": {
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1"
+          },
+          "gene_availability": {
+            "modeled_by_SCT": 300,
+            "unavailable": []
+          },
+          "corrected_shape": [
+            300,
+            1024
+          ],
+          "response_shape": [
+            300,
+            1024
+          ],
+          "corrected_finite_nonnegative_integer": true,
+          "response_finite": true,
+          "exact_log1p_reconstruction": true,
+          "log1p_max_absolute_difference": 0,
+          "correction_repeat_identical": true,
+          "independent_depth_reconstruction_exact": true,
+          "semantic_sha256": {
+            "model_pars": "02cab7190463c9fdd986162d391ad415ccb6707323325aa77f0fe61a9ff8dc02",
+            "model_pars_fit": "1ac4272553a2645d93c9898d9a119b7e6b3838e0ce6ee07ed37d854a5c3ce218",
+            "cells_step1": "9b894f1a42c9942634b19141204fb0145dc9dacbee26ff223c92d4a476b0d124",
+            "corrected": "bffcfbbd7ab3b9681ce0372d5b2d4e2d5d56cfc4e7e5a9d9537411a0cacb14be",
+            "response": "c32b98f1a2bd522db7a6f28f5ee738c035edf7e16ef990630fc213d05c83b501"
+          },
+          "within_process_elapsed_seconds": 10.61,
+          "warnings": [],
+          "artifacts": [
+            {
+              "name": "assays.rds",
+              "bytes": 354125,
+              "sha256": "e1c27967b8a69fdcf75f07e03a299b1d7ecbdbb9a0f4f0825211a511f9cdecd6"
+            },
+            {
+              "name": "corrected-counts.rds",
+              "bytes": 87739,
+              "sha256": "e3dc4b5e44b0bc89caf5442ed8ac8982645aaff3dce29dd70c7a8a859292cbeb"
+            },
+            {
+              "name": "effective-arguments.json",
+              "bytes": 819,
+              "sha256": "f5e7efc9bebe5cccb84d5bc12115f14fbb9c68b4905bfb3d18a776263efa1c71"
+            },
+            {
+              "name": "fit.rds",
+              "bytes": 2375958,
+              "sha256": "f2165d0ecb4ce9520c853ca9f2cc3c167d8154ae1bdd6090ddc0f812d594aafa"
+            },
+            {
+              "name": "log1p-response.rds",
+              "bytes": 87503,
+              "sha256": "b631d2af54b1352a79aea9f3c282c3ac0c79e10d9e6e038551fb5385cb62cf29"
+            },
+            {
+              "name": "session.txt",
+              "bytes": 4276,
+              "sha256": "0b3cd55fd7ceb444ba2fcb2fdefa7f5689da57934d37708015ef5a5dc6d92798"
+            }
+          ]
+        },
+        "output": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-subset-run2"
+      }
+    },
+    "synthetic_fixture": {
+      "medians": [
+        662.0,
+        1766.0
+      ],
+      "common_depth": 662.0
+    },
+    "synthetic_gate": "pass",
+    "S00_input": {
+      "schema": "bsfm.sct-validation-input.v1",
+      "shape": [
+        300,
+        20719
+      ],
+      "storage": "little-endian float64; genes vary fastest; genes x cells in R",
+      "gene_order_sha256": "e7c67fcc863d783b656912b53ca02e9ebdaace3c8f6e141e0ed5d3709858cfda",
+      "cell_order_sha256": "f86a553220c9610220e8500d13af107bbbc041a7944bc6af7c81c93619b9b48d",
+      "source": {
+        "kind": "accepted_raw_S00",
+        "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+        "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
+        "layer": "layers/RNA",
+        "section": "S00__Trem2_5xFAD4",
+        "registry_sha256": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166",
+        "no_exclusions": true
+      },
+      "files": [
+        {
+          "name": "counts.f64",
+          "bytes": 49725600,
+          "sha256": "6706ae0ee95625b14d73669f5acef7db177c3c2bf842f7aed2bdea3dc14db991"
+        },
+        {
+          "name": "genes.json",
+          "bytes": 3532,
+          "sha256": "3130411969cfbda17c5d022f4581f12f1ae9f2dc7a9834e46e59bbb14f9d0c19"
+        },
+        {
+          "name": "cells.json",
+          "bytes": 902622,
+          "sha256": "e19e0af3cd05aa647bdeb0267bcd2654bc27a158bc01b32b0c9e3272a9f7d942"
+        }
+      ]
+    },
+    "S00_gate": "pass"
+  },
+  "serialized_artifact_readback": {
+    "schema": "bsfm.sct-artifact-readback.v1",
+    "status": "pass",
+    "cells": 20719,
+    "input_genes": 300,
+    "SCT_model_genes": 300,
+    "initial_parameter_genes": 298,
+    "exact_serialized_layer_equality": true,
+    "exact_saved_model_recorrection": true,
+    "recorded_correction_depth": 124
+  },
+  "readback_record": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_RECOVERY_EVIDENCE\\sctransform_validation_20261031_attempt1\\S00-full\\readback.json",
+    "bytes": 300,
+    "sha256": "dc9d9f2f32371462407fa0d2c16248156c47504970853b25cd4703c9ffa941d5"
+  },
+  "environment_records": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\initial-acquisition.json",
+      "bytes": 1920,
+      "sha256": "1c3fb7c4a9b509497535b1132875958eafba114bcbb3384c808abf16401cfd9e"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\source-lock.json",
+      "bytes": 185706,
+      "sha256": "2c258eef6b3284118f82e062e301019ae0c7b434cafad2958f4c8b003ca5c281"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\post-shutdown-audit.json",
+      "bytes": 3378,
+      "sha256": "ac86290e5163c29d5f62cd44d24687f141ea2b1a5a6818463056dfd492b61d58"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\installed-session.txt",
+      "bytes": 4194,
+      "sha256": "de608d631158b25819b6507315f2dc85ee21092f01c81b7a377db1718f951123"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\installed-packages.csv",
+      "bytes": 58043,
+      "sha256": "5362880b194d1c180b0e4a484bd5ea9ef3957018c0b9554e28907eb63b4a3422"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\renv.lock",
+      "bytes": 428043,
+      "sha256": "b3ab89dc1bcfe7cd082b9c334e425d02cb296e468f208c22ff777a182943f3b9"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\namespace-diagnostics.json",
+      "bytes": 2540,
+      "sha256": "b589fa30b68992b66b65ba3cb818854affe1dbd35be620061034ef59d8711ac1"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\package-verify-lock.log",
+      "bytes": 15908,
+      "sha256": "f056a728f819e133af360bc6c71314824b8c2d1b132276925dcd0dcb5e960502"
+    }
+  ],
+  "limitations": [
+    "No other sections normalized",
+    "No gene-panel/cell-type selection, response centering or GP initialization",
+    "Repeatability established on synthetic fixtures and a 1024-cell S00 subset, not a second full S00 fit",
+    "Stack-imbalance warnings in a mixed-order namespace diagnostic; not reproduced by individual namespace loads or any validation fit; cause unresolved",
+    "Local Windows only; no Linux/container/HPC validation",
+    "No training-only holdout validation"
+  ],
+  "execution_record": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\preprocessing\\audits\\20261031_sct_smoke\\execution-record.json",
+    "bytes": 7952,
+    "sha256": "757092dffdafdddffab1af7e4cfd01913f4056b9e626d461db3d95afd0e682ac"
+  },
+  "repository_metadata_line_endings": "LF; see original external identities in environment_records",
+  "implementation_committed_at_execution": false,
+  "acceptance": {
+    "authority": "explicit_user_approval",
+    "scope": [
+      "isolated canonical environment build",
+      "bounded validation implementation",
+      "synthetic results",
+      "S00 smoke and subset repeatability"
+    ],
+    "excluded": [
+      "remaining 18 sections",
+      "holdout preprocessing",
+      "gene selection",
+      "response centering",
+      "GP initialization",
+      "HPC execution"
+    ],
+    "unresolved_namespace_diagnostic_retained": true
+  },
+  "acceptance_checks": {
+    "Python_tests_passed": 23,
+    "R_input_cases_passed": 7,
+    "source_binary_hash_check": "pass",
+    "installed_packages": 160,
+    "installed_files_checked": 23571,
+    "installed_audit": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\acceptance-audit.json",
+      "bytes": 2912,
+      "sha256": "961958f258e978a0abc503f9d3bc22c4bdd6860beea1c2178aa166b5a83f362e"
+    },
+    "repository_session_normalization": "LF and trailing display padding removed; original external session hashes retained"
+  }
+}

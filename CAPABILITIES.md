@@ -7,8 +7,8 @@ capabilities, not claims that any historical implementation is authoritative.
 
 Recovery status: **historical normalization-recipe recovery completed through
 B6; canonical scientific design approved; raw-input preflight and full-data
-depth accepted; canonical environment specification approved, build and
-validation pending; normalization implementation not begun**. See the
+depth accepted; isolated canonical environment materialized; synthetic and
+bounded S00 normalization validation accepted**. See the
 [canonical SCTransform decision](docs/decisions/SCTRANSFORM_DESIGN.md),
 [environment decision](docs/decisions/SCTRANSFORM_ENVIRONMENT.md),
 [SCTransform recovery](docs/recovery/SCTRANSFORM_PREPROCESSING.md) and
@@ -22,8 +22,9 @@ validation pending; normalization implementation not begun**. See the
 | Uniform cross-section comparability | Unestablished. |
 | Replacement design | Approved: uniform section-specific SCT v2, common minimum-section-median depth, log1p corrected counts and one section/type/gene centering operation. |
 | Preflights | Canonical Python raw-input audit accepted: 432,794 eligible cells, 300 unique genes, no exclusions/invalid counts, all 19 section/glial totals matched, full-data depth 124 (S00__Trem2_5xFAD4). See the [accepted audit](docs/preprocessing/audits/20261030_raw/summary.md) and [preflight guide](docs/preprocessing/RAW_INPUT_PREFLIGHT.md). |
-| Environment | Feasibility gate accepted with explicit glmGamPoi 1.25.1 development to 1.22.0 release amendment. Frozen target: R 4.5.3, Bioconductor 3.22, Seurat/SeuratObject 5.4.0, sctransform 0.4.3, Matrix 1.7-4. Local user-owned Windows build first; acquisition, dependency/source locks and synthetic validation pending. Future Linux verification container; no HPC normalization job approved. See the [specification](environment/sctransform/environment-spec.json) and [feasibility evidence](docs/environment/SCTRANSFORM_ENVIRONMENT_FEASIBILITY.md). |
+| Environment | Feasibility gate accepted with explicit glmGamPoi 1.25.1 development to 1.22.0 release amendment. Frozen target: R 4.5.3, Bioconductor 3.22, Seurat/SeuratObject 5.4.0, sctransform 0.4.3, Matrix 1.7-4. Local user-owned Windows environment materialized with real dependency/source locks; synthetic and S00 checks accepted. Future Linux verification container; no HPC normalization job approved. See the [specification](environment/sctransform/environment-spec.json) and [feasibility evidence](docs/environment/SCTRANSFORM_ENVIRONMENT_FEASIBILITY.md). |
 | Spatial holdout | Training-only preprocessing approved as primary policy; fold-specific implementation design remains pending. |
+| Bounded canonical normalization | New canonical validation runner passed deterministic synthetic fits and S00 at depth 124 using all 20,719 cells and 300 genes. Effective method, actual fitting cells and exact log1p layer equality verified. Remaining 18 sections, model-panel selection, response centering and GP initialization have not run. See the [validation evidence](docs/preprocessing/audits/20261031_sct_smoke/summary.md). |
 
 All recovered writers export Seurat SCT `data`, the intended
 `log1p(corrected counts)` representation. Ten new and three regional reused
@@ -45,7 +46,10 @@ selected after correction; the final response is centered once without variance
 scaling. Residual-only settings do not define that response. The environment
 decision deliberately amends the historical development dependency; it does
 not claim exact historical reconstruction. Further substitutions require an
-explicit version amendment. SCTransform implementation/execution remains
+explicit version amendment. The [local build](docs/environment/SCTRANSFORM_ENVIRONMENT_BUILD.md)
+now has actual dependency/source locks and bounded validation evidence. A
+namespace-loading diagnostic warning remains documented; it did not occur in
+the tested normalization path. Full-section regeneration beyond S00 remains
 pending. See the decisions for environment and holdout limits.
 
 Accepted raw-source identity: SHA-256
@@ -161,6 +165,7 @@ minimum-median depth, not automatically the training-only holdout depth.
 
 No historical implementation has been selected. The first canonical code is
 the raw-input preflight, implemented from the frozen contract, tested and
-accepted with the aggregate audit above. No SCTransform or model execution
-is included.
+accepted with the aggregate audit above. The new SCT validation runner has now
+executed synthetic checks and one bounded S00 smoke; the bounded implementation
+and results are accepted. No GP/BSFM model or HPC execution is included.
 

@@ -2,7 +2,8 @@
 
 Decision date: 2026-10-30.
 Status: **scientific choices frozen by explicit user approval; canonical raw-input
-preflight and full-data depth accepted; SCTransform implementation/execution pending**.
+preflight and full-data depth accepted; bounded SCT implementation validated on
+synthetic data and S00, accepted; all-section execution pending**.
 Evidence baseline: clean commit `8e84d872f57507d3b9937dca0e37083bbc3722f7`.
 Preflight amendment: 2026-10-30, following implementation from design checkpoint
 `909d86da682695279a456dca396a1e6b2e23b3b9` and explicit user acceptance.
@@ -258,7 +259,8 @@ with a real renv lock, immutable source/binary hashes and exact session/build
 records. Add a Linux verification container after the local source-locked
 environment works. Current HPC container compatibility is unresolved and no
 HPC normalization job is approved. Acquisition, installation and validation
-remain separate future steps; no environment has been built by this decision.
+were separate future steps at that decision. They were subsequently authorized
+and completed for the bounded local validation; see the linked build evidence.
 The environment decision defines the required method, fitting-population,
 determinism, layer-equality, common-depth correction and bounded S00 checks.
 
@@ -325,9 +327,10 @@ holdout implementation specification before running validation:
 
 The scientific choices above are authoritative repository decisions. Raw-input
 preflight and full-data depth 124 are accepted for the recorded fingerprint.
-The R environment specification is approved; acquisition, build, environment
-validation and holdout implementation design remain pending. The canonical
-Python preflight is the first implemented code; it
-does not run SCTransform, import legacy source, submit jobs or certify a
-generated response. Future changes to frozen scientific choices require an
+The R environment specification is approved. The 2026-10-31 assignment authorized
+acquisition, local build and bounded validation before commit; its
+[results](../preprocessing/audits/20261031_sct_smoke/summary.md) are accepted by explicit user approval.
+The Python preflight remains a raw-input audit; the separate canonical SCT
+runner has passed synthetic and S00 checks. Remaining-section execution and
+holdout implementation design remain pending. Future changes to frozen scientific choices require an
 explicit decision amendment; historical findings remain preserved as evidence.

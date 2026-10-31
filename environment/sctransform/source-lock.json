@@ -1,0 +1,3396 @@
+{
+  "schema": "bsfm.package-source-lock.v1",
+  "R_source": {
+    "url": "https://cran.r-project.org/src/base/R-4/R-4.5.3.tar.gz",
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\R-4.5.3.tar.gz",
+    "bytes": 40518619,
+    "sha256": "aa5c1ed4293c7271ac513d654670356ac0e8a6ad5e42be014365d11150b5b8f2"
+  },
+  "bundled_packages": {
+    "KernSmooth": "2.23-26",
+    "MASS": "7.3-65",
+    "Matrix": "1.7-4",
+    "base": "4.5.3",
+    "boot": "1.3-32",
+    "class": "7.3-23",
+    "cluster": "2.1.8.2",
+    "codetools": "0.2-20",
+    "compiler": "4.5.3",
+    "datasets": "4.5.3",
+    "foreign": "0.8-91",
+    "grDevices": "4.5.3",
+    "graphics": "4.5.3",
+    "grid": "4.5.3",
+    "lattice": "0.22-9",
+    "methods": "4.5.3",
+    "mgcv": "1.9-4",
+    "nlme": "3.1-168",
+    "nnet": "7.3-20",
+    "parallel": "4.5.3",
+    "rpart": "4.1.24",
+    "spatial": "7.3-18",
+    "splines": "4.5.3",
+    "stats": "4.5.3",
+    "stats4": "4.5.3",
+    "survival": "3.8-6",
+    "tcltk": "4.5.3",
+    "tools": "4.5.3",
+    "translations": "4.5.3",
+    "utils": "4.5.3"
+  },
+  "packages": [
+    {
+      "package": "BH",
+      "version": "1.90.0-1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/BH_1.90.0-1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\BH_1.90.0-1.zip",
+        "bytes": 21715043,
+        "sha256": "348a3bc4b9d62cbacf260cef2351b0d858fa5cd32d9d0106403ba170787513c6",
+        "DESCRIPTION_sha256": "a7f338136677d0805f4616c91d615308e33da087c78786764d81862f28c59971",
+        "Built": "R 4.5.2; ; 2025-12-18 00:53:12 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/BH_1.90.0-1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\BH_1.90.0-1.tar.gz",
+        "bytes": 14307014,
+        "sha256": "2e1fafb05938e81073561ae4892dc543ef15807e375e0ea8fa75e3ab79f0281b",
+        "DESCRIPTION_sha256": "bc97c2aab9db3b9e997fd9813734d92c7ff55bcbb56f18568a1b040a0afc86ae"
+      }
+    },
+    {
+      "package": "Biobase",
+      "version": "2.70.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/Biobase_2.70.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\Biobase_2.70.0.zip",
+        "bytes": 2058367,
+        "sha256": "4359e3764b92fd51c154402d48c932bc94cb2702bb862bf5c88c3df1144551fc",
+        "DESCRIPTION_sha256": "9dee4c8b2bb2babd7945b268e7c635da533ccfdd9da443584a34e37d4fe5a130",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-03-17 07:54:56 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/Biobase_2.70.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\Biobase_2.70.0.tar.gz",
+        "bytes": 1978690,
+        "sha256": "530a7435640e86c34db16bcc4c8a38b5046ac79512a86e7b97f66a9d57813cbc",
+        "DESCRIPTION_sha256": "7db2e22dd1db2e0a53cf409e0aad07bb3cd2f915c6bdf80d4fc3a3498eb0b96d"
+      }
+    },
+    {
+      "package": "BiocGenerics",
+      "version": "0.56.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/BiocGenerics_0.56.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\BiocGenerics_0.56.0.zip",
+        "bytes": 663228,
+        "sha256": "b17311e8220716a728f93d3261750075ba6051ebe8d265953d7901e1fbe6070a",
+        "DESCRIPTION_sha256": "fbf9b2a0e30510fa9800655dd8760993e4f716d3ae68651e0b57ab884c0f77a9",
+        "Built": "R 4.5.2; ; 2026-03-05 07:51:29 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/BiocGenerics_0.56.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\BiocGenerics_0.56.0.tar.gz",
+        "bytes": 61534,
+        "sha256": "17795ff63ca767a48df95d2f4c774400c6098102dce9ffcb5db2596a6d9b68e0",
+        "DESCRIPTION_sha256": "a29e0b8381050a59498e026a95e9fc3ae475fd1e58363ee653efc29971d5f30c"
+      }
+    },
+    {
+      "package": "BiocManager",
+      "version": "1.30.27",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/BiocManager_1.30.27.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\BiocManager_1.30.27.zip",
+        "bytes": 664094,
+        "sha256": "75d15e7cf1fb7bad5e14540fdb23ca62b852abfa809ca4560a4341aa105cfc0c",
+        "DESCRIPTION_sha256": "07fbb48851bb9a6dd98ed0d200e947c123d014b2f5ab10135a903f56da6e4cd2",
+        "Built": "R 4.5.3; ; 2026-10-26 00:24:22 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/BiocManager_1.30.27.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\BiocManager_1.30.27.tar.gz",
+        "bytes": 752490,
+        "sha256": "acbfdcf09602c8279085556ca54531c2ada0ac3c1775d54ce2c3b9a3dc03fbb5",
+        "DESCRIPTION_sha256": "487e79ac36938b8a32af196cb60ac6e4ceef74526ce1b30dbff324d34b8ca55f"
+      }
+    },
+    {
+      "package": "BiocVersion",
+      "version": "3.22.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/BiocVersion_3.22.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\BiocVersion_3.22.0.zip",
+        "bytes": 8513,
+        "sha256": "cb0e1065e6e8b0a00d18462743bd6270e76f8dc43a96c8f0d5565ee9f2b0db2f",
+        "DESCRIPTION_sha256": "f7f1b86acec8c4ad4b47e9e3905f94795aedd1ec9b48318ad742ee337c08a74c",
+        "Built": "R 4.5.2; ; 2026-02-22 08:06:20 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/BiocVersion_3.22.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\BiocVersion_3.22.0.tar.gz",
+        "bytes": 1112,
+        "sha256": "448abdf08722eaa8cefe6699fc2ae7ce20a008d6a46d2473e022f7b219b62384",
+        "DESCRIPTION_sha256": "4cde8f9ca15d94477423997920be8b594bc6456561a01495b6e96e813c569c67"
+      }
+    },
+    {
+      "package": "DelayedArray",
+      "version": "0.36.1",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/DelayedArray_0.36.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\DelayedArray_0.36.1.zip",
+        "bytes": 2115177,
+        "sha256": "fbd2b572ac260d9aa485f7d4df3c13e95947a5ab9a782fb9cb9387af8758ed95",
+        "DESCRIPTION_sha256": "7ab0dd5c02ba7e0e214e401d193321c6f70e838a69cd722ebf778cd2fd634743",
+        "Built": "R 4.5.3; ; 2026-04-01 06:38:44 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/DelayedArray_0.36.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\DelayedArray_0.36.1.tar.gz",
+        "bytes": 815062,
+        "sha256": "3ac71b2914c233c9fb57f5f1c94f59d8e40dd339ba1777d6740015c01d6519ee",
+        "DESCRIPTION_sha256": "c0053397517e50fdaf50ddce805d88ebbac55b272876fa66150d4fdae20efcb4"
+      }
+    },
+    {
+      "package": "DelayedMatrixStats",
+      "version": "1.32.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/DelayedMatrixStats_1.32.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\DelayedMatrixStats_1.32.0.zip",
+        "bytes": 536064,
+        "sha256": "01f80849e910794e876b964d094f551b3767e7d420631d0b895ae6671e712565",
+        "DESCRIPTION_sha256": "78f7702f1663b98ab8f26d589cfb9046f6add6eabbbe6367a67c39c0d331d7f4",
+        "Built": "R 4.5.2; ; 2026-02-20 06:06:21 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/DelayedMatrixStats_1.32.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\DelayedMatrixStats_1.32.0.tar.gz",
+        "bytes": 274354,
+        "sha256": "452ddf31eeb0bf92738566f22dd6719799347e07376bbc7c1024854ad14df779",
+        "DESCRIPTION_sha256": "c40f8e4ffcf3ab9a3a50d0e6826b1f1b767d02b7f6b7ded7a58ff4bbe8246a15"
+      }
+    },
+    {
+      "package": "FNN",
+      "version": "1.1.4.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/FNN_1.1.4.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\FNN_1.1.4.1.zip",
+        "bytes": 451445,
+        "sha256": "4d72ad74d504a98d1c2c3f0f1a14e671e0f825dbd5a618b5ef9b2736649c3f34",
+        "DESCRIPTION_sha256": "aaf67da1f333c87f7761b1a0da6d09b411da6693ae82b76a5aa32cc56738b010",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:47 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/FNN_1.1.4.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\FNN_1.1.4.1.tar.gz",
+        "bytes": 78809,
+        "sha256": "73d97487fd3eac8ae90f32fd439f1689b1923b5688d83fd57fd2faeea70cb854",
+        "DESCRIPTION_sha256": "8021931be751ce2d78ba8daa59dd385ec7be0f7e62eb3b4e20f175922ea74e6d"
+      }
+    },
+    {
+      "package": "GenomicRanges",
+      "version": "1.62.1",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/GenomicRanges_1.62.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\GenomicRanges_1.62.1.zip",
+        "bytes": 1211252,
+        "sha256": "e22b6f5a2835018ceb1f8f6e1c2f36b2a63cf322c53027afb344beeb4df3b45a",
+        "DESCRIPTION_sha256": "1817873da72753fe29b06fd256b361e6c11d3a4f61a5189efeef55e8c9dd644f",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-03-05 08:28:57 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/GenomicRanges_1.62.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\GenomicRanges_1.62.1.tar.gz",
+        "bytes": 1375832,
+        "sha256": "60fc1b77dc280e7384be30d62e1125a18be111a9a1c1581f5dc5c4311a7bc5d5",
+        "DESCRIPTION_sha256": "d5b1c82523576b41e601cea7b91ced967839f3334009d5f94df0cfc87bf1057b"
+      }
+    },
+    {
+      "package": "HDF5Array",
+      "version": "1.38.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/HDF5Array_1.38.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\HDF5Array_1.38.0.zip",
+        "bytes": 8787439,
+        "sha256": "94415d89c38b597c26ace7fc94e7747e961faeeb9b58702d8705ee3a5c5c06f2",
+        "DESCRIPTION_sha256": "f3b3dc1832212682e73856cf7a39d49e3875417bca4ab6a4fa85285f6c41156f",
+        "Built": "R 4.5.2; ; 2026-03-05 04:00:53 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/HDF5Array_1.38.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\HDF5Array_1.38.0.tar.gz",
+        "bytes": 8357076,
+        "sha256": "b732fa51390c619b23191f77947b807dbf74370623f7d3002444413afcc563e2",
+        "DESCRIPTION_sha256": "a93f07fa610f788237afaa05b847e8ae50949a3bf3dbe276723facccb2c2550e"
+      }
+    },
+    {
+      "package": "IRanges",
+      "version": "2.44.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/IRanges_2.44.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\IRanges_2.44.0.zip",
+        "bytes": 2277355,
+        "sha256": "de6de1675948472c8732fb78d02f824f94c2b5a2e9adec82fb858400fd0b1e65",
+        "DESCRIPTION_sha256": "2036006ec8e69831ff73efc82ea9611e035bb883cd17aaab398e06369a8ccba8",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-03-04 08:12:19 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/IRanges_2.44.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\IRanges_2.44.0.tar.gz",
+        "bytes": 496065,
+        "sha256": "244e55ca485805ae2fcae8621dec7bb35e9fcd0da707271eb5ef984b88605042",
+        "DESCRIPTION_sha256": "87029089e57b26ea379dbaf7843fbc5dade155ccf98c6956772a45a2aa18b3ba"
+      }
+    },
+    {
+      "package": "MatrixGenerics",
+      "version": "1.22.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/MatrixGenerics_1.22.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\MatrixGenerics_1.22.0.zip",
+        "bytes": 459448,
+        "sha256": "3d71e736e24cd83e3ae7a8061a295ff43c835770cdfcb5f8fd0a5b818b352ce9",
+        "DESCRIPTION_sha256": "fe4c2a26519bb5b8b6c2924ef2988b3492ae04f669292f4a1596ff20c8ba4edd",
+        "Built": "R 4.5.2; ; 2026-02-25 08:17:53 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/MatrixGenerics_1.22.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\MatrixGenerics_1.22.0.tar.gz",
+        "bytes": 34596,
+        "sha256": "b53dcb3c9ac7e1e6e0a297f90c1603ab2a39e052718bd70d76aeed6f6110557a",
+        "DESCRIPTION_sha256": "471f09fc72340602bcc3fc68f1fc32b9fb3d8effdf6d228a9269e8d37ba30a6c"
+      }
+    },
+    {
+      "package": "R6",
+      "version": "2.6.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/R6_2.6.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\R6_2.6.1.zip",
+        "bytes": 88763,
+        "sha256": "be3754ec28e0da7ca0c42a283e2f2badd391d6f389792071628aeabebece4d1a",
+        "DESCRIPTION_sha256": "91421bcbac4167cf310009acd6e6644786dafa950295fc565106dc92335d942e",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:02 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/R6_2.6.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\R6_2.6.1.tar.gz",
+        "bytes": 64507,
+        "sha256": "59c6eba8b1b912eb7e104f65053235604be853425ee67c152ac4e86a1f2073b4",
+        "DESCRIPTION_sha256": "de69af2c48276c45bba796554e78d045f3777e420356b84402b59bbd80c6ee1b"
+      }
+    },
+    {
+      "package": "RANN",
+      "version": "2.6.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/RANN_2.6.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\RANN_2.6.3.zip",
+        "bytes": 357052,
+        "sha256": "4c3b2dc611f73132a491891f8827078dc535fde1a6377d73cb51843a61f99103",
+        "DESCRIPTION_sha256": "64ac13103b1329f50ddc433844cfcdf95bd0b48d7b6b82a777dc25f497b7e070",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:22:40 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/RANN_2.6.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\RANN_2.6.3.tar.gz",
+        "bytes": 59999,
+        "sha256": "df64fe85e4ea0431bd10a33807dca1294d665aef7d5d27ed71527ab7c6ca4b65",
+        "DESCRIPTION_sha256": "2f09260f0fe139e772ae98a9e31128a18ce9e193936737206dc447a7d8c9b504"
+      }
+    },
+    {
+      "package": "RColorBrewer",
+      "version": "1.1-3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/RColorBrewer_1.1-3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\RColorBrewer_1.1-3.zip",
+        "bytes": 54811,
+        "sha256": "2c43fa8a49b5f3a5f7011e2e948e5bfcdeca938a0bbc68b5aebdbab5c1bd57fa",
+        "DESCRIPTION_sha256": "77f9f69ffd1699bc15ca4c701e711998075c55e8734393b35743e47058745a1a",
+        "Built": "R 4.5.2; ; 2025-11-01 00:30:56 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/RColorBrewer_1.1-3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\RColorBrewer_1.1-3.tar.gz",
+        "bytes": 11638,
+        "sha256": "4f42f5423c45688b39f492c7892d93f37b4541831c8ffb140364d2bd89031ac0",
+        "DESCRIPTION_sha256": "25a41a5e9f5b2f922d801d278840350487edb68b5ba44329f613fdd2ae8e8101"
+      }
+    },
+    {
+      "package": "ROCR",
+      "version": "1.0-12",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/ROCR_1.0-12.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\ROCR_1.0-12.zip",
+        "bytes": 473879,
+        "sha256": "e8d0eaa543dae1f7e1cfadfcbc6c0b6c626242f7048c086119f5c32d15d1f757",
+        "DESCRIPTION_sha256": "55fe7643ec35c91e158e7a09b01020bfaa1bed2221b0de51d19bc7f4213bce22",
+        "Built": "R 4.5.3; ; 2026-10-26 01:21:56 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/ROCR_1.0-12.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\ROCR_1.0-12.tar.gz",
+        "bytes": 274214,
+        "sha256": "21903bd977e2cf6382f016bbef3d14b5a77305b9d0dc2041b0f26a76938c95fb",
+        "DESCRIPTION_sha256": "44894a1ea6b0b5ea5572abefca06e4a1e990b269d6e588a366cbb29aac5852e1"
+      }
+    },
+    {
+      "package": "RSpectra",
+      "version": "0.16-2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/RSpectra_0.16-2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\RSpectra_0.16-2.zip",
+        "bytes": 898817,
+        "sha256": "74d9eb37b141f6e625417f36a60155ff9942f5da2e84698e1e724e146aa6a7a3",
+        "DESCRIPTION_sha256": "e3ce6791f7c6663903b3b9f2e6aede106ab6d8699f261abdf1cd234da4685a02",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:55:26 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/RSpectra_0.16-2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\RSpectra_0.16-2.tar.gz",
+        "bytes": 128030,
+        "sha256": "a2f149d79519fee79dabe1b174dfb847a916045315d5927a93cc6b005522aa7e",
+        "DESCRIPTION_sha256": "097ce5f90963c39f3160e2257b8256be92f58dd41d610d9fe5316e07e84a9215"
+      }
+    },
+    {
+      "package": "Rcpp",
+      "version": "1.1.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/Rcpp_1.1.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\Rcpp_1.1.2.zip",
+        "bytes": 2953635,
+        "sha256": "936623b4f4748b032a53887439e6d7ce1872da0c200f32559c76d818f6206c13",
+        "DESCRIPTION_sha256": "c19c43cca4ab1054cffe97e2df4faace9e183a8a0689e04092ab59871de88798",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:06 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/Rcpp_1.1.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\Rcpp_1.1.2.tar.gz",
+        "bytes": 1892159,
+        "sha256": "2746cf2fb188e5f0a84dbf5c8f68915b54564ed33e5754572f174e7b32e7f4f3",
+        "DESCRIPTION_sha256": "69cd947096ea4f2665acc8dda044fc4790947be8a9ca10a965b4edb03580f471"
+      }
+    },
+    {
+      "package": "RcppAnnoy",
+      "version": "0.0.23",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/RcppAnnoy_0.0.23.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\RcppAnnoy_0.0.23.zip",
+        "bytes": 625385,
+        "sha256": "87e1e34b4d00f6613b777e8443187885c6c6326e0d5fa2563ac97203bf539199",
+        "DESCRIPTION_sha256": "9e96b03843d02d84c6665979856758d920827c92b056dacf378bdc663fde4331",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:22:41 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/RcppAnnoy_0.0.23.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\RcppAnnoy_0.0.23.tar.gz",
+        "bytes": 118177,
+        "sha256": "e502e8d98590a3b9dc7ec82ec7242ab737a653603ecb0fc7145798f3e7e2d1dc",
+        "DESCRIPTION_sha256": "e8a6396ff79e2793fcb7c548c75b1813551de78638f3b7c8ee9e75dc7355049c"
+      }
+    },
+    {
+      "package": "RcppArmadillo",
+      "version": "15.6.2-1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/RcppArmadillo_15.6.2-1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\RcppArmadillo_15.6.2-1.zip",
+        "bytes": 2069656,
+        "sha256": "fe02ffb85d646bac1d54a1ed502c346566dd3638bbfa144faf9effb3b13cf3f6",
+        "DESCRIPTION_sha256": "40d8fee6f73aefcb9251cc52c302f736e98f33f1bcd82514f87d1c7f35114502",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:40 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/RcppArmadillo_15.6.2-1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\RcppArmadillo_15.6.2-1.tar.gz",
+        "bytes": 1097105,
+        "sha256": "66fb2b707e237e1086b4f39111a172794f43a8bb815c1b589363d2219d61368d",
+        "DESCRIPTION_sha256": "5801d58293d095e1c53034beff8d0dda53f05bfdcde8cc8b24c43e10d42f3d15"
+      }
+    },
+    {
+      "package": "RcppEigen",
+      "version": "0.3.4.0.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/RcppEigen_0.3.4.0.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\RcppEigen_0.3.4.0.2.zip",
+        "bytes": 2605603,
+        "sha256": "81fb83c8b6e11c2db2b98f857110c2ab4ce777c655b1956ac897d4a3eb2a038f",
+        "DESCRIPTION_sha256": "63a3575ed8a30f55b067f056657e24a4c27f16eb93e7ec09a2565a536480bc29",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:40 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/RcppEigen_0.3.4.0.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\RcppEigen_0.3.4.0.2.tar.gz",
+        "bytes": 1761745,
+        "sha256": "ecad7ba2129fd48b7ebb825558d38492ed1f3a8934959e27fcd6688175e542bb",
+        "DESCRIPTION_sha256": "5a06d9fbb67cd4d68c8cabf8d7aa53df1dded39cfc567ec33a47136b715e74b6"
+      }
+    },
+    {
+      "package": "RcppHNSW",
+      "version": "0.7.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/RcppHNSW_0.7.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\RcppHNSW_0.7.0.zip",
+        "bytes": 576135,
+        "sha256": "27457837d0ae91906a2b1da65e2f80674648edc5bf7f77e6a8635bded74e73d7",
+        "DESCRIPTION_sha256": "9dde0518eaee5c7ccf148f7b242271e598973807cd78afcb976542875c8a957c",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:22:41 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/RcppHNSW_0.7.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\RcppHNSW_0.7.0.tar.gz",
+        "bytes": 38733,
+        "sha256": "8164785899f9e7f5ad5735fc0b7707d9ebadadc867a541816a9c2c5dd0fbac4c",
+        "DESCRIPTION_sha256": "a69bd050ce9691f8a69d19e653326971e816187a6fe9eaf0559f7f14a5270b85"
+      }
+    },
+    {
+      "package": "RcppProgress",
+      "version": "0.4.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/RcppProgress_0.4.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\RcppProgress_0.4.2.zip",
+        "bytes": 34582,
+        "sha256": "90f67ffce04bac7829fb6e6fa32be7af8337c04e28bf405486d61be73a2bdc82",
+        "DESCRIPTION_sha256": "6a77080e0a9823ff8906848d1e167c3c314366e22b6150124c4aa839193c3176",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:48 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/RcppProgress_0.4.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\RcppProgress_0.4.2.tar.gz",
+        "bytes": 12077,
+        "sha256": "b1624b21b7aeb1dafb30f092b2a4bef4c3504efd2d6b00b2cdf55dc9df194b48",
+        "DESCRIPTION_sha256": "6b3923afff5896ced005ad8f8a9b7bc441c90d31614b8782e73b498269768740"
+      }
+    },
+    {
+      "package": "RcppTOML",
+      "version": "0.2.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/RcppTOML_0.2.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\RcppTOML_0.2.3.zip",
+        "bytes": 624830,
+        "sha256": "36a9f2a33d86163a6424e3cbbe6454903ff51c1a94c545d7585775fdab3ee001",
+        "DESCRIPTION_sha256": "546fdfe96c7539befe1c5b43a5d257e8638be8093a399040f3fd6e4bd242af3a",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:21:18 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/RcppTOML_0.2.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\RcppTOML_0.2.3.tar.gz",
+        "bytes": 139887,
+        "sha256": "2ed594253c562bef7065e67d791197f61b221e545206a1b3598d46868cf5926f",
+        "DESCRIPTION_sha256": "714cebcfa28742d8a827238cfe4bc442d04294d5072d37962910e6a4ec716f9f"
+      }
+    },
+    {
+      "package": "Rhdf5lib",
+      "version": "1.32.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/Rhdf5lib_1.32.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\Rhdf5lib_1.32.0.zip",
+        "bytes": 6122196,
+        "sha256": "adce7499d2094842dbabd45ac696345dce081931d3e6e23c18f19d592eaa42f2",
+        "DESCRIPTION_sha256": "4ae1bda636220b8c02322d0e07a6cfc22556a69217f293831e3411b825f5e0b1",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-03-12 09:10:16 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/Rhdf5lib_1.32.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\Rhdf5lib_1.32.0.tar.gz",
+        "bytes": 12065352,
+        "sha256": "be6e080b0f8c91eea2761cb10b910036c00bcad6866dc4d285411a7ca4400fc4",
+        "DESCRIPTION_sha256": "67d277d3a2fac4ca374d675549d696767d6e603cd623cbdf451769344dc65c99"
+      }
+    },
+    {
+      "package": "Rtsne",
+      "version": "0.17",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/Rtsne_0.17.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\Rtsne_0.17.zip",
+        "bytes": 550977,
+        "sha256": "41990484215469319ac2e5acc5faabfa0c329b3c82f1c3d82cbfe2915eaac1f1",
+        "DESCRIPTION_sha256": "d592a75cd6134a17e7f52862c5efe830eafa4d42e7397171178be4f43e201260",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:21:05 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/Rtsne_0.17.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\Rtsne_0.17.tar.gz",
+        "bytes": 70904,
+        "sha256": "3aae6814d6c6d406785145f07374135652f2b26a58690dfd4bfbc8365dc5590b",
+        "DESCRIPTION_sha256": "25794c678b21369dbc2c06002696a92b022af8457de2991a66dff881f74b2830"
+      }
+    },
+    {
+      "package": "S4Arrays",
+      "version": "1.10.1",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/S4Arrays_1.10.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\S4Arrays_1.10.1.zip",
+        "bytes": 1007253,
+        "sha256": "00b3a2bd656bff20c12951ac59299fda189bb2c401379f7d4132c5249ee93530",
+        "DESCRIPTION_sha256": "eea26aa3d9e47886fcaf715c5485c468fb2ea2787cf7c47fed2a7e01b1ba93f2",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-03-01 09:21:53 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/S4Arrays_1.10.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\S4Arrays_1.10.1.tar.gz",
+        "bytes": 297028,
+        "sha256": "a3ceed75583236f2cb207f30f614d25b512e43ba008107dbda8425cfb4e47167",
+        "DESCRIPTION_sha256": "bc5ccac8eedc9d0ab2258efa6d67979340067f5efb1bc09877a182ff8fb352fb"
+      }
+    },
+    {
+      "package": "S4Vectors",
+      "version": "0.48.1",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/S4Vectors_0.48.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\S4Vectors_0.48.1.zip",
+        "bytes": 1876326,
+        "sha256": "7b48fa22300ba0b4ef82feded1207750dcb312c1d8475f95c1b8376622cd21d0",
+        "DESCRIPTION_sha256": "2fc62990b51a4dae8d561a2bc1dfeb453e266e7641d94cc87a408d115a159516",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-04-05 06:20:45 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/S4Vectors_0.48.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\S4Vectors_0.48.1.tar.gz",
+        "bytes": 843974,
+        "sha256": "cfe78db85b5dc98034031807d6699fb96eed7a228b0ccfa474e1ede642acddc9",
+        "DESCRIPTION_sha256": "54eb8b8a672e77fe181cb6199814a96c7c56703f745e3959b60ef57438fe4f84"
+      }
+    },
+    {
+      "package": "S7",
+      "version": "0.2.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/S7_0.2.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\S7_0.2.2.zip",
+        "bytes": 350064,
+        "sha256": "b55c649c923c2dd5a41b029c85ab142c7a8489488e0e81f2358cf16de8a0c38f",
+        "DESCRIPTION_sha256": "0694cba68e0a688b1d0705eb6d97f7e0558b79027bee5818b8ff2295b53c7216",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:04 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/S7_0.2.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\S7_0.2.2.tar.gz",
+        "bytes": 184632,
+        "sha256": "6f33245dde05b74265b1c4d379e034bc3a8923d41e7b52e6e75a75ce97d42af7",
+        "DESCRIPTION_sha256": "9582f0c545a1c75533eaa4c243c54183c4a201a858c4267f1cccad09dace201b"
+      }
+    },
+    {
+      "package": "Seqinfo",
+      "version": "1.0.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/Seqinfo_1.0.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\Seqinfo_1.0.0.zip",
+        "bytes": 434791,
+        "sha256": "83c89bb9d0bebe7e96143147539cf961f43cd562d14962eed32dcaf6fdd7642f",
+        "DESCRIPTION_sha256": "fb37d422f185ee00fd78dea93c7c749e06dd5fb0df6e3c3b2a3d96e4b37fecd5",
+        "Built": "R 4.5.2; ; 2026-02-23 08:53:59 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/Seqinfo_1.0.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\Seqinfo_1.0.0.tar.gz",
+        "bytes": 254658,
+        "sha256": "d72c95a5593ef0c5e343baa7d935583540abdc30c6f4d4c9178ecc8d89234d82",
+        "DESCRIPTION_sha256": "a7a283ff8679b34ce9c47904eaa4bda9c0fb386714987391f71e0557a3339c40"
+      }
+    },
+    {
+      "package": "Seurat",
+      "version": "5.4.0",
+      "repository": "https://packagemanager.posit.co/cran/2026-03-12",
+      "binary": {
+        "url": "https://packagemanager.posit.co/cran/2026-03-12/bin/windows/contrib/4.5/Seurat_5.4.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\Seurat_5.4.0.zip",
+        "bytes": 3069820,
+        "sha256": "51997a1057f2e8498bdae0fc740327d84e661e18af46e5c8f76b37daa07ad54e",
+        "DESCRIPTION_sha256": "0dbb2222a33cc77ab4cf9a7282745c470ecbf69a1b47ed2b8fa8a31fb42dfec7",
+        "Built": "R 4.5.0; x86_64-w64-mingw32; 2026-01-11 06:30:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/Archive/Seurat/Seurat_5.4.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\Seurat_5.4.0.tar.gz",
+        "bytes": 2109993,
+        "sha256": "d200da7cb19a2fa4ead7ea4aa1bb703dbc59c594f01cb91c996ad862ad6f6417",
+        "DESCRIPTION_sha256": "838705898781c8d5d5c7c5210de57fe813ceefc4de28c12fa7a9819a30a94033"
+      }
+    },
+    {
+      "package": "SeuratObject",
+      "version": "5.4.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/SeuratObject_5.4.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\SeuratObject_5.4.0.zip",
+        "bytes": 2447120,
+        "sha256": "bcd79c72484900b376fd2b8c83fc3c4edb1364f3b8c8b3259f67d7544795f42a",
+        "DESCRIPTION_sha256": "ac366628b16ef3eb5d57d7e30a84c226df7f6f6ea99e179fc37b0452098289e5",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:56:09 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/SeuratObject_5.4.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\SeuratObject_5.4.0.tar.gz",
+        "bytes": 773785,
+        "sha256": "11a748f7845115312021ee4e1e4c88f5a37546aa7d066f61652f09d81908f256",
+        "DESCRIPTION_sha256": "554b6fe33b055c70ddb5ea4dc2766293ca46b9cbfd5d63afc2a0e5fd04b827fd"
+      }
+    },
+    {
+      "package": "SingleCellExperiment",
+      "version": "1.32.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/SingleCellExperiment_1.32.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\SingleCellExperiment_1.32.0.zip",
+        "bytes": 1150802,
+        "sha256": "b1b9ddf98706ca57a662bc445e8abeec928b29c03c0e2195083cbc8c29494854",
+        "DESCRIPTION_sha256": "5a703f3a2afba55afc4a2d03ad2e350c8fc2d11f59dc731913c8d9d071c87df4",
+        "Built": "R 4.5.2; ; 2026-03-04 08:19:53 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/SingleCellExperiment_1.32.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\SingleCellExperiment_1.32.0.tar.gz",
+        "bytes": 987980,
+        "sha256": "e3f908c76246c03f023ef28173e5ff0cd5279bb584065d2b35f43ff8531c1729",
+        "DESCRIPTION_sha256": "7025afb6257155bdc439a38ef35a9933616500b1406beedf62354db5df6280b2"
+      }
+    },
+    {
+      "package": "SparseArray",
+      "version": "1.10.10",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/SparseArray_1.10.10.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\SparseArray_1.10.10.zip",
+        "bytes": 1819989,
+        "sha256": "8d1938cca5b713c5e4ff5bdd893fea33debe637e8428f47e5f1b3efe15422f6b",
+        "DESCRIPTION_sha256": "15b725a4e48c96989bdf133faf9c6a2d1ac917b82545eaa1f130b70b1dddddb8",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-03-30 06:39:12 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/SparseArray_1.10.10.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\SparseArray_1.10.10.tar.gz",
+        "bytes": 479284,
+        "sha256": "7c516c3e2f9dab11c10c6e75caf2254463c5792b711035ca3cf8475e946b81a5",
+        "DESCRIPTION_sha256": "0c3daa9f0cfb800162a4cdfc0dcc93398fc8d989e5de2105464427e09e5557c9"
+      }
+    },
+    {
+      "package": "SummarizedExperiment",
+      "version": "1.40.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/SummarizedExperiment_1.40.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\SummarizedExperiment_1.40.0.zip",
+        "bytes": 1507362,
+        "sha256": "29514e3508b9c4cdff535e1b85f3460d708843564df7c02a0a6dd860ef4649b8",
+        "DESCRIPTION_sha256": "4a4f11cf361b846e30304950736d349ceeeea5e09f6027fa5224bb89a1d98b66",
+        "Built": "R 4.5.2; ; 2026-03-11 08:39:18 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/SummarizedExperiment_1.40.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\SummarizedExperiment_1.40.0.tar.gz",
+        "bytes": 690867,
+        "sha256": "6976456849cb849d27da2de62e93c8c154a663a9cd65c587687ad10f5b76b4f6",
+        "DESCRIPTION_sha256": "61169eca74f97e8b3f453ed19ab7ca2ba7c0e87eb12fab8ae926f712ae151e82"
+      }
+    },
+    {
+      "package": "XVector",
+      "version": "0.50.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/XVector_0.50.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\XVector_0.50.0.zip",
+        "bytes": 696557,
+        "sha256": "98561702f300152808dd7cfffcb634af78295e923618773b51dbad9bfc422714",
+        "DESCRIPTION_sha256": "e7b85b7fdc53cff84544e52b8bb8ebf49c64816fff8c81c0a9aa9332b9a0b6bc",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-03-05 07:42:58 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/XVector_0.50.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\XVector_0.50.0.tar.gz",
+        "bytes": 71419,
+        "sha256": "c963d04bd4c5c0387c401158408e02a08f1e9051124cae4154045c903c8be390",
+        "DESCRIPTION_sha256": "7f52b44696c2d98e65548cd38e9ada62b4708171b6c4e8134fcb77b461165f09"
+      }
+    },
+    {
+      "package": "abind",
+      "version": "1.4-8",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/abind_1.4-8.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\abind_1.4-8.zip",
+        "bytes": 67502,
+        "sha256": "e795fac87918c9af5c7e829e4784a1d3a263f83c2ea46cc68f066c7ad2b2233d",
+        "DESCRIPTION_sha256": "eb2d49b2a9cac91f5fc765781a3184e349eb10851f7e13a8a505cc1f4a0fccbf",
+        "Built": "R 4.5.2; ; 2025-11-01 00:31:41 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/abind_1.4-8.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\abind_1.4-8.tar.gz",
+        "bytes": 21974,
+        "sha256": "264a051b523ceae1795a0879e7768949ea55c586ac8db0adf1f5ebeddd2623e1",
+        "DESCRIPTION_sha256": "93e78b78c1d0fa85b65350d6d9899a455b3b2480f55e92fb8f550607a21b69c8"
+      }
+    },
+    {
+      "package": "askpass",
+      "version": "1.2.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/askpass_1.2.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\askpass_1.2.1.zip",
+        "bytes": 74972,
+        "sha256": "31a77968827ede972ade5fb2ea61bd51503c5746fe57d87bc062aa206d372c87",
+        "DESCRIPTION_sha256": "2a084106f3b1b1b69b93ae9210ef7e641207bf902851c893475cd10e1dac7b00",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:36 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/askpass_1.2.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\askpass_1.2.1.tar.gz",
+        "bytes": 6058,
+        "sha256": "6c2106a74c44a748f2cea795d9686e27a0058a90debcfd8558b62b06aec0c7dd",
+        "DESCRIPTION_sha256": "667881229b21e719a15a0cf44b301d26b81d93e99d6895a0a372987fcffaa8c2"
+      }
+    },
+    {
+      "package": "assorthead",
+      "version": "1.4.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/assorthead_1.4.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\assorthead_1.4.0.zip",
+        "bytes": 2339083,
+        "sha256": "e18524af0fe885c31274cb2fd49485456a12758e21f601910e6cb591cb498079",
+        "DESCRIPTION_sha256": "f95a95e1b6fd682ca88e486703d0ba01ae659a7c0d6f2b604d44a5b5e7fa9cb4",
+        "Built": "R 4.5.2; ; 2026-02-28 08:04:07 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/assorthead_1.4.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\assorthead_1.4.0.tar.gz",
+        "bytes": 1914765,
+        "sha256": "fd25a7457a5c675a06c284334781c6b9f510fae4b625896359e7dd83a61a517b",
+        "DESCRIPTION_sha256": "77d707e2e55274fb39bf09b192daa13c253da9d0becf987eb0d920b7d34d2472"
+      }
+    },
+    {
+      "package": "base64enc",
+      "version": "0.1-6",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/base64enc_0.1-6.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\base64enc_0.1-6.zip",
+        "bytes": 35355,
+        "sha256": "905e457667e95c2550f644475b6ab770ff0e1e43b4eab8b2efe533bad8049a3e",
+        "DESCRIPTION_sha256": "6594cf4dbefc96a237f7b59accb9a049ea5429271d1f5c5192620f3dbb78ffb2",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-02-06 00:51:45 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/base64enc_0.1-6.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\base64enc_0.1-6.tar.gz",
+        "bytes": 9418,
+        "sha256": "3c7e9d22f7409fa2989008fa6e980c3dd8e2693eb20676acf2470ae7addb0816",
+        "DESCRIPTION_sha256": "186e224072b281e17b28366cee3f4ca6504174825bd8ae1eeb0ce325bae8f70b"
+      }
+    },
+    {
+      "package": "beachmat",
+      "version": "2.26.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/beachmat_2.26.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\beachmat_2.26.0.zip",
+        "bytes": 1000099,
+        "sha256": "9e35c722ede04abbd73e17299a9ceb9b3b6e8583092c0eae0ea5c6fde2fa9333",
+        "DESCRIPTION_sha256": "de61f66996f20535cc77d130bf98c3f4d49cf7f916378c8457378da3d6abe880",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-02-22 09:34:26 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/beachmat_2.26.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\beachmat_2.26.0.tar.gz",
+        "bytes": 383082,
+        "sha256": "17cc7a9511713d8be10ceb5787fefb6a91c0d9fca4dca0280b39309f48235be8",
+        "DESCRIPTION_sha256": "fccf0945e97d8baf5473c08a77ef8aefa905713323d1d98550af08470723ef24"
+      }
+    },
+    {
+      "package": "bitops",
+      "version": "1.1-0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/bitops_1.1-0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\bitops_1.1-0.zip",
+        "bytes": 33095,
+        "sha256": "dd66a257363e1148f9688f34140c7dff1775391e1f7acb10fb886977d799cf0d",
+        "DESCRIPTION_sha256": "906c798f0441e701744b2293850ed23662fa17fe4329996556a56274de9e0d8b",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-07-31 10:48:17 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/bitops_1.1-0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\bitops_1.1-0.tar.gz",
+        "bytes": 11019,
+        "sha256": "73f063f15c6334d769202a178f7dd5499bdd10044a4ffbef571be57cbcc68b22",
+        "DESCRIPTION_sha256": "5c328ab5aa0123933be0353e59738b8436a56211a5166bbf70929a6eb5af9d21"
+      }
+    },
+    {
+      "package": "bslib",
+      "version": "0.12.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/bslib_0.12.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\bslib_0.12.0.zip",
+        "bytes": 6492410,
+        "sha256": "5ccc82658140d8b4fee2fd431f895cb424e205814cd4711f9ddb08bbc6286659",
+        "DESCRIPTION_sha256": "e483579cc7e46f311ecce1ddd82ed2fed6150e19d04950e0c6e12b967a1445e9",
+        "Built": "R 4.5.3; ; 2026-10-26 02:22:29 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/bslib_0.12.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\bslib_0.12.0.tar.gz",
+        "bytes": 5847376,
+        "sha256": "26fc11793dc1fdccd6d8d2fc1d638c29c47aa0c2e5cbadc6a35af3819f5446d1",
+        "DESCRIPTION_sha256": "239457a24c5c36ace45cd04e1c3ee141a70ba35c99fe1abef2a0c4a9e5e9b0dc"
+      }
+    },
+    {
+      "package": "caTools",
+      "version": "1.18.4",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/caTools_1.18.4.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\caTools_1.18.4.zip",
+        "bytes": 254688,
+        "sha256": "3003f0ae778bb4a57593989d1cbca9439a211baf2688d266c2c133567ba592f5",
+        "DESCRIPTION_sha256": "c1b9cd3ddb34963beb6752ac998ef657f3adfe3665c62df2ce9997d3b8de60f7",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:21:45 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/caTools_1.18.4.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\caTools_1.18.4.tar.gz",
+        "bytes": 65987,
+        "sha256": "d4c511b7182d385635f9ac3f4f551e57eaa77a5d04e5156759744dfb875a88e6",
+        "DESCRIPTION_sha256": "b7bc8937c49f72bbfa78f47ad013e0d645bcceac9ca3ce31dd74f5392e4e6228"
+      }
+    },
+    {
+      "package": "cachem",
+      "version": "1.1.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/cachem_1.1.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\cachem_1.1.0.zip",
+        "bytes": 74070,
+        "sha256": "f2f2f85cd4aa0ca951fa31beb3bd18b7e217de770998ead4698fdb7bd3846dbd",
+        "DESCRIPTION_sha256": "b44ddd1f83dbbee4fae5d2ab9879f1bc11618f1e86bba04c578f70c07c4a7340",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:37 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/cachem_1.1.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\cachem_1.1.0.tar.gz",
+        "bytes": 27192,
+        "sha256": "550839fc2ae5d865db475ba2c1714144f07fa0c052c72135b0e4a70287492e21",
+        "DESCRIPTION_sha256": "076e3fe121ead2eb4d8f137e9d2bc963208c80c21820d6dcea692278fe082d4d"
+      }
+    },
+    {
+      "package": "cli",
+      "version": "3.6.6",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/cli_3.6.6.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\cli_3.6.6.zip",
+        "bytes": 1407594,
+        "sha256": "ee1c51e06c63a0047fc87b8a1ecb3abe73d2153ae193e1e1325ac211fc1b605f",
+        "DESCRIPTION_sha256": "849be4c88a1646d0563a532d024e85744567d1ecadf0c50fbcbc4aea1be04e66",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:19:59 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/cli_3.6.6.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\cli_3.6.6.tar.gz",
+        "bytes": 644134,
+        "sha256": "b2b58d6dd82f5798b335e39c00591686a01fd3e94399ef898e146173e36f18f9",
+        "DESCRIPTION_sha256": "9d08623e469d026772ea58d382f1208aedb7a072190b5d7089371a0ce7d0e196"
+      }
+    },
+    {
+      "package": "commonmark",
+      "version": "2.0.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/commonmark_2.0.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\commonmark_2.0.0.zip",
+        "bytes": 142716,
+        "sha256": "78df43b72a0abe88f669a060e65a27d56c3fa543a2c27240fbd2cf43cfb7755e",
+        "DESCRIPTION_sha256": "f49d764078a42b30cce6ea17be7a4bfa531aa213b7d3d0bb3be6a5f952fce1f6",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/commonmark_2.0.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\commonmark_2.0.0.tar.gz",
+        "bytes": 147234,
+        "sha256": "7f47d7f9f4ff5d1e2a73a69f6e233d2ddbafae97944ddf664a6000aa94936904",
+        "DESCRIPTION_sha256": "ee3814efc0b40e4af09de95af55e1a41de8aa6d10a8be71b7a4ada1fc294253c"
+      }
+    },
+    {
+      "package": "cowplot",
+      "version": "1.2.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/cowplot_1.2.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\cowplot_1.2.0.zip",
+        "bytes": 1386078,
+        "sha256": "94e895c9e4c1ffb1b53ab1e1fbe5ca17131243ce67a882d7ad2f200722aa7b38",
+        "DESCRIPTION_sha256": "14d0f8dd309721c4895a3da44633769251ea87d85d113285c5ec707de4d96cc6",
+        "Built": "R 4.5.3; ; 2026-10-26 02:55:37 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/cowplot_1.2.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\cowplot_1.2.0.tar.gz",
+        "bytes": 1638386,
+        "sha256": "431d582a4fb68f005f45e0d963c19daad826289374b429b05fe168ef6f231aa1",
+        "DESCRIPTION_sha256": "d0a3b3f7a4f7dc0547ba4db58e755f06fdcd4d06d1ff1a2984aa581724e48fbb"
+      }
+    },
+    {
+      "package": "cpp11",
+      "version": "0.5.5",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/cpp11_0.5.5.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\cpp11_0.5.5.zip",
+        "bytes": 324582,
+        "sha256": "a0ddf78c5a26da8af12543e6ad9e38f4c924fa754fe92a5cbbee40476516dfea",
+        "DESCRIPTION_sha256": "d8adbb18487e2b45c2bf04c2f4bf7e567aaa3d5df4d618e7508f1920f01eaeb2",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:04 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/cpp11_0.5.5.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\cpp11_0.5.5.tar.gz",
+        "bytes": 304823,
+        "sha256": "72486beb0605c1229bf3d422cd536224af8dc09bd389a3116f62f4c7705c62f4",
+        "DESCRIPTION_sha256": "eb9e722424454e5edf32c99f78ff46c6771309af1e61eb04f163b5d1e85a5bde"
+      }
+    },
+    {
+      "package": "crosstalk",
+      "version": "1.2.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/crosstalk_1.2.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\crosstalk_1.2.2.zip",
+        "bytes": 418423,
+        "sha256": "882d17be3352a9941b9bfa642db75dc21118080fe5e0d9698615ac25c680bdfe",
+        "DESCRIPTION_sha256": "95030f61b9e199cee4987cc2444d733f531416a7a8117395d63cb23df254c76a",
+        "Built": "R 4.5.3; ; 2026-10-26 01:54:08 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/crosstalk_1.2.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\crosstalk_1.2.2.tar.gz",
+        "bytes": 297847,
+        "sha256": "804def71ea7508cada0eec7aa6d35b487db17a8f9e38dca34fffc236691e36fc",
+        "DESCRIPTION_sha256": "43a15863504ccbc1d5bb4893461ceee5c7135a59206c4faf90a4721dbb0edcec"
+      }
+    },
+    {
+      "package": "curl",
+      "version": "8.1.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/curl_8.1.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\curl_8.1.0.zip",
+        "bytes": 3694842,
+        "sha256": "392d335cd84377f4bd39bb141bdfb64754848490e4b9579595f3d6885b1eab1a",
+        "DESCRIPTION_sha256": "6cab3120154464f0bbfd7e15794ed319d8cf0c8700c76fe17cc4479841c3a7c1",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:16 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/curl_8.1.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\curl_8.1.0.tar.gz",
+        "bytes": 730855,
+        "sha256": "ab3907ac4f063d614c778b8540d7e2e7b108dc6ab82c42e471cff2a1ca21205b",
+        "DESCRIPTION_sha256": "5deb52bd847a6ec776b04222fafe1a74170fd20b36dc16626511c0bd44c3d814"
+      }
+    },
+    {
+      "package": "data.table",
+      "version": "1.18.6.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/data.table_1.18.6.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\data.table_1.18.6.1.zip",
+        "bytes": 3210227,
+        "sha256": "128b69736deac88841e9ca9f0083e52c9cd24d6efd12d3f7ebad23c882480468",
+        "DESCRIPTION_sha256": "bc9495b92e9e6c7ba8ff4fd10867ab8e145b825920ca5f46993399008975f81f",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:06 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/data.table_1.18.6.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\data.table_1.18.6.1.tar.gz",
+        "bytes": 6028881,
+        "sha256": "f2846f45fbbdfe886f05fa7489314a56ae0f3352ae5bc1070b0cdd4f44ffa1f5",
+        "DESCRIPTION_sha256": "959acc2f293566cf73d32a566ffb1f7447637dd3f5c2e3dd30ded60bb89a8ec5"
+      }
+    },
+    {
+      "package": "deldir",
+      "version": "2.0-4",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/deldir_2.0-4.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\deldir_2.0-4.zip",
+        "bytes": 290431,
+        "sha256": "9af6d9b9d229fc51007cfdd53ac268841c77d3995b0d3f08b1bd9cd78857e5a8",
+        "DESCRIPTION_sha256": "db3d090280cc96ffd9e9287a36bdc99f0aac425161745bb4cbfafaeaf3526416",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2025-11-01 00:31:51 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/deldir_2.0-4.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\deldir_2.0-4.tar.gz",
+        "bytes": 103621,
+        "sha256": "d418acb28ec3707b6d64c7466d0cefbb49b098537f37558d8f7a5befd34a4653",
+        "DESCRIPTION_sha256": "97e59bb4e724e0b2280530cec0596b47dfb282bcdb1bdf512f3b42ad71e80524"
+      }
+    },
+    {
+      "package": "digest",
+      "version": "0.6.39",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/digest_0.6.39.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\digest_0.6.39.zip",
+        "bytes": 226519,
+        "sha256": "13c90c8d22e06e31de84941c0987a4a6430fb6c244fa7bca1df5781dedd75477",
+        "DESCRIPTION_sha256": "7aa10c4769562dde48ce36607ac15d0eb76fe6364c1a4b3e57a63d43d7b0191c",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:02 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/digest_0.6.39.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\digest_0.6.39.tar.gz",
+        "bytes": 236629,
+        "sha256": "8bf048b49b2d17077138fae758bda56bbd53278d9437f2fdeaedf979c90a13c9",
+        "DESCRIPTION_sha256": "07dcde79e44828236433e7de97be2e49b8f4e689b262160fff1a76b300a71043"
+      }
+    },
+    {
+      "package": "dotCall64",
+      "version": "1.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/dotCall64_1.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\dotCall64_1.2.zip",
+        "bytes": 156190,
+        "sha256": "0f1c03a9bbc4992762defd4404944925b97be62054566b3e4dc682e8a78f2115",
+        "DESCRIPTION_sha256": "fd143dfbbedd0e426dd4f72dadc777f450b7924490a27be9ae4e9a1194c532da",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:47 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/dotCall64_1.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\dotCall64_1.2.tar.gz",
+        "bytes": 20362,
+        "sha256": "aad6ab571f30d4d191a9454cee278d57b478fb49d3f7b190593f317a0e4408aa",
+        "DESCRIPTION_sha256": "b0bba303b1a18dfbe7ca3c0ff8e5a5207b29a9051ad71a6571ce60408668e357"
+      }
+    },
+    {
+      "package": "dplyr",
+      "version": "1.2.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/dplyr_1.2.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\dplyr_1.2.1.zip",
+        "bytes": 1621359,
+        "sha256": "891db94005458723f5f0734ed9312511a778648b6f2ce982fef709ad45f0293d",
+        "DESCRIPTION_sha256": "5c84e15c8e75b50d159769cc8bfc5a5bf679381ceb2bea76da48a97a71e1d21f",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-23 19:18:10 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/dplyr_1.2.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\dplyr_1.2.1.tar.gz",
+        "bytes": 923509,
+        "sha256": "18d66fe2f24cda8b619c177326d39dd015229ab99695fa67d3fa31e4569390e0",
+        "DESCRIPTION_sha256": "6176081518c6d00f6b0b822c4a6079962d00185740ea87ca7431680c6a91456d"
+      }
+    },
+    {
+      "package": "dqrng",
+      "version": "0.4.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/dqrng_0.4.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\dqrng_0.4.1.zip",
+        "bytes": 560506,
+        "sha256": "9d3b5748015faf98304dcfd4621f6549ecdee71e6c1453adc8ee4e3fd60f7e8d",
+        "DESCRIPTION_sha256": "c375f5d2adc5c22ae33f5b7fcb26a2cb55a3abdfb57f73700cb6718c3b869fb9",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:22:10 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/dqrng_0.4.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\dqrng_0.4.1.tar.gz",
+        "bytes": 267023,
+        "sha256": "3d9df935020c3c2538bc712456079925c4b379d67407c83fbc008340e353288f",
+        "DESCRIPTION_sha256": "9ec71072727a79037b149065af934546be56d2e2e1fdf85c3fffb7b635433641"
+      }
+    },
+    {
+      "package": "evaluate",
+      "version": "1.0.5",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/evaluate_1.0.5.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\evaluate_1.0.5.zip",
+        "bytes": 105344,
+        "sha256": "7ded4c56d80f09bf55edeff0147a5a25e1e2372a086ec918c2864c93eaa36d5d",
+        "DESCRIPTION_sha256": "b4d72d8c5becff988bd89e0bbcd50d3f08339eea1526474de15e59e2b836897a",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:10 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/evaluate_1.0.5.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\evaluate_1.0.5.tar.gz",
+        "bytes": 39322,
+        "sha256": "47aac79f889a828a5f8b4756cb972d7c2966bb984cbae17a4bd2389a73270794",
+        "DESCRIPTION_sha256": "3b2e4e72f994e6179fa44af1513f6f860cb44427dfa5c8fdfed2e8e005d3bb72"
+      }
+    },
+    {
+      "package": "farver",
+      "version": "2.1.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/farver_2.1.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\farver_2.1.2.zip",
+        "bytes": 1523235,
+        "sha256": "0a6c786b0095d26a76e8ec60a340bfc1292e7e2f844fba09df64aa90204e5b55",
+        "DESCRIPTION_sha256": "a290613c4e1d9b7f9168c5ab31351d32c2c45b396a3f54356a76ae312e005733",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:01 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/farver_2.1.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\farver_2.1.2.tar.gz",
+        "bytes": 1275981,
+        "sha256": "528823b95daab4566137711f1c842027a952bea1b2ae6ff098e2ca512b17fe25",
+        "DESCRIPTION_sha256": "b98293b80c387317858a020612ca8135e9d03f4c0e4a10a8e8676bacb4976da9"
+      }
+    },
+    {
+      "package": "fastDummies",
+      "version": "1.7.6",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/fastDummies_1.7.6.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\fastDummies_1.7.6.zip",
+        "bytes": 52748,
+        "sha256": "d4fab393e3a183223f4c8ca70421ad6797de272cae051e2cc57d32b7d49525d9",
+        "DESCRIPTION_sha256": "9c51be4e6295ba3af8349df44f096f0519c44e98e84d1767851c9265a9bf863c",
+        "Built": "R 4.5.3; ; 2026-10-26 02:57:10 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/fastDummies_1.7.6.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\fastDummies_1.7.6.tar.gz",
+        "bytes": 27464,
+        "sha256": "d140bbf3b0189067dd5c553d6f6837e2b9e6097e0e06f8b89e147bc52a2eac4e",
+        "DESCRIPTION_sha256": "f175ea9c022fda9e27b85f7c2301314120f228c60c4838ceebe59529a8f6faaa"
+      }
+    },
+    {
+      "package": "fastmap",
+      "version": "1.2.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/fastmap_1.2.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\fastmap_1.2.0.zip",
+        "bytes": 137992,
+        "sha256": "86e35a5edbe83a8beec035d9acb7389cd7f515a9e0f673722324dd597bd1dfd0",
+        "DESCRIPTION_sha256": "4c03ed2ddb1d37efc8a2f61f3d40f374eba75249257bfdbe4b5b91b51afcd302",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/fastmap_1.2.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\fastmap_1.2.0.tar.gz",
+        "bytes": 46710,
+        "sha256": "b1da04a2915d1d057f3c2525e295ef15016a64e6667eac83a14641bbd83b9246",
+        "DESCRIPTION_sha256": "7baa0487de7572847311cdbdde3c60d4fe325baa2a19c443b15cfa855d646b97"
+      }
+    },
+    {
+      "package": "fitdistrplus",
+      "version": "1.2-6",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/fitdistrplus_1.2-6.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\fitdistrplus_1.2-6.zip",
+        "bytes": 2975316,
+        "sha256": "e1a99c4cd09547fd81cd9cc3250198cd151f2cd614908129b3c8d2d471ccd9b8",
+        "DESCRIPTION_sha256": "dccac5cbd02c42a3b444d3eee687079747c33881d94636d3f2049136b8340086",
+        "Built": "R 4.5.3; ; 2026-10-26 02:22:45 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/fitdistrplus_1.2-6.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\fitdistrplus_1.2-6.tar.gz",
+        "bytes": 2474546,
+        "sha256": "e8b7d96303229f70e780187dafc2e1caef825bd0b739413f69eb27e08c89298d",
+        "DESCRIPTION_sha256": "52edca855bd653aaba4c40ff171646d82eefe62fa453b825e26537edad14daaf"
+      }
+    },
+    {
+      "package": "fontawesome",
+      "version": "0.5.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/fontawesome_0.5.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\fontawesome_0.5.3.zip",
+        "bytes": 1391208,
+        "sha256": "14c3ee4d8b78b17092e8a9054fc70fe94c57c5d8aa9ed398f770946a1179fcf3",
+        "DESCRIPTION_sha256": "ecfe62e2c4dfa84f8030427be0aea387e841b8a8013b18d0c61065ba2c5e6827",
+        "Built": "R 4.5.3; ; 2026-10-26 01:53:58 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/fontawesome_0.5.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\fontawesome_0.5.3.tar.gz",
+        "bytes": 1320479,
+        "sha256": "1b1909d0fad5ec4c658f5c628a195b9bd93d544afa957e68e897224cfb81fb4f",
+        "DESCRIPTION_sha256": "f7cf1d4d9c5a45be3b4338512285c0ca22e679b5167133ff4263f350d7f56f97"
+      }
+    },
+    {
+      "package": "fs",
+      "version": "2.1.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/fs_2.1.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\fs_2.1.0.zip",
+        "bytes": 424034,
+        "sha256": "f6f051804483af08ae4622eeef803ea145c4fb368619428fcabe9629ebb7184b",
+        "DESCRIPTION_sha256": "aa5617018d02e47810c7fa30b444c5dc5a65b65e10fb717aff0b12ff6ca652b3",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:04 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/fs_2.1.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\fs_2.1.0.tar.gz",
+        "bytes": 1471347,
+        "sha256": "7088af1117d65c4ceb144b532e323f197fc8243b1d704bf6edf40774789829cd",
+        "DESCRIPTION_sha256": "e7081de391a4f2679eb19665105622acdbe4bfa97b936a1a4b3abc0db93f0b4c"
+      }
+    },
+    {
+      "package": "future",
+      "version": "1.80.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/future_1.80.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\future_1.80.0.zip",
+        "bytes": 1114341,
+        "sha256": "e1fea1f64340946ed8a2001570dfef6bb1d7387908582a8574645a322e55bbd1",
+        "DESCRIPTION_sha256": "ffac712fb8f5178847997da62bcbabb82a1823e52344e3573d7780037841b371",
+        "Built": "R 4.5.3; ; 2026-10-26 01:20:51 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/future_1.80.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\future_1.80.0.tar.gz",
+        "bytes": 488869,
+        "sha256": "95ee7292883e891770a927b29b57282011533256473e8d4db8436b46ee1f1d77",
+        "DESCRIPTION_sha256": "0c27087be88c7f60e0bb295f4cd41a56b65e74129e8ce46c668c335f96a775ca"
+      }
+    },
+    {
+      "package": "future.apply",
+      "version": "1.21.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/future.apply_1.21.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\future.apply_1.21.0.zip",
+        "bytes": 218513,
+        "sha256": "29eff6df9af30fce3f49a2848447bfd4a63c193b56adae394b686c81b94fd75d",
+        "DESCRIPTION_sha256": "c192250c0737229935fc71df6835bd7a7535a821e1e51cdb12b0b35fe8270ec5",
+        "Built": "R 4.5.3; ; 2026-10-26 01:54:11 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/future.apply_1.21.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\future.apply_1.21.0.tar.gz",
+        "bytes": 81717,
+        "sha256": "4142c0d68cc247099b32d558d84fa8f6406b5f44f661494820ed5758484444e5",
+        "DESCRIPTION_sha256": "ef5f16b320e63bede3faf484b0c99990b26e7f73cca80dbd20da4a37f3f7862e"
+      }
+    },
+    {
+      "package": "generics",
+      "version": "0.1.4",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/generics_0.1.4.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\generics_0.1.4.zip",
+        "bytes": 85272,
+        "sha256": "7d3e8506847448f927b94b073bd6b2964a5e25fa641609107da698930a5e9a0b",
+        "DESCRIPTION_sha256": "d536fc9b5fbdbf383f142b1dff2236e007be3c910fd87393f7076c39677eb55a",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:00 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/generics_0.1.4.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\generics_0.1.4.tar.gz",
+        "bytes": 47224,
+        "sha256": "bbe95a097792d38fc3b7e677738af1b95b66ea5e5017e33b8beac6a6088d0801",
+        "DESCRIPTION_sha256": "07328169afefd300bf6ba091b8127801dbe555d4dac3bace45009449d3fc1500"
+      }
+    },
+    {
+      "package": "ggplot2",
+      "version": "4.0.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/ggplot2_4.0.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\ggplot2_4.0.3.zip",
+        "bytes": 8466452,
+        "sha256": "acc03a1eacad534fbac81a6ea9c0c68dac7640b3edbfbfc6036ddb9f25787c52",
+        "DESCRIPTION_sha256": "05670c50f4e55072146eef740d978347cbabb19afb36719145d8ee8c155c8fd4",
+        "Built": "R 4.5.3; ; 2026-10-26 02:22:23 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/ggplot2_4.0.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\ggplot2_4.0.3.tar.gz",
+        "bytes": 6327703,
+        "sha256": "690224bd61642b6222adb109470988e87f786e193cca77a15c0923cf9da73fa5",
+        "DESCRIPTION_sha256": "7adbfcfb33c3d089ff25e704eb77326ae25d57048b3fa9531f547fc7a979cf47"
+      }
+    },
+    {
+      "package": "ggrepel",
+      "version": "0.9.8",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/ggrepel_0.9.8.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\ggrepel_0.9.8.zip",
+        "bytes": 691529,
+        "sha256": "9959b8089c0a5e5965d2a8ef146d1acbd47b6d8a610714cece570e9ec2b3e2d9",
+        "DESCRIPTION_sha256": "fe961337f0413210c35b575b2057d2f77dd2799d680a3fbc4cf476622a3f6f52",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:55:41 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/ggrepel_0.9.8.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\ggrepel_0.9.8.tar.gz",
+        "bytes": 151726,
+        "sha256": "0317dff5e11d9dae7225d5c1794fe16ea1bedc7d535ac98e990925670724c027",
+        "DESCRIPTION_sha256": "58fbdc878628933fcc21eb09a9515bee021a4e252ad688b662f1396cede981c5"
+      }
+    },
+    {
+      "package": "ggridges",
+      "version": "0.5.7",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/ggridges_0.5.7.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\ggridges_0.5.7.zip",
+        "bytes": 2279676,
+        "sha256": "1d8525269b5cf42a88dfcc5381880f1f4a3d6949958dda5daf739585ad65930d",
+        "DESCRIPTION_sha256": "3f0a8c61b1d06bfaa49b595c049e7efdd6ca756a4234af36580676d08b781a9a",
+        "Built": "R 4.5.3; ; 2026-10-26 02:56:36 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/ggridges_0.5.7.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\ggridges_0.5.7.tar.gz",
+        "bytes": 2210918,
+        "sha256": "fcba89ffa3a31edfb3eeea249a78997150d9e01888dbe2015fec310709681133",
+        "DESCRIPTION_sha256": "9dbf43b9e9e9ab4e13810da003dd988a48a88f2424d0d79bf04660a59308e6d1"
+      }
+    },
+    {
+      "package": "glmGamPoi",
+      "version": "1.22.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/glmGamPoi_1.22.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\glmGamPoi_1.22.0.zip",
+        "bytes": 1835243,
+        "sha256": "afacabf3829696a0e09f8516462bb629fa79724dac8b39e24e2aa6716415c31c",
+        "DESCRIPTION_sha256": "2129ac4f72cd88bc77e489b7c2c48f162e942f74575375ca6668bd2a0a39b9fa",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-02-23 06:30:19 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/glmGamPoi_1.22.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\glmGamPoi_1.22.0.tar.gz",
+        "bytes": 2199967,
+        "sha256": "3fb810f55964e14e11107630e3ed1c79bd5dcd84af8a081f1dcbfa4394f13ac5",
+        "DESCRIPTION_sha256": "89887fd482a011611c25a27d857b8891f4299d0183e921f29728697734b6cbb3"
+      }
+    },
+    {
+      "package": "globals",
+      "version": "0.20.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/globals_0.20.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\globals_0.20.0.zip",
+        "bytes": 184837,
+        "sha256": "6cc5fa9c9b55736002a237b24eaa528cbe4af21c4152174bed864b04f2f48d9b",
+        "DESCRIPTION_sha256": "e1edc657c715f40f82651adeabd35f772686d5f0b351550d541eb4c9894aa4e6",
+        "Built": "R 4.5.3; ; 2026-10-11 23:51:19 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/globals_0.20.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\globals_0.20.0.tar.gz",
+        "bytes": 62556,
+        "sha256": "7f59b223a63defb79749d40b6fa89071707b953bd6afd5718d088a712a4b39a7",
+        "DESCRIPTION_sha256": "18a1e11240c963eb8a653165a33866d4860b2ca9794e5ad23559a89089cfc9d4"
+      }
+    },
+    {
+      "package": "glue",
+      "version": "1.8.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/glue_1.8.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\glue_1.8.1.zip",
+        "bytes": 189653,
+        "sha256": "edfbf5012a87f09061b88ef3bc5e15d49f9c79926fddb9c87c99d992117a8d51",
+        "DESCRIPTION_sha256": "a613dba439f49e88f264b6828ba593cc0da3ad874cdd6202ced2a94e91483de2",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:00 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/glue_1.8.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\glue_1.8.1.tar.gz",
+        "bytes": 129786,
+        "sha256": "1c55905d3efc3d5c199ceb0bd12218e97f0d4c64df6038ff41ecef415478a122",
+        "DESCRIPTION_sha256": "f76de9524f1387e2d0827d7deb4f7d7f56f44cb638bbbe2ba17929cf495c46d9"
+      }
+    },
+    {
+      "package": "goftest",
+      "version": "1.2-3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/goftest_1.2-3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\goftest_1.2-3.zip",
+        "bytes": 65789,
+        "sha256": "d4cd10fcd420c7b9f5592cbd4d189b9fa4611b134fbead287b2b88f4a38a9acb",
+        "DESCRIPTION_sha256": "5562d84e819ee7d990089a51fb598d8a83934764586b8cdec208e0213fb8600f",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2025-11-01 00:31:51 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/goftest_1.2-3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\goftest_1.2-3.tar.gz",
+        "bytes": 32319,
+        "sha256": "3a5f74b6ae7ece5b294781ae57782abe12375d61789c55ff5e92e4aacf347f19",
+        "DESCRIPTION_sha256": "bee8f73b6a2535f6df2f7456f31a4d4fb08762c0f48eb9d5e67079da5d4d77bd"
+      }
+    },
+    {
+      "package": "gplots",
+      "version": "3.3.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/gplots_3.3.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\gplots_3.3.0.zip",
+        "bytes": 4904105,
+        "sha256": "632356d472257be64916e5879263c6551f97bbd56a46f1948c601efa1a617dff",
+        "DESCRIPTION_sha256": "d0695089593d4af133e160111ce2f1b31278dff4535d009f3e8ddb330daefb82",
+        "Built": "R 4.5.3; ; 2026-10-26 00:22:19 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/gplots_3.3.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\gplots_3.3.0.tar.gz",
+        "bytes": 4793937,
+        "sha256": "f84c0b38d8fdbb6aa45fa81b9b21ee96f2c5891a5d37c77643977d06a66be302",
+        "DESCRIPTION_sha256": "2b0a510de4ce5bb7add462bce9f8bffbb35d4089982f21773bc5a09ac5b62041"
+      }
+    },
+    {
+      "package": "gridExtra",
+      "version": "2.3.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/gridExtra_2.3.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\gridExtra_2.3.1.zip",
+        "bytes": 530223,
+        "sha256": "fc21f96253876340d28ed392998e004c940a30166dbea5bf0357649b5f51c755",
+        "DESCRIPTION_sha256": "8baa99e6865ecca93d73b344b781a13a26d8c48ed4a8f1fdfe703262d42b546b",
+        "Built": "R 4.5.3; ; 2026-10-26 01:53:56 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/gridExtra_2.3.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\gridExtra_2.3.1.tar.gz",
+        "bytes": 480742,
+        "sha256": "de42e501ac2c6a70bd0ffc18d7703e9b0e6b878c610df09756183c3e52445c82",
+        "DESCRIPTION_sha256": "5dd6bfa3d3270a46f8aa8aa3e951550ccf93dfbfca90f573d11fd0a0d20628a7"
+      }
+    },
+    {
+      "package": "gtable",
+      "version": "0.3.6",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/gtable_0.3.6.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\gtable_0.3.6.zip",
+        "bytes": 251499,
+        "sha256": "2be9b223d3ee6160cb060c015c1165d8a223a94f38023476b3f82be8424ae0cb",
+        "DESCRIPTION_sha256": "ded3c35a20331606d6ff98d4f39774b14348919830a97b63a665869e9e0622d0",
+        "Built": "R 4.5.3; ; 2026-10-26 01:53:43 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/gtable_0.3.6.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\gtable_0.3.6.tar.gz",
+        "bytes": 148148,
+        "sha256": "d305a5fa11278b649d2d8edc5288bf28009be888a42be58ff8714018e49de0ef",
+        "DESCRIPTION_sha256": "bc4af97ffbe46eda0826458db575476ef640c862f95ef66e85dae03982aeb8ac"
+      }
+    },
+    {
+      "package": "gtools",
+      "version": "3.9.5",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/gtools_3.9.5.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\gtools_3.9.5.zip",
+        "bytes": 368897,
+        "sha256": "22bb3529407f9a0299d281a90ea6bfc020a06aa00a8db5b7bdd3096cd25b57a7",
+        "DESCRIPTION_sha256": "ba0cce1ff22fd26a2f37ba721dfc90084616c2bbd568c013ceaf460fcc45b8bf",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:17 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/gtools_3.9.5.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\gtools_3.9.5.tar.gz",
+        "bytes": 242029,
+        "sha256": "dee9b6c1152db1a5dc427d074b32bbbb738708683f17a95e0e95e4d79fdf174b",
+        "DESCRIPTION_sha256": "8303592e882a2fabd55a0122ae790132ddd234f998d2b5bde21c1a4716487606"
+      }
+    },
+    {
+      "package": "h5mread",
+      "version": "1.2.1",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/h5mread_1.2.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\h5mread_1.2.1.zip",
+        "bytes": 5542744,
+        "sha256": "69c98175124286f957716fb367cd4f97296cdc067c3afbb0974fc54e1fb81585",
+        "DESCRIPTION_sha256": "b87f977161c651534710eaa3f691a5c63e1cf4271d9f770f61f515e2b30e6bdf",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-02-21 09:11:42 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/h5mread_1.2.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\h5mread_1.2.1.tar.gz",
+        "bytes": 2483505,
+        "sha256": "dca26b1858afc0224a87a5c6a6944c4a495d7131119e20bf52624f0e7cb9b275",
+        "DESCRIPTION_sha256": "f5222412dc2c149c55d78bfb39e985d420280e6a3f928146c7f7f4e60bab7138"
+      }
+    },
+    {
+      "package": "here",
+      "version": "1.0.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/here_1.0.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\here_1.0.2.zip",
+        "bytes": 65355,
+        "sha256": "9223b9505ea20f3e4072ba7f85b9978c5fc688dfd306d9bd49bd044a3c6e41f1",
+        "DESCRIPTION_sha256": "215ec45b65408c037d507d5b8acdec2b103d297757eb97970d8a4da1f9be6fd9",
+        "Built": "R 4.5.3; ; 2026-10-26 01:21:30 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/here_1.0.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\here_1.0.2.tar.gz",
+        "bytes": 33212,
+        "sha256": "71980aa294314d6e032e680dfd2a59f792cab6f8d414cce03f2e823819190c3d",
+        "DESCRIPTION_sha256": "b508810a4f5346f030d743e36f4a98b1932fdc78fec3b45ca6901751d508303d"
+      }
+    },
+    {
+      "package": "highr",
+      "version": "0.12",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/highr_0.12.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\highr_0.12.zip",
+        "bytes": 44593,
+        "sha256": "ae2d8ee6f33fa46e1a122c9b9aadf9f7be8a1dd550ef65f8d8c487f46b98021d",
+        "DESCRIPTION_sha256": "ce0bdf28222f8f89fd5277e83bad395850cfa198ef22baf277d9af13a6d3b735",
+        "Built": "R 4.5.3; ; 2026-10-26 01:20:37 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/highr_0.12.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\highr_0.12.tar.gz",
+        "bytes": 13622,
+        "sha256": "e8e1d6460022a9948799602d6b95dc78fbfa318ff6f0627e95c20b7190fc612b",
+        "DESCRIPTION_sha256": "21d172347eca092b79aaea8e3fa649a95b5168b0260cb5a656fb23c8444abc07"
+      }
+    },
+    {
+      "package": "htmltools",
+      "version": "0.5.9",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/htmltools_0.5.9.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\htmltools_0.5.9.zip",
+        "bytes": 364590,
+        "sha256": "935d6699f08b3613822392cfb0b517c81091d3d0fcfe9715943cee590ed83837",
+        "DESCRIPTION_sha256": "5c10750b0e736d542b0ed957c1b70474f00240ea3ee02104cd0633ae32fa325b",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:37 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/htmltools_0.5.9.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\htmltools_0.5.9.tar.gz",
+        "bytes": 135206,
+        "sha256": "19308618da485818f69dcfeeadd2ddc81d43a736a74519df7b3fd98e13128afd",
+        "DESCRIPTION_sha256": "fab336cae4320a0d4158603646805186217fc68b8002509f79c1f1d918417daf"
+      }
+    },
+    {
+      "package": "htmlwidgets",
+      "version": "1.6.4",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/htmlwidgets_1.6.4.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\htmlwidgets_1.6.4.zip",
+        "bytes": 813729,
+        "sha256": "d027648c7e72a18a8e024cbf6bddf9781bb84c1eebdc23a0d0c6c0fd01979412",
+        "DESCRIPTION_sha256": "a2d957cacd8f872ebb67018ff1e5a09f631015311e4476c11b2b9b6519aa33b9",
+        "Built": "R 4.5.3; ; 2026-10-26 03:25:45 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/htmlwidgets_1.6.4.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\htmlwidgets_1.6.4.tar.gz",
+        "bytes": 868895,
+        "sha256": "7cb08f0b30485dac26f72e4056ec4ed8825d1398e8b9f25ed63db228fe3a0ed0",
+        "DESCRIPTION_sha256": "2d8b8821a23908d58f3951142578c9432fe205de1fd6601fa4c2af87b0912f64"
+      }
+    },
+    {
+      "package": "httpuv",
+      "version": "1.6.17",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/httpuv_1.6.17.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\httpuv_1.6.17.zip",
+        "bytes": 1061304,
+        "sha256": "e3e3f2361c54741a6fe2dce63bcf829068d91d1eaa9abb4cf22cbfe9996b6b10",
+        "DESCRIPTION_sha256": "aa1457ac68c7b029366bbf8366eef6d98c0be69d5381c7f6fc9bf7e5a87c2baf",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:22:23 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/httpuv_1.6.17.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\httpuv_1.6.17.tar.gz",
+        "bytes": 1892489,
+        "sha256": "d18506e13546b8bcd022446bb8344434cc786c2bbe8b3152909e1da42c1d6273",
+        "DESCRIPTION_sha256": "934acc38d4b08061f8f84e1f9ce91b162a4fa675b104f16e8a78155c3dc3e423"
+      }
+    },
+    {
+      "package": "httr",
+      "version": "1.4.9",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/httr_1.4.9.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\httr_1.4.9.zip",
+        "bytes": 490009,
+        "sha256": "139ff6cc32ff1a5f3829c45acce7f7620416e37d9cd32e45d666cc621621f31e",
+        "DESCRIPTION_sha256": "981adf00e7e097c673fef1d468739db93d16c73f813b27742a99efacb303435d",
+        "Built": "R 4.5.3; ; 2026-10-26 02:22:23 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/httr_1.4.9.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\httr_1.4.9.tar.gz",
+        "bytes": 113805,
+        "sha256": "4adf8cea7a24012ec883da1723eaade26c69455e0a3200bdc12f2f9f8515982c",
+        "DESCRIPTION_sha256": "4fa88b3fa20b2ed9f12448ce0e176541efa00f8dbe3dcf6633d27ba895fd45cf"
+      }
+    },
+    {
+      "package": "ica",
+      "version": "1.0-3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/ica_1.0-3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\ica_1.0-3.zip",
+        "bytes": 87953,
+        "sha256": "f8d8c0fd5f2d99e27d1cb985f100316e96e77dd09f64d75cc09a367b2c98a6cf",
+        "DESCRIPTION_sha256": "875c5610161634a666353648695a32e4c6378ed5b11417d3ddb22c05d4bd9554",
+        "Built": "R 4.5.2; ; 2025-11-01 00:32:49 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/ica_1.0-3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\ica_1.0-3.tar.gz",
+        "bytes": 12825,
+        "sha256": "474d3530b16b76a1bf1a1114d24092678ea7215fa57c6fdcee6333f1e768b865",
+        "DESCRIPTION_sha256": "ede83e3cf22623935d6958927b901dd7a630a9906d1d585a48b4bc3bd6015f91"
+      }
+    },
+    {
+      "package": "igraph",
+      "version": "2.3.4",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/igraph_2.3.4.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\igraph_2.3.4.zip",
+        "bytes": 7596650,
+        "sha256": "cb21b8f585e92129ff60b378af53fde42fb31e34be2780678ce350576f7d1e7b",
+        "DESCRIPTION_sha256": "6b0cb75f13e370d5f5def1b0f37471058b3baf527f30471e86bce0206dbb1813",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:22:49 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/igraph_2.3.4.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\igraph_2.3.4.tar.gz",
+        "bytes": 5052645,
+        "sha256": "38b114f4ebc9b61af6c29a56d72a2329cd08191e4b3612df4f184c519ee60740",
+        "DESCRIPTION_sha256": "3257238d1b7e3b9d65c6a4eec27200e316d0194b2cf92485a06b03f0d61b3890"
+      }
+    },
+    {
+      "package": "irlba",
+      "version": "2.4.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/irlba_2.4.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\irlba_2.4.1.zip",
+        "bytes": 445740,
+        "sha256": "11c808f9ecef4a67e4cae31e502c85c1b611b0f9cf0a05571fe656861c039e78",
+        "DESCRIPTION_sha256": "1ac6dfb7b792ad3bd1af9552a5841921e18b13304465b8e52aee1a52fb8f19ca",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:56:05 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/irlba_2.4.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\irlba_2.4.1.tar.gz",
+        "bytes": 383723,
+        "sha256": "00650af430b1549d54ee39c19a9cce125421c72b851ba2c4fbf6ddacccc3cad1",
+        "DESCRIPTION_sha256": "8182326f1684b759804c266595aaab55137d2cdfded5fdf853355d90405fb4ec"
+      }
+    },
+    {
+      "package": "isoband",
+      "version": "0.3.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/isoband_0.3.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\isoband_0.3.0.zip",
+        "bytes": 1975233,
+        "sha256": "0134b5d69459cfa892d5991afc01ca70fab605fb9d05a86b0303de679a750faa",
+        "DESCRIPTION_sha256": "4bec97a09acc545a4f1076d0cb5bd139c5b7792cfeb50e3088ee46ca57357b46",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:38 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/isoband_0.3.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\isoband_0.3.0.tar.gz",
+        "bytes": 1593511,
+        "sha256": "fe8d3d58ca75bbee32f389152ac0058818f3f76f09c9867949531de7abc424ac",
+        "DESCRIPTION_sha256": "b0ec65c6ac5f6e30c53326b905fdd564e08a13dc4fc616363404f93f39f99677"
+      }
+    },
+    {
+      "package": "jquerylib",
+      "version": "0.1.4",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/jquerylib_0.1.4.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\jquerylib_0.1.4.zip",
+        "bytes": 526163,
+        "sha256": "b46f8db1a67b45e07cb9bd59477a903c44b6726963f5c4e335ae5351e5ccd7fd",
+        "DESCRIPTION_sha256": "e2069b8ae74dc5e27b186ed4dbf0077ce0e69b645d0739475ca17e08d2214b8b",
+        "Built": "R 4.5.3; ; 2026-10-26 01:53:56 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/jquerylib_0.1.4.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\jquerylib_0.1.4.tar.gz",
+        "bytes": 520207,
+        "sha256": "f0bcc11dcde3a6ff180277e45c24642d3da3c8690900e38f44495efbc9064411",
+        "DESCRIPTION_sha256": "5d5a09f999eb5120dd34aec25b9fad5172e60e2d0fa30b1512433fe300f038c5"
+      }
+    },
+    {
+      "package": "jsonlite",
+      "version": "2.0.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/jsonlite_2.0.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\jsonlite_2.0.0.zip",
+        "bytes": 1110902,
+        "sha256": "c3c85cbaf12cc1fed386ed643387ca358481bcf46e831d907791ee9afe8667a1",
+        "DESCRIPTION_sha256": "5d47187cafd6e1f96d10fa938cbe65ad215bbcd2c6ff2f150a776926ca65a3e9",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:04 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/jsonlite_2.0.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\jsonlite_2.0.0.tar.gz",
+        "bytes": 1055849,
+        "sha256": "75eb910c82b350ec33f094779da0f87bff154c232e4ae39c9896a9b89f3ac82d",
+        "DESCRIPTION_sha256": "427df14753b07bb9f6a5ea8799d39dcdcdf5a18026f32c88c5652356da0daa09"
+      }
+    },
+    {
+      "package": "knitr",
+      "version": "1.52",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/knitr_1.52.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\knitr_1.52.zip",
+        "bytes": 1123565,
+        "sha256": "405802234e2759af381704a44fd047dab97c1feaed5eb92a4e275f87a34982ba",
+        "DESCRIPTION_sha256": "3ff703d13c796c2b54c44ff87d1d29fc33f3878617798f3d8b6229de8d5c4a53",
+        "Built": "R 4.5.3; ; 2026-10-26 01:54:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/knitr_1.52.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\knitr_1.52.tar.gz",
+        "bytes": 490015,
+        "sha256": "bdd66a02dfba08a4c644b38a6ae08f6ba915c16d6b6ab6a188ec193c35905ff2",
+        "DESCRIPTION_sha256": "f2c95e0ec9bb160fbd039e8487cd8483a966cbac503d6ce5ed47dc9a1690962f"
+      }
+    },
+    {
+      "package": "labeling",
+      "version": "0.4.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/labeling_0.4.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\labeling_0.4.3.zip",
+        "bytes": 63897,
+        "sha256": "ce6601084696628fc48ed783ce3610f747137e2f2ceeda7e9cb4cdab5ba62297",
+        "DESCRIPTION_sha256": "6de30b26dbbf3550024c7086cbe150d4b47a617ced6d7db79b987e992fd51a62",
+        "Built": "R 4.5.2; ; 2025-11-01 00:30:56 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/labeling_0.4.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\labeling_0.4.3.tar.gz",
+        "bytes": 10167,
+        "sha256": "c62f4fc2cc74377d7055903c5f1913b7295f7587456fe468592738a483e264f2",
+        "DESCRIPTION_sha256": "7ada0272cda3923c8de9669f6598d8395e081e9778f73a686b962ee7264d7343"
+      }
+    },
+    {
+      "package": "later",
+      "version": "1.4.8",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/later_1.4.8.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\later_1.4.8.zip",
+        "bytes": 480321,
+        "sha256": "7e437edabc3bac2569774891cb59162845848d4640a1c8d92db22fda5778569d",
+        "DESCRIPTION_sha256": "f8e67be712d151e6ad5c5b3c92912fc1aea7018149cf03486ecd0d536f4ad991",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:36 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/later_1.4.8.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\later_1.4.8.tar.gz",
+        "bytes": 70250,
+        "sha256": "ce5d88b3fd1df409eaa21aa53bf20b1a9331f75cd69e7e9b2a27b40d2290d219",
+        "DESCRIPTION_sha256": "5f20d77d038e043169d7856016bf703500dd8cd7eff6d06bb6ec8bd8439caac0"
+      }
+    },
+    {
+      "package": "lazyeval",
+      "version": "0.2.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/lazyeval_0.2.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\lazyeval_0.2.3.zip",
+        "bytes": 208363,
+        "sha256": "9fafc2b3ae02215b880403e13cb0383af03bf29ce8e0cd3cac3c1be3fef275ce",
+        "DESCRIPTION_sha256": "1116a5141b646b748777e452615963cdb5e3ac42c09a7ef239c48af23552d9b3",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:48 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/lazyeval_0.2.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\lazyeval_0.2.3.tar.gz",
+        "bytes": 130115,
+        "sha256": "c65db1997b195a7bb0ab3afbb834345ea277b428b2736eeded4242629e86adcb",
+        "DESCRIPTION_sha256": "e08c2c5ae812179d338a11c2cd37e55f01c3c421dde57f89e4d35b1c67f3a3f8"
+      }
+    },
+    {
+      "package": "lifecycle",
+      "version": "1.0.5",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/lifecycle_1.0.5.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\lifecycle_1.0.5.zip",
+        "bytes": 149846,
+        "sha256": "8aebd461416b8517b4370acfa40b056c71a958b13eb4c627cf532ebcbc6eb81b",
+        "DESCRIPTION_sha256": "69b579fa6cecc5ac63b7ce51b42e54bf4c8a356ad86c6b0054c513569db5a239",
+        "Built": "R 4.5.3; ; 2026-10-26 01:20:34 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/lifecycle_1.0.5.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\lifecycle_1.0.5.tar.gz",
+        "bytes": 107137,
+        "sha256": "61841e3e6edba056a88355a3f1d6698ab8d5d9cb3c05f2af0ec5a44ab516f8ee",
+        "DESCRIPTION_sha256": "fe1205b666b2d69de83126d92b1b1a75dbf00bd2e3210ed75287dfddc513c9d4"
+      }
+    },
+    {
+      "package": "listenv",
+      "version": "1.1.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/listenv_1.1.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\listenv_1.1.0.zip",
+        "bytes": 143808,
+        "sha256": "1da6b7a2b4ee5e8b1e2951cf68bc179943d5eeb9d749a7d14681b71e85a2e278",
+        "DESCRIPTION_sha256": "1d3c1d2855d616a40bd9c3efb7868573f3e3702b98adcdcb5420fbf37eda9ec7",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:24 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/listenv_1.1.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\listenv_1.1.0.tar.gz",
+        "bytes": 56056,
+        "sha256": "08ce62df335de0a623c289fcb6e26f883445581377b5c405dbb449c840311760",
+        "DESCRIPTION_sha256": "0314c686d102a09e32b6eaf2689ad92cbc8ed924eee236915e1b6a836f35cd8e"
+      }
+    },
+    {
+      "package": "lmtest",
+      "version": "0.9-40",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/lmtest_0.9-40.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\lmtest_0.9-40.zip",
+        "bytes": 411721,
+        "sha256": "e21a8b9dac1b4605980cd7f1bb6221ffcbf9b9797d7dcbb954a4addf3a87c344",
+        "DESCRIPTION_sha256": "3207db2ec25f62d667c3efb49c39b5723959800065c7568bb43c8e1101fbd087",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:53:46 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/lmtest_0.9-40.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\lmtest_0.9-40.tar.gz",
+        "bytes": 230313,
+        "sha256": "64400d4d6cc635316531042971f1783539686e9015c76f5741c07304fa14d997",
+        "DESCRIPTION_sha256": "ca7710286fe0d85bc5714df7392a6948b53063282a395b4b0b16146c36738021"
+      }
+    },
+    {
+      "package": "magrittr",
+      "version": "2.0.5",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/magrittr_2.0.5.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\magrittr_2.0.5.zip",
+        "bytes": 229045,
+        "sha256": "7d5379629c7a7afe3dd3005480896a656106601ae7589047258c8c3d260fa5c6",
+        "DESCRIPTION_sha256": "34177641d0d556c67283370d65b26e31c6724b342712e3acabe9edec75a3ce3f",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:01 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/magrittr_2.0.5.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\magrittr_2.0.5.tar.gz",
+        "bytes": 281813,
+        "sha256": "3f5b5b1d4e6d12807a95c50b6c88cb1d8af2c5eb5213f08bfe58f278eca2ed23",
+        "DESCRIPTION_sha256": "8f8f692840b8139ee04b6ad4ff7d6227188aa22e1006cf5270d64c1f305a2c91"
+      }
+    },
+    {
+      "package": "matrixStats",
+      "version": "1.5.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/matrixStats_1.5.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\matrixStats_1.5.0.zip",
+        "bytes": 558898,
+        "sha256": "742365c4d24405272045be093fd995d4f325ca39e1626e84e48fd6b4c0c1574f",
+        "DESCRIPTION_sha256": "760651ce76073d60a9183ec566cf220bc43a9bb2aba272f2727fe0f0d601d068",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:05 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/matrixStats_1.5.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\matrixStats_1.5.0.tar.gz",
+        "bytes": 212156,
+        "sha256": "12996c5f3e6fc202a43e1087f16a71b7fa93d7e908f512542c7ee89cf95dcc15",
+        "DESCRIPTION_sha256": "1e13bffade27233f0957257face0109cd49361adaf007b1a415455abaddf1e35"
+      }
+    },
+    {
+      "package": "memoise",
+      "version": "2.0.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/memoise_2.0.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\memoise_2.0.1.zip",
+        "bytes": 51546,
+        "sha256": "4140beb2b3db98114b10530b2edd212ea51c4a727741be948f868d28c693a0ff",
+        "DESCRIPTION_sha256": "25673d0b2267bc4572678b9693954c6d3628534a64890f566d293550a04bdcb3",
+        "Built": "R 4.5.3; ; 2026-10-26 01:53:58 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/memoise_2.0.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\memoise_2.0.1.tar.gz",
+        "bytes": 17852,
+        "sha256": "f85034ee98c8ca07fb3cd826142c1cd1e1e5747075a94c75a45783bbc4fe2deb",
+        "DESCRIPTION_sha256": "123c3c642727314655a596f01b46b73f711f114148de9ee09c78bdc6371e76f0"
+      }
+    },
+    {
+      "package": "mime",
+      "version": "0.13",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/mime_0.13.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\mime_0.13.zip",
+        "bytes": 52416,
+        "sha256": "be4b24390fe9238ff2c68b397269c637bf1b127f7de5d1e0474aec5ff10a4a1b",
+        "DESCRIPTION_sha256": "d6ef98a2dcddbe22c9355733a430d91a3766973be83d49f9109fa0f58d22e7e8",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2025-11-01 00:30:57 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/mime_0.13.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\mime_0.13.tar.gz",
+        "bytes": 21950,
+        "sha256": "7132834cf3c3388eff12bad376d69fbcf8275acc37d36c290e59174fe3c7f3eb",
+        "DESCRIPTION_sha256": "c16f45af25b5a28ac898844238c2fafc350d73a53a981e35b2f9e8d9d95c7da5"
+      }
+    },
+    {
+      "package": "miniUI",
+      "version": "0.1.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/miniUI_0.1.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\miniUI_0.1.2.zip",
+        "bytes": 38343,
+        "sha256": "c0e5dd1586db9321ff26bc70b0503d8dcd551589edc16e8f1be34a2f1d4fdcd8",
+        "DESCRIPTION_sha256": "e03649e45e353ac197f1db3ebc10f23f8db25d0c59ad2f224d811a01083d8df1",
+        "Built": "R 4.5.3; ; 2026-10-26 02:56:35 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/miniUI_0.1.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\miniUI_0.1.2.tar.gz",
+        "bytes": 100855,
+        "sha256": "017a481f7584d385241720f568323b8636ddad385e7098ceff5c12ebf879c22f",
+        "DESCRIPTION_sha256": "e3cd943af990dd62530e3fcbd23c69f9628500f978747143dc69b948bbd88f91"
+      }
+    },
+    {
+      "package": "openssl",
+      "version": "2.4.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/openssl_2.4.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\openssl_2.4.2.zip",
+        "bytes": 3629621,
+        "sha256": "ce120d85945fd265c75e8e00f50937e9f108d8967f4683db715f0804b258ee92",
+        "DESCRIPTION_sha256": "242ed78a1ac0c9e0332cbacf350102c4e34c1b7cc282cf085d5b55fa0576611b",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:54:11 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/openssl_2.4.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\openssl_2.4.2.tar.gz",
+        "bytes": 1177207,
+        "sha256": "1fc030ad0a008472eac7f086666a7623bdbe6d27c5fdb07b5510f56545d2f4e7",
+        "DESCRIPTION_sha256": "50caea5037832b4c97945c9f11b21904ed8c264293d342641e27132210be9a8a"
+      }
+    },
+    {
+      "package": "otel",
+      "version": "0.2.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/otel_0.2.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\otel_0.2.0.zip",
+        "bytes": 286028,
+        "sha256": "2669704d586c563cd15672d88aebc280fee22dfc0f7ab782062f2b79033a15ae",
+        "DESCRIPTION_sha256": "8ac01bdb8cedd0555c03efcaa5aad043b2e8512e93f9362524cc3f9ae66a403f",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:04 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/otel_0.2.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\otel_0.2.0.tar.gz",
+        "bytes": 72585,
+        "sha256": "ef8afe5a1bc8074bbeb8a84134699ef348a1f8ac629ffba25ee43ea7bcd8dd17",
+        "DESCRIPTION_sha256": "00b6144a5413f0dbfa1a13dbb7767eaead4cff48d1e780237c73de344eaef242"
+      }
+    },
+    {
+      "package": "parallelly",
+      "version": "1.48.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/parallelly_1.48.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\parallelly_1.48.0.zip",
+        "bytes": 682225,
+        "sha256": "7cd271c68131f65e5c7e21c2ab6a47c96844cbfd11ea7b33ab9fa8acb794724a",
+        "DESCRIPTION_sha256": "5aa2b58db26d952035e1dfb07c9143a6118c8d5e39a7f413f35796cadee286db",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:24 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/parallelly_1.48.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\parallelly_1.48.0.tar.gz",
+        "bytes": 351615,
+        "sha256": "58fe71ccee8e4dc95591958c5428c5000350937024373b99b258a76da0927636",
+        "DESCRIPTION_sha256": "7e36811a9962f7ffe557b1c1df9dcb6d3f8906160d27455ba96e044ca0fa452f"
+      }
+    },
+    {
+      "package": "patchwork",
+      "version": "1.3.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/patchwork_1.3.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\patchwork_1.3.2.zip",
+        "bytes": 3351245,
+        "sha256": "8666a21ed01231527ce93ab3dae03993c1c3d36b1dd7e569a335cc108d9cb088",
+        "DESCRIPTION_sha256": "c7bdd68fa25fe164d8ac3f619e78a76157816d74300f938b0cb8bc8e1f94796f",
+        "Built": "R 4.5.3; ; 2026-10-26 02:55:52 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/patchwork_1.3.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\patchwork_1.3.2.tar.gz",
+        "bytes": 3322521,
+        "sha256": "0ec469acfd69d1a4f1a6317c861e6bf000f768c2d5047e3aed6713df9afe27eb",
+        "DESCRIPTION_sha256": "39acd7db554680a4e01ead54c57c2cdff6ad5795bd09dc60b70814366b5d674e"
+      }
+    },
+    {
+      "package": "pbapply",
+      "version": "1.7-5",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/pbapply_1.7-5.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\pbapply_1.7-5.zip",
+        "bytes": 102756,
+        "sha256": "c12baae143b18adf6439a3435acf628122eb6ff0ab666000287b101e0a690100",
+        "DESCRIPTION_sha256": "f2557d5617daff774bceb92ee261b9862a1ea0d8c7c4401d409469dfef210ac9",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:47 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/pbapply_1.7-5.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\pbapply_1.7-5.tar.gz",
+        "bytes": 23767,
+        "sha256": "1a6473e93da0f891e8dd6d967a7a93fa9a680a6f77d08f41502e8110b5ca9c68",
+        "DESCRIPTION_sha256": "7910eee9cb52a5654df8175ef8e4a0d21653aac773857a9aa81db9b77e4d96a3"
+      }
+    },
+    {
+      "package": "pillar",
+      "version": "1.11.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/pillar_1.11.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\pillar_1.11.1.zip",
+        "bytes": 673346,
+        "sha256": "34310a6614f202d663766235caf3c25a2e6a848610e92df4a44e1ef9bdf83f87",
+        "DESCRIPTION_sha256": "77c25145555442c5369ac645d1f1d584d25697511b2fca20efc0d50bf7997013",
+        "Built": "R 4.5.3; ; 2026-10-26 02:22:19 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/pillar_1.11.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\pillar_1.11.1.tar.gz",
+        "bytes": 409508,
+        "sha256": "056ce154238c9b5b8d5dcbcb52e1bc51d33870ce08c8a9ca9496478bd59f4653",
+        "DESCRIPTION_sha256": "5a91fd0f37d6923a345f49e422918abe380be5fec4bdf2593ec913244d41cb89"
+      }
+    },
+    {
+      "package": "pkgconfig",
+      "version": "2.0.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/pkgconfig_2.0.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\pkgconfig_2.0.3.zip",
+        "bytes": 23140,
+        "sha256": "531b2f476e540fdb8cab725c2f4089736466bd4cc666504265dca4f93bdb254f",
+        "DESCRIPTION_sha256": "e339b2a9935b4514a8bd7456b874f5fc3d609f10ce7a3744f88078ea26e88c52",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/pkgconfig_2.0.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\pkgconfig_2.0.3.tar.gz",
+        "bytes": 6080,
+        "sha256": "330fef440ffeb842a7dcfffc8303743f1feae83e8d6131078b5a44ff11bc3850",
+        "DESCRIPTION_sha256": "dd247639e04cc2963a88267d742188a084199d623de3a1a0ce282a421ceddaa1"
+      }
+    },
+    {
+      "package": "plotly",
+      "version": "4.12.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/plotly_4.12.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\plotly_4.12.1.zip",
+        "bytes": 4072733,
+        "sha256": "cf7fdf71ac7d2ed90377171608823949efbff61db32f3af94ba1a4b2e6f52515",
+        "DESCRIPTION_sha256": "a38e9bb91cd4d59735dc9fc3b93d46b1bd3849508719ca34a840a501ba46e915",
+        "Built": "R 4.5.3; ; 2026-10-26 04:18:00 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/plotly_4.12.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\plotly_4.12.1.tar.gz",
+        "bytes": 4722007,
+        "sha256": "16c7d796ec788d5755b6e2ac601f504dc085a8e46689dbb0c153c2b3e4ac99f4",
+        "DESCRIPTION_sha256": "b70fc4798992c30758294afe97caaccf7fe3fc23b3177ba261a9e9e99674d624"
+      }
+    },
+    {
+      "package": "plyr",
+      "version": "1.8.9",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/plyr_1.8.9.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\plyr_1.8.9.zip",
+        "bytes": 1126364,
+        "sha256": "f01ecfec6415bb8ba25149c3f19452adfb1aa15c71bf4985fe8e19c0b0ecf327",
+        "DESCRIPTION_sha256": "41428e8bff7778cdee90f011fe7f0efe41e04636b9ce67f8c8bde9cdd4dc691e",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:37 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/plyr_1.8.9.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\plyr_1.8.9.tar.gz",
+        "bytes": 401488,
+        "sha256": "15b5e7f711d53bf41b8687923983b8ef424563aa2f74c5195feb5b1df1aee103",
+        "DESCRIPTION_sha256": "8709813b812a3de4ada8eaf0b04815134eca89db5270236b2b89c6ce721a7db6"
+      }
+    },
+    {
+      "package": "png",
+      "version": "0.1-9",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/png_0.1-9.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\png_0.1-9.zip",
+        "bytes": 197404,
+        "sha256": "8421c6db45feedf966e659013106a0626671c0072d314db8ebec0e7b0f226015",
+        "DESCRIPTION_sha256": "abde875dcc4d0e2a67d103b0680629a3bfcd00255817868398b9465d0bb5060b",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-03-18 00:52:13 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/png_0.1-9.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\png_0.1-9.tar.gz",
+        "bytes": 24939,
+        "sha256": "0b8502363c6f5c73cf284dee4fd1416f5adf4115b6ae9a1e09531c143b978589",
+        "DESCRIPTION_sha256": "4140aa55ca9a437c24ed656847e2df1cd6534f3e2a09c23dba7e5b6e3e44f1d6"
+      }
+    },
+    {
+      "package": "polyclip",
+      "version": "1.10-7",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/polyclip_1.10-7.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\polyclip_1.10-7.zip",
+        "bytes": 415431,
+        "sha256": "abcef0b96c02a82e2412992fdc2a8b196272d3b3206c888e8a8e4fba2148a5f0",
+        "DESCRIPTION_sha256": "9c65bf6e3157f9e952d56ddde7ce9f01c6e66a5fb351fb9a89ebf46d6d7e9e06",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2025-11-01 00:32:57 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/polyclip_1.10-7.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\polyclip_1.10-7.tar.gz",
+        "bytes": 80102,
+        "sha256": "f58eaac3a5b2f6711c0c5f12fff91cf80a245ae45878f7217880ab062b5550d3",
+        "DESCRIPTION_sha256": "514fe6d027aa69ebc1f2a2edf83d57f139b5d42a283c717e32c7e89c6f14a9ca"
+      }
+    },
+    {
+      "package": "progressr",
+      "version": "1.1.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/progressr_1.1.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\progressr_1.1.0.zip",
+        "bytes": 621413,
+        "sha256": "40686e1fb301e7d256391833616ae8b12b3b46b8b8ac3429a71b733c86130f6b",
+        "DESCRIPTION_sha256": "7e96aa5e091756a4ff2611bdd745a3a035786362032e94ea131db246cd40bde3",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:25 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/progressr_1.1.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\progressr_1.1.0.tar.gz",
+        "bytes": 665903,
+        "sha256": "55d287b046162f04087308640b03a53160fa92dab7824f0e15efc5f7cb20dd0b",
+        "DESCRIPTION_sha256": "11c862128a675d766da4653148076c1b9530d5b5ab800aac54940615026c6074"
+      }
+    },
+    {
+      "package": "promises",
+      "version": "1.5.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/promises_1.5.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\promises_1.5.0.zip",
+        "bytes": 1703911,
+        "sha256": "18bd48aae9e97e7886fd978100b319b93b3da1b7119670f0bfcd3ca4ef94eb3f",
+        "DESCRIPTION_sha256": "ca6e820654cb536325b9e61629ded50db20750bc95f6ec7d0fa08a25efd3d872",
+        "Built": "R 4.5.3; ; 2026-10-26 01:53:59 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/promises_1.5.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\promises_1.5.0.tar.gz",
+        "bytes": 3210294,
+        "sha256": "bb68fd4065cc072996aed416f0b2388f58738797a3a38024720c29d67164747d",
+        "DESCRIPTION_sha256": "c3c3eae4603df75e67305e92786face2e2d690e8e0cc660848510a8dfb9e747b"
+      }
+    },
+    {
+      "package": "purrr",
+      "version": "1.2.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/purrr_1.2.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\purrr_1.2.2.zip",
+        "bytes": 571969,
+        "sha256": "e1bcda75717153023bd5d13d29a5deab14eb8b4adc1a2f78c5ac353cb4ebe426",
+        "DESCRIPTION_sha256": "559bcb19f33bce3c12bbe8ad822b95fb0ad0032e0221ace54bf8c4ee46924697",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:22:19 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/purrr_1.2.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\purrr_1.2.2.tar.gz",
+        "bytes": 278508,
+        "sha256": "ac3bc0fc0e789510042522e6c4294336c71447be8f6921b5ef78b9a9fb86617d",
+        "DESCRIPTION_sha256": "e87516c2efbd252c9ef981ab75982045dea7c1ac62141dbf54b37a7173b3241e"
+      }
+    },
+    {
+      "package": "rappdirs",
+      "version": "0.3.4",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/rappdirs_0.3.4.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\rappdirs_0.3.4.zip",
+        "bytes": 53196,
+        "sha256": "ddb173a037fae09556c754f0ed0074f52f99e8bf44ef5d57abe3f9819c0b7549",
+        "DESCRIPTION_sha256": "057be972716da56f42a631431d92131c4fe3b74d4699b81f89e1bb68ef28d744",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/rappdirs_0.3.4.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\rappdirs_0.3.4.tar.gz",
+        "bytes": 11763,
+        "sha256": "2320ebc9ef3b1a32a1e63f94a6ce2c1c34d66782221a6531e786804f681abc66",
+        "DESCRIPTION_sha256": "e4d6cac8c2f0ce2b0167eb5dbdc79a5dcd6d28ed7950ed4c9a19f37918a14ba4"
+      }
+    },
+    {
+      "package": "renv",
+      "version": "1.3.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/renv_1.3.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\renv_1.3.1.zip",
+        "bytes": 2746873,
+        "sha256": "7692a6b5f1c5f04bcc1022f8d3ace21e0d7f833fe728727f3e10ff5298b837f3",
+        "DESCRIPTION_sha256": "2fe7ee264db034e5cd1ea758b18b0dee80500b9d57f2656d04bb4d254fc312fa",
+        "Built": "R 4.5.3; ; 2026-10-26 00:22:21 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/renv_1.3.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\renv_1.3.1.tar.gz",
+        "bytes": 1571942,
+        "sha256": "e16281908ddf0ed6f8f6f8ad3f2cc4788af6de04c1ab223517aa1cc9acb30731",
+        "DESCRIPTION_sha256": "6e3c38d24c8b42bcbe8dc7f0d47cd726f284a90a03c8f8c496c9980e302bf89e"
+      }
+    },
+    {
+      "package": "reshape2",
+      "version": "1.4.5",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/reshape2_1.4.5.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\reshape2_1.4.5.zip",
+        "bytes": 453121,
+        "sha256": "66e144be02bfff2823536ff12dd542fecf48c34cb496275340f28f35f62ecacb",
+        "DESCRIPTION_sha256": "85463a54801b076a0398a443fb48f1a42a644d37b022818728f2b2f3ef5b3f49",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:55:46 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/reshape2_1.4.5.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\reshape2_1.4.5.tar.gz",
+        "bytes": 38080,
+        "sha256": "0ead5acd0153e5073b3c24e8e782982a4eab3aaa768ba17700d796fb13b68cef",
+        "DESCRIPTION_sha256": "22e598923fd334732db050e51e309df29c8e21b4b5bf3b9b518ef8d5f9bd02be"
+      }
+    },
+    {
+      "package": "reticulate",
+      "version": "1.47.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/reticulate_1.47.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\reticulate_1.47.0.zip",
+        "bytes": 2325068,
+        "sha256": "6d02cf0e4eaba6b53eb10326a83284a6ad690313f8bc0cff9a3705dcb6a2e044",
+        "DESCRIPTION_sha256": "ea70dfef868b2c89de4ccbd74efd9229749ebffb5580fbb931d3376e43572d50",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:55:00 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/reticulate_1.47.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\reticulate_1.47.0.tar.gz",
+        "bytes": 1704390,
+        "sha256": "5f566b8226b1c12cd4cf833b8c0750a414ca56fa4c5fe5d9a6f71b97147a7619",
+        "DESCRIPTION_sha256": "1e88536333f21b562602923122b68f0651753b15903f6e55397b058e7884a39e"
+      }
+    },
+    {
+      "package": "rhdf5",
+      "version": "2.54.1",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/rhdf5_2.54.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\rhdf5_2.54.1.zip",
+        "bytes": 3945344,
+        "sha256": "d3cef46ee794bb2fd7c88c8429ddb87b5c85e8d3992bdca46f3b2164f5648d84",
+        "DESCRIPTION_sha256": "62839fc177477e4a298039bf4a53bb4f48fb6ec023b9e6d7d89967ed8086c1e0",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-03-01 09:42:49 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/rhdf5_2.54.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\rhdf5_2.54.1.tar.gz",
+        "bytes": 1314419,
+        "sha256": "65e273b1ebbce4cc0a1e6baa86e1a699b95d726c5439c313094a3eb50d4037af",
+        "DESCRIPTION_sha256": "554798826ca792f463e08849cbf1a3defc9a6700ca86df8008f322d5ef8d34c0"
+      }
+    },
+    {
+      "package": "rhdf5filters",
+      "version": "1.22.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/rhdf5filters_1.22.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\rhdf5filters_1.22.0.zip",
+        "bytes": 2151022,
+        "sha256": "b2abab1ecdf178d00ae2dcb537f48ea41ff1405e23f903fe66131c4793b88187",
+        "DESCRIPTION_sha256": "a30e48ddbef34a50ed9e7d57fd2cda258b6c2d2e10d1b5f18ab0d9df744a8d00",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-01-24 23:12:43 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/rhdf5filters_1.22.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\rhdf5filters_1.22.0.tar.gz",
+        "bytes": 1191111,
+        "sha256": "5f7fe109420207e816cac8d0744a6bc64b9fbc1af893c31b4c0334bf0025b945",
+        "DESCRIPTION_sha256": "49061e3ec8b12267f2a6de3c308aa50f2fcdc62b8c9022fbf7871645821d06ec"
+      }
+    },
+    {
+      "package": "rlang",
+      "version": "1.3.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/rlang_1.3.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\rlang_1.3.0.zip",
+        "bytes": 1649136,
+        "sha256": "710cf888be72e68be71e53d2bce01f78fd60b1947c0238a2d2161c86bd8fc73d",
+        "DESCRIPTION_sha256": "acd752647eb51dea15d8acc2197a45ff7c8022af7a8dd622f405a90dff79b0ac",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:01 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/rlang_1.3.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\rlang_1.3.0.tar.gz",
+        "bytes": 784080,
+        "sha256": "80aa537d49e72265f443a15e8936128af583caa5e572086518b503cbf064279c",
+        "DESCRIPTION_sha256": "ea47314bf6ec7db5c775f7bdb658a08e4de819356781675d521be39406f29727"
+      }
+    },
+    {
+      "package": "rmarkdown",
+      "version": "2.32",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/rmarkdown_2.32.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\rmarkdown_2.32.zip",
+        "bytes": 2684253,
+        "sha256": "d1c4f4ff0365e47904c4976142a5df2ba66b84b667d8e84ec61ddd922931bc03",
+        "DESCRIPTION_sha256": "985cc3ada13dea9911f0cbd9782d27540703e32dd750d8bb9b3675f58722c9a6",
+        "Built": "R 4.5.3; ; 2026-10-26 02:55:51 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/rmarkdown_2.32.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\rmarkdown_2.32.tar.gz",
+        "bytes": 2193865,
+        "sha256": "f7fab8ae670d18a4b91409d11e4275b565c4081d77c4522443d01f94a8c2acee",
+        "DESCRIPTION_sha256": "62497e674e077e3057dff09189b8df03539662a47d77866c98ba73b8f9b76693"
+      }
+    },
+    {
+      "package": "rprojroot",
+      "version": "2.1.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/rprojroot_2.1.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\rprojroot_2.1.1.zip",
+        "bytes": 121868,
+        "sha256": "2d3d633c6d5a046fa1d9e52f355819235b6cbd1282d56dd61e349868146573e8",
+        "DESCRIPTION_sha256": "b3acdc6fd2a31fddfc9d51f3b763875e26dd1c0031692ebd5fa1c7a883aac790",
+        "Built": "R 4.5.3; ; 2026-10-26 00:21:05 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/rprojroot_2.1.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\rprojroot_2.1.1.tar.gz",
+        "bytes": 59899,
+        "sha256": "473989bbef45fd9cd68f68dc317b14c9f42de5cea4b55fd6ba9011f25e0517e9",
+        "DESCRIPTION_sha256": "b171456aca04e226efa53fde5890c2c35da1f039e9998835502f01c55f59a5cb"
+      }
+    },
+    {
+      "package": "sass",
+      "version": "0.4.10",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/sass_0.4.10.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\sass_0.4.10.zip",
+        "bytes": 2592399,
+        "sha256": "57f766d778b57eb06926dbe59258766fe37dcf99abc84cbfa4cd896e5eaa7c46",
+        "DESCRIPTION_sha256": "d2b171216444a84aedf3cd3d90439cc0f78374e5c3dc0ef4704d561f1447b4a3",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:53:58 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/sass_0.4.10.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\sass_0.4.10.tar.gz",
+        "bytes": 3025163,
+        "sha256": "4adb4c243f74d811276529e346deaa064bce28dbfbb837208fc85f2c47b79b30",
+        "DESCRIPTION_sha256": "aa7cdce80e0ff2bc35a564b2c8e512d075e071ca21ae047392467c7cc2fe4134"
+      }
+    },
+    {
+      "package": "scales",
+      "version": "1.4.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/scales_1.4.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\scales_1.4.0.zip",
+        "bytes": 880144,
+        "sha256": "51188e76d854a12bd136edda1fa6b262ab4e1972b944ecf652d8ad6f62696385",
+        "DESCRIPTION_sha256": "09d8194cba1137ecf4238f788198a9fe9899409edf2afbe0c28f8c79217ded11",
+        "Built": "R 4.5.3; ; 2026-10-26 01:53:45 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/scales_1.4.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\scales_1.4.0.tar.gz",
+        "bytes": 328671,
+        "sha256": "d55ef5f08c92652d7a95cfa27584024723ab17873f1b2577dd488cb7c883ceee",
+        "DESCRIPTION_sha256": "4e26da56f0d6d1393f220efd7a0931f8833e6fcfca5d43bc89f845dd3916c6eb"
+      }
+    },
+    {
+      "package": "scattermore",
+      "version": "1.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/scattermore_1.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\scattermore_1.2.zip",
+        "bytes": 687786,
+        "sha256": "f4353aa9d354105e5e6617f1ad229821417af8fc21ba2436137206899eda13ab",
+        "DESCRIPTION_sha256": "5f585b1cebb636123173c011b1453e50b0a98cbd16ecb4eb36122d665d0677ee",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:23:58 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/scattermore_1.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\scattermore_1.2.tar.gz",
+        "bytes": 261296,
+        "sha256": "5534a87b0bdd1375f0fbffc1a5c980ad64e33a108435a67469b8324b580602d1",
+        "DESCRIPTION_sha256": "9f0b3e110ae84770c3edf80d29f8af2796775ba7356b27f19e8eb05bce2fe50d"
+      }
+    },
+    {
+      "package": "sctransform",
+      "version": "0.4.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/sctransform_0.4.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\sctransform_0.4.3.zip",
+        "bytes": 896200,
+        "sha256": "3c78a532f04816c882051322fe1529e2f73adde85b82cfa3e5142d3fbcddfca4",
+        "DESCRIPTION_sha256": "e74fb2df5a868e057a4dabc2d77dcc836cfa715b1979f2f79c72de3a66335f52",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 03:26:44 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/sctransform_0.4.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\sctransform_0.4.3.tar.gz",
+        "bytes": 187408,
+        "sha256": "f07fdf1875eea9b89a2d7bedc4bd542bf7da836b1defc1aaf687018053377a50",
+        "DESCRIPTION_sha256": "b558deb02876ff372fa86e321c1713c78b0ac3a9c43eda6802d85d0b66917181"
+      }
+    },
+    {
+      "package": "shiny",
+      "version": "1.14.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/shiny_1.14.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\shiny_1.14.0.zip",
+        "bytes": 4628052,
+        "sha256": "d8195c71492eae7139aa067165a9fc8ebd9f647e52aa910359b4ebeac7d2f789",
+        "DESCRIPTION_sha256": "59035bb6a372806963252c5ec798a4cf605db05ac1dbb987859540906921bfc8",
+        "Built": "R 4.5.3; ; 2026-10-26 02:55:39 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/shiny_1.14.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\shiny_1.14.0.tar.gz",
+        "bytes": 2739936,
+        "sha256": "4a6945ed450effdb90b44ca0439e241f13488af59508be1c2fdab3f4de9dad11",
+        "DESCRIPTION_sha256": "5703a87d8dcde48447c94c58270a921a625c0eb3cb37cd8dccd8d324d7877d6c"
+      }
+    },
+    {
+      "package": "sitmo",
+      "version": "2.0.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/sitmo_2.0.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\sitmo_2.0.2.zip",
+        "bytes": 595959,
+        "sha256": "c6969dcd1c4ae202430536e8fb972fbb1e0ba7e0f9aecca17226b7c12771d6e9",
+        "DESCRIPTION_sha256": "6d1a781ee38f15d8d7f3b9b3fe7b9ed9ffc658427e59b2137f3ee6d8b38cfa9d",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:22:40 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/sitmo_2.0.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\sitmo_2.0.2.tar.gz",
+        "bytes": 132964,
+        "sha256": "448ef8d56e36783354011845daf33f1efb83ea3b9685eea75eaf5134e24fa8c2",
+        "DESCRIPTION_sha256": "3ef94389aee0a9ae02aee1e544c11e2cf8215ac14dc2f42cd660acaf96e69896"
+      }
+    },
+    {
+      "package": "sourcetools",
+      "version": "0.1.7-2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/sourcetools_0.1.7-2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\sourcetools_0.1.7-2.zip",
+        "bytes": 130124,
+        "sha256": "30fb5b1bc06998c4aad87cb7d66d13dd98783e964c694fd58c3d92545c30d19c",
+        "DESCRIPTION_sha256": "4a38e6bec6fe2986a09b26ab16d0b7cd31991070494dc75338ebdae7d6cc1d5d",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/sourcetools_0.1.7-2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\sourcetools_0.1.7-2.tar.gz",
+        "bytes": 24542,
+        "sha256": "07e584b780d7fcdfa5b527214361fface49350ab49cf901bd3d5c15950e4f1a7",
+        "DESCRIPTION_sha256": "cc70efcbadbf24696c77a627ca06b8a9c8200d62b117e924574f90aee8d71708"
+      }
+    },
+    {
+      "package": "sp",
+      "version": "2.2-4",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/sp_2.2-4.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\sp_2.2-4.zip",
+        "bytes": 5314201,
+        "sha256": "43fbfb0b1dbd29de214e6ad012b0eb8a1f9622f585039cebc949550102e15bd4",
+        "DESCRIPTION_sha256": "abdca40c1e63d37966a8a518e51bbd8504503e5f4c91dbe38727ef283a2d73fe",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:49 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/sp_2.2-4.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\sp_2.2-4.tar.gz",
+        "bytes": 4477952,
+        "sha256": "73f03473e61e89f3c0c1a96ac6e17e81a075637963d1d6b156dc9c969b2dbc93",
+        "DESCRIPTION_sha256": "e1ceee94cbbd277fc842a97aa3cdccc1bfb1eb48b1db86325445b4b92679935c"
+      }
+    },
+    {
+      "package": "spam",
+      "version": "2.11-4",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/spam_2.11-4.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\spam_2.11-4.zip",
+        "bytes": 4509075,
+        "sha256": "666222325ca13204a534dd465e9d88c371f7b6cd172af69a90a92aea87e2dd8a",
+        "DESCRIPTION_sha256": "046fcd78381472fb1cf20e4025490b94d896b4a9e4245b3b8a8b7d1365e1a30b",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:21:17 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/spam_2.11-4.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\spam_2.11-4.tar.gz",
+        "bytes": 3250893,
+        "sha256": "e206414c4220f0716fdc49654a3b450483920a5046f840f97452e1d93a689886",
+        "DESCRIPTION_sha256": "fb7b98f43bb8e3ae68a2f396a1d6ab57cc207e889baf4d4d60e70dd33abcd9c3"
+      }
+    },
+    {
+      "package": "sparseMatrixStats",
+      "version": "1.22.0",
+      "repository": "https://bioconductor.posit.co/packages/3.22/bioc",
+      "binary": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/sparseMatrixStats_1.22.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\sparseMatrixStats_1.22.0.zip",
+        "bytes": 1308279,
+        "sha256": "65e428ac3e0d0c2484ed58f45d2e4f1b7dcfdbf587c6099943d66453b7d787cd",
+        "DESCRIPTION_sha256": "b1f1dd35a897a7fabed81c1c041f35c1595e2d32c25a05ab802c8ccfc26466b6",
+        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-02-18 07:52:51 UTC; windows"
+      },
+      "source": {
+        "url": "https://bioconductor.posit.co/packages/3.22/bioc/src/contrib/sparseMatrixStats_1.22.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\sparseMatrixStats_1.22.0.tar.gz",
+        "bytes": 706401,
+        "sha256": "449f5db2ef915bea7b39e42e27bde36e54e75532913f2f7dad24135933647e96",
+        "DESCRIPTION_sha256": "203880ab5b799af507eb19b20ee497e230354ee240d9747729733d5a8d007cc6"
+      }
+    },
+    {
+      "package": "spatstat.data",
+      "version": "3.1-9",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/spatstat.data_3.1-9.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\spatstat.data_3.1-9.zip",
+        "bytes": 4174940,
+        "sha256": "5cdfeb43a93325c4eebbeae4706d6998fe6581bd1ac5cf500c4a2ac011bcf213",
+        "DESCRIPTION_sha256": "c649ce15e29467e5b0c8b9ed4e34e1a1e8fc0de0aa25b643332a9800e318a275",
+        "Built": "R 4.5.3; ; 2026-10-26 01:54:36 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/spatstat.data_3.1-9.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\spatstat.data_3.1-9.tar.gz",
+        "bytes": 3021786,
+        "sha256": "e57b48fecad1ec72508f1485eee2c80de2de83ea72af29b2e98ef3bcf8f3246f",
+        "DESCRIPTION_sha256": "362b414cd014944fe78df227cc62a5b4da1a85ba1ffb900c8de1bbc2cfc4dd6d"
+      }
+    },
+    {
+      "package": "spatstat.explore",
+      "version": "3.8-3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/spatstat.explore_3.8-3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\spatstat.explore_3.8-3.zip",
+        "bytes": 3720146,
+        "sha256": "ef23858fb82416e67336d85bfb292dd25725debd66ec06d317b2824c4961a1c3",
+        "DESCRIPTION_sha256": "6375979c73a6888b47f1525957776f38cf55e74a5ec06dd59ddc397734515a5d",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 03:26:05 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/spatstat.explore_3.8-3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\spatstat.explore_3.8-3.tar.gz",
+        "bytes": 748669,
+        "sha256": "b116b5d6146ec60099ca906e2243e2d44bd68dea591e3adb534f73fa6adca5e1",
+        "DESCRIPTION_sha256": "28f216f95adb9951897c90250403befc135bad6042b246c123b2a7c1a34284de"
+      }
+    },
+    {
+      "package": "spatstat.geom",
+      "version": "3.8-3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/spatstat.geom_3.8-3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\spatstat.geom_3.8-3.zip",
+        "bytes": 4330621,
+        "sha256": "5dcb880066ebd85277bcacc657e97517428edf46ae83f32a46ae4fa6af0845b8",
+        "DESCRIPTION_sha256": "75757846bf3afb4c49b041a64df479f07343cc09b8df8a335f0a234c55f5901f",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:22:45 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/spatstat.geom_3.8-3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\spatstat.geom_3.8-3.tar.gz",
+        "bytes": 835082,
+        "sha256": "feee763cda331268f1864e72ead95bcfdad5bb4ac61599c5b5424b4f9a9fd609",
+        "DESCRIPTION_sha256": "dda86756ff155c89687e48446c797183965fa9ed5c83792cea2c05fbacda307f"
+      }
+    },
+    {
+      "package": "spatstat.random",
+      "version": "3.5-2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/spatstat.random_3.5-2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\spatstat.random_3.5-2.zip",
+        "bytes": 1314354,
+        "sha256": "be1566c3bdd64ae5aa0050d864e8023b08a0d4f078e73e2054a104a71de25309",
+        "DESCRIPTION_sha256": "15b09b99b60c00cfb18b48d7b4a3f01efd4a41701bada5b670cb0d0f3693614c",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:56:05 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/spatstat.random_3.5-2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\spatstat.random_3.5-2.tar.gz",
+        "bytes": 291167,
+        "sha256": "1a278259091f7be0b36e369ac200172c43fc6c872bb52627e96d7cf32d682027",
+        "DESCRIPTION_sha256": "074aa56307175a24888b1bc73fccbf3890b677efac7e11d48c1465b1d6e5e850"
+      }
+    },
+    {
+      "package": "spatstat.sparse",
+      "version": "3.2-0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/spatstat.sparse_3.2-0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\spatstat.sparse_3.2-0.zip",
+        "bytes": 248386,
+        "sha256": "a84965af135da5c60366a5e530d68bf2f8096fc64a609961877601cfda2e77eb",
+        "DESCRIPTION_sha256": "2d1a1617fcd17392179f52de6719e8977086bbb59610145832bfc21b0deebaa8",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:54:37 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/spatstat.sparse_3.2-0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\spatstat.sparse_3.2-0.tar.gz",
+        "bytes": 49987,
+        "sha256": "80bdc51f4814448d2785c2c06955ebc10c31ca11b8bfb43a13b03d8e4dac8d46",
+        "DESCRIPTION_sha256": "04c0b652f9701be955c88879188b91b277ad45c7d260974c302f53d2e939194f"
+      }
+    },
+    {
+      "package": "spatstat.univar",
+      "version": "3.2-0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/spatstat.univar_3.2-0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\spatstat.univar_3.2-0.zip",
+        "bytes": 374466,
+        "sha256": "70565378b0338d45c9450ba983a32b13f532cd6feae8f1899632ced01bb1db28",
+        "DESCRIPTION_sha256": "2673a5a51519f4c648943203e5d5181996b56e6d4875c79d8f64a9c97bb0a54f",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:21:26 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/spatstat.univar_3.2-0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\spatstat.univar_3.2-0.tar.gz",
+        "bytes": 82177,
+        "sha256": "8d2e7e69ab09e563ae902f21045cdfcd58a8fc0664150eac2ef712516cda7b0b",
+        "DESCRIPTION_sha256": "6fa61ce621746f1d18c363593cc41d0483784a32372bfebd249c5b32f9a82a1c"
+      }
+    },
+    {
+      "package": "spatstat.utils",
+      "version": "3.2-5",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/spatstat.utils_3.2-5.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\spatstat.utils_3.2-5.zip",
+        "bytes": 431047,
+        "sha256": "b59c2e1582e9623219bdd9f8390fb0cc5ca740593d96c4a1aa0bd952cfb107b0",
+        "DESCRIPTION_sha256": "fd3aaacd02840b22cb3e7c8066d0c278920fb77f3cad95d9f24e2fd098a7546b",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:21:04 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/spatstat.utils_3.2-5.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\spatstat.utils_3.2-5.tar.gz",
+        "bytes": 110564,
+        "sha256": "49b3f4f55221968a306b77b6a5c9e69c4e8116d0c20fbd352b89c1ede5707997",
+        "DESCRIPTION_sha256": "a7ea22fed5d5cdc09342fbc16f76e650e932ebe908f35cf6f61eed3e0139e296"
+      }
+    },
+    {
+      "package": "stringi",
+      "version": "1.8.9",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/stringi_1.8.9.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\stringi_1.8.9.zip",
+        "bytes": 15013735,
+        "sha256": "0762b244121481bbcccde805b75f7bcf62780d4f8713629998dd40468133b335",
+        "DESCRIPTION_sha256": "2267b7a28b0af645127fca09389971b88f0cf69d8e48f220c6834659da624ad0",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-08-05 08:56:58 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/stringi_1.8.9.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\stringi_1.8.9.tar.gz",
+        "bytes": 11907881,
+        "sha256": "427fcebd281d7ea850becce75e0807576dd394a723a814b2d487419b93275a33",
+        "DESCRIPTION_sha256": "1fc7fd812df36c4ee5326670547ce1559f118d1857f9b8bd127202a17104e7f7"
+      }
+    },
+    {
+      "package": "stringr",
+      "version": "1.6.0",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/stringr_1.6.0.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\stringr_1.6.0.zip",
+        "bytes": 349538,
+        "sha256": "c0c66102748dce72a548e4e54ece71b6097fc1adf6fe30fc7e8f60d41d8a1b6c",
+        "DESCRIPTION_sha256": "fdd6a89d9d9e4f5d59aa6f143589195707d6e354e25594c5524aacfaa58fe11b",
+        "Built": "R 4.5.3; ; 2026-10-26 02:22:19 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/stringr_1.6.0.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\stringr_1.6.0.tar.gz",
+        "bytes": 195833,
+        "sha256": "24f2fc5df980a7eb888659e22b9744d2316c558624015c7a7cd8c3ce3e370064",
+        "DESCRIPTION_sha256": "633d1c31efac320d04a23bf084e4f03575b57ca71a910406743378de0a2dbb22"
+      }
+    },
+    {
+      "package": "sys",
+      "version": "3.4.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/sys_3.4.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\sys_3.4.3.zip",
+        "bytes": 48052,
+        "sha256": "f29dd23a1b820dcede83338fa7becfeb93b262eb91dfbcf9d9fbc9515b954d28",
+        "DESCRIPTION_sha256": "6890ca27298afe1d63012b74da3864320afcd0f5d817e0007b8b37e326d3f675",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/sys_3.4.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\sys_3.4.3.tar.gz",
+        "bytes": 19936,
+        "sha256": "051e7332e3074db826efef9059067721864f9d70adc55bbcae3a72e5ae83913a",
+        "DESCRIPTION_sha256": "ecc6737fd850041cbd0179b25ef18a9521e348ce2efc53885c7a4d2fd6abb83d"
+      }
+    },
+    {
+      "package": "tensor",
+      "version": "1.5.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/tensor_1.5.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\tensor_1.5.1.zip",
+        "bytes": 16683,
+        "sha256": "986e60d99031523e15dadb4a0b8cddb12c71d826986da0df0c7ec56d7bfea1c3",
+        "DESCRIPTION_sha256": "78c7195536ba1f3c5eea1943994ca55948a5d828da6145d0c5933ace2a46d935",
+        "Built": "R 4.5.2; ; 2025-11-01 00:33:00 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/tensor_1.5.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\tensor_1.5.1.tar.gz",
+        "bytes": 2541,
+        "sha256": "6edb07024eaaadec1f83694f5012c2355aced3e589c2c3c659021b5f03168b58",
+        "DESCRIPTION_sha256": "f7a0a3d55af744e99361b0c9ed8cca60cf154ecfb3a326f5eb4c4f2d40794e6f"
+      }
+    },
+    {
+      "package": "tibble",
+      "version": "3.3.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/tibble_3.3.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\tibble_3.3.1.zip",
+        "bytes": 667237,
+        "sha256": "479957efdb86fe041972d9a93c09ecedfd31f595789710d344d90bda15e77e35",
+        "DESCRIPTION_sha256": "743a44714063b6d16cafe17a160778a5670e83dc33a18605bb78b758b4bceb8d",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:55:36 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/tibble_3.3.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\tibble_3.3.1.tar.gz",
+        "bytes": 557135,
+        "sha256": "fb309f8a1939021b237c7e85ff7ad6e8ff5acd57a6230d220a452094b492b28f",
+        "DESCRIPTION_sha256": "41735a8b24a800038c99a21a2be82883310f2af5816abaac729b40f792912ecc"
+      }
+    },
+    {
+      "package": "tidyr",
+      "version": "1.3.2",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/tidyr_1.3.2.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\tidyr_1.3.2.zip",
+        "bytes": 1276743,
+        "sha256": "f5b14fc79a289a4463534dbfda18c2efaf887884183b77601e66cd943357472c",
+        "DESCRIPTION_sha256": "5216bc234fac97318358bfdf443d7af247d6f60b26a9858a784f941741bba62f",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 03:52:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/tidyr_1.3.2.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\tidyr_1.3.2.tar.gz",
+        "bytes": 809031,
+        "sha256": "04c0e6daf0af682af73763a42c027d7171761cdbdbf9ff7a77a0e421343d665a",
+        "DESCRIPTION_sha256": "44f7d8c32eedc03e772f995ca186beb869777e15d85298b76192007876b03325"
+      }
+    },
+    {
+      "package": "tidyselect",
+      "version": "1.2.1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/tidyselect_1.2.1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\tidyselect_1.2.1.zip",
+        "bytes": 229176,
+        "sha256": "ce50335a80b379cbe7011f3703c1980e3ff057df1380ff850aef9983d8bfa072",
+        "DESCRIPTION_sha256": "4ad3d54da4556be8be02fed5f6f45dfd6e0065bd612a0b7314ef1c71489722bf",
+        "Built": "R 4.5.3; ; 2026-10-26 02:22:19 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/tidyselect_1.2.1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\tidyselect_1.2.1.tar.gz",
+        "bytes": 103591,
+        "sha256": "169e97ba0bbfbcdf4a80534322751f87a04370310c40e27f04aac6525d45903c",
+        "DESCRIPTION_sha256": "b8215c80e98080103cd9c0f4e89d1adee643682c9de301b56adbc95dbc4e302b"
+      }
+    },
+    {
+      "package": "tinytex",
+      "version": "0.61",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/tinytex_0.61.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\tinytex_0.61.zip",
+        "bytes": 151669,
+        "sha256": "c20c4f268dff036f2b8a97c2c9122074db9229c9a5736c3a838e174f6e5681c8",
+        "DESCRIPTION_sha256": "a15ceb431cbcd2db382c11af1680568c2db06422dcf0b23d4fa71e78eeac5a5c",
+        "Built": "R 4.5.3; ; 2026-10-26 01:20:43 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/tinytex_0.61.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\tinytex_0.61.tar.gz",
+        "bytes": 38437,
+        "sha256": "78300dc6163911c7de3efbe225c3bf455287c67886ed0e5a04fd347c6eaf2680",
+        "DESCRIPTION_sha256": "213dcb357df114c7271e9c832e01530157ee85baddb9eafdd81a146243548d8d"
+      }
+    },
+    {
+      "package": "utf8",
+      "version": "1.2.6",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/utf8_1.2.6.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\utf8_1.2.6.zip",
+        "bytes": 155260,
+        "sha256": "08e66d3322a67d5b630269e903ee47c7cec1b1846ced8aed1f29ad608e29c842",
+        "DESCRIPTION_sha256": "4eba16eec549e353dc24450caea0921c123dcaf7d911ba831c502b08367df4f3",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:01 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/utf8_1.2.6.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\utf8_1.2.6.tar.gz",
+        "bytes": 243856,
+        "sha256": "4589f8b72291329e70b7f3a8c20f2feb4e7764eebad2e6976bc9a3eee7686ce9",
+        "DESCRIPTION_sha256": "01d3a5946d86b14da50e7826fa9af7320d0a578bf050aa07515cefcf4e49df6d"
+      }
+    },
+    {
+      "package": "uwot",
+      "version": "0.2.5",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/uwot_0.2.5.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\uwot_0.2.5.zip",
+        "bytes": 1355212,
+        "sha256": "45810c6fcf1c1474c3deebe42f7d24455eb586acab8272ade3018ebcecbc84ab",
+        "DESCRIPTION_sha256": "b81978a94d64f03c42645c864e2866ebaa058fe85534eafecb0286f3d51d6a1f",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 02:23:58 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/uwot_0.2.5.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\uwot_0.2.5.tar.gz",
+        "bytes": 618542,
+        "sha256": "da0571a7a5db41cddfac54b11aefa3a61c913b208aeb5bf66e9428ba1e1c4be6",
+        "DESCRIPTION_sha256": "a6ea4ad25e29901cebc3a10f94830dc0b145c9450068698da84f2a0ebcaf9eb0"
+      }
+    },
+    {
+      "package": "vctrs",
+      "version": "0.7.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/vctrs_0.7.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\vctrs_0.7.3.zip",
+        "bytes": 1922134,
+        "sha256": "8674055581ce269d1817b0204661e32c0109761ea583a17ff5895dda55f6663f",
+        "DESCRIPTION_sha256": "3c258cabc78132899daf1d8609974635163147ba7ee25d5ba38d7184b5dcf0d8",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:53:42 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/vctrs_0.7.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\vctrs_0.7.3.tar.gz",
+        "bytes": 1083213,
+        "sha256": "b45078413e06ac624dddb7221a3a43908b405c8abec09822cb86638d30b0435b",
+        "DESCRIPTION_sha256": "872d226b68a29866d6708994c60f867e87ff8321e781a730ad6c2396a89a7c84"
+      }
+    },
+    {
+      "package": "viridisLite",
+      "version": "0.4.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/viridisLite_0.4.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\viridisLite_0.4.3.zip",
+        "bytes": 1300797,
+        "sha256": "957519f2d8d833f2e4fc5e3c5edfcce5d1bd6a334500b7ea0e802495706208a6",
+        "DESCRIPTION_sha256": "f1ae4579f6e79ee165a031e5e2d6d26a946064393354d1840ebf85cebb124456",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:00 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/viridisLite_0.4.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\viridisLite_0.4.3.tar.gz",
+        "bytes": 1269031,
+        "sha256": "433be9bde66234dc76301fb4ffbbc9fc74bab5c14f4548d8ef2fc0065e121ef5",
+        "DESCRIPTION_sha256": "dda4f94cfd5a3f981bc667216000e7c777c9a257f4ff0b64f409dc3805080479"
+      }
+    },
+    {
+      "package": "withr",
+      "version": "3.0.3",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/withr_3.0.3.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\withr_3.0.3.zip",
+        "bytes": 232925,
+        "sha256": "bb09783a3c58746ad6962762673a5bac361ae66a27baf2fcde0dc39e72bf5645",
+        "DESCRIPTION_sha256": "82cc6004b78e2b501da586886e86fb0399e50a916224b5a5e96ffa11803d8004",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:00 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/withr_3.0.3.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\withr_3.0.3.tar.gz",
+        "bytes": 103968,
+        "sha256": "d86c6454164fc85678bfc85e2a6cce42f7461d45fa9a87de71f376e7956c991e",
+        "DESCRIPTION_sha256": "17509380fda6058c1ff25bf5edb1ff2ae319aec8f62fa52debf176609e16121c"
+      }
+    },
+    {
+      "package": "xfun",
+      "version": "0.62",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/xfun_0.62.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\xfun_0.62.zip",
+        "bytes": 700410,
+        "sha256": "877d55d3eaa383f1b7447151b320ab74aa613fd5c3725e122a77ae8cfba54279",
+        "DESCRIPTION_sha256": "238e9b83f97e7854369818f4ff00e610e33816392c891f8d94d6552c324f5526",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:12 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/xfun_0.62.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\xfun_0.62.tar.gz",
+        "bytes": 229690,
+        "sha256": "56102222347f91ef0446dfb203016ff5935d6d6b0bff3b8776673c5e46a94baf",
+        "DESCRIPTION_sha256": "b75fe63d4b4bdb103dc7455d0ee3972b835c48f6b6eb3f51644e5e0ef7e611a6"
+      }
+    },
+    {
+      "package": "xtable",
+      "version": "1.8-8",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/xtable_1.8-8.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\xtable_1.8-8.zip",
+        "bytes": 762077,
+        "sha256": "a577beb3f3cf1bc1c97f4549703350f4751986c93aa73e4a74728edf27ae5766",
+        "DESCRIPTION_sha256": "26a2eec155ce4425d4d48c6d730f02ee96cc5c0255a9fe58b0cea6d8deb81117",
+        "Built": "R 4.5.3; ; 2026-10-26 00:20:03 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/xtable_1.8-8.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\xtable_1.8-8.tar.gz",
+        "bytes": 618708,
+        "sha256": "b999c031b91255fb92134b0e70e5f84c5609e9312c0518393b9d0a4aaf6b2510",
+        "DESCRIPTION_sha256": "f2dc9c28a47a7874bf825fe39cbd9cf8e6d05396dd2f553d939df97ef09c03eb"
+      }
+    },
+    {
+      "package": "yaml",
+      "version": "2.3.12",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/yaml_2.3.12.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\yaml_2.3.12.zip",
+        "bytes": 124967,
+        "sha256": "822143a97c269c3d46e5bcd3d48e3d22a7ac5382e0f9dfdee453c3b1c573480b",
+        "DESCRIPTION_sha256": "45172314cc75e976b20f848e33d4892948ffa82dab0a80ee787bb5176d6dabcd",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 00:20:13 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/yaml_2.3.12.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\yaml_2.3.12.tar.gz",
+        "bytes": 108975,
+        "sha256": "80ccf3dde851133ef3e333b818a817c296c6ccdacfc4709cd466995289cd556c",
+        "DESCRIPTION_sha256": "ab327275722b0b5141f5945cabc3a8dee0ce4d73ccc861f5e92826f0d314ffca"
+      }
+    },
+    {
+      "package": "zoo",
+      "version": "1.9-1",
+      "repository": "https://cran.r-project.org",
+      "binary": {
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.5/zoo_1.9-1.zip",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\binary\\zoo_1.9-1.zip",
+        "bytes": 1014730,
+        "sha256": "b43f39337cd794525a969c0f3c3b7744fd068960e9c277e0afec967bd3d07a92",
+        "DESCRIPTION_sha256": "819350c0b6506223478a3556ae710e072ec092c0c98bb432620574f4cb51dc6d",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-10-26 01:20:36 UTC; windows"
+      },
+      "source": {
+        "url": "https://cran.r-project.org/src/contrib/zoo_1.9-1.tar.gz",
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\source\\zoo_1.9-1.tar.gz",
+        "bytes": 691004,
+        "sha256": "a2d998726a9b528efd20af449099e4b2df53887a0d10f48ac9ba63992b3a053a",
+        "DESCRIPTION_sha256": "68cc7f7dc9094d5b2ccac1e6e57e05c8590a09c0f0e4ddcc5ed358c1ff008b4e"
+      }
+    }
+  ],
+  "indexes": [
+    {
+      "url": "https://cran.r-project.org/bin/windows/contrib/4.5/PACKAGES.gz",
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\cran-win-PACKAGES.gz",
+      "bytes": 1068661,
+      "sha256": "b424f127adfefba7951b3ecc7ac7a0fefdc1a763a8c2ead071446f5d86b29138"
+    },
+    {
+      "url": "https://bioconductor.posit.co/packages/3.22/bioc/bin/windows/contrib/4.5/PACKAGES.gz",
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\bioc-win-PACKAGES.gz",
+      "bytes": 164220,
+      "sha256": "367ad053f374968fe67fd8e80bbc352d9bfc2aacc77469c23020f43d39f1b316"
+    }
+  ],
+  "binary_source_equivalence": "Matching name/version; no reproducible-build byte-equivalence claim.",
+  "acquisition_manifest_sha256": "2c258eef6b3284118f82e062e301019ae0c7b434cafad2958f4c8b003ca5c281",
+  "R_distribution": {
+    "file": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\downloads\\R-4.5.3-win.exe",
+    "url": "https://cran.r-project.org/bin/windows/base/old/4.5.3/R-4.5.3-win.exe",
+    "bytes": 90616928,
+    "sha256": "768ae31bb0b6056def5b1a9789a7dc49306bd037d69b0a99cdd90183aa0c1a31",
+    "md5": "7750801cb615cb463a8c027cf8fbf1dd",
+    "authenticode_observation": {
+      "status": "Valid",
+      "signer": "CN=Martyn Plummer, O=Martyn Plummer, S=West Midlands, C=GB"
+    }
+  },
+  "bundled_source_members": [
+    {
+      "member": "R-4.5.3/src/library/Recommended/cluster_2.1.8.2.tar.gz",
+      "bytes": 373022,
+      "sha256": "4cc898a58baade883bb33aa0ee9be1723f321bd85ad91562cbd1e43dfdb41585"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/foreign_0.8-91.tar.gz",
+      "bytes": 366215,
+      "sha256": "fdf6c2c6077659a7dc069e58528d3c7cd93b6571c708d98994565386afce5298"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/MASS_7.3-65.tar.gz",
+      "bytes": 510322,
+      "sha256": "b07ef1e3c364ce56269b4a8a7759cc9f87c876554f91293437bb578cfe38172f"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/codetools_0.2-20.tar.gz",
+      "bytes": 38683,
+      "sha256": "3be6f375ec178723ddfd559d1e8e85bfeee04a5fbaf9f53f2f844e1669fea863"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/spatial_7.3-18.tar.gz",
+      "bytes": 46556,
+      "sha256": "cc46693d69745af8ec95b557e7a8ee4e1865df69dc0d25723629fd8e9ea43055"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/nnet_7.3-20.tar.gz",
+      "bytes": 31285,
+      "sha256": "8f33e17e0eb161cfbc1bfee4875baa23c66fcdba8215a64a63402b099db2b555"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/class_7.3-23.tar.gz",
+      "bytes": 22058,
+      "sha256": "4d1adb12eae045f15641516d795177dd1d3074c0a86ac633000507c4822891f1"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/mgcv_1.9-4.tar.gz",
+      "bytes": 1163324,
+      "sha256": "a98159698afb269e06a46cac1f945bf2b3427a2dd587c6f2efd67ede90089372"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/nlme_3.1-168.tar.gz",
+      "bytes": 860576,
+      "sha256": "23b78468344cb6775dee5e0d9c8133032d64f08ebaba20776508a0443a897362"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/Matrix_1.7-4.tar.gz",
+      "bytes": 2485182,
+      "sha256": "7b131ecb6a21ff09a33691dac7bf8a7bc2eab9fd1dd09ef14856d74346eb4779"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/KernSmooth_2.23-26.tar.gz",
+      "bytes": 27607,
+      "sha256": "b465bdac197f7faa787e625412ae03d1b7c2c134b1c924cfeb775faf9c4da73e"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/rpart_4.1.24.tar.gz",
+      "bytes": 620065,
+      "sha256": "4ab169a764d9857d299313aae0e7764bcea9220576e537cf165d4f8117e72f29"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/lattice_0.22-9.tar.gz",
+      "bytes": 636784,
+      "sha256": "b72ad4ed2e5269fa7cf668e46f83a9b5d9d5f8fdcbc5b9886531ca19dffca4ba"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/survival_3.8-6.tar.gz",
+      "bytes": 9549370,
+      "sha256": "9a4c0a35d86c64ec5a6e6cf179ab22dcffb5ce1d313d2880a09f1e53422699d7"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/Makefile.in",
+      "bytes": 3839,
+      "sha256": "d66d96daf92ec785abe221b14c390fc782440e4facfa8eafbda43e59e89d5895"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/Makefile.win",
+      "bytes": 1806,
+      "sha256": "76730765066fcd30fe92e3ffb0b993566311320ddbd785ec72d76a6208ef3bc3"
+    },
+    {
+      "member": "R-4.5.3/src/library/Recommended/boot_1.3-32.tar.gz",
+      "bytes": 238282,
+      "sha256": "3a05aced6fea42a5c310c5c6ab7a2019f69f757f5e77c4961183977747136c97"
+    }
+  ],
+  "verified_git_metadata": [
+    {
+      "repository": "https://github.com/satijalab/seurat.git",
+      "observed_ref": "refs/tags/v5.4.0",
+      "commit": "083a1b0d6c7732f2f116883885d79d6214ce180f",
+      "tag_object": null,
+      "description_url": "https://raw.githubusercontent.com/satijalab/seurat/083a1b0d6c7732f2f116883885d79d6214ce180f/DESCRIPTION",
+      "description_bytes": 6163,
+      "description_sha256": "1004fa25ff83ce38534a991c6c72ae5236d8da03167525971238cb1219ee84ea"
+    },
+    {
+      "repository": "https://github.com/satijalab/seurat-object.git",
+      "observed_ref": "refs/tags/v5.4.0",
+      "commit": "61b2d5c53ce7500c7df033b129f85f95749b8b42",
+      "tag_object": null,
+      "description_url": "https://raw.githubusercontent.com/satijalab/seurat-object/61b2d5c53ce7500c7df033b129f85f95749b8b42/DESCRIPTION",
+      "description_bytes": 4064,
+      "description_sha256": "bb306822ecb234413b1d6176f9abdf830bcd1277ba51a1ab234d96320738c4f9"
+    },
+    {
+      "repository": "https://github.com/satijalab/sctransform.git",
+      "observed_ref": "refs/tags/v0.4.3",
+      "commit": "49e35b5aeb76a602910207cbfde1561093340be3",
+      "tag_object": "8b9a9c9f395ce27f1d1222aed594794f91595c2a",
+      "description_url": "https://raw.githubusercontent.com/satijalab/sctransform/49e35b5aeb76a602910207cbfde1561093340be3/DESCRIPTION",
+      "description_bytes": 1591,
+      "description_sha256": "5622d89dbb2c301865627c0fdc5f064be311252bbcc103868fc0e993c23570fb"
+    },
+    {
+      "repository": "https://git.bioconductor.org/packages/glmGamPoi",
+      "observed_ref": "refs/heads/RELEASE_3_22",
+      "commit": "908cde9d595259b4a317343ddfbcf20036ef0895",
+      "tag_object": null,
+      "description_url": "https://raw.githubusercontent.com/const-ae/glmGamPoi/908cde9d595259b4a317343ddfbcf20036ef0895/DESCRIPTION",
+      "description_bytes": 1704,
+      "description_sha256": "ae961003a5705acd92c522572fba81a2912ae5646f3f925a105e3473c04aee0e"
+    }
+  ],
+  "source_identity_note": "Git metadata from feasibility; no claim that CRAN archive, Git tree and Windows binary are byte-equivalent."
+}
