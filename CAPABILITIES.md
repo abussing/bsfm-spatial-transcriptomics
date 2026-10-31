@@ -81,6 +81,19 @@ minimum-median depth, not automatically the training-only holdout depth.
 
 ## 3. Adaptive tissue meshes
 
+Recovery status: **adaptive-mesh historical recovery through M2 is complete
+within its bounded evidence scope; no canonical mesh implementation or numerical
+design has been selected**. The next gate is a scientific mesh design and bounded
+accuracy/resource study. See the [M1/M2 recovery](docs/recovery/ADAPTIVE_MESH.md),
+[evidence ledger](docs/recovery/ADAPTIVE_MESH_EVIDENCE.md) and
+[unresolved decisions](docs/recovery/ADAPTIVE_MESH_DECISIONS.csv).
+The October 26 four-stage fmesher lineage is the best-supported historical
+candidate, not an authoritative selection. All 19 authenticated numerical reports
+show excellent discrete full-to-active agreement; substantial short/long-range
+continuum discrepancies remain. Units remain source_native. Support population,
+topology, range/buffer accuracy and an authenticated flat-model comparison still
+require decisions. No canonical mesh generation or GP initialization has run.
+
 - Construct meshes from tissue cell locations using the adaptive method.
 - Use multiple layers of resolution that become coarser outside the cell hull.
 - Recover and document the settled refinement and outer-buffer choices.

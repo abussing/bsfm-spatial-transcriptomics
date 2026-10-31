@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "section": "S12__Trem2_1",
+  "mouse_id": "Trem2_1",
+  "genotype": "Trem2",
+  "cells": 11650,
+  "cells_by_type": {
+    "MIC": 1064,
+    "AST": 4407,
+    "OGC": 6179
+  },
+  "genes": 91,
+  "factors": 25,
+  "cell_order": "stable contiguous blocks in MIC, AST, OGC order",
+  "coordinate_transform": "(physical_xy - componentwise minimum) / maximum axis span",
+  "coordinate_origin": [
+    -21.55676039173438,
+    46.2336321820116
+  ],
+  "coordinate_scale_microns": 6630.451357195608,
+  "expression": "section-specific SCT v2 log1p, centered separately by gene and cell type",
+  "observation_sha256": "b3ff891e75b2abec01705d38545a322ea02e07349251f845bd3fe3fec6b054aa",
+  "biological_sidecar_sha256": "6b60f04bdf41591dbc869d3ce04581982acb723fe76e7755e21dfad98aaaf483",
+  "source_input": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S12__Trem2_1/input.npz",
+  "source_input_sha256": "eff1590db52ce5c959a74084cb25dd3538adc7b851636235573a3012d27b484a",
+  "plaque_geometry_status": "not present in screen input; source row IDs retained for authenticated attachment"
+}

@@ -1,0 +1,5 @@
+# Historical bytes are preserved by the root -text rule.
+# Recognize original CRLF JSON and two original extra EOF blank lines.
+*.json whitespace=cr-at-eol
+consolidation_findings.md whitespace=-blank-at-eof
+consolidation_readme.md whitespace=-blank-at-eof

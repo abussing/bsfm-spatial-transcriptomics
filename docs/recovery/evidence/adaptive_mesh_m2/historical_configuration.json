@@ -1,0 +1,97 @@
+{
+  "snapshot_date": "2026-10-14",
+  "current_study": "zeta_n300_L16_v1",
+  "main": "sampler/run_c3full_fixed_profile_nuts.py",
+  "source_files_unchanged": true,
+  "sampler": "partially collapsed Gibbs with split-E NUTS",
+  "warps": "direct W1/W2 on buffered mesh; active marginal whitening",
+  "field_block": [
+    "log_alpha",
+    "logit_zeta",
+    "zW"
+  ],
+  "hyper_block": [
+    "log_ell_W",
+    "log_r"
+  ],
+  "hyper_holds": "physical active W",
+  "coupled_sigma_W": "ell_W * exp(log_r) / sqrt(10)",
+  "log_ell_W_prior": {
+    "mean": 0,
+    "sd": 0.5
+  },
+  "log_r_prior": {
+    "mean": 0,
+    "sd": 0.3
+  },
+  "alpha_prior": {
+    "log_mean": "log(0.7)",
+    "log_variance": 0.7
+  },
+  "zeta_prior": {
+    "a": 2,
+    "b": 2
+  },
+  "loading_sharing_s": 0.2,
+  "MGP": {
+    "phi_shape": 1.5,
+    "phi_rate": 1.5,
+    "delta1_shape": 2.1,
+    "delta_later_shape": 1.5,
+    "delta_rate": 1
+  },
+  "noise": "gene-specific, shared across cell types",
+  "noise_prior": {
+    "inverse_gamma_shape": 2,
+    "scale": "0.25*np.var(centered_Y,axis=1)"
+  },
+  "ell_eta": 0.14,
+  "ell_eta_sampled": false,
+  "TQFF_L": 16,
+  "N_options": [
+    100,
+    500,
+    2500,
+    5000
+  ],
+  "K": 5,
+  "G": 32,
+  "cell_types": 3,
+  "generating_zeta_options": [
+    0.55,
+    0.75,
+    0.95
+  ],
+  "generating_noise_variance_fraction": 0.25,
+  "generated_parameters_are_not_fixed_fitting_parameters": [
+    "zeta",
+    "sigma_g_squared"
+  ],
+  "warmup_transitions_per_factor": 100,
+  "warmup_context": "fixed outside each factor adaptation; sequential retained endpoints",
+  "target_acceptance": 0.9,
+  "max_num_doublings": 10,
+  "settling_sweeps": 50,
+  "production_sweeps": 300,
+  "post_warmup_total_sweeps": 350,
+  "save_every": 5,
+  "scored_saved_sweeps": [
+    55,
+    350
+  ],
+  "mass": "diagonal blocks, separate field/hyper tuning, frozen after warmup",
+  "Lambda_joint_eta_noise_subcycles_per_sweep": 3,
+  "PCG_tolerance": 1e-10,
+  "PCG_max_iterations": 80,
+  "fidelity_warn_only": true,
+  "containment": false,
+  "fixed_loading_precision": false,
+  "celltype_specific_noise": false,
+  "GPINIT": {
+    "library": "scikit-learn",
+    "Matern_nu": 2.5,
+    "nfit": "min(250,N)",
+    "truth_parameters_used": false
+  },
+  "recorded_command_file": "provenance/RECORDED_COMMAND.json"
+}

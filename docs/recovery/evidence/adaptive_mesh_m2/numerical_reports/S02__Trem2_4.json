@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "section": "S02__Trem2_4",
+  "spectral": {
+    "status": "PASS",
+    "n_v": 367,
+    "n_polynomial_terms": 7,
+    "full_rank_no_truncation": true,
+    "mass_orthogonality_relative_frobenius": 2.4506791141907585e-15,
+    "generalized_eigen_residual_relative_frobenius": 2.512138792805844e-15,
+    "term_offdiagonal_relative_frobenius": [
+      2.3288955249466e-15,
+      2.1274291986263613e-15,
+      3.224719966338134e-15,
+      3.411451541552281e-15,
+      3.644438469718318e-15,
+      3.8832714674304404e-15,
+      4.070983418634908e-15
+    ],
+    "max_term_offdiagonal_relative_frobenius": 4.070983418634908e-15,
+    "generalized_eigenvalue_min": 2.973494938307837e-13,
+    "generalized_eigenvalue_max": 6422.87129437178,
+    "log_reference_mass_variance": 1.0817292041981448,
+    "basis_sha256": "8d64a1ac4b08e3b91386b7fe5b19f0b26c848cec4d231f4f2e8ef33d72add992",
+    "modal_diagonals_sha256": "d69a74948b1722c6fab8b12d15d0a017eed62d19b30be9e6f7f0e662bfb67276",
+    "projected_modes_sha256": "793c3c843640f8567d2e0d25692760d13ed10eebbb633d1e01bf0334ed2177da"
+  },
+  "ranges": [
+    {
+      "ell": 0.15,
+      "active_vs_full_error": 8.898555012661305e-16,
+      "qr_root_error": 9.303575468364704e-16,
+      "root_derivative_error": 1.0401597995991269e-15,
+      "covariance_derivative_fd_error": 8.506641846808283e-11,
+      "continuum_covariance_relative_error": 0.14638974677832897,
+      "projected_variance_min": 0.6703288933719208,
+      "projected_variance_max": 1.044599294549966
+    },
+    {
+      "ell": 0.3,
+      "active_vs_full_error": 9.151496477488118e-16,
+      "qr_root_error": 9.357729881908304e-16,
+      "root_derivative_error": 1.2809124736414414e-15,
+      "covariance_derivative_fd_error": 7.439254294650349e-11,
+      "continuum_covariance_relative_error": 0.04972106089063738,
+      "projected_variance_min": 0.8555885867853954,
+      "projected_variance_max": 1.0122916560541544
+    },
+    {
+      "ell": 0.6,
+      "active_vs_full_error": 8.802463911105527e-16,
+      "qr_root_error": 9.283070311883484e-16,
+      "root_derivative_error": 1.3708819903972139e-15,
+      "covariance_derivative_fd_error": 6.690961151835151e-11,
+      "continuum_covariance_relative_error": 0.017429671845160682,
+      "projected_variance_min": 0.9496170290046876,
+      "projected_variance_max": 0.998844859560171
+    },
+    {
+      "ell": 1.0,
+      "active_vs_full_error": 8.941727689208002e-16,
+      "qr_root_error": 1.0199767429016101e-15,
+      "root_derivative_error": 1.7039218464037992e-15,
+      "covariance_derivative_fd_error": 1.0368982757146161e-10,
+      "continuum_covariance_relative_error": 0.007621902655681661,
+      "projected_variance_min": 0.9812994739691147,
+      "projected_variance_max": 1.0088636910515525
+    },
+    {
+      "ell": 1.65,
+      "active_vs_full_error": 1.138495036900779e-15,
+      "qr_root_error": 1.2563479849153982e-15,
+      "root_derivative_error": 1.4449395937812478e-15,
+      "covariance_derivative_fd_error": 1.7857843117802173e-10,
+      "continuum_covariance_relative_error": 0.1537693579774478,
+      "projected_variance_min": 1.1031797937011454,
+      "projected_variance_max": 1.309507823607264
+    },
+    {
+      "ell": 2.72,
+      "active_vs_full_error": 1.2696980907159972e-15,
+      "qr_root_error": 1.4033777182161902e-15,
+      "root_derivative_error": 1.5112410935438035e-15,
+      "covariance_derivative_fd_error": 8.068750180156555e-11,
+      "continuum_covariance_relative_error": 1.251264755512833,
+      "projected_variance_min": 2.1389739203328246,
+      "projected_variance_max": 2.4841994969825634
+    }
+  ],
+  "interpretation": "PASS authenticates the discretized sampler handoff, not equivalence to an infinitely fine mesh.",
+  "buffer": "integrated through full spectral covariance; not conditioned or truncated",
+  "continuum_comparison": "Diagnostic only; reports finite mesh and boundary effects without renormalization."
+}

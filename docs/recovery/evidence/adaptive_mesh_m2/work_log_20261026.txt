@@ -1,0 +1,60 @@
+Scope: corrected fmesher 19-section K20 / 50%-per-type / L16 L4 preliminary panel.
+Original HPC sampler source and jobs not modified. New root on E and HPC:
+bsfm_l4_k20_cell50_fmesher_20261026_v1.
+
+All 19 geometry previews passed, full active counts 152-181; subset active counts
+slightly lower in a few sections. Full outer boundary retained. No quality.spec.
+All cell coordinates and source expression transform unchanged; subset re-centered.
+Subset source indices retained; fresh GPINIT built, not truncated old GPINIT.
+
+FEM exported with exact current production consistent mass convention and G1;
+G2..G6 generated using the same full generalized eigenbasis polynomial formula.
+The geometry changed, not the sampler's numerical convention or hyperprior.
+All full modes retained. No conditioning of outer-buffer vertices.
+
+Input source archive SHA256:
+beb3516d11ec60865a9e782243e091524fa453672cc7c3f3403c5594e0106a3a
+PREP archive SHA256:
+d7fbff468944c3419db4ffbaf0f569227096e52e7d93a4965736676d67e7b391
+
+Initial CPU array 21998153 stopped in new validation code: an inappropriate
+bitwise equality check on MatrixMarket-vs-NPZ projector roundtrip, maximum
+absolute difference 5.55e-17. Fixed to exact zero support plus relative 8*eps
+on nonzeros, no absolute tolerance. No sampler tolerance changed.
+Corrected CPU arrays: 21998179_0 and 21998180_[1-18].
+All 19 NUMERICAL_VALIDATION.json passed; GPINIT progress checked separately.
+Split algebra / fresh-context / replay regression: CPU job 21998198.
+Automatic packaging job 21998199 depends afterok on all three jobs above.
+
+Local 10 covariance/reconstruction math tests passed. An additional unrelated
+simulation-noise-design suite could not run: reference/truth.npz isn't in this
+real-data package. It was not counted as a pass or a blocker for real data.
+Current production overlay verification passed: 70 base files unchanged,
+one previously declared production driver change and 17 new production files.
+
+CPU JAX emits installed CUDA-plugin discovery warnings on non-GPU nodes, but
+uses JAX_PLATFORMS=cpu and passes checks. This is not a GPU launch attempt.
+
+Numerical validation includes spectrum, full-versus-active projection,
+positive QR roots, analytic root/covariance derivatives and independent finite
+differences at ell_W .15,.3,.6,1,1.65,2.72. Continuum Matern comparison reported
+separately, not used to conceal boundary effects or renormalize variance.
+S00 relative continuum discrepancy at ell_W=1 about .00933; at 2.72 about 1.34.
+Thus PASS means discrete handoff correct, NOT all-scale continuum accuracy.
+
+Cloud launcher: existing JAX .7.0 / BlackJAX 1.3 environment, GPU and FP64 gate;
+single section at a time, duplicate process lock, no automatic upgrades,
+100 conditional warmup steps/block, 50 discarded Gibbs sweeps, 100 production,
+save every fifth production sweep, every-sweep scalar traces/checkpoint.
+No second adaptation, no identity/true alignment, no reduction in tree-depth cap.
+Full original prior and split-E sampler. Fidelity warnings remain explicit.
+No results deleted. All results preliminary; no mixing/convergence claim.
+
+All corrected CPU preparation tasks completed 0:0 in 1m08s-1m34s.
+All 19 fresh GPINITs passed. Split regression 21998198 passed in 34s.
+Packaging 21998199 began after all dependencies completed successfully.
+Packaging finished successfully. READY archive downloaded to E, 98,111,074 bytes.
+Archive SHA256: 4458f784c8e760893c5fcd620f8ec74f40d9f504a0fa7d5fcbda9f29fe600f07
+
+Cloud VM has NOT been started by this work. L4 speed unmeasured. Packaging
+and download do not mean inference is running; browser upload/start still needed.

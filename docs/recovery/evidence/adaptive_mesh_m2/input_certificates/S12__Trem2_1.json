@@ -1,0 +1,40 @@
+{
+  "section": "S12__Trem2_1",
+  "status": "EXPORTED_AWAITING_SAMPLER_VALIDATION",
+  "source_cells": 11650,
+  "cells": 5826,
+  "source_counts": [
+    1064,
+    4407,
+    6179
+  ],
+  "retained_counts": [
+    532,
+    2204,
+    3090
+  ],
+  "factors": 20,
+  "genes": 91,
+  "active_vertices": 152,
+  "total_vertices": 346,
+  "min_triangle_area": 0.0015389507273288118,
+  "selection": "every other cell in within-type Morton spatial ordering, no expression screening",
+  "expression": "same transformed data; re-centered within retained cell type",
+  "mesh": "four-stage fmesher geometry, unchanged coordinates and exact existing outer boundary",
+  "fem": "unchanged production consistent mass and full polynomial stiffness, no truncation",
+  "source_sha256": "b3ff891e75b2abec01705d38545a322ea02e07349251f845bd3fe3fec6b054aa",
+  "observation_sha256": "950fdf1494157580f66da0c99951f020a8308e280adb368ab38487fc46724507",
+  "mesh_hashes": {
+    "active_indices.csv": "e45247e316c3dc8988d30ead14946b64861f217d8097dda86ecc1869611e55f6",
+    "A_proj.mtx": "a69128f3a57ea0485d8baa049ec1a39607b0e153db3b70cbae3c0651d913036f",
+    "fem_C.mtx": "7e15d2c57a0d922bd23ae4fdc3610a9a2b5016747ba468394d2fb62f14f23e71",
+    "fem_g1.mtx": "ef1cd5a59b0aa592c810f2ec8f5d7b12240f85e1b4dc2750452ffddc98bbf528",
+    "fem_g2.mtx": "1362d6572a27c19a0f1730fb63dc8e6d4b5338285d2e0e1f99c22b72398aad9c",
+    "fem_g3.mtx": "c18c49da02e8df9c8b5279db33b01ccf7ebc1da9b8f3d9b642875bd1b58bb739",
+    "fem_g4.mtx": "ba950d0d58374a4782f751763989c799b4efd69dab7d326c2e70009879f5876b",
+    "fem_g5.mtx": "6632de038b5ba2b3b5e8b69e6a50188834c68891e5284187bb7c328f3648bc03",
+    "fem_g6.mtx": "75344095785b6ba02e528e6e2f27223c7f255eeeda8d184ada7beba7724f1b1b",
+    "mesh_loc.csv": "8f685cc5a13d5ba5d45e0c2e37176f52d0cc8c0c91dd709ee704cf8276cf167c",
+    "mesh_tv.csv": "1a5ab86f77a7976a1763df0380f51a8c3ee06c4c90a6e8085ab34d74acc49f73"
+  }
+}

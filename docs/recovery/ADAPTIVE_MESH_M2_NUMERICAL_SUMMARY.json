@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "evidence_class": "authenticated_historical_measurement",
+  "baseline_commit": "1c9f36331fd55d3ddd1953199499fe084f30293f",
+  "archive": {
+    "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1_READY.tar.gz",
+    "bytes": 98111074,
+    "sha256": "4458f784c8e760893c5fcd620f8ec74f40d9f504a0fa7d5fcbda9f29fe600f07",
+    "members": 442
+  },
+  "sections": [
+    "S00__Trem2_5xFAD4",
+    "S01__5xFAD4",
+    "S02__Trem2_4",
+    "S03__Trem2_5xFAD3",
+    "S04__WT3",
+    "S05__Trem2_3",
+    "S06__5xFAD3",
+    "S07__Trem2_5xFAD5",
+    "S08__5xFAD5",
+    "S09__Trem2_5",
+    "S10__WT5",
+    "S11__Trem2_5xFAD1",
+    "S12__Trem2_1",
+    "S12__Trem2_5xFAD2",
+    "S13__Trem2_2",
+    "S14__WT1",
+    "S15__5xFAD1",
+    "S16__WT2",
+    "S17__5xFAD2"
+  ],
+  "reports": 19,
+  "range_comparisons": 114,
+  "tested_ranges": [
+    0.15,
+    0.3,
+    0.6,
+    1.0,
+    1.65,
+    2.72
+  ],
+  "all_pass": true,
+  "all_full_rank_no_truncation": true,
+  "maxima": {
+    "active_vs_full_error": {
+      "value": 1.2696980907159972e-15,
+      "section": "S02__Trem2_4",
+      "ell": 2.72
+    },
+    "qr_root_error": {
+      "value": 1.4033777182161902e-15,
+      "section": "S02__Trem2_4",
+      "ell": 2.72
+    },
+    "root_derivative_error": {
+      "value": 2.2588960222802387e-15,
+      "section": "S03__Trem2_5xFAD3",
+      "ell": 2.72
+    },
+    "covariance_derivative_fd_error": {
+      "value": 6.895432725771302e-09,
+      "section": "S08__5xFAD5",
+      "ell": 2.72
+    }
+  },
+  "spectral_maxima": {
+    "mass_orthogonality_relative_frobenius": 2.4670009038999306e-15,
+    "generalized_eigen_residual_relative_frobenius": 2.7071028552458233e-15,
+    "max_term_offdiagonal_relative_frobenius": 4.665209496402143e-15
+  },
+  "numerical_reports_bytes": 74817,
+  "limitations": [
+    "Historical measurements not rerun from arrays",
+    "At most 256 selected observation rows per section",
+    "Continuum comparison is diagnostic, not a PASS threshold",
+    "No buffer or resolution sensitivity sweep",
+    "Finite test grid does not cover unbounded lognormal range prior"
+  ]
+}

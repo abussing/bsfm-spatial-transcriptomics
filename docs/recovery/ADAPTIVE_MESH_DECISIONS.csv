@@ -1,0 +1,10 @@
+decision_id,topic,question,evidence_ids,next_gate,status
+D01,Target prior,Finite-domain FEM law or continuum approximation; choose error criteria,M19;M20;M21,Define scientific covariance target and tolerances,unresolved_not_selected
+D02,Coordinates and units,Authenticate physical units or retain source_native; choose a separate numerical transform,M08;M09,"Declare axes, origin/scale population and inverse transform",unresolved_not_selected
+D03,Support population,All eligible section cells or only glial cells; distinguish observations,M10,Freeze support identities separately from modeled-cell identities,unresolved_not_selected
+D04,Topology,"Anatomical holes, disconnected pieces and separate brains versus holdout holes",M16;M22;M23,Specify component policy and compatible validation,unresolved_not_selected
+D05,Boundary and buffer,Boundary condition and explicit outer extent against range prior,M12;M18;M21,Plan bounded extent comparisons without inherited-boundary authority,unresolved_not_selected
+D06,Accuracy and resources,Resolution and grading versus covariance accuracy and computational cost,M04;M19;M20,Predeclare bounded study; do not substitute active-count target for accuracy,unresolved_not_selected
+D07,Consumer contract,"Consistent mass, full spectrum, marginalization, indexing and serialization",M11;M13;M14;M25,Freeze independent identity/projector checks before porting,unresolved_not_selected
+D08,Flat versus warped,Define flat baseline and any topology constraints with shared observation/geometry identities,M15;M16;M17,Authenticate comparison implementation rather than infer identity case,unresolved_not_selected
+D09,Reproducibility and review,"Environment, deterministic ordering and plot-generation/approval provenance",M02;M06;M24,"Preserve commands, dependency versions, hashes and explicit review",unresolved_not_selected

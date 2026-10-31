@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "geometry_only": true,
+  "fem": {
+    "fem_C.mtx": {
+      "shape": [
+        224,
+        224
+      ],
+      "relative_asymmetry": 0.0
+    },
+    "fem_g1.mtx": {
+      "shape": [
+        224,
+        224
+      ],
+      "relative_asymmetry": 0.0
+    },
+    "fem_g2.mtx": {
+      "shape": [
+        224,
+        224
+      ],
+      "relative_asymmetry": 5.765450499502748e-17
+    },
+    "fem_g3.mtx": {
+      "shape": [
+        224,
+        224
+      ],
+      "relative_asymmetry": 1.0264893088116803e-16
+    },
+    "fem_g4.mtx": {
+      "shape": [
+        224,
+        224
+      ],
+      "relative_asymmetry": 1.3148834694018382e-16
+    },
+    "fem_g5.mtx": {
+      "shape": [
+        224,
+        224
+      ],
+      "relative_asymmetry": 1.1622338099017182e-16
+    },
+    "fem_g6.mtx": {
+      "shape": [
+        224,
+        224
+      ],
+      "relative_asymmetry": 1.238524433039298e-16
+    }
+  },
+  "row_error": 2.220446049250313e-16,
+  "coordinate_error": 5.551115123125783e-16,
+  "artifacts": {
+    "active_indices.csv": "c21db502761ab18142868c84fd1645c390b31e95d5d0d3aa51d2d1ddde661e9a",
+    "A_proj.mtx": "ad67bc254fb4000fcdc9a64337832740c91c64078343654236d7f8709c216338",
+    "fem_C.mtx": "8f115a434b2db2a76929b86c638b66967e84d3594b67ae96ce13520f46efb894",
+    "fem_g1.mtx": "b29248eded468e1f1037cf5d1893e7f52db7563f3e1dcf20843139836569ce32",
+    "fem_g2.mtx": "b363b014c180c8d6663a7ff80f9936a274b645bd1de84d37a22c25ae5c85e803",
+    "fem_g3.mtx": "6339771f73d8fd424d29a45b024b0a318b0e552d33e426075d56610d3ba5cd60",
+    "fem_g4.mtx": "e0bd8b4567f032468d5d04091e5d0a94de342e77e09b57791d13652cf44a7f8f",
+    "fem_g5.mtx": "e41ae4165c09f79add55176e90c614d54d6dde72dd9608f83d99908dc888cdac",
+    "fem_g6.mtx": "620fe28be433bdcfe852c9059c3a11a258a29e75c9468590b0912a627e1aa15f",
+    "mesh.rds": "3dbeab2216507267d911386a92e643900652dd99a8ecdf7c4fc1059cc8b88a59",
+    "mesh_loc.csv": "eb040df639a06ed8f42cab3af13c219126dccda0300f4c8a9ff21ebab3b0ff86",
+    "mesh_tv.csv": "55dc2a22128db71c27c168569c342ee95e1bb1f3784cb69c5c45f583077d1a21",
+    "slocs.csv": "0991c89457d0323ddbca2e4d3ce70d9a5f802bdddcc4ed13c4b5a8e4216ed8c9",
+    "TRIANGLE_GRADING.csv": "493289ce67b9609f339a71565c79fe153db94f077f2bd1068d0efbc70e9bdbbf"
+  }
+}
