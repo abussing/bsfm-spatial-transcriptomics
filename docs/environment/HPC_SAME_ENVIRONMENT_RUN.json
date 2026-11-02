@@ -1,0 +1,21 @@
+{
+  "schema": "bsfm.bounded-hpc-validation.v1",
+  "status": "prepared_not_submitted",
+  "purpose": "Continue approved CPU validation by comparing authenticated original and canonical functions in the same Linux environment, then run all original tests plus provenance tests",
+  "authorization_scope": "Continuation of user-approved CPU validation and subsequent instruction to drive consolidation; same one-CPU, 8-GiB, 15-minute limit, no model fit or GPU work",
+  "code_commit": "45e68391a5ea2235eee9558fcffefae7dd78d9aa",
+  "source_archive": "/work/abussing/bsfm-consolidation/source-45e6839.tar",
+  "source_archive_bytes": 6912000,
+  "source_archive_sha256": "a7377324e7ced313c7fcf2032266bbd2a6d90900e7bffe8cac0c97d966acd90e",
+  "source_directory": "/work/abussing/bsfm-consolidation/checkouts/45e68391a5ea2235eee9558fcffefae7dd78d9aa",
+  "historical_source_root": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler",
+  "historical_scope": "Only the existing approved hash-authenticated function extraction helpers; no historical module import, driver main or launcher execution",
+  "environment": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311",
+  "package_lock": "environment/sampler-linux-cpu/requirements.lock.txt",
+  "resources": {"partition": "defq-64core", "nodes": 1, "tasks": 1, "cpus_per_task": 1, "memory": "8G", "time_limit": "00:15:00", "gpus": 0},
+  "environment_variables": {"JAX_PLATFORMS": "cpu", "JAX_ENABLE_X64": "true", "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "PYTHONPATH": "<source_directory>/src"},
+  "command_argv": ["<environment>/bin/python", "-B", "-W", "error::ResourceWarning", "tests/audit_sampler_same_environment.py", "--source-root", "<historical_source_root>", "--code-commit", "45e68391a5ea2235eee9558fcffefae7dd78d9aa", "--output", "/work/abussing/bsfm-consolidation/evidence/same-environment-<jobid>"],
+  "acceptance": "Seven exact original/port fixture comparisons; all 70 original sampler tests and five provenance tests pass with zero skips; committed Windows fixture hashes unchanged; report PASS and scheduler exit zero",
+  "outputs": "/work/abussing/bsfm-consolidation/evidence/same-environment-<jobid>.log plus fresh same-environment-<jobid>/ directory and accounting metadata",
+  "excluded": ["raw expression access", "SCT regeneration", "mesh rebuild", "S10 full-cell smoke", "model fitting", "GPU execution", "full historical driver execution", "fixture overwrite", "tolerance relaxation"]
+}
