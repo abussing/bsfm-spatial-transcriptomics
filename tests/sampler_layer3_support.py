@@ -16,6 +16,7 @@ from bsfm.sampler.shrinkage import compute_qgk
 from bsfm.sampler.rule import load_rule
 from bsfm.sampler.field_target import DirectWTarget,kernel_arguments
 from sampler_layer2_support import synthetic
+from sampler_provenance import selected_source_record
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -38,14 +39,13 @@ def system(seed=12):
 
 
 def historical(source_root):
-    with (ROOT/'docs/recovery/BSFM_SAMPLER_SOURCES.csv').open(encoding='utf-8') as f:records={x['source_path']:x for x in csv.DictReader(f)}
     namespace=dict(np=np,jax=jax,jnp=jnp,jsla=jsla,active_geometry=active_geometry,compute_qgk=compute_qgk)
     inventory=[]
     for name,functions in [
         ('fixed_splusu_dynamic_target.py',['_build_log_range_target','build_dynamic_fixed_target','sufficient_statistics','sample_single_eta']),
         ('direct_w_dynamic_target.py',['build_dynamic_fixed_target']),
         ('run_c3full_fixed_profile_nuts.py',['factor_context']),('rule_contract.py',['validate_rule'])]:
-        p=Path(source_root)/name;b=p.read_bytes();r=records[str(p)]
+        p=Path(source_root)/name;b=p.read_bytes();r=selected_source_record(name)
         if len(b)!=int(r['bytes']) or hashlib.sha256(b).hexdigest()!=r['sha256']:raise ValueError('Source identity mismatch')
         tree=ast.parse(b.decode('utf-8-sig'));nodes=[copy.deepcopy(n) for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in functions]
         if name=='fixed_splusu_dynamic_target.py':

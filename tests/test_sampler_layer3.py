@@ -21,6 +21,7 @@ from bsfm.sampler.field_target import DirectWTarget
 from bsfm.sampler.factor_statistics import sample_single_eta
 from bsfm.sampler.finite_features import make_feature_kernel
 from sampler_layer3_support import ROOT,system,evaluate,dense_target
+from sampler_provenance import body_ast_sha256
 
 FIXTURE=json.loads((ROOT/'tests/fixtures/sampler_layer3.json').read_text(encoding='utf-8'))
 
@@ -89,8 +90,7 @@ class TargetTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(raw).hexdigest(),row['port_file_sha256'])
             node=functions(ast.parse(raw))[row['port_function']]
             self.assertEqual([node.lineno,node.end_lineno],[int(row['port_start']),int(row['port_end'])])
-            body=ast.dump(ast.Module(body=node.body,type_ignores=[]),include_attributes=False)
-            self.assertEqual(hashlib.sha256(body.encode()).hexdigest(),row['port_body_ast_sha256'])
+            self.assertEqual(body_ast_sha256(node),row['port_body_ast_sha256'])
             if row['body_ast_exact']=='True':self.assertEqual(row['source_body_ast_sha256'],row['port_body_ast_sha256'])
         kernels=(ROOT/'src/bsfm/sampler/field_kernels.py').read_text(encoding='utf-8')
         for rejected in ('containment','soft_eta','eta_floor','fixed_physical','blackjax','LI_'):

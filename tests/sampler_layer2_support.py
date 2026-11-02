@@ -17,6 +17,7 @@ from scipy.special import logsumexp as scipy_logsumexp
 from bsfm.mesh.october26 import fem_matrices, polynomial_fem
 from bsfm.mesh.projectors import active, project
 from bsfm.sampler import warp, spectral
+from sampler_provenance import selected_source_record
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -42,8 +43,6 @@ def authenticated(data):
 
 def historical_reference(source_root):
     """No module import, no main, no target/generator execution; authenticated AST only."""
-    with (ROOT/'docs/recovery/BSFM_SAMPLER_SOURCES.csv').open(encoding='utf-8') as f:
-        records={Path(x['source_path']).name:x for x in csv.DictReader(f)}
     names={
         'spectral_live_range_whitening.py':['_relative_frobenius','_sha','build_spectral_fem_artifact','spectral_modal_geometry'],
         'active_marginal_whitening.py':['_positive_qr_root','active_geometry','physical_active','dense_active_covariance'],
@@ -53,7 +52,7 @@ def historical_reference(source_root):
                    hashlib=hashlib,math=math,mmread=mmread,Path=Path)
     inventory=[]
     for filename,functions in names.items():
-        path=Path(source_root)/filename; raw=path.read_bytes(); record=records[filename]
+        path=Path(source_root)/filename; raw=path.read_bytes(); record=selected_source_record(filename)
         assert len(raw)==int(record['bytes']) and hashlib.sha256(raw).hexdigest()==record['sha256']
         tree=ast.parse(raw.decode('utf-8-sig')); nodes=[]
         for node in tree.body:
