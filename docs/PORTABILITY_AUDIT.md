@@ -107,7 +107,9 @@ settled science or dependency versions also require the applicable explicit
 decision; routine path restoration must not silently change either.
 
 Immediate order: review/approve the minimal R build correction, preserving the
-failed receipt; close mesh Python/reference gaps; restore the separate initializer
+failed receipt and original specification. The [prepared retry specification](environment/HPC_R_MESH_BUILD_RETRY_RUN.json)
+changes only optional PDF generation and retains the same resource limits; it
+has not been submitted. Then close mesh Python/reference gaps; restore the separate initializer
 and SCT dependencies as bounded tasks; recover or regenerate canonical payloads
 under their validation contracts. Missing raw data does not block bounded future
 sampler ports. Completing those ports is implementation work, not an environment
