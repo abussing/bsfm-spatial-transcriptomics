@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-02",
+  "archive": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/SOURCE_INPUTS.zip",
+  "archive_bytes": 17445097,
+  "archive_sha256": "beb3516d11ec60865a9e782243e091524fa453672cc7c3f3403c5594e0106a3a",
+  "restored_root": "/work/abussing/bsfm-consolidation/recovered/s10-source-geometry-20261102",
+  "authority_commit": "49f33c441e1cde9e1b8139ffef0103993eaa0222",
+  "authority_file": "docs/mesh/audits/october26_S10_20261102/input-inventory.json",
+  "files": [
+    {
+      "member": "source_geometry/S10__WT5/cells.csv",
+      "bytes": 394249,
+      "sha256": "ccf6e21a44aa8594f7a1debb3cfc7b99938c5d366fcd90b6b4a661a350c27124",
+      "matches_committed_inventory": true
+    },
+    {
+      "member": "source_geometry/S10__WT5/mesh_loc.csv",
+      "bytes": 32082,
+      "sha256": "fbca0dd7f8007010f710b8a94138cbdc83b01b4bfc4092ba83ee2f04a1957e6d",
+      "matches_committed_inventory": true
+    },
+    {
+      "member": "source_geometry/S10__WT5/mesh_tv.csv",
+      "bytes": 14357,
+      "sha256": "2bf966a021459d8bfa5f244ccacc981d9e02ab1e24737dbe3b474577692530bc",
+      "matches_committed_inventory": true
+    },
+    {
+      "member": "source_geometry/S10__WT5/OBSERVATIONS_BASE.npz",
+      "bytes": 571471,
+      "sha256": "db0b9b9b3ae3188c330a872fcd66d3ca85728b0095027b5b15badde6e551ead8",
+      "matches_committed_inventory": true
+    },
+    {
+      "member": "source_geometry/S10__WT5/INPUT_CONTRACT.json",
+      "bytes": 1094,
+      "sha256": "b888adf76a5bcb92f3d347f78717083e5ba4a965f45fdbbf7ce2ba7f20cac486",
+      "matches_committed_inventory": true
+    }
+  ],
+  "scope": "Five exact authenticated source geometry inputs restored without executing historical code; preview reference and Linux mesh environment remain unresolved."
+}

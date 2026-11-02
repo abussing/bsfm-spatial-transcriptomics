@@ -57,7 +57,7 @@
       "sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0",
       "status": "not_located_on_accessible_storage",
       "authority": "sampler/LAYER2_S10_AUDIT.json",
-      "restore": "Recover and hash the export, or use the canonical bsfm.mesh.october26 builder/regression after restoring full S10 geometry, inherited old mesh, reference preview and accepted mesh environment. The selected HPC bundle lacks source_geometry. The existing retained-cell mesh is not this full-cell export. See mesh/OCTOBER26_CANONICALIZATION.md and src/bsfm/mesh/october26.py in the repository."
+      "restore": "Recover and hash the export, or use the canonical bsfm.mesh.october26 builder/regression after restoring reference preview and accepted mesh environment. Five full S10 source-geometry dependencies have now been restored exactly from SOURCE_INPUTS.zip; see s10-recovered-source-geometry. The existing retained-cell mesh is not this full-cell export. See mesh/OCTOBER26_CANONICALIZATION.md and src/bsfm/mesh/october26.py in the repository."
     },
     {
       "id": "selected-historical-source",
@@ -97,7 +97,20 @@
         {"path": "mesh/mesh_tv.csv", "bytes": 14357, "sha256": "2bf966a021459d8bfa5f244ccacc981d9e02ab1e24737dbe3b474577692530bc"}
       ],
       "authority": "mesh/audits/october26_S10_localization_20261102/README.md; recovery/SCTRANSFORM_B3_SECTIONS.csv",
-      "restore": "Use authenticated slocs/type/source-row members for geometry only, preserving order and normalization. The old mesh defines the inherited far boundary. Export of cells.csv and rebuilding the canonical mesh require a separately recorded adapter/build step; do not execute the historical generator or use its expression response as canonical Y."
+      "restore": "Use authenticated slocs/type/source-row members for geometry only, preserving order and normalization. The old mesh defines the inherited far boundary. Exact cells.csv and INPUT_CONTRACT.json are now recovered from SOURCE_INPUTS.zip; no new geometry adapter is required for these source inputs. See s10-recovered-source-geometry. Do not use the historical expression response as canonical Y."
+    },
+    {
+      "id": "s10-recovered-source-geometry",
+      "classification": "historical_evidence;required_inputs_for_mesh_regeneration",
+      "accessible_path": "/work/abussing/bsfm-consolidation/recovered/s10-source-geometry-20261102/source_geometry/S10__WT5",
+      "status": "five_files_restored_and_matched_to_committed_whole_file_hashes",
+      "archive": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/SOURCE_INPUTS.zip",
+      "archive_bytes": 17445097,
+      "archive_sha256": "beb3516d11ec60865a9e782243e091524fa453672cc7c3f3403c5594e0106a3a",
+      "receipt": "environment/HPC_S10_GEOMETRY_RECOVERY.json",
+      "receipt_sha256": "425cdf45ab776c5b5701c03d8dbd8be48344348d00c96666c7402d2da93b211a",
+      "authority": "mesh/audits/october26_S10_20261102/input-inventory.json",
+      "restore": "Authenticate the zip hash, then read only the five named S10 source_geometry members in the receipt, verify their exact sizes/hashes against the committed authority, and write them into a fresh external directory preserving member paths. Never execute or blanket-extract archived code. Other sections have archive members but are not authenticated by this S10 receipt. Preview reference and Linux R mesh environment remain separate dependencies."
     },
     {
       "id": "historical-ready-archive",
@@ -124,7 +137,7 @@
       "classification": "regenerable;required_for_execution",
       "recorded_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS",
       "accessible_path": "/work/abussing/arka_trying_gpu_again/env",
-      "status": "historical_hpc_runtime_present;separate_linux_cpu_packages_installed;first_70_test_gate_failed_see_HPC_CPU_VALIDATION_22012327.json",
+      "status": "historical_hpc_runtime_present;separate_linux_cpu_environment_passed_75_test_same_environment_audit;initial_Windows_fixture_failure_preserved",
       "new_cpu_environment": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311",
       "authority": "../environment/sampler-layer2/README.md",
       "restore": "Rebuild isolated environments using repository source/version locks and platform-appropriate authenticated artifacts. See environment/HPC_CPU_SETUP.md for the separate Linux CPU installation and its limits. Windows wheel hashes are not Linux wheel hashes. Preserve existing historical installations. Mesh and SCT require separate R environment restoration and validation; no GPU production environment is established."

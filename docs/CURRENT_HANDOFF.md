@@ -63,6 +63,8 @@ Do not describe this as missing all project data or requiring a public redownloa
 The narrower unresolved dependency is full-cell preprocessing input: these
 bundles contain glial subsets, while canonical SCT is fitted before that subset.
 Continue tracing HPC preprocessing and transferred archives first.
+The [recovery status](environment/HPC_RECOVERY_STATUS.md) records the expanded
+filesystem/archive search, restored S10 source files and remaining R-runtime gap.
 
 Public recovery now identifies the study's Brain Image Library dataset
 [`ace-ear-nap`](https://api.brainimagelibrary.org/web/view?bildid=ace-ear-nap).
@@ -112,10 +114,12 @@ Installed GPU package metadata is not GPU execution evidence.
    Regenerate canonical responses using the documented runner only after
    the accepted R environment is restored/ported and checked. A different raw
    payload requires explicit provenance reconciliation, not a renamed file.
-5. The full S10 observation reference and inherited-boundary files have now been
-   authenticated on HPC (see manifest). Recover remaining export/reference
-   inputs or prepare a bounded geometry adapter, then regenerate with the
-   canonical builder if needed. Existing historical mesh
+5. Five exact S10 source-geometry files, including cells.csv, were restored from
+   the HPC SOURCE_INPUTS.zip archive and authenticated against the committed
+   inventory. See the [recovery receipt](environment/HPC_S10_GEOMETRY_RECOVERY.json).
+   No geometry adapter is needed for these inputs. Recover the preview reference
+   and restore/validate the Linux mesh environment before a canonical rebuild.
+   Existing historical mesh
    files are evidence and must not silently be relabeled canonical exports.
 6. Continue the remaining sampler components as bounded ports with source maps
    and independent mechanical checks. This portability step adds no sampler

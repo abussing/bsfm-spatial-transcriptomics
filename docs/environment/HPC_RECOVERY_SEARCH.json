@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-02",
+  "method": "Read-only os.scandir to depth 6; symlinks recorded but not followed; archive member listings without extraction or execution",
+  "roots": [
+    "/work/abussing/arka_trying_gpu_again",
+    "/home/abussing/Downloads",
+    "/work/abussing/hail_mesh_to_vendor",
+    "/work/abussing/hail_mesh_to_vendor_pilot"
+  ],
+  "pruned_directory_names": [
+    ".git",
+    ".venv",
+    "R_libs",
+    "Rlib",
+    "Rlibs",
+    "__pycache__",
+    "env",
+    "node_modules",
+    "site-packages",
+    "venv"
+  ],
+  "visited_directories": 15869,
+  "unfinished_directories": 0,
+  "errors": [],
+  "h5ad_or_h5_matches": [],
+  "canonical_run_manifest_matches": [],
+  "archives": [
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/SOURCE_INPUTS.zip",
+      "member_count": 241,
+      "matching_members": 133
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/PREP.tar.gz",
+      "member_count": 379,
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review19_cpu_bundle.tar.gz",
+      "member_count": 140,
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/gene_review_results_20261005.tar.gz",
+      "member_count": 4163,
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1_READY.tar.gz",
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/ENDPOINT_MESH_TOPOLOGY.tar.gz",
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/ENDPOINT_SPECTRAL_GEOMETRY.tar.gz",
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/endpoint_deliverables_20261026/ENDPOINT_INPUTS.tar.gz",
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/ENDPOINT_MESH_TOPOLOGY.tar.gz",
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/SNAPSHOT.tar.gz",
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/SPECTRAL_REFRESH.tar.gz",
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bank10_report_20260924_v1/SNAPSHOT.tar.gz",
+      "matching_members": 0
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bank10_final_report_20260924_v1/SNAPSHOT.tar.gz",
+      "matching_members": 0
+    }
+  ],
+  "full_inventory": {
+    "path": "/work/abussing/bsfm-consolidation/evidence/artifact-search-20261102.json",
+    "bytes": 1328034,
+    "sha256": "7c6ad01165a34ff49e482782279778c88b02aa0371cc5f6781f1527047f3f7c9"
+  },
+  "conclusion": "SOURCE_INPUTS.zip supplies historical source geometry; S10 restored separately. No whole H5AD or canonical run-manifest found in these roots/depths. Other storage, deeper paths, symlink destinations, renamed files and uninspected archives remain outside this absence claim."
+}
