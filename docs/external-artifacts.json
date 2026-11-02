@@ -5,6 +5,23 @@
   "scope": "Portable inventory; availability is bounded inspection, not exhaustive absence. Historical artifacts do not replace canonical production data.",
   "artifacts": [
     {
+      "id": "linux-r-mesh-sources",
+      "classification": "regenerable;required_for_prepared_linux_R_build",
+      "accessible_path": "/work/abussing/bsfm-consolidation/environments/r-linux-sources",
+      "status": "R_4.5.3_and_33_package_sources_authenticated;build_prepared_not_submitted",
+      "acquisition_receipt_sha256": "528edcb58aa9ee2157f4033b63c3f9f55dfc550c1831f97f887a9e01879fb214",
+      "authority": "../environment/mesh/r-source-lock.json; ../environment/sctransform/source-lock.json",
+      "restore": "Acquire exact named source archives from committed URLs, falling back to the same-version CRAN Archive URL only if needed. Require exact committed size and SHA-256 before use. Additional UDUNITS header identities are in environment/mesh-linux/udunits-headers.json. See HPC_R_MESH_BUILD_RUN.json for the pending allocated build; do not describe source acquisition as successful compilation or runtime validation."
+    },
+    {
+      "id": "s10-preview-topology",
+      "classification": "historical_evidence;required_reference_for_mesh_regression",
+      "accessible_path": "/work/abussing/bsfm-consolidation/recovered/s10-preview-topology-20261102",
+      "status": "two_topology_files_restored_with_exact_committed_preview_hashes",
+      "receipt": "environment/HPC_S10_PREVIEW_TOPOLOGY_RECOVERY.json",
+      "restore": "The prepared S10 mesh_loc.csv and mesh_tv.csv are exact duplicates of their preview counterparts. Authenticate against the committed mesh input inventory, then copy to a fresh reference directory. The full-cell preview A_proj.mtx and CERTIFICATE.json remain unresolved; do not substitute the thinned projector or fabricate a certificate."
+    },
+    {
       "id": "historical-19section-inputs",
       "classification": "historical_evidence;available_raw_glial_subsets_and_model_inputs",
       "accessible_path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/<section_id>/input.npz",

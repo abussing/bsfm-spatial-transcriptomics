@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-02",
+  "restored_root": "/work/abussing/bsfm-consolidation/recovered/s10-preview-topology-20261102",
+  "files": [
+    {
+      "file": "mesh_loc.csv",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/inputs/S10__WT5/mesh/mesh_loc.csv",
+      "bytes": 13389,
+      "sha256": "1dee661450240ada93254c8b2f00aba5b39ea71bacc71dd0450686b0d39f8b99",
+      "matches_committed_preview_identity": true
+    },
+    {
+      "file": "mesh_tv.csv",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/inputs/S10__WT5/mesh/mesh_tv.csv",
+      "bytes": 8698,
+      "sha256": "b434e4e6e693b7a1173d0ab70e9ec47322255a4c26846a0eec2e00ce5ffbbeff",
+      "matches_committed_preview_identity": true
+    }
+  ],
+  "remaining_preview_dependencies": [
+    "A_proj.mtx",
+    "CERTIFICATE.json"
+  ],
+  "scope": "Exact existing byte-identical topology duplicates; no regenerated reference or scientific execution"
+}

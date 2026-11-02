@@ -117,8 +117,11 @@ Installed GPU package metadata is not GPU execution evidence.
 5. Five exact S10 source-geometry files, including cells.csv, were restored from
    the HPC SOURCE_INPUTS.zip archive and authenticated against the committed
    inventory. See the [recovery receipt](environment/HPC_S10_GEOMETRY_RECOVERY.json).
-   No geometry adapter is needed for these inputs. Recover the preview reference
-   and restore/validate the Linux mesh environment before a canonical rebuild.
+   No geometry adapter is needed for these inputs. The two preview topology files
+   were also recovered as exact duplicates; the preview projector and certificate
+   remain unresolved. The Linux R build is prepared with authenticated sources
+   and a committed specification, awaiting explicit job approval. Restore/validate
+   the Linux mesh environment before a canonical rebuild.
    Existing historical mesh
    files are evidence and must not silently be relabeled canonical exports.
 6. Continue the remaining sampler components as bounded ports with source maps

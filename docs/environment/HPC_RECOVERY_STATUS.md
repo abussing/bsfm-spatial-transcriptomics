@@ -25,6 +25,11 @@ committed mesh inventory, restored to a fresh external directory and rehashed:
 This resolves the source-geometry export gap without generating an adapter or
 executing historical code. Other sections' members were listed, not authenticated.
 
+Two preview references, `mesh_loc.csv` and `mesh_tv.csv`, were subsequently
+restored from exact duplicate prepared-mesh files. Both match the committed
+preview hashes: [receipt](HPC_S10_PREVIEW_TOPOLOGY_RECOVERY.json). Only the full-cell
+preview `A_proj.mtx` and `CERTIFICATE.json` remain unresolved among those four files.
+
 ## Search coverage and limits
 
 The [search summary](HPC_RECOVERY_SEARCH.json) records four roots, depth six,
@@ -49,12 +54,20 @@ environment cannot be labeled an exact restoration of the accepted environment.
 Only the R version and package metadata were inspected; namespace loading and
 canonical mesh execution have not been validated. Preserve that environment.
 
+The exact R 4.5.3 source and all 33 mesh-package sources have now been acquired
+and authenticated against the unchanged committed locks. The new
+[Linux builder](../../environment/mesh-linux/README.md) is committed, staged on
+HPC with matching hashes, and passes syntax, CLI and login-node refusal checks.
+The [build specification](HPC_R_MESH_BUILD_RUN.json) requests four CPUs, 16 GiB
+and two hours. It remains unsubmitted pending explicit approval; compilation
+and fresh-session package validation have not yet passed.
+
 ## Remaining work
 
 1. Locate full-cell raw input or canonical response bundles through additional
    existing-storage evidence; do not substitute glial-only counts for full-cell
    SCT fitting or historical expression for the accepted response.
-2. Recover the S10 preview reference or design an explicit reference-comparison
+2. Recover the two remaining S10 preview files or design an explicit reference-comparison
    route using the committed identities. Do not fabricate missing reference files.
 3. Restore a separate Linux R mesh/SCT environment using the accepted package
    versions and new platform-specific provenance. A mesh rebuild needs its own
