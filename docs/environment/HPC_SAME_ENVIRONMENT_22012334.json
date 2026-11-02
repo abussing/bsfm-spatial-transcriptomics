@@ -1,0 +1,300 @@
+{
+  "schema": "bsfm.same-environment-sampler-audit.v1",
+  "status": "PASS",
+  "code_commit": "45e68391a5ea2235eee9558fcffefae7dd78d9aa",
+  "source_root": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler",
+  "fixture_policy": "Unchanged committed inputs; independently authenticated original-function outputs; exact equality",
+  "comparisons": [
+    {
+      "layer": 1,
+      "case": 0,
+      "source_port_exact": true,
+      "windows_fixture_exact": true
+    },
+    {
+      "layer": 1,
+      "case": 1,
+      "source_port_exact": true,
+      "windows_fixture_exact": false
+    },
+    {
+      "layer": 1,
+      "case": 2,
+      "source_port_exact": true,
+      "windows_fixture_exact": false
+    },
+    {
+      "layer": 2,
+      "case": 0,
+      "source_port_exact": true,
+      "windows_fixture_exact": false
+    },
+    {
+      "layer": 2,
+      "case": 1,
+      "source_port_exact": true,
+      "windows_fixture_exact": false
+    },
+    {
+      "layer": 3,
+      "case": 0,
+      "source_port_exact": true,
+      "windows_fixture_exact": false
+    },
+    {
+      "layer": 3,
+      "case": 1,
+      "source_port_exact": true,
+      "windows_fixture_exact": false
+    }
+  ],
+  "test_result": {
+    "run": 75,
+    "failures": [],
+    "errors": [],
+    "skips": [],
+    "successful": true
+  },
+  "committed_fixture_sha256": {
+    "sampler_layer1.json": "b01ae2a55ede3bfa56986438e4b660d23b13f66187440eb276c4ceeaef9661a5",
+    "sampler_layer2.json": "0a902b8a008512fbe33d3d2cc4e955de6ce6fc8e930d7776b95af241a0c5a80f",
+    "sampler_layer3.json": "3288983f27d0949a6ed0c478421bac559ba88e3e6bbd7a1a81cf9e9cf0b9731b"
+  },
+  "reference_sources": [
+    [
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/c3_established_functions.py",
+        "bytes": 340313,
+        "sha256": "828eef737fd36a47ec349837a936fc6ba49ffb0bec9fe556c08f502baa43e946",
+        "functions": {
+          "compute_Yhat": [
+            2849,
+            2869
+          ],
+          "compute_qgk": [
+            2817,
+            2846
+          ],
+          "sample_Lambda_twostage": [
+            6936,
+            7026
+          ],
+          "sample_sigma2_twostage": [
+            7193,
+            7216
+          ],
+          "sample_phi": [
+            3886,
+            3913
+          ],
+          "sample_delta_tau": [
+            3859,
+            3879
+          ]
+        }
+      },
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/run_c3full_fixed_profile_nuts.py",
+        "bytes": 94890,
+        "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+        "functions": {
+          "refresh_alpha_gauge": [
+            182,
+            230
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/spectral_live_range_whitening.py",
+        "bytes": 9636,
+        "sha256": "d4e0d7a63c1fba65bc0410cfd04be4b695202b9babd9a8756e707a07a2b5f803",
+        "lines": [
+          [
+            28,
+            32
+          ],
+          [
+            35,
+            37
+          ],
+          [
+            40,
+            163
+          ],
+          [
+            166,
+            237
+          ]
+        ]
+      },
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/active_marginal_whitening.py",
+        "bytes": 2339,
+        "sha256": "81e1a613d605edfee1da28a30a03d664959e20ca512dbfa2001776d04ce093b6",
+        "lines": [
+          [
+            14,
+            22
+          ],
+          [
+            25,
+            47
+          ],
+          [
+            50,
+            59
+          ],
+          [
+            62,
+            64
+          ]
+        ]
+      },
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/splusu_active_tqff_target.py",
+        "bytes": 10600,
+        "sha256": "e05c68a97db4e5d8c61001e66f3e74e8d7233a1733e0476c756aef76405a673c",
+        "lines": [
+          [
+            13,
+            38
+          ]
+        ]
+      },
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/generate_splusu_phase1.py",
+        "bytes": 28641,
+        "sha256": "7e9fb03fd484b2768775a3604296476e39423813b5b191ad9fa1c8752161169f",
+        "lines": [
+          [
+            28,
+            28
+          ],
+          [
+            29,
+            29
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            31,
+            34
+          ],
+          [
+            35,
+            35
+          ],
+          [
+            55,
+            59
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/fixed_splusu_dynamic_target.py",
+        "bytes": 21073,
+        "sha256": "b172a3732b30c2e15387ad898565a1c9971d902352d9bfd54485a7937295748e",
+        "functions": {
+          "_build_log_range_target": [
+            21,
+            409
+          ],
+          "sufficient_statistics": [
+            412,
+            431
+          ],
+          "build_dynamic_fixed_target": [
+            434,
+            476
+          ],
+          "sample_single_eta": [
+            479,
+            503
+          ]
+        }
+      },
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/direct_w_dynamic_target.py",
+        "bytes": 2459,
+        "sha256": "245c5e9f5ed91f511a9bf69e75a0a832b68f8a66a04d424d05dbdd3734adfd65",
+        "functions": {
+          "build_dynamic_fixed_target": [
+            9,
+            55
+          ]
+        }
+      },
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/run_c3full_fixed_profile_nuts.py",
+        "bytes": 94890,
+        "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+        "functions": {
+          "factor_context": [
+            233,
+            239
+          ]
+        }
+      },
+      {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/rule_contract.py",
+        "bytes": 686,
+        "sha256": "955ce44ef4df3a07a232fb33dd0e1310526df1dae84dc92f32bf2c768be230de",
+        "functions": {
+          "validate_rule": [
+            3,
+            10
+          ]
+        }
+      }
+    ]
+  ],
+  "environment": {
+    "python": "3.11.14 | packaged by conda-forge | (main, Oct 22 2025, 22:46:25) [GCC 14.3.0]",
+    "platform": "Linux-3.10.0-514.2.2.el7.x86_64-x86_64-with-glibc2.17",
+    "packages": {
+      "numpy": "2.1.3",
+      "scipy": "1.14.1",
+      "jax": "0.7.0",
+      "jaxlib": "0.7.0",
+      "ml_dtypes": "0.6.0",
+      "opt_einsum": "3.4.0",
+      "threadpoolctl": "3.5.0"
+    },
+    "backend": "cpu",
+    "x64": true,
+    "numerical_libraries": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311/lib/python3.11/site-packages/numpy.libs/libscipy_openblas64_-ff651d7f.so",
+        "version": "0.3.27",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311/lib/python3.11/site-packages/scipy.libs/libscipy_openblas-c128ec02.so",
+        "version": "0.3.27.dev",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      }
+    ]
+  },
+  "committed_fixtures_unchanged": true,
+  "runtime_reference_sha256": {
+    "layer1-runtime-reference.json": "e9c6a39373f9b71b5d985a92cd0c8e3d99b3fd21d0ce2e5fc1c097b4a1d78827",
+    "layer2-runtime-reference.json": "2fca5447751328a732aac71e3d832d1d972658f75565cd3905f9a6b0f7b40291",
+    "layer3-runtime-reference.json": "badbc3ab11f561f397b1be069fd8b503205fa2b98878ac2dcdcdefca783ff1e8"
+  }
+}

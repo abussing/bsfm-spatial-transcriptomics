@@ -1,5 +1,15 @@
 # Portable sampler source/port validation
 
+## Executed result
+
+Job **22012334** completed with exit `0:0` in 67 seconds on 2026-11-02,
+using one CPU and peak RSS 2,214,920 KiB. All seven original/port comparisons
+were exact. All **75 tests passed**, with zero failures, errors or skips;
+committed fixture bytes were unchanged. See the [report](HPC_SAME_ENVIRONMENT_22012334.json)
+and [executed specification](HPC_SAME_ENVIRONMENT_RUN.json) for exact source,
+environment and evidence identities. Six of seven Linux reference cases differ
+from their Windows fixtures; cross-platform bit equality remains unestablished.
+
 The first Linux job [22012327](HPC_CPU_VALIDATION_22012327.json) failed its
 Windows-fixture gate. Preserve that result and the committed fixtures. The
 sampler formulas, priors, gradients, RNG calls and tolerances are unchanged.

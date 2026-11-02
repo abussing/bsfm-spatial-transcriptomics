@@ -15,7 +15,12 @@
       "authority": "preprocessing/audits/20261031_production_v2/README.md",
       "upstream_publication": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11746152/",
       "upstream_deposit_as_published": "/bil/lz/kjohnst2/b72faf9d87d7fc00 (Brain Image Library)",
-      "upstream_status": "Publication confirms deposit; attempted download-host access timed out from local computer and HPC; no downloadable raw file authenticated",
+      "upstream_metadata_url": "https://api.brainimagelibrary.org/retrieve?bildid=ace-ear-nap",
+      "upstream_dataset_id": "ace-ear-nap",
+      "upstream_download_url": "https://download.brainimagelibrary.org/b7/2f/b72faf9d87d7fc00",
+      "upstream_service_status_url": "https://www.brainimagelibrary.org/datacentermove.html",
+      "upstream_service_status": "Official 2026-11-02 update: systems moved and undergoing testing; downtime expected into early week of November 2. Metadata API remains accessible; BIL filesystem unavailable during migration. Recheck status before retrying data retrieval.",
+      "upstream_status": "Publication deposit resolves via BIL API to ace-ear-nap: 19 specimens, 509 files, approximately 1060 GB total. Public dataset page confirms download URL, but download-host access timed out from local computer and HPC. No file inventory or matching H5AD authenticated; do not download the entire archive or equate archive membership with canonical input identity.",
       "restore": "Find an HPC copy or recover the upstream dataset; authenticate full file size and SHA-256 before canonical preflight. This project-adopted checksum is not independently supplied by the publisher. Historical transformed data cannot reconstruct the raw H5AD."
     },
     {

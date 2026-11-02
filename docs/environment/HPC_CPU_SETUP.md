@@ -91,9 +91,11 @@ rebuild have not been established. Thus this is not a claim of byte-reproducible
 source builds. Preserve the authenticated wheel and base runtime until that
 additional restoration work is completed.
 
-Next: establish bounded same-environment Linux source/port equivalence using
-authenticated historical functions, and make AST provenance serialization
-explicitly version-aware. Preserve Windows fixtures and all original failures.
+Follow-up job **22012334** established bounded same-environment Linux source/port
+equivalence using authenticated historical functions and explicitly version-aware
+AST provenance serialization: seven exact comparisons and all 75 tests passed.
+See the [audit](HPC_SAME_ENVIRONMENT_VALIDATION.md). Windows fixtures and all
+original failures remain preserved; this does not claim Windows/Linux bit equality.
 Mesh/R tests, full-cell S10 smoke, real-data fits and GPU validation are separate
 gates with additional inputs. The [run specification](HPC_CPU_VALIDATION_RUN.json)
 was approved and executed with one CPU, 8 GiB and a 15-minute limit on defq-64core;

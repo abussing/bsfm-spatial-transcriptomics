@@ -52,6 +52,14 @@ directory names do not establish canonical status. The raw H5AD, newer canonical
 response bundles and canonical `sampler-facing.npz` have not yet been located
 on accessible storage. Searches were bounded, not an exhaustive absence proof.
 
+Public recovery now identifies the study's Brain Image Library dataset
+[`ace-ear-nap`](https://api.brainimagelibrary.org/web/view?bildid=ace-ear-nap).
+Its [2026-11-02 service update](https://www.brainimagelibrary.org/datacentermove.html)
+reports continuing migration downtime; metadata works but data downloads timed
+out. The archive's contents have not been matched to our required H5AD hash.
+Recheck service status before retrying retrieval. Raw-data recovery does not
+block bounded sampler ports using the authenticated historical source on HPC.
+
 ## Environment portability
 
 The accepted [CPU lock](../environment/sampler-layer2/README.md) and builder
@@ -66,8 +74,12 @@ ml_dtypes 0.6.0 requires glibc 2.27+. A separate CPU environment has been instal
 under `/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311` using
 a successful source build of the same ml_dtypes version. The first approved
 CPU test job ran all 70 tests but failed the gate: 58 methods passed, 12 failed
-(17 failure records). See [HPC CPU setup](environment/HPC_CPU_SETUP.md) and the
-[result](environment/HPC_CPU_VALIDATION_22012327.json) before any further run.
+(17 failure records). That failure is retained. Follow-up job **22012334**
+passed all **75 tests** and seven exact same-environment historical/port
+comparisons, preserving the Windows fixtures and numerical tolerances.
+See [HPC CPU setup](environment/HPC_CPU_SETUP.md), the
+[initial result](environment/HPC_CPU_VALIDATION_22012327.json), and
+[passing Linux audit](environment/HPC_SAME_ENVIRONMENT_VALIDATION.md).
 Installed GPU package metadata is not GPU execution evidence.
 
 ## Resume sequence
@@ -77,9 +89,9 @@ Installed GPU package metadata is not GPU execution evidence.
 2. Authenticate accessible external files against the recorded SHA-256 values.
    Ordinary sampler fixtures and the frozen rule are already in Git and do not
    require the raw H5AD or historical drive.
-3. Preserve the installed Linux environment and failed CPU validation receipt.
-   Diagnose cross-platform fixture differences with bounded same-environment
-   source/port checks, and record complete build provenance. Prepare a committed
+3. Preserve the installed Linux environment and both CPU validation receipts.
+   Same-environment source/port checks now pass; do not repeat that recovery.
+   Full source-build reproducibility remains unestablished. Prepare a committed
    specification before further HPC jobs; follow AGENTS.md approval requirements.
    Do not run the scientific suite on a login node.
 4. Recover the original raw H5AD by its recorded hash, or a verified upstream

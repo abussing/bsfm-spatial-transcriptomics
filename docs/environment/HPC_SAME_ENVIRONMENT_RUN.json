@@ -1,6 +1,10 @@
 {
   "schema": "bsfm.bounded-hpc-validation.v1",
-  "status": "prepared_not_submitted",
+  "status": "executed_passed",
+  "execution": {"job_id": "22012334", "state": "COMPLETED", "exit_code": "0:0", "node": "node432", "elapsed": "00:01:07", "max_rss_kib": 2214920, "test_seconds": 43.163, "tests": 75, "failures": 0, "errors": 0, "skips": 0},
+  "result": "HPC_SAME_ENVIRONMENT_22012334.json",
+  "result_sha256": "6c0da3ea47f1ceb0fca78c268cc79460b29cabb1f349a748725983400bc1d24f",
+  "log": {"path": "/work/abussing/bsfm-consolidation/evidence/same-environment-22012334.log", "bytes": 9629, "sha256": "71df9f16fed042512485062e3a31ba1427cf0768fd99ce4cdd4014a29d8a16dc"},
   "purpose": "Continue approved CPU validation by comparing authenticated original and canonical functions in the same Linux environment, then run all original tests plus provenance tests",
   "authorization_scope": "Continuation of user-approved CPU validation and subsequent instruction to drive consolidation; same one-CPU, 8-GiB, 15-minute limit, no model fit or GPU work",
   "code_commit": "45e68391a5ea2235eee9558fcffefae7dd78d9aa",
