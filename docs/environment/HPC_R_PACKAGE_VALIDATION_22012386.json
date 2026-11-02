@@ -1,0 +1,359 @@
+{
+  "schema": "bsfm.linux-r-package-validation.v1",
+  "status": "not_passed",
+  "code_commit": "2b7774ca376fcb1c452114c275b42e6be7338a8e",
+  "job_id": "22012386",
+  "approved_specification_sha256": "758e1024f29a30a041e3b7f160c7a19ae81def37dd3742be3916b61a516c3767",
+  "build_status": "failed",
+  "build_receipt_sha256": "47a39f7166c77fa02583edf3ded979bf52b03ece5e741f0a7c318294bc03f95e",
+  "package_source_lock_sha256": "df7f13808b288311c77f1a363de30ad417160b0bbff72f5aa93849091dad38ac",
+  "output_root": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386",
+  "R_expected_version": "4.5.3",
+  "R_installed_metadata_version": null,
+  "fresh_R_version_and_namespace_validation_passed": false,
+  "packages": [
+    {
+      "package": "DBI",
+      "expected_version": "1.3.0",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/DBI/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "KernSmooth",
+      "expected_version": "2.23-26",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/KernSmooth/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "MASS",
+      "expected_version": "7.3-65",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/MASS/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "Matrix",
+      "expected_version": "1.7-4",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/Matrix/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "R6",
+      "expected_version": "2.6.1",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/R6/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "Rcpp",
+      "expected_version": "1.1.1",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/Rcpp/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "class",
+      "expected_version": "7.3-23",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/class/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "classInt",
+      "expected_version": "0.4-11",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/classInt/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "cli",
+      "expected_version": "3.6.5",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/cli/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "dplyr",
+      "expected_version": "1.2.0",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/dplyr/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "e1071",
+      "expected_version": "1.7-17",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/e1071/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "fmesher",
+      "expected_version": "0.7.0",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/fmesher/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "generics",
+      "expected_version": "0.1.4",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/generics/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "glue",
+      "expected_version": "1.8.0",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/glue/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "jsonlite",
+      "expected_version": "2.0.0",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/jsonlite/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "lattice",
+      "expected_version": "0.22-9",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/lattice/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "lifecycle",
+      "expected_version": "1.0.5",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/lifecycle/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "magrittr",
+      "expected_version": "2.0.4",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/magrittr/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "pillar",
+      "expected_version": "1.11.1",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/pillar/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "pkgconfig",
+      "expected_version": "2.0.3",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/pkgconfig/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "proxy",
+      "expected_version": "0.4-29",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/proxy/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "rlang",
+      "expected_version": "1.1.7",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/rlang/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "s2",
+      "expected_version": "1.1.9",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/s2/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "sf",
+      "expected_version": "1.1-0",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/sf/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "sp",
+      "expected_version": "2.2-1",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/sp/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "splancs",
+      "expected_version": "2.01-45",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/splancs/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "tibble",
+      "expected_version": "3.3.1",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/tibble/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "tidyselect",
+      "expected_version": "1.2.1",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/tidyselect/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "units",
+      "expected_version": "1.0-1",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/units/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "utf8",
+      "expected_version": "1.2.6",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/utf8/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "vctrs",
+      "expected_version": "0.7.1",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/vctrs/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "withr",
+      "expected_version": "3.0.2",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/withr/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    },
+    {
+      "package": "wk",
+      "expected_version": "0.9.5",
+      "installed_version": null,
+      "version_matches": false,
+      "description": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/r-library/wk/DESCRIPTION",
+      "description_sha256": null,
+      "installed_directory_inside_library": false,
+      "built": null
+    }
+  ],
+  "logs": [
+    {
+      "path": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/logs/configure.log",
+      "bytes": 39236,
+      "sha256": "b599e3bf3eb04629f28ecb10d3dc4398be00878c578fd6a648d786711ce1a714"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012386/logs/make.log",
+      "bytes": 197213,
+      "sha256": "8654380a9e7e51a84ef44d72f65ddc1d2124b3923f0be05f48cbe56c59472e56"
+    }
+  ],
+  "interpretation": "Runtime build and package validation only; no mesh-output or SCT reproducibility claim. External conda system dependencies remain."
+}

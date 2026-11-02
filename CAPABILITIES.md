@@ -3,6 +3,10 @@
 This is the initial user-authored functionality inventory. It records required
 capabilities, not claims that any historical implementation is authoritative.
 
+For current machine-to-machine readiness, use the
+[pipeline portability audit](docs/PORTABILITY_AUDIT.md). Checkpoint-specific
+statements below retain their original scope and do not supersede later receipts.
+
 ## 1. Expression preprocessing
 
 Recovery status: **historical normalization-recipe recovery completed through

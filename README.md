@@ -3,6 +3,11 @@
 Clean, provenance-controlled development of the Bayesian spatial factor model
 for spatial transcriptomics.
 
+For continuation on another computer, start with the
+[pipeline portability audit](docs/PORTABILITY_AUDIT.md) and
+[current handoff](docs/CURRENT_HANDOFF.md). They distinguish committed code,
+target-machine environments, passing tests and reproduced scientific outputs.
+
 This repository contains recovered documentation, canonical raw-input preflight,
 implemented, production-validated full-data SCTransform preprocessing, and the
 accepted October 26 four-stage warp-mesh builder.

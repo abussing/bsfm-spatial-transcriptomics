@@ -4,6 +4,7 @@ Verified baseline: `main`, `49f33c441e1cde9e1b8139ffef0103993eaa0222`
 (Sampler Layer 3). Portability inspection: 2026-11-02.
 
 Git is authoritative. Read [AGENTS.md](../AGENTS.md),
+[the pipeline portability audit](PORTABILITY_AUDIT.md),
 [CAPABILITIES.md](../CAPABILITIES.md), the
 [sampler architecture](decisions/BSFM_SAMPLER_ARCHITECTURE.md), and
 [Layer 3](sampler/LAYER3.md) before implementation. Older checkpoint-specific
@@ -119,8 +120,9 @@ Installed GPU package metadata is not GPU execution evidence.
    inventory. See the [recovery receipt](environment/HPC_S10_GEOMETRY_RECOVERY.json).
    No geometry adapter is needed for these inputs. The two preview topology files
    were also recovered as exact duplicates; the preview projector and certificate
-   remain unresolved. The Linux R build is prepared with authenticated sources
-   and a committed specification, awaiting explicit job approval. Restore/validate
+   remain unresolved. Approved Linux R build job 22012386 failed during optional
+   NEWS.pdf documentation generation before installation; its logs and package
+   report are retained. A changed retry requires a new specification/approval. Restore/validate
    the Linux mesh environment before a canonical rebuild.
    Existing historical mesh
    files are evidence and must not silently be relabeled canonical exports.

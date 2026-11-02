@@ -8,7 +8,7 @@
       "id": "linux-r-mesh-sources",
       "classification": "regenerable;required_for_prepared_linux_R_build",
       "accessible_path": "/work/abussing/bsfm-consolidation/environments/r-linux-sources",
-      "status": "R_4.5.3_and_33_package_sources_authenticated;build_prepared_not_submitted",
+      "status": "R_4.5.3_and_33_package_sources_authenticated;job_22012386_failed_in_optional_NEWS_pdf_before_installation",
       "acquisition_receipt_sha256": "528edcb58aa9ee2157f4033b63c3f9f55dfc550c1831f97f887a9e01879fb214",
       "authority": "../environment/mesh/r-source-lock.json; ../environment/sctransform/source-lock.json",
       "restore": "Acquire exact named source archives from committed URLs, falling back to the same-version CRAN Archive URL only if needed. Require exact committed size and SHA-256 before use. Additional UDUNITS header identities are in environment/mesh-linux/udunits-headers.json. See HPC_R_MESH_BUILD_RUN.json for the pending allocated build; do not describe source acquisition as successful compilation or runtime validation."

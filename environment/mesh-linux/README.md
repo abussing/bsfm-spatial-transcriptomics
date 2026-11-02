@@ -1,7 +1,10 @@
 # Linux R mesh environment build
 
-Status: source archives acquired and authenticated; builder syntax/CLI checked;
-compilation and package validation not yet executed. This does not replace the
+Status: source archives acquired and authenticated; builder syntax/CLI checked.
+Job 22012386 passed configure but failed while generating optional NEWS.pdf,
+before runtime/package installation. Its [receipt](../../docs/environment/HPC_R_MESH_BUILD_22012386.json)
+and [package report](../../docs/environment/HPC_R_PACKAGE_VALIDATION_22012386.json)
+remain failed. This does not replace the
 accepted Windows lock or establish a Linux mesh result.
 
 `build.py` uses the existing R 4.5.3 runtime-source hash from

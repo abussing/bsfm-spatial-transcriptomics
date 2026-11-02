@@ -59,8 +59,11 @@ and authenticated against the unchanged committed locks. The new
 [Linux builder](../../environment/mesh-linux/README.md) is committed, staged on
 HPC with matching hashes, and passes syntax, CLI and login-node refusal checks.
 The [build specification](HPC_R_MESH_BUILD_RUN.json) requests four CPUs, 16 GiB
-and two hours. It remains unsubmitted pending explicit approval; compilation
-and fresh-session package validation have not yet passed.
+and two hours. The approved unchanged specification ran as job **22012386**:
+configure passed, then make failed generating optional NEWS.pdf documentation.
+Runtime installation, all package installs and fresh-session validation were not
+reached. See the [execution receipt](HPC_R_MESH_BUILD_22012386.json) and
+[package/version report](HPC_R_PACKAGE_VALIDATION_22012386.json).
 
 ## Remaining work
 
