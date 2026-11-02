@@ -1,0 +1,239 @@
+{
+  "inspection_date": "2026-11-02",
+  "scope": "Read-only NPZ headers and file hashes; no numerical fitting or array-value validation",
+  "production_root": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024",
+  "contract_sha256": "6c8e868a309d02324218a7993bcff86b7b1c78fcedcd01552ccbae1229f9e3ad",
+  "sections": [
+    {
+      "section": "S00__Trem2_5xFAD4",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S00__Trem2_5xFAD4/input.npz",
+      "bytes": 1604406,
+      "sha256": "931ef86d56c64d55f3aa81318201f99d8ed97ffa81b1ff4b04e24b66486ceaa5",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        9451
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S01__5xFAD4",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S01__5xFAD4/input.npz",
+      "bytes": 2397365,
+      "sha256": "b00eaaed008ae60cb168f3cf150e8c1ea09d143a15aafb07f38dc90a7c4158c6",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        11938
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S02__Trem2_4",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S02__Trem2_4/input.npz",
+      "bytes": 1536332,
+      "sha256": "11649259db250effde0de519ef4c9bd2bb7c06106aff1229b438b05fbee0cf43",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        8949
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S03__Trem2_5xFAD3",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S03__Trem2_5xFAD3/input.npz",
+      "bytes": 2638523,
+      "sha256": "1c6b010ccf3b082a2c76614b4f837fb6db6ffa29ee8101cd1a02ffffaaafc346",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        10557
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S04__WT3",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S04__WT3/input.npz",
+      "bytes": 2039985,
+      "sha256": "f70075ce4cc3ef00a3e881cccd470149db3a14e75188dc83acd9cb0ae6d5c063",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        8308
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S05__Trem2_3",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S05__Trem2_3/input.npz",
+      "bytes": 2497828,
+      "sha256": "a1eb4b968621c00ac9d6630ab4d43766fd1e08ef7448d16fabd1749d37ba342c",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        10128
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S06__5xFAD3",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S06__5xFAD3/input.npz",
+      "bytes": 2997078,
+      "sha256": "33e69b26277c5d09f6c42f5fe4a164bfbf29f0b48cdea2d1ce8f2fbaaaae93ec",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        11387
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S07__Trem2_5xFAD5/input.npz",
+      "bytes": 1325616,
+      "sha256": "b36b271a1f555ff6d68780cd0edf185f6f37899af00df23275410d7f46515208",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        8054
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S08__5xFAD5",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S08__5xFAD5/input.npz",
+      "bytes": 1388432,
+      "sha256": "5dfba933c00143a629f1de85b4a8aa4aae8978d5677d19c864760a7213ab271f",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        8609
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S09__Trem2_5",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S09__Trem2_5/input.npz",
+      "bytes": 1461882,
+      "sha256": "2152f48bf76dcc2283ffb2908af3ffea1f4580dea2b7983afb09c068c4d85543",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        9015
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S10__WT5",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S10__WT5/input.npz",
+      "bytes": 1568579,
+      "sha256": "b432d51118c0b5df6c605ead761324d5173f16fa02737da811023c351eee13c6",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        9422
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S11__Trem2_5xFAD1",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S11__Trem2_5xFAD1/input.npz",
+      "bytes": 2959759,
+      "sha256": "76e629535da2939b92b4dcec74a977fb97e01347c02f8f290635affc5caa932c",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        10913
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S12__Trem2_1",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S12__Trem2_1/input.npz",
+      "bytes": 2982095,
+      "sha256": "eff1590db52ce5c959a74084cb25dd3538adc7b851636235573a3012d27b484a",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        11650
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S12__Trem2_5xFAD2/input.npz",
+      "bytes": 3723612,
+      "sha256": "9f599adcba08c46ecdc4c61f3117480b79174823be50bbc882bc447baa569203",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        13485
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S13__Trem2_2",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S13__Trem2_2/input.npz",
+      "bytes": 1256738,
+      "sha256": "fd6a3b2f165ec5a8877945b4a66d1e3847b187fdebf108f36be5cc4d410d09fc",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        5055
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S14__WT1",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S14__WT1/input.npz",
+      "bytes": 2098994,
+      "sha256": "6ed717260cd09693efc948f3d53bb1d1913390dae208ed28b96b0044e89f15a5",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        9424
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S15__5xFAD1",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S15__5xFAD1/input.npz",
+      "bytes": 2550349,
+      "sha256": "7d18c6ecec65e59a12561a553da3f3af82aa94c0a9683d669ea1a4751eb04315",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        10875
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S16__WT2",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S16__WT2/input.npz",
+      "bytes": 1992795,
+      "sha256": "75067b83af95aabe098cf83277ff802181746cf0c29b2856dec90722128f0aca",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        8200
+      ],
+      "raw_dtype": "<i4"
+    },
+    {
+      "section": "S17__5xFAD2",
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S17__5xFAD2/input.npz",
+      "bytes": 2721810,
+      "sha256": "4f6256fb32cd6a0a9e230d6e05d07a939edf02b5007b71cb7e61e924203e4cd5",
+      "contract_match": true,
+      "raw_shape": [
+        300,
+        11680
+      ],
+      "raw_dtype": "<i4"
+    }
+  ],
+  "all_source_hashes_match": true,
+  "total_glial_cells": 187100,
+  "limitation": "These are historical glial subsets, not the full-cell input required for canonical SCT fitting."
+}

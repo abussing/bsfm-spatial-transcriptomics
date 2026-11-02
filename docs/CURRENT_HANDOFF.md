@@ -52,6 +52,18 @@ directory names do not establish canonical status. The raw H5AD, newer canonical
 response bundles and canonical `sampler-facing.npz` have not yet been located
 on accessible storage. Searches were bounded, not an exhaustive absence proof.
 
+**The historical 19-section HPC inputs are available.** All 19
+`gene_review19_20261004_v1/sections/<section_id>/input.npz` files were authenticated
+against the downstream production preparation contract on 2026-11-02. They retain
+300-gene raw-count arrays, historical expression, coordinates and cell identities
+for 187,100 glial cells. See the [per-file inventory](environment/HPC_19SECTION_INPUT_INVENTORY.json).
+The October-24 production tree and subsequent adaptation/production directories
+also exist. Their presence is not a new validation of historical model runs.
+Do not describe this as missing all project data or requiring a public redownload.
+The narrower unresolved dependency is full-cell preprocessing input: these
+bundles contain glial subsets, while canonical SCT is fitted before that subset.
+Continue tracing HPC preprocessing and transferred archives first.
+
 Public recovery now identifies the study's Brain Image Library dataset
 [`ace-ear-nap`](https://api.brainimagelibrary.org/web/view?bildid=ace-ear-nap).
 Its [2026-11-02 service update](https://www.brainimagelibrary.org/datacentermove.html)
@@ -94,8 +106,10 @@ Installed GPU package metadata is not GPU execution evidence.
    Full source-build reproducibility remains unestablished. Prepare a committed
    specification before further HPC jobs; follow AGENTS.md approval requirements.
    Do not run the scientific suite on a login node.
-4. Recover the original raw H5AD by its recorded hash, or a verified upstream
-   copy. Regenerate canonical responses using the documented runner only after
+4. Trace existing HPC runs and transferred data for the full-cell input or
+   canonical responses; the authenticated 19-section inputs above are the starting
+   point. Public upstream retrieval is a fallback, not an established requirement.
+   Regenerate canonical responses using the documented runner only after
    the accepted R environment is restored/ported and checked. A different raw
    payload requires explicit provenance reconciliation, not a renamed file.
 5. The full S10 observation reference and inherited-boundary files have now been

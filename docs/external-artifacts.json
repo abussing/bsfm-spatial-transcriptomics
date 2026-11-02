@@ -5,6 +5,21 @@
   "scope": "Portable inventory; availability is bounded inspection, not exhaustive absence. Historical artifacts do not replace canonical production data.",
   "artifacts": [
     {
+      "id": "historical-19section-inputs",
+      "classification": "historical_evidence;available_raw_glial_subsets_and_model_inputs",
+      "accessible_path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/<section_id>/input.npz",
+      "status": "all_19_files_present_and_hash_authenticated_against_production_contract",
+      "section_count": 19,
+      "total_glial_cells": 187100,
+      "genes_per_section": 300,
+      "contents": ["raw counts", "historical expression Y", "coordinates", "cell types", "regions", "cell names", "native cell names", "source row IDs", "gene availability"],
+      "inventory": "environment/HPC_19SECTION_INPUT_INVENTORY.json",
+      "inventory_sha256": "50f3523a085fe48ae6bf066cef4c835174b096cc0a705aa8a87d0d566d914e62",
+      "downstream_production_root": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024",
+      "authority": "recovery/SCTRANSFORM_B4_SECTIONS.csv; downstream inputs/INPUT_PREPARATION_CONTRACT.json",
+      "restore": "Use the existing HPC copies after authenticating the per-file inventory hashes. These are the upstream data for historical 19-section model preparation; no public redownload is needed to access them. NPZ header inspection confirms raw-count array dimensions but does not validate array values. The files retain glial subsets only; canonical SCT fitting requires all section cells before glial selection. Trace HPC preprocessing inputs and transferred archives before considering upstream recovery. Do not relabel historical Y as the newer canonical response."
+    },
+    {
       "id": "raw-h5ad",
       "classification": "required_for_preprocessing_regeneration",
       "recorded_path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
