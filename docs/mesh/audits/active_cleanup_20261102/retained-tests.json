@@ -1,0 +1,23 @@
+{
+  "baseline": "4f732ad08983e0b24aaba9fd99cabc1437e3c98a",
+  "source": "tests/test_mesh_phase0.py",
+  "destination": "tests/test_mesh_infrastructure.py",
+  "method_bodies_copied_unchanged": [
+    "setUp",
+    "test_consistent_mass_and_stiffness_independent",
+    "test_project_vertex_edge_interior_duplicate_nearby",
+    "test_outside_rejected",
+    "test_reversed_degenerate_and_one_based_rejected",
+    "test_duplicate_triangles_rejected",
+    "test_canonical_vertex_triangle_order",
+    "test_full_spectrum_against_dense_precision_power",
+    "test_derivatives_multiple_ranges_and_steps",
+    "test_matern_integral_oracle_and_limits",
+    "test_separated_clusters_connected_support_and_offsets",
+    "test_edge_crossing_collar_min_distance",
+    "test_headroom_rejection",
+    "test_memory_ceiling_terminates_worker_and_records_failure",
+    "test_process_tree_child_detection"
+  ],
+  "reason": "Retain numerical oracles and resource checks; remove rejected launcher-specific tests."
+}

@@ -145,8 +145,13 @@ The canonical implementation is `bsfm.mesh.october26.build`, with the frozen
 `config/mesh/october26-warp-basis.json` configuration and its R bridge. The module
 CLI is a bounded S10 historical regression, not an all-section launcher.
 M3/Phase-0 range-derived geometry is rejected for production and retained only
-as experimental evidence. Its relocation/removal is a separately requested
-next step; no cleanup is folded into this acceptance commit.
+in the [historical receipt](REJECTED_PHASE0.md) and Git history. The subsequent
+[active-code cleanup](audits/active_cleanup_20261102/README.md) removes its launcher,
+configurations, schemas and study-specific tests. The canonical builder,
+configuration, numerical dependencies and S10 reproduction records are unchanged.
+The accepted isolated environment retains its original machine-local path (whose
+name includes `phase0`); that path is an environment identity, not another mesh
+entry point. Reusable numerical helpers do not define a geometry selection policy.
 
 The permanent angle test now invokes the actual Python `build()` command path,
 passes the real JSON configuration to the actual R builder prefix, verifies

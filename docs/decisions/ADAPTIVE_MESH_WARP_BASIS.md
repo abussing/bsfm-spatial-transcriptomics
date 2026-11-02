@@ -2,7 +2,7 @@
 
 Authority: explicit user scientific correction and scope reset following
 `4e362b6b3988e1b899d4250812ddfc4040beb819`. This supersedes the
-[M3/Phase-0 selection design](ADAPTIVE_MESH_DESIGN.md), not the preserved
+[rejected M3/Phase-0 design](../mesh/REJECTED_PHASE0.md), not the preserved
 [M1/M2 historical evidence](../recovery/ADAPTIVE_MESH.md).
 
 The mesh is primarily a low-dimensional basis for the unknown latent spatial
@@ -58,4 +58,6 @@ bounded reproduction, review. Further scientific redesign needs explicit approva
 Acceptance is limited to the corrected conservative port and bounded S10
 mechanical reproduction. Outward grading and exact inactive-vertex
 marginalization are load-bearing. No all-section run, GP initialization, Gibbs
-sampler, HPC execution or active-code cleanup is authorized in this checkpoint.
+sampler or HPC execution is authorized in this checkpoint. The subsequent
+[bounded cleanup](../mesh/audits/active_cleanup_20261102/README.md) removes the
+rejected study surface without changing this builder or its numerical dependencies.

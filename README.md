@@ -4,7 +4,8 @@ Clean, provenance-controlled development of the Bayesian spatial factor model
 for spatial transcriptomics.
 
 This repository contains recovered documentation, canonical raw-input preflight,
-and implemented, production-validated full-data SCTransform preprocessing.
+implemented, production-validated full-data SCTransform preprocessing, and the
+accepted October 26 four-stage warp-mesh builder.
 Historical implementations are
 not authoritative and must not be copied or executed until their provenance,
 purpose, and relationship to the intended method are understood.
@@ -17,6 +18,21 @@ These artifacts are not eligible for primary holdout scoring; that requires
 training-only preprocessing. No BSFM model or HPC workflow has yet been frozen
 in this repository. See the [preflight guide](docs/preprocessing/RAW_INPUT_PREFLIGHT.md)
 for the CLI, dependencies, tests and artifact contract.
+
+## Canonical mesh entry point
+
+Use `bsfm.mesh.october26.build` with
+[`config/mesh/october26-warp-basis.json`](config/mesh/october26-warp-basis.json).
+The [canonical guide](docs/mesh/OCTOBER26_CANONICALIZATION.md) specifies the full
+glial geometry population, required inherited far boundary, coordinate transform
+and downstream interfaces. The module CLI is only an S10 historical regression;
+there is no all-section mesh launcher. No all-section mesh run is claimed.
+
+The mesh is a parsimonious latent-warp basis with outward grading and exact
+inactive-vertex marginalization. S10's byte-identical reproduction is mechanical
+regression evidence, not a scientifically optimal vertex count. The rejected
+range-derived study has been removed from the active surface; its
+[historical receipt](docs/mesh/REJECTED_PHASE0.md) points to Git history.
 
 ## Authoritative documents
 

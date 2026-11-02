@@ -87,9 +87,15 @@ sampling, not reproduce an infinite-domain covariance across extreme prior range
 The [user scope reset](docs/decisions/ADAPTIVE_MESH_WARP_BASIS.md) selects the
 October 26 four-stage fmesher builder as the **canonical practical mesh
 implementation**, accepted by the user after the corrected S10 reproduction.
+The sole canonical mesh entry point is `bsfm.mesh.october26.build`, configured by
+[`october26-warp-basis.json`](config/mesh/october26-warp-basis.json). The module CLI
+is only the bounded historical regression, not a second construction path.
 
 Historical M1/M2 recovery is preserved. M3/Phase-0 is a **rejected experimental
-redesign**; its v1/v2 failed runs and source remain audit evidence. Do not run
+redesign**; its v1/v2 failures are preserved in a
+[concise historical receipt](docs/mesh/REJECTED_PHASE0.md), with the former source
+and detailed study audits in Git history. Its launcher/configuration/schema/test
+surface has been removed. Do not run
 Phase-0 v3 or use its continuum grid to select production resolution.
 
 The [canonical builder and computational-role report](docs/mesh/OCTOBER26_CANONICALIZATION.md)
@@ -105,7 +111,7 @@ The resulting 371/708 counts are regression evidence, not scientific production
 requirements. Outward coarsening, coverage and practical warp dimension matter.
 
 The canonical mesh implementation has passed bounded S10 reproduction and is
-approved for canonicalization. Outward grading and exact inactive-vertex
+canonicalized at commit `4f732ad08983e0b24aaba9fd99cabc1437e3c98a`. Outward grading and exact inactive-vertex
 marginalization are load-bearing. No all-section mesh execution is claimed.
 No sampler has been ported or run. No GP initialization, holdout,
 resolution sweep, Phase 1 or HPC work is authorized by this gate. Physical units
@@ -118,6 +124,13 @@ runtime by themselves. Canonicalization checks passed: **127 Python tests with
 mesh/R integration enabled and seven R validation cases**. This includes the
 permanent actual Python/JSON/R angle-boundary regression and its rejected
 missing-conversion mutant. See the [acceptance record](docs/mesh/audits/october26_acceptance_20261102/README.md).
+
+The subsequent [active-code cleanup](docs/mesh/audits/active_cleanup_20261102/README.md)
+retains the canonical builder and reusable numerical dependencies unchanged,
+removes rejected-study-only tests, and preserves 14 reusable numerical/resource
+tests. Its complete suite passes 104 Python tests (including R/fmesher integration,
+no skips) and seven R validation cases. The earlier 127-test count describes the
+pre-cleanup acceptance checkpoint, not the remaining test inventory.
 
 ## 4. Bayesian spatial factor model sampler
 

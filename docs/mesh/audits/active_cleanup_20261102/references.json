@@ -1,0 +1,964 @@
+{
+  "baseline": "4f732ad08983e0b24aaba9fd99cabc1437e3c98a",
+  "source_import_inventory": [
+    {
+      "path": "src/bsfm/mesh/__init__.py",
+      "relative_imports": [],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/accuracy.py",
+      "relative_imports": [
+        {
+          "line": 4,
+          "module": "continuum",
+          "names": [
+            "covariance"
+          ]
+        },
+        {
+          "line": 5,
+          "module": "spectral",
+          "names": [
+            "modal",
+            "full_covariance"
+          ]
+        },
+        {
+          "line": 6,
+          "module": "marginal",
+          "names": [
+            "active_covariance",
+            "root_and_derivative"
+          ]
+        },
+        {
+          "line": 7,
+          "module": "derivatives",
+          "names": [
+            "check",
+            "errors"
+          ]
+        },
+        {
+          "line": 8,
+          "module": "identities",
+          "names": [
+            "require",
+            "logical"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/artifacts.py",
+      "relative_imports": [
+        {
+          "line": 9,
+          "module": "identities",
+          "names": [
+            "require",
+            "read_json",
+            "write_json",
+            "sha",
+            "file_record",
+            "logical",
+            "REPO"
+          ]
+        },
+        {
+          "line": 10,
+          "module": "geometry",
+          "names": [
+            "triangles",
+            "diagnostics"
+          ]
+        },
+        {
+          "line": 11,
+          "module": "projectors",
+          "names": [
+            "validate",
+            "active",
+            "project"
+          ]
+        },
+        {
+          "line": 12,
+          "module": "fem",
+          "names": [
+            "assemble",
+            "validate"
+          ]
+        },
+        {
+          "line": 94,
+          "module": "support",
+          "names": [
+            "enclosure"
+          ]
+        },
+        {
+          "line": 99,
+          "module": "inputs",
+          "names": [
+            "validate_population"
+          ]
+        },
+        {
+          "line": 122,
+          "module": "probes",
+          "names": [
+            "choose"
+          ]
+        },
+        {
+          "line": 57,
+          "module": "identities",
+          "names": [
+            "ordered_ids"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/bridge.py",
+      "relative_imports": [
+        {
+          "line": 6,
+          "module": "identities",
+          "names": [
+            "read_json",
+            "write_json",
+            "require",
+            "REPO"
+          ]
+        },
+        {
+          "line": 7,
+          "module": "support",
+          "names": [
+            "distance",
+            "edge_distance",
+            "target",
+            "enclosure"
+          ]
+        },
+        {
+          "line": 8,
+          "module": "geometry",
+          "names": [
+            "canonicalize",
+            "edges",
+            "diagnostics"
+          ]
+        },
+        {
+          "line": 9,
+          "module": "projectors",
+          "names": [
+            "project",
+            "validate"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/continuum.py",
+      "relative_imports": [
+        {
+          "line": 4,
+          "module": "identities",
+          "names": [
+            "require"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/coordinates.py",
+      "relative_imports": [
+        {
+          "line": 2,
+          "module": "identities",
+          "names": [
+            "require",
+            "logical"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/derivatives.py",
+      "relative_imports": [
+        {
+          "line": 2,
+          "module": "spectral",
+          "names": [
+            "modal"
+          ]
+        },
+        {
+          "line": 3,
+          "module": "marginal",
+          "names": [
+            "active_covariance",
+            "root_and_derivative"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/fem.py",
+      "relative_imports": [
+        {
+          "line": 3,
+          "module": "geometry",
+          "names": [
+            "triangles"
+          ]
+        },
+        {
+          "line": 4,
+          "module": "identities",
+          "names": [
+            "require"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/geometry.py",
+      "relative_imports": [
+        {
+          "line": 4,
+          "module": "identities",
+          "names": [
+            "require"
+          ]
+        },
+        {
+          "line": 5,
+          "module": "support",
+          "names": [
+            "distance",
+            "edge_distance",
+            "target"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/identities.py",
+      "relative_imports": [],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/inputs.py",
+      "relative_imports": [
+        {
+          "line": 10,
+          "module": "identities",
+          "names": [
+            "require",
+            "sha",
+            "read_json",
+            "ordered_ids",
+            "REPO"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/marginal.py",
+      "relative_imports": [
+        {
+          "line": 3,
+          "module": "identities",
+          "names": [
+            "require"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/october26.py",
+      "relative_imports": [
+        {
+          "line": 22,
+          "module": "identities",
+          "names": [
+            "REPO",
+            "file_record",
+            "logical",
+            "read_json",
+            "require",
+            "write_json"
+          ]
+        },
+        {
+          "line": 23,
+          "module": "projectors",
+          "names": [
+            "active",
+            "project",
+            "validate"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/phase0.py",
+      "relative_imports": [
+        {
+          "line": 10,
+          "module": "identities",
+          "names": [
+            "REPO",
+            "read_json",
+            "write_json",
+            "require",
+            "sha",
+            "logical",
+            "file_record"
+          ]
+        },
+        {
+          "line": 11,
+          "module": "inputs",
+          "names": [
+            "real_inputs",
+            "environment",
+            "code"
+          ]
+        },
+        {
+          "line": 12,
+          "module": "coordinates",
+          "names": [
+            "transform"
+          ]
+        },
+        {
+          "line": 13,
+          "module": "support",
+          "names": [
+            "hull"
+          ]
+        },
+        {
+          "line": 14,
+          "module": "probes",
+          "names": [
+            "choose"
+          ]
+        },
+        {
+          "line": 15,
+          "module": "bridge",
+          "names": [
+            "build"
+          ]
+        },
+        {
+          "line": 16,
+          "module": "fem",
+          "names": [
+            "assemble",
+            "validate"
+          ]
+        },
+        {
+          "line": 17,
+          "module": "spectral",
+          "names": [
+            "spectrum"
+          ]
+        },
+        {
+          "line": 18,
+          "module": "projectors",
+          "names": [
+            "active"
+          ]
+        },
+        {
+          "line": 19,
+          "module": "accuracy",
+          "names": [
+            "evaluate"
+          ]
+        },
+        {
+          "line": 20,
+          "module": "resources",
+          "names": [
+            "supervised",
+            "preflight",
+            "GiB"
+          ]
+        },
+        {
+          "line": 21,
+          "module": "artifacts",
+          "names": [
+            "new_attempt",
+            "save_payload",
+            "finalize",
+            "validate_closed"
+          ]
+        },
+        {
+          "line": 31,
+          "module": "coordinates",
+          "names": [
+            "SCALE"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/probes.py",
+      "relative_imports": [
+        {
+          "line": 6,
+          "module": "support",
+          "names": [
+            "distance",
+            "hull"
+          ]
+        },
+        {
+          "line": 7,
+          "module": "identities",
+          "names": [
+            "require",
+            "ordered_ids"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/projectors.py",
+      "relative_imports": [
+        {
+          "line": 4,
+          "module": "geometry",
+          "names": [
+            "triangles"
+          ]
+        },
+        {
+          "line": 5,
+          "module": "identities",
+          "names": [
+            "require"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/resources.py",
+      "relative_imports": [
+        {
+          "line": 5,
+          "module": "identities",
+          "names": [
+            "require",
+            "write_json"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/spectral.py",
+      "relative_imports": [
+        {
+          "line": 3,
+          "module": "identities",
+          "names": [
+            "require"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "src/bsfm/mesh/support.py",
+      "relative_imports": [
+        {
+          "line": 4,
+          "module": "identities",
+          "names": [
+            "require"
+          ]
+        }
+      ],
+      "removed": false
+    }
+  ],
+  "baseline_references": [
+    {
+      "path": "config/mesh/study-design.json",
+      "references": [
+        {
+          "line": 5,
+          "tokens": [
+            "ADAPTIVE_MESH_DESIGN.md"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/decisions/ADAPTIVE_MESH_DESIGN.md",
+      "references": [
+        {
+          "line": 146,
+          "tokens": [
+            "study-design.json"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/decisions/ADAPTIVE_MESH_WARP_BASIS.md",
+      "references": [
+        {
+          "line": 5,
+          "tokens": [
+            "ADAPTIVE_MESH_DESIGN.md"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "docs/mesh/PHASE0_HARNESS.md",
+      "references": [
+        {
+          "line": 13,
+          "tokens": [
+            "study-design.json"
+          ]
+        },
+        {
+          "line": 14,
+          "tokens": [
+            "ADAPTIVE_MESH_DESIGN.md"
+          ]
+        },
+        {
+          "line": 26,
+          "tokens": [
+            "phase0-harness.json"
+          ]
+        },
+        {
+          "line": 40,
+          "tokens": [
+            "ADAPTIVE_MESH_DESIGN.md"
+          ]
+        },
+        {
+          "line": 310,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/mesh/audits/M3/README.md",
+      "references": [
+        {
+          "line": 5,
+          "tokens": [
+            "ADAPTIVE_MESH_DESIGN.md"
+          ]
+        },
+        {
+          "line": 106,
+          "tokens": [
+            "study-design.json"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/mesh/audits/october26_S10_20261102/README.md",
+      "references": [
+        {
+          "line": 118,
+          "tokens": [
+            "ADAPTIVE_MESH_DESIGN.md"
+          ]
+        },
+        {
+          "line": 121,
+          "tokens": [
+            "PHASE0_HARNESS.md"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "docs/mesh/audits/phase0_synthetic_20261102/README.md",
+      "references": [
+        {
+          "line": 11,
+          "tokens": [
+            "PHASE0_HARNESS.md"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/mesh/audits/phase0_synthetic_20261102/acceptance.json",
+      "references": [
+        {
+          "line": 2,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/mesh/audits/phase0_synthetic_20261102/source-inventory.json",
+      "references": [
+        {
+          "line": 6,
+          "tokens": [
+            "phase0-harness.json"
+          ]
+        },
+        {
+          "line": 10,
+          "tokens": [
+            "study-design.json"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/mesh/audits/phase0_synthetic_20261102/summary.json",
+      "references": [
+        {
+          "line": 2,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 205,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 227,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 251,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 272,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/mesh/audits/phase0_transport_fix_20261102/README.md",
+      "references": [
+        {
+          "line": 69,
+          "tokens": [
+            "PHASE0_HARNESS.md"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/mesh/audits/phase0_transport_fix_20261102/validation.json",
+      "references": [
+        {
+          "line": 2,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 38,
+          "tokens": [
+            "phase0-harness.json"
+          ]
+        },
+        {
+          "line": 42,
+          "tokens": [
+            "study-design.json"
+          ]
+        },
+        {
+          "line": 138,
+          "tokens": [
+            "PHASE0_HARNESS.md"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "docs/recovery/ADAPTIVE_MESH.md",
+      "references": [
+        {
+          "line": 3,
+          "tokens": [
+            "ADAPTIVE_MESH_DESIGN.md"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "docs/recovery/ADAPTIVE_MESH_EVIDENCE.md",
+      "references": [
+        {
+          "line": 3,
+          "tokens": [
+            "ADAPTIVE_MESH_DESIGN.md"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "environment/mesh/validate.py",
+      "references": [
+        {
+          "line": 95,
+          "tokens": [
+            "study-design.json"
+          ]
+        }
+      ],
+      "removed": false
+    },
+    {
+      "path": "schemas/mesh/phase0-manifest.schema.json",
+      "references": [
+        {
+          "line": 7,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "schemas/mesh/phase0-spec.schema.json",
+      "references": [
+        {
+          "line": 8,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/artifacts.py",
+      "references": [
+        {
+          "line": 29,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 43,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 146,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/inputs.py",
+      "references": [
+        {
+          "line": 107,
+          "tokens": [
+            "study-design.json"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "src/bsfm/mesh/phase0.py",
+      "references": [
+        {
+          "line": 104,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 108,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 117,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 121,
+          "tokens": [
+            "phase0-harness.json",
+            "study-design.json"
+          ]
+        },
+        {
+          "line": 124,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 133,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 141,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 158,
+          "tokens": [
+            "phase0-harness.json",
+            "study-design.json"
+          ]
+        },
+        {
+          "line": 166,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 167,
+          "tokens": [
+            "study-design.json"
+          ]
+        },
+        {
+          "line": 168,
+          "tokens": [
+            "phase0-harness.json"
+          ]
+        },
+        {
+          "line": 170,
+          "tokens": [
+            "phase0-harness.json"
+          ]
+        }
+      ],
+      "removed": true
+    },
+    {
+      "path": "tests/test_mesh_phase0.py",
+      "references": [
+        {
+          "line": 26,
+          "tokens": [
+            "phase0-harness.json"
+          ]
+        },
+        {
+          "line": 43,
+          "tokens": [
+            "study-design.json"
+          ]
+        },
+        {
+          "line": 159,
+          "tokens": [
+            "study-design.json"
+          ]
+        },
+        {
+          "line": 165,
+          "tokens": [
+            "study-design.json"
+          ]
+        },
+        {
+          "line": 197,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        },
+        {
+          "line": 285,
+          "tokens": [
+            "bsfm.mesh.phase0"
+          ]
+        }
+      ],
+      "removed": true
+    }
+  ],
+  "remaining_historical_path_mentions": "Preserved canonical audit inventories describe their original commits; no removed launcher is callable."
+}

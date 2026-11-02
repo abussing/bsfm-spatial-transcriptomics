@@ -1,1 +1,1 @@
-"""Experimental Phase-0 mesh study; never a production mesh selection."""
+"""Canonical four-stage warp mesh: bsfm.mesh.october26.build."""

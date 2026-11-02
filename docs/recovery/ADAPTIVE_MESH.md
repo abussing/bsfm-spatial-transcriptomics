@@ -1,8 +1,9 @@
 # Adaptive tissue mesh recovery through M2
 
-Current decision: the subsequent [canonical M3 design](../decisions/ADAPTIVE_MESH_DESIGN.md)
-freezes broad scientific choices and a staged study. The M1/M2 status and open
-questions below describe that historical checkpoint; no implementation was selected.
+Subsequent authority: the [latent-warp decision](../decisions/ADAPTIVE_MESH_WARP_BASIS.md)
+selects the October 26 four-stage implementation. M3/Phase-0 was rejected; see the
+[historical receipt](../mesh/REJECTED_PHASE0.md). The status and open questions
+below describe the M1/M2 checkpoint, before that selection.
 
 Status: **historical recovery through M2 complete within its bounded scope; no
 canonical mesh implementation or numerical design selected**. Baseline:

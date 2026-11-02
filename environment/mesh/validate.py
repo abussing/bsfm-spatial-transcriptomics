@@ -92,8 +92,7 @@ def main():
     assert digest(rm)=='03b83d93891080f15b6a85684e2cb5de8d9a9b7cdf72f8c25dd8103403e1e06f'
     manifest=json.loads(rm);assert manifest['status']=='complete' and manifest['pass']
     registry=repo/'src/bsfm/preprocessing/sections.json';rb=registry.read_bytes()
-    spec=json.loads((repo/'config/mesh/study-design.json').read_text(encoding='utf-8'))
-    assert digest(rb)==spec['registry']['sha256']
+    assert digest(rb)==manifest['identities']['section_registry_sha256']
     assert manifest['section_order']==[x['section'] for x in json.loads(rb)['sections']]
     jsonschema.validate({'kind':'synthetic'},{'type':'object','required':['kind']})
     # Independent reference: known congruence gives exact eigenvalues [1,4,9].
