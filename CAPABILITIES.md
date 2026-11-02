@@ -121,6 +121,13 @@ FEM/covariance/derivative tests, graded synthetic geometry, deterministic probes
 closed-file validation, atomic artifacts and monitored sequential execution.
 See the [synthetic review evidence](docs/mesh/audits/phase0_synthetic_20261102/README.md).
 No real S10 candidate has run; numerical design selection remains pending.
+The finest h2 arm is convergence/reference evidence only. Production selection
+prioritizes the coarsest adequate eligible candidate and practical active-vertex
+cost in repeated Gibbs/NUTS updates across all 19 sections. If the required
+accuracy makes repeated sampling impractical, report the design as infeasible;
+do not promote the fine reference mesh as a fallback.
+If neither coarse nor medium is adequate, report "no computationally feasible
+candidate". No automatic production selection or promotion is authorized.
 
 - Construct meshes from tissue cell locations using the adaptive method.
 - Use multiple layers of resolution that become coarser outside the cell hull.

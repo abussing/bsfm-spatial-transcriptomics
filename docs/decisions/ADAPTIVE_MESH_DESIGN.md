@@ -139,7 +139,9 @@ coverage honestly rather than describing the trial grid as a theorem.
 The [machine-readable specification](../../config/mesh/study-design.json),
 [geometry enumeration](../mesh/study-geometries.csv) and
 [range enumeration](../mesh/study-ranges.csv) define the experiment, not an
-executable production run specification. Phase 0 is not implemented or executed.
+executable production run specification. The experimental harness is approved
+at commit `98edaf8b5fb1ec7cbd2534eea10a843221eef7ff`; real Phase-0 execution
+still requires separate authorization.
 
 | Factor | Explicit experimental levels |
 | --- | --- |
@@ -154,6 +156,14 @@ One grading rule keeps the initial study bounded and isolates resolution/buffer
 effects. The earlier two-rule, 108-geometry proposal is superseded; no second
 grading factor is hidden in these counts. Experimental grading is fixed for this
 study, while a production grading choice remains pending.
+
+The user's subsequent selection clarification makes **h2 (ell_low/8) a
+convergence/reference arm only**. Both h2 buffer combinations remain in the
+six-candidate pilot for convergence evidence; they are not production finalists
+under this policy. A fine reference passing accuracy checks does not confer
+production eligibility.
+The fine reference may still be executed under the existing 10 GiB process-tree
+ceiling; reference status does not grant an exception to that ceiling.
 
 | Stage | New geometries | Central evaluations | Tail evaluations | Total evaluations |
 | --- | ---: | ---: | ---: | ---: |
@@ -176,14 +186,35 @@ M3 selected six by deterministic feature coverage with both S12 sections forced,
 then added the span, MST-gap and NN-density extremes before numerical results.
 Reuse valid Phase-0 measurements in Phase 1; do not count S10 twice.
 
-Phase 2 evaluates at most two Pareto finalists on the other ten sections. Each
+Phase 2 evaluates at most two eligible finalists on the other ten sections. Each
 finalist is one global (h, grading, buffer) tuple; no per-section tuning is
 approved. If no acceptable candidate emerges, stop for a design amendment.
 Rank only candidates completing the required representative evaluations;
 resource-excluded candidates are incomplete, not successful. Report the full
 Pareto frontier across accuracy, peak memory and measured timings, plus vertex
-counts. Finalist selection requires review; do not choose solely by vertex count
-or hide tradeoffs in a single PASS flag.
+counts. Production selection must prioritize the **coarsest adequate candidate**
+among h0 and h1, while reviewing buffer and active-vertex cost together. Adequacy
+requires covariance accuracy and practical repeated Gibbs/NUTS sampling across
+all 19 sections. A successful one-time mesh build or eigensolve, or compliance
+with the study memory ceiling, does not establish sampling feasibility.
+
+Report active-vertex counts, measured covariance/root/derivative costs and the
+assumptions used to extrapolate repeated Gibbs/NUTS updates across sections.
+Distinguish these estimates from measured sampler performance; sampler recovery
+and a practical sampling budget remain unresolved. Do not invent a runtime
+budget or treat missing cost evidence as proof of feasibility.
+
+If adequate covariance accuracy requires a mesh too large for practical repeated
+sampling across 19 sections, report the design as **infeasible** and stop for a
+design amendment. Do not promote h2 as a production fallback or silently relax
+accuracy. Finalist selection requires review; do not choose solely by vertex
+count or hide tradeoffs in a single PASS flag. The candidate grid, mathematics,
+tolerances and 2% trial-target status are unchanged by this selection policy.
+If neither the coarse h0 nor medium h1 candidate is adequate, Phase 0 must report
+**"no computationally feasible candidate"** rather than promote the fine mesh.
+No candidate is selected or promoted to production automatically after execution.
+Insufficient evidence or an interrupted study must be reported as incomplete,
+not treated as evidence that an untested candidate is adequate or infeasible.
 
 ## Metrics and trial targets
 
@@ -226,7 +257,8 @@ costs before broader authorization.
 M3 resource estimates refer to the old two-grading proposal and are planning
 evidence only, not promised vertex counts or runtimes for this revised study.
 No production mesh builder, GP initialization, HPC work or sampler execution is
-authorized. The next implementation is an **experimental Phase-0 study harness**.
+authorized. The approved implementation is an **experimental Phase-0 study
+harness**; no real-section mesh has been executed or selected for production.
 
 Open: production h/grading/buffer and enclosure implementation, mesh environment
 and determinism, final error thresholds, certified interval coverage, material

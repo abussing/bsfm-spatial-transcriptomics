@@ -277,7 +277,17 @@
     "record_resource_exclusions": true
   },
   "selection": {
-    "policy": "reviewed accuracy/resource Pareto frontier",
+    "policy": "coarsest adequate candidate with practical repeated sampling cost across all 19 sections",
+    "reference_only_inner_levels": ["h2"],
+    "production_eligible_inner_levels": ["h0", "h1"],
+    "fine_reference_is_not_production_fallback": true,
+    "no_feasible_candidate_report": "no computationally feasible candidate",
+    "no_automatic_selection_or_promotion": true,
+    "active_vertex_sampling_cost_required": true,
+    "sampling_updates": ["Gibbs", "NUTS"],
+    "sampling_scope_sections": 19,
+    "practical_sampling_budget": null,
+    "infeasible_if_accuracy_requires_impractical_sampling": true,
     "global_tuple_per_finalist": true,
     "per_section_tuning": false,
     "no_automatic_pass_on_trial_target": true

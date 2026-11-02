@@ -16,6 +16,22 @@ for Phase 0 but remain provisional for production**. Independent review approved
 the harness, not a production mesh implementation. Real S10 execution still
 requires separate authorization against the exact committed harness.
 
+The finest inner target, **h2=ell_low/8**, is a convergence/reference arm only.
+It stays in the six-candidate experiment but is not a production finalist.
+Production selection prioritizes the coarsest adequate eligible candidate and
+must account for active-vertex costs in repeated Gibbs/NUTS updates across all
+19 sections. One-time construction/eigensolve timings and the study memory
+ceiling do not establish sampling feasibility. If adequate covariance accuracy
+requires impractical repeated sampling, report the design as infeasible rather
+than promoting h2. The [selection decision](../decisions/ADAPTIVE_MESH_DESIGN.md)
+keeps sampling-budget and sampler-cost validation questions explicit.
+If neither coarse h0 nor medium h1 is adequate, Phase 0 must report
+**"no computationally feasible candidate"**. The fine reference may still run,
+subject to the unchanged 10 GiB process-tree ceiling. No candidate is selected
+or promoted to production automatically after the experiment. Incomplete or
+untested candidates must remain explicitly incomplete, not inferred failures
+or successes.
+
 ## Modules and authentication
 
 | Module | Responsibility |
@@ -249,9 +265,17 @@ $env:BSFM_MESH_INTEGRATION = '1'
 & 'C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_ENVIRONMENTS\mesh-phase0-20261031\python\Scripts\python.exe' -B -m unittest discover -s tests -p 'test_mesh_phase0.py' -v
 ```
 
-Projected six-candidate command, **not executed or authorized by this review**.
-After committing the approved harness and obtaining separate execution approval,
-replace the placeholder with that exact commit; use a fresh external destination:
+The user has separately authorized one bounded six-candidate S10 experiment
+after committing and pushing the selection clarification. This authorization
+does not include production selection or Phase 1. The design specification's
+`execution_authorized=false` records its earlier design-only approval; this
+separate user authorization supplies the execution authority. Replace the
+placeholder below with the exact clarification commit and use a fresh external
+destination. Do not alter code, settings or tolerances during execution.
+
+The committed orchestrator stops on its first failure and records remaining
+candidates as not run. Preserve that behavior; do not bypass it or launch an
+unreviewed continuation. Report the failure and any unavailable comparisons.
 
 ```powershell
 $env:PYTHONPATH = Join-Path (Get-Location) 'src'
