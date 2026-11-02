@@ -1,0 +1,20 @@
+{
+  "schema": "bsfm.bounded-hpc-environment-build.v1",
+  "status": "prepared_not_submitted_awaiting_explicit_approval",
+  "purpose": "Build isolated R 4.5.3 and the 33 accepted mesh-package versions from authenticated source archives, then validate versions and namespace isolation",
+  "code_commit": "2b7774ca376fcb1c452114c275b42e6be7338a8e",
+  "builder": "environment/mesh-linux/build.py",
+  "source_lock_commit": "49f33c441e1cde9e1b8139ffef0103993eaa0222",
+  "source_lock_repository": "/work/abussing/bsfm-consolidation/checkouts/49f33c441e1cde9e1b8139ffef0103993eaa0222",
+  "source_cache": "/work/abussing/bsfm-consolidation/environments/r-linux-sources",
+  "udunits_headers": "/work/abussing/bsfm-consolidation/environments/r-linux-sources/udunits-headers",
+  "toolchain_prefix": "/work/abussing/arka_trying_gpu_again/env",
+  "output": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-<jobid>",
+  "resources": {"partition": "defq-64core", "nodes": 1, "tasks": 1, "cpus_per_task": 4, "memory": "16G", "time_limit": "02:00:00", "gpus": 0},
+  "command_argv": ["/work/abussing/arka_trying_gpu_again/env/bin/python3", "-B", "<staged_committed_builder>/build.py", "--repository", "<source_lock_repository>", "--sources", "<source_cache>", "--toolchain", "<toolchain_prefix>", "--udunits-headers", "<udunits_headers>", "--output", "<output>", "--code-commit", "2b7774ca376fcb1c452114c275b42e6be7338a8e", "--jobs", "4"],
+  "staging": "Stage only build.py and udunits-headers.json from the implementation commit; verify both whole-file hashes against Git before submission. Existing source locks remain at the specified baseline checkout and are unchanged in the implementation commit.",
+  "acceptance": "All source/header hashes pass; compilation and every package install exit zero; fresh R process reports 4.5.3, loads all 33 exact versions, and verifies namespace paths; build receipt passed; scheduler exit zero",
+  "writes": "Fresh output prefix, package library, build intermediates and evidence logs under /work/abussing/bsfm-consolidation only",
+  "excluded": ["raw-data access", "SCT fitting", "real-data mesh generation", "historical reference execution", "sampler execution", "GPU execution", "in-place modification of existing environments", "unlocked R package resolution"],
+  "limitations": "Compiler/sysroot and shared system libraries are existing external conda dependencies. This job does not establish standalone restoration, byte-reproducible compilation, Python mesh environment portability or scientific validation."
+}
