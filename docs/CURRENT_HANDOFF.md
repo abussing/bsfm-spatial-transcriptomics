@@ -122,7 +122,11 @@ Installed GPU package metadata is not GPU execution evidence.
    were also recovered as exact duplicates; the preview projector and certificate
    remain unresolved. Approved Linux R build job 22012386 failed during optional
    NEWS.pdf documentation generation before installation; its logs and package
-   report are retained. A changed retry requires a new specification/approval. Restore/validate
+   report are retained. The separately approved retry **22012400** is running at
+   last inspection: R built/installed, 20 packages installed, s2 dependency lookup
+   pending. See the [interim run record](environment/HPC_R_MESH_BUILD_22012400.json)
+   and query Slurm before continuing; do not submit a duplicate build. Fresh
+   package/version/isolation validation has not run. Restore/validate
    the Linux mesh environment before a canonical rebuild.
    Existing historical mesh
    files are evidence and must not silently be relabeled canonical exports.

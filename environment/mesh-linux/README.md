@@ -7,11 +7,13 @@ and [package report](../../docs/environment/HPC_R_PACKAGE_VALIDATION_22012386.js
 remain failed. This does not replace the
 accepted Windows lock or establish a Linux mesh result.
 
-The proposed retry adds only `PDFLATEX=` to the make command. The authenticated
+The approved retry adds only `PDFLATEX=` to the make command. The authenticated
 R source's `doc/Makefile` explicitly skips NEWS PDF generation when this variable
 is empty. R sources, configure arguments, compiler settings, package pins,
-installation order and validation are unchanged. This correction has not yet
-been exercised by a new allocated build; it does not overwrite job 22012386.
+installation order and validation are unchanged. Job **22012400** passed make
+and runtime installation and installed 20 packages at last inspection; it is
+still running in s2's dependency lookup. See the [interim record](../../docs/environment/HPC_R_MESH_BUILD_22012400.json).
+It does not overwrite job 22012386 or establish completed environment validation.
 
 `build.py` uses the existing R 4.5.3 runtime-source hash from
 `../sctransform/source-lock.json` and all 33 package source hashes/versions from
