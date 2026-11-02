@@ -123,7 +123,7 @@ def main():
         build = root / 'build/R-4.5.3'
         run('configure', [build / 'configure', '--prefix=' + str(prefix), '--enable-R-shlib',
                          '--with-x=no', '--with-readline=no', '--without-recommended-packages'], build)
-        run('make', [tools['MAKE'], '-j' + str(args.jobs)], build)
+        run('make', [tools['MAKE'], '-j' + str(args.jobs), 'PDFLATEX='], build)
         run('install-runtime', [tools['MAKE'], 'install'], build)
         for name in order:
             argv = [prefix / 'bin/R', 'CMD', 'INSTALL', '--no-multiarch',
