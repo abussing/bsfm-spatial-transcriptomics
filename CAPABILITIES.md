@@ -149,7 +149,12 @@ pre-cleanup acceptance checkpoint, not the remaining test inventory.
 
 Bounded recovery and nomination are complete. The user selected the
 **F/C production-overlay direct-W/split-E architecture** for conservative porting;
-no sampler implementation has been imported or ported. See the
+the first Gaussian/shrinkage/PX layer is now implemented and validated, while the full
+sampler remains unported. See the [layer-1 report](docs/sampler/LAYER1.md) and
+[seven-function source map](docs/sampler/LAYER1_SOURCE_MAP.csv). Three bounded
+synthetic source/port fixtures agree exactly, including both RNG streams; 27
+focused tests pass. No historical monolith or experimental branch was imported,
+and no full sampler/environment/run capability is claimed. See the
 [architecture decision](docs/decisions/BSFM_SAMPLER_ARCHITECTURE.md),
 [model, chronology and evidence limits](docs/recovery/BSFM_SAMPLER.md), and
 [source/dependency identities](docs/recovery/BSFM_SAMPLER_SOURCES.csv).

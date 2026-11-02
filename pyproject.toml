@@ -13,6 +13,7 @@ dependencies = ["numpy>=1.24", "h5py>=3.8"]
 validation = ["psutil>=5.9"]
 production = ["psutil>=5.9", "jsonschema>=4.18"]
 initialization = ["numpy==2.1.3", "scipy==1.14.1", "scikit-learn==1.4.2", "joblib==1.4.2", "threadpoolctl==3.5.0"]
+sampler-layer1 = ["numpy==2.1.3", "scipy==1.14.1"]
 
 [project.scripts]
 bsfm-raw-preflight = "bsfm.preprocessing.raw_preflight:main"
