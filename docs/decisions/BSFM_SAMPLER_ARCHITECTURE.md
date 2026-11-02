@@ -6,6 +6,10 @@ implemented and validated; full sampler not yet ported**. See the bounded
 The deterministic full-spectrum warp/active-marginalization Layer 2 is implemented
 and validated; see the [layer-2 report](../sampler/LAYER2.md). Its CPU validation does
 not select a GPU production environment or implement the remaining sampler.
+The frozen L16/direct-W factor target Layer 3 is implemented and validated; see its
+[implementation and validation report](../sampler/LAYER3.md). It reuses the
+accepted CPU environment and does not implement NUTS, factor chronology or a
+complete sampler. No scientific choice in this architecture is changed.
 Decision date: 2026-11-02. Recovery baseline:
 `10cb6e27168aae7581831a6591089b4d88629c49`.
 

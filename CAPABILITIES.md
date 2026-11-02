@@ -162,6 +162,15 @@ implemented and validated: [layer-2 report](docs/sampler/LAYER2.md),
 Two synthetic historical-reference comparisons and both S10 observation
 populations match exactly in the pinned CPU environment; 22 focused layer-2
 tests pass. This does not establish a GPU environment or complete sampler.
+Layer 3's frozen L16 finite-feature likelihood, current-state statistics,
+single-factor eta draw and direct-W target are **implemented and validated**:
+[layer-3 report](docs/sampler/LAYER3.md),
+[source map](docs/sampler/LAYER3_SOURCE_MAP.csv) and
+[S10 mechanical smoke](docs/sampler/LAYER3_S10_SMOKE.json).
+Two same-environment historical fixtures match exactly, including all gradients
+and RNG states; 21 focused tests and all 49 prior sampler tests pass. S10 uses
+synthetic response/state with authenticated geometry, not a fitted model.
+The existing CPU environment is reused; no full sampler or GPU capability follows.
 See the
 [architecture decision](docs/decisions/BSFM_SAMPLER_ARCHITECTURE.md),
 [model, chronology and evidence limits](docs/recovery/BSFM_SAMPLER.md), and

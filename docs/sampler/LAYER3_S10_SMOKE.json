@@ -1,0 +1,112 @@
+{
+  "schema": "bsfm.sampler-layer3-S10-smoke.v1",
+  "status": "PASS",
+  "scope": "One mechanical target, synthetic two-gene/two-factor state; not K selection, fit, mixing or scientific accuracy evidence",
+  "baseline": "d76927b274bfca9e9e24032ee7db07241fbb6d00",
+  "artifact": {
+    "path_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\sampler-facing.npz",
+    "bytes": 7195273,
+    "sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0"
+  },
+  "mesh_receipt_sha256": "5d243884b8e8007c262ef4cb31f5b796294f6c51d469858f67b185de3328dadb",
+  "input_identity": {
+    "schema": "bsfm.sampler-input.v1",
+    "section": "S10__WT5",
+    "response": "final_centered_Y",
+    "response_sha256": "359699c6580efebbe8da7e77dbcc9abcaeb06c8e3c7db9d291f7adb3016574e0",
+    "coordinate_system": "october26_glial_min_max_span",
+    "axis_order": [
+      "center_y",
+      "center_x"
+    ],
+    "units": "normalized",
+    "arrays": {
+      "Y": "359699c6580efebbe8da7e77dbcc9abcaeb06c8e3c7db9d291f7adb3016574e0",
+      "slocs": "1e1d4d754c6cf4149b25236f04ffd8055815379ab2adf0863026b92c364a41d7",
+      "cell_id": "d90cab233cb95243047922d6e313a3ab458d18d463b8a83ce7768b2847ffb582",
+      "cell_names": "f285137f21847f7d5e625b64541f7bc6ed10a2ede599413553afdd7af754fcd5",
+      "source_row_indices": "ee20cd625176608ce024766ef5407a728deb2c8c63e5bbe32ab6aee9ab0064d3",
+      "gene_names": "5689fa8be1d1276270bc3aeef3acde5874f0d66ebc828e4aa136c4e98e7dbb8b",
+      "cell_type_names": "682a34b85714bdc23c0a704749b40ed7b053f7eeeb4a34aaedd7585c9632a80a"
+    }
+  },
+  "identity_limitation": "Raw source-row aliases, not original cell-name strings; synthetic response hash is not an expression-source fingerprint",
+  "cells": 9422,
+  "types": [
+    996,
+    3337,
+    5089
+  ],
+  "genes": 2,
+  "synthetic_factors": 2,
+  "full_vertices": 371,
+  "full_modes": 371,
+  "active_vertices": 168,
+  "feature_shape": [
+    9422,
+    1024
+  ],
+  "position_shape": [
+    340
+  ],
+  "gradient_shape": [
+    340
+  ],
+  "value": -127.62628730063994,
+  "gradient_finite": true,
+  "gradient_norm": 231.120074660527,
+  "exact_repeat": true,
+  "logical_hashes": {
+    "gradient": "cd751a281e22c916afae9116f711b1b6738d6f13d39f51913b7baffa197811e4",
+    "W": "b780c3a850840cb3bdfe282c3a8c807aaa6e19f198c8ba4a5e60ca8ab70cf58c",
+    "W_active": "fe2a46aa3b424c81dc384201b2b55b3aa57583f8f33dd4a125f233e72d5e0aaf",
+    "features": "9a640443eddb5387d7878156bc41f0a166b9b49b4cc3aa2dd192a2ec862751d1"
+  },
+  "target_identity_sha256": "5b8121779820bbf2f77828682a360b50df4e4d8969326e6c976936731fb42175",
+  "context": {
+    "target_sha256": "5b8121779820bbf2f77828682a360b50df4e4d8969326e6c976936731fb42175",
+    "factor_id": "synthetic-factor-a",
+    "state_array_hashes": {
+      "loading": "a406b6ccab4a9eb32eb31f066e3bdef1fe87c3f1b66f0e1ab3113e10a7adab2d",
+      "eta": "5e3a259453a31fa1fc4cc1c79c1a182d8b47cb1568a6393204dcd40821458d84",
+      "alpha": "3c8daf163bf6cd3cb14b4e0eb3f40ac7fad2813237b5c0bd10278f1a8e745a1a",
+      "zeta": "3d3960b4c32d7fcb8d77ce68b5d9385d999a6a4f7348997bac9f78bf18334ab7",
+      "sigma2": "8dafd22619b9f32816605810f772b0707d4bb6965aa2a1d3d9dcfc72da4b0b29",
+      "phi": "4ae3043f9d76d64a3c3ce574868882ea9abbbff1e3e9b3a3f31bb278c7a23805",
+      "delta": "db695151eee824efb3d1d9a5151edec1b4327abbe73b133b18b32918d20519a9",
+      "tau": "987e70b443f66ec7d029d4d2b1b1704faaf7c4bb23d2a16edb85380a1f000505"
+    },
+    "u_sha256": "552e35c63bc8ec76f87f0ff093fedd8ec0a1daf5ced7971c3c5bd6d7c4e302fa",
+    "ct_sha256": "52295c6d6057e3fcbde79df9d77c1905f7da09e4caff3abca3ec219d691cace1",
+    "penalty": 0.35309595429450175
+  },
+  "first_value_gradient_seconds": 3.3109064000018407,
+  "repeat_value_gradient_seconds": 0.9568149999831803,
+  "total_seconds": 6.329172300000209,
+  "peak_process_working_set_bytes": 1048502272,
+  "memory_measurement": "Windows GetProcessMemoryInfo lifetime peak resident working set, Python/JAX/native libraries included; no subprocess workers in smoke",
+  "executable": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Scripts\\python.exe",
+  "backend": "cpu",
+  "x64": true,
+  "seed": 310,
+  "ell_W": 1.0,
+  "r_W": 0.8,
+  "ell_eta": 0.14,
+  "code_sha256": {
+    "tests/audit_sampler_layer3_s10.py": "608f19aad9c9cd004ed6fbdea19f428b7e1f44fe969e2ec39a9f4c4232add9c0",
+    "src/bsfm/sampler/__init__.py": "c5426eeed5f8c731ffedf56a9135880b030caa0b8915bfae812fc963a41ef732",
+    "src/bsfm/sampler/active.py": "dea6a16f8b3e6e06e953c309b6098b695f8d7e30d15ffff72f37a563161abe0b",
+    "src/bsfm/sampler/conjugate.py": "1c7d9885e4ae99a2bcced723252b25a02a6adae189f584b17a4806b52abf41fb",
+    "src/bsfm/sampler/contracts.py": "72bc243cfa398217e24d863caf60bd4d920cc2c269a3f58bab7aea7c3676b0bf",
+    "src/bsfm/sampler/factor_statistics.py": "a25b1c7f9a75d7f3b98646bacbef25ffa82c725832b3f5f03b15ce0888a3498a",
+    "src/bsfm/sampler/field_kernels.py": "4f8ce74284404f1f56dac3796dadf50ada0e41d33a74bf852e4cee54fc07ccc5",
+    "src/bsfm/sampler/field_target.py": "194d5aa3f46a29028f91b6e0320dc1ce8ceb65f2f06b5d6519ecd4ca72554fd4",
+    "src/bsfm/sampler/finite_features.py": "5ba42ec0a747b95c1d820c8d9b0f1e763b0598fa9b3e7cfdb2958870d0e09b73",
+    "src/bsfm/sampler/projector_encoding.py": "f3cfe600b412fc48b832fb4d13139f8de3205d4e760837cb9573b05d0c3c4a8e",
+    "src/bsfm/sampler/px.py": "989d86e7bc15d9ed3dc70d0896f79ecdf9c705a065fce64300fbad4bf30cae82",
+    "src/bsfm/sampler/rule.py": "d26ce474aee5aa85a05d46d28c47a5ac36b557e1e8742a95db8bcb2ecca3a816",
+    "src/bsfm/sampler/shrinkage.py": "8e97942a1eb2070de7534cebb933edd3b607cdff8eb3e61872312c00e88c4bd5",
+    "src/bsfm/sampler/spectral.py": "548677908b03e4f4e94008f9ecf98acdd3f2a30f6634d41449d8fd0797392c56",
+    "src/bsfm/sampler/warp.py": "aaf3fbd1738e353ac5ded06a1bf4c658e8d96ef219c2e4ab5572629faa248b19"
+  }
+}

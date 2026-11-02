@@ -1,0 +1,208 @@
+{
+  "schema": "bsfm.sampler-layer3-validation.v1",
+  "status": "PASS",
+  "review_status": "accepted",
+  "baseline": "d76927b274bfca9e9e24032ee7db07241fbb6d00",
+  "tests": {
+    "layer1": 27,
+    "layer2": 22,
+    "layer3": 21,
+    "sampler_total": 70,
+    "canonical_mesh": 8,
+    "total": 78,
+    "skips": 0
+  },
+  "comparisons": {
+    "historical_reference": "Two exact same-environment fixtures, feature hashes, hand/AD gradients, eta draws and post-RNG states; no platform adjustment",
+    "independent_dense": [
+      {
+        "seed": 12,
+        "cell_space_value_relative_error": 1.1528978437742995e-15,
+        "cell_space_gradient_relative_error": 7.853649695042842e-17,
+        "eta_mean_max_absolute_error": 5.551115123125783e-17,
+        "eta_covariance_max_absolute_error": 1.1102230246251565e-16
+      },
+      {
+        "seed": 37,
+        "cell_space_value_relative_error": 1.3447984999151846e-15,
+        "cell_space_gradient_relative_error": 6.596109647337864e-17,
+        "eta_mean_max_absolute_error": 2.7755575615628914e-17,
+        "eta_covariance_max_absolute_error": 1.1102230246251565e-16
+      }
+    ],
+    "value_relative_limit": 2e-12,
+    "gradient_relative_limit": 2e-10,
+    "eta_mean_covariance_rtol": 2e-12,
+    "eta_mean_covariance_atol": 2e-12
+  },
+  "environment": {
+    "reused": true,
+    "modified": false,
+    "executable": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Scripts\\python.exe",
+    "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+    "packages": {
+      "jax": "0.7.0",
+      "jaxlib": "0.7.0",
+      "ml-dtypes": "0.6.0",
+      "numpy": "2.1.3",
+      "opt-einsum": "3.4.0",
+      "pip": "23.2.1",
+      "scipy": "1.14.1",
+      "threadpoolctl": "3.5.0"
+    },
+    "backend": "cpu",
+    "x64": true,
+    "source_lock_sha256": "5e7cdc83ba60a1473cb63781921118e94ed10cc9887486a1e1cc1995c9440505",
+    "requirements_sha256": "a47d4af684c9fe7fd7f0763a69a2708dacdf5b4262057fdb398e9a7b4e6c84d8",
+    "python_executable_sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb",
+    "runtime_files_authenticated": 3,
+    "wheels": [
+      {
+        "name": "jax",
+        "version": "0.7.0",
+        "bytes": 2785944,
+        "sha256": "62833036cbaf4641d66ae94c61c0446890a91b2c0d153946583a0ebe04877a76"
+      },
+      {
+        "name": "jaxlib",
+        "version": "0.7.0",
+        "bytes": 60191213,
+        "sha256": "df003e5a31ce15e1f2ed8826195a45906ac822e9d304aaef567770c2df1cd67e"
+      },
+      {
+        "name": "numpy",
+        "version": "2.1.3",
+        "bytes": 12566858,
+        "sha256": "0d30c543f02e84e92c4b1f415b7c6b5326cbe45ee7882b6b77db7195fb971e3a"
+      },
+      {
+        "name": "scipy",
+        "version": "1.14.1",
+        "bytes": 44521212,
+        "sha256": "2ff38e22128e6c03ff73b6bb0f85f897d2362f8c052e3b8ad00532198fbdae3f"
+      },
+      {
+        "name": "threadpoolctl",
+        "version": "3.5.0",
+        "bytes": 18414,
+        "sha256": "56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467"
+      },
+      {
+        "name": "ml_dtypes",
+        "version": "0.6.0",
+        "bytes": 439333,
+        "sha256": "2a3e9d53925597fbffafd2a37048dadeddd0bdaba58058f6ae0869ed709a184d"
+      },
+      {
+        "name": "opt_einsum",
+        "version": "3.4.0",
+        "bytes": 71932,
+        "sha256": "69bb92469f86a1565195ece4ac0323943e83477171b91d24c35afe028a90d7cd"
+      }
+    ],
+    "blas": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-c16e4918366c6bc1f1cd71e28ca36fc0.dll",
+        "version": "0.3.27",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-5b1ec8b915dfb81d11cebc0788069d2d.dll",
+        "version": "0.3.27.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ]
+  },
+  "smoke_receipt_sha256": "a9987eaa2077fa1620df0c628a6b114d21dfc144a5842e41b330c08232e8f98f",
+  "source_map_rows": 22,
+  "exact_body_ast_rows": 15,
+  "checks": {
+    "source_file_fragment_and_port_hashes": "pass",
+    "runtime_and_wheel_hashes": "pass",
+    "installed_package_set": "pass",
+    "json_schema_field_and_csv_checks": "pass",
+    "syntax": "pass",
+    "documentation_links": "pass",
+    "credential_patterns": "pass",
+    "LF_and_whitespace": "pass",
+    "git_diff_check": "pass",
+    "nothing_staged": true
+  },
+  "stopping_point": "Layer 3 accepted for the separately authorized commit; no complete sampler, GPU environment, transition, fit, K/run decision or HPC work",
+  "files": {
+    "CAPABILITIES.md": {
+      "bytes": 20473,
+      "sha256": "a1ea4ef86e05d994412aa3b7bddc86ba37e28b3c3bd9b72fa85a886ed0e35eee"
+    },
+    "config/sampler/L16_ell14.json": {
+      "bytes": 67153,
+      "sha256": "e39e1597b842b1c71698e9ee180cff3632b6f7b966f9cdaadef1ee13214812d9"
+    },
+    "docs/decisions/BSFM_SAMPLER_ARCHITECTURE.md": {
+      "bytes": 8617,
+      "sha256": "d4d3018c6fc5ca7bab5c92f39be13e9f89638e5ca950c911f0d8aaed18933094"
+    },
+    "docs/sampler/LAYER3.md": {
+      "bytes": 13306,
+      "sha256": "c05ca27b614ffeb9ac6a6ad39a2ed0242e1b39acc35a504f1c4c5a1a6a244a09"
+    },
+    "docs/sampler/LAYER3_S10_SMOKE.json": {
+      "bytes": 5889,
+      "sha256": "a9987eaa2077fa1620df0c628a6b114d21dfc144a5842e41b330c08232e8f98f"
+    },
+    "docs/sampler/LAYER3_SOURCE_MAP.csv": {
+      "bytes": 14248,
+      "sha256": "d536344e4c0ce80296a97a7888bc6eaf33e638fd9f73b86c57ef4fd048b5b629"
+    },
+    "src/bsfm/sampler/factor_statistics.py": {
+      "bytes": 2311,
+      "sha256": "a25b1c7f9a75d7f3b98646bacbef25ffa82c725832b3f5f03b15ce0888a3498a"
+    },
+    "src/bsfm/sampler/field_kernels.py": {
+      "bytes": 8988,
+      "sha256": "4f8ce74284404f1f56dac3796dadf50ada0e41d33a74bf852e4cee54fc07ccc5"
+    },
+    "src/bsfm/sampler/field_target.py": {
+      "bytes": 8185,
+      "sha256": "194d5aa3f46a29028f91b6e0320dc1ce8ceb65f2f06b5d6519ecd4ca72554fd4"
+    },
+    "src/bsfm/sampler/finite_features.py": {
+      "bytes": 4246,
+      "sha256": "5ba42ec0a747b95c1d820c8d9b0f1e763b0598fa9b3e7cfdb2958870d0e09b73"
+    },
+    "src/bsfm/sampler/rule.py": {
+      "bytes": 2958,
+      "sha256": "d26ce474aee5aa85a05d46d28c47a5ac36b557e1e8742a95db8bcb2ecca3a816"
+    },
+    "tests/audit_sampler_layer3_s10.py": {
+      "bytes": 6937,
+      "sha256": "608f19aad9c9cd004ed6fbdea19f428b7e1f44fe969e2ec39a9f4c4232add9c0"
+    },
+    "tests/build_sampler_layer3_fixture.py": {
+      "bytes": 1455,
+      "sha256": "bc32f4222e289b69b2dfc0af7c7b409deac2d0783d97c16d795b4143d465d228"
+    },
+    "tests/fixtures/sampler_layer3.json": {
+      "bytes": 7068,
+      "sha256": "3288983f27d0949a6ed0c478421bac559ba88e3e6bbd7a1a81cf9e9cf0b9731b"
+    },
+    "tests/sampler_layer3_support.py": {
+      "bytes": 7095,
+      "sha256": "a963a6665309aa492e79e03815cd4bf89deaa2a8511d93ad8ff53e439056900e"
+    },
+    "tests/test_sampler_layer3.py": {
+      "bytes": 15152,
+      "sha256": "1217e6e9aaa4905feb77bb8dc452f825e64be57475789c9a68cf167ca22d2f3a"
+    }
+  }
+}
