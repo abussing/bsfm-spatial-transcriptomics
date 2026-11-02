@@ -67,10 +67,35 @@ def worker(spec_path,input_path,bundle,work):
         continuous_interval_certified=False,accuracy_thresholds_selected=False))
 
 
+def write_transport(path, data):
+    """Write identities as lossless fixed-width Unicode, never pickled objects."""
+    payload = dict(data)
+    for name in ('all_ids', 'model_ids', 'axis_order'):
+        # Object dtype here preserves original element types for validation;
+        # implicit string coercion could otherwise conceal non-string values.
+        values = np.asarray(data[name], dtype=object)
+        require(values.ndim == 1, f'{name}: expected a one-dimensional string array')
+        require(all(isinstance(value, (str, np.str_)) for value in values),
+                f'{name}: every value must be a Python/NumPy string')
+        if name == 'axis_order':
+            require(values.tolist() == ['center_y', 'center_x'], 'Coordinate axes/order')
+        else:
+            require(len(set(values.tolist())) == len(values), f'{name}: duplicate identities')
+        width = max(1, max((len(value) for value in values), default=0))
+        converted = np.asarray(values, dtype=f'<U{width}')
+        require(np.array_equal(values, converted), f'{name}: Unicode conversion changed values/order')
+        if name != 'axis_order':
+            require(len(np.unique(converted)) == len(converted), f'{name}: conversion changed uniqueness')
+        payload[name] = converted
+    require(all(not np.asarray(value).dtype.hasobject for value in payload.values()),
+            'Object-dtype arrays are forbidden in input transport')
+    np.savez(path, allow_pickle=False, **payload)
+
+
 def run(data,provenance,envroot,root,study,config,*,synthetic=False,selected_candidates=None):
     root=Path(root);require(not root.exists(),'Fresh study root required; existing attempts are never silently resumed')
     root.mkdir(parents=True)
-    np.savez(root/'inputs.npz',**data)
+    write_transport(root/'inputs.npz', data)
     numerical,trans=transform(data['all_xy'])
     idx,probes=choose(numerical[data['model_index']],data['model_rows'],hull(numerical),config['probes'])
     write_json(root/'probes.json',probes)

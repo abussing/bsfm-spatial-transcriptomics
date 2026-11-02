@@ -120,7 +120,11 @@ environment acceptance checks. The approved experimental harness adds independen
 FEM/covariance/derivative tests, graded synthetic geometry, deterministic probes,
 closed-file validation, atomic artifacts and monitored sequential execution.
 See the [synthetic review evidence](docs/mesh/audits/phase0_synthetic_20261102/README.md).
-No real S10 candidate has run; numerical design selection remains pending.
+The first real S10 attempt failed loading its input transport before mesh
+construction. The [narrow transport correction](docs/mesh/audits/phase0_transport_fix_20261102/README.md)
+adds pickle-free Unicode serialization and HDF5-to-fresh-process regression
+coverage. V1 remains failed evidence; rerunning S10 in a fresh v2 root requires
+review of the corrected commit. Numerical design selection remains pending.
 The finest h2 arm is convergence/reference evidence only. Production selection
 prioritizes the coarsest adequate eligible candidate and practical active-vertex
 cost in repeated Gibbs/NUTS updates across all 19 sections. If the required

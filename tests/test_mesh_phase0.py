@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -255,6 +256,119 @@ class NumericalTests(unittest.TestCase):
             command=[sys.executable,'-B','-c',"import subprocess,sys; subprocess.run([sys.executable,'-B','-c','import time; time.sleep(.4)'])"]
             rec=resources.supervised(command,REPO,os.environ.copy(),d/'log',d/'record.json',minimum_GiB=0,poll_seconds=.01)
             self.assertEqual(rec['status'],'pass');self.assertGreaterEqual(rec['maximum_children'],2)
+
+
+class TransportTests(unittest.TestCase):
+    def test_hdf5_object_strings_through_runner_to_fresh_pickle_free_reader(self):
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            _, manifest = response_fixture(directory)
+            source = directory / 'response.h5'
+            # Exercise UTF-8, variable lengths, combining characters and a
+            # non-BMP code point, while preserving the canonical identity join.
+            with h5py.File(source, 'r+') as f:
+                ids = f['/axes/cells_all/ids'].asstr()[:]
+                ids[:5] = ['cell-\u03b1', 'cell-\U0001f9ec', 'cell-e\u0301',
+                           'cell-' + 'x' * 300, 'cell-\u00e9 ']
+                model_ids = ids[f['/axes/cells_model/all_cell_index'][:]]
+                for name, values in [('/axes/cells_all/ids', ids),
+                                     ('/axes/cells_model/ids', model_ids)]:
+                    f[name][:] = values
+                    manifest['datasets'][name]['semantic_sha256'] = ordered_ids(values)
+            manifest['artifacts']['response.h5'].update(file_record(source))
+            data = inputs.load_bundle(directory, manifest, expected_section='SYNTHETIC')
+            for name in ['all_ids', 'model_ids', 'axis_order']:
+                self.assertEqual(data[name].dtype.kind, 'O')
+            original = {name: value.copy() for name, value in data.items()}
+            root = directory / 'transport-run'
+            # Use the actual run/write boundary, stopping before geometry.
+            with patch('bsfm.mesh.phase0.supervised', side_effect=ValueError('transport-only regression')):
+                with self.assertRaisesRegex(ValueError, 'transport-only regression'):
+                    phase0.run(data, dict(code={}, environment={}), ENV, root,
+                               study_fixture(), CONFIG, synthetic=True)
+            for name in data:
+                assert_array_equal(data[name], original[name])
+                self.assertEqual(data[name].dtype, original[name].dtype)
+            reader = r'''
+import hashlib, json, sys
+import h5py
+import numpy as np
+names = {'all_ids':'/axes/cells_all/ids', 'model_ids':'/axes/cells_model/ids',
+         'axis_order':'/axes/coordinates/labels', 'all_rows':'/axes/cells_all/source_row',
+         'model_rows':'/axes/cells_model/source_row', 'model_index':'/axes/cells_model/all_cell_index',
+         'types':'/metadata/model_type_code', 'all_xy':'/coordinates/all_source',
+         'model_xy':'/coordinates/model_source'}
+hashes = {}
+with h5py.File(sys.argv[1], 'r') as source, np.load(sys.argv[2], allow_pickle=False) as transport:
+    assert set(transport.files) == set(names)
+    for name, dataset in names.items():
+        actual = transport[name]
+        assert not actual.dtype.hasobject, name
+        if name in ('all_ids', 'model_ids', 'axis_order'):
+            expected = source[dataset].asstr()[:]
+            assert expected.dtype.kind == 'O' and actual.dtype.kind == 'U', name
+            assert actual.ndim == 1 and actual.shape == expected.shape, name
+            before = [value.encode('utf-8') for value in expected]
+            after = [str(value).encode('utf-8') for value in actual]
+            assert before == after, name
+            digest = hashlib.sha256()
+            for value in after:
+                digest.update(len(value).to_bytes(8, 'little')); digest.update(value)
+            hashes[name] = digest.hexdigest()
+            if name != 'axis_order': assert len(set(actual.tolist())) == len(actual), name
+        else:
+            expected = source[dataset][:]
+            assert actual.dtype == expected.dtype and actual.shape == expected.shape, name
+            assert actual.tobytes(order='C') == expected.tobytes(order='C'), name
+    assert transport['axis_order'].tolist() == ['center_y', 'center_x']
+print(json.dumps(hashes))
+'''
+            result = subprocess.run([sys.executable, '-B', '-c', reader,
+                                     str(source), str(root / 'inputs.npz')],
+                                    capture_output=True, text=True, check=True)
+            self.assertEqual(json.loads(result.stdout), {
+                name: ordered_ids(original[name]) for name in ['all_ids', 'model_ids', 'axis_order']})
+
+    def assert_rejected_before_writing(self, name, values):
+        data = fixture()
+        data[name] = values
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'inputs.npz'
+            with self.assertRaises(ValueError):
+                phase0.write_transport(path, data)
+            self.assertFalse(path.exists())
+
+    def test_transport_rejects_non_one_dimensional_strings(self):
+        for name in ['all_ids', 'model_ids', 'axis_order']:
+            for values in [np.array('cell', dtype=object), np.array([['cell']], dtype=object)]:
+                with self.subTest(name=name, shape=values.shape):
+                    self.assert_rejected_before_writing(name, values)
+
+    def test_transport_rejects_non_strings_without_coercion(self):
+        for name in ['all_ids', 'model_ids', 'axis_order']:
+            for invalid in [None, 1, 1.5, True, b'cell', np.bytes_('cell')]:
+                with self.subTest(name=name, invalid=repr(invalid)):
+                    self.assert_rejected_before_writing(name, ['cell', invalid])
+
+    def test_transport_rejects_duplicate_identities(self):
+        for name in ['all_ids', 'model_ids']:
+            with self.subTest(name=name):
+                self.assert_rejected_before_writing(name, np.array(['same', np.str_('same')], dtype=object))
+
+    def test_transport_requires_exact_coordinate_axis_order(self):
+        for values in [['center_x', 'center_y'], ['center_y'], ['center_y', 'center_x', 'z'],
+                       ['center_y', 'center_x ']]:
+            with self.subTest(values=values):
+                self.assert_rejected_before_writing('axis_order', np.array(values, dtype=object))
+
+    def test_transport_rejects_lossy_unicode_conversion(self):
+        # NumPy fixed-width Unicode scalar extraction drops trailing NULs.
+        for name in ['all_ids', 'model_ids']:
+            with self.subTest(name=name):
+                self.assert_rejected_before_writing(name, np.array(['cell\x00'], dtype=object))
+
+    def test_transport_rejects_any_remaining_object_array(self):
+        self.assert_rejected_before_writing('all_rows', np.array([1, 2], dtype=object))
 
 
 @unittest.skipUnless(os.environ.get('BSFM_MESH_INTEGRATION')=='1','Set BSFM_MESH_INTEGRATION=1 for bounded R/fmesher integration')

@@ -3,8 +3,12 @@
 This harness implements the [approved study](../../config/mesh/study-design.json)
 and [scientific design](../decisions/ADAPTIVE_MESH_DESIGN.md) using new canonical
 source in [src/bsfm/mesh](../../src/bsfm/mesh). It is **not a selected production
-mesh**. Only synthetic inputs have been used. No S10 candidate, GP initialization,
-sampler, historical builder or HPC job has run in this implementation gate.
+mesh**. Synthetic meshes have been validated. The first real S10 attempt failed
+while loading its input transport, before mesh construction. The
+[transport correction](audits/phase0_transport_fix_20261102/README.md) preserves
+that failed run and adds regression coverage; a real rerun remains pending review.
+No real-section mesh, GP initialization, sampler, historical builder or HPC job
+has been executed successfully by this harness.
 
 The [synthetic report](audits/phase0_synthetic_20261102/README.md) distinguishes
 mechanical checks from continuum accuracy. Numerical tolerances and the precise
@@ -56,6 +60,15 @@ and hashed before coordinate arrays. Expected counts, float64 coordinates,
 source-row uniqueness, MIC/AST/OGC block order and exact joins are checked.
 No response-expression dataset is opened. Hashing the response file necessarily
 streams its bytes, but does not deserialize expression arrays.
+
+At the `inputs.npz` writing boundary, `all_ids`, `model_ids` and `axis_order`
+must be one-dimensional arrays of Python/NumPy strings. They are converted to
+explicit fixed-width NumPy Unicode with exact value/order preservation and
+identity uniqueness checked before writing. Axis order must remain exactly
+`["center_y", "center_x"]`. All remaining object-dtype arrays are rejected.
+Both writing and fresh-worker loading use `allow_pickle=False`. This changes
+transport representation only; canonical coordinates and logical identities
+are unchanged.
 
 Real runs retain the approved six geometries and 23 ranges each. Study/config
 and clean source identities are checked again between candidates. Synthetic
@@ -265,13 +278,15 @@ $env:BSFM_MESH_INTEGRATION = '1'
 & 'C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_ENVIRONMENTS\mesh-phase0-20261031\python\Scripts\python.exe' -B -m unittest discover -s tests -p 'test_mesh_phase0.py' -v
 ```
 
-The user has separately authorized one bounded six-candidate S10 experiment
-after committing and pushing the selection clarification. This authorization
-does not include production selection or Phase 1. The design specification's
-`execution_authorized=false` records its earlier design-only approval; this
-separate user authorization supplies the execution authority. Replace the
-placeholder below with the exact clarification commit and use a fresh external
-destination. Do not alter code, settings or tolerances during execution.
+The first authorized S10 experiment at commit
+`6572d0e1be5814d8026a98f5b45c7501a3706cb8` failed before geometry. Its v1 root
+remains unchanged. The transport-fix checkpoint authorizes synthetic validation,
+commit and push only: **do not rerun S10 in that step**. After review, the future
+six-candidate rerun must use the exact corrected commit and the fresh v2 root
+below. Production selection and Phase 1 remain unauthorized. The design
+specification's `execution_authorized=false` records its earlier design-only
+approval; execution needs separate user authority. Do not alter code, settings
+or tolerances during execution.
 
 The committed orchestrator stops on its first failure and records remaining
 candidates as not run. Preserve that behavior; do not bypass it or launch an
@@ -287,7 +302,7 @@ $env:MKL_NUM_THREADS = '1'
   --response-root 'C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_PRODUCTION\sctransform_full_data_v2' `
   --expected-commit '<REVIEWED_HARNESS_COMMIT>' `
   --section 'S10__WT5' `
-  --run-root 'C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_EXPERIMENTS\mesh_phase0_S10_v1' `
+  --run-root 'C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_EXPERIMENTS\mesh_phase0_S10_v2' `
   --execute-phase0
 ```
 
