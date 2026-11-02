@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "baseline": "2afcfc99a4e0d52a206ddfb2a559b57ed6fa94f1",
+  "uncommitted_proposal": true,
+  "files": {
+    "config/mesh/phase0-harness.json": {
+      "bytes": 1698,
+      "sha256": "e6b5f736fd5dd825e05bc43b9b047f01f95fbea96602a6bf5c0198fe1d6a4125"
+    },
+    "config/mesh/study-design.json": {
+      "bytes": 7456,
+      "sha256": "edc07293a056da9b500f0955afac8cb213b743609c1b5b686b249dfbf7bbec79"
+    },
+    "schemas/mesh/phase0-manifest.schema.json": {
+      "bytes": 981,
+      "sha256": "dd271c2b2c0cc5cbead92f863dbc12734c9b72d44f9163095f9ecb0426936436"
+    },
+    "schemas/mesh/phase0-spec.schema.json": {
+      "bytes": 2082,
+      "sha256": "f4c4a495cce7931fe1c0a4530201fb044fa90713741385b246d3d6d1736183ca"
+    },
+    "src/bsfm/mesh/__init__.py": {
+      "bytes": 74,
+      "sha256": "b6a7bf13eaf12e3fa0756980d9b93c4ea0acb07233d8977f508097fa7e085c5e"
+    },
+    "src/bsfm/mesh/accuracy.py": {
+      "bytes": 4025,
+      "sha256": "13400fa49ddcaa7c59ce5eb91361007bcf99448a2921c448c94151750eadd1dc"
+    },
+    "src/bsfm/mesh/artifacts.py": {
+      "bytes": 11116,
+      "sha256": "ee116ac8c3b0565456aee01afb75a40ff8bbebb8e503e0acb54067368cead653"
+    },
+    "src/bsfm/mesh/bridge.py": {
+      "bytes": 4133,
+      "sha256": "69bd4c5495490d6cb08e7c76c4d88fd07c50294bf294121cd588db8ca36f301e"
+    },
+    "src/bsfm/mesh/continuum.py": {
+      "bytes": 711,
+      "sha256": "b25b81fe8033055b633a68a9d71bb9fb0016868890372aaddf0a87f4a5a9dbd4"
+    },
+    "src/bsfm/mesh/coordinates.py": {
+      "bytes": 762,
+      "sha256": "f73b322da9dbcc9f66ef753d88aa452ee5f6ccf9a8b4bf90967dfa5a577ff196"
+    },
+    "src/bsfm/mesh/derivatives.py": {
+      "bytes": 851,
+      "sha256": "32864f1a59be771cef23c0c467f510b7f038daed06ef4c7d62d78f440ed4625b"
+    },
+    "src/bsfm/mesh/fem.py": {
+      "bytes": 1168,
+      "sha256": "f0039c3544be2b6f655413d168c2ebf35621107e4ecc135579938e98fec25eff"
+    },
+    "src/bsfm/mesh/fmesher_bridge.R": {
+      "bytes": 2302,
+      "sha256": "fee296b85ea95f25a7cfaaddac2529f11a453e1ca0f887e643c76a8e3b2e2a29"
+    },
+    "src/bsfm/mesh/geometry.py": {
+      "bytes": 3685,
+      "sha256": "dbcf232aec5848bb1a56d40de5fabc55fddb4c5a93b21f8d40467c61aad19e35"
+    },
+    "src/bsfm/mesh/identities.py": {
+      "bytes": 1427,
+      "sha256": "730a53d8c3c7203f39b693765ce2649f0618277a267d58984f4af4d47803e04f"
+    },
+    "src/bsfm/mesh/inputs.py": {
+      "bytes": 8605,
+      "sha256": "ab9ac941cb9c7a3de9a71754f09144b5ad0f6866dc28a08fa987b842d3c65551"
+    },
+    "src/bsfm/mesh/marginal.py": {
+      "bytes": 623,
+      "sha256": "8ce7ec10f67d28cabfbd809f82d5225bc59569e41848f2fda2bf1c5b0b0d9b6c"
+    },
+    "src/bsfm/mesh/phase0.py": {
+      "bytes": 11541,
+      "sha256": "7c2322f928ffc84f17fa7e0d4197615308db00b2d5caef6f3649ba84aae52c85"
+    },
+    "src/bsfm/mesh/probes.py": {
+      "bytes": 3047,
+      "sha256": "1ffd8f8e612a7324d71142561a0011b1a84310692de8fd94120e4dc1be1901f2"
+    },
+    "src/bsfm/mesh/projectors.py": {
+      "bytes": 1987,
+      "sha256": "d10af2454494d0452701da5567e5e7c1ac2b3f5b60776a2fbf209eef3a60c9f6"
+    },
+    "src/bsfm/mesh/resources.py": {
+      "bytes": 2389,
+      "sha256": "957c7e03e1d78cfc276eeaa2772f41957efb7a7d572003809a3138ae7c5b5c68"
+    },
+    "src/bsfm/mesh/spectral.py": {
+      "bytes": 1199,
+      "sha256": "82ae5f362b997b8c5b55e4cdfd125050d7457c490d21b5a01fe8a26c7e7c79cb"
+    },
+    "src/bsfm/mesh/support.py": {
+      "bytes": 3044,
+      "sha256": "059c8ec5f5243de48649d2c220682bebfeffc6cc4612caa956cff4025a856746"
+    },
+    "tests/test_mesh_phase0.py": {
+      "bytes": 19442,
+      "sha256": "90c22921a9a7ed586991736c7614d9fb6bb047798186072aff37343bedabc6b7"
+    }
+  }
+}

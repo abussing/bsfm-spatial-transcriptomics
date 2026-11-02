@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "status", "experimental", "run_spec_sha256", "files", "logical_hashes"],
+  "properties": {
+    "schema": {"const": "bsfm.mesh.phase0.candidate.v1"},
+    "status": {"const": "complete"},
+    "experimental": {"const": true},
+    "run_spec_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "logical_hashes": {"type": "object", "minProperties": 15},
+    "files": {
+      "type": "object", "minProperties": 7, "maxProperties": 7,
+      "required": ["run-spec.json", "geometry.h5", "probes.json", "ranges.json", "compute.json", "execution.json", "validation.json"],
+      "additionalProperties": {
+        "type": "object", "required": ["bytes", "sha256"], "additionalProperties": false,
+        "properties": {"bytes": {"type": "integer", "minimum": 1}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "scope": "Phase-0 harness acceptance; no real S10 execution",
+  "commit_inventory_files": 36,
+  "Python_syntax": true,
+  "R_syntax": true,
+  "JSON_and_schema": true,
+  "original_source_inventory_with_documented_status_only_amendment": true,
+  "original_and_acceptance_log_hashes": true,
+  "table_consistency": true,
+  "documentation_links": true,
+  "credential_patterns": true,
+  "LF_text": true,
+  "no_binary_or_large_artifacts": true,
+  "maximum_allowed_staged_file_bytes": 131072,
+  "git_diff_check": true,
+  "canonical_production_manifest_unchanged": true,
+  "errors": [],
+  "metadata_line_endings_normalized_to_LF": true
+}

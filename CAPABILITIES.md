@@ -98,11 +98,15 @@ boundaries. Consistent P1 FEM, full spectrum and exact active marginalization
 are requirements. The sampler amplitude relationship is deferred to sampler
 recovery. The 2% trial accuracy targets are not production acceptance thresholds.
 
-The next implementation is an experimental Phase-0 study harness, not a
-production mesh builder. Phase 0 must finish and be reviewed before Phase 1 is
+An experimental [Phase-0 study harness](docs/mesh/PHASE0_HARNESS.md) is implemented,
+synthetically tested and **approved for the Phase-0 experiment only**, not selected
+as a production mesh builder. The 21-degree minimum angle and other mechanical
+settings are approved for Phase 0 and remain provisional for production.
+Actual S10 execution requires separate authorization against the committed
+harness. Phase 0 must finish and be reviewed before Phase 1 is
 authorized. The plan has six S10 pilot geometries, 48 additional representative
 geometries, and at most 20 confirmation geometries. No phase has been executed.
-No historical implementation has been selected; no canonical mesh generation,
+No historical implementation has been selected; no real-section mesh generation,
 GP initialization or HPC execution has occurred. Full-prior numerical coverage,
 physical units and an authenticated flat-model implementation remain unresolved.
 
@@ -112,8 +116,11 @@ cross-language checks; fresh offline restoration and environment acceptance have
 passed. The [restoration receipt](docs/environment/MESH_ENVIRONMENT_RESTORATION.md)
 records exact package/semantic agreement and immutability evidence. It preserves
 fmesher 0.7.0 and uses a separate R library and unified Python venv. These are
-environment checks only: the Phase-0 harness and real S10 meshes have not been
-implemented or run.
+environment acceptance checks. The approved experimental harness adds independent
+FEM/covariance/derivative tests, graded synthetic geometry, deterministic probes,
+closed-file validation, atomic artifacts and monitored sequential execution.
+See the [synthetic review evidence](docs/mesh/audits/phase0_synthetic_20261102/README.md).
+No real S10 candidate has run; numerical design selection remains pending.
 
 - Construct meshes from tissue cell locations using the adaptive method.
 - Use multiple layers of resolution that become coarser outside the cell hull.
@@ -208,5 +215,6 @@ accepted with the aggregate audit above. The SCT validation runner passed
 synthetic checks and a bounded S00 smoke.
 The subsequent canonical v2 production run recomputed and validated all 19
 full-data section bundles; its [receipt](docs/preprocessing/audits/20261031_production_v2/README.md)
-registers the external artifacts. No GP/BSFM model, mesh or HPC execution is included.
+registers the external artifacts. No GP/BSFM model, real-section mesh or HPC
+execution is included. Only bounded synthetic mesh construction has run.
 

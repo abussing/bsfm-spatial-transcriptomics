@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "approved_for_phase0_experiment_only",
+  "geometry": {
+    "grading_mapping": "sampled per-vertex quality.spec plus independent whole-edge constraint and midpoint refinement",
+    "target": "min(h_inner + 0.15 * distance_from_collar, ell_high / 4)",
+    "offset_polygon": "intersection of hull-normal and 128 uniform-angle support halfplanes",
+    "buffer_origin": "outside fine collar",
+    "refinement_seeds": "all prior vertices plus midpoints of violating edges; lexicographically unique",
+    "continuous_callback": false,
+    "offset_directions": 128,
+    "cutoff": 1e-12,
+    "minimum_angle": 21,
+    "maximum_refinement_rounds": 8,
+    "grading_relative_tolerance": 1e-8,
+    "projector_tolerance": 1e-10
+  },
+  "numerics": {
+    "discrete_relative_tolerance": 1e-8,
+    "derivative_identity_relative_tolerance": 1e-8,
+    "derivative_fd_relative_tolerance": 0.0001,
+    "finite_difference_steps": [0.001, 0.0001, 0.00001],
+    "covariance_root": "lower_triangular_positive_diagonal_QR",
+    "spectrum": "full_no_truncation"
+  },
+  "resources": {
+    "concurrency": 1,
+    "minimum_available_GiB": 8,
+    "process_tree_ceiling_GiB": 10,
+    "poll_seconds": 0.05
+  },
+  "probes": {
+    "count_per_stratum": 64,
+    "density_neighbors": 20,
+    "quantile_pool": 0.25,
+    "precedence": ["boundary", "interior", "dense", "sparse"],
+    "filling": "expand to remaining observations; never duplicate probe identities",
+    "coverage": "farthest point from all previously selected probes; raw source row breaks ties",
+    "gap_diagnostic": "endpoints of deterministic Euclidean MST edges longer than 5 times median 20-NN radius; diagnostic only"
+  }
+}
