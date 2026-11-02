@@ -104,7 +104,7 @@
       "classification": "regenerable;required_for_execution",
       "recorded_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS",
       "accessible_path": "/work/abussing/arka_trying_gpu_again/env",
-      "status": "historical_hpc_runtime_present;separate_linux_cpu_packages_installed;numerical_validation_pending",
+      "status": "historical_hpc_runtime_present;separate_linux_cpu_packages_installed;first_70_test_gate_failed_see_HPC_CPU_VALIDATION_22012327.json",
       "new_cpu_environment": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311",
       "authority": "../environment/sampler-layer2/README.md",
       "restore": "Rebuild isolated environments using repository source/version locks and platform-appropriate authenticated artifacts. See environment/HPC_CPU_SETUP.md for the separate Linux CPU installation and its limits. Windows wheel hashes are not Linux wheel hashes. Preserve existing historical installations. Mesh and SCT require separate R environment restoration and validation; no GPU production environment is established."

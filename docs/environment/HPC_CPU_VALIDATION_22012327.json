@@ -1,0 +1,51 @@
+{
+  "schema": "bsfm.hpc-cpu-validation-receipt.v1",
+  "date": "2026-11-02",
+  "status": "FAIL",
+  "job_id": "22012327",
+  "node": "node432",
+  "partition": "defq-64core",
+  "specification_commit": "74e0f4410e27b8d93252ddcacc3027db6e7debaa",
+  "code_commit": "49f33c441e1cde9e1b8139ffef0103993eaa0222",
+  "user_approval": "Explicit go for it after presentation of one CPU, 8 GiB, 15-minute sampler test specification",
+  "scheduler": {"state": "FAILED", "exit_code": "1:0", "elapsed": "00:01:09", "allocated_cpus": 1, "batch_max_rss": "2211308K"},
+  "unittest": {"run": 70, "passed_methods": 58, "failed_methods": 12, "failure_records_including_subtests": 17, "errors": 0, "skips": 0, "seconds": 59.217},
+  "log": {
+    "path": "/work/abussing/bsfm-consolidation/evidence/cpu-validation-22012327.log",
+    "bytes": 26235,
+    "sha256": "709a4b7d4b78ba845b4900c705b69f233ee48437ec8ca7ac9d05c0278290d43d",
+    "local_verified_copy": "artifacts/review/hpc-portability/cpu-validation-22012327.log"
+  },
+  "failed_methods": [
+    "test_sampler_layer1.ExactRegressionTests.test_delta_tau_draw_exact",
+    "test_sampler_layer1.ExactRegressionTests.test_fitted_values_exact",
+    "test_sampler_layer1.ExactRegressionTests.test_loading_draw_exact",
+    "test_sampler_layer1.ExactRegressionTests.test_noise_draw_exact",
+    "test_sampler_layer1.ExactRegressionTests.test_phi_draw_exact",
+    "test_sampler_layer1.ExactRegressionTests.test_px_draw_and_audit_exact",
+    "test_sampler_layer2.FoundationTests.test_exact_historical_fixtures",
+    "test_sampler_layer3.TargetTests.test_exact_original_eta_and_rng",
+    "test_sampler_layer3.TargetTests.test_exact_original_feature_arrays_and_physical_coordinates",
+    "test_sampler_layer3.TargetTests.test_exact_original_target_values_and_all_gradients",
+    "test_sampler_layer3.TargetTests.test_public_target_equals_original_and_input_state_unchanged",
+    "test_sampler_layer3.TargetTests.test_recorded_provenance_and_selected_branch_boundary"
+  ],
+  "diagnosis": {
+    "saved_windows_fixture_comparisons": "11 failing methods compare bit-exact outputs with saved Windows fixtures. Examples include last-bit loading/eta differences, target -5.392714516272445 versus -5.392714516272448, feature hash inequality, and a different Layer-2 eigenbasis. Not all downstream discrepancies are quantified by unittest's truncated first-failure output. Platform/backend differences are a supported hypothesis, not proof of complete equivalence.",
+    "ast_schema": "Confirmed Python-version serialization difference. Python 3.12 adds type_params to FunctionDef/AsyncFunctionDef/ClassDef. Adding empty fields only to in-memory Python 3.11 AST nodes reproduces all 22 recorded port-body fingerprints; all 22 source-map entries also match their recorded port-file SHA-256. Two enclosing-function body hashes differed before schema normalization. No repository source or fixture was changed.",
+    "ast_audit_path": "/work/abussing/bsfm-consolidation/evidence/ast-schema-22012327.json",
+    "ast_audit_sha256": "184daecaac9ed30d185164a0a243e6846d15ac7a3ea2b8e21128ebdb990eabaf"
+  },
+  "passing_evidence": [
+    "All input/state rejection tests",
+    "Layer-1 RNG stream identities and independent PX invariants",
+    "Layer-2 dense inverse/Schur, generalized eigen, all-mode, root/derivative and rewhitening checks",
+    "Layer-3 independent dense Gaussian value/gradient and conditional-eta posterior/innovation checks",
+    "Current-state rebuilding and stale-context prevention",
+    "Repeated and fresh-process exact determinism in this Linux environment",
+    "Frozen rule identity and finite-feature covariance checks"
+  ],
+  "limits": "Failed the predeclared 70/70 gate. Passing independent checks do not establish complete sampler, cross-platform bit identity, scientific fit, or GPU readiness. Failed combined tests may stop before later assertions, including some RNG/input-immutability checks.",
+  "next_step": "Prepare a bounded Linux same-environment authenticated source-versus-port regression and a version-aware AST provenance check. Preserve original Windows fixtures and this failed receipt; do not relax tolerances, substitute historical expression, or claim full validation based on this run.",
+  "changes_during_job": "None to canonical source, fixtures, tolerances, or package versions; no model fit or GPU execution"
+}

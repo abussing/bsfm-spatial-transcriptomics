@@ -1,6 +1,7 @@
 {
   "schema": "bsfm.bounded-hpc-validation.v1",
-  "status": "prepared_not_submitted",
+  "status": "executed_failed",
+  "receipt": "HPC_CPU_VALIDATION_22012327.json",
   "purpose": "Validate canonical sampler Layers 1-3 on Linux CPU; no model fit or new sampler implementation",
   "code_commit": "49f33c441e1cde9e1b8139ffef0103993eaa0222",
   "source_archive": "/work/abussing/bsfm-consolidation/source-49f33c4.tar",

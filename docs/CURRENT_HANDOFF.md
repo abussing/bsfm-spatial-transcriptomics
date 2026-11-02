@@ -64,8 +64,10 @@ not a validated canonical environment, and must not be modified in place.
 The login node has glibc 2.17. The official CPython-3.11 Linux wheel for pinned
 ml_dtypes 0.6.0 requires glibc 2.27+. A separate CPU environment has been installed
 under `/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311` using
-a successful source build of the same ml_dtypes version. Numerical validation
-remains pending; see [HPC CPU setup](environment/HPC_CPU_SETUP.md).
+a successful source build of the same ml_dtypes version. The first approved
+CPU test job ran all 70 tests but failed the gate: 58 methods passed, 12 failed
+(17 failure records). See [HPC CPU setup](environment/HPC_CPU_SETUP.md) and the
+[result](environment/HPC_CPU_VALIDATION_22012327.json) before any further run.
 Installed GPU package metadata is not GPU execution evidence.
 
 ## Resume sequence
@@ -75,10 +77,11 @@ Installed GPU package metadata is not GPU execution evidence.
 2. Authenticate accessible external files against the recorded SHA-256 values.
    Ordinary sampler fixtures and the frozen rule are already in Git and do not
    require the raw H5AD or historical drive.
-3. Finish and record the isolated Linux environment build, source hashes and
-   dependency closure. Prepare a bounded CPU validation specification against
-   an exact Git commit before submitting HPC jobs. Follow AGENTS.md approval
-   requirements; do not run the scientific suite on a login node.
+3. Preserve the installed Linux environment and failed CPU validation receipt.
+   Diagnose cross-platform fixture differences with bounded same-environment
+   source/port checks, and record complete build provenance. Prepare a committed
+   specification before further HPC jobs; follow AGENTS.md approval requirements.
+   Do not run the scientific suite on a login node.
 4. Recover the original raw H5AD by its recorded hash, or a verified upstream
    copy. Regenerate canonical responses using the documented runner only after
    the accepted R environment is restored/ported and checked. A different raw

@@ -1,8 +1,10 @@
 # HPC CPU portability setup
 
 2026-11-02. Status: **installed, dependency and CPU/x64 import checks passed;
-canonical sampler numerical tests pending**. This is not GPU validation or a
-production sampler environment. No scheduler job was submitted during setup.
+first canonical sampler test run failed its 70/70 gate**. This is not GPU
+validation or a production sampler environment. No job was submitted during
+setup; the separately approved CPU job 22012327 subsequently ran on node432.
+See the [immutable-result receipt](HPC_CPU_VALIDATION_22012327.json).
 
 Host: `abussing@login.rci.sc.edu`, SSH port 222, observed node `login001`.
 New environment: `/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311`.
@@ -75,7 +77,12 @@ copy records those hashes. Setup logs are external under
 `pip check` reports no broken requirements. Imports of JAX, NumPy, SciPy and
 ml_dtypes succeeded with `JAX_PLATFORMS=cpu`, `JAX_ENABLE_X64=true`,
 `OMP_NUM_THREADS=1`, `OPENBLAS_NUM_THREADS=1`; JAX reports CPU and x64 enabled.
-No canonical test suite or scientific fit has been executed on this environment.
+The subsequent approved canonical suite ran 70 tests: 58 methods passed and
+12 failed (17 failure records including subtests). Eleven methods compare
+exactly against Windows numerical fixtures; the other exposes a confirmed
+Python-3.11/3.12 AST-schema difference. Independent Gaussian/derivative checks
+and fresh-process repeatability passed. This is not a passing portability gate.
+No scientific fit has been executed on this environment.
 
 The retained wheel lock supports offline package restoration on a compatible
 Python/Linux runtime. The initial isolated source build resolved build tools
@@ -84,11 +91,11 @@ rebuild have not been established. Thus this is not a claim of byte-reproducible
 source builds. Preserve the authenticated wheel and base runtime until that
 additional restoration work is completed.
 
-Next: run the 70 committed sampler tests on an allocated CPU node against
-`49f33c441e1cde9e1b8139ffef0103993eaa0222`, using the saved synthetic fixtures.
-Record all failures and platform differences without weakening thresholds or
-rewriting fixtures. Mesh/R tests, full-cell S10 smoke, real-data fits and GPU
-validation are separate gates with additional inputs. A committed run
-specification and explicit approval are required before scheduler submission.
-The prepared [run specification](HPC_CPU_VALIDATION_RUN.json) requests one CPU,
-8 GiB and at most 15 minutes on defq-64core; it has not been submitted.
+Next: establish bounded same-environment Linux source/port equivalence using
+authenticated historical functions, and make AST provenance serialization
+explicitly version-aware. Preserve Windows fixtures and all original failures.
+Mesh/R tests, full-cell S10 smoke, real-data fits and GPU validation are separate
+gates with additional inputs. The [run specification](HPC_CPU_VALIDATION_RUN.json)
+was approved and executed with one CPU, 8 GiB and a 15-minute limit on defq-64core;
+the job elapsed time was 69 seconds. Future submissions require their own
+committed specification and explicit approval.
