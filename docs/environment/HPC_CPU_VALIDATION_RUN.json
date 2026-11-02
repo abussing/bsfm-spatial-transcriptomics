@@ -1,0 +1,20 @@
+{
+  "schema": "bsfm.bounded-hpc-validation.v1",
+  "status": "prepared_not_submitted",
+  "purpose": "Validate canonical sampler Layers 1-3 on Linux CPU; no model fit or new sampler implementation",
+  "code_commit": "49f33c441e1cde9e1b8139ffef0103993eaa0222",
+  "source_archive": "/work/abussing/bsfm-consolidation/source-49f33c4.tar",
+  "source_archive_bytes": 6860800,
+  "source_archive_sha256": "ef990be280c5ef6ae8f8e10184882e5d0b10f7498a9f3d07d955682d5e9c42d4",
+  "source_directory": "/work/abussing/bsfm-consolidation/checkouts/49f33c441e1cde9e1b8139ffef0103993eaa0222",
+  "environment": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311",
+  "package_lock": "environment/sampler-linux-cpu/requirements.lock.txt",
+  "resources": {"partition": "defq-64core", "nodes": 1, "tasks": 1, "cpus_per_task": 1, "memory": "8G", "time_limit": "00:15:00", "gpus": 0},
+  "environment_variables": {"JAX_PLATFORMS": "cpu", "JAX_ENABLE_X64": "true", "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "PYTHONPATH": "<source_directory>/src"},
+  "command_argv": ["<environment>/bin/python", "-B", "-W", "error::ResourceWarning", "-m", "unittest", "discover", "-s", "tests", "-p", "test_sampler_layer*.py", "-v"],
+  "expected_tests": 70,
+  "acceptance": "Exit zero, 70 tests, zero skips. Preserve failures for diagnosis; do not relax tolerances or rewrite fixtures. No GPU correctness inference.",
+  "outputs": "/work/abussing/bsfm-consolidation/evidence/cpu-validation-<jobid>.log and scheduler accounting metadata",
+  "excluded": ["raw expression access", "SCT regeneration", "mesh rebuild", "S10 full-cell smoke", "NUTS or model fitting", "GPU execution", "historical driver execution"],
+  "submission_gate": "Commit this specification and obtain explicit user approval under AGENTS.md rule 6 before sbatch. This file is not evidence of an executed job."
+}

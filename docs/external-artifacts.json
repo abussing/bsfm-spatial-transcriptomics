@@ -1,0 +1,113 @@
+{
+  "schema": "bsfm.external-artifact-inventory.v1",
+  "inspection_date": "2026-11-02",
+  "canonical_baseline": "49f33c441e1cde9e1b8139ffef0103993eaa0222",
+  "scope": "Portable inventory; availability is bounded inspection, not exhaustive absence. Historical artifacts do not replace canonical production data.",
+  "artifacts": [
+    {
+      "id": "raw-h5ad",
+      "classification": "required_for_preprocessing_regeneration",
+      "recorded_path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+      "accessible_path": null,
+      "bytes": 5483600151,
+      "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
+      "status": "not_located_on_accessible_storage",
+      "authority": "preprocessing/audits/20261031_production_v2/README.md",
+      "upstream_publication": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11746152/",
+      "upstream_deposit_as_published": "/bil/lz/kjohnst2/b72faf9d87d7fc00 (Brain Image Library)",
+      "upstream_status": "Publication confirms deposit; attempted download-host access timed out from local computer and HPC; no downloadable raw file authenticated",
+      "restore": "Find an HPC copy or recover the upstream dataset; authenticate full file size and SHA-256 before canonical preflight. This project-adopted checksum is not independently supplied by the publisher. Historical transformed data cannot reconstruct the raw H5AD."
+    },
+    {
+      "id": "canonical-response-v2",
+      "classification": "required_for_real_data_modeling;regenerable_if_raw_and_environment_available",
+      "recorded_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2",
+      "accessible_path": null,
+      "recorded_root_bytes": 1446987796,
+      "status": "former_machine_unavailable;hpc_copy_unverified",
+      "authority": "preprocessing/audits/20261031_production_v2/run-manifest.json",
+      "restore": "Recover all 19 six-file section bundles and validate per-section manifest/file hashes using the committed run manifest. Otherwise regenerate from authenticated raw input with bsfm.preprocessing.production_run, a fresh destination, frozen configs and validated SCT environment; see preprocessing/PRODUCTION_ORCHESTRATION.md. Original artifact validation requires generating commit 6eb672bebbaf5cde6c9d50391aac275a210832a6. New execution gets new provenance, not the old receipt."
+    },
+    {
+      "id": "canonical-s10-mesh-handoff",
+      "classification": "required_for_recorded_full_cell_S10_smoke;regenerable_if_geometry_and_environment_available",
+      "recorded_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\sampler-facing.npz",
+      "accessible_path": null,
+      "bytes": 7195273,
+      "sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0",
+      "status": "not_located_on_accessible_storage",
+      "authority": "sampler/LAYER2_S10_AUDIT.json",
+      "restore": "Recover and hash the export, or use the canonical bsfm.mesh.october26 builder/regression after restoring full S10 geometry, inherited old mesh, reference preview and accepted mesh environment. The selected HPC bundle lacks source_geometry. The existing retained-cell mesh is not this full-cell export. See mesh/OCTOBER26_CANONICALIZATION.md and src/bsfm/mesh/october26.py in the repository."
+    },
+    {
+      "id": "selected-historical-source",
+      "classification": "historical_evidence;required_for_new_source_port_regression",
+      "recorded_path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code",
+      "accessible_path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code",
+      "status": "selected_files_authenticated_on_hpc",
+      "authority": "recovery/BSFM_SAMPLER_SOURCES.csv",
+      "verified_files": {
+        "sampler/run_c3full_fixed_profile_nuts.py": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+        "sampler/centered_hyper_target_qr.py": "4bdd57d688652bf4dffb85a9c9dee1879229a7bff5c72ff34902e216226fdf5e",
+        "sampler/joint_eta_pcg.py": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c"
+      },
+      "restore": "Authenticate each used file against the source table, which records sizes and hashes. Extract only approved function bodies for bounded reference checks; never import the monolith or run historical launchers. Ordinary tests use committed synthetic fixtures."
+    },
+    {
+      "id": "historical-s10-initialization-reference",
+      "classification": "historical_evidence;optional_for_ordinary_sampler_tests",
+      "accessible_path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/inputs/S10__WT5",
+      "status": "three_files_authenticated_on_hpc",
+      "files": [
+        {"path": "OBSERVATIONS.npz", "bytes": 630227, "sha256": "c6356cc2da031e441c1955e831308cc1c3f87ac391845fa40feede1ba97ba4fc"},
+        {"path": "gpinit/gpinit.npz", "bytes": 765813, "sha256": "e912139820413de0e4f5365cd0d8eb70512b71a9f31c32bd042d565b04f044fc"},
+        {"path": "gpinit/CERTIFICATE.json", "bytes": 2029, "sha256": "f7126f014ca300279aa3d43d235b9278fcf6048a237c88b8c193dbcb3c85fa12"}
+      ],
+      "authority": "initialization/C3_GP_SVD.md",
+      "restore": "Use the authenticated HPC files for historical initializer regression only. The canonical initializer can regenerate seeds with explicit K/nfit/seed and authenticated input identities; these observations are not canonical SCT-v2 modeling responses."
+    },
+    {
+      "id": "s10-full-geometry-reference-and-inherited-boundary",
+      "classification": "historical_evidence;required_inputs_for_mesh_regeneration",
+      "accessible_path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/inputs/sections/S10__WT5",
+      "status": "three_files_authenticated_on_hpc",
+      "files": [
+        {"path": "OBSERVATIONS_BASE.npz", "bytes": 571471, "sha256": "db0b9b9b3ae3188c330a872fcd66d3ca85728b0095027b5b15badde6e551ead8"},
+        {"path": "mesh/mesh_loc.csv", "bytes": 32082, "sha256": "fbca0dd7f8007010f710b8a94138cbdc83b01b4bfc4092ba83ee2f04a1957e6d"},
+        {"path": "mesh/mesh_tv.csv", "bytes": 14357, "sha256": "2bf966a021459d8bfa5f244ccacc981d9e02ab1e24737dbe3b474577692530bc"}
+      ],
+      "authority": "mesh/audits/october26_S10_localization_20261102/README.md; recovery/SCTRANSFORM_B3_SECTIONS.csv",
+      "restore": "Use authenticated slocs/type/source-row members for geometry only, preserving order and normalization. The old mesh defines the inherited far boundary. Export of cells.csv and rebuilding the canonical mesh require a separately recorded adapter/build step; do not execute the historical generator or use its expression response as canonical Y."
+    },
+    {
+      "id": "historical-ready-archive",
+      "classification": "historical_evidence;optional_duplicate_reference_source",
+      "accessible_path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1_READY.tar.gz",
+      "bytes": 98111074,
+      "sha256": "4458f784c8e760893c5fcd620f8ec74f40d9f504a0fa7d5fcbda9f29fe600f07",
+      "status": "hpc_size_matches;whole_archive_hash_not_yet_rechecked",
+      "authority": "initialization/C3_GP_SVD.md",
+      "restore": "Rehash before use and inspect exact required members without executing archived code. No S10 source_geometry/preview members were returned by the bounded listing; do not assume this archive restores those inputs."
+    },
+    {
+      "id": "frozen-L16-rule",
+      "classification": "historical_evidence;external_copy_optional",
+      "accessible_path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/rules/L16_ell14.npz",
+      "bytes": 6579,
+      "sha256": "d2add950144186c9e7f46c36df5db75ae13538e5cd65be9b7951781c04a464e5",
+      "status": "authenticated_on_hpc;canonical_arrays_already_in_git",
+      "authority": "sampler/LAYER3.md",
+      "restore": "Use config/sampler/L16_ell14.json from Git for canonical code. Do not regenerate, reseed, reorder or replace the rule."
+    },
+    {
+      "id": "installed-environments",
+      "classification": "regenerable;required_for_execution",
+      "recorded_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS",
+      "accessible_path": "/work/abussing/arka_trying_gpu_again/env",
+      "status": "historical_hpc_runtime_present;separate_linux_cpu_packages_installed;numerical_validation_pending",
+      "new_cpu_environment": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311",
+      "authority": "../environment/sampler-layer2/README.md",
+      "restore": "Rebuild isolated environments using repository source/version locks and platform-appropriate authenticated artifacts. See environment/HPC_CPU_SETUP.md for the separate Linux CPU installation and its limits. Windows wheel hashes are not Linux wheel hashes. Preserve existing historical installations. Mesh and SCT require separate R environment restoration and validation; no GPU production environment is established."
+    }
+  ]
+}
