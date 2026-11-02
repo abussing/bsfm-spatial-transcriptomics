@@ -36,6 +36,13 @@ range-derived study has been removed from the active surface; its
 
 ## Authoritative documents
 
+The canonical cold-start initializer is `bsfm.initialization.gp_svd`; see the
+[C3 GP-to-SVD guide](docs/initialization/C3_GP_SVD.md). S10 is accepted as
+historically equivalent under the explicit cold-start regression criterion,
+not byte-exact. It exports seeds only, leaves modeling Y unchanged, and requires
+explicit K/nfit/seed arguments. No all-section initialization or sampler run is
+claimed.
+
 - `CAPABILITIES.md`: functionality the platform must ultimately provide.
 - `AGENTS.md`: mandatory working rules for humans and coding agents.
 - `docs/RECOVERY_PROCESS.md`: how historical implementations will be studied

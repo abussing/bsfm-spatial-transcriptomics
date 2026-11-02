@@ -1,0 +1,84 @@
+{
+  "schema": "bsfm.gpinit-acceptance.v1",
+  "status": "pass",
+  "baseline": "391041a4ff0b7d0d20c7c66c039744ee3c87726c",
+  "user_decision": "Accepted numerically equivalent cold start, not byte-exact; no S10 refit or tuning",
+  "tests": {
+    "gpinit": {
+      "tests": 13,
+      "passed": 13,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seconds": 0.543,
+      "log_sha256": "b2da2eb3e2dffd3a4f017b105c09c9e7ce136541ff9bd325a89bd02bbec6d987"
+    },
+    "existing_python": {
+      "tests": 104,
+      "passed": 104,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seconds": 70.287,
+      "log_sha256": "453a9b726282bf48eb1c8a5eff42193b1ee6e4c11596cb589a8a2830c9572b5b"
+    },
+    "R_validation": {
+      "cases": 7,
+      "status": "pass",
+      "log_sha256": "7e7105c7a9fc70e580e4116ca29d1f189aeda183ba6155a03ebac736b106cbe9"
+    },
+    "SCT_synthetic": {
+      "fits": 4,
+      "status": "pass",
+      "repeat_semantic_hashes": "exact",
+      "root_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\gpinit_acceptance_sct_synthetic_20261102",
+      "manifest_sha256": "43d4fca59e17b3933ce293e7a619f5b6426417a52fec2af236640017715e7bc4"
+    },
+    "SCT_saved_readback": {
+      "status": "pass",
+      "semantic_hashes": "exact",
+      "report_sha256": "31cea867b5339a3035df17e75096557b565e3d05b42b0056c62a2c1385eb8aaf"
+    }
+  },
+  "environments": {
+    "gpinit": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\gpinit-20261102\\python\\Scripts\\python.exe",
+    "existing_python": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python\\Scripts\\python.exe",
+    "R": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe"
+  },
+  "commands": {
+    "gpinit": "python -B -m unittest discover -s tests -p test_gp_initialization.py -v",
+    "existing_python": "unittest discovery of every tests/test*.py module at baseline 391041a, BSFM_MESH_INTEGRATION=1; 104 tests",
+    "existing_test_modules": [
+      "tests/test_mean_roundoff.py",
+      "tests/test_mesh_environment_integration.py",
+      "tests/test_mesh_infrastructure.py",
+      "tests/test_mesh_october26.py",
+      "tests/test_production_integrity.py",
+      "tests/test_production_run.py",
+      "tests/test_raw_preflight.py",
+      "tests/test_response_bundle.py",
+      "tests/test_sct_smoke.py"
+    ],
+    "R_validation": "Rscript --vanilla tests/test_sct_validation.R <repo>",
+    "SCT_synthetic": [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python\\Scripts\\python.exe",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sct_smoke.py",
+      "--environment",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031",
+      "--output-dir",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\gpinit_acceptance_sct_synthetic_20261102"
+    ],
+    "SCT_readback": "Rscript --vanilla src/bsfm/preprocessing/sct_readback.R <SCT environment> <synthetic-A input> <synthetic-A-run1/fit.rds> <saved-readback> <recorded common depth> <synthetic-A-run1>",
+    "historical_comparison": "python -B docs/initialization/audits/S10_20261102/compare_saved.py; four BLAS threads"
+  },
+  "same_environment_determinism_and_readback": "exact; cross-platform criterion not used",
+  "hash_checks": "pass; strict receipt, executed module/config, original input/reference/output and immutable base runtime",
+  "schema_checks": "pass",
+  "credential_patterns": "pass",
+  "markdown_links": "pass",
+  "syntax": "pass",
+  "diff_check": "pass",
+  "production_artifacts_staged": false,
+  "no_other_section_GP_run": true,
+  "no_sampler_or_HPC_work": true
+}

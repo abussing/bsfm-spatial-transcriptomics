@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Approved historical C3 cold-start regression policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "authority", "scope", "reconstructed_field_relative_frobenius_max", "singular_values_relative_l2_max", "require_identical_dimensions_order_and_input_hashes", "require_same_K_nfit_seed_algorithm_and_kernel_configuration", "same_environment_determinism", "saved_artifact_readback", "subspace_angles_and_signs", "strict_comparison_receipt", "strict_comparison_policy"],
+  "properties": {
+    "schema": {"const": "bsfm.gpinit-historical-regression.v1"},
+    "authority": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "reconstructed_field_relative_frobenius_max": {"const": 1e-6},
+    "singular_values_relative_l2_max": {"const": 1e-8},
+    "require_identical_dimensions_order_and_input_hashes": {"const": true},
+    "require_same_K_nfit_seed_algorithm_and_kernel_configuration": {"const": true},
+    "same_environment_determinism": {"const": "exact"},
+    "saved_artifact_readback": {"const": "exact"},
+    "subspace_angles_and_signs": {"type": "string"},
+    "strict_comparison_receipt": {"type": "string"},
+    "strict_comparison_policy": {"type": "string"}
+  }
+}

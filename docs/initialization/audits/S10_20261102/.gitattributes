@@ -1,0 +1,4 @@
+# Verbatim review captures: preserve the bytes authenticated by the audit.
+comparison.json -text whitespace=cr-at-eol
+input-contract.json -text whitespace=cr-at-eol
+executed-config.json -text whitespace=cr-at-eol

@@ -1,0 +1,25 @@
+{
+  "schema": "bsfm.gpinit-review.v1",
+  "status": "accepted_numerically_equivalent_cold_start_not_byte_exact",
+  "baseline": "391041a4ff0b7d0d20c7c66c039744ee3c87726c",
+  "source_sha256": "26be9b43ba03908934e3a3d9ebddf0bd6422a7fa5331412266073660a57797c1",
+  "config_sha256": "d0164b15e1052da9c3651011e9a188625d34608cb6b5db7e9815216e4d222dec",
+  "tests": {
+    "count": 13,
+    "passed": 13,
+    "failures": 0,
+    "skips": 0
+  },
+  "review_root_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\gpinit_S10_20261102",
+  "certificate_sha256": "247c26f54e6c077788831262a3327f8c8bed8f692565ca68e523605a91ccd04b",
+  "output_sha256": "b45851298e01ef3818c6166f950e7717eba144864f517ee7554b15d0d5d27c8e",
+  "no_all_section_run": true,
+  "no_sampler_or_HPC_work": true,
+  "acceptance_authority": "Explicit user decision on 2026-11-02",
+  "historical_regression_policy": "config/initialization/historical-regression.json",
+  "representation_comparison": "representation-comparison.json",
+  "accepted_config_sha256": "63589c3fb02847d7971f3d39753d08be483c7c9ff2f7acc74a2481bf356062d2",
+  "config_change_since_fit": "Acceptance status label only; executed-config.json preserves original bytes",
+  "strict_comparison_retained_unchanged": true,
+  "no_refit": true
+}

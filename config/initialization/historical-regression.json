@@ -1,0 +1,14 @@
+{
+  "schema": "bsfm.gpinit-historical-regression.v1",
+  "authority": "Explicit user acceptance of S10 cold-start equivalence on 2026-11-02",
+  "scope": "Historical cross-platform cold-start regression only; not a general scientific accuracy threshold",
+  "reconstructed_field_relative_frobenius_max": 1e-6,
+  "singular_values_relative_l2_max": 1e-8,
+  "require_identical_dimensions_order_and_input_hashes": true,
+  "require_same_K_nfit_seed_algorithm_and_kernel_configuration": true,
+  "same_environment_determinism": "exact",
+  "saved_artifact_readback": "exact",
+  "subspace_angles_and_signs": "diagnostics; no additional acceptance thresholds",
+  "strict_comparison_receipt": "docs/initialization/audits/S10_20261102/comparison.json",
+  "strict_comparison_policy": "Preserve original failures unchanged; this separately approved equivalence criterion does not assert exact equality"
+}

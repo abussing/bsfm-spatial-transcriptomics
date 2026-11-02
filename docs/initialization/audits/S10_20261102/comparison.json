@@ -1,0 +1,189 @@
+{
+  "schema": "bsfm.gpinit-reproduction-review.v1",
+  "section": "S10__WT5",
+  "source_sha256": "c6356cc2da031e441c1955e831308cc1c3f87ac391845fa40feede1ba97ba4fc",
+  "archive_sha256": "4458f784c8e760893c5fcd620f8ec74f40d9f504a0fa7d5fcbda9f29fe600f07",
+  "reference_gpinit_sha256": "e912139820413de0e4f5365cd0d8eb70512b71a9f31c32bd042d565b04f044fc",
+  "output_gpinit_sha256": "b45851298e01ef3818c6166f950e7717eba144864f517ee7554b15d0d5d27c8e",
+  "file_byte_equal": false,
+  "arrays": {
+    "Lam_seed": {
+      "shape": [
+        3,
+        91,
+        20
+      ],
+      "exact": false,
+      "max_abs": 2.1545562227213988e-07,
+      "relative_frobenius": 8.422900924931573e-08,
+      "allclose_rtol_1e-8_atol_1e-10": false
+    },
+    "eta_seed": {
+      "shape": [
+        20,
+        4712
+      ],
+      "exact": false,
+      "max_abs": 2.188970268934831e-08,
+      "relative_frobenius": 6.424798865921525e-09,
+      "allclose_rtol_1e-8_atol_1e-10": false
+    },
+    "theta_prior_mu": {
+      "shape": [],
+      "exact": false,
+      "max_abs": 6.938893903907228e-16,
+      "relative_frobenius": 5.327808445126147e-15,
+      "allclose_rtol_1e-8_atol_1e-10": true
+    },
+    "field_ls": {
+      "shape": [
+        20
+      ],
+      "exact": false,
+      "max_abs": 4.036767309312239e-10,
+      "relative_frobenius": 1.4540947796209437e-09,
+      "allclose_rtol_1e-8_atol_1e-10": true
+    },
+    "theta_seed": {
+      "shape": [
+        20
+      ],
+      "exact": false,
+      "max_abs": 4.036767309312239e-10,
+      "relative_frobenius": 1.4540947796209437e-09,
+      "allclose_rtol_1e-8_atol_1e-10": true
+    },
+    "singular_values": {
+      "shape": [
+        20
+      ],
+      "exact": false,
+      "max_abs": 2.9410946567054452e-08,
+      "relative_frobenius": 3.2739333739081037e-10,
+      "allclose_rtol_1e-8_atol_1e-10": true
+    },
+    "seed_vs_smoothed_correlation": {
+      "shape": [],
+      "exact": false,
+      "max_abs": 2.866327175610195e-10,
+      "relative_frobenius": 2.9917509184839525e-10,
+      "allclose_rtol_1e-8_atol_1e-10": true
+    },
+    "seed_vs_observed_correlation": {
+      "shape": [],
+      "exact": false,
+      "max_abs": 5.515055079285958e-10,
+      "relative_frobenius": 2.271866162091347e-09,
+      "allclose_rtol_1e-8_atol_1e-10": true
+    }
+  },
+  "signs_for_diagnostic_comparison_only": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "sign_aligned_loading_max_abs": 2.1545562227213988e-07,
+  "sign_aligned_eta_max_abs": 2.188970268934831e-08,
+  "reconstructed_field_relative_error": 5.4445910829792996e-08,
+  "historical_vs_port": {
+    "maximum_input_recentering_mean": {
+      "historical": 7.106736068435531e-15,
+      "port": 7.106736068435531e-15
+    },
+    "elapsed_seconds": {
+      "historical": 80.89284412562847,
+      "port": 53.56927380000707
+    },
+    "eta_sd": {
+      "historical": [
+        1.1917045836579905,
+        0.679735238098848,
+        0.5345866513293257,
+        0.4146807408654311,
+        0.31911446786772996,
+        0.2998917994837662,
+        0.2833897869526995,
+        0.26797534729604083,
+        0.24265756952110556,
+        0.23739407051996567,
+        0.23399474170275275,
+        0.21396378965674198,
+        0.1949098108661966,
+        0.18912814409698053,
+        0.18272743592240268,
+        0.1715713451288957,
+        0.16371395340115658,
+        0.16068995281022422,
+        0.15152220879405517,
+        0.14886508133097553
+      ],
+      "port": [
+        1.1917045837096687,
+        0.6797352382369442,
+        0.5345866513559513,
+        0.41468074087217294,
+        0.3191144679129031,
+        0.2998917995096334,
+        0.28338978695282985,
+        0.2679753473984601,
+        0.24265756953022324,
+        0.2373940705319362,
+        0.23399474183223365,
+        0.21396378993216428,
+        0.1949098112946525,
+        0.18912814410069506,
+        0.1827274359356431,
+        0.17157134514943015,
+        0.16371395340425562,
+        0.16068995295744185,
+        0.15152220882231593,
+        0.14886508135751367
+      ]
+    }
+  },
+  "historical_smoothed_correlation": 0.9580768097708765,
+  "port_smoothed_correlation": 0.9580768094842438,
+  "historical_observed_correlation": 0.2427544003828606,
+  "port_observed_correlation": 0.24275440093436612,
+  "historical_full_smoothed_surfaces_or_fit_indices": "not exported; direct equality unavailable",
+  "fits_run": 293,
+  "diagnostics": {
+    "dimensions": {
+      "types": 3,
+      "genes": 91,
+      "cells": 4712
+    },
+    "maximum_input_recentering_mean": 7.106736068435531e-15,
+    "surface_mean_max": 3.0158859752126495e-17,
+    "truncation_error": 36.34036203816599,
+    "loading_orthogonality_max": 1.1783109210572462e-15,
+    "eta_mean_max": 1.960325883888222e-17,
+    "elapsed_seconds": 53.56927380000707,
+    "packages": {
+      "numpy": "2.1.3",
+      "scipy": "1.14.1",
+      "scikit-learn": "1.4.2",
+      "joblib": "1.4.2",
+      "threadpoolctl": "3.5.0"
+    },
+    "python": "3.12.0",
+    "platform": "Windows-11-10.0.26300-SP0"
+  }
+}

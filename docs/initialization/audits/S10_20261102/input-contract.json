@@ -1,0 +1,28 @@
+{
+  "schema": "bsfm.gpinit-input.v1",
+  "response": "final_centered_Y",
+  "section": "S10__WT5",
+  "source_sha256": "c6356cc2da031e441c1955e831308cc1c3f87ac391845fa40feede1ba97ba4fc",
+  "arrays": {
+    "Y": "bb4fb9720baefe581e1dddeffbcc1d44fed60d958153972d33a3f56f1c1922a1",
+    "slocs": "db80eb6850e5496c64f9c0bea73e08cf393ecd3a629e0ddff48dceb0a9e67482",
+    "cell_id": "0a67cab78e0bc4b386140f584693e5e9e78d0a71432dd01ae09ff1c7c9599e48",
+    "cell_names": "73fe883d2cbecd240c30d83646c50fdc2f5485c9c0b2d9490fdcfbfdf09a636f",
+    "source_row_indices": "1b60c15bd3adfda813199de40246c424cbc3c903c636047b0b51aede761f52a9",
+    "gene_names": "1d27f76b5fa2d502dea7b1b20defff0cb450a8b3ed06560f550685bffa6217b6",
+    "cell_type_names": "682a34b85714bdc23c0a704749b40ed7b053f7eeeb4a34aaedd7585c9632a80a"
+  },
+  "coordinates": {
+    "axes": [
+      "center_y",
+      "center_x"
+    ],
+    "representation": "historical section glial minimum/max-span normalized coordinates; unchanged"
+  },
+  "population": "historical retained cells; within-type Morton selection",
+  "configuration": {
+    "factors": 20,
+    "nfit": 250,
+    "seed": 2026102610
+  }
+}

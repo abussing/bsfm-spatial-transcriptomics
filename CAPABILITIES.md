@@ -72,6 +72,19 @@ minimum-median depth, not automatically the training-only holdout depth.
 
 ## 2. Spatial-GP factor initialization
 
+The established C3 GP-smooth-to-SVD builder is the accepted canonical
+[cold-start initializer](docs/initialization/C3_GP_SVD.md). Thirteen focused tests
+pass. The user accepted S10 as numerically equivalent, explicitly not byte-exact,
+under the [historical regression criterion](config/initialization/historical-regression.json).
+The original strict loading/eta failures remain unchanged in the audit.
+Same-environment determinism and saved readback still require exact equality.
+GPINIT supplies starting values, not the posterior target; Lam/eta are
+gauge-dependent coordinates and MCMC correctness must not depend on historical
+seed bits. No all-section run is claimed. K and nfit remain explicit arguments;
+no universal factor count is selected. The isolated
+[GP environment](environment/gpinit/README.md) leaves accepted mesh/SCT environments
+unchanged. GPINIT exports cold-start seeds only; it does not replace modeling Y.
+
 - Fit a spatial GP to each transformed gene.
 - Construct spatially smoothed gene surfaces.
 - Use the established spatial-surface/SVD method to initialize the factor model.

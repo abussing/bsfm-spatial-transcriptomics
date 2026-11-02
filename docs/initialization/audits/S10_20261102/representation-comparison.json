@@ -1,0 +1,138 @@
+{
+  "schema": "bsfm.gpinit-historical-equivalence.v1",
+  "status": "pass",
+  "authority": "Explicit user acceptance of S10 cold-start equivalence on 2026-11-02",
+  "scope": "Historical cross-platform cold-start regression only; not a general scientific accuracy threshold",
+  "no_refit": true,
+  "strict_comparison_unchanged_sha256": "662d83d761931be914560226ddcfcc738c6222968e45814b6d83a282f3f1d63a",
+  "strict_loading_eta_checks_remain_failed": true,
+  "original_reconstructed_relative_error": 5.4445910829792996e-08,
+  "reconstructed_field_relative_frobenius": 5.4445910829792996e-08,
+  "singular_value_relative_l2": 3.2739333739081037e-10,
+  "limits": {
+    "reconstructed": 1e-06,
+    "singular_values": 1e-08
+  },
+  "loading_column_space": {
+    "well_defined_full_column_rank": true,
+    "ranks": [
+      20,
+      20
+    ],
+    "projector_difference_frobenius": 5.282137060546285e-07,
+    "projector_difference_relative_frobenius": 1.1811217533852415e-07,
+    "principal_angles_radians": [
+      3.734448071639509e-07,
+      6.37249873223314e-09,
+      1.2318308109501211e-09,
+      1.0493770459793561e-09,
+      7.389768444677613e-10,
+      2.0380598677233956e-10,
+      1.212308716195434e-10,
+      6.235383613861063e-11,
+      3.697396973894887e-11,
+      2.1861825857377642e-11,
+      1.1458448921578998e-11,
+      7.46712020617547e-12,
+      5.842512196097936e-12,
+      2.8871491600201333e-12,
+      2.4265652061167816e-12,
+      1.350723093461315e-12,
+      9.545844069832876e-13,
+      8.343485351310935e-13,
+      5.959812562780201e-13,
+      4.555597720257884e-13
+    ],
+    "max_principal_angle_radians": 3.734448071639509e-07
+  },
+  "eta_row_space": {
+    "well_defined_full_column_rank": true,
+    "ranks": [
+      20,
+      20
+    ],
+    "projector_difference_frobenius": 4.227267266339762e-08,
+    "projector_difference_relative_frobenius": 9.452456966595415e-09,
+    "principal_angles_radians": [
+      2.956110223620899e-08,
+      4.3814535374203955e-09,
+      5.998626108626558e-10,
+      2.1762472142721973e-10,
+      1.361698182468922e-10,
+      6.51349971037517e-11,
+      4.1969068336891874e-11,
+      3.935749457233907e-11,
+      1.2249222516711956e-11,
+      7.625893914013336e-12,
+      3.779285037965432e-12,
+      2.974411490256402e-12,
+      1.4564566082546416e-12,
+      1.1511807718656777e-12,
+      6.148837500279821e-13,
+      4.018816137259829e-13,
+      2.7441873699021207e-13,
+      1.6525212483001804e-13,
+      1.1346849578589842e-13,
+      4.7715937261443717e-14
+    ],
+    "max_principal_angle_radians": 2.956110223620899e-08
+  },
+  "sign_comparison": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "identity_checks": {
+    "input_file_sha256": "c6356cc2da031e441c1955e831308cc1c3f87ac391845fa40feede1ba97ba4fc",
+    "dimensions": {
+      "types": 3,
+      "genes": 91,
+      "cells": 4712
+    },
+    "ordered_input_arrays": {
+      "Y": "bb4fb9720baefe581e1dddeffbcc1d44fed60d958153972d33a3f56f1c1922a1",
+      "slocs": "db80eb6850e5496c64f9c0bea73e08cf393ecd3a629e0ddff48dceb0a9e67482",
+      "cell_id": "0a67cab78e0bc4b386140f584693e5e9e78d0a71432dd01ae09ff1c7c9599e48",
+      "cell_names": "73fe883d2cbecd240c30d83646c50fdc2f5485c9c0b2d9490fdcfbfdf09a636f",
+      "source_row_indices": "1b60c15bd3adfda813199de40246c424cbc3c903c636047b0b51aede761f52a9",
+      "gene_names": "1d27f76b5fa2d502dea7b1b20defff0cb450a8b3ed06560f550685bffa6217b6",
+      "cell_type_names": "682a34b85714bdc23c0a704749b40ed7b053f7eeeb4a34aaedd7585c9632a80a"
+    },
+    "saved_output_hashes_authenticated": true,
+    "factors": 20,
+    "nfit": 250,
+    "seed": 2026102610,
+    "same_algorithm_and_kernel_settings": true,
+    "seed_provenance": "Exact authenticated wrapper formula; historical certificate did not separately record seed.",
+    "ordering_provenance": "Same authenticated observation bytes and preserved builder ordering; historical seeds lack separate identity axes.",
+    "configuration_change_since_execution": "status label only",
+    "fitting_indices_match_recovered_rng": true
+  },
+  "equality_policy": {
+    "historical": "user-approved cold-start equivalence only",
+    "same_environment": "exact",
+    "saved_readback": "exact"
+  },
+  "source_and_outputs_unchanged": {
+    "input_sha256": "c6356cc2da031e441c1955e831308cc1c3f87ac391845fa40feede1ba97ba4fc",
+    "output_sha256": "b45851298e01ef3818c6166f950e7717eba144864f517ee7554b15d0d5d27c8e",
+    "certificate_sha256": "247c26f54e6c077788831262a3327f8c8bed8f692565ca68e523605a91ccd04b"
+  }
+}
