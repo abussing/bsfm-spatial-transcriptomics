@@ -1,0 +1,90 @@
+{
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\cells.csv": {
+    "bytes": 394249,
+    "sha256": "ccf6e21a44aa8594f7a1debb3cfc7b99938c5d366fcd90b6b4a661a350c27124"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\mesh_loc.csv": {
+    "bytes": 32082,
+    "sha256": "fbca0dd7f8007010f710b8a94138cbdc83b01b4bfc4092ba83ee2f04a1957e6d"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\mesh_tv.csv": {
+    "bytes": 14357,
+    "sha256": "2bf966a021459d8bfa5f244ccacc981d9e02ab1e24737dbe3b474577692530bc"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\OBSERVATIONS_BASE.npz": {
+    "bytes": 571471,
+    "sha256": "db0b9b9b3ae3188c330a872fcd66d3ca85728b0095027b5b15badde6e551ead8"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\INPUT_CONTRACT.json": {
+    "bytes": 1094,
+    "sha256": "b888adf76a5bcb92f3d347f78717083e5ba4a965f45fdbbf7ce2ba7f20cac486"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\preview\\S10__WT5\\mesh_loc.csv": {
+    "bytes": 13389,
+    "sha256": "1dee661450240ada93254c8b2f00aba5b39ea71bacc71dd0450686b0d39f8b99"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\preview\\S10__WT5\\mesh_tv.csv": {
+    "bytes": 8698,
+    "sha256": "b434e4e6e693b7a1173d0ab70e9ec47322255a4c26846a0eec2e00ce5ffbbeff"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\preview\\S10__WT5\\A_proj.mtx": {
+    "bytes": 793677,
+    "sha256": "f17433d3e5ad70f5b8b36e55a6a8f335de6151476a0995dd859b37ea3521e703"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\preview\\S10__WT5\\CERTIFICATE.json": {
+    "bytes": 1837,
+    "sha256": "0360c3a0a9f257415faa7d2d9cb6cc24c13d8ac5047f092e80eac8a5ce8fa7a9"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\mesh_loc.csv": {
+    "bytes": 13389,
+    "sha256": "1dee661450240ada93254c8b2f00aba5b39ea71bacc71dd0450686b0d39f8b99"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\mesh_tv.csv": {
+    "bytes": 8698,
+    "sha256": "b434e4e6e693b7a1173d0ab70e9ec47322255a4c26846a0eec2e00ce5ffbbeff"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\A_proj.mtx": {
+    "bytes": 430958,
+    "sha256": "941a18f0685c4e2c229c055f9118f0fad45b1a04a2ee5eab530f0b4d437c1f65"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\active_indices.csv": {
+    "bytes": 842,
+    "sha256": "8f41df4ced85aee81358e8a1ddbc9d369e26daacc7be8658cd12012efbdf6c1a"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\fem_C.mtx": {
+    "bytes": 42771,
+    "sha256": "7f388a10dd9d40cff369c7b05260f90526380c9e92c637a754bf668dd663fa8f"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\fem_g1.mtx": {
+    "bytes": 43849,
+    "sha256": "bfb5cbecfde476d792cb7c3ee916e853c6d9c94733daf591ee917cfb451d62a0"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\fem_g2.mtx": {
+    "bytes": 1621603,
+    "sha256": "0ede30e632e0b2a972c81e3ce2ab2bb257a7ba3abbf1c5d35290b0557ad00025"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\fem_g3.mtx": {
+    "bytes": 1621670,
+    "sha256": "930c8ad79634f5ee83bfb175b1071a8e959c5688c56c44d73f705716c9d6bbc4"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\fem_g4.mtx": {
+    "bytes": 1621662,
+    "sha256": "f243a2d122c7d379cb8a7b109bb1989f373a94b81efdbaa72b67a9d6629be65a"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\fem_g5.mtx": {
+    "bytes": 1621626,
+    "sha256": "e36675accb4ae381c85381a065d33c14810315eb7cb65602dc9ee3c4f782a1d9"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\mesh\\fem_g6.mtx": {
+    "bytes": 1621613,
+    "sha256": "79f7c975f3b19271cbdd5ea10ae8262de5efd2d3eb47f7e5b038d9d3fcef5f64"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\INPUT_CERTIFICATE.json": {
+    "bytes": 1929,
+    "sha256": "3a2e02c2234d9bd3dec680b6e405ffde04c4fd6b9c413564b9b867d7ab1b1065"
+  },
+  "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\OBSERVATIONS.npz": {
+    "bytes": 630227,
+    "sha256": "c6356cc2da031e441c1955e831308cc1c3f87ac391845fa40feede1ba97ba4fc"
+  }
+}

@@ -1,4 +1,11 @@
-# Canonical adaptive-mesh scientific design
+# Superseded M3 adaptive-mesh experimental design
+
+**Rejected experimental redesign, retained as audit evidence.** The user's
+scientific scope reset supersedes the design and execution plan below. See
+[the warp-basis decision](ADAPTIVE_MESH_WARP_BASIS.md). Do not run Phase-0 v3,
+debug the 2,675-vertex S10 candidate, or select a production mesh using this
+continuum-range grid. The original proposal below records the former decision;
+it is not the current production specification.
 
 Status: **broad scientific design and staged study protocol approved; no mesh
 implementation, numerical resolution, grading or buffer selected for production**.

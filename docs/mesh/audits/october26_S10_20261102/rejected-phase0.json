@@ -1,0 +1,18 @@
+{
+  "status": "rejected_experimental_redesign_by_user",
+  "selection_criterion_rejected": "continuum extreme-range reproduction",
+  "v1_root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_phase0_S10_v1",
+  "v1_recorded_files_unchanged": true,
+  "v1_status": "failed",
+  "v2_root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_phase0_S10_v2",
+  "v2_status": "failed",
+  "v2_failure": {
+    "bytes": 237,
+    "sha256": "c76bf7e410ee03660f35216342d314253cf569bced523b9ce245be784bf143e3"
+  },
+  "v2_completed_candidates": 0,
+  "v2_first_candidate_vertices": 2675,
+  "v2_reason": "covariance-root derivative identity check failed",
+  "no_v3": true,
+  "no_debugging_or_retry": true
+}

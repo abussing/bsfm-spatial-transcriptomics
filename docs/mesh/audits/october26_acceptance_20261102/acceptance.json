@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "status": "accepted_by_user",
+  "baseline_commit": "4e362b6b3988e1b899d4250812ddfc4040beb819",
+  "scientific_builder_sources_unchanged_since_successful_reproduction": true,
+  "source_identities": {
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\mesh\\october26.py": {
+      "bytes": 16643,
+      "sha256": "ddbd0ec696561d6f3bb439c87cbbd36c9c1fb655e311018e22fee6a962b53618"
+    },
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\mesh\\october26_builder.R": {
+      "bytes": 4292,
+      "sha256": "f34fe651d66419921333fb9f0b41f3f5eeb740c0e7ffe3f110c56f2d6a287016"
+    }
+  },
+  "S10_report_byte_identical_copy": {
+    "bytes": 9023,
+    "sha256": "5d243884b8e8007c262ef4cb31f5b796294f6c51d469858f67b185de3328dadb"
+  },
+  "S10_four_historical_artifacts_rehashed_byte_identical": {
+    "mesh_loc.csv": {
+      "historical": {
+        "bytes": 13389,
+        "sha256": "1dee661450240ada93254c8b2f00aba5b39ea71bacc71dd0450686b0d39f8b99"
+      },
+      "corrected": {
+        "bytes": 13389,
+        "sha256": "1dee661450240ada93254c8b2f00aba5b39ea71bacc71dd0450686b0d39f8b99"
+      },
+      "byte_identical": true
+    },
+    "mesh_tv.csv": {
+      "historical": {
+        "bytes": 8698,
+        "sha256": "b434e4e6e693b7a1173d0ab70e9ec47322255a4c26846a0eec2e00ce5ffbbeff"
+      },
+      "corrected": {
+        "bytes": 8698,
+        "sha256": "b434e4e6e693b7a1173d0ab70e9ec47322255a4c26846a0eec2e00ce5ffbbeff"
+      },
+      "byte_identical": true
+    },
+    "A_proj.mtx": {
+      "historical": {
+        "bytes": 793677,
+        "sha256": "f17433d3e5ad70f5b8b36e55a6a8f335de6151476a0995dd859b37ea3521e703"
+      },
+      "corrected": {
+        "bytes": 793677,
+        "sha256": "f17433d3e5ad70f5b8b36e55a6a8f335de6151476a0995dd859b37ea3521e703"
+      },
+      "byte_identical": true
+    },
+    "mesh.rds": {
+      "historical": {
+        "bytes": 32385,
+        "sha256": "3f1660f7f025fd981bceeb572dfabffa5b9ba6895df5ca48cdcf753696c55335"
+      },
+      "corrected": {
+        "bytes": 32385,
+        "sha256": "3f1660f7f025fd981bceeb572dfabffa5b9ba6895df5ca48cdcf753696c55335"
+      },
+      "byte_identical": true
+    }
+  },
+  "configuration": {
+    "current": {
+      "bytes": 1298,
+      "sha256": "8c562b2bca163fa0e8da6193649937557af585c327adc82c230d7929404337a3"
+    },
+    "reproduction": {
+      "bytes": 1317,
+      "sha256": "ea6fab398526bd2801bdbdc2972395a24e202f6294083082d80a4f75c8abcf73"
+    },
+    "only_difference": "status metadata changed from pending review to accepted; scientific configuration identical"
+  },
+  "new_regression": "actual Python build invocation -> original JSON path -> actual R builder prefix -> double 25 in fmesher options; missing-conversion mutant rejected; no mesh constructed",
+  "R_tests": {
+    "command": [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+      "--vanilla",
+      "tests/test_sct_validation.R",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics"
+    ],
+    "cases": 7,
+    "exit_code": 0,
+    "output": "PASS: R count validation, negative/fractional/nonfinite/zero/duplicate/missing failures"
+  },
+  "scope_limits": [
+    "no new real-section mesh run",
+    "no all-section run",
+    "no GP initialization",
+    "no Gibbs sampler",
+    "no HPC",
+    "no Phase-0 cleanup yet"
+  ]
+}

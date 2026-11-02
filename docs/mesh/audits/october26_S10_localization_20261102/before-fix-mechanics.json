@@ -1,0 +1,76 @@
+{
+  "no_mesh_rebuilt": true,
+  "source": "retained port mesh.rds and A_proj.mtx",
+  "counts": {
+    "vertices": 330,
+    "triangles": 629,
+    "active": 167,
+    "inactive": 163,
+    "warp_coordinates_per_factor": 334
+  },
+  "projection": {
+    "row_sum_error": 2.220446049250313e-16,
+    "affine_error": 2.220446049250313e-16,
+    "min_weight": 1.9066991321045383e-05,
+    "max_nonzeros": 3
+  },
+  "independent_projector_max_error": 3.3306690738754696e-16,
+  "connected_components": 1,
+  "manifold_edge_incidence": true,
+  "euler_characteristic": 1,
+  "minimum_angle_degrees": 21.00000000000002,
+  "min_triangle_area": 0.0010471548603004225,
+  "total_area": 5.363814940879301,
+  "grading_diagnostic": [
+    {
+      "nearest_cell_distance_min": 0,
+      "nearest_cell_distance_max": 0.02,
+      "triangles": 283,
+      "median_triangle_mean_edge": 0.06917778545001523,
+      "maximum_edge": 0.10398342409682182
+    },
+    {
+      "nearest_cell_distance_min": 0.02,
+      "nearest_cell_distance_max": 0.18,
+      "triangles": 109,
+      "median_triangle_mean_edge": 0.12268345677719435,
+      "maximum_edge": 0.19686589502782614
+    },
+    {
+      "nearest_cell_distance_min": 0.18,
+      "nearest_cell_distance_max": 0.45,
+      "triangles": 122,
+      "median_triangle_mean_edge": 0.15836544204877645,
+      "maximum_edge": 0.29403371713880366
+    },
+    {
+      "nearest_cell_distance_min": 0.45,
+      "nearest_cell_distance_max": null,
+      "triangles": 115,
+      "median_triangle_mean_edge": 0.2533905023250422,
+      "maximum_edge": 0.48957300905463846
+    }
+  ],
+  "grading_definition": "triangle-centroid distance to nearest full modeled cell; descriptive only, NOT exact nonconvex contour membership",
+  "spectral": {
+    "orthogonality": 2.281578998363824e-15,
+    "eigen_residual": 2.6740225266115907e-15,
+    "simultaneous_diagonal_errors": [
+      2.1708184184555562e-15,
+      2.0293137857938145e-15,
+      3.111659852368852e-15,
+      2.9073485204951894e-15,
+      2.778150362145171e-15,
+      2.6665029166902853e-15,
+      2.57932088271717e-15
+    ],
+    "full_modes": 330,
+    "truncation": false
+  },
+  "mechanical_range": 1.0,
+  "root_full_active_relative_error": 7.345977290094948e-16,
+  "all_cell_full_active_factor_error": 0.0,
+  "zero_displacement_error": 0.0,
+  "affine_displacement_error": 1.0408340855860843e-17,
+  "scientific_optimality_established": false
+}

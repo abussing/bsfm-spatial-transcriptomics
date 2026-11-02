@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "exit_code": 0,
+  "tests": 127,
+  "suite_seconds": 82.702,
+  "elapsed_seconds": 88.20999259999371,
+  "mesh_R_integration_enabled": true,
+  "log": "C:\\Users\\DATAVI~1\\AppData\\Local\\Temp\\bsfm-october26-acceptance-full-tests-20261102.log",
+  "log_sha256": "a54aaefe83191012e970141777dc317b3e804f84567a75005fcd9d8470ff7549",
+  "log_bytes": 18070,
+  "summary": "----------------------------------------------------------------------\nRan 127 tests in 82.702s\n\nOK\n{\"output_dir\": \"C:\\\\Users\\\\DATAVI~1\\\\AppData\\\\Local\\\\Temp\\\\tmp614akbc8\\\\cli\", \"proposed_common_depth\": 3.0, \"status\": \"pass\"}\n{\"output_dir\": \"C:\\\\Users\\\\DATAVI~1\\\\AppData\\\\Local\\\\Temp\\\\tmpmwk0g93u\\\\independent_cli\", \"proposed_common_depth\": 3.0, \"status\": \"pass\"}"
+}

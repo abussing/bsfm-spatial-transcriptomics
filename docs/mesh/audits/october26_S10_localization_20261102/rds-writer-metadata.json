@@ -1,0 +1,16 @@
+{
+  "historical": {
+    "version": 3,
+    "writer_version": "4.5.3",
+    "min_reader_version": "3.5.0",
+    "format": "xdr",
+    "native_encoding": "ASCII"
+  },
+  "port": {
+    "version": 3,
+    "writer_version": "4.5.3",
+    "min_reader_version": "3.5.0",
+    "format": "xdr",
+    "native_encoding": "ASCII"
+  }
+}

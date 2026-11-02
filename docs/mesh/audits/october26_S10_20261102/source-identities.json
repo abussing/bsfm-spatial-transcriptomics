@@ -1,0 +1,50 @@
+[
+  {
+    "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\build_preview.R",
+    "lines": "1-140",
+    "bytes": 8346,
+    "sha256": "a343fcb0e819976b3982f6d1d77e89faa021c5ccd13dc508f8170f428832a66f"
+  },
+  {
+    "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\prepare_inputs.py",
+    "lines": "1-108",
+    "bytes": 5797,
+    "sha256": "5589abd66ddc5dea3c186e426653a50620643c7c47f5b4303382a0c43e38ae13"
+  },
+  {
+    "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\validate_mesh.py",
+    "lines": "1-93",
+    "bytes": 4719,
+    "sha256": "5268ac6d10e0c14a8333b768dad703811f30f91a70a07f062972186fc99ac416"
+  },
+  {
+    "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\active_marginal_whitening.py",
+    "lines": "1-64",
+    "bytes": 2339,
+    "sha256": "81e1a613d605edfee1da28a30a03d664959e20ca512dbfa2001776d04ce093b6"
+  },
+  {
+    "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\spectral_live_range_whitening.py",
+    "lines": "40-237",
+    "bytes": 9636,
+    "sha256": "d4e0d7a63c1fba65bc0410cfd04be4b695202b9babd9a8756e707a07a2b5f803"
+  },
+  {
+    "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\direct_w_dynamic_target.py",
+    "lines": "1-55",
+    "bytes": 2459,
+    "sha256": "245c5e9f5ed91f511a9bf69e75a0a832b68f8a66a04d424d05dbdd3734adfd65"
+  },
+  {
+    "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\fixed_splusu_dynamic_target.py",
+    "lines": "21-63;103-149;208-226;312-331;412-432;479-501",
+    "bytes": 21073,
+    "sha256": "b172a3732b30c2e15387ad898565a1c9971d902352d9bfd54485a7937295748e"
+  },
+  {
+    "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\run_c3full_fixed_profile_nuts.py",
+    "lines": "331-345;389-440;1478-1491",
+    "bytes": 94890,
+    "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49"
+  }
+]

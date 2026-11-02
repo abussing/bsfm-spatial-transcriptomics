@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "status": "FAIL",
+  "baseline_commit": "4e362b6b3988e1b899d4250812ddfc4040beb819",
+  "reason": "historical S10 geometry count mismatch; cause unresolved; no retry or tuning",
+  "external_root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_reproduction_20261102",
+  "machine_local": true,
+  "geometry_cells": 9422,
+  "historical_retained_cells": 4712,
+  "geometry_type_counts": [
+    996,
+    3337,
+    5089
+  ],
+  "retained_type_counts": [
+    498,
+    1669,
+    2545
+  ],
+  "expected": {
+    "vertices": 371,
+    "triangles": 708,
+    "active_full": 168,
+    "active_half": 167
+  },
+  "observed": {
+    "vertices": 330,
+    "triangles": 629,
+    "active_full": 167,
+    "active_half": 167
+  },
+  "historical_attempts": [
+    {
+      "h": 0.13,
+      "edges": [
+        0.13,
+        0.2,
+        0.3,
+        0.55
+      ],
+      "active": 132,
+      "total": 313
+    },
+    {
+      "h": 0.11290451085509637,
+      "edges": [
+        0.11290451085509637,
+        0.2,
+        0.3,
+        0.55
+      ],
+      "active": 168,
+      "total": 371
+    }
+  ],
+  "port_geometry": {
+    "attempts": [
+      {
+        "h": 0.13,
+        "edges": [
+          0.13,
+          0.2,
+          0.3,
+          0.55
+        ],
+        "active": 132,
+        "total": 283
+      },
+      {
+        "h": 0.11290451085509637,
+        "edges": [
+          0.11290451085509637,
+          0.2,
+          0.3,
+          0.55
+        ],
+        "active": 167,
+        "total": 330
+      }
+    ],
+    "chosen_h": 0.11290451085509637,
+    "edges": [
+      0.11290451085509637,
+      0.2,
+      0.3,
+      0.55
+    ],
+    "vertices": 330,
+    "triangles": 629,
+    "active": 167,
+    "index_base": 0,
+    "axis_order": [
+      "center_y",
+      "center_x"
+    ],
+    "units": "source_native",
+    "library_paths": [
+      "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/mesh-phase0-20261031/r-library",
+      "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/R-4.5.3/library"
+    ],
+    "packages": [
+      {
+        "name": "fmesher",
+        "version": "0.7.0"
+      },
+      {
+        "name": "sf",
+        "version": "1.1.0"
+      },
+      {
+        "name": "Matrix",
+        "version": "1.7.4"
+      },
+      {
+        "name": "jsonlite",
+        "version": "2.0.0"
+      }
+    ]
+  },
+  "available_projection_checks": {
+    "row_sum_error": 2.220446049250313e-16,
+    "affine_error": 1.1102230246251565e-15,
+    "min_weight": 1.9066991321045383e-05,
+    "max_nonzeros": 3
+  },
+  "historical_inputs_unchanged": true,
+  "input_inventory": {
+    "bytes": 4915,
+    "sha256": "f27a4b6baba98af4eccf0fbda4495eed30a199624987c3d4d59c069ad7f94b53"
+  },
+  "failure_record": {
+    "bytes": 106,
+    "sha256": "37faa436bd194fc6f8f4c937a176174d520550051f2fd85b5a133049d60ee3fd"
+  },
+  "construction_log": {
+    "bytes": 5,
+    "sha256": "21726c10dcf9e11a1bc65ffab39bb4df9a068d87d16f1946d8f54d44860395a5"
+  },
+  "not_completed": [
+    "historical geometry value/order equality",
+    "historical projector equality",
+    "historical FEM comparison",
+    "S10 downstream marginalization regression",
+    "sampler-facing bundle export"
+  ],
+  "construction_runtime": "not persisted before count gate failure",
+  "claim": "Failed mechanical reproduction, not evidence that the historical basis is scientifically inadequate."
+}

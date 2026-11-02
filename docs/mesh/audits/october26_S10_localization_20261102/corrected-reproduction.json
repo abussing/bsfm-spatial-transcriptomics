@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "historical mechanical regression only; pending review",
+  "section": "S10__WT5",
+  "geometry_cells": 9422,
+  "geometry_type_counts": [
+    996,
+    3337,
+    5089
+  ],
+  "historical_retained_cells": 4712,
+  "retained_type_counts": [
+    498,
+    1669,
+    2545
+  ],
+  "vertices": 371,
+  "triangles": 708,
+  "active_full": 168,
+  "active_half": 167,
+  "configuration": {
+    "bytes": 1317,
+    "sha256": "ea6fab398526bd2801bdbdc2972395a24e202f6294083082d80a4f75c8abcf73"
+  },
+  "source_identity": {
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\mesh\\october26.py": {
+      "bytes": 16643,
+      "sha256": "ddbd0ec696561d6f3bb439c87cbbd36c9c1fb655e311018e22fee6a962b53618"
+    },
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\mesh\\october26_builder.R": {
+      "bytes": 4292,
+      "sha256": "f34fe651d66419921333fb9f0b41f3f5eeb740c0e7ffe3f110c56f2d6a287016"
+    }
+  },
+  "construction": {
+    "command": [
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sctransform-20261031\\R-4.5.3\\bin\\x64\\Rscript.exe",
+      "--vanilla",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\mesh\\october26_builder.R",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\config\\mesh\\october26-warp-basis.json",
+      "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\cells.csv",
+      "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\mesh_loc.csv",
+      "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\mesh_tv.csv",
+      "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\geometry"
+    ],
+    "seconds": 11.927680399996461,
+    "exit_code": 0,
+    "log": {
+      "bytes": 5,
+      "sha256": "21726c10dcf9e11a1bc65ffab39bb4df9a068d87d16f1946d8f54d44860395a5"
+    }
+  },
+  "geometry": {
+    "attempts": [
+      {
+        "h": 0.13,
+        "edges": [
+          0.13,
+          0.2,
+          0.3,
+          0.55
+        ],
+        "active": 132,
+        "total": 313
+      },
+      {
+        "h": 0.11290451085509637,
+        "edges": [
+          0.11290451085509637,
+          0.2,
+          0.3,
+          0.55
+        ],
+        "active": 168,
+        "total": 371
+      }
+    ],
+    "chosen_h": 0.11290451085509637,
+    "edges": [
+      0.11290451085509637,
+      0.2,
+      0.3,
+      0.55
+    ],
+    "vertices": 371,
+    "triangles": 708,
+    "active": 168,
+    "index_base": 0,
+    "axis_order": [
+      "center_y",
+      "center_x"
+    ],
+    "units": "source_native",
+    "library_paths": [
+      "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/mesh-phase0-20261031/r-library",
+      "C:/Users/Data Viz/Desktop/Anderson_Hail/BSFM_ENVIRONMENTS/sctransform-20261031/R-4.5.3/library"
+    ],
+    "packages": [
+      {
+        "name": "fmesher",
+        "version": "0.7.0"
+      },
+      {
+        "name": "sf",
+        "version": "1.1.0"
+      },
+      {
+        "name": "Matrix",
+        "version": "1.7.4"
+      },
+      {
+        "name": "jsonlite",
+        "version": "2.0.0"
+      }
+    ]
+  },
+  "geometry_max_difference": 0.0,
+  "triangles_exact": true,
+  "projector_max_difference": 0.0,
+  "projector": {
+    "row_sum_error": 2.220446049250313e-16,
+    "affine_error": 1.1102230246251565e-15,
+    "min_weight": 1.9066991321045383e-05,
+    "max_nonzeros": 3
+  },
+  "independent_projector_max_difference": 2.1149748619109232e-14,
+  "fem_relative_errors": [
+    1.5575510377780331e-16,
+    1.2733486331710708e-16,
+    5.441245803748404e-15,
+    5.581934381799037e-15,
+    5.7968416279048945e-15,
+    6.009286726269676e-15,
+    6.227763454500849e-15
+  ],
+  "spectral": {
+    "orthogonality": 2.300490865040591e-15,
+    "eigen_residual": 2.7102709012096835e-15,
+    "simultaneous_diagonal_errors": [
+      2.2090767129368765e-15,
+      2.1199413712010155e-15,
+      3.4772613255969754e-15,
+      3.3447683519276586e-15,
+      3.258357189752341e-15,
+      3.1911623575486494e-15,
+      3.1144700409109997e-15
+    ],
+    "full_modes": 371,
+    "truncation": false
+  },
+  "exact_marginalization": {
+    "full_observations": {
+      "root_covariance_relative_error": 8.290214765338636e-16,
+      "all_observation_full_active_factor_error": 0.0
+    },
+    "historical_half": {
+      "root_covariance_relative_error": 8.311541091804458e-16,
+      "all_observation_full_active_factor_error": 0.0
+    }
+  },
+  "zero_displacement_error": 0.0,
+  "affine_displacement_error": 4.336808689942018e-17,
+  "arrays": {
+    "mesh_vertices": {
+      "shape": [
+        371,
+        2
+      ],
+      "dtype": "<f8",
+      "sha256": "c57b43e8b66b717047eb5f6859f2422a773dd73851311b95b255e3c9270fb09c"
+    },
+    "triangles": {
+      "shape": [
+        708,
+        3
+      ],
+      "dtype": "<i8",
+      "sha256": "80096003bafd20232f0623f306edf5d96e1f4de428bd6a3ef235768569d8a901"
+    },
+    "A_full": {
+      "shape": [
+        9422,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "591893154a59d910635a66f3d410e4996220f703065488e2275b61c0949a266b"
+    },
+    "active_indices_full": {
+      "shape": [
+        168
+      ],
+      "dtype": "<i8",
+      "sha256": "ff2dd88ca537f2730b61d09ab01fb7b8f88e1a71f821edb290148dcbc46d7a81"
+    },
+    "inactive_indices_full": {
+      "shape": [
+        203
+      ],
+      "dtype": "<i8",
+      "sha256": "36ba3b2cb146ab9f13df0107cb4b104c790fe7b6ea7d0cb03df4da035eb60585"
+    },
+    "A_active": {
+      "shape": [
+        9422,
+        168
+      ],
+      "dtype": "<f8",
+      "sha256": "a3d9459a4ab51bbc172deefad44f25283c5533457c5bc9a089fda4631cb887d1"
+    },
+    "source_rows": {
+      "shape": [
+        9422
+      ],
+      "dtype": "<i8",
+      "sha256": "ee20cd625176608ce024766ef5407a728deb2c8c63e5bbe32ab6aee9ab0064d3"
+    },
+    "slocs": {
+      "shape": [
+        9422,
+        2
+      ],
+      "dtype": "<f8",
+      "sha256": "1e1d4d754c6cf4149b25236f04ffd8055815379ab2adf0863026b92c364a41d7"
+    },
+    "cell_type": {
+      "shape": [
+        9422
+      ],
+      "dtype": "<i4",
+      "sha256": "d90cab233cb95243047922d6e313a3ab458d18d463b8a83ce7768b2847ffb582"
+    },
+    "historical_half_rows": {
+      "shape": [
+        4712
+      ],
+      "dtype": "<i8",
+      "sha256": "9bc828600650f936904fbd8ee1b34cabf508f846372d4aab4fd46ea28a902bd7"
+    },
+    "historical_half_active": {
+      "shape": [
+        167
+      ],
+      "dtype": "<i8",
+      "sha256": "698c427a6df34f72a910dde96319bde64754d5613b53a91275235a9d24f2273f"
+    },
+    "historical_half_A_active": {
+      "shape": [
+        4712,
+        167
+      ],
+      "dtype": "<f8",
+      "sha256": "a9ddd502443df6144f13f0cbace9651103fd62514211983eb5eaea0ed656f299"
+    },
+    "spectral_U": {
+      "shape": [
+        371,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "83bcd3df5e2bf6ecd0e2d4e05dc42b58f26fb62f4d526e7180557af32eb24ea3"
+    },
+    "modal_diagonals": {
+      "shape": [
+        7,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "c9ea62dfdfa584c76385dee631f21a53f840d93b245248353accab32ac4a30a1"
+    },
+    "fem_C": {
+      "shape": [
+        371,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "8a0c372fbd6db7dbddb62f86394b742c482170b61d3340864ca662b10afe2757"
+    },
+    "fem_g1": {
+      "shape": [
+        371,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "d537e9558f3476121555ea1a9dc300fd25cdd83f978486f7ea1e34bc9b0d8597"
+    },
+    "fem_g2": {
+      "shape": [
+        371,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "522c86f817140d9ef24689e065e41ad7153e6d7a5216efe6532d69a20d4ebf9b"
+    },
+    "fem_g3": {
+      "shape": [
+        371,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "cd32cc1848bcea52389a64f9a8579bb5ebc790194cdc3674b7f2416558d20441"
+    },
+    "fem_g4": {
+      "shape": [
+        371,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "9b4c5ae7831062c629ae6782221c064b820c33321a6d46e3300fe9240304308a"
+    },
+    "fem_g5": {
+      "shape": [
+        371,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "94f0bb97c17cef8971ec52a2e64a4d3ef53f34f6fc9a3ba6bcb80e1d3b2f81d7"
+    },
+    "fem_g6": {
+      "shape": [
+        371,
+        371
+      ],
+      "dtype": "<f8",
+      "sha256": "14df6af452911bf96bec8f7ffed8881fc3c1444baaed2b2a192384bbd002b38f"
+    }
+  },
+  "output": {
+    "bytes": 7195273,
+    "sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0"
+  },
+  "index_base": 0,
+  "axis_order": [
+    "center_y",
+    "center_x"
+  ],
+  "coordinate_units": "source_native",
+  "historical_inputs_unchanged": true,
+  "total_seconds": 18.90382820001105,
+  "no_sampler_executed": true,
+  "no_continuum_selection": true
+}

@@ -81,64 +81,43 @@ minimum-median depth, not automatically the training-only holdout depth.
 
 ## 3. Adaptive tissue meshes
 
-Recovery status: **historical recovery through M2 and the M3 coordinate/topology
-audit are complete; broad canonical mesh scientific design is frozen; numerical
-resolution, production grading and buffer remain pending**. See the
-[canonical decision](docs/decisions/ADAPTIVE_MESH_DESIGN.md),
-[M3 evidence receipt](docs/mesh/audits/M3/README.md),
-[staged study specification](config/mesh/study-design.json),
-[M1/M2 recovery](docs/recovery/ADAPTIVE_MESH.md) and
-[evidence ledger](docs/recovery/ADAPTIVE_MESH_EVIDENCE.md).
+The mesh is a parsimonious basis for an unknown latent spatial warp. Production
+selection must support smooth, learnable deformation and practical repeated
+sampling, not reproduce an infinite-domain covariance across extreme prior ranges.
+The [user scope reset](docs/decisions/ADAPTIVE_MESH_WARP_BASIS.md) selects the
+October 26 four-stage fmesher builder as the **canonical practical mesh
+implementation**, accepted by the user after the corrected S10 reproduction.
 
-The target is a unit-amplitude stationary continuum Matern reference field,
-nu=5, with all-cell empirical support, canonical glial observation rows, one
-common numerical scale and source_native units. Each registered section uses a
-connected ambient computational domain; holes are not automatic internal
-boundaries. Consistent P1 FEM, full spectrum and exact active marginalization
-are requirements. The sampler amplitude relationship is deferred to sampler
-recovery. The 2% trial accuracy targets are not production acceptance thresholds.
+Historical M1/M2 recovery is preserved. M3/Phase-0 is a **rejected experimental
+redesign**; its v1/v2 failed runs and source remain audit evidence. Do not run
+Phase-0 v3 or use its continuum grid to select production resolution.
 
-An experimental [Phase-0 study harness](docs/mesh/PHASE0_HARNESS.md) is implemented,
-synthetically tested and **approved for the Phase-0 experiment only**, not selected
-as a production mesh builder. The 21-degree minimum angle and other mechanical
-settings are approved for Phase 0 and remain provisional for production.
-Actual S10 execution requires separate authorization against the committed
-harness. Phase 0 must finish and be reviewed before Phase 1 is
-authorized. The plan has six S10 pilot geometries, 48 additional representative
-geometries, and at most 20 confirmation geometries. No phase has been executed.
-No historical implementation has been selected; no real-section mesh generation,
-GP initialization or HPC execution has occurred. Full-prior numerical coverage,
-physical units and an authenticated flat-model implementation remain unresolved.
+The [canonical builder and computational-role report](docs/mesh/OCTOBER26_CANONICALIZATION.md)
+recovers the mesh-to-warp-to-factor-GP handoff. It preserves full-glial geometry,
+per-section glial normalization, inherited far boundary, four stages, 25-degree
+angle request, consistent FEM and exact active marginalization. The first S10
+regression exposed an R argument-type defect: JSON integer 25 silently left the
+fmesher native 21-degree angle default active. The single corrected rerun used
+explicit double 25 and **passed historical reproduction**: vertices, triangles,
+projector and mesh RDS are byte-identical; FEM and marginalization checks pass.
+See the [bounded localization](docs/mesh/audits/october26_S10_localization_20261102/README.md).
+The resulting 371/708 counts are regression evidence, not scientific production
+requirements. Outward coarsening, coverage and practical warp dimension matter.
 
-The isolated [mesh environment build](docs/environment/MESH_ENVIRONMENT_BUILD.md)
-is materialized and passes bounded synthetic mesh/projector, eigensystem and
-cross-language checks; fresh offline restoration and environment acceptance have
-passed. The [restoration receipt](docs/environment/MESH_ENVIRONMENT_RESTORATION.md)
-records exact package/semantic agreement and immutability evidence. It preserves
-fmesher 0.7.0 and uses a separate R library and unified Python venv. These are
-environment acceptance checks. The approved experimental harness adds independent
-FEM/covariance/derivative tests, graded synthetic geometry, deterministic probes,
-closed-file validation, atomic artifacts and monitored sequential execution.
-See the [synthetic review evidence](docs/mesh/audits/phase0_synthetic_20261102/README.md).
-The first real S10 attempt failed loading its input transport before mesh
-construction. The [narrow transport correction](docs/mesh/audits/phase0_transport_fix_20261102/README.md)
-adds pickle-free Unicode serialization and HDF5-to-fresh-process regression
-coverage. V1 remains failed evidence; rerunning S10 in a fresh v2 root requires
-review of the corrected commit. Numerical design selection remains pending.
-The finest h2 arm is convergence/reference evidence only. Production selection
-prioritizes the coarsest adequate eligible candidate and practical active-vertex
-cost in repeated Gibbs/NUTS updates across all 19 sections. If the required
-accuracy makes repeated sampling impractical, report the design as infeasible;
-do not promote the fine reference mesh as a fallback.
-If neither coarse nor medium is adequate, report "no computationally feasible
-candidate". No automatic production selection or promotion is authorized.
+The canonical mesh implementation has passed bounded S10 reproduction and is
+approved for canonicalization. Outward grading and exact inactive-vertex
+marginalization are load-bearing. No all-section mesh execution is claimed.
+No sampler has been ported or run. No GP initialization, holdout,
+resolution sweep, Phase 1 or HPC work is authorized by this gate. Physical units
+remain source_native; no verified-micron claim is made.
 
-- Construct meshes from tissue cell locations using the adaptive method.
-- Use multiple layers of resolution that become coarser outside the cell hull.
-- Recover and document the settled refinement and outer-buffer choices.
-- Construct and retain FEM matrices and projection operators.
-- Support exact marginalization of outer/inactive mesh vertices.
-- Provide numerical geometry checks and human-review plots.
+The isolated [mesh environment](docs/environment/MESH_ENVIRONMENT_BUILD.md) and
+[offline restoration](docs/environment/MESH_ENVIRONMENT_RESTORATION.md) remain
+accepted environment evidence, not proof of reproducing the historical mesher
+runtime by themselves. Canonicalization checks passed: **127 Python tests with
+mesh/R integration enabled and seven R validation cases**. This includes the
+permanent actual Python/JSON/R angle-boundary regression and its rejected
+missing-conversion mutant. See the [acceptance record](docs/mesh/audits/october26_acceptance_20261102/README.md).
 
 ## 4. Bayesian spatial factor model sampler
 
@@ -220,12 +199,17 @@ candidate". No automatic production selection or promotion is authorized.
 
 ## Status
 
-No historical implementation has been selected. The first canonical code is
+The October 26 mesh construction is selected for conservative porting. Its first
+reproduction failed; one localized argument-type correction then reproduced S10.
+The corrected builder is accepted as the canonical practical mesh implementation.
+The first canonical code is
 the raw-input preflight, implemented from the frozen contract, tested and
 accepted with the aggregate audit above. The SCT validation runner passed
 synthetic checks and a bounded S00 smoke.
 The subsequent canonical v2 production run recomputed and validated all 19
 full-data section bundles; its [receipt](docs/preprocessing/audits/20261031_production_v2/README.md)
-registers the external artifacts. No GP/BSFM model, real-section mesh or HPC
-execution is included. Only bounded synthetic mesh construction has run.
+registers the external artifacts. Real S10 experimental mesh construction and
+a historical-port regression ran; the first port attempt failed and its single
+authorized corrected rerun passed. No GP/BSFM
+model or HPC execution is included; no mesh was promoted to production.
 

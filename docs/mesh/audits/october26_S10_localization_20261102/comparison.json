@@ -1,0 +1,110 @@
+{
+  "coordinates": {
+    "R_cells_shape": [
+      9422,
+      2
+    ],
+    "R_cells_hash": "1e1d4d754c6cf4149b25236f04ffd8055815379ab2adf0863026b92c364a41d7",
+    "NPZ_coordinates_hash": "1e1d4d754c6cf4149b25236f04ffd8055815379ab2adf0863026b92c364a41d7",
+    "csv_vs_npz_max_difference": 0.0,
+    "csv_vs_npz_exact": true,
+    "row_hash": "ee20cd625176608ce024766ef5407a728deb2c8c63e5bbe32ab6aee9ab0064d3",
+    "cell_ids_hash": "d5a96d66f6ef145150793599a3313acaf54f452b8cd9b519f42d6a41a604d9b8",
+    "row_unique": true,
+    "ids_unique": true,
+    "historical_subset_joins": {
+      "rows_exact": true,
+      "ids_exact": true,
+      "coordinates_exact": true
+    },
+    "contract": {
+      "status": "PASS",
+      "section": "S10__WT5",
+      "mouse_id": "WT5",
+      "genotype": "WT",
+      "cells": 9422,
+      "cells_by_type": {
+        "MIC": 996,
+        "AST": 3337,
+        "OGC": 5089
+      },
+      "genes": 91,
+      "factors": 25,
+      "cell_order": "stable contiguous blocks in MIC, AST, OGC order",
+      "coordinate_transform": "(physical_xy - componentwise minimum) / maximum axis span",
+      "coordinate_origin": [
+        -76.71150369109931,
+        384.4526611067433
+      ],
+      "coordinate_scale_microns": 7551.6955652603265,
+      "expression": "section-specific SCT v2 log1p, centered separately by gene and cell type",
+      "observation_sha256": "db0b9b9b3ae3188c330a872fcd66d3ca85728b0095027b5b15badde6e551ead8",
+      "biological_sidecar_sha256": "3e1c706d2671da9a504d8aed390e30446ef39ba624c2c1fb7eb9713a79f7c524",
+      "source_input": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/sections/S10__WT5/input.npz",
+      "source_input_sha256": "b432d51118c0b5df6c605ead761324d5173f16fa02737da811023c351eee13c6",
+      "plaque_geometry_status": "not present in screen input; source row IDs retained for authenticated attachment"
+    }
+  },
+  "inherited_far_boundary": {
+    "source_vertices": {
+      "bytes": 32082,
+      "sha256": "fbca0dd7f8007010f710b8a94138cbdc83b01b4bfc4092ba83ee2f04a1957e6d"
+    },
+    "source_triangles": {
+      "bytes": 14357,
+      "sha256": "2bf966a021459d8bfa5f244ccacc981d9e02ab1e24737dbe3b474577692530bc"
+    },
+    "source_boundary_vertices": 25,
+    "ordered_vertices_hash": "9de075471e267eebed5afd6e94e306ec4cabb7aa7759ee842e7f557aa5e045ac",
+    "ordered_local_edges_zero_based_hash": "210ff4dd522be853ce8d56bcb7095e49bc62a3ee8665f9cc51cd87df16c1f39c",
+    "source_paths": [
+      "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\mesh_loc.csv",
+      "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\source_geometry\\S10__WT5\\mesh_tv.csv"
+    ],
+    "port_pre_run_input_hashes_match_current_historical_sources": true
+  },
+  "final_mesh_diagnostics": {
+    "historical": {
+      "vertices": 371,
+      "triangles": 708,
+      "full_active": 168,
+      "half_active": 167,
+      "boundary_vertices": 32,
+      "boundary_ordered_vertices_hash": "5d6ea7bdc33a9b7b894c8fe4046a7e5206a9af8c57017a5016da9a8780cfdcb9",
+      "boundary_ordered_indices_hash": "ba68e02898181c81a36535555a5af0cdba9abf52601f95e534c55e48b9ab5783",
+      "max_boundary_vertex_to_inherited_segment_distance": 6.206335383118183e-17,
+      "max_inherited_vertex_to_boundary_segment_distance": 0.0,
+      "boundary_bbox": [
+        [
+          -0.86,
+          -0.7575128869403571
+        ],
+        [
+          1.6600000000000001,
+          1.9098453567157145
+        ]
+      ]
+    },
+    "port": {
+      "vertices": 330,
+      "triangles": 629,
+      "full_active": 167,
+      "half_active": 167,
+      "boundary_vertices": 29,
+      "boundary_ordered_vertices_hash": "04c26645bc8cf95364f17fda809f56225c053cd6a0ab047ed7bdcb2fa11aec5a",
+      "boundary_ordered_indices_hash": "9377cdce9ae1372ef803407e5e6a25d08a8cef3272624ce5f3ff6de9ebccaa12",
+      "max_boundary_vertex_to_inherited_segment_distance": 6.206335383118183e-17,
+      "max_inherited_vertex_to_boundary_segment_distance": 0.0,
+      "boundary_bbox": [
+        [
+          -0.86,
+          -0.7575128869403571
+        ],
+        [
+          1.6600000000000001,
+          1.9098453567157145
+        ]
+      ]
+    }
+  }
+}

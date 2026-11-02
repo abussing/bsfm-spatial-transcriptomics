@@ -19,4 +19,7 @@
 9. Make one conceptual change per commit when practical, with a plain-language
    explanation of why it was made.
 10. Update repository documentation whenever a consequential decision changes.
+11. Consolidate rather than redevelop: recover the best-supported working
+    implementation, port it conservatively, and perform a bounded reproduction
+    test. Open-ended scientific redesign requires explicit user approval.
 

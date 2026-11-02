@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "status": "localized_and_single_corrected_rerun_passed",
+  "scientific_interpretation": "Counts are historical regression observations, not production scientific acceptance criteria. Smooth supported warp basis, outward coarsening, coverage and practical active dimension are the objective.",
+  "exact_cause": "integer-valued JSON min.angle not accepted by native NumericVector reader; native default 21 remained active",
+  "only_construction_change": "cfg$minimum_angle <- as.double(cfg$minimum_angle)",
+  "settings": {
+    "h_attempts": [
+      0.13,
+      0.11290451085509637
+    ],
+    "selected_attempt": 2,
+    "padding": [
+      0.02,
+      0.18,
+      0.45
+    ],
+    "cutoff_per_attempt": [
+      0.0585,
+      0.05080702988479337
+    ],
+    "minimum_angle_requested": 25,
+    "minimum_angle_before_fix_effective": 21,
+    "minimum_angle_corrected_measured": 25.000000000000004,
+    "extend": false,
+    "concavity": 0.12,
+    "resolution": 150,
+    "epsilon": 0.006,
+    "edge_targets_selected": [
+      0.11290451085509637,
+      0.2,
+      0.3,
+      0.55
+    ],
+    "resolution_R_type_difference": "historical double 150, port JSON integer 150; unchanged in successful rerun",
+    "minimum_angle_R_type_correction": "JSON integer 25 -> explicit double 25 before fmesher native options"
+  },
+  "same_input_inventory": true,
+  "config_unchanged_sha256": "ea6fab398526bd2801bdbdc2972395a24e202f6294083082d80a4f75c8abcf73",
+  "exact_output_comparisons": {
+    "mesh_loc.csv": {
+      "historical": {
+        "bytes": 13389,
+        "sha256": "1dee661450240ada93254c8b2f00aba5b39ea71bacc71dd0450686b0d39f8b99"
+      },
+      "corrected": {
+        "bytes": 13389,
+        "sha256": "1dee661450240ada93254c8b2f00aba5b39ea71bacc71dd0450686b0d39f8b99"
+      },
+      "byte_identical": true
+    },
+    "mesh_tv.csv": {
+      "historical": {
+        "bytes": 8698,
+        "sha256": "b434e4e6e693b7a1173d0ab70e9ec47322255a4c26846a0eec2e00ce5ffbbeff"
+      },
+      "corrected": {
+        "bytes": 8698,
+        "sha256": "b434e4e6e693b7a1173d0ab70e9ec47322255a4c26846a0eec2e00ce5ffbbeff"
+      },
+      "byte_identical": true
+    },
+    "A_proj.mtx": {
+      "historical": {
+        "bytes": 793677,
+        "sha256": "f17433d3e5ad70f5b8b36e55a6a8f335de6151476a0995dd859b37ea3521e703"
+      },
+      "corrected": {
+        "bytes": 793677,
+        "sha256": "f17433d3e5ad70f5b8b36e55a6a8f335de6151476a0995dd859b37ea3521e703"
+      },
+      "byte_identical": true
+    },
+    "mesh.rds": {
+      "historical": {
+        "bytes": 32385,
+        "sha256": "3f1660f7f025fd981bceeb572dfabffa5b9ba6895df5ca48cdcf753696c55335"
+      },
+      "corrected": {
+        "bytes": 32385,
+        "sha256": "3f1660f7f025fd981bceeb572dfabffa5b9ba6895df5ca48cdcf753696c55335"
+      },
+      "byte_identical": true
+    }
+  },
+  "corrected_zone_median_edges": [
+    0.0692190089272667,
+    0.0970169423334511,
+    0.14873470404316544,
+    0.21761380365506078
+  ],
+  "zone_assignment": "historical TRIANGLE_GRADING.csv row order, checked against identical reproduced triangles and recomputed mean edge lengths",
+  "comparison_limitations": [
+    "no saved initial unpadded tissue-hull vertex array",
+    "no saved original .02/.18/.45 input polygon arrays or per-stage location arrays",
+    "no historical per-stage vertex/triangle counts; only complete four-stage attempts recorded",
+    "final mesh RDS constraint segments are not the missing original stage-input snapshots",
+    "historical Matrix version not recorded in inspected A/F evidence"
+  ],
+  "versions": {
+    "historical_fmesher": "0.7.0 certificate",
+    "historical_R_writer": "4.5.3 infoRDS, not a complete historical session attestation",
+    "historical_Matrix": null,
+    "port_R": "4.5.3",
+    "port_Matrix": "1.7-4",
+    "port_fmesher": "0.7.0"
+  },
+  "external_rerun_root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102",
+  "corrected_report_identity": {
+    "bytes": 9023,
+    "sha256": "5d243884b8e8007c262ef4cb31f5b796294f6c51d469858f67b185de3328dadb"
+  },
+  "tests": {
+    "bounded_test_cases": 8,
+    "failures": 0,
+    "seconds": 1.229,
+    "new_regression": "actual builder prefix: JSON integer -> R double -> fmesher native option; no mesh constructed"
+  },
+  "archive_source": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\downloads\\source\\fmesher_0.7.0.tar.gz",
+    "sha256": "6a1c4e69c5d2a235edcc3a613cb0cff0015ceee78b65c2d342bc05e12ff8a185",
+    "member": "fmesher/src/Rcpp_interface.cc",
+    "lines": "78-86,105-128"
+  },
+  "no_parameter_study": true,
+  "no_fallback_registration": true,
+  "no_GP_or_sampler_work": true
+}

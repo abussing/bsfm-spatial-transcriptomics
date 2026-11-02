@@ -1,4 +1,14 @@
-# Experimental Phase-0 harness — approved for Phase 0 only
+# Rejected experimental Phase-0 harness — preserved audit
+
+**Execution and development stopped by user decision.** The scope reset in
+[ADAPTIVE_MESH_WARP_BASIS.md](../decisions/ADAPTIVE_MESH_WARP_BASIS.md) supersedes
+the instructions below. V1 failed at input transport; V2 failed at its first
+candidate's covariance-root derivative identity check after constructing a
+2,675-vertex mesh. Neither run completed a candidate. Preserve both external
+roots; do not debug V2, run V3, or use this grid for production selection.
+See the [rejected-experiment record](audits/october26_S10_20261102/rejected-phase0.json).
+The remaining text is the prior harness documentation, not current execution
+authorization. Its source/configuration remain unchanged as experimental evidence.
 
 This harness implements the [approved study](../../config/mesh/study-design.json)
 and [scientific design](../decisions/ADAPTIVE_MESH_DESIGN.md) using new canonical
