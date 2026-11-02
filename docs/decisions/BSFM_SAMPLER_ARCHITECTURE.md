@@ -3,6 +3,9 @@
 Status: **selected by explicit user decision; first Gaussian/shrinkage/PX layer
 implemented and validated; full sampler not yet ported**. See the bounded
 [layer-1 report](../sampler/LAYER1.md) and [source map](../sampler/LAYER1_SOURCE_MAP.csv).
+The deterministic full-spectrum warp/active-marginalization Layer 2 is implemented
+and validated; see the [layer-2 report](../sampler/LAYER2.md). Its CPU validation does
+not select a GPU production environment or implement the remaining sampler.
 Decision date: 2026-11-02. Recovery baseline:
 `10cb6e27168aae7581831a6591089b4d88629c49`.
 

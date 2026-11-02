@@ -1,0 +1,96 @@
+{
+  "schema": "bsfm.sampler-layer2-boundaries.v1",
+  "helpers": [
+    {
+      "role": "FEM constants",
+      "source_path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\generate_splusu_phase1.py",
+      "source_bytes": 28641,
+      "source_sha256": "7e9fb03fd484b2768775a3604296476e39423813b5b191ad9fa1c8752161169f",
+      "source_lines": [
+        28,
+        35
+      ],
+      "fragment_sha256": "5ea9071f3946a6e6efccbd527c1412dac5852cbea2111d3f140f1b23b9532a46",
+      "port": "src/bsfm/sampler/warp.py",
+      "handling": "Exact assignments and evaluation order; no gallery settings"
+    },
+    {
+      "role": "dense_mm",
+      "source_path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\generate_splusu_phase1.py",
+      "source_bytes": 28641,
+      "source_sha256": "7e9fb03fd484b2768775a3604296476e39423813b5b191ad9fa1c8752161169f",
+      "source_lines": [
+        55,
+        59
+      ],
+      "fragment_sha256": "7f9d2c1c1de5a91261c1dec3395992a0f3d1f8e7511bb2d8049e430a6bdd3132",
+      "port": "src/bsfm/sampler/warp.py",
+      "handling": "Delegate canonical October26 reader, then preserve historical float64 conversion; dense/sparse Matrix Market roundtrip and reference comparison"
+    }
+  ],
+  "canonical_reuse": [
+    {
+      "path": "src/bsfm/mesh/october26.py",
+      "sha256": "ddbd0ec696561d6f3bb439c87cbbd36c9c1fb655e311018e22fee6a962b53618",
+      "functions": {
+        "fem_matrices": [
+          51,
+          77
+        ],
+        "polynomial_fem": [
+          80,
+          91
+        ],
+        "spectral_artifact": [
+          94,
+          111
+        ],
+        "marginal_root": [
+          114,
+          130
+        ],
+        "warp_cells": [
+          133,
+          140
+        ],
+        "dense_mm": [
+          147,
+          149
+        ]
+      },
+      "use": "Existing canonical FEM/projector/reader reused; existing NumPy spectral/root functions serve independent comparison, not a second mesher."
+    },
+    {
+      "path": "src/bsfm/mesh/projectors.py",
+      "sha256": "d10af2454494d0452701da5567e5e7c1ac2b3f5b60776a2fbf209eef3a60c9f6",
+      "functions": {
+        "project": [
+          8,
+          28
+        ],
+        "validate": [
+          31,
+          39
+        ],
+        "active": [
+          42,
+          43
+        ]
+      },
+      "use": "Existing canonical FEM/projector/reader reused; existing NumPy spectral/root functions serve independent comparison, not a second mesher."
+    }
+  ],
+  "new_boundary": "WarpGeometry input hashes, domain checks, coupled amplitude derivative and deterministic inverse chart are new interfaces/algebra; no historical likelihood/transition port.",
+  "coupling": "Selected architecture: sigma_W = exp(log_ell + log_r - log(sqrt(10))). Active physical field has two columns. Rewhitening solves L z = W/sigma; no stochastic update.",
+  "tolerance_sources": {
+    "spectral": "spectral_live_range_whitening.py:42-44, 2e-10; modal negative clamp lines 91-96, 2e-12 relative scale",
+    "projector": "config/mesh/october26-warp-basis.json: projector_tolerance 5e-12",
+    "gather": "splusu_active_tqff_target.py:13-38: threshold 1e-13 and reconstruction 2e-14",
+    "physical_W": "docs/recovery/BSFM_SAMPLER.md: physical-W invariance 2e-8"
+  },
+  "s10_audit": {
+    "path": "docs/sampler/LAYER2_S10_AUDIT.json",
+    "bytes": 26226,
+    "sha256": "db31c2f7cec4144b2770ec0cf687f93420a98463a8f7e37cb08f917b330cef09"
+  }
+}

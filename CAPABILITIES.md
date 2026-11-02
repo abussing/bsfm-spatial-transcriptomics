@@ -154,7 +154,15 @@ sampler remains unported. See the [layer-1 report](docs/sampler/LAYER1.md) and
 [seven-function source map](docs/sampler/LAYER1_SOURCE_MAP.csv). Three bounded
 synthetic source/port fixtures agree exactly, including both RNG streams; 27
 focused tests pass. No historical monolith or experimental branch was imported,
-and no full sampler/environment/run capability is claimed. See the
+and no full sampler/environment/run capability is claimed.
+The deterministic full-spectrum warp/active-marginalization layer is now
+implemented and validated: [layer-2 report](docs/sampler/LAYER2.md),
+[source map](docs/sampler/LAYER2_SOURCE_MAP.csv), and
+[isolated CPU environment](environment/sampler-layer2/README.md).
+Two synthetic historical-reference comparisons and both S10 observation
+populations match exactly in the pinned CPU environment; 22 focused layer-2
+tests pass. This does not establish a GPU environment or complete sampler.
+See the
 [architecture decision](docs/decisions/BSFM_SAMPLER_ARCHITECTURE.md),
 [model, chronology and evidence limits](docs/recovery/BSFM_SAMPLER.md), and
 [source/dependency identities](docs/recovery/BSFM_SAMPLER_SOURCES.csv).

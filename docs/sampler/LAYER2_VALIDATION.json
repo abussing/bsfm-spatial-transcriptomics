@@ -1,0 +1,83 @@
+{
+  "schema": "bsfm.sampler-layer2-validation.v1",
+  "status": "PASS",
+  "baseline": "d534788b373071f29853af2a62600b07d57e5fbe",
+  "tests": {
+    "layer2": 22,
+    "layer1": 27,
+    "october26_mesh": 8,
+    "total": 57,
+    "skipped": 0
+  },
+  "test_commands": [
+    "sampler-layer2-cpu/python/Scripts/python.exe -B -W error::ResourceWarning -m unittest discover -s tests -p test_sampler_layer*.py -v",
+    "mesh-phase0/python/Scripts/python.exe -B -m unittest discover -s tests -p test_mesh_october26.py -v"
+  ],
+  "checks": {
+    "source_map_rows": 9,
+    "bounded_helper_records": 2,
+    "local_links": 69,
+    "source_hash_lines_fragments_ast": "PASS",
+    "synthetic_fixture": "PASS exact",
+    "s10": "PASS exact same-environment source/port and repeat",
+    "wheel_hashes": "PASS",
+    "runtime_hashes": "PASS",
+    "syntax_json_csv_toml": "PASS",
+    "credential_patterns": "PASS",
+    "git_diff_check": "PASS",
+    "unchanged_canonical_mesh_and_layer1": true,
+    "bounded_FEM_constants_and_dense_mm_reference": "PASS exact constants; exact dense and sparse Matrix Market historical/port comparison"
+  },
+  "files": {
+    "environment/sampler-layer2/build.py": {
+      "bytes": 4017,
+      "sha256": "afeaf8f1598eecc049ee00b935a67159b044544301c61141640f4f60f8705830"
+    },
+    "pyproject.toml": {
+      "bytes": 972,
+      "sha256": "50aef8bc26f4503dd4b3dcbcd6e275c46f1ddf3bde17c00bca947b3d8b1ed6b4"
+    },
+    "src/bsfm/sampler/active.py": {
+      "bytes": 2287,
+      "sha256": "dea6a16f8b3e6e06e953c309b6098b695f8d7e30d15ffff72f37a563161abe0b"
+    },
+    "src/bsfm/sampler/projector_encoding.py": {
+      "bytes": 1391,
+      "sha256": "f3cfe600b412fc48b832fb4d13139f8de3205d4e760837cb9573b05d0c3c4a8e"
+    },
+    "src/bsfm/sampler/spectral.py": {
+      "bytes": 9172,
+      "sha256": "548677908b03e4f4e94008f9ecf98acdd3f2a30f6634d41449d8fd0797392c56"
+    },
+    "src/bsfm/sampler/warp.py": {
+      "bytes": 8668,
+      "sha256": "aaf3fbd1738e353ac5ded06a1bf4c658e8d96ef219c2e4ab5572629faa248b19"
+    },
+    "tests/audit_sampler_layer2_s10.py": {
+      "bytes": 7992,
+      "sha256": "5025ec8215e11ee179e4ebd32b5c459506b20431801cde7e66469af5254ab8c9"
+    },
+    "tests/build_sampler_layer2_fixture.py": {
+      "bytes": 1629,
+      "sha256": "0afc9ecb85abcdc1d60ff25ab86cf3bf26605c2cc82e726987e6b556e4b302e7"
+    },
+    "tests/fixtures/sampler_layer2.json": {
+      "bytes": 19714,
+      "sha256": "0a902b8a008512fbe33d3d2cc4e955de6ce6fc8e930d7776b95af241a0c5a80f"
+    },
+    "tests/sampler_layer2_support.py": {
+      "bytes": 5077,
+      "sha256": "6332a617eff1064bfb1c291777da879e05288789f7ffa10e4893fb4f8e9ba474"
+    },
+    "tests/test_sampler_layer2.py": {
+      "bytes": 13811,
+      "sha256": "8bb47022000f431c58bd828eedf9fcc91c2b2e0e0c5c19528e4ded20ed01a2c1"
+    }
+  },
+  "limitations": [
+    "Windows Python 3.12.0 CPU, not historical Linux 3.11.14 or GPU",
+    "No full sampler, no real-data expression fit",
+    "Expected input identities require an independently authenticated caller",
+    "No direct dense precision inversion claim for ill-conditioned S10; independent dense inverse tested on synthetic FEM"
+  ]
+}

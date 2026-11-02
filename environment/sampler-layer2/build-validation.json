@@ -1,0 +1,162 @@
+{
+  "schema": "bsfm.sampler-layer2-cpu-validation.v1",
+  "status": "PASS",
+  "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Scripts\\python.exe",
+  "prefix": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python",
+  "base_prefix": "C:\\Program Files\\Python312",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "architecture": "AMD64",
+  "pointer_bits": 64,
+  "user_site_enabled": false,
+  "sys_path": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics",
+    "C:\\Program Files\\Python312\\python312.zip",
+    "C:\\Program Files\\Python312\\DLLs",
+    "C:\\Program Files\\Python312\\Lib",
+    "C:\\Program Files\\Python312",
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python",
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Lib\\site-packages"
+  ],
+  "jax": "0.7.0",
+  "jaxlib": "0.7.0",
+  "numpy": "2.1.3",
+  "scipy": "1.14.1",
+  "backend": "cpu",
+  "devices": [
+    "TFRT_CPU_0"
+  ],
+  "x64": true,
+  "blas": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-c16e4918366c6bc1f1cd71e28ca36fc0.dll",
+      "version": "0.3.27",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    }
+  ],
+  "numpy_build": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"msvc\",\n      \"linker\": \"link\",\n      \"version\": \"19.29.30156\",\n      \"commands\": \"cl\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.0.11\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"msvc\",\n      \"linker\": \"link\",\n      \"version\": \"19.29.30156\",\n      \"commands\": \"cl\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"windows\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"windows\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.27\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"C:/Users/runneradmin/AppData/Local/Temp/cibw-run-__cqtv8c/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"C:/Users/runneradmin/AppData/Local/Temp/cibw-run-__cqtv8c/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.27  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24\",\n      \"pc file directory\": \"D:/a/numpy/numpy/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.27\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"C:/Users/runneradmin/AppData/Local/Temp/cibw-run-__cqtv8c/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"C:/Users/runneradmin/AppData/Local/Temp/cibw-run-__cqtv8c/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.27  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24\",\n      \"pc file directory\": \"D:/a/numpy/numpy/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"C:\\\\Users\\\\runneradmin\\\\AppData\\\\Local\\\\Temp\\\\build-env-3wj3z502\\\\Scripts\\\\python.exe\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"SSE\",\n      \"SSE2\",\n      \"SSE3\"\n    ],\n    \"found\": [\n      \"SSSE3\",\n      \"SSE41\",\n      \"POPCNT\",\n      \"SSE42\",\n      \"AVX\",\n      \"F16C\",\n      \"FMA3\",\n      \"AVX2\"\n    ],\n    \"not found\": [\n      \"AVX512F\",\n      \"AVX512CD\",\n      \"AVX512_SKX\",\n      \"AVX512_CLX\",\n      \"AVX512_CNL\",\n      \"AVX512_ICL\"\n    ]\n  }\n}\n",
+  "runtime_hashes_unchanged": true,
+  "build": {
+    "schema": "bsfm.sampler-layer2-cpu-build.v1",
+    "status": "PASS",
+    "root_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102",
+    "commands": [
+      [
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Scripts\\python.exe",
+        "-I",
+        "-m",
+        "pip",
+        "--isolated",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--require-hashes",
+        "--find-links",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\wheels",
+        "-r",
+        "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\sampler-layer2\\requirements.lock.txt"
+      ]
+    ],
+    "packages": [
+      {
+        "name": "jax",
+        "version": "0.7.0"
+      },
+      {
+        "name": "jaxlib",
+        "version": "0.7.0"
+      },
+      {
+        "name": "ml_dtypes",
+        "version": "0.6.0"
+      },
+      {
+        "name": "numpy",
+        "version": "2.1.3"
+      },
+      {
+        "name": "opt_einsum",
+        "version": "3.4.0"
+      },
+      {
+        "name": "pip",
+        "version": "23.2.1"
+      },
+      {
+        "name": "scipy",
+        "version": "1.14.1"
+      },
+      {
+        "name": "threadpoolctl",
+        "version": "3.5.0"
+      }
+    ],
+    "wheels": [
+      {
+        "name": "jax",
+        "version": "0.7.0",
+        "filename": "jax-0.7.0-py3-none-any.whl",
+        "bytes": 2785944,
+        "sha256": "62833036cbaf4641d66ae94c61c0446890a91b2c0d153946583a0ebe04877a76",
+        "url": "https://files.pythonhosted.org/packages/ad/de/3092df5073cd9c07c01b10612fc541538b74b02184fac90e3beada20f758/jax-0.7.0-py3-none-any.whl"
+      },
+      {
+        "name": "jaxlib",
+        "version": "0.7.0",
+        "filename": "jaxlib-0.7.0-cp312-cp312-win_amd64.whl",
+        "bytes": 60191213,
+        "sha256": "df003e5a31ce15e1f2ed8826195a45906ac822e9d304aaef567770c2df1cd67e",
+        "url": "https://files.pythonhosted.org/packages/91/29/6701b60687e41aef126b4f0bac2b786e91055fac3452f91c8dc910027157/jaxlib-0.7.0-cp312-cp312-win_amd64.whl"
+      },
+      {
+        "name": "numpy",
+        "version": "2.1.3",
+        "filename": "numpy-2.1.3-cp312-cp312-win_amd64.whl",
+        "bytes": 12566858,
+        "sha256": "0d30c543f02e84e92c4b1f415b7c6b5326cbe45ee7882b6b77db7195fb971e3a",
+        "url": "https://files.pythonhosted.org/packages/a6/84/fa11dad3404b7634aaab50733581ce11e5350383311ea7a7010f464c0170/numpy-2.1.3-cp312-cp312-win_amd64.whl"
+      },
+      {
+        "name": "scipy",
+        "version": "1.14.1",
+        "filename": "scipy-1.14.1-cp312-cp312-win_amd64.whl",
+        "bytes": 44521212,
+        "sha256": "2ff38e22128e6c03ff73b6bb0f85f897d2362f8c052e3b8ad00532198fbdae3f",
+        "url": "https://files.pythonhosted.org/packages/aa/7d/43ab67228ef98c6b5dd42ab386eae2d7877036970a0d7e3dd3eb47a0d530/scipy-1.14.1-cp312-cp312-win_amd64.whl"
+      },
+      {
+        "name": "threadpoolctl",
+        "version": "3.5.0",
+        "filename": "threadpoolctl-3.5.0-py3-none-any.whl",
+        "bytes": 18414,
+        "sha256": "56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467",
+        "url": "https://files.pythonhosted.org/packages/4b/2c/ffbf7a134b9ab11a67b0cf0726453cedd9c5043a4fe7a35d1cefa9a1bcfb/threadpoolctl-3.5.0-py3-none-any.whl"
+      },
+      {
+        "name": "ml_dtypes",
+        "version": "0.6.0",
+        "filename": "ml_dtypes-0.6.0-cp312-cp312-win_amd64.whl",
+        "bytes": 439333,
+        "sha256": "2a3e9d53925597fbffafd2a37048dadeddd0bdaba58058f6ae0869ed709a184d",
+        "url": "https://files.pythonhosted.org/packages/ba/db/9c61ec2760b5cbfb1c6558d5c991a6d8fd3271053c32db20506a9a90272b/ml_dtypes-0.6.0-cp312-cp312-win_amd64.whl"
+      },
+      {
+        "name": "opt_einsum",
+        "version": "3.4.0",
+        "filename": "opt_einsum-3.4.0-py3-none-any.whl",
+        "bytes": 71932,
+        "sha256": "69bb92469f86a1565195ece4ac0323943e83477171b91d24c35afe028a90d7cd",
+        "url": "https://files.pythonhosted.org/packages/23/cd/066e86230ae37ed0be70aae89aabf03ca8d9f39c8aea0dec8029455b5540/opt_einsum-3.4.0-py3-none-any.whl"
+      }
+    ],
+    "lock_sha256": "5e7cdc83ba60a1473cb63781921118e94ed10cc9887486a1e1cc1995c9440505",
+    "requirements_sha256": "a47d4af684c9fe7fd7f0763a69a2708dacdf5b4262057fdb398e9a7b4e6c84d8",
+    "python_executable_sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb",
+    "offline_install": true
+  }
+}

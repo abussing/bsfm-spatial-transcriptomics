@@ -1,0 +1,792 @@
+{
+  "schema": "bsfm.sampler-layer2-S10-audit.v1",
+  "status": "PASS",
+  "scope": "deterministic geometry and warp foundation only; no sampler or mesh rebuild",
+  "artifact": {
+    "path_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\sampler-facing.npz",
+    "bytes": 7195273,
+    "sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0"
+  },
+  "source_files": [
+    {
+      "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\spectral_live_range_whitening.py",
+      "bytes": 9636,
+      "sha256": "d4e0d7a63c1fba65bc0410cfd04be4b695202b9babd9a8756e707a07a2b5f803",
+      "lines": [
+        [
+          28,
+          32
+        ],
+        [
+          35,
+          37
+        ],
+        [
+          40,
+          163
+        ],
+        [
+          166,
+          237
+        ]
+      ]
+    },
+    {
+      "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\active_marginal_whitening.py",
+      "bytes": 2339,
+      "sha256": "81e1a613d605edfee1da28a30a03d664959e20ca512dbfa2001776d04ce093b6",
+      "lines": [
+        [
+          14,
+          22
+        ],
+        [
+          25,
+          47
+        ],
+        [
+          50,
+          59
+        ],
+        [
+          62,
+          64
+        ]
+      ]
+    },
+    {
+      "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\splusu_active_tqff_target.py",
+      "bytes": 10600,
+      "sha256": "e05c68a97db4e5d8c61001e66f3e74e8d7233a1733e0476c756aef76405a673c",
+      "lines": [
+        [
+          13,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\generate_splusu_phase1.py",
+      "bytes": 28641,
+      "sha256": "7e9fb03fd484b2768775a3604296476e39423813b5b191ad9fa1c8752161169f",
+      "lines": [
+        [
+          28,
+          28
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          31,
+          34
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          55,
+          59
+        ]
+      ]
+    }
+  ],
+  "populations": [
+    {
+      "population": "full_geometry_cells",
+      "cells": 9422,
+      "vertices": 371,
+      "active_vertices": 168,
+      "full_modes": 371,
+      "ell": 1.0,
+      "exact_reference": true,
+      "exact_repeat": true,
+      "identity": {
+        "schema": "bsfm.sampler-warp-input.v1",
+        "section": "S10__WT5",
+        "mesh_sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0",
+        "coordinate_system": "october26_glial_min_max_span",
+        "axis_order": [
+          "center_y",
+          "center_x"
+        ],
+        "units": "normalized",
+        "index_base": 0,
+        "law": "full_spectrum_raw_Q",
+        "arrays": {
+          "terms": "55112d1195bab143e4915b48925f061d0f1d6dd84d731512c889782633be472d",
+          "vertices": "c57b43e8b66b717047eb5f6859f2422a773dd73851311b95b255e3c9270fb09c",
+          "projector": "591893154a59d910635a66f3d410e4996220f703065488e2275b61c0949a266b",
+          "locations": "1e1d4d754c6cf4149b25236f04ffd8055815379ab2adf0863026b92c364a41d7",
+          "active_indices": "ff2dd88ca537f2730b61d09ab01fb7b8f88e1a71f821edb290148dcbc46d7a81",
+          "vertex_ids": "459abcf907b6576345c61ac3ed00f5f6d67af5b7217969d33c82d301c0e40b7a",
+          "cell_ids": "f285137f21847f7d5e625b64541f7bc6ed10a2ede599413553afdd7af754fcd5",
+          "source_rows": "ee20cd625176608ce024766ef5407a728deb2c8c63e5bbe32ab6aee9ab0064d3"
+        }
+      },
+      "spectral_audit": {
+        "status": "PASS",
+        "n_v": 371,
+        "n_polynomial_terms": 7,
+        "full_rank_no_truncation": true,
+        "mass_orthogonality_relative_frobenius": 2.2984674974753135e-15,
+        "generalized_eigen_residual_relative_frobenius": 2.68847392882989e-15,
+        "term_offdiagonal_relative_frobenius": [
+          2.2007887670557493e-15,
+          2.1144209641263894e-15,
+          3.4541638863964698e-15,
+          3.327978915472915e-15,
+          3.2482061013160715e-15,
+          3.176135421554034e-15,
+          3.111840783754137e-15
+        ],
+        "max_term_offdiagonal_relative_frobenius": 3.4541638863964698e-15,
+        "generalized_eigenvalue_min": 3.786568907864364e-13,
+        "generalized_eigenvalue_max": 6344.403465075132,
+        "log_reference_mass_variance": 1.0810021855169452,
+        "basis_sha256": "b20cd1afb218b81c094049d1a23f3e54512a8725e605659c61fc57faaec300b5",
+        "modal_diagonals_sha256": "2c1e4db69f7ebc4ff112cb61b19516cbee4d68e2ba4653bfe5544c7a99bfbd97",
+        "projected_modes_sha256": "6410566fd9b28030a6f569a9947810adf8cad60b448c112d3d77743f345462a6"
+      },
+      "metrics": {
+        "full_to_active_covariance_relative": 5.881836549729763e-16,
+        "root_reconstruction_relative": 9.722398359931964e-16,
+        "root_derivative_identity_relative": 1.4635218691620152e-15,
+        "full_to_active_projected_modes_relative": 4.33388148285845e-17,
+        "canonical_numpy_root_relative": 1.5905705409145367e-14,
+        "canonical_numpy_modal_sd_relative": 4.684922669244938e-17,
+        "projector_row_sum_max": 2.220446049250313e-16,
+        "projector_affine_max": 1.1102230246251565e-15,
+        "rewhiten_active_max": 3.885780586188048e-16,
+        "rewhiten_cell_max": 3.885780586188048e-16
+      },
+      "historical_comparison": {
+        "U": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            371,
+            371
+          ],
+          "logical_sha256": "09e141fa0a4ef1988dd6aa67287ffc3e04c944cef8b3f5afd47c7b4715dde35a"
+        },
+        "modal_diagonals": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            7,
+            371
+          ],
+          "logical_sha256": "bf4f90ddb344173b0aa8c32e85ffd030da389a655422022ba5632207385d7ca6"
+        },
+        "projected_modes": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            9422,
+            371
+          ],
+          "logical_sha256": "e1316da2b16ddcef9c3169787ffdb16521a7a910c0519e7e404459312324ecf8"
+        },
+        "audit": {
+          "status": {
+            "exact": true
+          },
+          "n_v": {
+            "exact": true
+          },
+          "n_polynomial_terms": {
+            "exact": true
+          },
+          "full_rank_no_truncation": {
+            "exact": true
+          },
+          "mass_orthogonality_relative_frobenius": {
+            "exact": true
+          },
+          "generalized_eigen_residual_relative_frobenius": {
+            "exact": true
+          },
+          "term_offdiagonal_relative_frobenius": {
+            "exact": true
+          },
+          "max_term_offdiagonal_relative_frobenius": {
+            "exact": true
+          },
+          "generalized_eigenvalue_min": {
+            "exact": true
+          },
+          "generalized_eigenvalue_max": {
+            "exact": true
+          },
+          "log_reference_mass_variance": {
+            "exact": true
+          },
+          "basis_sha256": {
+            "exact": true
+          },
+          "modal_diagonals_sha256": {
+            "exact": true
+          },
+          "projected_modes_sha256": {
+            "exact": true
+          }
+        },
+        "L": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            168,
+            168
+          ],
+          "logical_sha256": "3078f749d4f72d5a35662431a937568216085f7f6a48b10fbd420d87519808bb"
+        },
+        "L_r": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            168,
+            168
+          ],
+          "logical_sha256": "274ecfff4817b9dca2debd8107058c5574db92c1877bd138f678b5c836382a54"
+        },
+        "Sigma": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            168,
+            168
+          ],
+          "logical_sha256": "53e18f7da7cbcecdcb242ba625e36fc61555ea73458e067c0c46f887c8099041"
+        },
+        "Sigma_r": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            168,
+            168
+          ],
+          "logical_sha256": "cf4f0fb65204fe5719f6890c0391174a306e3dd38827f02df35831636b0d3887"
+        },
+        "modal": {
+          "modal_sd": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "6b5e46f917c6127084fb529d660513ea2e8dd1e37b68a41336358263171a718b"
+          },
+          "modal_sd_r": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "c779cbf74e4cf63f8c4f723ab3b123c486c877493dc5e444ea4328588b873617"
+          },
+          "modal_sd_rr": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "84821dc6dd71ce6d333d5ca3f839424a825281c20135899bf6f03d7d6fb898e6"
+          },
+          "log_raw_q": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "99a0d832160aa9d158d462699825a562cc3afcaebb989cc99e0ebc2b680e0c0e"
+          },
+          "log_raw_q_r": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "597909ebebaad4e82b0dd8a1b4ff31547746439ed30437fd98fcfd39b3cff6d7"
+          },
+          "log_raw_q_rr": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "55be5443b579e426194c7673ff9e842eadbcfe4808ef5f1c27c278d5a9828918"
+          },
+          "log_raw_mass_variance": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [],
+            "logical_sha256": "b485677991c2ca9974ae6a805bbd144dace078e5e10cdc153cc7d3fc91d3b0e7"
+          },
+          "log_raw_mass_variance_r": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [],
+            "logical_sha256": "274020f2e8f19840bd44fc75f819eceb82c32f7571c5fb7c4469dce0143337ab"
+          },
+          "log_raw_mass_variance_rr": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [],
+            "logical_sha256": "c493ef634c1cb923f21e1f7e94ff3fdea15243241dc9ffd71358187958707da3"
+          },
+          "log_amplitude_scale": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [],
+            "logical_sha256": "457d2a8c00270d33fc97826b3be776efe29e7961fe5b8d9d0ddeee8ede17bcd7"
+          },
+          "log_normalized_q": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "99a0d832160aa9d158d462699825a562cc3afcaebb989cc99e0ebc2b680e0c0e"
+          },
+          "legacy_raw_Q_prior": {
+            "exact": true
+          }
+        },
+        "Wcell": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            9422,
+            2
+          ],
+          "logical_sha256": "359c37a142abe923b3c2161ed2d4b21a2dcf88f32ca534853af6709f3bf3bce7"
+        },
+        "Wcell_r": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            9422,
+            2
+          ],
+          "logical_sha256": "9e55b09ab684ab14c31d2e2d97052f845aead6b0ce3613fcd2d965ec788b17a9"
+        },
+        "WA": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            168,
+            2
+          ],
+          "logical_sha256": "b27a5287fa3a177674a7c832fc4b234e3dc83dcd423656b492533155aeaca2c9"
+        },
+        "triplets_indices": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            9422,
+            3
+          ],
+          "logical_sha256": "e243dd06b2e293479ac8474eed8844203f052dbb81cb770c32f43418967a196d"
+        },
+        "triplets_weights": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            9422,
+            3
+          ],
+          "logical_sha256": "40e544e5704bb34db4060e35743899e92eb22ebcc6d2fd0f3485d6d46b1d84b6"
+        },
+        "triplets_audit": {
+          "maximum_reconstruction_error": {
+            "exact": true
+          },
+          "nonzero_count_min": {
+            "exact": true
+          },
+          "nonzero_count_max": {
+            "exact": true
+          }
+        }
+      },
+      "seconds": 3.8422451999795157
+    },
+    {
+      "population": "historical_retained_cells",
+      "cells": 4712,
+      "vertices": 371,
+      "active_vertices": 167,
+      "full_modes": 371,
+      "ell": 1.0,
+      "exact_reference": true,
+      "exact_repeat": true,
+      "identity": {
+        "schema": "bsfm.sampler-warp-input.v1",
+        "section": "S10__WT5",
+        "mesh_sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0",
+        "coordinate_system": "october26_glial_min_max_span",
+        "axis_order": [
+          "center_y",
+          "center_x"
+        ],
+        "units": "normalized",
+        "index_base": 0,
+        "law": "full_spectrum_raw_Q",
+        "arrays": {
+          "terms": "55112d1195bab143e4915b48925f061d0f1d6dd84d731512c889782633be472d",
+          "vertices": "c57b43e8b66b717047eb5f6859f2422a773dd73851311b95b255e3c9270fb09c",
+          "projector": "c195620a53c9ceebd52ab6f641768e1578803dc4348ce28279ccc8b1ade1e64b",
+          "locations": "db80eb6850e5496c64f9c0bea73e08cf393ecd3a629e0ddff48dceb0a9e67482",
+          "active_indices": "698c427a6df34f72a910dde96319bde64754d5613b53a91275235a9d24f2273f",
+          "vertex_ids": "459abcf907b6576345c61ac3ed00f5f6d67af5b7217969d33c82d301c0e40b7a",
+          "cell_ids": "93dc0d672a314fc4fa649c3a5c5524b04ef871888396ee5ab3e9e4e522130e53",
+          "source_rows": "1b60c15bd3adfda813199de40246c424cbc3c903c636047b0b51aede761f52a9"
+        }
+      },
+      "spectral_audit": {
+        "status": "PASS",
+        "n_v": 371,
+        "n_polynomial_terms": 7,
+        "full_rank_no_truncation": true,
+        "mass_orthogonality_relative_frobenius": 2.2984674974753135e-15,
+        "generalized_eigen_residual_relative_frobenius": 2.68847392882989e-15,
+        "term_offdiagonal_relative_frobenius": [
+          2.2007887670557493e-15,
+          2.1144209641263894e-15,
+          3.4541638863964698e-15,
+          3.327978915472915e-15,
+          3.2482061013160715e-15,
+          3.176135421554034e-15,
+          3.111840783754137e-15
+        ],
+        "max_term_offdiagonal_relative_frobenius": 3.4541638863964698e-15,
+        "generalized_eigenvalue_min": 3.786568907864364e-13,
+        "generalized_eigenvalue_max": 6344.403465075132,
+        "log_reference_mass_variance": 1.0810021855169452,
+        "basis_sha256": "b20cd1afb218b81c094049d1a23f3e54512a8725e605659c61fc57faaec300b5",
+        "modal_diagonals_sha256": "2c1e4db69f7ebc4ff112cb61b19516cbee4d68e2ba4653bfe5544c7a99bfbd97",
+        "projected_modes_sha256": "a5994f928eff399606eb4d67d1c022d65c266fe9091bae9e989767c2b7b647a6"
+      },
+      "metrics": {
+        "full_to_active_covariance_relative": 5.896443803068133e-16,
+        "root_reconstruction_relative": 9.600009933162532e-16,
+        "root_derivative_identity_relative": 1.4459856584937459e-15,
+        "full_to_active_projected_modes_relative": 4.358035461755882e-17,
+        "canonical_numpy_root_relative": 1.59374766854491e-14,
+        "canonical_numpy_modal_sd_relative": 4.684922669244938e-17,
+        "projector_row_sum_max": 2.220446049250313e-16,
+        "projector_affine_max": 1.1102230246251565e-15,
+        "rewhiten_active_max": 3.885780586188048e-16,
+        "rewhiten_cell_max": 3.885780586188048e-16
+      },
+      "historical_comparison": {
+        "U": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            371,
+            371
+          ],
+          "logical_sha256": "09e141fa0a4ef1988dd6aa67287ffc3e04c944cef8b3f5afd47c7b4715dde35a"
+        },
+        "modal_diagonals": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            7,
+            371
+          ],
+          "logical_sha256": "bf4f90ddb344173b0aa8c32e85ffd030da389a655422022ba5632207385d7ca6"
+        },
+        "projected_modes": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            4712,
+            371
+          ],
+          "logical_sha256": "53c899aeb88fd7bdb4de03bdf57893495277c2a2ef485ed6a54a61cef0826008"
+        },
+        "audit": {
+          "status": {
+            "exact": true
+          },
+          "n_v": {
+            "exact": true
+          },
+          "n_polynomial_terms": {
+            "exact": true
+          },
+          "full_rank_no_truncation": {
+            "exact": true
+          },
+          "mass_orthogonality_relative_frobenius": {
+            "exact": true
+          },
+          "generalized_eigen_residual_relative_frobenius": {
+            "exact": true
+          },
+          "term_offdiagonal_relative_frobenius": {
+            "exact": true
+          },
+          "max_term_offdiagonal_relative_frobenius": {
+            "exact": true
+          },
+          "generalized_eigenvalue_min": {
+            "exact": true
+          },
+          "generalized_eigenvalue_max": {
+            "exact": true
+          },
+          "log_reference_mass_variance": {
+            "exact": true
+          },
+          "basis_sha256": {
+            "exact": true
+          },
+          "modal_diagonals_sha256": {
+            "exact": true
+          },
+          "projected_modes_sha256": {
+            "exact": true
+          }
+        },
+        "L": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            167,
+            167
+          ],
+          "logical_sha256": "c4bbe258619dcb2f05229c594175405ce9b5df97db35186773817caf8551ce35"
+        },
+        "L_r": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            167,
+            167
+          ],
+          "logical_sha256": "56583089d32d3220773e1bf3755c2cecaec1ff0f68e567e74292a95741a9032c"
+        },
+        "Sigma": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            167,
+            167
+          ],
+          "logical_sha256": "6d147da503edf802c6a57725f06861be6b638ad675ce819ad6d7492083fee0e4"
+        },
+        "Sigma_r": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            167,
+            167
+          ],
+          "logical_sha256": "ddf58848ff5086494b04d51296cf8d6f6d8f11223288a1c253002e8ae5c7b968"
+        },
+        "modal": {
+          "modal_sd": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "6b5e46f917c6127084fb529d660513ea2e8dd1e37b68a41336358263171a718b"
+          },
+          "modal_sd_r": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "c779cbf74e4cf63f8c4f723ab3b123c486c877493dc5e444ea4328588b873617"
+          },
+          "modal_sd_rr": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "84821dc6dd71ce6d333d5ca3f839424a825281c20135899bf6f03d7d6fb898e6"
+          },
+          "log_raw_q": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "99a0d832160aa9d158d462699825a562cc3afcaebb989cc99e0ebc2b680e0c0e"
+          },
+          "log_raw_q_r": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "597909ebebaad4e82b0dd8a1b4ff31547746439ed30437fd98fcfd39b3cff6d7"
+          },
+          "log_raw_q_rr": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "55be5443b579e426194c7673ff9e842eadbcfe4808ef5f1c27c278d5a9828918"
+          },
+          "log_raw_mass_variance": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [],
+            "logical_sha256": "b485677991c2ca9974ae6a805bbd144dace078e5e10cdc153cc7d3fc91d3b0e7"
+          },
+          "log_raw_mass_variance_r": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [],
+            "logical_sha256": "274020f2e8f19840bd44fc75f819eceb82c32f7571c5fb7c4469dce0143337ab"
+          },
+          "log_raw_mass_variance_rr": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [],
+            "logical_sha256": "c493ef634c1cb923f21e1f7e94ff3fdea15243241dc9ffd71358187958707da3"
+          },
+          "log_amplitude_scale": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [],
+            "logical_sha256": "457d2a8c00270d33fc97826b3be776efe29e7961fe5b8d9d0ddeee8ede17bcd7"
+          },
+          "log_normalized_q": {
+            "exact": true,
+            "max_absolute_difference": 0.0,
+            "relative_frobenius": 0.0,
+            "shape": [
+              371
+            ],
+            "logical_sha256": "99a0d832160aa9d158d462699825a562cc3afcaebb989cc99e0ebc2b680e0c0e"
+          },
+          "legacy_raw_Q_prior": {
+            "exact": true
+          }
+        },
+        "Wcell": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            4712,
+            2
+          ],
+          "logical_sha256": "aca98692ff0442a74da31ac0488aacd0418a028c8c59897bc6c533630243b300"
+        },
+        "Wcell_r": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            4712,
+            2
+          ],
+          "logical_sha256": "5012d308dad5531e6292c68e14a79d7ddf23878e0705483d93e372e811311098"
+        },
+        "WA": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            167,
+            2
+          ],
+          "logical_sha256": "234ad59cfa9f7b8bb7c9a3a6070d328b15169a07bc6ac49aba0e06d4a2118254"
+        },
+        "triplets_indices": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            4712,
+            3
+          ],
+          "logical_sha256": "a2fddaef3ec133fc6fa11161419d54a5d38192f75b48d9fc834c76f4ae2ff26b"
+        },
+        "triplets_weights": {
+          "exact": true,
+          "max_absolute_difference": 0.0,
+          "relative_frobenius": 0.0,
+          "shape": [
+            4712,
+            3
+          ],
+          "logical_sha256": "782e531079d7ac9eb43b5589f9362f2d3862e44a5537432d1ad70137992c0761"
+        },
+        "triplets_audit": {
+          "maximum_reconstruction_error": {
+            "exact": true
+          },
+          "nonzero_count_min": {
+            "exact": true
+          },
+          "nonzero_count_max": {
+            "exact": true
+          }
+        }
+      },
+      "seconds": 1.885136800003238
+    }
+  ],
+  "seconds": 7.217785700020613,
+  "dense_inverse_scope": "Synthetic tests use independent dense precision inverse and Schur complement. S10 compares all-mode dense full covariance with its active submatrix, without claiming a numerically reliable inverse of ill-conditioned raw S10 precision.",
+  "identity_note": "Cell identifiers in this audit explicitly name authenticated raw source rows; original cell-name strings are not supplied by the mesh artifact. No cell order is inferred from section suffix.",
+  "platform_scope": "Same authenticated sources in one pinned Windows CPU environment, not historical Linux byte equivalence."
+}
