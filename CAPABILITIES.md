@@ -147,6 +147,21 @@ pre-cleanup acceptance checkpoint, not the remaining test inventory.
 
 ## 4. Bayesian spatial factor model sampler
 
+Bounded recovery and nomination are complete. The user selected the
+**F/C production-overlay direct-W/split-E architecture** for conservative porting;
+no sampler implementation has been imported or ported. See the
+[architecture decision](docs/decisions/BSFM_SAMPLER_ARCHITECTURE.md),
+[model, chronology and evidence limits](docs/recovery/BSFM_SAMPLER.md), and
+[source/dependency identities](docs/recovery/BSFM_SAMPLER_SOURCES.csv).
+The decision preserves full-spectrum active marginalization, coupled warp
+hypers, three conjugate subcycles, shrinkage/PX, factor chronology and complete
+atomic restart state with explicit readaptation support. LI-ESS/Fisher/LI-NUTS
+remain experimental and noncanonical; no unrecovered performance claim is made.
+Only the six used functions from the large conjugate helper may be extracted;
+the port must use small modules rather than copy the historical monolith.
+K, chain count and run lengths remain open. Historical wrappers are not canonical.
+No completed/converged F campaign, new sampler environment or HPC run is claimed.
+
 - Implement the intended deep spatial factor model and priors.
 - Implement its Gibbs schedule, including conjugate and NUTS updates.
 - Preserve the correct partial-collapse/update chronology.
