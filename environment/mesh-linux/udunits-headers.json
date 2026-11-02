@@ -1,0 +1,11 @@
+{
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/udunits2-2.2.28-h40f5838_3.conda",
+  "bytes": 112783,
+  "sha256": "7beb28a13dd4206c54ed994434d843aabda57fc9e5a0835c2f504c77336a4087",
+  "use": "Only C headers; link existing libudunits2 2.2.28 h40f5838_3 read-only",
+  "header_sha256": {
+    "converter.h": "d47ecbae6c46404b0d62af4c376333a9f9eb390586a5d329be38031fcc3f218a",
+    "udunits.h": "b94dd0d7deabeeb5624c26917e175d14dc388c3b887c409d578feeffb3690c9b",
+    "udunits2.h": "3d7b2b73574c07dcc32d5474a173c75349d447a3bafd75272f07fbfcb63c0e14"
+  }
+}
