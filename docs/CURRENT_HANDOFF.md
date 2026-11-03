@@ -1,5 +1,69 @@
 # Current BSFM handoff
 
+## Continuation on the replacement computer: 2026-11-03
+
+Accepted scientific capabilities remain Layers 1-8. The corrected Layer-9
+candidate and its review evidence are published separately on
+[`review/layer9-portability-20261103`](https://github.com/abussing/bsfm-spatial-transcriptomics/tree/review/layer9-portability-20261103).
+This documentation update does not accept or merge that implementation.
+Read the [publication record](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/deaaf833d9d77bf4db594d3efcfe0ca217392f12/docs/sampler/review-layer9-20261103/PUBLICATION.md),
+[implementation review](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/deaaf833d9d77bf4db594d3efcfe0ca217392f12/docs/sampler/review-layer9-20261103/IMPLEMENTATION_REVIEW.md),
+and [validation receipt](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/deaaf833d9d77bf4db594d3efcfe0ca217392f12/docs/sampler/review-layer9-20261103/VALIDATION.json).
+The original WIP below remains historical evidence; resume from this newer
+review branch without overwriting preserved local work.
+
+Windows review evidence: 36 expanded Layer-9 tests passed. A later saved-modal
+domain guard passed five focused tests and exact retained-genesis restoration;
+five synthetic runtime-input checks also passed. The ordinary accepted-layer
+suite ran 195 tests with eight saved-fixture failures. Separate authenticated
+same-environment original/port comparisons passed for Layers 1-3, 5 and 6;
+these do not erase the saved-fixture failures. Mesh checks: seven passed, one
+R-dependent test skipped. Accepted Layers 1-8 files were checked unchanged.
+
+Git source and external review evidence are mirrored at:
+
+```text
+/work/abussing/bsfm-consolidation/reviews/layer9-portability-20261103
+/work/abussing/bsfm-consolidation/checkouts/460ccdd6ca523d22f2c61c0cbacdf0f1f82ba0de
+```
+
+The original review transfer verified 80 external evidence files and 45 review
+inventory entries, with its receipt committed on the review branch. Subsequent
+environment-build corrections were transferred as SHA-256-verified Git bundles
+and checked out at their exact commits. Canonical artifact recovery was not
+repeated; the 187-file mirror below is unchanged.
+
+The authorized isolated Python environment build is separate from numerical
+validation. Job 22013403 failed before installation because the selected
+ml_dtypes wheel required newer glibc; job 22013404 failed before compilation
+because the system CMake module could not start on the compute node. Logs and
+receipts are preserved. Job 22013405 identified an unloaded compiler library;
+job 22013406 compiled successfully but its wheel-version guard rejected metadata
+from an incompatible build backend. Job 22013408 uses commit
+`460ccdd6ca523d22f2c61c0cbacdf0f1f82ba0de`, compiles the same ml_dtypes 0.6.0 from
+authenticated source, and isolates compatible build tools. All 13 runtime
+package versions remain unchanged; limits are 2 CPUs, 8 GiB and 30 minutes.
+See the [run specification](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/460ccdd6ca523d22f2c61c0cbacdf0f1f82ba0de/docs/environment/layer9-linux-20261103/RUN_SPEC.json).
+Job 22013408 completed with exit 0:0 in 74 seconds, batch MaxRSS 803116K.
+All 13 runtime versions, dependency checks, CPU/x64 and module-path isolation
+passed. Its successful installation is:
+
+```text
+/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/bin/python
+```
+
+The build used `module load gcc/12.2.0 mpfr/4.1.0`; preserve that context until
+runtime shared-library requirements are validated. The [environment history and receipts](https://github.com/abussing/bsfm-spatial-transcriptomics/tree/a2bb204545717257b4f440ffa185626527925178/docs/environment/layer9-linux-20261103)
+record the source build, exact versions and separate failed attempts. This
+establishes environment restoration only, not Linux sampler validation.
+
+Next: finish Linux runtime portability and Layer-9 validation/review, then a
+separately specified S10 mechanical integration smoke. Training-only holdout
+preprocessing, the matched identity-warp control and prediction/scoring remain
+outstanding. No S10 fit or leave-out job has been submitted by this continuation.
+
+The sections below preserve the original accepted shutdown checkpoint.
+
 Updated 2026-11-03 after completed shutdown preservation and artifact transfer.
 This supersedes the earlier handoff's pending-transfer statements; older audits
 remain evidence of their original inspections.
