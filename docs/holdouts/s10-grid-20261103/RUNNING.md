@@ -1,5 +1,8 @@
 # Live S10 hole comparisons
 
+GPU replacement submissions are recorded in [GPU_RUNNING.md](GPU_RUNNING.md).
+The remainder of this file records the earlier CPU launch and its distinct outputs.
+
 All eight sampler jobs were RUNNING at the timestamp in RUNNING_RECEIPT.json.
 This is a launch checkpoint, not a completed fit or convergence result. Check
 Slurm and immutable production transactions before reporting later progress.
