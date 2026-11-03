@@ -1,0 +1,9 @@
+{
+  "job_id": "22013411",
+  "commit": "1251d2fdf02931ec390d5712cd0a456e9fcd6d06",
+  "scope": "Synthetic Linux validation only; no scientific data or fitting",
+  "submitted_utc": "2026-11-03T08:41:18.007800+00:00",
+  "cpus": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 30
+}

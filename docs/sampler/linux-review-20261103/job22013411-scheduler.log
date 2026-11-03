@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/work/abussing/bsfm-consolidation/checkouts/1251d2fdf02931ec390d5712cd0a456e9fcd6d06/docs/sampler/linux-review-20261103/validate.py", line 65, in <module>
+    save('environment-authentication', authenticate_environment())
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/abussing/bsfm-consolidation/checkouts/1251d2fdf02931ec390d5712cd0a456e9fcd6d06/src/bsfm/sampler/run_inputs.py", line 28, in authenticate_environment
+    return authenticate_linux_environment()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/abussing/bsfm-consolidation/checkouts/1251d2fdf02931ec390d5712cd0a456e9fcd6d06/src/bsfm/sampler/run_linux_environment.py", line 81, in authenticate_linux_environment
+    wheel_files += verify_wheel(path, wheel, site_packages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/abussing/bsfm-consolidation/checkouts/1251d2fdf02931ec390d5712cd0a456e9fcd6d06/src/bsfm/sampler/run_linux_environment.py", line 32, in verify_wheel
+    raise ValueError('Installed Linux wheel member changed')
+ValueError: Installed Linux wheel member changed

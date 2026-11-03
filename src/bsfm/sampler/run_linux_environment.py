@@ -3,6 +3,8 @@ import base64
 import csv
 import hashlib
 import importlib.metadata as metadata
+import importlib.util
+import marshal
 from pathlib import Path
 import platform
 import site
@@ -29,7 +31,21 @@ def verify_wheel(wheel, expected, site_packages):
             if not dest.is_relative_to(site_packages):
                 raise ValueError('Wheel member escapes site packages')
             if hashlib.sha256(archive.read(name)).hexdigest() != file_record(dest)['sha256']:
-                raise ValueError('Installed Linux wheel member changed')
+                if not name.endswith('.pyc'):
+                    raise ValueError('Installed Linux wheel member changed: '+name)
+                # pip recompiles wheel-bundled bytecode for the installation path.
+                # Authenticate that regenerated code against the source IN THE
+                # HASHED WHEEL; never merely exempt executable bytecode.
+                source = Path(importlib.util.source_from_cache(name)).as_posix()
+                raw = dest.read_bytes()
+                if raw[:4] != importlib.util.MAGIC_NUMBER:
+                    raise ValueError('Installed bytecode interpreter mismatch')
+                actual = marshal.loads(raw[16:])
+                optimization = 2 if '.opt-2.' in name else 1 if '.opt-1.' in name else 0
+                expected_code = compile(archive.read(source), actual.co_filename, 'exec',
+                                        dont_inherit=True, optimize=optimization)
+                if actual != expected_code:
+                    raise ValueError('Installed bytecode differs from authenticated wheel source')
             count += 1
     return count
 

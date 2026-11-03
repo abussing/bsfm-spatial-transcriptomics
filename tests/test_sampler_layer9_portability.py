@@ -1,5 +1,7 @@
 """OS-process ownership and authenticated wheel corruption checks."""
 import os
+import importlib.util
+import marshal
 from pathlib import Path
 import subprocess
 import sys
@@ -97,6 +99,24 @@ with writer(sys.argv[1]):
         wheel, expected = self.wheel('../escape.py')
         with self.assertRaisesRegex(ValueError, 'escapes'):
             verify_wheel(wheel, expected, self.root/'site')
+
+    def test_recompiled_wheel_bytecode_requires_exact_source_code(self):
+        site = self.root/'site'; (site/'pkg/__pycache__').mkdir(parents=True)
+        source = b'value = 42\n'
+        name = 'pkg/__pycache__/module.'+sys.implementation.cache_tag+'.pyc'
+        def bytecode(text, filename):
+            return importlib.util.MAGIC_NUMBER+b'\0'*12+marshal.dumps(compile(text, filename, 'exec', dont_inherit=True))
+        wheel = self.root/'compiled.whl'
+        with zipfile.ZipFile(wheel, 'w') as archive:
+            archive.writestr('pkg/module.py', source)
+            archive.writestr(name, bytecode(source, '/build/pkg/module.py'))
+        (site/'pkg/module.py').write_bytes(source)
+        (site/name).write_bytes(bytecode(source, str(site/'pkg/module.py')))
+        expected = file_record(wheel)
+        self.assertEqual(verify_wheel(wheel, expected, site), 2)
+        (site/name).write_bytes(bytecode(b'value = 43\n', str(site/'pkg/module.py')))
+        with self.assertRaisesRegex(ValueError, 'bytecode differs'):
+            verify_wheel(wheel, expected, site)
 
 
 if __name__ == '__main__':

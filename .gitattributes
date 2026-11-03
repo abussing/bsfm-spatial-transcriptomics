@@ -20,3 +20,5 @@ docs/sampler/review-layer9-20261103/*.patch -whitespace
 # Preserve exact scheduler/build evidence, including upstream blank-line spaces.
 docs/environment/layer9-linux-20261103/job* -text
 docs/environment/layer9-linux-20261103/*.log -whitespace
+docs/sampler/linux-review-20261103/job* -text
+docs/sampler/linux-review-20261103/*.log -whitespace

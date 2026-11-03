@@ -23,6 +23,14 @@ They exercise fresh-process exclusion, lock release after death, immutable
 publication and corrupted wheel/member rejection. Full Linux validation is
 pending the bounded synthetic job specified here.
 
+Job 22013411 stopped at environment authentication before numerical tests:
+pip regenerated NumPy's wheel-bundled `conv_template.cpython-311.pyc` for its
+installed path. Source and all other wheel members matched. The correction
+validates regenerated code objects against compilation of source bytes inside
+the authenticated wheel, rather than exempting bytecode. A mutation test
+rejects changed executable code. Updated local result: seven passed, one
+Linux-only test skipped. The original failure receipt is retained unchanged.
+
 The job first authenticates the environment and tests storage on GPFS. Only
 after that passes does it run all focused Layer-9 tests, including real
 synthetic initialization, 20-step adaptation per factor, complete sweeps and
