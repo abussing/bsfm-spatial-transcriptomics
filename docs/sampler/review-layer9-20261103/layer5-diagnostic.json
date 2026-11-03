@@ -1,0 +1,27 @@
+{
+  "scope": "Diagnostic source/port comparison on restored laptop; does not replace accepted saved-fixture gate",
+  "same_environment_source_port_exact": true,
+  "sources": [
+    {
+      "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\full_split.py",
+      "bytes": 4705,
+      "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd"
+    },
+    {
+      "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\run_c3full_fixed_profile_nuts.py",
+      "bytes": 94890,
+      "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49"
+    }
+  ],
+  "accepted_fixture_sha256": "ae3224bc2b43aa4b0910aa838dde2f8fb3061ef980fa77e902831a5f7190e559",
+  "accepted_fixture_unchanged": true,
+  "saved_fixture_exact": false,
+  "differences": [
+    {
+      "path": "/canonical_transition/2/sha256",
+      "expected": "89fc275997816de1f07e8054a2473875015d73edef207407a344a51f37edadd8",
+      "observed": "55ba386c220b1294c08522550bfd4e44b013098ca6606abe16d6f2701c65943e"
+    }
+  ],
+  "elapsed_seconds": 187.98399999999674
+}

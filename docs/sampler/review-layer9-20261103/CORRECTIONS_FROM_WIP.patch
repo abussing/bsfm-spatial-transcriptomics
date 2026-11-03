@@ -1,0 +1,579 @@
+diff --git a/src/bsfm/sampler/run_chart.py b/src/bsfm/sampler/run_chart.py
+new file mode 100644
+--- /dev/null
++++ b/src/bsfm/sampler/run_chart.py
+@@ -0,0 +1,112 @@
++"""Proposed saved-chart reader. Validate the saved basis without an eigensolve.
++
++Review-only API extension; does not change accepted Layer-2 numerical kernels.
++"""
++import copy
++import hashlib
++import json
++from types import MappingProxyType
++import numpy as np
++from scipy.special import logsumexp
++from bsfm.sampler.warp import WarpGeometry, mesh_identity, BINOM, NORMCONST, NU_U, D_FEM
++from bsfm.sampler.contracts import logical_hash
++from bsfm.sampler.checkpoint_rng import parse_json
++from bsfm.sampler.checkpoint_contract import digest
++from bsfm.sampler.retained_records import descriptor
++from bsfm.sampler.run_storage import safe
++
++
++def geometry_from_genesis(data, expected, path):
++    """Pre-target read; full genesis/RNG validation still follows in the controller."""
++    with np.load(safe(path),allow_pickle=False) as z:
++        if len(z.files)!=len(set(z.files)):raise ValueError('Duplicate genesis array')
++        arrays={k:z[k].copy(order='K') for k in z.files}
++    metadata=arrays.pop('metadata')
++    if metadata.shape!=() or metadata.dtype.kind!='U':raise ValueError('Genesis metadata encoding')
++    record=parse_json(str(metadata))
++    if (record['schema']!='bsfm.pre-sweep-endpoint.v1'
++            or record['logical_sha256']!=digest({k:v for k,v in record.items() if k!='logical_sha256'})
++            or {k:descriptor(v) for k,v in arrays.items()}!=record['arrays']):
++        raise ValueError('Saved genesis integrity')
++    contract=parse_json(record['contract'])
++    if digest(contract)!=record['contract_sha256'] or parse_json(contract['geometry_identity'])!=expected:
++        raise ValueError('Saved genesis geometry binding')
++    chart={k.removeprefix('spectral_'):v for k,v in arrays.items() if k.startswith('spectral_')}
++    for k in ('log_kappa_constant','log_trace_mass','log_reference_variance'):
++        if chart[k].shape!=():raise ValueError('Saved chart scalar shape')
++        chart[k]=chart[k].item()
++    chart['audit']=record['spectral_audit']
++    return restore_geometry(data,expected,chart,contract['spectral_identity'])
++
++
++def restore_geometry(data, expected, saved, expected_spectral_identity):
++    arrays={k:np.array(v,copy=True,order='K') for k,v in data.items()}
++    actual=mesh_identity(arrays,section=expected['section'],mesh_sha256=expected['mesh_sha256'])
++    if actual!=expected:raise ValueError('Restored geometry input identity mismatch')
++    chart=copy.deepcopy(dict(saved))
++    signature=json.dumps({k:logical_hash(v) if isinstance(v,np.ndarray) else v
++                          for k,v in chart.items()},sort_keys=True)
++    if signature!=expected_spectral_identity:raise ValueError('Saved spectral identity mismatch')
++    fields={'U','projected_modes','modal_diagonals','log_modal_diagonals',
++            'log_coefficients','powers','log_kappa_constant','log_trace_mass',
++            'log_reference_variance','audit'}
++    if set(chart)!=fields:raise ValueError('Saved spectral fields mismatch')
++    terms=arrays['terms'];mass=terms[0];n=len(mass);u=np.asarray(chart['U'])
++    if u.shape!=(n,n) or u.dtype!=np.float64 or not np.isfinite(u).all():
++        raise ValueError('Invalid saved full-mode basis')
++    modal=np.asarray(chart['modal_diagonals'])
++    if (modal.shape!=(len(terms),n) or modal.dtype!=np.float64
++            or not np.isfinite(modal).all() or np.any(modal<0)):
++        raise ValueError('Invalid saved nonnegative modal diagonals')
++    def relative(a,b):
++        return np.linalg.norm(a-b)/max(np.finfo(float).tiny,np.linalg.norm(b))
++    # Same residual thresholds as the accepted full-mode construction.
++    tolerance=2e-10
++    gram=u.T@mass@u
++    if relative(gram,np.eye(n))>tolerance:raise ValueError('Saved mass orthogonality')
++    transformed=[u.T@m@u for m in terms]
++    diagonals=[]
++    for matrix in transformed:
++        d=np.diag(matrix).copy()
++        if relative(matrix,np.diag(d))>tolerance:raise ValueError('Saved simultaneous diagonalization')
++        if d.min() < -2e-12*max(1.,float(np.abs(d).max())):
++            raise ValueError('Saved negative FEM mode')
++        diagonals.append(np.maximum(d,0.))
++    eigenvalues=np.diag(transformed[1])/np.diag(gram)
++    if relative(terms[1]@u,mass@(u*eigenvalues))>tolerance:
++        raise ValueError('Saved eigen residual')
++    diagonal=np.stack(diagonals)
++    if np.any(np.sum(diagonal>0,axis=0)==0):raise ValueError('Saved zero-precision mode')
++    # These are independent algebraic geometry checks, not relaxed checkpoint
++    # equality: the saved arrays remain byte-identical and define the target.
++    derived={'projected_modes':arrays['projector']@u,'modal_diagonals':diagonal,
++             'log_coefficients':np.log(NORMCONST*np.asarray(BINOM)),
++             'powers':D_FEM-2.*np.arange(len(terms)),
++             'log_kappa_constant':.5*np.log(8.*NU_U),
++             'log_trace_mass':np.log(np.trace(mass))}
++    for name,value in derived.items():
++        got=np.asarray(chart[name]);value=np.asarray(value)
++        if got.shape!=value.shape or not np.isfinite(got).all() or relative(got,value)>tolerance:
++            raise ValueError('Saved chart geometry mismatch: '+name)
++    # Internal formula bindings use exact saved modal data, not recomputed data.
++    d=np.asarray(chart['modal_diagonals'])
++    logs=np.full_like(d,-np.inf);positive=d>0;logs[positive]=np.log(d[positive])
++    if not np.array_equal(logs,chart['log_modal_diagonals']):raise ValueError('Saved modal logarithms')
++    variance=float(logsumexp(-logsumexp(chart['log_coefficients'][:,None]
++        +chart['powers'][:,None]*chart['log_kappa_constant']+logs,axis=0))-chart['log_trace_mass'])
++    if not np.isclose(variance,chart['log_reference_variance'],rtol=0,atol=tolerance):
++        raise ValueError('Saved diagnostic variance')
++    audit=chart['audit']
++    if audit['status']!='PASS' or audit['n_v']!=n or not audit['full_rank_no_truncation']:
++        raise ValueError('Saved full-mode audit')
++    for field,label in [('U','basis_sha256'),('modal_diagonals','modal_diagonals_sha256'),
++                        ('projected_modes','projected_modes_sha256')]:
++        h=hashlib.sha256(np.ascontiguousarray(chart[field]).view(np.uint8)).hexdigest()
++        if h!=audit[label]:raise ValueError('Saved chart audit hash')
++    for values in (arrays,chart):
++        for value in values.values():
++            if isinstance(value,np.ndarray):value.flags.writeable=False
++    restored=WarpGeometry(MappingProxyType(arrays),json.dumps(actual,sort_keys=True),
++                          MappingProxyType(chart),signature)
++    restored.validate()
++    return restored
+diff --git a/src/bsfm/sampler/run_controller.py b/src/bsfm/sampler/run_controller.py
+--- a/src/bsfm/sampler/run_controller.py
++++ b/src/bsfm/sampler/run_controller.py
+@@ -1,5 +1,6 @@
+ """Bounded Windows CPU run composition. No readaptation or scientific defaults."""
+ from pathlib import Path
++import copy
+ import re
+ import tempfile
+ import time
+@@ -16,6 +17,7 @@
+ from .run_genesis import save_genesis, load_genesis
+ from .run_storage import writer, read_json, write_json, write_npz, publish, file_record
+ from .run_transactions import Transactions
++from .run_receipts import publish_json
+ 
+ 
+ def validate_spec(spec):
+@@ -54,6 +56,9 @@
+         def read(path):
+             if sorted(p.name for p in path.iterdir())!=['endpoint.npz','receipt.json']:raise ValueError('Incomplete genesis envelope')
+             e,h=load_genesis(path/'endpoint.npz',self.target,self.cp)
++            if (e.evidence['adaptation_steps']!=self.spec['warmup_steps']
++                    or e.evidence['initialization']['seed']!=self.spec['seed']):
++                raise ValueError('Genesis initialization/warmup differs from run specification')
+             expected=dict(schema='bsfm.genesis.v1',spec_sha256=s.spec_hash,input_sha256=self.spec['input_sha256'],
+                 endpoint=file_record(path/'endpoint.npz'),logical_sha256=h)
+             if read_json(path/'receipt.json')!=expected:raise ValueError('Genesis receipt mismatch')
+@@ -73,12 +78,15 @@
+             write_json(s.segment/'failures'/('initialization-'+attempt.name+'.json'),dict(stage='initialization_warmup',error=str(exc)));raise
+         write_json(attempt/'performance.json',dict(elapsed_seconds=time.perf_counter()-start,scope='initialization_and_warmup'))
+         fault('after_warmup');_,h=save_genesis(path/'endpoint.npz',e,self.target,self.cp)
+-        write_json(path/'receipt.json',dict(schema='bsfm.genesis.v1',spec_sha256=s.spec_hash,input_sha256=self.spec['input_sha256'],endpoint=file_record(path/'endpoint.npz'),logical_sha256=h))
++        publish_json(path/'receipt.json',dict(schema='bsfm.genesis.v1',spec_sha256=s.spec_hash,input_sha256=self.spec['input_sha256'],endpoint=file_record(path/'endpoint.npz'),logical_sha256=h),staging_directory=attempt)
+         value=read(path);fault('before_genesis_publish');publish(path,final);fault('after_genesis_publish');return value
+ 
+     def run(self,*,stop_after=None,fault=lambda stage:None):
+         if stop_after is not None and (type(stop_after) is not int or stop_after<0):raise ValueError('Invalid pause boundary')
+         s=self.store
++        validate_spec(self.spec)
++        if digest(self.spec)!=s.spec_hash or digest(s.input_receipt)!=self.spec['input_sha256']:
++            raise ValueError('In-memory run/input identity changed')
+         with writer(s.root):
+             self.authenticate();s.setup();genesis,gid=self._genesis(fault)
+             while True:
+@@ -99,10 +107,13 @@
+                     else:
+                         p=Path(tempfile.mkdtemp(prefix='closure-',dir=s.segment/'attempts'))/'completion.json'
+                         write_json(p,closure);fault('before_completion');publish(p,dest)
++                    if read_json(dest)!=closure:raise ValueError('Completion readback mismatch')
+                     return closure
+                 if (s.segment/'completion.json').exists():raise ValueError('Premature completion')
+                 if stop_after is not None and n>=stop_after:return dict(status='paused',completed=n,head=chain['head'])
+-                e=chain['endpoint'];np.random.set_state(e.numpy_global_state)
++                # The sweep owns advancing RNGs; genesis remains a durable-boundary
++                # reference for subsequent scans and must not share those streams.
++                e=copy.deepcopy(chain['endpoint']);np.random.set_state(e.numpy_global_state)
+                 attempt=Path(tempfile.mkdtemp(prefix=f'sweep-{n+1:012d}-',dir=s.segment/'attempts'))
+                 write_json(attempt/'intent.json',dict(sweep=n+1,previous_sha256=chain['head'],spec_sha256=s.spec_hash))
+                 path=attempt/'transaction';path.mkdir();fault('before_sweep');start=time.perf_counter()
+diff --git a/src/bsfm/sampler/run_genesis.py b/src/bsfm/sampler/run_genesis.py
+--- a/src/bsfm/sampler/run_genesis.py
++++ b/src/bsfm/sampler/run_genesis.py
+@@ -1,7 +1,7 @@
+ """Versioned pre-sweep endpoint, deliberately not a Layer-7 sweep-zero checkpoint."""
+ import hashlib
+ import numpy as np
+-from .contracts import GaussianState, logical_hash
++from .contracts import GaussianState, logical_hash, array
+ from .conjugate import compute_Yhat
+ from .layer4 import STATE_ARRAYS, state_hashes
+ from .field_target import FieldPosition
+@@ -36,8 +36,13 @@
+     if type(v['adaptation_steps']) is not int or v['adaptation_steps']<20 or v['target_acceptance']!=.9:
+         raise ValueError('Incomplete/changed genesis warmup')
+     if len(v['factors'])!=k:raise ValueError('Missing warmup histories')
++    if (v['factors'][0]['state_before']!=v['initialization']['after_PX']
++            or v['rng_before']!=v['initialization']['rng_after']):
++        raise ValueError('Initialization/warmup boundary mismatch')
+     for i,row in enumerate(v['factors']):
+         h=decode(row['history'])
++        array(h['state']['position'],'warmup position history',
++              (v['adaptation_steps'],len(e.positions[i].values)))
+         if (row['factor_id']!=target.factor_ids[i] or row['key']!=v['initialization']['warm_keys'][i]
+             or h['state']['position'].shape!=(v['adaptation_steps'],len(e.positions[i].values))
+             or not np.array_equal(h['state']['position'][-1],e.positions[i].values)):
+@@ -87,6 +92,11 @@
+         a=d['spectral_'+key];v=np.asarray(v)
+         if a.dtype!=v.dtype or a.shape!=v.shape or not np.array_equal(a,v):raise ValueError('Exact spectral chart mismatch')
+     state=GaussianState(**{n:d[n] for n in STATE_ARRAYS},input_identity_json=target.inputs.identity_json)
++    k=len(target.factor_ids);dimension=4+2*len(target.geometry.arrays['active_indices'])
++    array(d['positions'],'genesis positions',(k,dimension))
++    array(d['field_steps'],'genesis field steps',(k,),positive=True)
++    array(d['hyper_steps'],'genesis hyper steps',(k,),positive=True)
++    array(d['inverse_mass'],'genesis inverse mass',(k,dimension),positive=True)
+     positions=[];tuning=[]
+     for i,fid in enumerate(target.factor_ids):
+         p=d['positions'][i].copy();mass=d['inverse_mass'][i].copy();p.flags.writeable=mass.flags.writeable=False
+diff --git a/src/bsfm/sampler/run_initialization.py b/src/bsfm/sampler/run_initialization.py
+--- a/src/bsfm/sampler/run_initialization.py
++++ b/src/bsfm/sampler/run_initialization.py
+@@ -70,6 +70,7 @@
+         initial_signal_error=float(np.max(abs(compute_Yhat(state.loading,state.eta,slices)-signal))),
+         master_key=np.asarray(keys[0]).tolist(),warm_keys=[np.asarray(x).tolist() for x in keys[1:]],
+         initial_positions=[logical_hash(p.values) for p in positions],
++        rng_after=stream_audit(eta_rng,gauge,keys[0],np.random.get_state()),
+         fidelity_status='not_evaluated_by_layers_1_to_8')
+     return Endpoint(state,tuple(positions),(),eta_rng,gauge,keys[0],np.random.get_state(),b,evidence),tuple(keys[1:])
+ 
+diff --git a/src/bsfm/sampler/run_inputs.py b/src/bsfm/sampler/run_inputs.py
+--- a/src/bsfm/sampler/run_inputs.py
++++ b/src/bsfm/sampler/run_inputs.py
+@@ -4,7 +4,7 @@
+ import hashlib
+ import importlib.metadata as metadata
+ import os
+-from pathlib import Path
++from pathlib import Path, PureWindowsPath
+ import site
+ import subprocess
+ import sys
+@@ -33,13 +33,20 @@
+     distributions=list(metadata.distributions());actual={norm(d.metadata['Name']):d.version for d in distributions}
+     expected={'pip':lock['pip'],**{norm(p['name']):p['version'] for p in lock['packages']}}
+     if actual!=expected or len(distributions)!=len(expected):raise ValueError('Environment closure mismatch')
++    runtime=[]
+     for r in lock['runtime']:
+-        if file_record(r['path'])!={k:r[k] for k in ('bytes','sha256')}:raise ValueError('Runtime changed')
++        p=Path(sys.base_prefix)/PureWindowsPath(r['path']).name
++        if file_record(p)!={k:r[k] for k in ('bytes','sha256')}:raise ValueError('Runtime changed')
++        runtime.append(dict(path=str(p.resolve()),**file_record(p)))
+     installed=read_json(root/'installed.json')
+     for filename,field in [('source-lock.json','lock_sha256'),('requirements.lock.txt','requirements_sha256')]:
+         data=(lockpath.parent/filename).read_bytes()
+         if installed[field] not in [hashlib.sha256(x).hexdigest() for x in (data,data.replace(b'\n',b'\r\n'))]:raise ValueError('Installed source-lock mismatch')
+     wheel_files=0
++    expected_wheels={p['name']:(p['version'],p['url'],p['sha256']) for p in lock['packages']}
++    observed_wheels={w['name']:(w['version'],w['url'],w['sha256']) for w in installed['wheels']}
++    if observed_wheels!=expected_wheels or len(installed['wheels'])!=len(expected_wheels):
++        raise ValueError('Installed wheel closure differs from accepted lock')
+     for w in installed['wheels']:
+         p=root/'wheels'/w['filename']
+         if file_record(p)!={k:w[k] for k in ('bytes','sha256')}:raise ValueError('Cached wheel changed')
+@@ -62,7 +69,7 @@
+             installed_files+=1
+     blas=threadpool_info()
+     if any(v['num_threads']!=1 for v in blas):raise ValueError('Single-thread numerical libraries required')
+-    return dict(schema='bsfm.layer9-cpu-authentication.v1',runtime=lock['runtime'],executable=str(Path(sys.executable).resolve()),
++    return dict(schema='bsfm.layer9-cpu-authentication.v1',runtime=runtime,executable=str(Path(sys.executable).resolve()),
+         lock=file_record(lockpath),installed_receipt=file_record(root/'installed.json'),packages=actual,
+         cpu=True,x64=True,blas=blas,installed_record_files=installed_files,wheel_member_files=wheel_files,
+         limitation='Wheel .data entries use installed RECORD integrity; Windows CPU only')
+@@ -73,7 +80,7 @@
+         if set(r)!= {'path','bytes','sha256'} or file_record(r['path'])!={k:r[k] for k in ('bytes','sha256')}:raise ValueError('Input file changed: '+name)
+ 
+ 
+-def load_inputs(files,factor_ids):
++def load_inputs(files,factor_ids,*,genesis_path=None):
+     """Caller supplies expected file hashes from accepted registration; paths relocatable."""
+     required={'registration','prepared','contract','mesh','gpinit','certificate','response_manifest','response_validation'}
+     if set(files)!=required:raise ValueError('Exact runtime artifact closure required')
+@@ -99,7 +106,12 @@
+     geometry_data=dict(terms=np.stack([m['fem_C']]+[m[f'fem_g{i}'] for i in range(1,7)]),vertices=m['mesh_vertices'],
+         projector=m['A_full'],locations=m['slocs'],active_indices=m['active_indices_full'],source_rows=m['source_rows'],
+         vertex_ids=np.array([f'vertex-{i}' for i in range(len(m['mesh_vertices']))]),cell_ids=d['cell_names'])
+-    geo=WarpGeometry.authenticate(geometry_data,mesh_identity(geometry_data,section=c['section'],mesh_sha256=files['mesh']['sha256']))
++    expected_geometry=mesh_identity(geometry_data,section=c['section'],mesh_sha256=files['mesh']['sha256'])
++    if genesis_path is None:
++        geo=WarpGeometry.authenticate(geometry_data,expected_geometry)
++    else:
++        from .run_chart import geometry_from_genesis
++        geo=geometry_from_genesis(geometry_data,expected_geometry,genesis_path)
+     with np.load(files['gpinit']['path'],allow_pickle=False) as z:seeds={k:z[k].copy() for k in z.files}
+     if {k:logical_hash(a) for k,a in seeds.items()}!=cert['output_logical_hashes']:raise ValueError('GPINIT output logical hashes')
+     target=DirectWTarget(inputs,geo,load_rule(),factor_ids=tuple(factor_ids))
+@@ -110,11 +122,15 @@
+ 
+ def canonical_controller(root,spec,files):
+     """Only real-artifact entry: clean committed tree and current locked environment."""
+-    from .run_controller import RunController
++    from .run_controller import RunController,validate_spec
++    from .run_storage import safe
++    validate_spec(spec)
+     def clean():
+         head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
+         if head!=spec['software']['git_commit'] or subprocess.check_output(['git','status','--porcelain'],cwd=REPO,text=True).strip():raise ValueError('Clean exact generating commit required')
+-    clean();env=authenticate_environment();target,loading,eta,binding=load_inputs(files,spec['factor_ids'])
++    clean();env=authenticate_environment()
++    genesis=safe(Path(root)/'segments'/spec['segment_id']/'genesis/endpoint.npz')
++    target,loading,eta,binding=load_inputs(files,spec['factor_ids'],genesis_path=genesis if genesis.exists() else None)
+     if (spec['software']['clean_tree'] is not True or spec['software']['environment_identity']!=digest(env)
+         or spec['software']['environment_lock_sha256']!=env['lock']['sha256']):raise ValueError('Frozen environment declaration mismatch')
+     if spec['software']['run_config_sha256']!=digest({k:v for k,v in spec.items() if k!='software'}):raise ValueError('Run specification hash mismatch')
+diff --git a/src/bsfm/sampler/run_receipts.py b/src/bsfm/sampler/run_receipts.py
+new file mode 100644
+--- /dev/null
++++ b/src/bsfm/sampler/run_receipts.py
+@@ -0,0 +1,14 @@
++"""Receipt bytes are closed before becoming a prepared-envelope member."""
++from pathlib import Path
++import tempfile
++from bsfm.sampler.run_storage import safe,write_json,publish
++
++
++def publish_json(path,value,*,staging_directory):
++    path=safe(path);staging=safe(staging_directory)
++    if path.exists():raise FileExistsError(path)
++    # Stage outside the transaction/genesis directory. A killed write leaves
++    # evidence under its attempt, never a misleading prepared-receipt name.
++    candidate=Path(tempfile.mkdtemp(prefix='receipt-',dir=staging))/'candidate.json'
++    write_json(candidate,value)
++    publish(candidate,path)
+diff --git a/src/bsfm/sampler/run_storage.py b/src/bsfm/sampler/run_storage.py
+--- a/src/bsfm/sampler/run_storage.py
++++ b/src/bsfm/sampler/run_storage.py
+@@ -71,7 +71,7 @@
+     """OS-held local byte lock, released on process death; no PID guessing."""
+     import msvcrt
+     root=safe(root);root.mkdir(parents=True,exist_ok=True)
+-    with (root/'writer.lock').open('a+b') as f:
++    with safe(root/'writer.lock').open('a+b') as f:
+         f.seek(0,2)
+         if f.tell()==0:f.write(b'0');f.flush()
+         f.seek(0)
+diff --git a/src/bsfm/sampler/run_transactions.py b/src/bsfm/sampler/run_transactions.py
+--- a/src/bsfm/sampler/run_transactions.py
++++ b/src/bsfm/sampler/run_transactions.py
+@@ -12,6 +12,7 @@
+ from .retained_contract import retain_at
+ from .retained_archive import create_archive, RetainedArchive
+ from .run_genesis import boundary
++from .run_receipts import publish_json
+ from .run_storage import safe, file_record, read_json, write_json, publish, copy_exact, advisory
+ 
+ 
+@@ -33,8 +34,8 @@
+             else:
+                 attempt=self.root/('.attempt-'+name+'-'+uuid.uuid4().hex)
+                 write_json(attempt,value);publish(attempt,path)
+-        self.segment.mkdir(parents=True,exist_ok=True)
+-        for name in ('attempts','transactions','checkpoints','failures'):(self.segment/name).mkdir(exist_ok=True)
++        safe(self.segment).mkdir(parents=True,exist_ok=True)
++        for name in ('attempts','transactions','checkpoints','failures'):safe(self.segment/name).mkdir(exist_ok=True)
+         if list((self.segment/'failures').iterdir()):raise ValueError('Recorded terminal failure; no automatic retry')
+ 
+     def label(self,n):return f"{self.spec['run_id']}/{self.spec['segment_id']}/{self.spec['chain_id']}/{n:012d}"
+@@ -54,7 +55,7 @@
+         if m['retained_index']!=expected_index:raise ValueError('Retention chronology mismatch')
+         a=d['sweep_audit']
+         for before,after in [('state_before','state_after'),('positions_before','positions_after'),('rng_before','rng_after')]:
+-            if a[before]!=prior[after]:raise ValueError('Transaction predecessor boundary mismatch')
++            if a[before]!=prior[after]:raise ValueError('Transaction predecessor boundary mismatch: '+before)
+         if any(a.get(k)!=v for k,v in cp.boundary.items()):raise ValueError('Record/checkpoint boundary mismatch')
+         if tuning_identity(cp.tuning)!=frozen:raise ValueError('Frozen tuning changed')
+         body=dict(schema='bsfm.sweep-transaction.v1',spec_sha256=self.spec_hash,input_sha256=digest(self.input_receipt),
+@@ -93,6 +94,9 @@
+             if value!=dict(sweep=n,previous_sha256=chain['head'],spec_sha256=self.spec_hash):
+                 raise ValueError('Conflicting/stale future attempt')
+             if not (p/'checkpoint.npz').exists() or not (p/'record.npz').exists():continue
++            if not all(zipfile.is_zipfile(safe(p/name)) for name in ('checkpoint.npz','record.npz')):
++                if (p/'prepared.json').exists():raise ValueError('Corrupt prepared transaction payload')
++                continue # an interrupted NPZ write has no committed authority
+             # Two complete but invalid files are not permission to replay silently.
+             try:
+                 _,_,receipt=self.pair(p,n,chain['head'],chain['record_head'],chain['retained'],chain['boundary'],chain['frozen'])
+@@ -103,7 +107,7 @@
+         if len(candidates)>1:raise ValueError('Multiple prepared next transactions; review required')
+         if not candidates:return False
+         p,receipt=candidates[0]
+-        if not (p/'prepared.json').exists():write_json(p/'prepared.json',receipt)
++        if not (p/'prepared.json').exists():publish_json(p/'prepared.json',receipt,staging_directory=p.parent)
+         if sorted(x.name for x in p.iterdir())!=['checkpoint.npz','prepared.json','record.npz']:raise ValueError('Unexpected candidate files')
+         fault('before_transaction_publish');publish(p,self.segment/'transactions'/f'{n:012d}');fault('after_transaction_publish')
+         return True
+diff --git a/tests/sampler_layer9_support.py b/tests/sampler_layer9_support.py
+--- a/tests/sampler_layer9_support.py
++++ b/tests/sampler_layer9_support.py
+@@ -2,6 +2,7 @@
+ import ast
+ import copy
+ import hashlib
++import os
+ from functools import lru_cache
+ from pathlib import Path
+ from types import SimpleNamespace
+@@ -38,7 +39,7 @@
+ 
+ 
+ def literal_initialization(target,loading,eta,seed):
+-    path=Path(r'D:\johnston_brain\run_bundles\bsfm_l4_k20_cell50_fmesher_20261026_v1\code\sampler\run_c3full_fixed_profile_nuts.py')
++    path=Path(os.environ.get('BSFM_HISTORICAL_DRIVER',r'D:\johnston_brain\run_bundles\bsfm_l4_k20_cell50_fmesher_20261026_v1\code\sampler\run_c3full_fixed_profile_nuts.py'))
+     raw=path.read_bytes();r=selected_source_record(path.name)
+     assert len(raw)==int(r['bytes']) and hashlib.sha256(raw).hexdigest()==r['sha256']
+     tree=ast.parse(raw);lines=(466,467,477,478,479,480,482,483,484,485,489,493,494,495,496,510,511,514,517,518,662,663)
+diff --git a/tests/test_sampler_layer9.py b/tests/test_sampler_layer9.py
+--- a/tests/test_sampler_layer9.py
++++ b/tests/test_sampler_layer9.py
+@@ -28,8 +28,13 @@
+ class Layer9Tests(unittest.TestCase):
+     @classmethod
+     def setUpClass(cls):
+-        cls.cache=tempfile.TemporaryDirectory();cls.addClassCleanup(cls.cache.cleanup)
+-        cls.template=Path(cls.cache.name)/'template';c=controller(cls.template)
++        artifact_root=os.environ.get('BSFM_LAYER9_ARTIFACTS')
++        if artifact_root:
++            cache=Path(artifact_root);cache.mkdir(parents=True,exist_ok=False)
++        else:
++            cls.cache=tempfile.TemporaryDirectory();cls.addClassCleanup(cls.cache.cleanup)
++            cache=Path(cls.cache.name)
++        cls.template=cache/'template';c=controller(cls.template)
+         # Real historical-sequence initialization, 20-step adaptation per factor,
+         # and two complete real Layer-6 sweeps. Never a section/production fit.
+         cls.complete=c.run()
+@@ -213,6 +218,59 @@
+         self.assertFalse((a/'transaction/checkpoint.npz').exists())
+         self.assertTrue((a/'transaction/record.npz').exists())
+ 
++    def test_interrupted_record_write_preserved_and_recomputed(self):
++        c=self.copy_prefix()
++        def fault(stage):
++            if stage=='after_checkpoint_candidate':raise Interrupt(stage)
++        with self.assertRaises(Interrupt):c.run(stop_after=1,fault=fault)
++        attempt=next(p for p in (c.store.segment/'attempts').iterdir() if (p/'intent.json').exists())
++        partial=attempt/'transaction/record.npz';partial.write_bytes(b'PK\x03\x04')
++        c.run(stop_after=1)
++        self.assertEqual(partial.read_bytes(),b'PK\x03\x04')
++        self.assertEqual(read_json(c.store.segment/'transactions/000000000001/prepared.json'),
++                         read_json(self.template/'segments/segment/transactions/000000000001/prepared.json'))
++
++    def test_initialization_to_warmup_binding_rejected(self):
++        c=controller(self.root);e=copy.deepcopy(self.genesis)
++        e.evidence['initialization']['after_PX']['eta']='0'*64
++        with self.assertRaisesRegex(ValueError,'Initialization/warmup'):
++            save_genesis(Path(self.tmp.name)/'bad.npz',e,c.target,c.cp)
++
++    def test_saved_chart_restoration_without_eigensolve(self):
++        from bsfm.sampler.run_chart import geometry_from_genesis
++        from bsfm.sampler.field_target import DirectWTarget
++        c=controller(self.root);g=c.target.geometry
++        path=self.template/'segments/segment/genesis/endpoint.npz'
++        with patch('scipy.linalg.eigh',side_effect=AssertionError('Eigensystem recomputed')):
++            restored=geometry_from_genesis(g.arrays,json.loads(g.identity_json),path)
++            target=DirectWTarget(c.target.inputs,restored,c.target.rule,factor_ids=c.target.factor_ids)
++            endpoint,_=load_genesis(path,target,c.cp)
++        self.assertEqual(boundary(self.genesis,c.target),boundary(endpoint,target))
++        self.assertEqual(restored.spectral_identity,g.spectral_identity)
++
++    def test_interrupted_prepared_receipt_recovers_without_sweep(self):
++        c=self.copy_prefix();partial=[]
++        def torn(path,value):
++            path.write_bytes(b'{"schema":');partial.append(path);raise Interrupt()
++        with patch('bsfm.sampler.run_receipts.write_json',side_effect=torn):
++            with self.assertRaises(Interrupt):c.run(stop_after=1)
++        self.assertEqual(len(partial),1)
++        with patch.object(c.layer,'sweep',side_effect=AssertionError('Prepared sweep replay')):
++            c.run(stop_after=1)
++        self.assertEqual(partial[0].read_bytes(),b'{"schema":')
++        self.assertEqual(read_json(c.store.segment/'transactions/000000000001/prepared.json'),
++                         read_json(self.template/'segments/segment/transactions/000000000001/prepared.json'))
++
++    def test_genesis_seed_must_match_immutable_spec(self):
++        c=self.copy_prefix();seg=c.store.segment
++        e=copy.deepcopy(self.genesis);e.evidence['initialization']['seed']+=1
++        (seg/'genesis/endpoint.npz').unlink();(seg/'genesis/receipt.json').unlink()
++        from bsfm.sampler.run_storage import file_record
++        _,h=save_genesis(seg/'genesis/endpoint.npz',e,c.target,c.cp)
++        write_json(seg/'genesis/receipt.json',dict(schema='bsfm.genesis.v1',spec_sha256=c.store.spec_hash,
++            input_sha256=c.spec['input_sha256'],endpoint=file_record(seg/'genesis/endpoint.npz'),logical_sha256=h))
++        with self.assertRaisesRegex(ValueError,'differs from run specification'):c.run()
++
+     def test_multiple_prepared_pairs_fail_closed(self):
+         c=self.copy_prefix();c.run(stop_after=0)
+         chain=c.store.scan(self.genesis,digest(read_json(c.store.segment/'genesis/receipt.json')))
+diff --git a/tests/test_sampler_layer9_chart.py b/tests/test_sampler_layer9_chart.py
+new file mode 100644
+--- /dev/null
++++ b/tests/test_sampler_layer9_chart.py
+@@ -0,0 +1,46 @@
++"""Focused review of saved-chart validation; not yet a runtime API acceptance."""
++import copy,json,os,sys,unittest
++from pathlib import Path
++from unittest.mock import patch
++REPO=Path(__file__).resolve().parents[1]
++sys.path[:0]=[str(REPO/'src'),str(REPO/'tests')]
++import numpy as np
++from sampler_layer3_support import system
++from bsfm.sampler.contracts import logical_hash
++from bsfm.sampler.run_chart import restore_geometry
++
++class SavedChartTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):cls.geometry=system()[0].geometry
++    def test_restore_without_eigensolve_and_exact_geometry(self):
++        g=self.geometry
++        with patch('scipy.linalg.eigh',side_effect=AssertionError('Eigensystem recomputed')):
++            restored=restore_geometry(g.arrays,json.loads(g.identity_json),g.spectral,g.spectral_identity)
++        self.assertEqual(restored.spectral_identity,g.spectral_identity)
++        for k,v in g.spectral.items():
++            if isinstance(v,np.ndarray):np.testing.assert_array_equal(v,restored.spectral[k])
++        for a,b in zip(g.geometry(-.3)[:4],restored.geometry(-.3)[:4]):np.testing.assert_array_equal(a,b)
++    def test_self_consistent_hash_cannot_hide_invalid_basis(self):
++        g=self.geometry;s=copy.deepcopy(dict(g.spectral));s['U'][0,0]+=.2
++        identity=json.dumps({k:logical_hash(v) if isinstance(v,np.ndarray) else v for k,v in s.items()},sort_keys=True)
++        with self.assertRaisesRegex(ValueError,'orthogonality'):
++            restore_geometry(g.arrays,json.loads(g.identity_json),s,identity)
++    def test_changed_input_identity_rejected(self):
++        g=self.geometry;a=dict(g.arrays);a['terms']=a['terms'].copy();a['terms'][0,0,0]+=.1
++        with self.assertRaises(ValueError):restore_geometry(a,json.loads(g.identity_json),g.spectral,g.spectral_identity)
++    def test_changed_chart_identity_rejected(self):
++        g=self.geometry
++        with self.assertRaises(ValueError):restore_geometry(g.arrays,json.loads(g.identity_json),g.spectral,'wrong')
++
++    def test_roundoff_negative_saved_mode_is_not_silently_accepted(self):
++        g=self.geometry;s=copy.deepcopy(dict(g.spectral))
++        d=s['modal_diagonals'];index=np.unravel_index(np.argmin(d),d.shape)
++        self.assertEqual(d[index],0.)
++        d[index]=-1e-15
++        identity=json.dumps({k:logical_hash(v) if isinstance(v,np.ndarray) else v for k,v in s.items()},sort_keys=True)
++        with self.assertRaisesRegex(ValueError,'nonnegative modal'):
++            restore_geometry(g.arrays,json.loads(g.identity_json),s,identity)
++
++if __name__=='__main__':
++    result=unittest.TextTestRunner(stream=sys.stdout,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(SavedChartTests))
++    sys.exit(not result.wasSuccessful())
+diff --git a/tests/test_sampler_layer9_receipts.py b/tests/test_sampler_layer9_receipts.py
+new file mode 100644
+--- /dev/null
++++ b/tests/test_sampler_layer9_receipts.py
+@@ -0,0 +1,33 @@
++import sys,tempfile,unittest
++from pathlib import Path
++from unittest.mock import patch
++REPO=Path(__file__).resolve().parents[1]
++sys.path.insert(0,str(REPO/'src'))
++from bsfm.sampler import run_receipts as proposal
++from bsfm.sampler.run_storage import read_json
++
++class Interrupted(BaseException):pass
++class ReceiptTests(unittest.TestCase):
++    def test_torn_write_is_preserved_outside_authoritative_envelope(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            attempt=Path(tmp);envelope=attempt/'transaction';envelope.mkdir()
++            dest=envelope/'prepared.json'
++            def torn(path,value):
++                path.write_bytes(b'{"schema":');raise Interrupted()
++            with patch.object(proposal,'write_json',side_effect=torn):
++                with self.assertRaises(Interrupted):proposal.publish_json(dest,{'schema':'test'},staging_directory=attempt)
++            self.assertEqual(list(envelope.iterdir()),[])
++            partial=list(attempt.glob('receipt-*/candidate.json'))
++            self.assertEqual(len(partial),1)
++            proposal.publish_json(dest,{'schema':'test'},staging_directory=attempt)
++            self.assertEqual(read_json(dest),{'schema':'test'})
++            self.assertEqual(partial[0].read_bytes(),b'{"schema":')
++    def test_existing_receipt_never_overwritten(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            p=Path(tmp);dest=p/'receipt.json';dest.write_bytes(b'original')
++            with self.assertRaises(FileExistsError):proposal.publish_json(dest,{},staging_directory=p)
++            self.assertEqual(dest.read_bytes(),b'original')
++
++if __name__=='__main__':
++    result=unittest.TextTestRunner(stream=sys.stdout,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(ReceiptTests))
++    sys.exit(not result.wasSuccessful())

@@ -1,0 +1,115 @@
+{
+  "root": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\synthetic-03",
+  "files": [
+    {
+      "path": "template/input-receipt.json",
+      "bytes": 3060,
+      "sha256": "d653000001b8eb39f6a4e509c88e6d760d9cba93ac64401643337f8f5243c87d"
+    },
+    {
+      "path": "template/run-spec.json",
+      "bytes": 697,
+      "sha256": "4e05a8cd08ab56fc0d82f058c921b95127bea3820bbcf93f190292d544473524"
+    },
+    {
+      "path": "template/segments/segment/archive/contract.json",
+      "bytes": 8401,
+      "sha256": "7ab25f5c4064fd2c4fd87e877f59d9bdf1f3bb0fd501ddec99c72d176fd4c365"
+    },
+    {
+      "path": "template/segments/segment/archive/records/000000000001/record.npz",
+      "bytes": 11763,
+      "sha256": "0aa692ba5313c6d1ad322f2a36b80ed75d7c38d02b9da1f3403124587ed3ade5"
+    },
+    {
+      "path": "template/segments/segment/archive/records/000000000002/record.npz",
+      "bytes": 11609,
+      "sha256": "8bf57f0749dd78f3212198454701525ebe23cdfac484c07e6b4627c45d6454fa"
+    },
+    {
+      "path": "template/segments/segment/attempts/genesis-eonzd4ya/performance.json",
+      "bytes": 74,
+      "sha256": "eb1d2bd414883cb3b5a929a0f4d9401ca8abd8e1db28b0172f772342444c290d"
+    },
+    {
+      "path": "template/segments/segment/attempts/sweep-000000000001-dh9z06td/intent.json",
+      "bytes": 178,
+      "sha256": "4a084abf51caa36852836a7c5d262906dda0afbee10edf9783e9911cd9d1c265"
+    },
+    {
+      "path": "template/segments/segment/attempts/sweep-000000000001-dh9z06td/performance.json",
+      "bytes": 58,
+      "sha256": "e4b9d9b687973f0cac2e0e72980967d0bdaee7c978bafe3d629a894e78dc3b2a"
+    },
+    {
+      "path": "template/segments/segment/attempts/sweep-000000000002-yh1ei295/intent.json",
+      "bytes": 178,
+      "sha256": "9f6138b1dbb34ea9094225ca37b8697a52edb036f5bba585da4667e9a8c8f7a0"
+    },
+    {
+      "path": "template/segments/segment/attempts/sweep-000000000002-yh1ei295/performance.json",
+      "bytes": 60,
+      "sha256": "587f752c0a8eba4d4d49c94768a76517b8d019472bff49c768eaf6a93a437d74"
+    },
+    {
+      "path": "template/segments/segment/checkpoints/000000000002.npz",
+      "bytes": 17940,
+      "sha256": "fab60ab2ee7691193012eacdd2930003749ecf7cf12b622aa33eaa7c91787733"
+    },
+    {
+      "path": "template/segments/segment/completion.json",
+      "bytes": 1741,
+      "sha256": "2a80a138139642dc08e6b96beee3e02811fee96f0bd8c507bcbd16f31ddb7cd2"
+    },
+    {
+      "path": "template/segments/segment/genesis/endpoint.npz",
+      "bytes": 44593,
+      "sha256": "c93285b5e6b02487f2996c04408b9c0915155a924124602d6b95fd90c1f9be33"
+    },
+    {
+      "path": "template/segments/segment/genesis/receipt.json",
+      "bytes": 379,
+      "sha256": "c827b0fd9f4d967fc69f9cfd906f9aae458362dd7081de152d1ea5e0168cb3c7"
+    },
+    {
+      "path": "template/segments/segment/run-ledger.json",
+      "bytes": 103,
+      "sha256": "393f5f446147af854858d45159077986a9468c836331df0b7fc6aea92d9652ed"
+    },
+    {
+      "path": "template/segments/segment/transactions/000000000001/checkpoint.npz",
+      "bytes": 18055,
+      "sha256": "fb247a715c7332f965a6018c3fe65d0fee3e91d1d0de0607e9e70bbabdf5e88b"
+    },
+    {
+      "path": "template/segments/segment/transactions/000000000001/prepared.json",
+      "bytes": 980,
+      "sha256": "147fa8f828e4110c97e2899521d0e8de7d8d1024d90922a2574572331f5ee01e"
+    },
+    {
+      "path": "template/segments/segment/transactions/000000000001/record.npz",
+      "bytes": 11763,
+      "sha256": "0aa692ba5313c6d1ad322f2a36b80ed75d7c38d02b9da1f3403124587ed3ade5"
+    },
+    {
+      "path": "template/segments/segment/transactions/000000000002/checkpoint.npz",
+      "bytes": 17940,
+      "sha256": "fab60ab2ee7691193012eacdd2930003749ecf7cf12b622aa33eaa7c91787733"
+    },
+    {
+      "path": "template/segments/segment/transactions/000000000002/prepared.json",
+      "bytes": 980,
+      "sha256": "fb47f10553f89ec69b236244515c6f03bf572a14dcb124782b8be3ac2a389147"
+    },
+    {
+      "path": "template/segments/segment/transactions/000000000002/record.npz",
+      "bytes": 11609,
+      "sha256": "8bf57f0749dd78f3212198454701525ebe23cdfac484c07e6b4627c45d6454fa"
+    },
+    {
+      "path": "template/writer.lock",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    }
+  ]
+}

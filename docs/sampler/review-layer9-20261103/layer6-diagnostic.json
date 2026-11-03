@@ -1,0 +1,62 @@
+{
+  "scope": "Independent authenticated driver chronology, same runtime; no accepted fixture edits",
+  "source": {
+    "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\run_c3full_fixed_profile_nuts.py",
+    "bytes": 94890,
+    "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+    "top_statement_lines": [
+      1121,
+      1122,
+      1150,
+      1151,
+      1156,
+      1166,
+      1170,
+      1172,
+      1179,
+      1180
+    ],
+    "inner_statement_lines": [
+      1123,
+      1127,
+      1128,
+      1131,
+      1143,
+      1145,
+      1146
+    ],
+    "factor_statement_lines": [
+      1181,
+      1182,
+      1183,
+      1186,
+      1188,
+      1189,
+      1193,
+      1194,
+      1198,
+      1201,
+      1202,
+      1203,
+      1204,
+      1208,
+      1212,
+      1225,
+      1263,
+      1270
+    ],
+    "selected_AST_sha256": "17adf5454dc2423d3f27d5bcea88e4439c1205cacbc34e81eba6aae1f189b9a7",
+    "exclusions": "captures, persistent diagnostics, containment/fidelity monitoring, fixed-loading-precision branch; no numerical/RNG update omitted"
+  },
+  "same_environment_source_port_exact": true,
+  "saved_fixture_exact": false,
+  "fixture_sha256": "dbdcfb58058e31103f4a551196fe72eedff6c8d46fd2860bbcbfa9c301eeb741",
+  "fixture_unchanged": true,
+  "differing_saved_sections": [
+    "state",
+    "positions",
+    "yhat",
+    "factor_outputs"
+  ],
+  "elapsed_seconds": 295.75
+}

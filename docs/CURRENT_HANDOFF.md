@@ -1,5 +1,31 @@
 # Current BSFM handoff
 
+## Continuation update: Layer-9 review publication, 2026-11-03
+
+The verified artifact transfer below remains complete. No recovery was repeated.
+New continuation work is preserved on `review/layer9-portability-20261103`,
+based on accepted main `eeb6d9a903663907bbcb2d081bcec05475788ee1`.
+Read [the publication record](sampler/review-layer9-20261103/PUBLICATION.md)
+and [review package](sampler/review-layer9-20261103/README.md).
+Layer 9 remains a reviewed candidate, not accepted scientific functionality.
+
+Local Windows evidence: 36 expanded Layer-9 tests passed; a subsequent strict
+saved-modal domain guard passed five focused tests and an exact retained-genesis
+restoration check. Five synthetic runtime-input join checks also passed.
+The ordinary accepted-layer suite ran 195 tests with eight saved-fixture failures;
+separate authenticated same-environment original/port comparisons passed for
+Layers 1-3, 5 and 6. These distinct results are preserved, not relabeled.
+Canonical mesh checks: seven passed, one R-dependent integration test skipped.
+Accepted source/tests/config/environments were checked byte-for-byte unchanged.
+
+The bounded Linux environment-build proposal is included with exact-version
+platform wheel identities. Its installation and later Linux numerical/runtime
+validation are separate milestones. No S10 or leave-out scientific job has been
+submitted by this publication. Training-only holdout preprocessing, the matched
+flat model and posterior prediction/scoring remain outstanding.
+
+The remaining text records the accepted shutdown baseline and original WIP.
+
 Updated 2026-11-03 after completed shutdown preservation and artifact transfer.
 This supersedes the earlier handoff's pending-transfer statements; older audits
 remain evidence of their original inspections.

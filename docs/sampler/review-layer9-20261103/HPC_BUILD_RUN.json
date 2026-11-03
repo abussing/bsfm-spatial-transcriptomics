@@ -1,0 +1,21 @@
+{
+  "schema": "bsfm.environment-build-run.v1",
+  "status": "specified_not_yet_executed",
+  "scope": "Isolated Linux CPU package installation and version/isolation probe only",
+  "partition": "defq-64core",
+  "nodes": 1,
+  "tasks": 1,
+  "cpus_per_task": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 30,
+  "gpus": 0,
+  "base_python": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311/bin/python",
+  "fresh_prefix": "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103",
+  "lock": "docs/sampler/review-layer9-20261103/LINUX_ENVIRONMENT_PROPOSAL.json",
+  "build_script": "docs/sampler/review-layer9-20261103/build_linux_environment.py",
+  "scheduler_script": "docs/sampler/review-layer9-20261103/build_linux_environment.sbatch",
+  "generating_commit_policy": "The scheduler command supplies this specification's exact clean Git commit; the build verifies HEAD and cleanliness before installation",
+  "preservation_policy": "Never modify existing prefixes; refuse an existing destination; preserve incomplete prefix and logs on failure",
+  "outputs": ["build.log", "build-report.json", "package-validation.json", "requirements.lock.txt"],
+  "excluded": ["Scientific data access", "Sampler execution", "R installation", "Mesh or SCT regeneration", "Model fitting", "GPU execution"]
+}

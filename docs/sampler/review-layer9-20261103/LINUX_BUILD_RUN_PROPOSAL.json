@@ -1,0 +1,15 @@
+{
+  "schema": "bsfm.proposed-environment-build-run.v1",
+  "status": "uncommitted_review_proposal_not_submitted",
+  "purpose": "Restore isolated Linux CPU dependencies for later sampler-layer validation",
+  "base_python": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311/bin/python",
+  "new_prefix": "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103",
+  "resources": {"cpus": 2, "memory_gib": 8, "walltime_minutes": 30, "gpus": 0},
+  "package_policy": "Same 13 exact package versions as the accepted Layer-5 lock; platform-specific Linux wheel identities are separately proposed",
+  "script": "docs/sampler/review-layer9-20261103/build_linux_environment.py",
+  "lock": "docs/sampler/review-layer9-20261103/LINUX_ENVIRONMENT_PROPOSAL.json",
+  "outputs": ["build.log", "build-report.json", "package-validation.json", "requirements.lock.txt"],
+  "scope": "Environment build and package/isolation probe only; no sampler tests, R build, preprocessing, mesh regeneration, model fitting or scientific data access",
+  "requirements_before_submission": ["Review and commit this specification, script and lock", "Record exact generating commit in the scheduler command", "Confirm run approval under AGENTS.md"],
+  "success_does_not_establish": ["Layer-9 Linux filesystem support", "Numerical source-port equivalence", "S10 sampler smoke", "Holdout pipeline readiness"]
+}

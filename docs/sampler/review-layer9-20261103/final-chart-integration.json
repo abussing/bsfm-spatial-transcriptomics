@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "checks": {
+    "boundary_exact": true,
+    "spectral_identity_exact": true
+  },
+  "genesis_sha256": "c93285b5e6b02487f2996c04408b9c0915155a924124602d6b95fd90c1f9be33",
+  "chart_source_sha256": "c6ad9d8ed8f078be7a296a1ee3265bda177816985ad0d18825c2c14826365fad",
+  "scope": "Existing authenticated synthetic genesis; no fresh warmup or scientific run"
+}

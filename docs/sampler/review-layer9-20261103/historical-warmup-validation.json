@@ -1,0 +1,73 @@
+{
+  "status": "pass",
+  "checks": {
+    "state": true,
+    "positions": true,
+    "rng": true,
+    "histories": true,
+    "tuning": true
+  },
+  "source": {
+    "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\run_c3full_fixed_profile_nuts.py",
+    "bytes": 94890,
+    "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+    "statement_lines": [
+      466,
+      467,
+      477,
+      478,
+      479,
+      480,
+      482,
+      483,
+      484,
+      485,
+      489,
+      493,
+      494,
+      495,
+      496,
+      510,
+      511,
+      514,
+      517,
+      518,
+      662,
+      663
+    ],
+    "AST_sha256": "bccf3701b1c49a95a33759220786124a3aa7b93fcb1efefe970f10e0de7fda11"
+  },
+  "prefix_lines": [
+    675,
+    676,
+    677,
+    678,
+    682,
+    693
+  ],
+  "loop_lines": [
+    700,
+    701,
+    704,
+    712,
+    734,
+    906,
+    907,
+    908,
+    909,
+    910,
+    924
+  ],
+  "suffix_lines": [
+    942,
+    943,
+    944,
+    945,
+    946
+  ],
+  "selected_AST_sha256": "fff21893bf5dacc50c3df4b243d592cbce944523206385c8a14b3267d13264c0",
+  "genesis_sha256": "c93285b5e6b02487f2996c04408b9c0915155a924124602d6b95fd90c1f9be33",
+  "target_acceptance": 0.9,
+  "warmup_steps": 20,
+  "scope": "Independent historical composition using accepted Layer-5 kernels; synthetic only"
+}

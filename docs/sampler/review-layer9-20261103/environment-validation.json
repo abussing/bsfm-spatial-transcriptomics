@@ -1,0 +1,72 @@
+{
+  "schema": "bsfm.layer9-cpu-authentication.v1",
+  "runtime": [
+    {
+      "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\runtime\\python.exe",
+      "bytes": 103192,
+      "sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0"
+    },
+    {
+      "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\runtime\\python312.dll",
+      "bytes": 6972184,
+      "sha256": "e7890e38256f04ee0b55ac5276bbf3ac61392c3a3ce150bb5497b709803e17ce"
+    },
+    {
+      "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\runtime\\python3.dll",
+      "bytes": 68376,
+      "sha256": "1e9224ba7190b6301ef47befa8e383d0c55700255d04a36f7dac88ea9573f2fb"
+    }
+  ],
+  "executable": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\sampler\\python\\Scripts\\python.exe",
+  "lock": {
+    "bytes": 9836,
+    "sha256": "54fc9d6029c867c880d481839097fca3535c53bf6e547c0ba2c32d6fa6527488"
+  },
+  "installed_receipt": {
+    "bytes": 8629,
+    "sha256": "d457ef1e3f2c5a3f3acb29cd805a3d60a46393a89c46dbfb14228a565b547246"
+  },
+  "packages": {
+    "absl-py": "2.5.1",
+    "blackjax": "1.3",
+    "fastprogress": "1.0.3",
+    "jax": "0.7.0",
+    "jaxlib": "0.7.0",
+    "jaxopt": "0.8.3",
+    "ml-dtypes": "0.6.0",
+    "numpy": "2.1.3",
+    "optax": "0.2.8",
+    "opt-einsum": "3.4.0",
+    "pip": "23.2.1",
+    "scipy": "1.14.1",
+    "threadpoolctl": "3.5.0",
+    "typing-extensions": "4.16.0"
+  },
+  "cpu": true,
+  "x64": true,
+  "blas": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\sampler\\python\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-c16e4918366c6bc1f1cd71e28ca36fc0.dll",
+      "version": "0.3.27",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\sampler\\python\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-5b1ec8b915dfb81d11cebc0788069d2d.dll",
+      "version": "0.3.27.dev",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    }
+  ],
+  "installed_record_files": 3933,
+  "wheel_member_files": 3394,
+  "limitation": "Wheel .data entries use installed RECORD integrity; Windows CPU only"
+}

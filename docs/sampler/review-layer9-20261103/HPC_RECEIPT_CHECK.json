@@ -1,0 +1,17 @@
+{
+  "schema": "bsfm.portability-receipt-check.v1",
+  "date": "2026-11-03",
+  "host": "login.rci.sc.edu",
+  "port": 222,
+  "user": "abussing",
+  "mirror": "/work/abussing/bsfm-consolidation/canonical-artifacts-20261103",
+  "receipt_bytes": 45963,
+  "expected_sha256": "5ed5813756a19c73f672c6873b6f41093521ea1dd4a46d8a075ff18d13bb4f60",
+  "observed_sha256": "5ed5813756a19c73f672c6873b6f41093521ea1dd4a46d8a075ff18d13bb4f60",
+  "receipt_status": "complete_verified",
+  "receipt_files": 187,
+  "receipt_total_bytes": 6943739779,
+  "verification_scope": "Authenticated SSH read and SHA-256 of existing transfer receipt only. Original payload verification was not repeated.",
+  "credentials_stored": false,
+  "hpc_jobs_submitted": false
+}

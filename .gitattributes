@@ -12,3 +12,6 @@
 
 # Historical captures are immutable evidence; preserve their original bytes.
 docs/recovery/evidence/** -text
+
+# Preserved unified-diff context includes structural single-space blank lines.
+docs/sampler/review-layer9-20261103/*.patch -whitespace

@@ -1,0 +1,121 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\run_c3full_fixed_profile_nuts.py",
+    "bytes": 94890,
+    "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+    "statement_lines": [
+      466,
+      467,
+      477,
+      478,
+      479,
+      480,
+      482,
+      483,
+      484,
+      485,
+      489,
+      493,
+      494,
+      495,
+      496,
+      510,
+      511,
+      514,
+      517,
+      518,
+      662,
+      663
+    ],
+    "AST_sha256": "bccf3701b1c49a95a33759220786124a3aa7b93fcb1efefe970f10e0de7fda11"
+  },
+  "rng": {
+    "numpy_global_sha256": "212ae5a1d8fbdb0ee3f3c813367dd49b865ff409d92a6060f413d23f12f5051d",
+    "eta_generator": "PCG64",
+    "eta_rng_sha256": "c7f53c8619d512e33dc92bc489b220880aaa141108d14ac86ef48a0c713116d8",
+    "gauge_generator": "PCG64",
+    "gauge_rng_sha256": "7b41fe8f547481f7a70054485b923fa39a123a49317fb3fc8a31ba18e90054db",
+    "jax_impl": "threefry2x32",
+    "jax_key_data": [
+      1339495167,
+      1128680314
+    ]
+  },
+  "evidence": {
+    "schema": "bsfm.initialization.v1",
+    "seed": 491,
+    "initial_sigma_literal": 0.31622776601683794,
+    "before_PX": {
+      "loading": "8266545756111cfa55c8d9968962ab7668acbd56d8db5fb5538098634d206b66",
+      "eta": "d020017f5dfaa52bd01f9ea733f1d7c77ad8f675865236880a7dede306061e48",
+      "alpha": "7e374c479e4b415c91d877a489bed211a475f2653c4e3ea1a683d4eea666ae67",
+      "zeta": "55f69622319bb751d8168bf526c3233952225ca5a5d56591704daf426675942b",
+      "sigma2": "84b317d41554e31d24e1248b8ee21117d78dd0869ac79e98e34ea3657fb852fe",
+      "phi": "cf436080c182b58ca046931e5cbb93ffe207bf9a52fa8b35456569b184b93a07",
+      "delta": "0535f14d6dc731ebc45ca6b84ccb49a9e6aec8c7ea05f92ead120144dc636b68",
+      "tau": "0535f14d6dc731ebc45ca6b84ccb49a9e6aec8c7ea05f92ead120144dc636b68"
+    },
+    "after_PX": {
+      "loading": "c9f0f0ffa38a4bd1948c269e50959ce88cc85be60114a7d1cfb6b9a9d15b7786",
+      "eta": "be9c41d4e525066119ebf00a4cdb67e9163dec63d190a8b4d2a368ed689f55ac",
+      "alpha": "032c4a424a1bc7a1b99fddf30a412b6a5ef2044ac5766e7c470c3c0f36b1a8f1",
+      "zeta": "55f69622319bb751d8168bf526c3233952225ca5a5d56591704daf426675942b",
+      "sigma2": "84b317d41554e31d24e1248b8ee21117d78dd0869ac79e98e34ea3657fb852fe",
+      "phi": "cf436080c182b58ca046931e5cbb93ffe207bf9a52fa8b35456569b184b93a07",
+      "delta": "0535f14d6dc731ebc45ca6b84ccb49a9e6aec8c7ea05f92ead120144dc636b68",
+      "tau": "0535f14d6dc731ebc45ca6b84ccb49a9e6aec8c7ea05f92ead120144dc636b68"
+    },
+    "px": {
+      "label": "gpinit_initial",
+      "old_alpha": [
+        0.06546178548393539,
+        0.03144743047247274
+      ],
+      "new_alpha": [
+        0.4040100555341383,
+        3.134213346865201
+      ],
+      "checks_relative": {
+        "identified_loading": 6.938893903907228e-18,
+        "standardized_factor": 1.403925387201586e-16,
+        "signal": 2.7755575615628914e-17,
+        "alpha2_q": 4.336808689942018e-19
+      },
+      "exact_prior_draw": true,
+      "identified_state_preserved": true
+    },
+    "initial_signal_error": 6.938893903907228e-18,
+    "master_key": [
+      1339495167,
+      1128680314
+    ],
+    "warm_keys": [
+      [
+        1650954591,
+        2682902268
+      ],
+      [
+        2615260478,
+        2955200833
+      ]
+    ],
+    "initial_positions": [
+      "5516cc24819cc2e40df38619f3102d3e73f4eefebdb5348f4c5c8a4d4118b51b",
+      "b093df1acff29c6b76d42488863859f6addcc868aa4a6df0c1a52efaf89b7cbd"
+    ],
+    "rng_after": {
+      "numpy_global_sha256": "212ae5a1d8fbdb0ee3f3c813367dd49b865ff409d92a6060f413d23f12f5051d",
+      "eta_generator": "PCG64",
+      "eta_rng_sha256": "c7f53c8619d512e33dc92bc489b220880aaa141108d14ac86ef48a0c713116d8",
+      "gauge_generator": "PCG64",
+      "gauge_rng_sha256": "7b41fe8f547481f7a70054485b923fa39a123a49317fb3fc8a31ba18e90054db",
+      "jax_impl": "threefry2x32",
+      "jax_key_data": [
+        1339495167,
+        1128680314
+      ]
+    },
+    "fidelity_status": "not_evaluated_by_layers_1_to_8"
+  }
+}
