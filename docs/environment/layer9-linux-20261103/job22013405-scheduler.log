@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/work/abussing/bsfm-consolidation/checkouts/deaaf833d9d77bf4db594d3efcfe0ca217392f12/docs/environment/layer9-linux-20261103/build.py", line 120, in <module>
+    main()
+  File "/work/abussing/bsfm-consolidation/checkouts/deaaf833d9d77bf4db594d3efcfe0ca217392f12/docs/environment/layer9-linux-20261103/build.py", line 86, in main
+    run([bp, '-I', '-m', 'pip', 'wheel', '--no-deps', '--no-build-isolation',
+  File "/work/abussing/bsfm-consolidation/checkouts/deaaf833d9d77bf4db594d3efcfe0ca217392f12/docs/environment/layer9-linux-20261103/build.py", line 53, in run
+    subprocess.run(command, stdout=stream, stderr=subprocess.STDOUT, check=True, env=env)
+  File "/work/abussing/arka_trying_gpu_again/env/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source2/build-python/bin/python', '-I', '-m', 'pip', 'wheel', '--no-deps', '--no-build-isolation', '--wheel-dir', '/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source2/wheels', '/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source2/archives/ml_dtypes-0.6.0.tar.gz']' returned non-zero exit status 1.

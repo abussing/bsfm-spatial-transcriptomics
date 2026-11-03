@@ -16,3 +16,7 @@ docs/recovery/evidence/** -text
 # Preserved unified-diff context includes structural single-space blank lines.
 docs/sampler/review-layer9-20261103/** -text
 docs/sampler/review-layer9-20261103/*.patch -whitespace
+
+# Preserve exact scheduler/build evidence, including upstream blank-line spaces.
+docs/environment/layer9-linux-20261103/job* -text
+docs/environment/layer9-linux-20261103/*.log -whitespace

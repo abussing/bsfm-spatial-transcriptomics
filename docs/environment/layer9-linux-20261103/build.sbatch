@@ -9,7 +9,7 @@
 #SBATCH --output=/work/abussing/bsfm-consolidation/evidence/layer9-env-%j.log
 set -euo pipefail
 commit="${1:?Exact generating commit required}"
-module load gcc/12.2.0
+module load gcc/12.2.0 mpfr/4.1.0
 export CC=gcc CXX=g++
 cd "/work/abussing/bsfm-consolidation/checkouts/$commit"
 exec /work/abussing/bsfm-consolidation/environments/sampler-cpu-py311/bin/python -I \

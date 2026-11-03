@@ -25,6 +25,13 @@ remains preserved. Portable CMake 3.27.9 and Ninja 1.11.1.1 wheels now reside
 only in the build venv. No OS library, runtime package version or scientific
 code is changed by this correction.
 
+Job 22013405 at deaaf83 reached source configuration but GCC's cc1plus could
+not load libmpfr.so.6. The GCC module does not load that dependency itself.
+The next attempt explicitly loads the existing mpfr/4.1.0 module; read-only
+loader inspection confirms all cc1plus libraries resolve with that module.
+Its fresh prefix is `source3`; the successful authenticated downloads from
+`source2` are reused only after rehashing. Module/library paths are recorded.
+
 Upstream references: [source metadata](https://pypi.org/pypi/ml_dtypes/0.6.0/json),
 [build requirements](https://github.com/jax-ml/ml_dtypes/blob/v0.6.0/pyproject.toml),
 [compiler requirements](https://github.com/jax-ml/ml_dtypes/blob/v0.6.0/CMakeLists.txt).

@@ -1,0 +1,9 @@
+{
+  "job_id": "22013405",
+  "commit": "deaaf833d9d77bf4db594d3efcfe0ca217392f12",
+  "scope": "environment-only portable build tools, unchanged runtime versions",
+  "submitted_utc": "2026-11-03T08:26:17.117254+00:00",
+  "cpus": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 30
+}
