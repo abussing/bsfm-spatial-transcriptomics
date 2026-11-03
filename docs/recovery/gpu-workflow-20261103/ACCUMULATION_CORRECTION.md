@@ -25,3 +25,19 @@ software contract authenticates source input only; the gate records new code.
 Success requires exact full-gradient and transition repeatability, not merely
 operator agreement. Full-sweep/restart and storage timing remain subsequent
 gates; success here alone cannot authorize a reproducibility claim for those.
+
+First gate job 22015917 at `8dbff5863d2b3e2f58411180354b006bed243082`
+passed: ten full-gradient evaluations exact; same-runner and new-runner
+split transitions exact; autodiff relative gradient error 2.1764643911194787e-13.
+Local independent dense-Gaussian and incidence tests both passed.
+
+The next committed gate, `validate_real_replay.sbatch`, uses one V100, four CPUs,
+16 GiB and at most 45 minutes. It executes three strict and three incremental
+sweeps in separate processes, then interrupts sweep 2 after writing its checkpoint
+candidate (before its retained record) and resumes in another process. Exact
+transaction identities and completed-run non-replay are required. There is no
+warmup. A diagnostic controller explicitly seeds a new software contract from
+the authenticated old adapted state; the source identity is in the configuration
+digest. This is an isolated diagnostic experiment, not scientific chain migration.
+Wall times include compilation and validation; three sweeps do not establish
+long-history scaling. No existing scientific run is modified.
