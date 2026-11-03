@@ -1,5 +1,22 @@
 # Current BSFM handoff
 
+## Representative failure diagnosed: inherited GPU scatter nondeterminism
+
+Job 22015787 failed exact strict/incremental comparison after both one-thread
+arms completed; the four-thread arm never ran. Do not treat it as a successful
+performance/production gate. Read
+[diagnostic findings](recovery/gpu-workflow-20261103/REAL_TIMING_DIAGNOSIS.md).
+GPU probes 22015888 and 22015895 completed and reproduced different results from
+the same compiled transition with identical inputs/key, independently of saving.
+The inherited repeated-index gradient scatter-add is itself nondeterministic on
+the actual input. A fixed-order operator probe repeated exactly ten times, but
+the full gradient/transition with that correction is not yet validated or deployed.
+Receipts, original failure, hashes and evidence paths are preserved in
+`GPU_NONDETERMINISM_EVIDENCE.json`. Next: narrowly correct deterministic accumulation,
+verify mathematical equivalence and full-size GPU replay, then resume timing and
+fresh-fit selection. Do not silently weaken exactness checks. No scientific jobs
+or production numerical kernels were changed by these diagnostics.
+
 ## GPU integration and representative timing submitted
 
 Commit `9fb50b3` integrates incremental saving into the GPU entry for bridge and

@@ -1,5 +1,51 @@
 # Representative timing failure: diagnosis in progress
 
+## Completed isolation results
+
+Two bounded GPU jobs completed successfully: transition probe **22015888** in
+72 seconds (commit `372decf`), and operator probe **22015895** in 25 seconds
+(commit `19a60d1`). Their receipts and the original failed comparison are preserved
+in `GPU_NONDETERMINISM_EVIDENCE.json`, including source paths and hashes.
+
+The same compiled first-factor transition, called twice on identical state,
+conditioning values, tuning and key, produced different results without any
+transaction store or checkpoint publication in between. Maximum position difference
+was `2.7384428058496724e-11`; constructing a fresh runner also differed. This
+demonstrates that full-size GPU bitwise replay failure exists independently of the
+incremental-saving optimization. It does not prove the absence of every possible
+storage issue, nor establish posterior convergence or statistical bias.
+
+The fixed-input operator probe found:
+
+- Ten full value/gradient evaluations were not bit-identical; maximum observed
+  difference from the first evaluation was about `2.06e-13`.
+- Ten isolated evaluations of the exact scatter-add expression were not
+  bit-identical; maximum difference was about `5.12e-13`.
+- A diagnostic-only fixed-order gather-and-reduce implementation was bit-identical
+  in all ten evaluations. Its maximum difference from a sequential CPU scatter
+  reference was `3.41e-13`, consistent with different floating-point summation order.
+- Actual geometry: 166 active vertices, 10,137 contributions, maximum 185
+  contributions to one vertex. This exercises overlapping updates, unlike tiny
+  tests that may fail to reveal the behavior.
+
+The responsible nondeterministic operation is concretely present in
+`field_kernels.py:build_base_target.scatter`: repeated-index `.at[...].add(...)`.
+The accepted Layer-3 source map records an exact historical body match for this
+helper. JAX documents that overlapping update order can be nondeterministic:
+https://docs.jax.dev/en/latest/_autosummary/jax.Array.at.html . The operator probe
+confirms that behavior on this actual input and V100 runtime. It does not yet prove
+that this is the only nondeterministic operation in the complete sampler.
+
+The evidence therefore supports a narrowly scoped deterministic accumulation
+correction, followed by full-gradient, same-key transition, and real-size
+uninterrupted/restart checks. Do not loosen comparison tolerances or label the
+original representative gate passed. The fixed-order alternative has only been
+tested as an isolated operator; no production numerical kernel was changed.
+Four-thread timing remains unperformed. Existing scientific outputs are preserved.
+
+The rest of this document records the initial localization and approved probe
+scope; its formerly pending probes are resolved by the results above.
+
 Job 22015787 failed after 25m50s at exact transaction comparison. Both one-thread arms completed all three sweeps; four-thread execution never started. Do not mark representative validation passed or launch fresh replacements on this evidence.
 
 Read-only inspection of saved files established:
