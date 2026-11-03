@@ -123,6 +123,16 @@ no universal factor count is selected. The isolated
 [GP environment](environment/gpinit/README.md) leaves accepted mesh/SCT environments
 unchanged. GPINIT exports cold-start seeds only; it does not replace modeling Y.
 
+The [canonical full-cell S10 preparation gate](docs/initialization/S10_FULLCELL_PREPARATION.md)
+is accepted and committed at `679a7432430464ba0031f9762b77e48f50946964`.
+Fresh clean-commit regeneration joins the canonical SCT response to all 9,422
+modeled cells and the full October-26 mesh, then repeats GPINIT exactly with
+mechanical K=20/nfit=250/seed=2026102610. The
+[v2 artifact registration](docs/initialization/audits/S10_fullcell_v2_20261103/receipt.json)
+is accepted. The old uncommitted v1 artifacts remain review evidence.
+This does not implement Layer-9 orchestration or authorize a production K,
+adaptation, Gibbs sweeps or primary holdout scoring.
+
 - Fit a spatial GP to each transformed gene.
 - Construct spatially smoothed gene surfaces.
 - Use the established spatial-surface/SVD method to initialize the factor model.
