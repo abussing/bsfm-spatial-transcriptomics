@@ -2,6 +2,14 @@
 
 ## Latest execution checkpoint: GPU replacement fits
 
+An idle P100 fallback was found on generic partition `gpu`. Validation job
+22014518 passed four focused tests and a real L14 20-step factor warmup (128.41s).
+Additional paired jobs 22014562 (deep) / 22014563 (flat) use the 12-hole width/8
+configuration and generating commit `bca5878664eb7687a127f05323e5b9032440eb27`,
+with separate `p100`-tagged outputs. All V100 submissions remain in place.
+Read the [P100 submission and resume record](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/run/s10-holey-20261103/docs/holdouts/s10-grid-20261103/P100_RUNNING.md).
+Check live state before describing these jobs as running or complete.
+
 The user subsequently requested additional submissions on `v100-32gb-hiprio`,
 leaving the original 16GB jobs in place. Jobs 22014499-22014506 use generating
 commit `c6f23ad2c9d03fc6421f878b20e0d8a107cbaa2e` and a separate `v10032` output
