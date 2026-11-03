@@ -3,6 +3,15 @@
 Inspection date: 2026-11-02. This records read-only discovery and authenticated
 file restoration, not a new model fit or mesh build.
 
+## Original-desktop reconciliation
+
+On 2026-11-02 the original Windows desktop independently rehashed the accepted
+full-cell H5AD and canonical S10 export, authenticated all 28 F/code source-ledger
+entries, and fast-validated all 19 canonical SCT-v2 six-file bundles from their
+exact generating checkout. See the [desktop receipt](DESKTOP_RECONCILIATION_20261102.json).
+No HPC/laptop transfer occurred. The bounded HPC absence findings below retain
+their original machine/search scope; they do not imply global loss of these data.
+
 ## Recovered dependencies
 
 All 19 historical section inputs exist and match the October-24 preparation
@@ -65,11 +74,19 @@ Runtime installation, all package installs and fresh-session validation were not
 reached. See the [execution receipt](HPC_R_MESH_BUILD_22012386.json) and
 [package/version report](HPC_R_PACKAGE_VALIDATION_22012386.json).
 
+The separately approved retry [22012400](HPC_R_MESH_BUILD_22012400.json) was
+RUNNING at the original-desktop read-only check, elapsed 01:54:57 on node432.
+R installation and 20 package completions appear in the log; fresh namespace
+validation is not observed. This is not a completed build. Preserve the prefix;
+no retry, pkgconf install, partial-prefix resume or duplicate submission occurred.
+Query its final scheduler state before any next step.
+
 ## Remaining work
 
-1. Locate full-cell raw input or canonical response bundles through additional
-   existing-storage evidence; do not substitute glial-only counts for full-cell
-   SCT fitting or historical expression for the accepted response.
+1. Plan transfer of the authenticated desktop full-cell input or canonical
+   response bundles to the intended machine and verify destination hashes.
+   Do not substitute glial-only counts for full-cell SCT fitting or historical
+   expression for the accepted response. No further blind search is required.
 2. Recover the two remaining S10 preview files or design an explicit reference-comparison
    route using the committed identities. Do not fabricate missing reference files.
 3. Restore a separate Linux R mesh/SCT environment using the accepted package

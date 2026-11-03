@@ -1,7 +1,7 @@
 # Current BSFM handoff
 
 Verified baseline: `main`, `49f33c441e1cde9e1b8139ffef0103993eaa0222`
-(Sampler Layer 3). Portability inspection: 2026-11-02.
+(Sampler Layer 3). Portability inspection and original-desktop reconciliation: 2026-11-02.
 
 Git is authoritative. Read [AGENTS.md](../AGENTS.md),
 [the pipeline portability audit](PORTABILITY_AUDIT.md),
@@ -19,8 +19,9 @@ paragraphs describe their original scope; they do not undo later accepted layers
   with bounded S10 reproduction evidence, not all-section production claims.
 - Sampler Layers 1–3 implement Gaussian/shrinkage/PX updates, full-spectrum
   active marginalization, and the frozen L16/direct-W factor target.
-- Layer 3 records 70 sampler and eight mesh tests passing on the former
-  Windows machine. These are recorded results, not new HPC test results.
+- Layer 3 records 70 sampler and eight mesh tests passing on the original
+  Windows desktop. The continuation branch now also passes 75 sampler/provenance
+  and eight mesh tests on that desktop; these are not new HPC test results.
 - A complete Gibbs sampler is not implemented. Fixed-physical-W hyper targets,
   joint-eta PCG, NUTS/adaptation, sweep chronology, checkpoint/restart,
   diagnostics, retained draws and launchers remain. Production GPU validation
@@ -33,11 +34,19 @@ SCTransform v2 responses. No settled scientific choice is reopened here.
 
 ## Available machines and artifacts
 
-The former `C:\Users\Data Viz` machine and external E: drive are unavailable
-to the current continuation. The old D:/E: paths are provenance, not retrieval
-instructions for this machine. The local
-`C:\Users\andyb\Desktop\johnston_brain\run_bundles` is a junction to E: and
-does not supply another accessible copy.
+The original `C:\Users\Data Viz` Windows desktop is available again, with the
+historical drive mounted at D:. Its raw H5AD and canonical S10 sampler-facing
+mesh match their recorded whole-file hashes. All 19 canonical SCT-v2 bundles
+pass the committed fast closed-file validator from their exact generating
+commit; this authenticates the original deep reports, not a new numerical fit.
+All 28 selected F/code entries in the source ledger also match locally.
+See the [desktop audit](environment/DESKTOP_RECONCILIATION_20261102.json).
+
+The laptop's earlier `C:\Users\andyb\Desktop\johnston_brain\run_bundles`
+junction to E: was unavailable during its inspection. That machine-specific
+finding remains valid. Desktop availability does not imply that raw counts,
+canonical responses or the canonical mesh have been transferred to the laptop
+or HPC. Paths below are labeled by machine, not universal retrieval locations.
 
 HPC: `abussing@login.rci.sc.edu`, port 222; interactive authentication/Duo.
 Never store authentication secrets in the repository. Read-only checks reached
@@ -49,9 +58,10 @@ Never store authentication secrets in the repository. Read-only checks reached
 
 See [external-artifacts.json](external-artifacts.json) for known paths, hashes,
 availability, classifications and recovery instructions. Hashes identify bytes;
-directory names do not establish canonical status. The raw H5AD, newer canonical
-response bundles and canonical `sampler-facing.npz` have not yet been located
-on accessible storage. Searches were bounded, not an exhaustive absence proof.
+directory names do not establish canonical status. The raw H5AD, canonical
+response bundles and canonical `sampler-facing.npz` are authenticated on the
+original desktop. The earlier bounded laptop/HPC searches did not locate those
+canonical copies there; no transfer has been performed in this reconciliation.
 
 **The historical 19-section HPC inputs are available.** All 19
 `gene_review19_20261004_v1/sections/<section_id>/input.npz` files were authenticated
@@ -61,9 +71,10 @@ for 187,100 glial cells. See the [per-file inventory](environment/HPC_19SECTION_
 The October-24 production tree and subsequent adaptation/production directories
 also exist. Their presence is not a new validation of historical model runs.
 Do not describe this as missing all project data or requiring a public redownload.
-The narrower unresolved dependency is full-cell preprocessing input: these
-bundles contain glial subsets, while canonical SCT is fitted before that subset.
-Continue tracing HPC preprocessing and transferred archives first.
+The remaining HPC dependency is transfer of the authenticated full-cell input
+or canonical responses from the desktop. These historical bundles contain glial
+subsets, while canonical SCT is fitted before that subset. No additional blind
+storage search or public redownload is needed to establish the desktop source.
 The [recovery status](environment/HPC_RECOVERY_STATUS.md) records the expanded
 filesystem/archive search, restored S10 source files and remaining R-runtime gap.
 
@@ -72,8 +83,9 @@ Public recovery now identifies the study's Brain Image Library dataset
 Its [2026-11-02 service update](https://www.brainimagelibrary.org/datacentermove.html)
 reports continuing migration downtime; metadata works but data downloads timed
 out. The archive's contents have not been matched to our required H5AD hash.
-Recheck service status before retrying retrieval. Raw-data recovery does not
-block bounded sampler ports using the authenticated historical source on HPC.
+These are retained laptop observations, not a fresh service check. Public
+retrieval is unnecessary for the authenticated desktop copy. Raw-data transfer
+does not block bounded ports using the authenticated historical source on HPC.
 
 ## Environment portability
 
@@ -109,12 +121,12 @@ Installed GPU package metadata is not GPU execution evidence.
    Full source-build reproducibility remains unestablished. Prepare a committed
    specification before further HPC jobs; follow AGENTS.md approval requirements.
    Do not run the scientific suite on a login node.
-4. Trace existing HPC runs and transferred data for the full-cell input or
-   canonical responses; the authenticated 19-section inputs above are the starting
-   point. Public upstream retrieval is a fallback, not an established requirement.
-   Regenerate canonical responses using the documented runner only after
-   the accepted R environment is restored/ported and checked. A different raw
-   payload requires explicit provenance reconciliation, not a renamed file.
+4. Plan transfer of the already authenticated desktop raw input, all 19 canonical
+   response bundles and canonical S10 mesh to the intended machine. Authenticate
+   hashes after transfer and restore the required platform-specific environments.
+   No transfer or regeneration was performed in this reconciliation. Preserve the
+   distinction between fast byte/provenance validation and new deep numerical
+   validation. A different payload requires explicit provenance reconciliation.
 5. Five exact S10 source-geometry files, including cells.csv, were restored from
    the HPC SOURCE_INPUTS.zip archive and authenticated against the committed
    inventory. See the [recovery receipt](environment/HPC_S10_GEOMETRY_RECOVERY.json).
@@ -123,8 +135,10 @@ Installed GPU package metadata is not GPU execution evidence.
    remain unresolved. Approved Linux R build job 22012386 failed during optional
    NEWS.pdf documentation generation before installation; its logs and package
    report are retained. The separately approved retry **22012400** is running at
-   last inspection: R built/installed, 20 packages installed, s2 dependency lookup
-   pending. See the [interim run record](environment/HPC_R_MESH_BUILD_22012400.json)
+   the desktop live check (elapsed **01:54:57**, node432): R built/installed,
+   20 package completions in the log, and no new validation result. The prior
+   inspection recorded s2 dependency lookup; that exact subprocess was not
+   re-inspected in this query. See the [interim run record](environment/HPC_R_MESH_BUILD_22012400.json)
    and query Slurm before continuing; do not submit a duplicate build. Fresh
    package/version/isolation validation has not run. Restore/validate
    the Linux mesh environment before a canonical rebuild.

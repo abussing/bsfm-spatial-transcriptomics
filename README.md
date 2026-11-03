@@ -20,8 +20,12 @@ purpose, and relationship to the intended method are understood.
 Canonical full-data SCTransform v2 production passed for all 19 sections at
 common correction depth 124. See the [production receipt](docs/preprocessing/audits/20261031_production_v2/README.md).
 These artifacts are not eligible for primary holdout scoring; that requires
-training-only preprocessing. No BSFM model or HPC workflow has yet been frozen
-in this repository. See the [preflight guide](docs/preprocessing/RAW_INPUT_PREFLIGHT.md)
+training-only preprocessing. Sampler Layers 1-3 and their architecture are
+accepted; the complete sampler and production HPC workflow remain unimplemented.
+Bounded Linux environment/test receipts are recorded separately. Canonical raw,
+SCT-v2 bundles and S10 mesh are authenticated on the original Windows desktop;
+transfer to laptop/HPC remains outstanding. See the
+[desktop reconciliation](docs/environment/DESKTOP_RECONCILIATION_20261102.json). See the [preflight guide](docs/preprocessing/RAW_INPUT_PREFLIGHT.md)
 for the CLI, dependencies, tests and artifact contract.
 
 ## Canonical mesh entry point

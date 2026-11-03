@@ -1,0 +1,508 @@
+{
+  "schema": "bsfm.desktop-portability-artifact-audit.v1",
+  "status": "PASS",
+  "date": "2026-11-02",
+  "review_branch_baseline": "896369b719d0999fc9c2f69beb7c75f3dad26a1a",
+  "machine": "original_windows_desktop",
+  "raw_h5ad": {
+    "path_machine_local": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+    "bytes": 5483600151,
+    "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
+    "status": "present_exact_match"
+  },
+  "s10_mesh": {
+    "path_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\sampler-facing.npz",
+    "bytes": 7195273,
+    "sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0",
+    "status": "present_exact_match"
+  },
+  "production_manifest": {
+    "path_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\run-manifest.json",
+    "bytes": 48980,
+    "sha256": "03b83d93891080f15b6a85684e2cb5de8d9a9b7cdf72f8c25dd8103403e1e06f",
+    "status": "present_exact_match"
+  },
+  "production": {
+    "root_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2",
+    "generating_commit": "6eb672bebbaf5cde6c9d50391aac275a210832a6",
+    "validator": "bsfm.preprocessing.response_validate.fast_validate_bundle",
+    "validator_checkout_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-portability-review\\artifacts\\review\\desktop-reconciliation\\sct-generating-checkout",
+    "validator_python": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python\\Scripts\\python.exe",
+    "sections": [
+      {
+        "section": "S00__Trem2_5xFAD4",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11306,
+          "sha256": "2627105a06e1a541b915c98bbb492f8ef98c080041b1caa47459fe2905f7d54d"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S00__Trem2_5xFAD4-44da29ae55c84f20a6bb87e939ee01d0",
+        "required_file_count": 6
+      },
+      {
+        "section": "S01__5xFAD4",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11297,
+          "sha256": "0ccee738bd4a50bae18335f21a58271f73b4feab2176389beec3ca9c9d7e5e18"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S01__5xFAD4-84dd3388d7ab4d1eb0a0d1a44cd99d3a",
+        "required_file_count": 6
+      },
+      {
+        "section": "S02__Trem2_4",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11290,
+          "sha256": "8564080d36578ab5ade3c7f3548bb3158d9d7170832dfa382363b43c44fbd7b6"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S02__Trem2_4-084512b89f6a4719aac673927dbfb9a0",
+        "required_file_count": 6
+      },
+      {
+        "section": "S03__Trem2_5xFAD3",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11315,
+          "sha256": "39a067192da2157ab54a89ea8fb0694c540cdd94734d9bc277ed58a567592678"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S03__Trem2_5xFAD3-24b24f67f035443ab947a7dfbe5f8d1d",
+        "required_file_count": 6
+      },
+      {
+        "section": "S04__WT3",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11279,
+          "sha256": "ef2b270278d7fd1d5363f30d33c6bff8fb14ea51c08ac1cbf5b83485b88503d2"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S04__WT3-13895d7cc3d74cb68a28224e584ccfe3",
+        "required_file_count": 6
+      },
+      {
+        "section": "S05__Trem2_3",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11298,
+          "sha256": "143bf820d97de692f875766e96b6ac190ea9d4cdf893d540c5cb7be238d96ff7"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S05__Trem2_3-33725c6f7f60436a9146d647e2d79662",
+        "required_file_count": 6
+      },
+      {
+        "section": "S06__5xFAD3",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11297,
+          "sha256": "c068ec5bf62556216bf2b0e6576981b1e5df00ca50b687753f2ae0b1791fa00e"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S06__5xFAD3-98de5a698e9b4c4ca31cdb6180911ebe",
+        "required_file_count": 6
+      },
+      {
+        "section": "S07__Trem2_5xFAD5",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11305,
+          "sha256": "afab48da3138ea2c48400e683369bd495be9a917d005099059b45a576047b7ce"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S07__Trem2_5xFAD5-f80b813848c94bb9bcb3e2ea43dc0408",
+        "required_file_count": 6
+      },
+      {
+        "section": "S08__5xFAD5",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11287,
+          "sha256": "59ef7c2ec908e0fd8c154249ea59a460d036a6b027b9d97ac406d576f66dbcc5"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S08__5xFAD5-e712ddb994494e40b2295c10e229e7f1",
+        "required_file_count": 6
+      },
+      {
+        "section": "S09__Trem2_5",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11289,
+          "sha256": "6fa867cff6044280cffb854a20f8c26b43c8e5f56566b377f26c0ad336d8f113"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S09__Trem2_5-e1e1bbee259b4c5182815f4b12474e43",
+        "required_file_count": 6
+      },
+      {
+        "section": "S10__WT5",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11279,
+          "sha256": "40e2028f2aeff0cec2e9ba3a23b748702da65947d4637db304a136e52599ff13"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S10__WT5-ee024760da204b8ca0ac4dea6f31adb2",
+        "required_file_count": 6
+      },
+      {
+        "section": "S11__Trem2_5xFAD1",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11314,
+          "sha256": "e3d6d17246c9bb4699e89a857ad0cc8c284b278f97566e3155847bed3400d199"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S11__Trem2_5xFAD1-1c6cd0e4b9a64671b92fe753ffb772a8",
+        "required_file_count": 6
+      },
+      {
+        "section": "S12__Trem2_1",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11298,
+          "sha256": "98b21a83bd904c3153db114ce59174055e5e80d29d1d6961339b628109dc85d6"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S12__Trem2_1-b980d57045a245ed8e86b7047e5b81eb",
+        "required_file_count": 6
+      },
+      {
+        "section": "S12__Trem2_5xFAD2",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11314,
+          "sha256": "b2e33be3df8129848c9ad88b2c0f180be692976134f6635d4b739ddd60f8fe0e"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S12__Trem2_5xFAD2-e409eb338a5647ad9c9ff051f4c5f648",
+        "required_file_count": 6
+      },
+      {
+        "section": "S13__Trem2_2",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11289,
+          "sha256": "11e089c6a0be167e41a0959b7369b009dfff76f66142804557161a8884e66769"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S13__Trem2_2-f92883ded56d4bc6a057b8097010d9ce",
+        "required_file_count": 6
+      },
+      {
+        "section": "S14__WT1",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11279,
+          "sha256": "5967be379de462e96fdc36867ac16ded53a224429f15e56304b6f023f0376ed5"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S14__WT1-633de6bbad894cd0876e3f8c88875aec",
+        "required_file_count": 6
+      },
+      {
+        "section": "S15__5xFAD1",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11296,
+          "sha256": "be4fdc70d5fb23bb13f7b0b6aa23911a11db2f3c0e9b33a0a1b646f7efc8f231"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S15__5xFAD1-7dc77134e3ef41b081da44ed5ac22cad",
+        "required_file_count": 6
+      },
+      {
+        "section": "S16__WT2",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11279,
+          "sha256": "39d7cbb1725d5fc252b6ee29b9021fc451059434f320b94ae73a227309ac8802"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S16__WT2-956a33bb154c4b8792a18fda6614aea4",
+        "required_file_count": 6
+      },
+      {
+        "section": "S17__5xFAD2",
+        "manifest": {
+          "path": "manifest.json",
+          "bytes": 11297,
+          "sha256": "32c0f99dddcdf09aa58e12a9754c3e3eb94223440e7828b9734cf1b25756c5a0"
+        },
+        "validation": "fast_closed_file_schema_hash_provenance",
+        "original_deep_validation": "pass",
+        "attempt_id": ".attempt-S17__5xFAD2-397136dba92d4c349e8dc3d07393cd5a",
+        "required_file_count": 6
+      }
+    ],
+    "section_count": 19,
+    "files_authenticated": 114,
+    "run_ledger_sha256": "89372a119bb2d2bce5b29da3dfdd3a24fdf02b16d2959c84d6035e95bdb062a7",
+    "scope": "Fast closed-file schema/hash/provenance validation; original deep pass and semantic signatures authenticated, no new R recorrection, numerical HDF5 invariant recomputation or fit"
+  },
+  "selected_source_ledger": "docs/recovery/BSFM_SAMPLER_SOURCES.csv",
+  "selected_sources": [
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\active_marginal_whitening.py",
+      "bytes": 2339,
+      "sha256": "81e1a613d605edfee1da28a30a03d664959e20ca512dbfa2001776d04ce093b6",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\c3_established_functions.py",
+      "bytes": 340313,
+      "sha256": "828eef737fd36a47ec349837a936fc6ba49ffb0bec9fe556c08f502baa43e946",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\centered_hyper_target_qr.py",
+      "bytes": 3354,
+      "sha256": "4bdd57d688652bf4dffb85a9c9dee1879229a7bff5c72ff34902e216226fdf5e",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\containment_prior.py",
+      "bytes": 2664,
+      "sha256": "7fd8dbc05aaa8058d01480c1b17250235cd91ec2701257771054af481e2978fc",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\direct_w_dynamic_target.py",
+      "bytes": 2459,
+      "sha256": "245c5e9f5ed91f511a9bf69e75a0a832b68f8a66a04d424d05dbdd3734adfd65",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\feedback_recording.py",
+      "bytes": 2227,
+      "sha256": "4808a7884055f5a2581b706311abe62a832e9dfbe7384d486bd6b50336010f64",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\fidelity_policy.py",
+      "bytes": 1168,
+      "sha256": "21b9550b2e79a774d0145173e9767ca37c91b4017ae7a916547af53412880c24",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\fixed_splusu_dynamic_target.py",
+      "bytes": 21073,
+      "sha256": "b172a3732b30c2e15387ad898565a1c9971d902352d9bfd54485a7937295748e",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\full_split.py",
+      "bytes": 4705,
+      "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\generate_splusu_phase1.py",
+      "bytes": 28641,
+      "sha256": "7e9fb03fd484b2768775a3604296476e39423813b5b191ad9fa1c8752161169f",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\joint_eta_pcg.py",
+      "bytes": 12136,
+      "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\original_feedback_recording.py",
+      "bytes": 4360,
+      "sha256": "35f1f3bf9154ca92006380c6978e636c32e800aee71c8ed2406c2f5765277f2b",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\precision_policy.py",
+      "bytes": 874,
+      "sha256": "ac747a951eeaa4608f0a1e4d2906a2d869742c8888cb95e677ec3238ed416844",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\restart_state.py",
+      "bytes": 6593,
+      "sha256": "943a934c35a862bbc8b2d7dd80bc81ea98987e8ef10d9e7cfb152d485094b111",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\rule_contract.py",
+      "bytes": 686,
+      "sha256": "955ce44ef4df3a07a232fb33dd0e1310526df1dae84dc92f32bf2c768be230de",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\soft_eta_prior.py",
+      "bytes": 2939,
+      "sha256": "b037d6473c17e7517cf059a144c13a99056af274dd98bf9eb763be30c3b70328",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\spectral_live_range_whitening.py",
+      "bytes": 9636,
+      "sha256": "d4e0d7a63c1fba65bc0410cfd04be4b695202b9babd9a8756e707a07a2b5f803",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\splusu_active_tqff_target.py",
+      "bytes": 10600,
+      "sha256": "e05c68a97db4e5d8c61001e66f3e74e8d7233a1733e0476c756aef76405a673c",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\run_c3full_fixed_profile_nuts.py",
+      "bytes": 94890,
+      "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\validate_retained_draw.py",
+      "bytes": 10711,
+      "sha256": "92ff475130c321d95f5d5fff5de759c928b93a32cbe27ae3526efe20a7ac5dea",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\covariance_math.py",
+      "bytes": 1813,
+      "sha256": "d80026b39475ab52dbbdc0de8867e2956cf88f2409f58c5cf50b4bfe1df93116",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\production\\run_adaptation_bridge_chain.sh",
+      "bytes": 3042,
+      "sha256": "13d1dcf7bf5f8c0c45b893b683d4650444afedb196a5a2f0f1217ea45d1f3a0c",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\production\\run_production_chain.sh",
+      "bytes": 3441,
+      "sha256": "872d033838e8fec0db8812a5b3dc5288727d7980634a1394e5b8d758087039d3",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\production\\run_production_continuation.sh",
+      "bytes": 3251,
+      "sha256": "252167e96ac46d5a7c81f6c24d0949d7fa01fe052b490318eae8310d3de87a53",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\production\\write_run_manifest.py",
+      "bytes": 3429,
+      "sha256": "ce94798d377b311db76f9d740fc5d90f6813776a03d701d2161ab331cadd4db5",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\PRODUCTION_CODE_MANIFEST.json",
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\PRODUCTION_LAUNCH_CONTRACT.json",
+      "bytes": 2240,
+      "sha256": "df94190a16293f39f479bf1da5e34e2b270690c6d9858f3b229c3abcda8f58e2",
+      "status": "present_exact_match"
+    },
+    {
+      "path_machine_local": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\PRODUCTION_RETENTION_CONTRACT.json",
+      "bytes": 3355,
+      "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+      "status": "present_exact_match"
+    }
+  ],
+  "selected_source_count": 28,
+  "seconds": 25.22258279999369,
+  "transfer_status": "Desktop availability only; no transfer to laptop or HPC performed",
+  "tests": {
+    "sampler_and_provenance": 75,
+    "canonical_mesh": 8,
+    "total": 83,
+    "skips": 0,
+    "scope": "Original Windows desktop; ordinary saved-fixture tests, no replacement runtime references"
+  },
+  "hpc_job_check": {
+    "job_id": "22012400",
+    "status": "RUNNING",
+    "elapsed_at_live_check": "01:54:57",
+    "node": "node432",
+    "completed_package_install_count": 20,
+    "fresh_namespace_validation": "not_observed",
+    "receipt": "HPC_R_MESH_BUILD_22012400.json",
+    "receipt_sha256": "457dadacca02f61152c6754b7d9f7e7b2290199e3119a72e080a2807a34e738b",
+    "limits": "Interim live status only; no final success/failure assertion and no retry or build modification"
+  },
+  "branch_review": {
+    "merge_base": "49f33c441e1cde9e1b8139ffef0103993eaa0222",
+    "reviewed_tip": "896369b719d0999fc9c2f69beb7c75f3dad26a1a",
+    "prior_commits": 14,
+    "prior_changed_files": 32,
+    "scientific_paths_unchanged": [
+      "src/",
+      "config/",
+      "schemas/",
+      "tests/fixtures/",
+      "pyproject.toml",
+      "AGENTS.md"
+    ],
+    "source_selection": "Exact nominated F path, unique ledger match, whole-file size/hash before AST execution",
+    "AST_compatibility": "Adds only absent empty Python-3.12 type_params field on copied Python-3.11 nodes; semantic mutations remain detectable",
+    "same_environment_audit": "Explicit opt-in, independent authenticated references before in-memory expectation replacement; disk fixtures and tolerances preserved; not Windows/Linux bit identity",
+    "reproducibility_limits": [
+      "ml_dtypes 0.6.0 source-build tools were dynamically resolved in the earlier Linux setup; retained wheel is hash locked, independent source rebuild is not established",
+      "Linux R builder authenticates R/package archives but relies on external conda tools/system libraries; child configure programs are not network sandboxed",
+      "Job specifications retain prepared-at-authoring status; execution receipts provide subsequent outcome. Neither specification is authorization to resubmit."
+    ],
+    "scientific_output_reproduction": "None in this reconciliation; existing desktop outputs authenticated and synthetic/unit tests rerun only",
+    "transfer_performed": false
+  },
+  "checks": {
+    "ordinary_sampler_and_provenance_tests": 75,
+    "canonical_mesh_tests": 8,
+    "skips": 0,
+    "JSON_documents_parsed": 16,
+    "relative_documentation_links_checked": 116,
+    "source_map_entries_hash_checked": 38,
+    "production_json_schemas": "all 19 bundles plus run manifest/specification/ledger passed committed validator",
+    "credential_patterns_current_files_and_14_commit_history": "pass",
+    "syntax": "pass",
+    "runtime_and_seven_Windows_wheel_hashes": "pass",
+    "installed_CPU_package_set": {
+      "jax": "0.7.0",
+      "jaxlib": "0.7.0",
+      "ml-dtypes": "0.6.0",
+      "numpy": "2.1.3",
+      "opt-einsum": "3.4.0",
+      "pip": "23.2.1",
+      "scipy": "1.14.1",
+      "threadpoolctl": "3.5.0"
+    },
+    "Linux_runtime_pins": "same seven versions; platform wheel hashes retained; native-build limits documented",
+    "scientific_paths_and_fixtures_unchanged": true,
+    "source_map_and_rule_identities": "pass",
+    "git_diff_check": "pass"
+  }
+}

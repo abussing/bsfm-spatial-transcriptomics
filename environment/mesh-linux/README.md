@@ -11,15 +11,18 @@ The approved retry adds only `PDFLATEX=` to the make command. The authenticated
 R source's `doc/Makefile` explicitly skips NEWS PDF generation when this variable
 is empty. R sources, configure arguments, compiler settings, package pins,
 installation order and validation are unchanged. Job **22012400** passed make
-and runtime installation and installed 20 packages at last inspection; it is
-still running in s2's dependency lookup. See the [interim record](../../docs/environment/HPC_R_MESH_BUILD_22012400.json).
+and runtime installation. The desktop read-only check found it RUNNING at
+01:54:57 on node432, with 20 package completions and no new validate result.
+The prior inspection recorded s2 dependency lookup; the desktop query did not
+re-inspect that subprocess. This remains an interim observation. See the [interim record](../../docs/environment/HPC_R_MESH_BUILD_22012400.json).
 It does not overwrite job 22012386 or establish completed environment validation.
 
 `build.py` uses the existing R 4.5.3 runtime-source hash from
 `../sctransform/source-lock.json` and all 33 package source hashes/versions from
 `../mesh/r-source-lock.json`. It builds into a fresh external prefix with a
-separate R package library. No dependency resolver or download runs during the
-build. Source acquisition on HPC is recorded in
+separate R package library. The Python builder performs no R-package dependency resolution or download.
+It is not a network sandbox for child package configure programs; external
+native-library/tool lookup is not a complete source-build lock. Source acquisition on HPC is recorded in
 `/work/abussing/bsfm-consolidation/environments/r-linux-sources/acquisition.json`.
 All 34 source archives passed the committed size and SHA-256 checks.
 

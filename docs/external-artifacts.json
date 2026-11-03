@@ -2,7 +2,7 @@
   "schema": "bsfm.external-artifact-inventory.v1",
   "inspection_date": "2026-11-02",
   "canonical_baseline": "49f33c441e1cde9e1b8139ffef0103993eaa0222",
-  "scope": "Portable inventory; availability is bounded inspection, not exhaustive absence. Historical artifacts do not replace canonical production data.",
+  "scope": "Machine-specific inventory reconciled on original Windows desktop; bounded laptop/HPC absence findings retained. No canonical artifact transfer or regeneration performed.",
   "artifacts": [
     {
       "id": "linux-r-mesh-sources",
@@ -11,7 +11,7 @@
       "status": "R_4.5.3_and_33_package_sources_authenticated;job_22012386_failed_in_optional_NEWS_pdf_before_installation",
       "acquisition_receipt_sha256": "528edcb58aa9ee2157f4033b63c3f9f55dfc550c1831f97f887a9e01879fb214",
       "authority": "../environment/mesh/r-source-lock.json; ../environment/sctransform/source-lock.json",
-      "restore": "Acquire exact named source archives from committed URLs, falling back to the same-version CRAN Archive URL only if needed. Require exact committed size and SHA-256 before use. Additional UDUNITS header identities are in environment/mesh-linux/udunits-headers.json. See HPC_R_MESH_BUILD_RUN.json for the pending allocated build; do not describe source acquisition as successful compilation or runtime validation."
+      "restore": "Retain the authenticated source cache and unchanged source/header locks. Job 22012386 failed; job 22012400 was RUNNING at the desktop check (01:54:57). Consult HPC_R_MESH_BUILD_22012400.json and query its final scheduler state before acting. A prepared specification is not authorization to resubmit. Source acquisition is not successful compilation or runtime validation."
     },
     {
       "id": "s10-preview-topology",
@@ -29,7 +29,17 @@
       "section_count": 19,
       "total_glial_cells": 187100,
       "genes_per_section": 300,
-      "contents": ["raw counts", "historical expression Y", "coordinates", "cell types", "regions", "cell names", "native cell names", "source row IDs", "gene availability"],
+      "contents": [
+        "raw counts",
+        "historical expression Y",
+        "coordinates",
+        "cell types",
+        "regions",
+        "cell names",
+        "native cell names",
+        "source row IDs",
+        "gene availability"
+      ],
       "inventory": "environment/HPC_19SECTION_INPUT_INVENTORY.json",
       "inventory_sha256": "50f3523a085fe48ae6bf066cef4c835174b096cc0a705aa8a87d0d566d914e62",
       "downstream_production_root": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024",
@@ -40,10 +50,10 @@
       "id": "raw-h5ad",
       "classification": "required_for_preprocessing_regeneration",
       "recorded_path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
-      "accessible_path": null,
+      "accessible_path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
       "bytes": 5483600151,
       "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38",
-      "status": "not_located_on_accessible_storage",
+      "status": "present_whole_file_hash_match_on_original_windows_desktop;not_transferred_to_laptop_or_hpc",
       "authority": "preprocessing/audits/20261031_production_v2/README.md",
       "upstream_publication": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11746152/",
       "upstream_deposit_as_published": "/bil/lz/kjohnst2/b72faf9d87d7fc00 (Brain Image Library)",
@@ -53,42 +63,110 @@
       "upstream_service_status_url": "https://www.brainimagelibrary.org/datacentermove.html",
       "upstream_service_status": "Official 2026-11-02 update: systems moved and undergoing testing; downtime expected into early week of November 2. Metadata API remains accessible; BIL filesystem unavailable during migration. Recheck status before retrying data retrieval.",
       "upstream_status": "Publication deposit resolves via BIL API to ace-ear-nap: 19 specimens, 509 files, approximately 1060 GB total. Public dataset page confirms download URL, but download-host access timed out from local computer and HPC. No file inventory or matching H5AD authenticated; do not download the entire archive or equate archive membership with canonical input identity.",
-      "restore": "Find an HPC copy or recover the upstream dataset; authenticate full file size and SHA-256 before canonical preflight. This project-adopted checksum is not independently supplied by the publisher. Historical transformed data cannot reconstruct the raw H5AD."
+      "restore": "Use the authenticated original-desktop copy, transfer only under an approved transfer plan, and verify recorded hashes after transfer. Preserve the original and do not regenerate merely because another machine lacks the payload. Restore a compatible isolated target environment separately; availability is not scientific-output reproduction.",
+      "prior_laptop_inspection_status": "not_located_on_accessible_storage",
+      "accessible_machine": "original_windows_desktop",
+      "availability_by_machine": {
+        "original_windows_desktop": {
+          "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+          "status": "present_whole_file_hash_match",
+          "evidence": "environment/DESKTOP_RECONCILIATION_20261102.json",
+          "scope": "Full source file rehashed once on original desktop; no new expression-value audit."
+        },
+        "laptop": {
+          "status": "not_available_in_prior_inspection;no_transfer_performed"
+        },
+        "hpc": {
+          "status": "not_located_in_prior_bounded_search;no_transfer_performed"
+        }
+      },
+      "checksum_scope": "Project-adopted content fingerprint, not an independently supplied publisher checksum."
     },
     {
       "id": "canonical-response-v2",
       "classification": "required_for_real_data_modeling;regenerable_if_raw_and_environment_available",
       "recorded_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2",
-      "accessible_path": null,
+      "accessible_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2",
       "recorded_root_bytes": 1446987796,
-      "status": "former_machine_unavailable;hpc_copy_unverified",
+      "status": "present_all_19_fast_integrity_pass_on_original_windows_desktop;not_transferred_to_laptop_or_hpc",
       "authority": "preprocessing/audits/20261031_production_v2/run-manifest.json",
-      "restore": "Recover all 19 six-file section bundles and validate per-section manifest/file hashes using the committed run manifest. Otherwise regenerate from authenticated raw input with bsfm.preprocessing.production_run, a fresh destination, frozen configs and validated SCT environment; see preprocessing/PRODUCTION_ORCHESTRATION.md. Original artifact validation requires generating commit 6eb672bebbaf5cde6c9d50391aac275a210832a6. New execution gets new provenance, not the old receipt."
+      "restore": "Use the authenticated original-desktop copy, transfer only under an approved transfer plan, and verify recorded hashes after transfer. Preserve the original and do not regenerate merely because another machine lacks the payload. For SCT-v2 validate all 19 six-file bundles with the committed validator at generating commit 6eb672bebbaf5cde6c9d50391aac275a210832a6. Restore a compatible isolated target environment separately; availability is not scientific-output reproduction.",
+      "prior_laptop_inspection_status": "former_machine_unavailable;hpc_copy_unverified",
+      "accessible_machine": "original_windows_desktop",
+      "availability_by_machine": {
+        "original_windows_desktop": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2",
+          "status": "present_all_19_fast_integrity_pass",
+          "evidence": "environment/DESKTOP_RECONCILIATION_20261102.json",
+          "scope": "114 bundle files authenticated; original deep-validation evidence verified, not recomputed."
+        },
+        "laptop": {
+          "status": "not_available_in_prior_inspection;no_transfer_performed"
+        },
+        "hpc": {
+          "status": "not_located_in_prior_bounded_search;no_transfer_performed"
+        }
+      },
+      "run_manifest": {
+        "bytes": 48980,
+        "sha256": "03b83d93891080f15b6a85684e2cb5de8d9a9b7cdf72f8c25dd8103403e1e06f",
+        "filename": "run-manifest.json"
+      }
     },
     {
       "id": "canonical-s10-mesh-handoff",
       "classification": "required_for_recorded_full_cell_S10_smoke;regenerable_if_geometry_and_environment_available",
       "recorded_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\sampler-facing.npz",
-      "accessible_path": null,
+      "accessible_path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\sampler-facing.npz",
       "bytes": 7195273,
       "sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0",
-      "status": "not_located_on_accessible_storage",
+      "status": "present_whole_file_hash_match_on_original_windows_desktop;not_transferred_to_laptop_or_hpc",
       "authority": "sampler/LAYER2_S10_AUDIT.json",
-      "restore": "Recover and hash the export, or use the canonical bsfm.mesh.october26 builder/regression after restoring reference preview and accepted mesh environment. Five full S10 source-geometry dependencies have now been restored exactly from SOURCE_INPUTS.zip; see s10-recovered-source-geometry. The existing retained-cell mesh is not this full-cell export. See mesh/OCTOBER26_CANONICALIZATION.md and src/bsfm/mesh/october26.py in the repository."
+      "restore": "Use the authenticated original-desktop copy, transfer only under an approved transfer plan, and verify recorded hashes after transfer. Preserve the original and do not regenerate merely because another machine lacks the payload. Restore a compatible isolated target environment separately; availability is not scientific-output reproduction.",
+      "prior_laptop_inspection_status": "not_located_on_accessible_storage",
+      "accessible_machine": "original_windows_desktop",
+      "availability_by_machine": {
+        "original_windows_desktop": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\sampler-facing.npz",
+          "status": "present_whole_file_hash_match",
+          "evidence": "environment/DESKTOP_RECONCILIATION_20261102.json",
+          "scope": "Existing canonical export rehashed; no mesh rebuild or new smoke."
+        },
+        "laptop": {
+          "status": "not_available_in_prior_inspection;no_transfer_performed"
+        },
+        "hpc": {
+          "status": "not_located_in_prior_bounded_search;no_transfer_performed"
+        }
+      }
     },
     {
       "id": "selected-historical-source",
       "classification": "historical_evidence;required_for_new_source_port_regression",
       "recorded_path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code",
       "accessible_path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code",
-      "status": "selected_files_authenticated_on_hpc",
+      "status": "selected_files_authenticated_on_hpc_in_prior_receipts;all_28_F_code_ledger_entries_authenticated_on_original_windows_desktop",
       "authority": "recovery/BSFM_SAMPLER_SOURCES.csv",
       "verified_files": {
         "sampler/run_c3full_fixed_profile_nuts.py": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
         "sampler/centered_hyper_target_qr.py": "4bdd57d688652bf4dffb85a9c9dee1879229a7bff5c72ff34902e216226fdf5e",
         "sampler/joint_eta_pcg.py": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c"
       },
-      "restore": "Authenticate each used file against the source table, which records sizes and hashes. Extract only approved function bodies for bounded reference checks; never import the monolith or run historical launchers. Ordinary tests use committed synthetic fixtures."
+      "restore": "Authenticate each used file against the source table, which records sizes and hashes. Extract only approved function bodies for bounded reference checks; never import the monolith or run historical launchers. Ordinary tests use committed synthetic fixtures.",
+      "availability_by_machine": {
+        "original_windows_desktop": {
+          "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code",
+          "status": "28_selected_ledger_files_hash_match",
+          "evidence": "environment/DESKTOP_RECONCILIATION_20261102.json"
+        },
+        "hpc": {
+          "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code",
+          "status": "selected_files_authenticated_in_committed_prior_receipts"
+        },
+        "laptop": {
+          "status": "historical_drive_unavailable_in_prior_inspection;no_transfer_performed"
+        }
+      }
     },
     {
       "id": "historical-s10-initialization-reference",
@@ -96,9 +174,21 @@
       "accessible_path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/inputs/S10__WT5",
       "status": "three_files_authenticated_on_hpc",
       "files": [
-        {"path": "OBSERVATIONS.npz", "bytes": 630227, "sha256": "c6356cc2da031e441c1955e831308cc1c3f87ac391845fa40feede1ba97ba4fc"},
-        {"path": "gpinit/gpinit.npz", "bytes": 765813, "sha256": "e912139820413de0e4f5365cd0d8eb70512b71a9f31c32bd042d565b04f044fc"},
-        {"path": "gpinit/CERTIFICATE.json", "bytes": 2029, "sha256": "f7126f014ca300279aa3d43d235b9278fcf6048a237c88b8c193dbcb3c85fa12"}
+        {
+          "path": "OBSERVATIONS.npz",
+          "bytes": 630227,
+          "sha256": "c6356cc2da031e441c1955e831308cc1c3f87ac391845fa40feede1ba97ba4fc"
+        },
+        {
+          "path": "gpinit/gpinit.npz",
+          "bytes": 765813,
+          "sha256": "e912139820413de0e4f5365cd0d8eb70512b71a9f31c32bd042d565b04f044fc"
+        },
+        {
+          "path": "gpinit/CERTIFICATE.json",
+          "bytes": 2029,
+          "sha256": "f7126f014ca300279aa3d43d235b9278fcf6048a237c88b8c193dbcb3c85fa12"
+        }
       ],
       "authority": "initialization/C3_GP_SVD.md",
       "restore": "Use the authenticated HPC files for historical initializer regression only. The canonical initializer can regenerate seeds with explicit K/nfit/seed and authenticated input identities; these observations are not canonical SCT-v2 modeling responses."
@@ -109,9 +199,21 @@
       "accessible_path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/inputs/sections/S10__WT5",
       "status": "three_files_authenticated_on_hpc",
       "files": [
-        {"path": "OBSERVATIONS_BASE.npz", "bytes": 571471, "sha256": "db0b9b9b3ae3188c330a872fcd66d3ca85728b0095027b5b15badde6e551ead8"},
-        {"path": "mesh/mesh_loc.csv", "bytes": 32082, "sha256": "fbca0dd7f8007010f710b8a94138cbdc83b01b4bfc4092ba83ee2f04a1957e6d"},
-        {"path": "mesh/mesh_tv.csv", "bytes": 14357, "sha256": "2bf966a021459d8bfa5f244ccacc981d9e02ab1e24737dbe3b474577692530bc"}
+        {
+          "path": "OBSERVATIONS_BASE.npz",
+          "bytes": 571471,
+          "sha256": "db0b9b9b3ae3188c330a872fcd66d3ca85728b0095027b5b15badde6e551ead8"
+        },
+        {
+          "path": "mesh/mesh_loc.csv",
+          "bytes": 32082,
+          "sha256": "fbca0dd7f8007010f710b8a94138cbdc83b01b4bfc4092ba83ee2f04a1957e6d"
+        },
+        {
+          "path": "mesh/mesh_tv.csv",
+          "bytes": 14357,
+          "sha256": "2bf966a021459d8bfa5f244ccacc981d9e02ab1e24737dbe3b474577692530bc"
+        }
       ],
       "authority": "mesh/audits/october26_S10_localization_20261102/README.md; recovery/SCTRANSFORM_B3_SECTIONS.csv",
       "restore": "Use authenticated slocs/type/source-row members for geometry only, preserving order and normalization. The old mesh defines the inherited far boundary. Exact cells.csv and INPUT_CONTRACT.json are now recovered from SOURCE_INPUTS.zip; no new geometry adapter is required for these source inputs. See s10-recovered-source-geometry. Do not use the historical expression response as canonical Y."
@@ -157,7 +259,20 @@
       "status": "historical_hpc_runtime_present;separate_linux_cpu_environment_passed_75_test_same_environment_audit;initial_Windows_fixture_failure_preserved",
       "new_cpu_environment": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311",
       "authority": "../environment/sampler-layer2/README.md",
-      "restore": "Rebuild isolated environments using repository source/version locks and platform-appropriate authenticated artifacts. See environment/HPC_CPU_SETUP.md for the separate Linux CPU installation and its limits. Windows wheel hashes are not Linux wheel hashes. Preserve existing historical installations. Mesh and SCT require separate R environment restoration and validation; no GPU production environment is established."
+      "restore": "Rebuild isolated environments using repository source/version locks and platform-appropriate authenticated artifacts. See environment/HPC_CPU_SETUP.md for the separate Linux CPU installation and its limits. Windows wheel hashes are not Linux wheel hashes. Preserve existing historical installations. Mesh and SCT require separate R environment restoration and validation; no GPU production environment is established.",
+      "availability_by_machine": {
+        "original_windows_desktop": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS",
+          "status": "accepted_CPU_and_mesh_environments_run_75_plus_8_tests;SCT_locks_pass_fast_integrity"
+        },
+        "hpc": {
+          "status": "bounded_CPU_gate_previously_passed;R_mesh_job_22012400_requires_final_status"
+        },
+        "laptop": {
+          "status": "no_scientific_runtime_validation_claim"
+        }
+      }
     }
-  ]
+  ],
+  "reconciliation_receipt": "environment/DESKTOP_RECONCILIATION_20261102.json"
 }

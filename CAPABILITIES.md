@@ -6,6 +6,11 @@ capabilities, not claims that any historical implementation is authoritative.
 For current machine-to-machine readiness, use the
 [pipeline portability audit](docs/PORTABILITY_AUDIT.md). Checkpoint-specific
 statements below retain their original scope and do not supersede later receipts.
+The [original-desktop reconciliation](docs/environment/DESKTOP_RECONCILIATION_20261102.json)
+confirms raw/S10 artifact hashes, fast integrity of all 19 SCT-v2 bundles and
+75 sampler/provenance plus eight mesh tests on the continuation branch. This
+restores machine-local availability, not Linux output reproduction or data
+transfer. No additional sampler layer or scientific run was performed.
 
 ## 1. Expression preprocessing
 
