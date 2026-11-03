@@ -5,13 +5,15 @@ Gibbs updates. Fixed kernels are cached; conditional statistics are rebuilt.
 """
 from dataclasses import dataclass
 import importlib.metadata
+import json
+from weakref import WeakKeyDictionary
 
 import jax
 import jax.numpy as jnp
 import numpy as np
-from scipy.special import logit
 
 from .contracts import array, logical_hash
+from .chart import validate_chart_state
 from .field_target import FieldPosition
 from .layer4 import _Binding, CenteredHyperTarget
 from .split_kernels import build_split, make_logdensity
@@ -48,6 +50,20 @@ class AdaptationResult:
     history: object
 
 
+@dataclass(frozen=True, eq=False)
+class PreparedContext:
+    """Process-local conditional issued by one SplitTransition, not a cache file.
+
+    Arrays have immutable byte backing. The issuer also authenticates identity
+    and contents; constructing or replacing a record does not issue it.
+    """
+    u: np.ndarray
+    ct: np.ndarray
+    penalty: float
+    context_json: str
+    position_sha256: str
+
+
 class SplitTransition(_Binding):
     """Canonical two-block transition, using explicit fresh caller state."""
     def __init__(self, target):
@@ -61,6 +77,7 @@ class SplitTransition(_Binding):
         self._runner = build_split(make_logdensity(target._kernels),
                                   self.centered._kernels, self.dimension,
                                   TARGET_ACCEPTANCE, MAX_NUM_DOUBLINGS)
+        self._prepared = WeakKeyDictionary()
 
     def _key(self, key):
         try:
@@ -72,16 +89,59 @@ class SplitTransition(_Binding):
             raise ValueError('Explicit scalar JAX threefry2x32 key required')
         return data.tolist()
 
-    def _inputs(self, key, position, state, state_factor_ids):
+    def _state_position(self, position, state, state_factor_ids):
         self._check(state, state_factor_ids)
         self.target._check_position(position)
-        key_data = self._key(key)
         k = self.target.factor_ids.index(position.factor_id)
-        if (position.values[0] != np.log(state.alpha[k])
-                or position.values[1] != logit(state.zeta[k])):
-            raise ValueError('Position alpha/zeta mismatch with current state')
+        validate_chart_state(self.target, position, state, k)
+
+    def validate_inputs(self, key, position, state, tuning, *, state_factor_ids):
+        """Authenticate a transition boundary without context building or RNG."""
+        self._state_position(position, state, state_factor_ids)
+        self._key(key)
+        self._tuning(tuning, position.factor_id)
+
+    @staticmethod
+    def _context_signature(prepared):
+        return (prepared.context_json, prepared.position_sha256,
+                logical_hash(prepared.u), logical_hash(prepared.ct),
+                logical_hash(np.asarray(prepared.penalty)))
+
+    def prepare_context(self, position, state, *, state_factor_ids):
+        """Bind current statistics before the caller advances its master key."""
+        self._state_position(position, state, state_factor_ids)
         u, ct, penalty, context = self.target.context(
             state, factor_id=position.factor_id, state_factor_ids=state_factor_ids)
+        def freeze(x):
+            a = np.asarray(x)
+            return np.frombuffer(a.tobytes(), dtype=a.dtype).reshape(a.shape)
+        prepared = PreparedContext(freeze(u), freeze(ct), penalty,
+            json.dumps(context, sort_keys=True, allow_nan=False), logical_hash(position.values))
+        self._prepared[prepared] = self._context_signature(prepared)
+        return prepared
+
+    def _consume_context(self, prepared, position, state):
+        if (not isinstance(prepared, PreparedContext) or prepared not in self._prepared
+                or self._prepared[prepared] != self._context_signature(prepared)):
+            raise ValueError('Unissued, foreign or changed prepared context')
+        context = json.loads(prepared.context_json)
+        record = self._record(state)
+        if (context['target_sha256'] != record['target_sha256']
+                or context['factor_id'] != position.factor_id
+                or context['state_array_hashes'] != record['state_array_hashes']
+                or prepared.position_sha256 != logical_hash(position.values)
+                or context['u_sha256'] != logical_hash(prepared.u)
+                or context['ct_sha256'] != logical_hash(prepared.ct)
+                or context['penalty'] != prepared.penalty):
+            raise ValueError('Stale prepared context: state, position or identity changed')
+        return prepared.u, prepared.ct, prepared.penalty, context
+
+    def _inputs(self, key, position, state, state_factor_ids, prepared_context=None):
+        self._state_position(position, state, state_factor_ids)
+        key_data = self._key(key)
+        if prepared_context is None:
+            prepared_context = self.prepare_context(position, state, state_factor_ids=state_factor_ids)
+        u, ct, penalty, context = self._consume_context(prepared_context, position, state)
         audit = self._record(state)
         audit.update(context=context, input_position_sha256=logical_hash(position.values),
                      key_data=key_data, eta_redrawn=False,
@@ -142,8 +202,8 @@ class SplitTransition(_Binding):
                      W_relative_tolerance=PHYSICAL_W_RELATIVE_TOLERANCE)
         return SplitResult(result, nuts_state, info, audit)
 
-    def transition(self, key, position, state, tuning, *, state_factor_ids):
-        args, audit = self._inputs(key, position, state, state_factor_ids)
+    def transition(self, key, position, state, tuning, *, state_factor_ids, prepared_context=None):
+        args, audit = self._inputs(key, position, state, state_factor_ids, prepared_context)
         tuned = self._tuning(tuning, position.factor_id)
         nuts_state, info = self._runner['transition'](key, *args, tuned)
         return self._result(nuts_state, info, position, audit)

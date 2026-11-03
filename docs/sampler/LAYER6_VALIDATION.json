@@ -1,0 +1,466 @@
+{
+  "schema": "bsfm.sampler-layer6-validation.v1",
+  "status": "PASS",
+  "review_status": "accepted",
+  "baseline": "22b2150ec4313c65e5440cc318f56df8e6df0a36",
+  "tests": {
+    "prior_sampler_provenance": 119,
+    "layer6": 26,
+    "sampler_total": 145,
+    "canonical_mesh": 8,
+    "total": 153,
+    "skips": 0
+  },
+  "sampler_run": {
+    "tests": 145,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 388.2755574999901
+  },
+  "mesh_unittest_seconds": 5.54,
+  "command": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer5-cpu-20261102\\python\\Scripts\\python.exe",
+    "-B",
+    "-W",
+    "error::ResourceWarning",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_sampler*.py",
+    "-v"
+  ],
+  "acquisition": {
+    "source": {
+      "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\run_c3full_fixed_profile_nuts.py",
+      "bytes": 94890,
+      "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "top_statement_lines": [
+        1121,
+        1122,
+        1150,
+        1151,
+        1156,
+        1166,
+        1170,
+        1172,
+        1179,
+        1180
+      ],
+      "inner_statement_lines": [
+        1123,
+        1127,
+        1128,
+        1131,
+        1143,
+        1145,
+        1146
+      ],
+      "factor_statement_lines": [
+        1181,
+        1182,
+        1183,
+        1186,
+        1188,
+        1189,
+        1193,
+        1194,
+        1198,
+        1201,
+        1202,
+        1203,
+        1204,
+        1208,
+        1212,
+        1225,
+        1263,
+        1270
+      ],
+      "selected_AST_sha256": "17adf5454dc2423d3f27d5bcea88e4439c1205cacbc34e81eba6aae1f189b9a7",
+      "exclusions": "captures, persistent diagnostics, containment/fidelity monitoring, fixed-loading-precision branch; no numerical/RNG update omitted"
+    },
+    "literal_chronology_exact": true,
+    "same_process_exact": true,
+    "fresh_process_exact": true,
+    "transition_diagnostics_exact": true,
+    "four_rng_endpoints_exact": true
+  },
+  "synthetic": {
+    "dimensions": {
+      "cells": 3,
+      "genes": 2,
+      "types": 3,
+      "factors": 2,
+      "active_vertices": 3,
+      "features": 1024
+    },
+    "factor_order": [
+      1,
+      0
+    ],
+    "pcg": [
+      {
+        "iterations": 5,
+        "relative_residual": 5.866112058362285e-14,
+        "absolute_residual": 2.6839902617471153e-12,
+        "posterior_mahalanobis_RMS_error_upper_bound": 5.930836608500131e-14,
+        "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+        "converged": true,
+        "minimum_h_eigenvalue": 0.02855559888300982,
+        "maximum_h_asymmetry": 1.1102230246251565e-16,
+        "preconditioner_diagonal_minimum": 1.0000000000008558
+      },
+      {
+        "iterations": 5,
+        "relative_residual": 7.515748023906332e-12,
+        "absolute_residual": 3.482171411458402e-10,
+        "posterior_mahalanobis_RMS_error_upper_bound": 7.694584432175523e-12,
+        "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+        "converged": true,
+        "minimum_h_eigenvalue": 0.13429514638583742,
+        "maximum_h_asymmetry": 1.6653345369377348e-16,
+        "preconditioner_diagonal_minimum": 1.0000000000002602
+      },
+      {
+        "iterations": 5,
+        "relative_residual": 4.722439329742401e-15,
+        "absolute_residual": 2.2120822167765735e-13,
+        "posterior_mahalanobis_RMS_error_upper_bound": 4.888057300077767e-15,
+        "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+        "converged": true,
+        "minimum_h_eigenvalue": 0.9860079430440727,
+        "maximum_h_asymmetry": 9.020562075079397e-17,
+        "preconditioner_diagonal_minimum": 1.0000000000010436
+      }
+    ],
+    "px": {
+      "label": "sweep_0001",
+      "old_alpha": [
+        0.8,
+        0.6
+      ],
+      "new_alpha": [
+        0.5900079333133625,
+        1.3118571056781823
+      ],
+      "checks_relative": {
+        "identified_loading": 1.7008224961410974e-16,
+        "standardized_factor": 1.1102230246251565e-16,
+        "signal": 1.1102230246251565e-16,
+        "alpha2_q": 8.962292993279302e-17
+      },
+      "exact_prior_draw": true,
+      "identified_state_preserved": true
+    },
+    "warp": [
+      {
+        "factor_id": "factor-a",
+        "ell_eta": 0.14,
+        "ell_W": 0.7512963395465531,
+        "sigma_W": 0.24309044087530807
+      },
+      {
+        "factor_id": "factor-b",
+        "ell_eta": 0.14,
+        "ell_W": 0.7614385198847381,
+        "sigma_W": 0.20413234648510886
+      }
+    ],
+    "factor_diagnostics": [
+      {
+        "factor_id": "factor-b",
+        "info": {
+          "acceptance_rate": 0.9997557297025425,
+          "is_divergent": false,
+          "num_integration_steps": 142,
+          "energy": 6.537118808183135,
+          "momentum": [
+            -2.058242748628666,
+            -0.2026056710559665,
+            0.0,
+            0.0,
+            0.5509278300186248,
+            -0.8118466532453885,
+            0.46076192264240734,
+            0.6492907495351468,
+            -0.026387865110327466,
+            -0.0020739814869189656
+          ],
+          "block_acceptance": [
+            0.9995238687015524,
+            0.9999875907035325
+          ],
+          "block_divergent": [
+            false,
+            false
+          ],
+          "block_leapfrogs": [
+            127,
+            15
+          ],
+          "block_energy": [
+            6.537118808183135,
+            -6.420477081446879
+          ],
+          "hyper_W_relative_error": 4.666524036151749e-17
+        }
+      },
+      {
+        "factor_id": "factor-a",
+        "info": {
+          "acceptance_rate": 0.999942432810276,
+          "is_divergent": false,
+          "num_integration_steps": 542,
+          "energy": 6.836784821795211,
+          "momentum": [
+            0.3621341600968624,
+            -0.41618607707362565,
+            0.0,
+            0.0,
+            -0.39917849763788815,
+            -0.29771400901126716,
+            -0.7380131143249093,
+            -0.3895347716687949,
+            -0.4293505292253198,
+            -0.7524984411091135
+          ],
+          "block_acceptance": [
+            0.9999915622413089,
+            0.999893303379243
+          ],
+          "block_divergent": [
+            false,
+            false
+          ],
+          "block_leapfrogs": [
+            511,
+            31
+          ],
+          "block_energy": [
+            6.836784821795211,
+            -5.913598706318934
+          ],
+          "hyper_W_relative_error": 1.203307259334579e-17
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "entries_all_layers": 65,
+    "entries_layer6": 13,
+    "distinct_historical_sources": 11
+  },
+  "environment": {
+    "path": "environment/sampler-layer5/build-validation.json",
+    "fresh_receipt_exact": true,
+    "packages": {
+      "absl-py": "2.5.1",
+      "blackjax": "1.3",
+      "fastprogress": "1.0.3",
+      "jax": "0.7.0",
+      "jaxlib": "0.7.0",
+      "jaxopt": "0.8.3",
+      "ml-dtypes": "0.6.0",
+      "numpy": "2.1.3",
+      "optax": "0.2.8",
+      "opt-einsum": "3.4.0",
+      "pip": "23.2.1",
+      "scipy": "1.14.1",
+      "threadpoolctl": "3.5.0",
+      "typing-extensions": "4.16.0"
+    },
+    "no_changes_or_installation": true
+  },
+  "public_boundary": {
+    "shared_exact_chart_check": true,
+    "tolerance_added": false,
+    "accepted_numerical_kernels_unchanged": true,
+    "layer4_layer5_host_boundaries_revised": true,
+    "prepared_context": "Issuer object identity plus signature, full state hashes, position, target, factor, u/ct and penalty; immutable byte-backed arrays",
+    "public_joint_eta": true,
+    "public_prepared_transition": true,
+    "layer6_private_numerical_calls": false
+  },
+  "original_fixture_sha256": "dbdcfb58058e31103f4a551196fe72eedff6c8d46fd2860bbcbfa9c301eeb741",
+  "two_consecutive_sweeps": {
+    "status": "PASS",
+    "first_fixture_exact": true,
+    "stream_continuity": true,
+    "second_factor_order": [
+      0,
+      1
+    ],
+    "second_pcg": [
+      {
+        "iterations": 5,
+        "relative_residual": 5.544531043181181e-11,
+        "absolute_residual": 2.4810518815736705e-09,
+        "posterior_mahalanobis_RMS_error_upper_bound": 5.482401906051204e-11,
+        "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+        "converged": true,
+        "minimum_h_eigenvalue": 0.1472642501960557,
+        "maximum_h_asymmetry": 8.326672684688674e-16,
+        "preconditioner_diagonal_minimum": 1.0000000000005402
+      },
+      {
+        "iterations": 5,
+        "relative_residual": 2.356882921704353e-13,
+        "absolute_residual": 1.0526151030617477e-11,
+        "posterior_mahalanobis_RMS_error_upper_bound": 2.3259727417323074e-13,
+        "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+        "converged": true,
+        "minimum_h_eigenvalue": 0.09081402475442824,
+        "maximum_h_asymmetry": 1.0685896612017132e-15,
+        "preconditioner_diagonal_minimum": 1.0000000000013887
+      },
+      {
+        "iterations": 5,
+        "relative_residual": 5.156008085396314e-16,
+        "absolute_residual": 2.3283492134398967e-14,
+        "posterior_mahalanobis_RMS_error_upper_bound": 5.144973493105359e-16,
+        "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+        "converged": true,
+        "minimum_h_eigenvalue": 1.6145413036004717,
+        "maximum_h_asymmetry": 1.1102230246251565e-16,
+        "preconditioner_diagonal_minimum": 1.0000000000013636
+      }
+    ],
+    "second_px": {
+      "label": "sweep_0002",
+      "old_alpha": [
+        0.5728325809106274,
+        0.5369615277315328
+      ],
+      "new_alpha": [
+        0.9491056729594475,
+        0.5741591194643909
+      ],
+      "checks_relative": {
+        "identified_loading": 1.1102230246251565e-16,
+        "standardized_factor": 1.1102230246251565e-16,
+        "signal": 5.551115123125783e-17,
+        "alpha2_q": 1.870700083763691e-16
+      },
+      "exact_prior_draw": true,
+      "identified_state_preserved": true
+    },
+    "second_rng_before": {
+      "numpy_global_sha256": "20dc2360c655428f1bb384d2cd8ae75c392e46b8bed621f1aa06b9fa903068c6",
+      "eta_generator": "PCG64",
+      "eta_rng_sha256": "2779d3b9a9ea9204f9d8c6499a1b9fdd029e8a332e45cd57cc4970383386da26",
+      "gauge_generator": "PCG64",
+      "gauge_rng_sha256": "5d6f8dbbd1ea1fa2a9df4f73dacbb4d8530de312e1f7d5979bb38bfab7b16ef6",
+      "jax_impl": "threefry2x32",
+      "jax_key_data": [
+        1916417872,
+        1058990721
+      ]
+    },
+    "second_rng_after": {
+      "numpy_global_sha256": "83a3c5f7742dffbb6ef1f7b4f8c9c3aa15da8afb70eb4ecddd4a9c2046f84c27",
+      "eta_generator": "PCG64",
+      "eta_rng_sha256": "687f5b2c3aa0bba7eae2ab4101fce8bfe9e39f34fcdefef912a2806a26fc5093",
+      "gauge_generator": "PCG64",
+      "gauge_rng_sha256": "a6296562e25459f65e111211959de16038d9d3de7b1a3ea0ac3e1b00de78c6a9",
+      "jax_impl": "threefry2x32",
+      "jax_key_data": [
+        1192420917,
+        3472620140
+      ]
+    },
+    "second_state_sha256": "eabd03866d4437943cf50aa54370f52036394e4b6a1b5c5b390a5a83d494e47a"
+  },
+  "initial_focused_run": {
+    "tests": 26,
+    "assertion_failures": 2,
+    "explanation": "One-ULP chart perturbations were still exact-forward equal on a rounding plateau. Corrected the test to the nearest inconsistent 3/2-ULP chart values; no helper, tolerance, fixture or kernel change."
+  },
+  "artifacts": [
+    {
+      "path": "src/bsfm/sampler/chart.py",
+      "bytes": 1457,
+      "sha256": "1132b490d80dca76fc6534300df7eb06e3fe6a55ec9a84ea1deb5129fae10394"
+    },
+    {
+      "path": "src/bsfm/sampler/layer4.py",
+      "bytes": 7148,
+      "sha256": "34e2e5f448542f3f693bc0db5fbc28c0eae9ba0011dccab28051169aac65b3a4"
+    },
+    {
+      "path": "src/bsfm/sampler/layer5.py",
+      "bytes": 11189,
+      "sha256": "d9222badda9b61aa5eb463b7d6a90a62af971485ba1da97f76348413e804450b"
+    },
+    {
+      "path": "src/bsfm/sampler/layer6.py",
+      "bytes": 9901,
+      "sha256": "b6e93373a10c1b2de0416fc4d59a107f4fbc9e7f1b3f81149531ae6c2a049626"
+    },
+    {
+      "path": "tests/build_sampler_layer6_fixture.py",
+      "bytes": 4907,
+      "sha256": "c0fc31a760969f9a3d050f341843166bb339665d413b259e71e99caa1c500796"
+    },
+    {
+      "path": "tests/sampler_layer6_support.py",
+      "bytes": 8577,
+      "sha256": "0f89282e4b71957d038bdfb18e1cca0819e0de42dd5a00bddbd3c063c99b1a87"
+    },
+    {
+      "path": "tests/test_sampler_layer6.py",
+      "bytes": 24815,
+      "sha256": "88275c9aeba15ef7bc7ba67315a571ea1f173cb6c8612721313c7946c96049fc"
+    },
+    {
+      "path": "tests/fixtures/sampler_layer6.json",
+      "bytes": 12640,
+      "sha256": "dbdcfb58058e31103f4a551196fe72eedff6c8d46fd2860bbcbfa9c301eeb741"
+    },
+    {
+      "path": "docs/sampler/LAYER6_SOURCE_MAP.csv",
+      "bytes": 5703,
+      "sha256": "f0a2e3b035ebeae9c00b90452e955fa86a94426fe2f253c7275d62aab58d29ce"
+    },
+    {
+      "path": "docs/sampler/LAYER6_SYNTHETIC_SWEEP.json",
+      "bytes": 16920,
+      "sha256": "159e1dc9c7ef2c1870641631f88ee32f20c7bf9ddc42bc31e561062850a37d36"
+    }
+  ],
+  "local_logs": [
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer6/literal-comparison.log",
+      "bytes": 100,
+      "sha256": "7393ce5d46c64a381cc4cc09fdbe86e9969474d8ba03adc073b0253ddd94290b"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer6/public-focused-tests.log",
+      "bytes": 11384,
+      "sha256": "80392320a6f4ac7b3fda073617baa582646c488436fd1add8ff13f437a285e0a"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer6/sampler-tests.log",
+      "bytes": 19116,
+      "sha256": "efa4a7bd8e6bd8f5ca4b79fb9fbbbf4fb2e8e7fc9d748b6de2974e951e3d42ad"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer6/mesh-tests.log",
+      "bytes": 3364,
+      "sha256": "9d027d5e042ac93f5e4f3f980c370287adda66a2c5ba00af6997dac43b4cf8d9"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer6/environment-validation.json",
+      "bytes": 17371,
+      "sha256": "88eb74b00ec603b19e8a9d25d4f9a55d51093c623506cc0242fc50407b3905f5"
+    }
+  ],
+  "limitations": [
+    "Windows CPU only; two consecutive synthetic complete sweeps, not a scientific fit or mixing result",
+    "Shared exact chart and public prepared-context host boundary accepted; Windows CPU validation only",
+    "Caller RNG streams can advance on numerical failure; no partial state result or rollback",
+    "No warmup orchestration, checkpoints, retained draws, launchers, GPU/HPC or production choices"
+  ]
+}

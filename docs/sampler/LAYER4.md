@@ -35,6 +35,12 @@ calls, operation order, priors and solver settings are unchanged.
 | [joint_eta_kernels.py](../../src/bsfm/sampler/joint_eta_kernels.py) | Selected cell statistics, precision operator, block preconditioner, precision noise, PCG, nugget draw and diagnostics |
 | [layer4.py](../../src/bsfm/sampler/layer4.py) | Input/state/geometry/rule/factor binding, finite/domain checks, fixed numerical contract and immutable-return boundary |
 
+The accepted [Layer-6 integration revision](LAYER6.md) supplies a shared exact
+chart/state check for `JointEtaConditional`. Its numerical kernels, PCG settings
+and accepted fixtures are unchanged. The original Layer-4 validation receipt
+preserves the host-file hash tested at that checkpoint; the Layer-6 validation
+receipt records the revised host-file hash and regression results.
+
 The only centered-kernel helper is the already authenticated Layer-2
 `spectral_modal_geometry`. Layer-3 `DirectWTarget` supplies the frozen ordered
 1024-column features for each factor; no second feature implementation is

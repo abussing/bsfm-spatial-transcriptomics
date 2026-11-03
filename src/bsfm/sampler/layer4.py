@@ -10,9 +10,9 @@ import json
 
 import jax.numpy as jnp
 import numpy as np
-from scipy.special import logit
 
 from .contracts import array, logical_hash
+from .chart import validate_chart_state
 from .field_target import DirectWTarget
 from .centered_hyper_kernels import build_centered_hyper_target
 from .joint_eta_kernels import sample_joint_eta_pcg
@@ -118,13 +118,7 @@ class JointEtaConditional(_Binding):
         if not isinstance(positions, tuple) or len(positions) != len(self.target.factor_ids):
             raise ValueError('One position per ordered factor required')
         for k, pos in enumerate(positions):
-            self.target._check_position(pos)
-            if pos.factor_id != self.target.factor_ids[k]:
-                raise ValueError('Position factor order mismatch')
-            # W coordinates and alpha/zeta must describe the same current state.
-            # Compare chart coordinates, avoiding an exp/log roundtrip equality claim.
-            if pos.values[0] != np.log(state.alpha[k]) or pos.values[1] != logit(state.zeta[k]):
-                raise ValueError('Position alpha/zeta do not match current GaussianState')
+            validate_chart_state(self.target, pos, state, k)
         features = np.stack([self.target.features(pos)[2] for pos in positions])
         shape = (len(positions), self.target.inputs.arrays['Y'].shape[1], 1024)
         array(features, 'canonical finite features', shape)

@@ -67,6 +67,15 @@ combined mass; final tuning separately preserves the hyper step size.
 
 ## Public boundary
 
+The accepted [Layer-6 integration revision](LAYER6.md) supplies a shared exact
+chart/state check and an authenticated `prepare_context`/`prepared_context`
+interface. Ordinary calls still build a fresh context; prepared calls validate
+the issuing object, contents, full state and position before consuming it. The
+description below records the originally accepted direct-call interface. Its
+numerical kernels, tuning and fixtures remain unchanged. Original validation
+hashes identify the accepted checkpoint; the Layer-6 receipt records the amended
+host boundary and regression results.
+
 [layer5.py](../../src/bsfm/sampler/layer5.py) binds the transition to the accepted
 input/state, geometry, frozen rule and ordered factor identities. Every call
 validates those identities and builds a fresh `DirectWTarget.context`; it never

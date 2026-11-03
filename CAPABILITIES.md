@@ -24,6 +24,11 @@ BlackJAX field/hyper transition and window adaptation, with a separate isolated
 Windows CPU environment. Layers 1-4 remain accepted. This layer adds no eta
 refresh, sweep, checkpoint, launcher, GPU/HPC workflow or scientific fit.
 
+Layer 6 is [accepted, implemented and validated](docs/sampler/LAYER6.md) for one
+complete Gibbs sweep composing accepted Layers 1-5. It preserves the four RNG
+streams and selected chronology. No warmup controller, checkpoint/restart,
+retained-draw workflow, launcher, GPU/HPC execution or scientific fit is claimed.
+
 ## 1. Expression preprocessing
 
 Recovery status: **historical normalization-recipe recovery completed through

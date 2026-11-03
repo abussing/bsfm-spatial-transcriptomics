@@ -19,8 +19,15 @@ The full sampler is not yet ported; K and production run lengths remain unresolv
 Layer 5 is [accepted, implemented and validated](../sampler/LAYER5.md): the selected split
 BlackJAX transition/window-adaptation layer only, with unchanged historical
 settings and no eta draw. Validation is Windows CPU only; it does not establish
-GPU/HPC readiness. Whole-sweep chronology, checkpoint/restart, retained draws,
-production diagnostics and launcher remain unimplemented.
+GPU/HPC readiness. Layer 5 alone does not include whole-sweep chronology,
+checkpoint/restart, retained draws, production diagnostics or a launcher.
+
+Layer 6 is [accepted, implemented and validated](../sampler/LAYER6.md): one complete sweep
+composed from the accepted numerical layers. A shared exact chart contract
+and authenticated public prepared-context boundary avoid inverse-roundtrip bit
+mismatches without altering accepted numerical kernels.
+This layer does not supply a production sampler, warmup controller,
+checkpoint/restart, retained draws, launcher or platform/GPU validation.
 
 Decision date: 2026-11-02. Recovery baseline:
 `10cb6e27168aae7581831a6591089b4d88629c49`.
