@@ -1,0 +1,149 @@
+{
+  "commit": "27f9b3f0dfa4c1df2acc9e845633a8031069daea",
+  "validation_job": 22013528,
+  "validation_commit": "35308476286373318b13ecf6626e2454bc008f8a",
+  "runtime_fix": "GPINIT thread limit 1; core sampler files unchanged",
+  "failed_preparation_jobs": [
+    22013529,
+    22013532,
+    22013535,
+    22013538,
+    22013541
+  ],
+  "cancelled_dependency_jobs": [
+    22013530,
+    22013531,
+    22013533,
+    22013534,
+    22013536,
+    22013537,
+    22013539,
+    22013540
+  ],
+  "jobs": [
+    {
+      "stage": "prepare",
+      "configuration": "circles12_diameter1of16",
+      "job_id": 22013542
+    },
+    {
+      "stage": "sample",
+      "configuration": "circles12_diameter1of16",
+      "model": "deep",
+      "job_id": 22013543,
+      "dependency": 22013542
+    },
+    {
+      "stage": "sample",
+      "configuration": "circles12_diameter1of16",
+      "model": "flat",
+      "job_id": 22013544,
+      "dependency": 22013542
+    },
+    {
+      "stage": "prepare",
+      "configuration": "circles12_diameter1of8",
+      "job_id": 22013545
+    },
+    {
+      "stage": "sample",
+      "configuration": "circles12_diameter1of8",
+      "model": "deep",
+      "job_id": 22013546,
+      "dependency": 22013545
+    },
+    {
+      "stage": "sample",
+      "configuration": "circles12_diameter1of8",
+      "model": "flat",
+      "job_id": 22013547,
+      "dependency": 22013545
+    },
+    {
+      "stage": "prepare",
+      "configuration": "circles8_diameter1of16",
+      "job_id": 22013548
+    },
+    {
+      "stage": "sample",
+      "configuration": "circles8_diameter1of16",
+      "model": "deep",
+      "job_id": 22013549,
+      "dependency": 22013548
+    },
+    {
+      "stage": "sample",
+      "configuration": "circles8_diameter1of16",
+      "model": "flat",
+      "job_id": 22013550,
+      "dependency": 22013548
+    },
+    {
+      "stage": "prepare",
+      "configuration": "circles8_diameter1of8",
+      "job_id": 22013551
+    },
+    {
+      "stage": "sample",
+      "configuration": "circles8_diameter1of8",
+      "model": "deep",
+      "job_id": 22013552,
+      "dependency": 22013551
+    },
+    {
+      "stage": "sample",
+      "configuration": "circles8_diameter1of8",
+      "model": "flat",
+      "job_id": 22013553,
+      "dependency": 22013551
+    }
+  ],
+  "accounting": "JobID|State|ExitCode|Elapsed|MaxRSS\n22013542|COMPLETED|0:0|00:00:58|\n22013542.batch|COMPLETED|0:0|00:00:58|211160K\n22013543|RUNNING|0:0|00:01:21|\n22013544|RUNNING|0:0|00:01:21|\n22013545|COMPLETED|0:0|00:00:54|\n22013545.batch|COMPLETED|0:0|00:00:54|202516K\n22013546|RUNNING|0:0|00:00:27|\n22013547|RUNNING|0:0|00:00:27|\n22013548|COMPLETED|0:0|00:00:59|\n22013548.batch|COMPLETED|0:0|00:00:59|211980K\n22013549|RUNNING|0:0|00:00:22|\n22013550|RUNNING|0:0|00:00:22|\n22013551|COMPLETED|0:0|00:00:53|\n22013551.batch|COMPLETED|0:0|00:00:53|221392K\n22013552|RUNNING|0:0|00:00:28|\n22013553|RUNNING|0:0|00:00:28|\n",
+  "checked_utc": "2026-11-03T10:29:12.487855+00:00",
+  "prepared": {
+    "circles12_diameter1of16": {
+      "receipt_sha256": "eee8dd9469d7e3c1aa1b240fb0f676bed4289ee4e095376e5933b576d57dce8b",
+      "GPINIT_sha256": "7dc1a9fdd30b007a3f07edad4acfc003efea0a5364d108b0c7b0267087a7b689",
+      "dimensions": {
+        "types": 3,
+        "genes": 91,
+        "cells": 4342
+      },
+      "threads": 1,
+      "elapsed_seconds": 53.79913296550512
+    },
+    "circles12_diameter1of8": {
+      "receipt_sha256": "edb74ac06a539554c01b65c5a1df941eaec7e2a15f89b8c39d2e2779bdab419a",
+      "GPINIT_sha256": "7d14ee180cb3c26260e65e1b381f9a4144438b72420b4a23c6918ed8ea133d92",
+      "dimensions": {
+        "types": 3,
+        "genes": 91,
+        "cells": 3379
+      },
+      "threads": 1,
+      "elapsed_seconds": 51.472412966002594
+    },
+    "circles8_diameter1of16": {
+      "receipt_sha256": "1523e679c73c80b5bce25c9b1356ecfd29372d59a051df6828021c59b76d1d95",
+      "GPINIT_sha256": "79d65a0767c27eb90928bfa76850f79ec2ff6ec9d2780602b6ae6329b3ca47b3",
+      "dimensions": {
+        "types": 3,
+        "genes": 91,
+        "cells": 4472
+      },
+      "threads": 1,
+      "elapsed_seconds": 55.94309070500458
+    },
+    "circles8_diameter1of8": {
+      "receipt_sha256": "9903fa38e33d46b0ce55c36e874b155844a4158f9e84094c70a73d87be0d8244",
+      "GPINIT_sha256": "61caae52ada8d52311eb48612397ba9e4d666068786e95a24edba52e93be2130",
+      "dimensions": {
+        "types": 3,
+        "genes": 91,
+        "cells": 3756
+      },
+      "threads": 1,
+      "elapsed_seconds": 50.488331553002354
+    }
+  }
+}
