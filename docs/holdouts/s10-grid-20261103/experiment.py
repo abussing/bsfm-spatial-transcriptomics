@@ -32,7 +32,7 @@ def clean(commit):
     if subprocess.check_output(['git','status','--porcelain'],cwd=REPO,text=True).strip():raise ValueError('Dirty checkout')
 
 def prepare(config, root, commit):
-    from bsfm.initialization.gp_svd import fit, save
+    from bsfm.initialization.gp_svd import fit, save, CONFIG
     clean(commit);root=Path(root);root.mkdir(parents=True,exist_ok=True)
     if (root/'prepared.json').exists():
         receipt=read_json(root/'prepared.json')
@@ -56,7 +56,12 @@ def prepare(config, root, commit):
     np.savez_compressed(root/'scoring.npz',Y=scoring,cell_id=data['cell_id'][test],
         slocs=data['slocs'][test],cell_names=data['cell_names'][test],gene_names=data['gene_names'],
         training_means=means,training_full_indices=train,heldout_full_indices=test)
-    seeds,diagnostics=fit(selected,factors=12,nfit=250,seed=20261103)
+    gpconfig=read_json(CONFIG)
+    # The HPC SciPy Cholesky crashes when this build is switched to four BLAS
+    # threads. Preserve the GP algorithm and use the sampler's stable one-thread
+    # library setting. The report records the actual thread limit and libraries.
+    gpconfig['threads']=1
+    seeds,diagnostics=fit(selected,factors=12,nfit=250,seed=20261103,config=gpconfig)
     save(root/'gpinit',seeds,diagnostics,provenance=dict(commit=commit,configuration=config,
         source=file_record(root/'training.npz'),training_only=True,full_sample_SCT=True))
     receipt=dict(schema='bsfm.preliminary-holdout-preparation.v1',commit=commit,configuration=config,

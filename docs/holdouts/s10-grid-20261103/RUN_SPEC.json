@@ -12,7 +12,7 @@
   "target_accept": 0.9,
   "mesh": "fixed full-cell mesh, all 371 modes; training projector rows only; omitted vertices marginalized, with conditional completion for prediction",
   "preprocessing": "user-approved full-sample SCTransform; training-only centering; preliminary transductive comparison, not primary training-only-normalized validation",
-  "GPINIT": {"training_only": true, "nfit_per_type": 250, "seed": 20261103, "config": "config/initialization/c3-gp-svd.json"},
+  "GPINIT": {"training_only": true, "nfit_per_type": 250, "seed": 20261103, "config": "config/initialization/c3-gp-svd.json", "runtime_override": {"threads": 1}, "override_reason": "four-thread Linux SciPy Cholesky segfault in jobs 22013529/32/35/38 and traced retry 22013541; mathematical GP configuration unchanged"},
   "phases": [
     {"name": "initial_NUTS_tuning", "steps_per_factor": 50},
     {"name": "bridge_Gibbs", "sweeps": 50, "excluded_from_production": true},
