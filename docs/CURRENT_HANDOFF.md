@@ -1,14 +1,14 @@
 # Current BSFM handoff
 
-Verified baseline: `main`, `053092dbb713b748573b0106c08c3f6da559e33b`
-(accepted Sampler Layers 1-5). Handoff updated: 2026-11-02; portability
+Verified baseline: `main`, `ee84e09f9d8351744e3d6d641873974cd4b8d339`
+(accepted Sampler Layers 1-6). Handoff updated: 2026-11-02; portability
 inspection and original-desktop reconciliation records retain their original scope.
 
 Git is authoritative. Read [AGENTS.md](../AGENTS.md),
 [the pipeline portability audit](PORTABILITY_AUDIT.md),
 [CAPABILITIES.md](../CAPABILITIES.md), the
 [sampler architecture](decisions/BSFM_SAMPLER_ARCHITECTURE.md), and
-[Layer 5](sampler/LAYER5.md) before implementation. Older checkpoint-specific
+[Layer 6](sampler/LAYER6.md) before implementation. Older checkpoint-specific
 paragraphs describe their original scope; they do not undo later accepted layers.
 
 ## Completed and remaining work
@@ -18,18 +18,23 @@ paragraphs describe their original scope; they do not undo later accepted layers
   91 genes and MIC/AST/OGC cells, centered once by section/type/gene.
 - The October-26 adaptive mesh and GP-smooth SVD initializer are canonical,
   with bounded S10 reproduction evidence, not all-section production claims.
-- Accepted sampler Layers 1-5 implement Gaussian/shrinkage/PX updates,
+- Accepted sampler Layers 1-6 implement Gaussian/shrinkage/PX updates,
   full-spectrum active marginalization, the frozen L16/direct-W factor target,
   fixed-physical-W conditional/rewhitening, joint-eta PCG, and the split
-  field/hyper BlackJAX transition and window adaptation.
+  field/hyper BlackJAX transition and window adaptation. The canonical
+  mathematical sampler now includes one complete Gibbs sweep with the selected
+  chronology, public numerical interfaces and all four RNG streams preserved.
 - Layer 5 passed 119 sampler/provenance and eight canonical mesh tests on the
   original Windows CPU environment. These are not new Linux or GPU results.
   The synthetic 100-step adaptation retained one divergence in each block;
   this is mechanical regression evidence, not scientific warmup or mixing.
-- A complete Gibbs sampler or scientific fit does not exist. Remaining work is
-  whole-sweep Gibbs composition, checkpoint/restart, retained draws/diagnostics,
-  launchers and platform/GPU validation. K, chains, warmup, settling, production
-  lengths and saving cadence remain unresolved.
+- Layer 6 passed 145 sampler/provenance and eight canonical mesh tests on
+  Windows CPU, including exact historical-chronology regression and two
+  consecutive synthetic sweeps. This is not a production runner or scientific fit.
+- Remaining work is checkpoint/restart, retained draws and diagnostic
+  aggregation, run orchestration/launchers, and platform/GPU validation.
+  K, chains, warmup, settling, production lengths and saving cadence remain
+  unresolved.
 
 Preserve the finite-feature likelihood (512 ordered nodes, 1,024 cosine-then-sine
 features, ell_eta=.14), direct-W coordinates, all full-mesh modes and exact
