@@ -6,8 +6,13 @@ It does not accept Layer 9 or authorize an S10/holdout scientific fit.
 
 Linux uses a nonblocking flock for cooperating writer ownership, released by
 the OS on process death, and x86_64 renameat2(RENAME_NOREPLACE) for namespace
-publication. Missing kernel/filesystem support fails closed. The syscall is
-used because HPC glibc predates its libc wrapper. This is process-interruption
+publication where supported. GPFS rejects this flag; on that filesystem the
+fallback requires the current process/context to hold the OS writer lock for
+both source and destination. It checks destination absence and performs atomic
+same-filesystem rename while ownership excludes cooperating competitors.
+It never enables an unowned fallback or claims safety against external actors
+ignoring the lock. The syscall is used because HPC glibc predates its wrapper.
+This is process-interruption
 recovery, not a machine-power-loss durability claim. GPFS support must be
 tested on the actual compute node; local Windows results cannot establish it.
 
@@ -36,6 +41,13 @@ stale NumPy RECORD entry: it still records the wheel's pre-install bytecode hash
 and size. The corrected check permits this only when RECORD exactly matches
 the original authenticated wheel member and the installed code has independently
 matched compilation of that wheel's source. Other RECORD mismatches still fail.
+
+Job 22013413 passed full environment authentication and seven of eight storage
+tests, including fresh-process exclusion/death and bytecode integrity. GPFS
+rejected RENAME_NOREPLACE on a new destination; numerical stages did not start.
+The ownership-required fallback above preserves the approved single-writer
+transaction design and one atomic directory rename. Tests explicitly reject
+unowned/outside-root fallback and existing empty destinations.
 
 The job first authenticates the environment and tests storage on GPFS. Only
 after that passes does it run all focused Layer-9 tests, including real

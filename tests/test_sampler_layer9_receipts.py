@@ -4,7 +4,7 @@ from unittest.mock import patch
 REPO=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(REPO/'src'))
 from bsfm.sampler import run_receipts as proposal
-from bsfm.sampler.run_storage import read_json
+from bsfm.sampler.run_storage import read_json,writer
 
 class Interrupted(BaseException):pass
 class ReceiptTests(unittest.TestCase):
@@ -19,7 +19,7 @@ class ReceiptTests(unittest.TestCase):
             self.assertEqual(list(envelope.iterdir()),[])
             partial=list(attempt.glob('receipt-*/candidate.json'))
             self.assertEqual(len(partial),1)
-            proposal.publish_json(dest,{'schema':'test'},staging_directory=attempt)
+            with writer(attempt):proposal.publish_json(dest,{'schema':'test'},staging_directory=attempt)
             self.assertEqual(read_json(dest),{'schema':'test'})
             self.assertEqual(partial[0].read_bytes(),b'{"schema":')
     def test_existing_receipt_never_overwritten(self):

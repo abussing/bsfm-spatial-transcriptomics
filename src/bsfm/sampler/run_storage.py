@@ -1,5 +1,6 @@
 """Local single-writer publication primitives; no stochastic authority in ledgers."""
 from contextlib import contextmanager
+from contextvars import ContextVar
 import hashlib
 import os
 from pathlib import Path
@@ -7,6 +8,8 @@ import stat
 import tempfile
 import numpy as np
 from .checkpoint_rng import json_text, parse_json
+
+_WRITER_ROOTS=ContextVar('bsfm_writer_roots',default=())
 
 
 def safe(path):
@@ -44,7 +47,9 @@ def publish(source,destination):
     if source.stat().st_dev!=destination.parent.stat().st_dev:raise ValueError('Cross-filesystem publication')
     if os.name=='posix':
         from .run_linux_storage import rename_noreplace
-        rename_noreplace(source,destination)
+        owned=any(pid==os.getpid() and source.is_relative_to(root) and destination.is_relative_to(root)
+                  for root,pid in _WRITER_ROOTS.get())
+        rename_noreplace(source,destination,writer_owned=owned)
     else:
         os.rename(source,destination)
 
@@ -89,5 +94,8 @@ def writer(root):
         f.seek(0)
         try:acquire(f)
         except OSError as exc:raise RuntimeError('Another local writer owns the run') from exc
+        token=_WRITER_ROOTS.set((*_WRITER_ROOTS.get(),(root,os.getpid())))
         try:yield
-        finally:f.seek(0);release(f)
+        finally:
+            _WRITER_ROOTS.reset(token)
+            f.seek(0);release(f)

@@ -58,7 +58,7 @@ with writer(sys.argv[1]):
         source = self.root/'source'; source.mkdir()
         (source/'payload').write_bytes(b'complete')
         dest = self.root/'committed'
-        publish(source, dest)
+        with writer(self.root): publish(source, dest)
         self.assertEqual((dest/'payload').read_bytes(), b'complete')
         source.mkdir()
         (source/'payload').write_bytes(b'conflict')
@@ -74,6 +74,33 @@ with writer(sys.argv[1]):
         with self.assertRaises(FileExistsError): rename_noreplace(source, dest)
         self.assertTrue(source.exists())
         self.assertTrue(dest.exists())
+
+    @unittest.skipUnless(sys.platform == 'linux', 'Linux GPFS fallback boundary')
+    def test_unsupported_rename_requires_owned_root_and_never_replaces(self):
+        from unittest.mock import patch
+        import ctypes
+        import errno
+        from types import SimpleNamespace
+        def unsupported(*args):
+            ctypes.set_errno(errno.EOPNOTSUPP)
+            return -1
+        source=self.root/'source'; source.mkdir()
+        dest=self.root/'destination'
+        with patch('bsfm.sampler.run_linux_storage.ctypes.CDLL',return_value=SimpleNamespace(syscall=unsupported)):
+            with self.assertRaisesRegex(RuntimeError,'ownership'): publish(source,dest)
+            with writer(self.root): publish(source,dest)
+            source.mkdir()
+            with writer(self.root):
+                with self.assertRaises(FileExistsError): publish(source,dest)
+                from bsfm.sampler.run_linux_storage import rename_noreplace
+                with self.assertRaises(FileExistsError):
+                    rename_noreplace(source,dest,writer_owned=True)
+            self.assertTrue(source.exists())
+            self.assertTrue(dest.exists())
+            elsewhere=self.root/'unowned'; elsewhere.mkdir()
+            # A sibling lease cannot authorize publication in the root above it.
+            with writer(elsewhere):
+                with self.assertRaisesRegex(RuntimeError,'ownership'): publish(source,self.root/'other')
 
     def wheel(self, name='pkg/module.py', payload=b'original'):
         path = self.root/'package.whl'
