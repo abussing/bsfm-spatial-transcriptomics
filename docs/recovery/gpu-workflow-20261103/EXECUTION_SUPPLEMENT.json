@@ -1,0 +1,965 @@
+{
+  "code/production/run_k20_cell75_adaptation_chain.sh": {
+    "sha256": "edcc2c0729c7c6a7a8f0cf2b31a67e6d13ee59f9792a5000f8dba616be341911",
+    "bytes": 2670,
+    "text": "#!/usr/bin/env bash\nset -euo pipefail\n\nPROJECT_ROOT=\"${PROJECT_ROOT:-/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024}\"\nPYTHON=\"${PYTHON:-/work/abussing/arka_trying_gpu_again/env/bin/python3}\"\nTASK_ID=\"${SLURM_ARRAY_TASK_ID:?Run as a 0-based Slurm array task}\"\nSECTIONS=19\nSECTION_INDEX=\"$((TASK_ID % SECTIONS))\"\nCHAIN_INDEX=\"$((TASK_ID / SECTIONS + 1))\"\n\nmodule load cuda/12.3 gcc/12.2.0\nexport JAX_ENABLE_X64=True\nexport JAX_PLATFORMS=cuda\nexport XLA_FLAGS=\"--xla_gpu_cuda_data_dir=/work/apps/cuda/12.3\"\nexport XLA_PYTHON_CLIENT_PREALLOCATE=false\nTHREADS=\"${SLURM_CPUS_PER_TASK:-4}\"\nexport OPENBLAS_NUM_THREADS=\"$THREADS\"\nexport OMP_NUM_THREADS=\"$THREADS\"\nexport MKL_NUM_THREADS=\"$THREADS\"\n\ncd \"$PROJECT_ROOT\"\nSECTION=\"$($PYTHON -c 'import json,sys; d=json.load(open(\"inputs/INPUT_PREPARATION_CONTRACT.json\")); print(d[\"section_order\"][int(sys.argv[1])])' \"$SECTION_INDEX\")\"\nSOURCE=\"inputs/sections/$SECTION\"\nREDUCED=\"inputs_k20_cell75/sections/$SECTION\"\nOUTPUT=\"adaptation_runs_k20_cell75/$SECTION/chain_$CHAIN_INDEX\"\nSEED=\"$((2026102600 + SECTION_INDEX * 100 + CHAIN_INDEX))\"\n\ntest -s \"$REDUCED/OBSERVATIONS.npz\"\ntest -s \"$REDUCED/gpinit/gpinit.npz\"\ntest -s \"$REDUCED/K20_CELL75_INPUT_CONTRACT.json\"\nif [[ -e \"$OUTPUT/C3FULL_SAMPLER_CERTIFICATE.json\" || -e \"$OUTPUT/LATEST_CHECKPOINT.npz\" ]]; then\n  echo \"REFUSING_NONEMPTY_ADAPTATION output=$OUTPUT\" >&2\n  exit 3\nfi\nmkdir -p \"$OUTPUT\"\ncp code/PRODUCTION_CODE_MANIFEST.json \"$OUTPUT/code_manifest.json\"\ncp code/PRODUCTION_RETENTION_CONTRACT.json \"$OUTPUT/retention_contract.json\"\ncp \"$REDUCED/K20_CELL75_INPUT_CONTRACT.json\" \"$OUTPUT/input_manifest.json\"\n\necho \"K20_CELL75_ADAPTATION_START section=$SECTION chain=$CHAIN_INDEX seed=$SEED host=$(hostname) time=$(date --iso-8601=seconds)\"\n\"$PYTHON\" -u code/sampler/run_c3full_fixed_profile_nuts.py \\\n  --root code --data \"$REDUCED/OBSERVATIONS.npz\" --real-data \\\n  --gpinit \"$REDUCED/gpinit/gpinit.npz\" --mesh \"$SOURCE/mesh\" \\\n  --rule rules/L16_ell14.npz --out \"$OUTPUT\" \\\n  --warmup 100 --sweeps 101 --settling-sweeps 100 --save-every 101 \\\n  --score-n 256 --score-every 25 \\\n  --live-warp-hypers --direct-w --split-E --target-accept 0.9 \\\n  --ell-eta-initial 0.14 --ell-eta-prior-center 0.14 \\\n  --pcg-tolerance 1e-10 --pcg-max-iterations 80 \\\n  --warmup-fidelity-checks 10 --fidelity-every 25 --fidelity-pairs 1024 \\\n  --fidelity-warn-only --max-num-doublings 10 --record-scale-feedback \\\n  --seed \"$SEED\" --ell-u-prior-center 1.0 \\\n  --sigma-u-prior-center 0.31622776601683794 --log-r-prior-sd 0.3\n\ntest -s \"$OUTPUT/LATEST_CHECKPOINT.npz\"\necho \"K20_CELL75_ADAPTATION_END section=$SECTION chain=$CHAIN_INDEX time=$(date --iso-8601=seconds)\"\n"
+  },
+  "code/production/run_k20_cell75_production_chain.sh": {
+    "sha256": "4140124b74f67fb67c1aa050d1ad4e5cec14055aa457a94961eaec7837d60523",
+    "bytes": 2892,
+    "text": "#!/usr/bin/env bash\nset -euo pipefail\n\nPROJECT_ROOT=\"${PROJECT_ROOT:-/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024}\"\nPYTHON=\"${PYTHON:-/work/abussing/arka_trying_gpu_again/env/bin/python3}\"\nTASK_ID=\"${SLURM_ARRAY_TASK_ID:?Run as a 0-based Slurm array task}\"\nSECTIONS=19\nSECTION_INDEX=\"$((TASK_ID % SECTIONS))\"\nCHAIN_INDEX=\"$((TASK_ID / SECTIONS + 1))\"\n\nmodule load cuda/12.3 gcc/12.2.0\nexport JAX_ENABLE_X64=True\nexport JAX_PLATFORMS=cuda\nexport XLA_FLAGS=\"--xla_gpu_cuda_data_dir=/work/apps/cuda/12.3\"\nexport XLA_PYTHON_CLIENT_PREALLOCATE=false\nTHREADS=\"${SLURM_CPUS_PER_TASK:-4}\"\nexport OPENBLAS_NUM_THREADS=\"$THREADS\"\nexport OMP_NUM_THREADS=\"$THREADS\"\nexport MKL_NUM_THREADS=\"$THREADS\"\n\ncd \"$PROJECT_ROOT\"\nSECTION=\"$($PYTHON -c 'import json,sys; d=json.load(open(\"inputs/INPUT_PREPARATION_CONTRACT.json\")); print(d[\"section_order\"][int(sys.argv[1])])' \"$SECTION_INDEX\")\"\nSOURCE=\"inputs/sections/$SECTION\"\nREDUCED=\"inputs_k20_cell75/sections/$SECTION\"\nADAPTATION=\"adaptation_runs_k20_cell75/$SECTION/chain_$CHAIN_INDEX\"\nOUTPUT=\"production_runs_k20_cell75/$SECTION/chain_$CHAIN_INDEX\"\nSEED=\"$((2026102600 + SECTION_INDEX * 100 + CHAIN_INDEX))\"\n\ntest -s \"$ADAPTATION/LATEST_CHECKPOINT.npz\"\nif [[ -e \"$OUTPUT/C3FULL_SAMPLER_CERTIFICATE.json\" || -e \"$OUTPUT/LATEST_CHECKPOINT.npz\" ]]; then\n  echo \"REFUSING_NONEMPTY_PRODUCTION output=$OUTPUT\" >&2\n  exit 3\nfi\nmkdir -p \"$OUTPUT\"\ncp code/PRODUCTION_CODE_MANIFEST.json \"$OUTPUT/code_manifest.json\"\ncp code/PRODUCTION_RETENTION_CONTRACT.json \"$OUTPUT/retention_contract.json\"\ncp \"$REDUCED/K20_CELL75_INPUT_CONTRACT.json\" \"$OUTPUT/input_manifest.json\"\n\necho \"K20_CELL75_PRODUCTION_START section=$SECTION chain=$CHAIN_INDEX seed=$SEED host=$(hostname) time=$(date --iso-8601=seconds)\"\n\"$PYTHON\" -u code/sampler/run_c3full_fixed_profile_nuts.py \\\n  --root code --data \"$REDUCED/OBSERVATIONS.npz\" --real-data \\\n  --gpinit \"$REDUCED/gpinit/gpinit.npz\" --mesh \"$SOURCE/mesh\" \\\n  --rule rules/L16_ell14.npz --out \"$OUTPUT\" \\\n  --resume-checkpoint \"$ADAPTATION/LATEST_CHECKPOINT.npz\" --readapt-on-resume \\\n  --warmup 100 --sweeps 1100 --settling-sweeps 100 --save-every 5 \\\n  --score-n 256 --score-every 5 \\\n  --live-warp-hypers --direct-w --split-E --target-accept 0.95 \\\n  --ell-eta-initial 0.14 --ell-eta-prior-center 0.14 \\\n  --pcg-tolerance 1e-10 --pcg-max-iterations 80 \\\n  --warmup-fidelity-checks 10 --fidelity-every 5 --fidelity-pairs 1024 \\\n  --fidelity-warn-only --max-num-doublings 10 --record-scale-feedback \\\n  --seed \"$SEED\" --ell-u-prior-center 1.0 \\\n  --sigma-u-prior-center 0.31622776601683794 --log-r-prior-sd 0.3\n\n\"$PYTHON\" -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d[\"status\"] in (\"PASS\",\"REVIEW_REQUIRED\"); print(\"CHAIN_CERTIFICATE\",d[\"status\"])' \"$OUTPUT/C3FULL_SAMPLER_CERTIFICATE.json\"\necho \"K20_CELL75_PRODUCTION_END section=$SECTION chain=$CHAIN_INDEX time=$(date --iso-8601=seconds)\"\n"
+  },
+  "run_code_manifest_joins": [
+    {
+      "section": "S00__Trem2_5xFAD4",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S00__Trem2_5xFAD4/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S01__5xFAD4",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S01__5xFAD4/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S02__Trem2_4",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S02__Trem2_4/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S03__Trem2_5xFAD3",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S03__Trem2_5xFAD3/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S04__WT3",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S04__WT3/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S06__5xFAD3",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S06__5xFAD3/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S07__Trem2_5xFAD5/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S08__5xFAD5",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S08__5xFAD5/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S09__Trem2_5",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S09__Trem2_5/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S10__WT5",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S10__WT5/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    },
+    {
+      "section": "S11__Trem2_5xFAD1",
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S11__Trem2_5xFAD1/chain_1/code_manifest.json",
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "matches_selected_driver": true
+    }
+  ],
+  "gpu_validation": {
+    "commit": "fc08d6e02b5142af43a02a6d6535d4173063e9a7",
+    "environment": {
+      "schema": "bsfm.meeting-gpu-environment.v1",
+      "lock": {
+        "bytes": 14379,
+        "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+      },
+      "backend": "gpu",
+      "x64": true,
+      "device_kind": "Tesla V100-PCIE-16GB",
+      "device_validation": {
+        "bytes": 14379,
+        "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+      },
+      "packages": {
+        "opt_einsum": "3.4.0",
+        "joblib": "1.6.0",
+        "numpy": "2.1.3",
+        "ptyprocess": "0.7.0",
+        "httpcore": "1.0.9",
+        "watchfiles": "1.1.1",
+        "matplotlib-inline": "0.2.1",
+        "python-multipart": "0.0.22",
+        "parso": "0.8.6",
+        "uvicorn": "0.43.0",
+        "fonttools": "4.62.1",
+        "fastlite": "0.2.4",
+        "pyparsing": "3.3.2",
+        "fastcore": "1.12.34",
+        "pillow": "12.2.0",
+        "contourpy": "1.3.3",
+        "python-fasthtml": "0.13.2",
+        "jaxopt": "0.8.3",
+        "tzdata": "2026.2",
+        "nvidia-cudnn-cu12": "9.8.0.87",
+        "six": "1.17.0",
+        "soupsieve": "2.8.3",
+        "h11": "0.16.0",
+        "wcwidth": "0.6.0",
+        "optax": "0.2.8",
+        "ipython": "9.10.1",
+        "websockets": "16.0",
+        "pexpect": "4.9.0",
+        "ml_dtypes": "0.5.4",
+        "scipy": "1.14.1",
+        "decorator": "5.2.1",
+        "typing_extensions": "4.15.0",
+        "python-dotenv": "1.2.2",
+        "beautifulsoup4": "4.14.3",
+        "scikit-learn": "1.4.2",
+        "stack-data": "0.6.3",
+        "certifi": "2026.2.25",
+        "jax-cuda12-pjrt": "0.7.0",
+        "asttokens": "3.0.1",
+        "pure_eval": "0.2.3",
+        "uvloop": "0.22.1",
+        "cycler": "0.12.1",
+        "anyio": "4.13.0",
+        "blackjax": "1.3",
+        "matplotlib": "3.10.8",
+        "pip": "26.0.1",
+        "jedi": "0.19.2",
+        "apswutils": "0.1.2",
+        "packaging": "25.0",
+        "executing": "2.2.1",
+        "cma": "4.4.4",
+        "ipython_pygments_lexers": "1.1.1",
+        "jax-cuda12-plugin": "0.7.0",
+        "PyYAML": "6.0.3",
+        "idna": "3.11",
+        "prompt_toolkit": "3.0.52",
+        "setuptools": "80.10.2",
+        "jaxlib": "0.7.0",
+        "pandas": "2.2.3",
+        "httptools": "0.7.1",
+        "absl-py": "2.4.0",
+        "starlette": "1.0.0",
+        "oauthlib": "3.3.1",
+        "kiwisolver": "1.5.0",
+        "cloudpickle": "3.1.2",
+        "jax": "0.7.0",
+        "pytz": "2026.1.post1",
+        "traitlets": "5.14.3",
+        "polyagamma": "2.0.2",
+        "fastprogress": "1.1.5",
+        "apsw": "3.51.3.0",
+        "python-dateutil": "2.9.0.post0",
+        "itsdangerous": "2.2.0",
+        "httpx": "0.28.1",
+        "wheel": "0.46.3",
+        "click": "8.3.2",
+        "threadpoolctl": "3.6.0",
+        "Pygments": "2.20.0"
+      },
+      "installed_numerical_files": 2355,
+      "absent_unused_resources": [
+        "docs/_static/blackjax.png",
+        "docs/examples/data/blackjax.png",
+        "scipy/stats/_sobol_direction_numbers.npz"
+      ],
+      "limitation": "Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations."
+    },
+    "scope": "Synthetic GPU/GPFS only; no scientific fit",
+    "status": "PASS",
+    "checks": [
+      {
+        "case": "strict versus incremental",
+        "all_three_transaction_receipts_exact": true
+      },
+      {
+        "case": "fresh-process uncommitted sweep recomputation",
+        "all_three_transaction_receipts_exact": true
+      },
+      {
+        "case": "completed non-replay",
+        "pass": true
+      }
+    ],
+    "timing": {
+      "strict": {
+        "total_seconds_including_compilation_warmup_validation": 41.832254527005716,
+        "phase_events": [
+          {
+            "stage": "before_initialization",
+            "sweep": 0,
+            "seconds_since_start": 0.6337522719986737
+          },
+          {
+            "stage": "after_initialization",
+            "sweep": 0,
+            "seconds_since_start": 4.576221695999266
+          },
+          {
+            "stage": "after_warmup",
+            "sweep": 0,
+            "seconds_since_start": 31.387220935008372
+          },
+          {
+            "stage": "before_genesis_publish",
+            "sweep": 0,
+            "seconds_since_start": 31.476463996994426
+          },
+          {
+            "stage": "after_genesis_publish",
+            "sweep": 0,
+            "seconds_since_start": 31.4781278570008
+          },
+          {
+            "stage": "before_ledger",
+            "sweep": 0,
+            "seconds_since_start": 31.49390196200693
+          },
+          {
+            "stage": "before_sweep",
+            "sweep": 1,
+            "seconds_since_start": 31.51193268400675
+          },
+          {
+            "stage": "after_sweep",
+            "sweep": 1,
+            "seconds_since_start": 39.37033635399712
+          },
+          {
+            "stage": "after_checkpoint_candidate",
+            "sweep": 1,
+            "seconds_since_start": 39.41937379799492
+          },
+          {
+            "stage": "after_record_candidate",
+            "sweep": 1,
+            "seconds_since_start": 39.46453409199603
+          },
+          {
+            "stage": "before_transaction_publish",
+            "sweep": 1,
+            "seconds_since_start": 39.52602187500452
+          },
+          {
+            "stage": "after_transaction_publish",
+            "sweep": 1,
+            "seconds_since_start": 39.52663373800169
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 1,
+            "seconds_since_start": 39.589142484008335
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 1,
+            "seconds_since_start": 39.58914334200381
+          },
+          {
+            "stage": "before_ledger",
+            "sweep": 1,
+            "seconds_since_start": 39.67177415199694
+          },
+          {
+            "stage": "before_sweep",
+            "sweep": 2,
+            "seconds_since_start": 39.674991933003184
+          },
+          {
+            "stage": "after_sweep",
+            "sweep": 2,
+            "seconds_since_start": 40.10095681200619
+          },
+          {
+            "stage": "after_checkpoint_candidate",
+            "sweep": 2,
+            "seconds_since_start": 40.14768632900086
+          },
+          {
+            "stage": "after_record_candidate",
+            "sweep": 2,
+            "seconds_since_start": 40.19218567200005
+          },
+          {
+            "stage": "before_transaction_publish",
+            "sweep": 2,
+            "seconds_since_start": 40.25297671300359
+          },
+          {
+            "stage": "after_transaction_publish",
+            "sweep": 2,
+            "seconds_since_start": 40.2535817839962
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 2,
+            "seconds_since_start": 40.37061162300233
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 2,
+            "seconds_since_start": 40.37061242699565
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 2,
+            "seconds_since_start": 40.37395673900028
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 2,
+            "seconds_since_start": 40.37652057300147
+          },
+          {
+            "stage": "before_ledger",
+            "sweep": 2,
+            "seconds_since_start": 40.537220168000204
+          },
+          {
+            "stage": "before_sweep",
+            "sweep": 3,
+            "seconds_since_start": 40.539951048005605
+          },
+          {
+            "stage": "after_sweep",
+            "sweep": 3,
+            "seconds_since_start": 40.97379318300227
+          },
+          {
+            "stage": "after_checkpoint_candidate",
+            "sweep": 3,
+            "seconds_since_start": 41.02121523099777
+          },
+          {
+            "stage": "after_record_candidate",
+            "sweep": 3,
+            "seconds_since_start": 41.066357699004584
+          },
+          {
+            "stage": "before_transaction_publish",
+            "sweep": 3,
+            "seconds_since_start": 41.12757744600822
+          },
+          {
+            "stage": "after_transaction_publish",
+            "sweep": 3,
+            "seconds_since_start": 41.12817182899744
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 3,
+            "seconds_since_start": 41.30955266300589
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 3,
+            "seconds_since_start": 41.30955439200625
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 3,
+            "seconds_since_start": 41.30998820300738
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 3,
+            "seconds_since_start": 41.31060695000633
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 3,
+            "seconds_since_start": 41.31394502900366
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 3,
+            "seconds_since_start": 41.315998131001834
+          },
+          {
+            "stage": "before_ledger",
+            "sweep": 3,
+            "seconds_since_start": 41.55734015000053
+          },
+          {
+            "stage": "before_completion",
+            "sweep": 3,
+            "seconds_since_start": 41.830582494003465
+          }
+        ],
+        "sweep_seconds": [
+          7.8584749569999985,
+          0.425980187006644,
+          0.4338609240076039
+        ],
+        "timing_limit": "Phase events measure host wall time; compilation and cache order differ between arms. Not a matched throughput benchmark."
+      },
+      "incremental": {
+        "total_seconds_including_compilation_warmup_validation": 22.650586125004338,
+        "phase_events": [
+          {
+            "stage": "before_initialization",
+            "sweep": 0,
+            "seconds_since_start": 0.027210246000322513
+          },
+          {
+            "stage": "after_initialization",
+            "sweep": 0,
+            "seconds_since_start": 0.05765084800077602
+          },
+          {
+            "stage": "after_warmup",
+            "sweep": 0,
+            "seconds_since_start": 19.964753282009042
+          },
+          {
+            "stage": "before_genesis_publish",
+            "sweep": 0,
+            "seconds_since_start": 20.038029439005186
+          },
+          {
+            "stage": "after_genesis_publish",
+            "sweep": 0,
+            "seconds_since_start": 20.03867475700099
+          },
+          {
+            "stage": "before_ledger",
+            "sweep": 0,
+            "seconds_since_start": 20.056313492998015
+          },
+          {
+            "stage": "before_sweep",
+            "sweep": 1,
+            "seconds_since_start": 20.059156154005905
+          },
+          {
+            "stage": "after_sweep",
+            "sweep": 1,
+            "seconds_since_start": 20.503929097001674
+          },
+          {
+            "stage": "after_checkpoint_candidate",
+            "sweep": 1,
+            "seconds_since_start": 20.550105340997106
+          },
+          {
+            "stage": "after_record_candidate",
+            "sweep": 1,
+            "seconds_since_start": 20.59554525000567
+          },
+          {
+            "stage": "before_transaction_publish",
+            "sweep": 1,
+            "seconds_since_start": 20.657087529005366
+          },
+          {
+            "stage": "after_transaction_publish",
+            "sweep": 1,
+            "seconds_since_start": 20.65768122400914
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 1,
+            "seconds_since_start": 20.72532050400332
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 1,
+            "seconds_since_start": 20.725325075007277
+          },
+          {
+            "stage": "before_ledger",
+            "sweep": 1,
+            "seconds_since_start": 20.72532568500901
+          },
+          {
+            "stage": "before_sweep",
+            "sweep": 2,
+            "seconds_since_start": 20.727904419007245
+          },
+          {
+            "stage": "after_sweep",
+            "sweep": 2,
+            "seconds_since_start": 21.159399477008265
+          },
+          {
+            "stage": "after_checkpoint_candidate",
+            "sweep": 2,
+            "seconds_since_start": 21.20620504800172
+          },
+          {
+            "stage": "after_record_candidate",
+            "sweep": 2,
+            "seconds_since_start": 21.252174975001253
+          },
+          {
+            "stage": "before_transaction_publish",
+            "sweep": 2,
+            "seconds_since_start": 21.31301929600886
+          },
+          {
+            "stage": "after_transaction_publish",
+            "sweep": 2,
+            "seconds_since_start": 21.313607575997594
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 2,
+            "seconds_since_start": 21.379084840998985
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 2,
+            "seconds_since_start": 21.38180915900739
+          },
+          {
+            "stage": "before_ledger",
+            "sweep": 2,
+            "seconds_since_start": 21.38181026800885
+          },
+          {
+            "stage": "before_sweep",
+            "sweep": 3,
+            "seconds_since_start": 21.38415567300399
+          },
+          {
+            "stage": "after_sweep",
+            "sweep": 3,
+            "seconds_since_start": 21.824327025009552
+          },
+          {
+            "stage": "after_checkpoint_candidate",
+            "sweep": 3,
+            "seconds_since_start": 21.87049538899737
+          },
+          {
+            "stage": "after_record_candidate",
+            "sweep": 3,
+            "seconds_since_start": 21.91640827000083
+          },
+          {
+            "stage": "before_transaction_publish",
+            "sweep": 3,
+            "seconds_since_start": 21.977844983004616
+          },
+          {
+            "stage": "after_transaction_publish",
+            "sweep": 3,
+            "seconds_since_start": 21.978419557010056
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 3,
+            "seconds_since_start": 22.159054697011015
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 3,
+            "seconds_since_start": 22.159055752010318
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 3,
+            "seconds_since_start": 22.159477409004467
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 3,
+            "seconds_since_start": 22.160066808006377
+          },
+          {
+            "stage": "after_record_projection",
+            "sweep": 3,
+            "seconds_since_start": 22.163263321010163
+          },
+          {
+            "stage": "after_checkpoint_projection",
+            "sweep": 3,
+            "seconds_since_start": 22.1655409590021
+          },
+          {
+            "stage": "before_ledger",
+            "sweep": 3,
+            "seconds_since_start": 22.405907724009012
+          },
+          {
+            "stage": "before_completion",
+            "sweep": 3,
+            "seconds_since_start": 22.649449012009427
+          }
+        ],
+        "sweep_seconds": [
+          0.4447787480021361,
+          0.4315106060093967,
+          0.44018743198830634
+        ],
+        "timing_limit": "Phase events measure host wall time; compilation and cache order differ between arms. Not a matched throughput benchmark."
+      }
+    },
+    "strict_completion": {
+      "schema": "bsfm.run-completion.v1",
+      "status": "complete_with_warnings",
+      "head": "0ab45d772a2afcb706755dd75795e4c404c7c8d91d66f47559f1755c60cb0949",
+      "spec_sha256": "f74659fdcaed4cf523ea8c249b2bdb72a02fb988557af902d4124f239e93464a",
+      "completed": 3,
+      "retained": 3,
+      "warmup_divergences": 3,
+      "aggregate": {
+        "schema": "bsfm.raw-diagnostic-aggregate.v1",
+        "chains": {
+          "chain": {
+            "status": "valid_prefix",
+            "records": 3,
+            "retained": 3,
+            "head_sha256": "f2c21b3810a4ea52d2c6b2f6abfd68c24b7265ee7d23609c6f5eb591f7a19f67",
+            "rows": [
+              {
+                "sweep": 1,
+                "retained_index": 1,
+                "factor_order": [
+                  1,
+                  0
+                ],
+                "elapsed_seconds": null
+              },
+              {
+                "sweep": 2,
+                "retained_index": 2,
+                "factor_order": [
+                  1,
+                  0
+                ],
+                "elapsed_seconds": null
+              },
+              {
+                "sweep": 3,
+                "retained_index": 3,
+                "factor_order": [
+                  0,
+                  1
+                ],
+                "elapsed_seconds": null
+              }
+            ],
+            "events": [],
+            "block_energy": [
+              {
+                "sweep": 1,
+                "factor_id": "factor-b",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  -51.04349328387427,
+                  -2.4280443448834625
+                ]
+              },
+              {
+                "sweep": 1,
+                "factor_id": "factor-a",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  -81.63777574423776,
+                  2.3496508030434935
+                ]
+              },
+              {
+                "sweep": 2,
+                "factor_id": "factor-b",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  -66.72900881071101,
+                  -1.6712647874737336
+                ]
+              },
+              {
+                "sweep": 2,
+                "factor_id": "factor-a",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  -9.506602751928357,
+                  -0.9034028253093147
+                ]
+              },
+              {
+                "sweep": 3,
+                "factor_id": "factor-a",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  12.08789921450764,
+                  0.01235276242099781
+                ]
+              },
+              {
+                "sweep": 3,
+                "factor_id": "factor-b",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  13.87026901950454,
+                  -2.621476830567581
+                ]
+              }
+            ],
+            "divergence_counts": [
+              3,
+              0
+            ],
+            "mean_block_acceptance": [
+              0.4097623779725268,
+              0.9792420996687013
+            ],
+            "pcg_iterations": [
+              6,
+              6,
+              5,
+              7,
+              7,
+              7,
+              7,
+              7,
+              7
+            ],
+            "pcg_max_error_bound": 6.715316767630787e-11,
+            "px_max_invariant_error": 3.970434597677851e-16,
+            "fidelity_status": "not_evaluated_by_layers_1_to_8"
+          }
+        },
+        "convergence_status": "not_assessed",
+        "energy_semantics": "separate field/hyper conditional Hamiltonians; no pooled BFMI",
+        "factor_alignment": "native labels; no cross-chain factor posterior pooling",
+        "logical_sha256": "9a510fdf9e8da5f42b4ae54115fe1aa49b1de7ddcd47b02b362acd32e1f2a38f"
+      },
+      "convergence_status": "not_assessed"
+    },
+    "incremental_completion": {
+      "schema": "bsfm.run-completion.v1",
+      "status": "complete_with_warnings",
+      "head": "0ab45d772a2afcb706755dd75795e4c404c7c8d91d66f47559f1755c60cb0949",
+      "spec_sha256": "f74659fdcaed4cf523ea8c249b2bdb72a02fb988557af902d4124f239e93464a",
+      "completed": 3,
+      "retained": 3,
+      "warmup_divergences": 3,
+      "aggregate": {
+        "schema": "bsfm.raw-diagnostic-aggregate.v1",
+        "chains": {
+          "chain": {
+            "status": "valid_prefix",
+            "records": 3,
+            "retained": 3,
+            "head_sha256": "f2c21b3810a4ea52d2c6b2f6abfd68c24b7265ee7d23609c6f5eb591f7a19f67",
+            "rows": [
+              {
+                "sweep": 1,
+                "retained_index": 1,
+                "factor_order": [
+                  1,
+                  0
+                ],
+                "elapsed_seconds": null
+              },
+              {
+                "sweep": 2,
+                "retained_index": 2,
+                "factor_order": [
+                  1,
+                  0
+                ],
+                "elapsed_seconds": null
+              },
+              {
+                "sweep": 3,
+                "retained_index": 3,
+                "factor_order": [
+                  0,
+                  1
+                ],
+                "elapsed_seconds": null
+              }
+            ],
+            "events": [],
+            "block_energy": [
+              {
+                "sweep": 1,
+                "factor_id": "factor-b",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  -51.04349328387427,
+                  -2.4280443448834625
+                ]
+              },
+              {
+                "sweep": 1,
+                "factor_id": "factor-a",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  -81.63777574423776,
+                  2.3496508030434935
+                ]
+              },
+              {
+                "sweep": 2,
+                "factor_id": "factor-b",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  -66.72900881071101,
+                  -1.6712647874737336
+                ]
+              },
+              {
+                "sweep": 2,
+                "factor_id": "factor-a",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  -9.506602751928357,
+                  -0.9034028253093147
+                ]
+              },
+              {
+                "sweep": 3,
+                "factor_id": "factor-a",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  12.08789921450764,
+                  0.01235276242099781
+                ]
+              },
+              {
+                "sweep": 3,
+                "factor_id": "factor-b",
+                "block_order": [
+                  "field",
+                  "hyper"
+                ],
+                "block_energy": [
+                  13.87026901950454,
+                  -2.621476830567581
+                ]
+              }
+            ],
+            "divergence_counts": [
+              3,
+              0
+            ],
+            "mean_block_acceptance": [
+              0.4097623779725268,
+              0.9792420996687013
+            ],
+            "pcg_iterations": [
+              6,
+              6,
+              5,
+              7,
+              7,
+              7,
+              7,
+              7,
+              7
+            ],
+            "pcg_max_error_bound": 6.715316767630787e-11,
+            "px_max_invariant_error": 3.970434597677851e-16,
+            "fidelity_status": "not_evaluated_by_layers_1_to_8"
+          }
+        },
+        "convergence_status": "not_assessed",
+        "energy_semantics": "separate field/hyper conditional Hamiltonians; no pooled BFMI",
+        "factor_alignment": "native labels; no cross-chain factor posterior pooling",
+        "logical_sha256": "9a510fdf9e8da5f42b4ae54115fe1aa49b1de7ddcd47b02b362acd32e1f2a38f"
+      },
+      "convergence_status": "not_assessed"
+    },
+    "outputs": {
+      "strict/segments/segment/transactions/000000000001/prepared.json": {
+        "bytes": 980,
+        "sha256": "148c955cacc14395c625cff9f1178467268d765599e09827cff591b465cb5c9d"
+      },
+      "strict/segments/segment/transactions/000000000003/prepared.json": {
+        "bytes": 980,
+        "sha256": "edb5919ddf626c4a5f348883ecc5279ec54f2d41cde1c507c74df35d247f73ce"
+      },
+      "strict/segments/segment/transactions/000000000002/prepared.json": {
+        "bytes": 980,
+        "sha256": "b9c0721fe53d76a404bb7811e0178c0023225d1270a4c7a4637e47c6b3182967"
+      },
+      "incremental/segments/segment/transactions/000000000001/prepared.json": {
+        "bytes": 980,
+        "sha256": "148c955cacc14395c625cff9f1178467268d765599e09827cff591b465cb5c9d"
+      },
+      "incremental/segments/segment/transactions/000000000003/prepared.json": {
+        "bytes": 980,
+        "sha256": "edb5919ddf626c4a5f348883ecc5279ec54f2d41cde1c507c74df35d247f73ce"
+      },
+      "incremental/segments/segment/transactions/000000000002/prepared.json": {
+        "bytes": 980,
+        "sha256": "b9c0721fe53d76a404bb7811e0178c0023225d1270a4c7a4637e47c6b3182967"
+      },
+      "restart/segments/segment/transactions/000000000001/prepared.json": {
+        "bytes": 980,
+        "sha256": "148c955cacc14395c625cff9f1178467268d765599e09827cff591b465cb5c9d"
+      },
+      "restart/segments/segment/transactions/000000000003/prepared.json": {
+        "bytes": 980,
+        "sha256": "edb5919ddf626c4a5f348883ecc5279ec54f2d41cde1c507c74df35d247f73ce"
+      },
+      "restart/segments/segment/transactions/000000000002/prepared.json": {
+        "bytes": 980,
+        "sha256": "b9c0721fe53d76a404bb7811e0178c0023225d1270a4c7a4637e47c6b3182967"
+      }
+    }
+  }
+}

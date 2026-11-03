@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scope": "Recheck captured provenance assertions and current source AST; not a fresh historical run",
+  "draw_joins": 11,
+  "code_manifest_joins": 11,
+  "identical_kernel_files": 9,
+  "current_split_ast_exact_except_documented_gpu_roundoff_guard": true,
+  "current_source_sha256": "bd5296b9e3fd1b9f543d9597d1a6dea5aecb043e7c229d7879f390237bf59ff8",
+  "historical_split_sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd"
+}

@@ -1,5 +1,22 @@
 # Current BSFM handoff
 
+## Executed split-NUTS and Wasserstein lineage verified
+
+Read [the executed-lineage report](recovery/gpu-workflow-20261103/EXECUTED_LINEAGE_REPORT.md).
+Eleven frozen Wasserstein-refresh states match their source snapshot hashes and
+sweeps; their source-run manifests name the selected production driver. Nine core
+split-experiment files match the production dependencies exactly. The current
+split transition matches the historical function apart from its documented GPU
+roundoff guard. This does not certify every historical experiment or full-size speed.
+
+Synthetic GPU gate 22015748 passed at commit `fc08d6e`; its complete receipt is
+in `EXECUTION_SUPPLEMENT.json`. The incremental store remains opt-in and is not
+selected by the scientific launchers. The user now prioritizes recovering the
+optimized execution path over preserving completed iterations or avoiding warmup;
+code-version checkpoint migration is deferred. No scientific job was changed by
+this lineage audit. Remaining representative timing must include host threading,
+validation, serialization, compilation and GPU transitions.
+
 ## GPU workflow consolidation audit, 2026-11-03
 
 The user requested renewed stage-by-stage consolidation of historical practice,

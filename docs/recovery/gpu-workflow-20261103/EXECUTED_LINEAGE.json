@@ -1,0 +1,1266 @@
+{
+  "scope": "Read-only historical source and saved-analysis lineage; no historical program execution",
+  "capture": {
+    "path": "/work/abussing/bsfm-consolidation/evidence/gpu-workflow-audit-20261103/extended-lineage.json",
+    "bytes": 2502189,
+    "sha256": "867811f3223ac04275387b24fe82e9b232bd10e7b168a51e219ed0f123ce7c48"
+  },
+  "source_inventory": {
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/feedback_recording.py": {
+      "bytes": 4360,
+      "sha256": "35f1f3bf9154ca92006380c6978e636c32e800aee71c8ed2406c2f5765277f2b"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/joint_eta_pcg.py": {
+      "bytes": 12136,
+      "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/verify_bundle.py": {
+      "bytes": 387,
+      "sha256": "e4c4502609b082cf07223764b3c8ec3eb6e61cfc8948e2357625c54764019d80"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/run_c3full_fixed_profile_nuts.py": {
+      "bytes": 92873,
+      "sha256": "f62faed8d094cad2112e65dd600a73e97a37f328fc9601693d0b75b6914861b4"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/score_noise.py": {
+      "bytes": 5384,
+      "sha256": "1da74c57d24ea70d2bc2d60d01ad89b27e6e0039ea35ad8e353e75743d683da1"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/recovery_gallery.py": {
+      "bytes": 19722,
+      "sha256": "cbe4853f8f99decc4b11803fc0862eb82bb819c02790ab69365f080480ebf94e"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/paint_precision.py": {
+      "bytes": 1175,
+      "sha256": "17c8818aeccac969b0157c053d86c483e48cdf6487b0f062442f12b26119ac90"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/prepare_bank.py": {
+      "bytes": 5889,
+      "sha256": "41cefcecdacfdefb5a4d64494d81dc216e13481729fcf9b9cb409993230445cb"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/replicate_common.py": {
+      "bytes": 2366,
+      "sha256": "15fcf6c368dceff3a0e0a76ba7b8987cd46f0d05e82249c724ba614606c1e887"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/test_covariance_math.py": {
+      "bytes": 2357,
+      "sha256": "d52517cace38a92421381f2654a27db3d130cb56900313bae4d955b32861884e"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/submit_gallery.sh": {
+      "bytes": 602,
+      "sha256": "a06861fa41a3aa39ee7c0a56215b3c70cf2c2f137161181f47da179e5533bb32"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/factor_plot_style.py": {
+      "bytes": 5185,
+      "sha256": "7a8a374519573356fabf988d7209539144c90c5984f57bb858df1fc70274e7c6"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/containment_prior.py": {
+      "bytes": 2664,
+      "sha256": "7fd8dbc05aaa8058d01480c1b17250235cd91ec2701257771054af481e2978fc"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/rule_contract.py": {
+      "bytes": 821,
+      "sha256": "8fa063895a20ae3ece018b633061f70644ae4eb6a7ed59c6d889cd4508ed9945"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/fidelity_policy.py": {
+      "bytes": 1168,
+      "sha256": "21b9550b2e79a774d0145173e9767ca37c91b4017ae7a916547af53412880c24"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/covariance_math.py": {
+      "bytes": 1813,
+      "sha256": "d80026b39475ab52dbbdc0de8867e2956cf88f2409f58c5cf50b4bfe1df93116"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/observable_inner_products.py": {
+      "bytes": 8168,
+      "sha256": "860803eb0e3ac6f3ded1b18125e1092116ea8cef43d667b5b5116de871cad198"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/plot_replicate.py": {
+      "bytes": 4771,
+      "sha256": "2cec62e1a22b401ff4bb32cc4531a3b8f4806818e5542873141ba79b0ea996c2"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/blocked_covariance.py": {
+      "bytes": 3370,
+      "sha256": "72118df7ad0505afea4fbbe88f978029b363869cfd645652cae95a55a290d4a3"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/fixed_splusu_dynamic_target.py": {
+      "bytes": 21073,
+      "sha256": "b172a3732b30c2e15387ad898565a1c9971d902352d9bfd54485a7937295748e"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/precision_policy.py": {
+      "bytes": 874,
+      "sha256": "ac747a951eeaa4608f0a1e4d2906a2d869742c8888cb95e677ec3238ed416844"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/SPLIT_SOURCES.json": {
+      "bytes": 3948,
+      "sha256": "e929b82af117941752acb29c0a69ae9fa599c4607911bdb33801c1d3bdbd2aea"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/prepare_noise.py": {
+      "bytes": 4035,
+      "sha256": "a1ac80bcf75ade74d00dad2852b91349c44dd6ec16ac9d008e9e298acc7f3d8f"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/summarize_replication.py": {
+      "bytes": 8426,
+      "sha256": "772a8fce3bddda9f0c76fae35297e53736d809827b414aa2f4fc99c35d02fb02"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/package_gallery.py": {
+      "bytes": 2531,
+      "sha256": "190204548d8a6c088d935b935487521f5ed63e143dfdd338b50c7ed5f1c5c156"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/soft_eta_prior.py": {
+      "bytes": 2939,
+      "sha256": "b037d6473c17e7517cf059a144c13a99056af274dd98bf9eb763be30c3b70328"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/generate_splusu_phase1.py": {
+      "bytes": 28641,
+      "sha256": "7e9fb03fd484b2768775a3604296476e39423813b5b191ad9fa1c8752161169f"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/active_marginal_whitening.py": {
+      "bytes": 2339,
+      "sha256": "81e1a613d605edfee1da28a30a03d664959e20ca512dbfa2001776d04ce093b6"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/build_gpinit_from_truth_npz.py": {
+      "bytes": 8433,
+      "sha256": "f5b1545072c462cf772cd3caf44a398da8cf5558b4a2dd3133922c8cd8143f94"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/direct_w_dynamic_target.py": {
+      "bytes": 2459,
+      "sha256": "245c5e9f5ed91f511a9bf69e75a0a832b68f8a66a04d424d05dbdd3734adfd65"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/spectral_live_range_whitening.py": {
+      "bytes": 9636,
+      "sha256": "d4e0d7a63c1fba65bc0410cfd04be4b695202b9babd9a8756e707a07a2b5f803"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/tqff_se_features.py": {
+      "bytes": 5019,
+      "sha256": "3998d3d0fa1a3a33583631997b0515546c4d2b9d01cea2761832d2e0addf7769"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/test_observable_inner_products.py": {
+      "bytes": 4813,
+      "sha256": "eb0df48985275685c0f79ff8e1b5768ef10c4643ada67c0e77125474ad799198"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/centered_hyper_target_qr.py": {
+      "bytes": 3354,
+      "sha256": "4bdd57d688652bf4dffb85a9c9dee1879229a7bff5c72ff34902e216226fdf5e"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/test_split.py": {
+      "bytes": 2697,
+      "sha256": "e24b417566b3555c217aa91f736230d112f84a734c78741217c30f402352ab9a"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/workflow.py": {
+      "bytes": 6423,
+      "sha256": "5318c9f18013cf600b2018a838e728f0f5f3a3b29d4b5d1a91cb1678b82e2a44"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/full_split.py": {
+      "bytes": 4705,
+      "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/restart_state.py": {
+      "bytes": 6593,
+      "sha256": "943a934c35a862bbc8b2d7dd80bc81ea98987e8ef10d9e7cfb152d485094b111"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/reference.py": {
+      "bytes": 4337,
+      "sha256": "085f7fde1343c580f0099e08445b1c3d940080b5f59f38d03171881526082b58"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/combined_factor_views.py": {
+      "bytes": 12696,
+      "sha256": "f4ab6c99cb36d41d638c4525b5869da6a5264156c93f7e834df1cdb8271642dc"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/baseline_qr_target_reference.py": {
+      "bytes": 19617,
+      "sha256": "19491600cb3ea9b0f21e7ea92b7abcf3e86856a264e29d8614b7d0135f8e50b8"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/submit_post.sh": {
+      "bytes": 629,
+      "sha256": "bf4421d13654e21fb6b1ea3aa9d5351e9032cff3ad2f9ab2196989148d3e4b81"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/submit_gpu.sh": {
+      "bytes": 835,
+      "sha256": "063b0a60232cd6bfd8e829653eb94832160ae3af18a2d00aa337ae827836d9cc"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/c3_established_functions.py": {
+      "bytes": 340313,
+      "sha256": "828eef737fd36a47ec349837a936fc6ba49ffb0bec9fe556c08f502baa43e946"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/splusu_active_tqff_target.py": {
+      "bytes": 10600,
+      "sha256": "e05c68a97db4e5d8c61001e66f3e74e8d7233a1733e0476c756aef76405a673c"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/noise_workflow.py": {
+      "bytes": 6759,
+      "sha256": "9afdbf63c9e5e74efdaaa398d0d7c62452355e8fb0ecb179fcd5901fd2dc5eef"
+    },
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/test_noise_design.py": {
+      "bytes": 4776,
+      "sha256": "59cd330d9d702e351ea0141a587844dcc2f5191358aab7dc9b481cc545299526"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/joint_eta_pcg.py": {
+      "bytes": 12136,
+      "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/run_c3full_fixed_profile_nuts.py": {
+      "bytes": 79532,
+      "sha256": "1ef43a86a5c4e47b9dc9c26a86604b3e9070eb068701cf0c61e9d1066498c4b3"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/README_QR_RERUN.md": {
+      "bytes": 2369,
+      "sha256": "2e7f478accb6054f6016c335fe4bfdf6c67edd62dd9c54b94c9b73a1e26a3826"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/QR_QUICK_JOB_ID.txt": {
+      "bytes": 9,
+      "sha256": "1ade17d2d923b1ce23b3c3807065758eed39eb2bef6634c8c6d924bafef334bf"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/submit_mesh_smoke.sh": {
+      "bytes": 853,
+      "sha256": "3b4f6d3f2dbc3d9a9703dfd527c8de6235bbd9ab2237dbd9cf216a7399ef5acc"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/test_qr_whitening.py": {
+      "bytes": 1885,
+      "sha256": "3e24ee6d3d58ed2dcdc77ef6bc4f439c350556661f9b7230c80535c5303a56db"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/postprocess_real_fit.py": {
+      "bytes": 5695,
+      "sha256": "a6424640f5a08ea969b692042b351d25a694817d116588e4a413767bdd8591c2"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/test_scaled_prior.py": {
+      "bytes": 1406,
+      "sha256": "ee885d4ab4de1a16740516c06a72934f8b8dd6902fa6e03aa1edba2fd9554811"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/QR_SMOKE_VERIFICATION.json": {
+      "bytes": 1433,
+      "sha256": "315eca3bdf41cece239e2eb959b70de796958aa5767aeb80e1db3a87aa13588c"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/submit_qr_mesh.sh": {
+      "bytes": 1369,
+      "sha256": "a3a46505e868d1919b810c36e814ace4d77e0f02e9e810f1ab61036c4e8f45e4"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/launch_mesh_fit.py": {
+      "bytes": 5651,
+      "sha256": "248940be9623686df160224d53537dce885ff4211562f6c7867185dff68c99ed"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/fidelity_policy.py": {
+      "bytes": 1168,
+      "sha256": "21b9550b2e79a774d0145173e9767ca37c91b4017ae7a916547af53412880c24"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/certify_dynamic_target_math.py": {
+      "bytes": 11955,
+      "sha256": "8e77571311b94c0f66583f049b7b264b4b6bca138ec2dfb0c9570d4d6e4567e2"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/prepare_inputs.py": {
+      "bytes": 4481,
+      "sha256": "83b135852a1f2ef9cc14e7fa72cc82893b4d31e1c3840c95df294d2aea90e2dd"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/audit_mesh_prior.py": {
+      "bytes": 2782,
+      "sha256": "cb135a443e82ae7b2ad284cf86e851e50faaf2a36017a2b5e83633329fcfbea8"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/fixed_splusu_dynamic_target.py": {
+      "bytes": 19617,
+      "sha256": "19491600cb3ea9b0f21e7ea92b7abcf3e86856a264e29d8614b7d0135f8e50b8"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/test_flight_recorder.py": {
+      "bytes": 4117,
+      "sha256": "84ec469686cd55216a44fee804f378c7bb38139a7da33b2f11fbd4236427a06e"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/postprocess_c3full_recovery.py": {
+      "bytes": 14414,
+      "sha256": "1b4a6e26a1648406a9c74961a11a131dc971624b410d0a12d8e4844ef16a5239"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/submit_mesh_quick.sh": {
+      "bytes": 1286,
+      "sha256": "8d6bb586203122afbcf15e45fdbac69f5d833c499bf084b6b344f10edc9fc850"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/soft_eta_prior.py": {
+      "bytes": 2939,
+      "sha256": "b037d6473c17e7517cf059a144c13a99056af274dd98bf9eb763be30c3b70328"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/submit_mesh_prep.sh": {
+      "bytes": 782,
+      "sha256": "c1d40afabcafad8b4daff1fe5b7bba6fdb76809d932e22c6c6c9fea3005bd7ad"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/generate_splusu_phase1.py": {
+      "bytes": 28641,
+      "sha256": "7e9fb03fd484b2768775a3604296476e39423813b5b191ad9fa1c8752161169f"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/active_marginal_whitening.py": {
+      "bytes": 2339,
+      "sha256": "81e1a613d605edfee1da28a30a03d664959e20ca512dbfa2001776d04ce093b6"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/build_gpinit_from_truth_npz.py": {
+      "bytes": 8433,
+      "sha256": "f5b1545072c462cf772cd3caf44a398da8cf5558b4a2dd3133922c8cd8143f94"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/direct_w_dynamic_target.py": {
+      "bytes": 2279,
+      "sha256": "b9bdab8623adb5b67eeea8a6c0f59201862394e83d3839a6b66e3f1822ce96b9"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/spectral_live_range_whitening.py": {
+      "bytes": 9636,
+      "sha256": "d4e0d7a63c1fba65bc0410cfd04be4b695202b9babd9a8756e707a07a2b5f803"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/tqff_se_features.py": {
+      "bytes": 5019,
+      "sha256": "3998d3d0fa1a3a33583631997b0515546c4d2b9d01cea2761832d2e0addf7769"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/summarize_real_fidelity.py": {
+      "bytes": 1994,
+      "sha256": "31a3d6adb2e31ebb4788e13dc6e2c23f9470e114341694e775edb5b9afdb385c"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/BASELINE_SOURCE_SHA256.json": {
+      "bytes": 3286,
+      "sha256": "97bfbc829128ed17c2e4b5ea734d71a7127ba95609437a7fe501f78ab4d68b57"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/plot_real_gpinit.py": {
+      "bytes": 2922,
+      "sha256": "29c681ec85596526c95151249fa79a19b1e95a9bccd290245d87a1eca86348fd"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/hpc_env.sh": {
+      "bytes": 460,
+      "sha256": "5b8b100bbc2f127285cd6770b56990431c3de3619e3ce90ffd2ee0e23e3074c3"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/summarize_flight.py": {
+      "bytes": 3308,
+      "sha256": "94653a49778db474920df789f350dfa57ebf0322f1683f35c1be65b1538779dd"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/restart_state.py": {
+      "bytes": 5943,
+      "sha256": "13363264702da15db1d0a94525a2eaee35ec1a3facf3199d83214c7a5eb8377b"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/quadrature_enclosure.py": {
+      "bytes": 9711,
+      "sha256": "50e8864e9d11c49724a4030c45b3e3f54827316868884cf5377e9fedaba0ebed"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/c3_established_functions.py": {
+      "bytes": 340313,
+      "sha256": "828eef737fd36a47ec349837a936fc6ba49ffb0bec9fe556c08f502baa43e946"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/splusu_active_tqff_target.py": {
+      "bytes": 10600,
+      "sha256": "e05c68a97db4e5d8c61001e66f3e74e8d7233a1733e0476c756aef76405a673c"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/certify_sampler_contract.py": {
+      "bytes": 4163,
+      "sha256": "3147851688e87852bb75b7582eb1ff31d7df618ce6bf67987ae62dbfeaa4c783"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/test_real_pipeline.py": {
+      "bytes": 3992,
+      "sha256": "b13adf8e62f5e0f68727e82b805324a433d7ec0e7c4cb65e99f66044796d49dc"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/launch_real.py": {
+      "bytes": 4329,
+      "sha256": "6ec3b3fc727bd7f3a456fd0ff34b14ae676d5a5107693105d7d674ebdf2b91c2"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/joint_eta_pcg.py": {
+      "bytes": 12136,
+      "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/run_c3full_fixed_profile_nuts.py": {
+      "bytes": 79532,
+      "sha256": "1ef43a86a5c4e47b9dc9c26a86604b3e9070eb068701cf0c61e9d1066498c4b3"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/postprocess_real_fit.py": {
+      "bytes": 5695,
+      "sha256": "a6424640f5a08ea969b692042b351d25a694817d116588e4a413767bdd8591c2"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/test_scaled_prior.py": {
+      "bytes": 1406,
+      "sha256": "ee885d4ab4de1a16740516c06a72934f8b8dd6902fa6e03aa1edba2fd9554811"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/fidelity_policy.py": {
+      "bytes": 1168,
+      "sha256": "21b9550b2e79a774d0145173e9767ca37c91b4017ae7a916547af53412880c24"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/certify_dynamic_target_math.py": {
+      "bytes": 11955,
+      "sha256": "8e77571311b94c0f66583f049b7b264b4b6bca138ec2dfb0c9570d4d6e4567e2"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/prepare_inputs.py": {
+      "bytes": 2812,
+      "sha256": "7663d1db38b131657b345727fea172385d7724583143a4bcf54fb1d91d872426"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/fixed_splusu_dynamic_target.py": {
+      "bytes": 19617,
+      "sha256": "19491600cb3ea9b0f21e7ea92b7abcf3e86856a264e29d8614b7d0135f8e50b8"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/test_flight_recorder.py": {
+      "bytes": 4117,
+      "sha256": "84ec469686cd55216a44fee804f378c7bb38139a7da33b2f11fbd4236427a06e"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/postprocess_c3full_recovery.py": {
+      "bytes": 14414,
+      "sha256": "1b4a6e26a1648406a9c74961a11a131dc971624b410d0a12d8e4844ef16a5239"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/soft_eta_prior.py": {
+      "bytes": 2939,
+      "sha256": "b037d6473c17e7517cf059a144c13a99056af274dd98bf9eb763be30c3b70328"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/generate_splusu_phase1.py": {
+      "bytes": 28641,
+      "sha256": "7e9fb03fd484b2768775a3604296476e39423813b5b191ad9fa1c8752161169f"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/active_marginal_whitening.py": {
+      "bytes": 2001,
+      "sha256": "025902f326783d0bb2463ecfc1cf3f51834c6b40d869feeecc122053c2f2b652"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/build_gpinit_from_truth_npz.py": {
+      "bytes": 8433,
+      "sha256": "f5b1545072c462cf772cd3caf44a398da8cf5558b4a2dd3133922c8cd8143f94"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/direct_w_dynamic_target.py": {
+      "bytes": 2279,
+      "sha256": "b9bdab8623adb5b67eeea8a6c0f59201862394e83d3839a6b66e3f1822ce96b9"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/GIBBS_CONTRACT.json": {
+      "bytes": 1728,
+      "sha256": "38522878cf1841d883053bb2ffac5f953ae675851f193d237f11ae43497b682c"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/spectral_live_range_whitening.py": {
+      "bytes": 9636,
+      "sha256": "d4e0d7a63c1fba65bc0410cfd04be4b695202b9babd9a8756e707a07a2b5f803"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/submit_real.sh": {
+      "bytes": 1273,
+      "sha256": "cf9f1508bbf5b0d032030e4a7351b6a902f619791e46b4c2b7fa5bcfcb84f003"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/tqff_se_features.py": {
+      "bytes": 5019,
+      "sha256": "3998d3d0fa1a3a33583631997b0515546c4d2b9d01cea2761832d2e0addf7769"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/summarize_real_fidelity.py": {
+      "bytes": 1994,
+      "sha256": "31a3d6adb2e31ebb4788e13dc6e2c23f9470e114341694e775edb5b9afdb385c"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/plot_real_gpinit.py": {
+      "bytes": 2922,
+      "sha256": "29c681ec85596526c95151249fa79a19b1e95a9bccd290245d87a1eca86348fd"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/hpc_env.sh": {
+      "bytes": 460,
+      "sha256": "5b8b100bbc2f127285cd6770b56990431c3de3619e3ce90ffd2ee0e23e3074c3"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/README.md": {
+      "bytes": 2485,
+      "sha256": "828fd653ce330fdc589b545d80326a04db8774bf262617755ec5b47cccde8030"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/summarize_flight.py": {
+      "bytes": 3308,
+      "sha256": "94653a49778db474920df789f350dfa57ebf0322f1683f35c1be65b1538779dd"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/restart_state.py": {
+      "bytes": 5943,
+      "sha256": "13363264702da15db1d0a94525a2eaee35ec1a3facf3199d83214c7a5eb8377b"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/quadrature_enclosure.py": {
+      "bytes": 9711,
+      "sha256": "50e8864e9d11c49724a4030c45b3e3f54827316868884cf5377e9fedaba0ebed"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/c3_established_functions.py": {
+      "bytes": 340313,
+      "sha256": "828eef737fd36a47ec349837a936fc6ba49ffb0bec9fe556c08f502baa43e946"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/splusu_active_tqff_target.py": {
+      "bytes": 10600,
+      "sha256": "e05c68a97db4e5d8c61001e66f3e74e8d7233a1733e0476c756aef76405a673c"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/certify_sampler_contract.py": {
+      "bytes": 4163,
+      "sha256": "3147851688e87852bb75b7582eb1ff31d7df618ce6bf67987ae62dbfeaa4c783"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/test_real_pipeline.py": {
+      "bytes": 3992,
+      "sha256": "b13adf8e62f5e0f68727e82b805324a433d7ec0e7c4cb65e99f66044796d49dc"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/launch_real.py": {
+      "bytes": 4329,
+      "sha256": "6ec3b3fc727bd7f3a456fd0ff34b14ae676d5a5107693105d7d674ebdf2b91c2"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/gpu_run_centered_spectral_split_250.sh": {
+      "bytes": 3602,
+      "sha256": "ae3c3a5aa02ba40885d68845e8878ce6cf209dca950d102d0259e8c9d5c1a5ce"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/spectral_live_range_noncentered_fisher_metric_analytic.py": {
+      "bytes": 18556,
+      "sha256": "c984db7b51539301786bb34e1439bcfd8a50db83f0af58c93184aa9f71c67da3"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/fixed_inner_range_model_reference.py": {
+      "bytes": 34878,
+      "sha256": "89cc8a7adac7ca1828e4f490b83950e23829d6672dae0585dc4fef82b532e118"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/centered_spectral_split_analytic.py": {
+      "bytes": 8727,
+      "sha256": "b75255bac4705f3dcfffbcc818b4f102adc5b5c79c9f2f04273a6e67fda899ab"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/fixed_both_ranges_geometry.py": {
+      "bytes": 5108,
+      "sha256": "68b793960b94dde867cf89f3fc460a8644b31ec8519491e5736a01621ec1cd42"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/certify_centered_spectral_split.py": {
+      "bytes": 12858,
+      "sha256": "0ec38bb9d4ac031aaabf7dea8a91154840dc3fff860f744deec44c3f68878732"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/run_centered_spectral_split_full_gibbs.py": {
+      "bytes": 20399,
+      "sha256": "0c169f4180b3634ee1a9bb6877568076801e97ccc85e7bf6d2cd205ea860a175"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/gpu_calibrate_centered_spectral_split.sh": {
+      "bytes": 2582,
+      "sha256": "cddc4a973bcb41fac29c5f2e676be6984424b89caa97ae70159fd6d824abeb56"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/calibrate_centered_spectral_split.py": {
+      "bytes": 7078,
+      "sha256": "33d40d7d23703c8cc0e3f580a73f0eb7db92366cd7c683805ea9fbba2edc3678"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/gpu_certify_centered_spectral_split.sh": {
+      "bytes": 2369,
+      "sha256": "ef4b6853bdd57bdf73a3f15f8d432ae7f7c14cf959a3af42b3fce53555be45f4"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/live_range_whitening_analytic.py": {
+      "bytes": 4439,
+      "sha256": "947a9c0d36dc12a9721c5819fdbed42c9d82a87bfcbd7527bb064ecc834e9c6c"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/live_range_noncentered_rmhmc_context.py": {
+      "bytes": 5483,
+      "sha256": "9e646e76bc313d0dd7d6d4fca47890938ebb31bb8de5d43a2adff05b4b7e5df7"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/cold_fixed_whitening_geometry.py": {
+      "bytes": 12792,
+      "sha256": "4590bf10a53b7c3869d41f71374a2c6a110a0cce3fe37c001fefaf77cddfb7a1"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/rmhmc_live_range_transition.py": {
+      "bytes": 3396,
+      "sha256": "04043d7b1f761206c8bbc3143db417f0ecd3797ac511f169adaf17aca66a948e"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/spectral_live_range_whitening.py": {
+      "bytes": 9262,
+      "sha256": "d86f99ca06250f7aa450d87d15fcbe6a48720cd991bbf478e838b463db3ba3c7"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/README.md": {
+      "bytes": 1647,
+      "sha256": "5a6c5cd957088dc8563721bed51263189e913a13d3fb43e3a1be6c88c132ca04"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/centered_spectral_split_context.py": {
+      "bytes": 2455,
+      "sha256": "82cf6194fd506080108cc2bcc7ab4bb5ade00a660efe106d96e7d48053f69097"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/score_fixed_both_ranges_rmhmc.py": {
+      "bytes": 8478,
+      "sha256": "d2d42c3b7618e01d9bdf18b7351263250ee9121c6629bd906ecb46ed0d320654"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/spectral_live_range_noncentered_target_analytic.py": {
+      "bytes": 5137,
+      "sha256": "9965d3b778ef9605a805681eb73db40d84529a60d8aa6469acbb84231219d3c2"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/c3_centered_spectral_split_common.py": {
+      "bytes": 14183,
+      "sha256": "88c662e95e15af9f6492ec80943dc4fe09fb7cea8d9e8bb0340652c4300da654"
+    },
+    "/work/abussing/arka_trying_gpu_again/c3_centered_spectral_free_warpsd_split_range_rmhmc_v1/centered_spectral_range_update.py": {
+      "bytes": 3939,
+      "sha256": "ccff4ed8964cb9b3859e683ff721ee0e8674536cb0f62c60c275b66839fc0ad9"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/export_refresh_snapshot.py": {
+      "bytes": 3383,
+      "sha256": "a1c8a92e6d0d395f0022bc19f17f856743313f17bd621a225d1fdff9e7e1a149"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/export_spectral_refresh.py": {
+      "bytes": 1039,
+      "sha256": "fed23fc59fe4763c360fb251f12f918576c90163de073beddb1e1651643dffdd"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/input/REFERENCE_AUDIT.json": {
+      "bytes": 349,
+      "sha256": "bc83e9f28b2c35972e26d67fa6bcc775b5dd997f6d974a47bdbc8ac3c88e798a"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/input/GEOMETRY_AUDIT.json": {
+      "bytes": 445,
+      "sha256": "0f02d94f10d4dfd31ec7aa54306fa0ae751baf9117fca3b822577eae286f546f"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/input/DOMAIN_COVERAGE.json": {
+      "bytes": 482,
+      "sha256": "03079c21a4b7c08ec65ab46eb6a77619656aab7e22a486c20ca8d6ce37576f0e"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/input/COMPLETION_AUDIT.json": {
+      "bytes": 4635,
+      "sha256": "27f80e52236bb75e35915e9eaf1f40e162af8e9d029927879db8c34c056afd26"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/input/MANIFEST.json": {
+      "bytes": 2142,
+      "sha256": "ecf605991c213944ec0eb1c90b802ec3df67f6d9730f029a00c93d20b0864528"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S01__5xFAD4/COMPLETION_AUDIT.json": {
+      "bytes": 4631,
+      "sha256": "1e168b189a6effd3ea873842038326c37c791237971c75dfb31e91dd893005b3"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S01__5xFAD4/MANIFEST.json": {
+      "bytes": 428,
+      "sha256": "6fe651af10fd5394b0d5158de7217725a5638f1793a84e8848e176ba8b51a4ae"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S09__Trem2_5/COMPLETION_AUDIT.json": {
+      "bytes": 4638,
+      "sha256": "e06b25398a6e0e8122c33c7afbdc423703d84a1e62b33021df1ec50db085899c"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S09__Trem2_5/MANIFEST.json": {
+      "bytes": 429,
+      "sha256": "83d19e7c6b9296107fcb2b671090b0553b13bb50b14a114a08e1ce0632c6dad8"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S11__Trem2_5xFAD1/COMPLETION_AUDIT.json": {
+      "bytes": 4626,
+      "sha256": "2326fc460afc79dbe2330057e1f8879d4da543658af0e785ed75c7ee92051809"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S11__Trem2_5xFAD1/MANIFEST.json": {
+      "bytes": 434,
+      "sha256": "c9fbd9afa730430a053768cfeaa3f5dce8bf66db8ae3657e9cb29c24e6dcc0e1"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S06__5xFAD3/COMPLETION_AUDIT.json": {
+      "bytes": 4633,
+      "sha256": "6f1d13c00139c4bdcbbe3a16ee4c9ecf90a188e6408ffc6593f1550913618fa6"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S06__5xFAD3/MANIFEST.json": {
+      "bytes": 428,
+      "sha256": "8cf8913594bf1a3723e0a9e75d4b9a1fb27e640c4fcc8ee0840593d17a9bba2f"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S04__WT3/COMPLETION_AUDIT.json": {
+      "bytes": 4639,
+      "sha256": "0c629a0e2687b1b76fb4170ec2201d1ce316240b4ec843e07cad1b0916d612fa"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S04__WT3/MANIFEST.json": {
+      "bytes": 425,
+      "sha256": "d869fa6173556cc07edd81d6fd1109d7883c3fbc7108e7ee64f34ec54d9db433"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S03__Trem2_5xFAD3/COMPLETION_AUDIT.json": {
+      "bytes": 4636,
+      "sha256": "a72e7469a9f4802874a63b884079bfb16b78a60bd11f8c351ccc6ac2c66b4c40"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S03__Trem2_5xFAD3/MANIFEST.json": {
+      "bytes": 434,
+      "sha256": "16f238880f2b38309e4be8462bbef95167e4eb4dd315be42412048c0f4ca1340"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S10__WT5/COMPLETION_AUDIT.json": {
+      "bytes": 4639,
+      "sha256": "1a8a843fc3d9f714917110479fbbdd3f13ff162094c589befe688d9183503dd0"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S10__WT5/MANIFEST.json": {
+      "bytes": 425,
+      "sha256": "9f65228f5303244ebe4502cf1eb75eee0a73b02cf7d74e61053996adc9db97f6"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S07__Trem2_5xFAD5/COMPLETION_AUDIT.json": {
+      "bytes": 4629,
+      "sha256": "466e6d461c3ac9da6cd7e24ccedcaab1e0346b96e8d4d502c5e4451a7ffc73a7"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S07__Trem2_5xFAD5/MANIFEST.json": {
+      "bytes": 565,
+      "sha256": "05a0f9a73b7ee8d3ccef511f1949820ac6431a6750aac41f1d7d21218531a5d0"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S00__Trem2_5xFAD4/COMPLETION_AUDIT.json": {
+      "bytes": 4630,
+      "sha256": "c51e981238c93e9fcf943fa2c81195d0c79dce6bee2e2ad606e4454a8493047e"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S00__Trem2_5xFAD4/MANIFEST.json": {
+      "bytes": 434,
+      "sha256": "132f4fdb3bc966d14b820117c11b5cafbd5b32da123164f917f8988118897b86"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S02__Trem2_4/COMPLETION_AUDIT.json": {
+      "bytes": 4637,
+      "sha256": "b0ed1f69c03502da0dd5e1f5652641707bb84cce8b3f6c8583a09515b5fc49b9"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S02__Trem2_4/MANIFEST.json": {
+      "bytes": 429,
+      "sha256": "6625577612e7aace88220ca007b2d09462fcd2fb31f03e41cb7bc2086e1cdf6e"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S08__5xFAD5/COMPLETION_AUDIT.json": {
+      "bytes": 4636,
+      "sha256": "aa8991b75f693326ade432b5e5e7bbeb195e51d381c36f6c2637afbdacb181d7"
+    },
+    "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S08__5xFAD5/MANIFEST.json": {
+      "bytes": 428,
+      "sha256": "f19ea97876a9c45f887cb5dd3e8cac9ac9158cc129dc2203878227dadc77a55c"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/SNAPSHOT.json": {
+      "bytes": 7265,
+      "sha256": "bf9610d3de34b0e0f4afd84a1e2ae172f618f8e086ed5aa7dd292f8f349ec53f"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_k20_cell75_16gb_gate.sh": {
+      "bytes": 3499,
+      "sha256": "d3efa1bf4ebdeb733f8679488cff2a871e5915e32c21053779f7bb426acd698e"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/prepare_one_section.sh": {
+      "bytes": 1800,
+      "sha256": "d0cf0a39d2e72d55735b3945fdec7250fcd042ca23053cd59ac2d0eae9e2e0a5"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_k25_from_warmup_32gb_gate.sh": {
+      "bytes": 3571,
+      "sha256": "74664def2c95091242e17276a2e1a6ec77dc2b51904fab55dff2bf93bc6f198e"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_k25_pilot_stage1.sh": {
+      "bytes": 2571,
+      "sha256": "1936058cf1f58ce54aad72a98da6b74f72baa2bd1e1e9f9ae0087ff7d69f0885"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_k25_largest_16gb_gate.sh": {
+      "bytes": 3884,
+      "sha256": "973ba7411f7a226668b0214616fc40862fe49588f8bb28dc5ffd4d9b6c0448ce"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_production_continuation.sh": {
+      "bytes": 3251,
+      "sha256": "252167e96ac46d5a7c81f6c24d0949d7fa01fe052b490318eae8310d3de87a53"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_production_chain.sh": {
+      "bytes": 3441,
+      "sha256": "872d033838e8fec0db8812a5b3dc5288727d7980634a1394e5b8d758087039d3"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_k20_from_k25_16gb_gate.sh": {
+      "bytes": 3588,
+      "sha256": "baa1c7f5392c5285344ba2e0f2571f46dc6dd18c757e38f660ad86cce9df4dc6"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_adaptation_bridge_chain.sh": {
+      "bytes": 3042,
+      "sha256": "13d1dcf7bf5f8c0c45b893b683d4650444afedb196a5a2f0f1217ea45d1f3a0c"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_k20_cell75_production_chain.sh": {
+      "bytes": 2892,
+      "sha256": "4140124b74f67fb67c1aa050d1ad4e5cec14055aa457a94961eaec7837d60523"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_k25_pilot_stage2.sh": {
+      "bytes": 2959,
+      "sha256": "62cd2efe5622214dd0b46bd981ea1fae9260ca023af94fa9bcc452a00189ecb5"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_k20_cell75_adaptation_chain.sh": {
+      "bytes": 2670,
+      "sha256": "edcc2c0729c7c6a7a8f0cf2b31a67e6d13ee59f9792a5000f8dba616be341911"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S01__5xFAD4/REFRESH_PROVENANCE.json": {
+      "bytes": 667,
+      "sha256": "b3c25f3639cdab69a480a4d33d8191cb82d677cb1d9c131b59cb2ad40153ff7a"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S09__Trem2_5/REFRESH_PROVENANCE.json": {
+      "bytes": 478,
+      "sha256": "4a4d072b35d8a996853a419dadf7b6ebf41357491944dd239b6c45bebbb15d23"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S11__Trem2_5xFAD1/REFRESH_PROVENANCE.json": {
+      "bytes": 489,
+      "sha256": "8de5462a648127c9d8d0273711c42024bed8ea92a227895daa171a83b2f980a7"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S06__5xFAD3/REFRESH_PROVENANCE.json": {
+      "bytes": 476,
+      "sha256": "5e2ddbbfcc7dbb378c08f72d8054315af6b82185e11a063ffaed42bb3348e1d5"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S04__WT3/REFRESH_PROVENANCE.json": {
+      "bytes": 471,
+      "sha256": "3bd553223c74364617331aba67d0959e199bd5c3281d96f437d50f7982335468"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S03__Trem2_5xFAD3/REFRESH_PROVENANCE.json": {
+      "bytes": 688,
+      "sha256": "c60b929e3cd1dff9efacb909a374041d2d6952aceebbbbbefd7827bccdf83146"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S10__WT5/REFRESH_PROVENANCE.json": {
+      "bytes": 471,
+      "sha256": "504432ef57bd9a2122d9a65720e4b582d8035de7ec8e7974d248eec78bf03a63"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S07__Trem2_5xFAD5/REFRESH_PROVENANCE.json": {
+      "bytes": 489,
+      "sha256": "f89798ef001234d088180a2454b7b82f3f3df57feec4a3f263fe3d898e7eef69"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S00__Trem2_5xFAD4/REFRESH_PROVENANCE.json": {
+      "bytes": 1129,
+      "sha256": "c8c215b93cedba40dc8c309b82b7b52e8179fdf14152373759fd8762bd08e6da"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S02__Trem2_4/REFRESH_PROVENANCE.json": {
+      "bytes": 793,
+      "sha256": "65d0eebfd4910be261d85077f09423cfa4b840171ded481b8853c8c99e7112d6"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S08__5xFAD5/REFRESH_PROVENANCE.json": {
+      "bytes": 476,
+      "sha256": "16ebc6177cdd5a3a6f017bf9a7e80b21943b65a9bc0ad9f4ce91e01cad7b7257"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S01__5xFAD4/chain_1/input_manifest.json": {
+      "bytes": 614,
+      "sha256": "72600a8553b7fa32cafeab8f8a6867666fd39eb650bfbe129f0ed6ca4d38cc30"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S01__5xFAD4/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S09__Trem2_5/chain_1/input_manifest.json": {
+      "bytes": 613,
+      "sha256": "9f85123e42d6799b1efbf01c8fbe1d610a36927f712fe1ee94b967a09ff53581"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S09__Trem2_5/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S15__5xFAD1/chain_1/input_manifest.json": {
+      "bytes": 614,
+      "sha256": "936c9d273896168f28e0a4b7dfe6df811bcc176dadc90fa7fd8b95e7fc164999"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S15__5xFAD1/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S06__5xFAD3/chain_1/input_manifest.json": {
+      "bytes": 615,
+      "sha256": "afc4d6d79d87ac822ea25d8cf1adf967f81f77b90498bcbd3c1c0c550f9338a9"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S06__5xFAD3/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S04__WT3/chain_1/input_manifest.json": {
+      "bytes": 605,
+      "sha256": "3fdd64163ea7f764d925b599cdc7cf4d2a280526e4ec312e672d7078e71c7a4d"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S04__WT3/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S03__Trem2_5xFAD3/chain_1/input_manifest.json": {
+      "bytes": 627,
+      "sha256": "fb3bb6dc1af03defc07b2704275f8713c2b042c54591aedaff67fb07288feb0f"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S03__Trem2_5xFAD3/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S07__Trem2_5xFAD5/chain_1/input_manifest.json": {
+      "bytes": 625,
+      "sha256": "df813e2beffa398ef9e7349c68400ace987f5db532f9a1435ea33d4d01367eca"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S07__Trem2_5xFAD5/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S00__Trem2_5xFAD4/chain_1/input_manifest.json": {
+      "bytes": 625,
+      "sha256": "9ae32a88e8be7e9b0a0f6c82cba7a80a30896f1b5fc588e7a0a3f2bbcd2730a8"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S00__Trem2_5xFAD4/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S12__Trem2_5xFAD2/chain_1/input_manifest.json": {
+      "bytes": 628,
+      "sha256": "5166ec18fc2f4867c0fe7b09a249af543a320d67bdf3b82985016b54ba11e816"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S12__Trem2_5xFAD2/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S16__WT2/chain_1/input_manifest.json": {
+      "bytes": 604,
+      "sha256": "1a316b032a0ca9f45641ce78e0a31d933d583c92b0438d7572f82b1d074489fe"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S16__WT2/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S12__Trem2_1/chain_1/input_manifest.json": {
+      "bytes": 616,
+      "sha256": "b74fe9501e46997fa8a44a45c47af9d53856e6fdcfafc616263875ebce0cbf48"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S12__Trem2_1/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S02__Trem2_4/chain_1/input_manifest.json": {
+      "bytes": 615,
+      "sha256": "ddc340f646f0184e6f5fcd816b8782f11957af75d3c6ddfe5cda2449ce945888"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S02__Trem2_4/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S08__5xFAD5/chain_1/input_manifest.json": {
+      "bytes": 613,
+      "sha256": "d660dd53575b0838c14714a27ab50215727563a0c21a3dce0db4cee7157252d6"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S08__5xFAD5/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S14__WT1/chain_1/input_manifest.json": {
+      "bytes": 606,
+      "sha256": "cbcf7901c8933fc0f6c85702223dd0c914501ab5aff049f5fcdae0eaaa04a766"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S14__WT1/chain_1/code_manifest.json": {
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511"
+    }
+  },
+  "wasserstein_joins": [
+    {
+      "section": "S00__Trem2_5xFAD4",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S00__Trem2_5xFAD4/chain_1",
+      "stage": "production",
+      "sweep": 465,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S00__Trem2_5xFAD4/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 3530139,
+        "sha256": "1468e379f3937492deec26eb01887a9b6ad9494976e01e274177b3bbbfb47214"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S00__Trem2_5xFAD4/COMPLETION_AUDIT.json",
+        "bytes": 4630,
+        "sha256": "c51e981238c93e9fcf943fa2c81195d0c79dce6bee2e2ad606e4454a8493047e"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S01__5xFAD4",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S01__5xFAD4/chain_1",
+      "stage": "production",
+      "sweep": 215,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S01__5xFAD4/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 4403756,
+        "sha256": "6cf3a3248bfb8bf2e30ebaa7c98ba7ea6a13c181de01338113d79d19514d556c"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S01__5xFAD4/COMPLETION_AUDIT.json",
+        "bytes": 4631,
+        "sha256": "1e168b189a6effd3ea873842038326c37c791237971c75dfb31e91dd893005b3"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S02__Trem2_4",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S02__Trem2_4/chain_1",
+      "stage": "production",
+      "sweep": 285,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S02__Trem2_4/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 3388379,
+        "sha256": "3617aaad69d3e248557678e4e055d9187484d864b09e7d0031e483ded8b95f53"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S02__Trem2_4/COMPLETION_AUDIT.json",
+        "bytes": 4637,
+        "sha256": "b0ed1f69c03502da0dd5e1f5652641707bb84cce8b3f6c8583a09515b5fc49b9"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S03__Trem2_5xFAD3",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S03__Trem2_5xFAD3/chain_1",
+      "stage": "production",
+      "sweep": 220,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S03__Trem2_5xFAD3/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 3946312,
+        "sha256": "595c550ef47893acbb61aaa22b47a3274435b0d4240760a637d6010263aea978"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S03__Trem2_5xFAD3/COMPLETION_AUDIT.json",
+        "bytes": 4636,
+        "sha256": "a72e7469a9f4802874a63b884079bfb16b78a60bd11f8c351ccc6ac2c66b4c40"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S04__WT3",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S04__WT3/chain_1",
+      "stage": "adaptation endpoint",
+      "sweep": 101,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S04__WT3/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 3193964,
+        "sha256": "efa3d0cc14fa7e83b95eb43bd707207fcabb0b898da389f52eeada1fee4852df"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S04__WT3/COMPLETION_AUDIT.json",
+        "bytes": 4639,
+        "sha256": "0c629a0e2687b1b76fb4170ec2201d1ce316240b4ec843e07cad1b0916d612fa"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S06__5xFAD3",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S06__5xFAD3/chain_1",
+      "stage": "adaptation endpoint",
+      "sweep": 101,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S06__5xFAD3/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 4199415,
+        "sha256": "239befb5bedf2aac410a996b0a3110e7b116baba920bd24433282bf1074e9058"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S06__5xFAD3/COMPLETION_AUDIT.json",
+        "bytes": 4633,
+        "sha256": "6f1d13c00139c4bdcbbe3a16ee4c9ecf90a188e6408ffc6593f1550913618fa6"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S07__Trem2_5xFAD5/chain_1",
+      "stage": "adaptation endpoint",
+      "sweep": 101,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S07__Trem2_5xFAD5/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 3024010,
+        "sha256": "121dd9363de5277c92d3d8d6313a6b05fa721a11ea4e4a4c3f25d3aab57489fe"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S07__Trem2_5xFAD5/COMPLETION_AUDIT.json",
+        "bytes": 4629,
+        "sha256": "466e6d461c3ac9da6cd7e24ccedcaab1e0346b96e8d4d502c5e4451a7ffc73a7"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S08__5xFAD5",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S08__5xFAD5/chain_1",
+      "stage": "adaptation endpoint",
+      "sweep": 101,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S08__5xFAD5/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 3241601,
+        "sha256": "9237e872c962fd91a99a5074ad34135688953698950d55088ce7a9106ccdf06b"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S08__5xFAD5/COMPLETION_AUDIT.json",
+        "bytes": 4636,
+        "sha256": "aa8991b75f693326ade432b5e5e7bbeb195e51d381c36f6c2637afbdacb181d7"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S09__Trem2_5",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S09__Trem2_5/chain_1",
+      "stage": "adaptation endpoint",
+      "sweep": 101,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S09__Trem2_5/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 3419448,
+        "sha256": "c0af5d1af192db09f5d69be5e00dfb47da5d6edaf61a0218de770574b75781e4"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S09__Trem2_5/COMPLETION_AUDIT.json",
+        "bytes": 4638,
+        "sha256": "e06b25398a6e0e8122c33c7afbdc423703d84a1e62b33021df1ec50db085899c"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S10__WT5",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S10__WT5/chain_1",
+      "stage": "adaptation endpoint",
+      "sweep": 101,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S10__WT5/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 3510767,
+        "sha256": "abb9c36a509850c86557848a96070d1770aea15340b7b43243a17b0fe7548d98"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S10__WT5/COMPLETION_AUDIT.json",
+        "bytes": 4639,
+        "sha256": "1a8a843fc3d9f714917110479fbbdd3f13ff162094c589befe688d9183503dd0"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    },
+    {
+      "section": "S11__Trem2_5xFAD1",
+      "source": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/adaptation_runs_k20_cell75/S11__Trem2_5xFAD1/chain_1",
+      "stage": "adaptation endpoint",
+      "sweep": 101,
+      "snapshot": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/refresh_snapshot_20261027_1035/inputs/S11__Trem2_5xFAD1/C3FULL_POSTERIOR_DRAWS.npz",
+        "bytes": 4083057,
+        "sha256": "0a9d1a3cc75c78331679d8912fb45f1c988ed55a5929ca146badeafd447c3b43"
+      },
+      "analysis_audit": {
+        "path": "/work/abussing/arka_trying_gpu_again/area_wasserstein_analytic_20261027_v1/refresh/S11__Trem2_5xFAD1/COMPLETION_AUDIT.json",
+        "bytes": 4626,
+        "sha256": "2326fc460afc79dbe2330057e1f8879d4da543658af0e785ed75c7ee92051809"
+      },
+      "draw_hash_matches": true,
+      "sweep_matches": true
+    }
+  ],
+  "kernel_comparisons": [
+    {
+      "name": "full_split.py",
+      "split": {
+        "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/full_split.py",
+        "bytes": 4705,
+        "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd"
+      },
+      "production": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/full_split.py",
+        "bytes": 4705,
+        "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd"
+      },
+      "identical": true,
+      "split_manifest_matches": true
+    },
+    {
+      "name": "joint_eta_pcg.py",
+      "split": {
+        "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/joint_eta_pcg.py",
+        "bytes": 12136,
+        "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c"
+      },
+      "production": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/joint_eta_pcg.py",
+        "bytes": 12136,
+        "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c"
+      },
+      "identical": true,
+      "split_manifest_matches": true
+    },
+    {
+      "name": "fixed_splusu_dynamic_target.py",
+      "split": {
+        "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/fixed_splusu_dynamic_target.py",
+        "bytes": 21073,
+        "sha256": "b172a3732b30c2e15387ad898565a1c9971d902352d9bfd54485a7937295748e"
+      },
+      "production": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/fixed_splusu_dynamic_target.py",
+        "bytes": 21073,
+        "sha256": "b172a3732b30c2e15387ad898565a1c9971d902352d9bfd54485a7937295748e"
+      },
+      "identical": true,
+      "split_manifest_matches": true
+    },
+    {
+      "name": "centered_hyper_target_qr.py",
+      "split": {
+        "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/centered_hyper_target_qr.py",
+        "bytes": 3354,
+        "sha256": "4bdd57d688652bf4dffb85a9c9dee1879229a7bff5c72ff34902e216226fdf5e"
+      },
+      "production": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/centered_hyper_target_qr.py",
+        "bytes": 3354,
+        "sha256": "4bdd57d688652bf4dffb85a9c9dee1879229a7bff5c72ff34902e216226fdf5e"
+      },
+      "identical": true,
+      "split_manifest_matches": true
+    },
+    {
+      "name": "spectral_live_range_whitening.py",
+      "split": {
+        "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/spectral_live_range_whitening.py",
+        "bytes": 9636,
+        "sha256": "d4e0d7a63c1fba65bc0410cfd04be4b695202b9babd9a8756e707a07a2b5f803"
+      },
+      "production": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/spectral_live_range_whitening.py",
+        "bytes": 9636,
+        "sha256": "d4e0d7a63c1fba65bc0410cfd04be4b695202b9babd9a8756e707a07a2b5f803"
+      },
+      "identical": true,
+      "split_manifest_matches": true
+    },
+    {
+      "name": "active_marginal_whitening.py",
+      "split": {
+        "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/active_marginal_whitening.py",
+        "bytes": 2339,
+        "sha256": "81e1a613d605edfee1da28a30a03d664959e20ca512dbfa2001776d04ce093b6"
+      },
+      "production": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/active_marginal_whitening.py",
+        "bytes": 2339,
+        "sha256": "81e1a613d605edfee1da28a30a03d664959e20ca512dbfa2001776d04ce093b6"
+      },
+      "identical": true,
+      "split_manifest_matches": true
+    },
+    {
+      "name": "direct_w_dynamic_target.py",
+      "split": {
+        "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/direct_w_dynamic_target.py",
+        "bytes": 2459,
+        "sha256": "245c5e9f5ed91f511a9bf69e75a0a832b68f8a66a04d424d05dbdd3734adfd65"
+      },
+      "production": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/direct_w_dynamic_target.py",
+        "bytes": 2459,
+        "sha256": "245c5e9f5ed91f511a9bf69e75a0a832b68f8a66a04d424d05dbdd3734adfd65"
+      },
+      "identical": true,
+      "split_manifest_matches": true
+    },
+    {
+      "name": "c3_established_functions.py",
+      "split": {
+        "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/c3_established_functions.py",
+        "bytes": 340313,
+        "sha256": "828eef737fd36a47ec349837a936fc6ba49ffb0bec9fe556c08f502baa43e946"
+      },
+      "production": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/c3_established_functions.py",
+        "bytes": 340313,
+        "sha256": "828eef737fd36a47ec349837a936fc6ba49ffb0bec9fe556c08f502baa43e946"
+      },
+      "identical": true,
+      "split_manifest_matches": true
+    },
+    {
+      "name": "restart_state.py",
+      "split": {
+        "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/restart_state.py",
+        "bytes": 6593,
+        "sha256": "943a934c35a862bbc8b2d7dd80bc81ea98987e8ef10d9e7cfb152d485094b111"
+      },
+      "production": {
+        "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/restart_state.py",
+        "bytes": 6593,
+        "sha256": "943a934c35a862bbc8b2d7dd80bc81ea98987e8ef10d9e7cfb152d485094b111"
+      },
+      "identical": true,
+      "split_manifest_matches": true
+    }
+  ],
+  "split_gate": {
+    "status": "PASS",
+    "sources_sha256": "e929b82af117941752acb29c0a69ae9fa599c4607911bdb33801c1d3bdbd2aea",
+    "validation_directory": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/validation/check_1790690128650518957",
+    "N": 2500,
+    "L": 16,
+    "test": "Five full Gibbs sweeps including Lambda/joint eta/noise/MGP/PX plus checkpoint replay",
+    "sampling_quality_claim": false
+  },
+  "split_gate_identity": {
+    "path": "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/validation/PASS.json",
+    "bytes": 392,
+    "sha256": "f76170c3a81557c531f869e5287b1d8494a70c52761d65dcb6ee72612b6c3a37"
+  },
+  "split_gate_manifest_matches": true,
+  "driver_diff": "--- split_paint\n+++ production\n@@ -270,6 +270,9 @@\n     if args.resume_legacy and args.resume_checkpoint:\n         raise ValueError('Choose one restart source')\n     restarting = bool(args.resume_legacy or args.resume_checkpoint)\n+    readapting = bool(args.resume_checkpoint and args.readapt_on_resume)\n+    if args.readapt_on_resume and not args.resume_checkpoint:\n+        raise ValueError('--readapt-on-resume requires --resume-checkpoint')\n     if args.split_E:\n         if not args.direct_w or not args.live_warp_hypers or args.live_ell_eta or args.containment or args.resume_legacy:\n             raise ValueError('Split E supports direct W, live warp hypers, fixed ell_eta, no containment, complete checkpoints only')\n@@ -282,8 +285,10 @@\n         raise ValueError('Direct W requires fixed outer range and live warp hypers')\n     if real_data and not (args.live_warp_hypers and (args.live_ell_eta or args.direct_w)):\n         raise ValueError('Real-data first fit requires all three spatial hyperparameters live')\n-    if restarting and args.warmup != 0:\n-        raise ValueError('Restart requires --warmup 0: no adaptation is permitted')\n+    if restarting and args.warmup != 0 and not readapting:\n+        raise ValueError('Restart requires --warmup 0 unless --readapt-on-resume is explicit')\n+    if readapting and args.warmup < 20:\n+        raise ValueError('Checkpoint re-adaptation requires at least 20 transitions')\n     if args.resume_legacy and args.settling_sweeps < 1:\n         raise ValueError('Legacy restart requires explicitly discarded settling sweeps')\n     if not 0 <= args.settling_sweeps < args.sweeps:\n@@ -535,7 +540,7 @@\n     for k,p in enumerate(positions):\n         W,_,ell=targets[k]['warp_state'](p)\n         initial=record_containment(k,p,np.asarray(W),float(ell),'initial',0)\n-        if initial['candidate_P']!=0 and truth_seed is None:\n+        if args.containment and initial['candidate_P']!=0 and truth_seed is None:\n             raise RuntimeError('Predeclared identity initialization is not in the flat containment region')\n         if truth_seed is not None:\n             expected=truth_seed['W'][k].copy()\n@@ -601,10 +606,15 @@\n                 delta, tau = sample_delta_tau(qgk, alpha, phi, delta, factors, cell_types, genes,\n                                              a_delta1=A_DELTA1, a_delta_gt1=A_DELTA_GT1)\n         yhat = compute_Yhat(loading, eta, cell_slices)\n-        print('RESTART: restoring saved fitted state and tuning; NO window adaptation', flush=True)\n+        print(\n+            'RESTART: restoring saved fitted state; ' +\n+            ('new window adaptation explicitly requested' if readapting else\n+             'reusing saved tuning with NO window adaptation'),\n+            flush=True,\n+        )\n         (out/'RESTART_PROVENANCE.json').write_text(json.dumps(dict(\n             legacy=bool(args.resume_legacy), source=resume_meta,\n-            settling_sweeps=args.settling_sweeps, warmup_repeated=False,\n+            settling_sweeps=args.settling_sweeps, warmup_repeated=readapting,\n             auxiliary_initialization='100 conditional shrinkage updates' if args.resume_legacy else 'full checkpoint',\n             new_rng_seed=args.seed if args.resume_legacy else None), indent=2))\n \n@@ -680,11 +690,11 @@\n         maps=build_centered_hyper_target(spectral['U'][active],spectral_jax)\n         split_runners=[build_split(ld,maps,len(p),args.target_accept,args.max_num_doublings)\n                        for ld,p in zip(logdensities,positions)]\n-    parameters = resume_tuning if restarting else []\n+    parameters = [] if readapting else (resume_tuning if restarting else [])\n     warmup_audit_rows = []\n     warmup_path_rows = []\n     warmup_started = time.perf_counter()\n-    for k in ([] if restarting else range(factors)):\n+    for k in (range(factors) if (not restarting or readapting) else []):\n         print(f'FACTOR {k+1}/{factors} WINDOW ADAPTATION START n={n} warmup={args.warmup}', flush=True)\n         capture_work('before_window_adaptation',k)\n         work_yhat = compute_Yhat(work_loading, work_eta, cell_slices)\n@@ -963,7 +973,8 @@\n             f\"retained warmup handoff failed: {retained_warmup_handoff}\"\n         )\n     print(\n-        (\"SAVED FIT HANDOFF: no adaptation; restored positions+eta \" if restarting else\n+        (\"READAPTED CHECKPOINT HANDOFF: production starts from newly warmed positions+eta \" if readapting else\n+         \"SAVED FIT HANDOFF: no adaptation; restored positions+eta \" if restarting else\n          \"RETAINED WARMUP HANDOFF: production starts from warmed positions+eta \") +\n         f\"ellEta={np.round(ell_eta_state, 5).tolist()} \"\n         f\"ellU={np.round(ell_u_state, 5).tolist()} \"\n@@ -972,7 +983,7 @@\n         flush=True,\n     )\n     write_csv_rows(out / \"C3FULL_ELL_ETA_WARMUP_AUDIT.csv\", warmup_audit_rows)\n-    warmup_seconds = 0.0 if restarting else time.perf_counter() - warmup_started\n+    warmup_seconds = 0.0 if (restarting and not readapting) else time.perf_counter() - warmup_started\n     if restarting:\n         initial_audits = []\n         legacy_final_spans = {}\n@@ -1025,6 +1036,12 @@\n         \"Lambda\": [], \"alpha\": [], \"zeta\": [], \"ell_eta\": [],\n         \"ell_U\": [], \"sigma_U\": [],\n         \"eta\": [], \"sigma2\": [],\n+        # Production-retention extension only.  These arrays do not enter any\n+        # transition.  They preserve every sampled shrinkage coordinate and\n+        # both physical warp representations so downstream covariance and\n+        # surface analyses never depend on replaying the sampler internals.\n+        \"phi\": [], \"delta\": [], \"tau\": [],\n+        \"W_cell\": [], \"W_active\": [],\n         \"positions\": [], \"permutation\": [],\n     }\n     subset = np.linspace(0, n - 1, args.score_n).round().astype(int)\n@@ -1283,6 +1300,7 @@\n             })\n \n         current_w = []\n+        current_active_w = []\n         capture('after_sweep',feedback_group);recorder.flush()\n         if args.record_scale_feedback and (sweep==1 or sweep%args.save_every==0):\n             np.savez_compressed(out/f'CONDITIONALS_SWEEP_{sweep:04d}.npz',\n@@ -1291,8 +1309,9 @@\n                   'fRMS',np.round(np.sqrt(np.mean((eta/alpha[:,None])**2,axis=1)),3).tolist(),\n                   'tau',np.round(tau,3).tolist(),flush=True)\n         for k in range(factors):\n-            wcell, _, _ = targets[k][\"warp_features\"](positions[k])\n+            wcell, active_w, _ = targets[k][\"warp_features\"](positions[k])\n             current_w.append(np.asarray(wcell))\n+            current_active_w.append(np.asarray(active_w))\n         yhat = compute_Yhat(loading, eta, cell_slices)\n \n         identified_loading = loading * alpha[None, None, :]\n@@ -1392,6 +1411,11 @@\n             saved[\"sigma_U\"].append(sigma_u_state.copy())\n             saved[\"eta\"].append(eta.copy())\n             saved[\"sigma2\"].append(sigma2.copy())\n+            saved[\"phi\"].append(phi.copy())\n+            saved[\"delta\"].append(delta.copy())\n+            saved[\"tau\"].append(tau.copy())\n+            saved[\"W_cell\"].append(np.stack(current_w))\n+            saved[\"W_active\"].append(np.stack(current_active_w))\n             saved[\"positions\"].append(np.stack([\n                 np.asarray(position) for position in positions\n             ]))\n@@ -1610,6 +1634,10 @@\n             \"trace\": \"C3FULL_SWEEP_TRACE.csv\",\n             \"factor_trace\": \"C3FULL_FACTOR_TRACE.csv\",\n             \"draws\": \"C3FULL_POSTERIOR_DRAWS.npz\",\n+            \"draw_retention_extension\": (\n+                \"phi/delta/tau and physical W_cell/W_active are archived at \"\n+                \"every retained draw; this changes storage only, not the target\"\n+            ),\n             \"choreography\": \"SAMPLER_CHOREOGRAPHY.json\",\n             \"PX_gauge_trace\": \"PX_ALPHA_GAUGE_TRACE.json\",\n             \"ell_eta_warmup_audit\": \"C3FULL_ELL_ETA_WARMUP_AUDIT.csv\",\n@@ -1633,9 +1661,12 @@\n         report['files']['warmup_positions'] = 'C3FULL_WARMUP_POSITIONS_FACTOR*.npz'\n     if restarting:\n         report['initialization'] = dict(kind='saved Cloud fit restart' if args.resume_legacy else 'full checkpoint',\n-            metadata=resume_meta, window_adaptation_performed=False,\n+            metadata=resume_meta, window_adaptation_performed=readapting,\n             production_reset_to_GPINIT_or_identity=False)\n-        report['warmup_state_handoff']['policy'] = 'restore saved fit; reuse frozen NUTS tuning'\n+        report['warmup_state_handoff']['policy'] = (\n+            'restore settled checkpoint; explicitly repeat window adaptation; retain new endpoint'\n+            if readapting else 'restore saved fit; reuse frozen NUTS tuning'\n+        )\n         report['settling_sweeps'] = args.settling_sweeps\n         report['production_sweeps'] = args.sweeps-args.settling_sweeps\n         report['files']['complete_restart_checkpoint'] = 'LATEST_CHECKPOINT.npz'\n@@ -1694,6 +1725,8 @@\n     parser.add_argument(\"--warmup\", type=int, default=50)\n     parser.add_argument('--resume-legacy', type=Path)\n     parser.add_argument('--resume-checkpoint', type=Path)\n+    parser.add_argument('--readapt-on-resume', action='store_true',\n+                        help='explicitly repeat NUTS window adaptation from a complete checkpoint')\n     parser.add_argument('--settling-sweeps', type=int, default=0)\n     parser.add_argument(\"--sweeps\", type=int, default=40)\n     parser.add_argument(\"--target-accept\", type=float, default=.90)\n",
+  "submission_sources": {
+    "/work/abussing/arka_trying_gpu_again/split_paint10_L16_v1/submit_gpu.sh": {
+      "bytes": 835,
+      "sha256": "063b0a60232cd6bfd8e829653eb94832160ae3af18a2d00aa337ae827836d9cc",
+      "text": "#!/bin/bash\n#SBATCH --job-name=paint10-split\n#SBATCH --partition=v100-16gb-hiprio,v100-32gb-hiprio,gpu-v100-16gb,gpu-v100-32gb\n#SBATCH --gres=gpu:1\n#SBATCH --cpus-per-task=4\n#SBATCH --mem=24G\n#SBATCH --time=12:00:00\n#SBATCH --output=out/gpu-%A_%a.out\n#SBATCH --error=out/gpu-%A_%a.err\nset -euo pipefail\ncd /work/abussing/arka_trying_gpu_again/split_paint10_L16_v1\nmodule load cuda/12.3 gcc/12.2.0\nexport JAX_ENABLE_X64=True JAX_PLATFORMS=cuda\nexport XLA_FLAGS=\"--xla_gpu_cuda_data_dir=/work/apps/cuda/12.3\"\nexport XLA_PYTHON_CLIENT_PREALLOCATE=false\nexport OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4\nPY=/work/abussing/arka_trying_gpu_again/env/bin/python3\ntrap 'rc=$?; echo \"EXIT_STATUS=$rc ACTION=$1 PAINT_INDEX=${SLURM_ARRAY_TASK_ID:-0}\"' EXIT\nnvidia-smi\n\"$PY\" -u workflow.py \"$1\" --index \"${SLURM_ARRAY_TASK_ID:-0}\"\n"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_mesh_unguarded_qr_v4/hpc_env.sh": {
+      "bytes": 460,
+      "sha256": "5b8b100bbc2f127285cd6770b56990431c3de3619e3ce90ffd2ee0e23e3074c3",
+      "text": "#!/bin/bash\n# Same module/environment setup as the successfully running L24 resume job.\nmodule load python3/anaconda/2023.9\nconda deactivate 2>/dev/null || true\nconda deactivate 2>/dev/null || true\nENV_DIR=/work/abussing/arka_trying_gpu_again/env\nsource activate \"$ENV_DIR\"\nexport JAX_ENABLE_X64=True MPLBACKEND=Agg\nexport OPENBLAS_NUM_THREADS=8 OMP_NUM_THREADS=8 MKL_NUM_THREADS=8\nexport PYTHONPATH=\"$PWD${PYTHONPATH:+:$PYTHONPATH}\"\nPY=\"$ENV_DIR/bin/python3\"\n"
+    },
+    "/work/abussing/arka_trying_gpu_again/real_L16_flight_v1/hpc_env.sh": {
+      "bytes": 460,
+      "sha256": "5b8b100bbc2f127285cd6770b56990431c3de3619e3ce90ffd2ee0e23e3074c3",
+      "text": "#!/bin/bash\n# Same module/environment setup as the successfully running L24 resume job.\nmodule load python3/anaconda/2023.9\nconda deactivate 2>/dev/null || true\nconda deactivate 2>/dev/null || true\nENV_DIR=/work/abussing/arka_trying_gpu_again/env\nsource activate \"$ENV_DIR\"\nexport JAX_ENABLE_X64=True MPLBACKEND=Agg\nexport OPENBLAS_NUM_THREADS=8 OMP_NUM_THREADS=8 MKL_NUM_THREADS=8\nexport PYTHONPATH=\"$PWD${PYTHONPATH:+:$PYTHONPATH}\"\nPY=\"$ENV_DIR/bin/python3\"\n"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_production_chain.sh": {
+      "bytes": 3441,
+      "sha256": "872d033838e8fec0db8812a5b3dc5288727d7980634a1394e5b8d758087039d3",
+      "text": "#!/usr/bin/env bash\nset -euo pipefail\n\nPROJECT_ROOT=\"${PROJECT_ROOT:-/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024}\"\nPYTHON=\"${PYTHON:-/work/abussing/arka_trying_gpu_again/env/bin/python3}\"\nTASK_ID=\"${SLURM_ARRAY_TASK_ID:?Run as a 0-based Slurm array task}\"\nCHAINS=4\nSECTION_INDEX=\"$((TASK_ID / CHAINS))\"\nCHAIN_INDEX=\"$((TASK_ID % CHAINS + 1))\"\n\nmodule load cuda/12.3 gcc/12.2.0\nexport JAX_ENABLE_X64=True\nexport JAX_PLATFORMS=cuda\nexport XLA_FLAGS=\"--xla_gpu_cuda_data_dir=/work/apps/cuda/12.3\"\nexport XLA_PYTHON_CLIENT_PREALLOCATE=false\nTHREADS=\"${SLURM_CPUS_PER_TASK:-4}\"\nexport OPENBLAS_NUM_THREADS=\"$THREADS\"\nexport OMP_NUM_THREADS=\"$THREADS\"\nexport MKL_NUM_THREADS=\"$THREADS\"\n\ncd \"$PROJECT_ROOT\"\nSECTION=\"$($PYTHON -c 'import json,sys; d=json.load(open(\"inputs/INPUT_PREPARATION_CONTRACT.json\")); print(d[\"section_order\"][int(sys.argv[1])])' \"$SECTION_INDEX\")\"\nSECTION_DIR=\"inputs/sections/$SECTION\"\nOUTPUT=\"production_runs/$SECTION/chain_$CHAIN_INDEX\"\nADAPTATION=\"adaptation_runs/$SECTION/chain_$CHAIN_INDEX\"\nSEED=\"$((2026102400 + SECTION_INDEX * 100 + CHAIN_INDEX))\"\n\n$PYTHON -c 'import json,sys; from pathlib import Path; s=Path(sys.argv[1]); assert json.load(open(s/\"mesh\"/\"MESH_CERTIFICATE.json\"))[\"status\"]==\"PASS\"; assert json.load(open(s/\"gpinit\"/\"GPINIT_CERTIFICATE.json\"))[\"status\"]==\"PASS\"' \"$SECTION_DIR\"\ntest -s \"$ADAPTATION/LATEST_CHECKPOINT.npz\"\nif [[ -e \"$OUTPUT/C3FULL_SAMPLER_CERTIFICATE.json\" || -e \"$OUTPUT/LATEST_CHECKPOINT.npz\" ]]; then\n  echo \"REFUSING_NONEMPTY_RUN output=$OUTPUT\" >&2\n  exit 3\nfi\nmkdir -p \"$OUTPUT\"\ncp code/PRODUCTION_CODE_MANIFEST.json \"$OUTPUT/code_manifest.json\"\ncp code/PRODUCTION_RETENTION_CONTRACT.json \"$OUTPUT/retention_contract.json\"\n$PYTHON code/production/write_run_manifest.py \\\n  --output \"$OUTPUT/input_manifest.json\" --section-dir \"$SECTION_DIR\" \\\n  --rule rules/L16_ell14.npz --code-manifest code/PRODUCTION_CODE_MANIFEST.json \\\n  --panel-contract panel/GENE_PANEL_CONTRACT.json \\\n  --retention-contract code/PRODUCTION_RETENTION_CONTRACT.json \\\n  --checkpoint \"$ADAPTATION/LATEST_CHECKPOINT.npz\" \\\n  --chain \"$CHAIN_INDEX\" --stage readaptation_and_production --seed \"$SEED\"\n\necho \"CHAIN_START section=$SECTION chain=$CHAIN_INDEX seed=$SEED host=$(hostname) time=$(date --iso-8601=seconds)\"\n$PYTHON -u code/sampler/run_c3full_fixed_profile_nuts.py \\\n  --root code \\\n  --data \"$SECTION_DIR/OBSERVATIONS.npz\" --real-data \\\n  --gpinit \"$SECTION_DIR/gpinit/gpinit.npz\" \\\n  --mesh \"$SECTION_DIR/mesh\" \\\n  --rule rules/L16_ell14.npz \\\n  --out \"$OUTPUT\" \\\n  --resume-checkpoint \"$ADAPTATION/LATEST_CHECKPOINT.npz\" \\\n  --readapt-on-resume \\\n  --warmup 100 --sweeps 1100 --settling-sweeps 100 --save-every 5 \\\n  --score-n 256 --score-every 5 \\\n  --live-warp-hypers --direct-w --split-E --target-accept 0.95 \\\n  --ell-eta-initial 0.14 --ell-eta-prior-center 0.14 \\\n  --pcg-tolerance 1e-10 --pcg-max-iterations 80 \\\n  --warmup-fidelity-checks 10 --fidelity-every 5 --fidelity-pairs 1024 \\\n  --fidelity-warn-only --max-num-doublings 10 --record-scale-feedback \\\n  --seed \"$SEED\" \\\n  --ell-u-prior-center 1.0 \\\n  --sigma-u-prior-center 0.31622776601683794 \\\n  --log-r-prior-sd 0.3\n\n$PYTHON -c 'import json,sys; p=sys.argv[1]; d=json.load(open(p)); assert d[\"status\"] in (\"PASS\",\"REVIEW_REQUIRED\"); print(\"CHAIN_CERTIFICATE\",d[\"status\"])' \"$OUTPUT/C3FULL_SAMPLER_CERTIFICATE.json\"\necho \"CHAIN_END section=$SECTION chain=$CHAIN_INDEX time=$(date --iso-8601=seconds)\"\n"
+    },
+    "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/run_adaptation_bridge_chain.sh": {
+      "bytes": 3042,
+      "sha256": "13d1dcf7bf5f8c0c45b893b683d4650444afedb196a5a2f0f1217ea45d1f3a0c",
+      "text": "#!/usr/bin/env bash\nset -euo pipefail\n\nPROJECT_ROOT=\"${PROJECT_ROOT:-/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024}\"\nPYTHON=\"${PYTHON:-/work/abussing/arka_trying_gpu_again/env/bin/python3}\"\nTASK_ID=\"${SLURM_ARRAY_TASK_ID:?Run as a 0-based Slurm array task}\"\nCHAINS=4\nSECTION_INDEX=\"$((TASK_ID / CHAINS))\"\nCHAIN_INDEX=\"$((TASK_ID % CHAINS + 1))\"\n\nmodule load cuda/12.3 gcc/12.2.0\nexport JAX_ENABLE_X64=True\nexport JAX_PLATFORMS=cuda\nexport XLA_FLAGS=\"--xla_gpu_cuda_data_dir=/work/apps/cuda/12.3\"\nexport XLA_PYTHON_CLIENT_PREALLOCATE=false\nTHREADS=\"${SLURM_CPUS_PER_TASK:-4}\"\nexport OPENBLAS_NUM_THREADS=\"$THREADS\"\nexport OMP_NUM_THREADS=\"$THREADS\"\nexport MKL_NUM_THREADS=\"$THREADS\"\n\ncd \"$PROJECT_ROOT\"\nSECTION=\"$($PYTHON -c 'import json,sys; d=json.load(open(\"inputs/INPUT_PREPARATION_CONTRACT.json\")); print(d[\"section_order\"][int(sys.argv[1])])' \"$SECTION_INDEX\")\"\nSECTION_DIR=\"inputs/sections/$SECTION\"\nOUTPUT=\"adaptation_runs/$SECTION/chain_$CHAIN_INDEX\"\nSEED=\"$((2026102400 + SECTION_INDEX * 100 + CHAIN_INDEX))\"\n\n$PYTHON -c 'import json,sys; from pathlib import Path; s=Path(sys.argv[1]); assert json.load(open(s/\"mesh\"/\"MESH_CERTIFICATE.json\"))[\"status\"]==\"PASS\"; assert json.load(open(s/\"gpinit\"/\"GPINIT_CERTIFICATE.json\"))[\"status\"]==\"PASS\"' \"$SECTION_DIR\"\nif [[ -e \"$OUTPUT/C3FULL_SAMPLER_CERTIFICATE.json\" || -e \"$OUTPUT/LATEST_CHECKPOINT.npz\" ]]; then\n  echo \"REFUSING_NONEMPTY_ADAPTATION output=$OUTPUT\" >&2\n  exit 3\nfi\nmkdir -p \"$OUTPUT\"\ncp code/PRODUCTION_CODE_MANIFEST.json \"$OUTPUT/code_manifest.json\"\ncp code/PRODUCTION_RETENTION_CONTRACT.json \"$OUTPUT/retention_contract.json\"\n$PYTHON code/production/write_run_manifest.py \\\n  --output \"$OUTPUT/input_manifest.json\" --section-dir \"$SECTION_DIR\" \\\n  --rule rules/L16_ell14.npz --code-manifest code/PRODUCTION_CODE_MANIFEST.json \\\n  --panel-contract panel/GENE_PANEL_CONTRACT.json \\\n  --retention-contract code/PRODUCTION_RETENTION_CONTRACT.json \\\n  --chain \"$CHAIN_INDEX\" --stage adaptation_bridge --seed \"$SEED\"\n\necho \"ADAPTATION_START section=$SECTION chain=$CHAIN_INDEX seed=$SEED host=$(hostname) time=$(date --iso-8601=seconds)\"\n$PYTHON -u code/sampler/run_c3full_fixed_profile_nuts.py \\\n  --root code \\\n  --data \"$SECTION_DIR/OBSERVATIONS.npz\" --real-data \\\n  --gpinit \"$SECTION_DIR/gpinit/gpinit.npz\" \\\n  --mesh \"$SECTION_DIR/mesh\" --rule rules/L16_ell14.npz \\\n  --out \"$OUTPUT\" \\\n  --warmup 100 --sweeps 101 --settling-sweeps 100 --save-every 101 \\\n  --score-n 256 --score-every 25 \\\n  --live-warp-hypers --direct-w --split-E --target-accept 0.9 \\\n  --ell-eta-initial 0.14 --ell-eta-prior-center 0.14 \\\n  --pcg-tolerance 1e-10 --pcg-max-iterations 80 \\\n  --warmup-fidelity-checks 10 --fidelity-every 25 --fidelity-pairs 1024 \\\n  --fidelity-warn-only --max-num-doublings 10 --record-scale-feedback \\\n  --seed \"$SEED\" --ell-u-prior-center 1.0 \\\n  --sigma-u-prior-center 0.31622776601683794 --log-r-prior-sd 0.3\n\ntest -s \"$OUTPUT/LATEST_CHECKPOINT.npz\"\necho \"ADAPTATION_END section=$SECTION chain=$CHAIN_INDEX time=$(date --iso-8601=seconds)\"\n"
+    }
+  }
+}
