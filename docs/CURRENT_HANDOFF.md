@@ -1,14 +1,14 @@
 # Current BSFM handoff
 
-Verified baseline: `main`, `ee84e09f9d8351744e3d6d641873974cd4b8d339`
-(accepted Sampler Layers 1-6). Handoff updated: 2026-11-02; portability
+Verified baseline: `main`, `2424d8cab374255c31d6a39f0aa031fed6ee6c21`
+(accepted Sampler Layers 1-7). Handoff updated: 2026-11-02; portability
 inspection and original-desktop reconciliation records retain their original scope.
 
 Git is authoritative. Read [AGENTS.md](../AGENTS.md),
 [the pipeline portability audit](PORTABILITY_AUDIT.md),
 [CAPABILITIES.md](../CAPABILITIES.md), the
 [sampler architecture](decisions/BSFM_SAMPLER_ARCHITECTURE.md), and
-[Layer 6](sampler/LAYER6.md) before implementation. Older checkpoint-specific
+[Layer 6](sampler/LAYER6.md) and [Layer 7](sampler/LAYER7.md) before implementation. Older checkpoint-specific
 paragraphs describe their original scope; they do not undo later accepted layers.
 
 ## Completed and remaining work
@@ -31,8 +31,21 @@ paragraphs describe their original scope; they do not undo later accepted layers
 - Layer 6 passed 145 sampler/provenance and eight canonical mesh tests on
   Windows CPU, including exact historical-chronology regression and two
   consecutive synthetic sweeps. This is not a production runner or scientific fit.
-- Remaining work is checkpoint/restart, retained draws and diagnostic
-  aggregation, run orchestration/launchers, and platform/GPU validation.
+- Layer 7 at the baseline above provides complete atomic sweep-boundary
+  checkpoints: Gaussian state, ordered factor positions, frozen tuning, all four
+  RNG streams (including cached normals), complete spectral chart/audit,
+  progress and explicit input/geometry/rule/software/run identities. Loading
+  returns fresh objects; the caller explicitly installs the validated global
+  RNG state. Exact uninterrupted-versus-save/load continuation passed for state,
+  chart, tuning, diagnostics, audits and RNG endpoints. All 170 sampler/provenance
+  and eight mesh tests passed on Windows CPU synthetic inputs.
+  Closed temporary files are validated before atomic replacement; a failure
+  preserves the existing checkpoint and retains the failed attempt. Atomicity
+  is not a backup system. Future production launch must require a clean
+  committed tree; checkpoints preserve the caller's clean-tree declaration.
+- Remaining work is retained draws and a diagnostic archive/aggregation,
+  readaptation control, run orchestration/launchers, and platform/GPU validation.
+  No production runner, GPU/HPC validation of Layers 4-7 or scientific fit exists.
   K, chains, warmup, settling, production lengths and saving cadence remain
   unresolved.
 
