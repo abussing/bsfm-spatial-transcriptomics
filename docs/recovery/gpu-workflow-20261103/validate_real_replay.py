@@ -21,6 +21,7 @@ from bsfm.sampler.run_controller import RunController
 from bsfm.sampler.run_genesis import load_genesis
 from bsfm.sampler.run_storage import read_json, file_record
 from bsfm.sampler.checkpoint_contract import digest
+from threadpoolctl import threadpool_limits
 
 source = Path('/work/abussing/bsfm-consolidation/evidence/real-timing-22015787/threads-1/strict')
 genesis = source/'segments/segment/genesis/endpoint.npz'
@@ -35,7 +36,10 @@ def make(root, incremental):
     old_spec = read_json(source/'run-spec.json')
     old = RunController(root/'unused', target, loading, eta, old_spec, binding,
                         authenticate=target._validate_identities)
-    endpoint, _ = load_genesis(genesis, target, old.cp)
+    # Authenticate the seed using its original host arithmetic. Four-thread
+    # fitted-Y BLAS sums can differ; never bypass the source boundary hash.
+    with threadpool_limits(limits=1):
+        endpoint, _ = load_genesis(genesis, target, old.cp)
     spec = copy.deepcopy(old_spec)
     spec.update(run_id='fixed_gradient_diagnostic', production_sweeps=3, final_sweep=3)
     spec['software'] = dict(git_commit=a.commit, clean_tree=True,

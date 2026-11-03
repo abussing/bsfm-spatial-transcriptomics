@@ -48,3 +48,10 @@ reports TIMING_COMPLETE, not equivalence PASS. It authenticates all BLAS pools a
 four threads. Compare against the one-thread incremental arm; threading changes
 the environment identity, so cross-thread trajectories are not claimed identical.
 This completes the previously authorized one-versus-four-thread timing question.
+
+Four-thread attempt 22015984 stopped before any sweep: the saved one-thread
+seed's fitted-Y boundary hash cannot be authenticated using four-thread BLAS
+sums. The retry authenticates the original seed inside a one-thread context,
+then restores and verifies four threads for the new diagnostic contract. No
+boundary hash is skipped or tolerance changed; this remains a new experiment,
+not cross-thread exact scientific resumption.
