@@ -1,5 +1,40 @@
 # Current BSFM handoff
 
+## Latest execution checkpoint: four paired hole comparisons running
+
+The user selected S10's existing 4,712-cell subset, 12/8 circular holes crossed
+with diameters width/16 and width/8, the unchanged full-cell mesh, 91 genes and
+three cell types. They explicitly approved full-sample SCT reuse for this
+preliminary comparison. Centering, GP initialization and fitting use training
+cells only. This is not primary training-only-normalized holdout validation.
+
+Generating commit: `27f9b3f0dfa4c1df2acc9e845633a8031069daea`, separate branch
+`run/s10-holey-20261103`. Scientific extensions are not merged into accepted main.
+K=12, L14/784 features; 50 NUTS tuning steps per factor, 50 Gibbs bridge sweeps,
+100 NUTS retuning steps per factor in a separate child run, then 1,000 production
+sweeps. Every production sweep is retained and every sweep checkpointed.
+
+All eight sample jobs were observed RUNNING after four successful preparations:
+deep/flat pairs 22013543/44 (12 circles, width/16), 22013546/47 (12, width/8),
+22013549/50 (8, width/16), 22013552/53 (8, width/8). Check their current state;
+this statement is a launch checkpoint, not a completed fit or convergence result.
+
+Read the [live-run record and resume/prediction instructions](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/run/s10-holey-20261103/docs/holdouts/s10-grid-20261103/RUNNING.md)
+and its RUNNING_RECEIPT.json. Output root:
+`/work/abussing/bsfm-consolidation/evidence/holey-27f9b3f0dfa4c1df2acc9e845633a8031069daea`.
+Do not duplicate live jobs or repeat completed recovery. Only committed child
+production draws enter partial prediction comparisons; bridge draws are excluded.
+
+HPC extension validation 22013528 passed all four focused synthetic tests.
+Initial GPINIT preparation attempts segfaulted in four-thread SciPy Cholesky;
+one-thread preparation succeeded in roughly one minute per split. Logs and
+receipts preserve both outcomes. The sampler environment was not modified.
+The source-only execution branch carries the same tested sampler extensions as
+the review branch without its large plot history. Nine-configuration plots stay
+on `review/layer9-portability-20261103`.
+
+Earlier sections below describe superseded execution checkpoints.
+
 ## Latest execution checkpoint: small L4 smoke completed
 
 Job **22013500** completed successfully in **2 minutes 32 seconds**, exit 0:0,
