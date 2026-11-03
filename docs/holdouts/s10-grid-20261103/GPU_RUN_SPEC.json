@@ -4,6 +4,7 @@
   "partition": "v100-16gb-hiprio",
   "resources": {"gpus": 1, "cpus": 4, "memory_GiB": 16, "wall_minutes": 30},
   "environment": "/work/abussing/arka_trying_gpu_again/env",
+  "cuda_toolkit": "/work/apps/cuda/12.3; explicitly set xla_gpu_cuda_data_dir after job 22014280 could detect V100 but could not locate libdevice",
   "environment_policy": "Inspect and validate existing environment without modifying it; record all package versions and device identity. This is not the CPU environment lock or cross-device exact continuation.",
   "scope": ["CUDA/x64 device and numerical checks", "four existing focused meeting extension tests", "one real S10 L14 deep-factor 20-step warmup timing"],
   "preparation_commit": "27f9b3f0dfa4c1df2acc9e845633a8031069daea",

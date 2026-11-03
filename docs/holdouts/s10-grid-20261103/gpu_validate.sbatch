@@ -11,6 +11,8 @@
 set -euo pipefail
 commit="${1:?exact commit}"
 module load gcc/12.2.0 mpfr/4.1.0 cuda/12.3
+test -f /work/apps/cuda/12.3/nvvm/libdevice/libdevice.10.bc
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/work/apps/cuda/12.3
 cd "/work/abussing/bsfm-consolidation/checkouts/$commit"
 test "$(git rev-parse HEAD)" = "$commit"
 test -z "$(git status --porcelain)"
