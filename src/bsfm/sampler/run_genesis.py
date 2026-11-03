@@ -36,7 +36,9 @@ def validate_endpoint(e,target,contract):
     if type(v['adaptation_steps']) is not int or v['adaptation_steps']<20 or v['target_acceptance']!=.9:
         raise ValueError('Incomplete/changed genesis warmup')
     if len(v['factors'])!=k:raise ValueError('Missing warmup histories')
-    if (v['factors'][0]['state_before']!=v['initialization']['after_PX']
+    init = v['initialization']
+    start_state = init['state_after'] if init.get('schema') == 'bsfm.readaptation-start.v1' else init['after_PX']
+    if (v['factors'][0]['state_before']!=start_state
             or v['rng_before']!=v['initialization']['rng_after']):
         raise ValueError('Initialization/warmup boundary mismatch')
     for i,row in enumerate(v['factors']):
