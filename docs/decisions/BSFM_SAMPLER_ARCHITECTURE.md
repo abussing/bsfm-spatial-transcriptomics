@@ -35,6 +35,12 @@ and frozen-tuning restart, with explicit global-RNG installation after validatio
 Legacy incomplete-checkpoint conversion is excluded. Retained draws, diagnostic
 aggregation, readaptation/run orchestration and platform/GPU validation remain.
 
+Layer 8 is [accepted, implemented and validated](../sampler/LAYER8.md): separate reconstructable
+retained inference records, crash-safe incremental publication and raw offline
+diagnostic aggregation. Checkpoints remain exact-continuation state only.
+No scientific convergence thresholds, factor alignment, run configuration,
+production orchestration or platform capability is selected by this layer.
+
 Decision date: 2026-11-02. Recovery baseline:
 `10cb6e27168aae7581831a6591089b4d88629c49`.
 

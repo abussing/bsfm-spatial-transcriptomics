@@ -1,0 +1,336 @@
+{
+  "schema": "bsfm.layer8-validation.v1",
+  "status": "PASS",
+  "review_status": "accepted_canonical",
+  "baseline": "fb3b4f28b81605172eb9eeb2abbf321c4a1fa2f8",
+  "tests": {
+    "prior_sampler_provenance": 170,
+    "layer8": 25,
+    "sampler_total": 195,
+    "canonical_mesh": 8,
+    "total": 203,
+    "skips": 0
+  },
+  "sampler_run": {
+    "tests": 195,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 687.5954507999995
+  },
+  "final_focused_run": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 156.23487210000167
+  },
+  "final_test_semantics": "195 full-suite tests and a separate 25-test focused Layer-8 rerun passed against the corrected aggregation boundary; eight mesh tests passed. 203 distinct tests.",
+  "mesh_unittest_seconds": 2.769,
+  "command": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer5-cpu-20261102\\python\\Scripts\\python.exe",
+    "-B",
+    "-W",
+    "error::ResourceWarning",
+    "artifacts/review/sampler_layer8/run_suite.py"
+  ],
+  "reproducible_command": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer5-cpu-20261102\\python\\Scripts\\python.exe",
+    "-B",
+    "-W",
+    "error::ResourceWarning",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_sampler*.py",
+    "-v"
+  ],
+  "environment": {
+    "accepted_receipt": "environment/sampler-layer5/build-validation.json",
+    "fresh_receipt_exact": true,
+    "packages": {
+      "absl-py": "2.5.1",
+      "blackjax": "1.3",
+      "fastprogress": "1.0.3",
+      "jax": "0.7.0",
+      "jaxlib": "0.7.0",
+      "jaxopt": "0.8.3",
+      "ml-dtypes": "0.6.0",
+      "numpy": "2.1.3",
+      "optax": "0.2.8",
+      "opt-einsum": "3.4.0",
+      "pip": "23.2.1",
+      "scipy": "1.14.1",
+      "threadpoolctl": "3.5.0",
+      "typing-extensions": "4.16.0"
+    },
+    "no_installations": true
+  },
+  "provenance": {
+    "authenticated_records": 11,
+    "layer8_map_entries": 8,
+    "all_layer_entries": 80,
+    "historical_source_imported": false,
+    "selected_full_driver_sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49"
+  },
+  "exact_continuation": {
+    "exact": true,
+    "retained_record_hashes": [
+      "e829157b7414d18422b0d54ce451958ffc06e6d2c8697a9471a2172505e3cdab",
+      "47620bcdf6b92390755d046583a45b9704304874f78a136ea5d5a538dfb952c3"
+    ],
+    "completed_sweeps": 2,
+    "retained_draws": 2,
+    "checkpoint_unchanged": true,
+    "complete_diagnostics_exact": true,
+    "four_rng_endpoints_exact": true,
+    "schema": "bsfm.layer8-continuation.v1",
+    "baseline": "fb3b4f28b81605172eb9eeb2abbf321c4a1fa2f8",
+    "review_status": "accepted_canonical",
+    "environment": "Windows CPU; unchanged sampler-layer5 environment",
+    "scope": "Two complete synthetic sweeps; no scientific fit",
+    "clean_tree_at_execution": false
+  },
+  "prior_layer6_fixture_sha256": "dbdcfb58058e31103f4a551196fe72eedff6c8d46fd2860bbcbfa9c301eeb741",
+  "gates": {
+    "exact_retained_state": "PASS",
+    "direct_layer6_diagnostics": "PASS",
+    "independent_dense_projector": "PASS",
+    "write_interrupt": "PASS",
+    "promotion_failure": "PASS",
+    "closed_candidate_validation": "PASS",
+    "retained_attempts": "PASS",
+    "duplicate_skipped_order_rejection": "PASS",
+    "changed_contract_identities": "PASS",
+    "corrupt_shapes_dtypes_hashes": "PASS",
+    "warning_divergence_nonfinite_energy_visibility": "PASS",
+    "terminal_failure_visibility": "PASS",
+    "multichain_order_independence": "PASS",
+    "no_rng_or_state_mutation": "PASS",
+    "configurable_storage_cadence": "PASS",
+    "checkpoint_unchanged": "PASS",
+    "state_chart_rng_continuity": "PASS",
+    "aggregate_finite_energy_exact": "PASS",
+    "aggregate_explicit_field_hyper_order": "PASS",
+    "aggregate_nonfinite_inf_negative_inf_nan_both_blocks": "PASS",
+    "aggregate_no_storage_descriptor": "PASS",
+    "aggregate_json_safe_and_hash_deterministic": "PASS"
+  },
+  "initial_focused_run": {
+    "tests": 20,
+    "errors": 1,
+    "failures": 0,
+    "explanation": "Test expected inner ValueError from candidate validation; implementation correctly wrapped it as ArchiveWriteError and retained the attempt. Assertion corrected to verify wrapper and cause. No numerical change."
+  },
+  "artifacts": [
+    {
+      "path": "src/bsfm/sampler/retained_contract.py",
+      "bytes": 3090,
+      "sha256": "60a1ad33e22cda6e2418642edde6d486ac4796ebd0b8d440be4b23b57a93dbe1"
+    },
+    {
+      "path": "src/bsfm/sampler/retained_diagnostics.py",
+      "bytes": 7780,
+      "sha256": "fff6950887410e46f57965dff8a2c8179bf9791035e017c824e63ad6911f78b9"
+    },
+    {
+      "path": "src/bsfm/sampler/retained_records.py",
+      "bytes": 10396,
+      "sha256": "c7e20c977e242f6cae69a0f7379f7bf38dc8f5b226afd21947686357241a76b1"
+    },
+    {
+      "path": "src/bsfm/sampler/retained_archive.py",
+      "bytes": 11688,
+      "sha256": "abbecd059ca364157ed884b2f76214129b87ff733c8075ff66148106673bade0"
+    },
+    {
+      "path": "tests/test_sampler_layer8.py",
+      "bytes": 19222,
+      "sha256": "2902db92847fdad7001c4269c1bb5ee98c90eb984c3e2e67b7e93d26c534b18c"
+    },
+    {
+      "path": "config/sampler/retained-v1.schema.json",
+      "bytes": 7886,
+      "sha256": "c6e6449263ffa1d6f14246d95e5d8abda726d5c47a773ec68fc69125fc8944e8"
+    },
+    {
+      "path": "docs/sampler/LAYER8_SOURCES.csv",
+      "bytes": 2568,
+      "sha256": "ce38bb2e4dff04a683bf1cb6a67b76ab4d9d70d7652c84ef69e9ac060a10f447"
+    },
+    {
+      "path": "docs/sampler/LAYER8_SOURCE_MAP.csv",
+      "bytes": 3775,
+      "sha256": "5fd4809669e43b46ac4d834ab9066a79c7c7d048495685e9f94944981ebeaffb"
+    },
+    {
+      "path": "docs/sampler/LAYER8_CONTINUATION.json",
+      "bytes": 663,
+      "sha256": "8fa2159dce8ea5306ae38c61206fd7b4812174c54722fc9546bbc8a0e7aa4cd0"
+    }
+  ],
+  "local_logs": [
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer8/initial-focused-tests.log",
+      "bytes": 5233,
+      "sha256": "f7cfde40cf0e839613978b16c6655b910fda57dbd081613ac789d44abaefaab2"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer8/focused-tests.log",
+      "bytes": 3284,
+      "sha256": "84bedae1ccfa4e5fb16e667d62366265349f3ed50598964e2c5aceeeb0b9eebe"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer8/sampler-tests.log",
+      "bytes": 25756,
+      "sha256": "cb6ba21656bd3dc20070f2b7ff0acc839043eeb71a6e3d28b6a3b0e4646b6937"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer8/mesh-tests.log",
+      "bytes": 1325,
+      "sha256": "0f65ee193827257c58bd40be649af78cdcca0db35b6a62b8b65effaebe843b99"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer8/environment-validation.json",
+      "bytes": 17371,
+      "sha256": "88eb74b00ec603b19e8a9d25d4f9a55d51093c623506cc0242fc50407b3905f5"
+    }
+  ],
+  "limitations": [
+    "Windows CPU synthetic only; no scientific fit or convergence claim",
+    "No ESS/R-hat estimator, factor alignment or historical fidelity monitor selected",
+    "Caller supplies authenticated contract, chain and explicit cadence; no production loop",
+    "Local single-writer atomic rename only; not backup or remote/power-loss durability",
+    "Checkpoint/archive mismatch rejected, not automatically reconciled; failure archives terminal",
+    "Full-prefix validation is sequential per record; no external expected head means deleted tail cannot be detected"
+  ],
+  "review_correction": {
+    "finding": "Initial aggregate block_energy exposed the serialized base64 _array descriptor rather than semantic field/hyper values.",
+    "scope": "aggregate_archives energy boundary only; decoded info -> explicit field/hyper scalar list with canonical nonfinite tags",
+    "prior_validation_tests": {
+      "prior_sampler_provenance": 170,
+      "layer8": 23,
+      "sampler_total": 193,
+      "canonical_mesh": 8,
+      "total": 201,
+      "skips": 0
+    },
+    "prior_validation_sha256": "7e959ef1e44f940111907d7e12ed9451cb43af1d1d4a2d0b0dad88b1fdb7b106",
+    "prior_proposal_inventory": {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer8/pre-energy-review/inventory.json",
+      "bytes": 2310,
+      "sha256": "ac6bfb15f74c9e98b05ee8e0cf8b2e9738ecb4d52071059bd56ab3bfebb2e57c"
+    },
+    "prior_complete_diff": {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer8/pre-energy-review/proposed.diff",
+      "bytes": 90828,
+      "sha256": "9ea894a5f38a94bc3135c744f695aa719c19604ef80b87880981c9203cba8697"
+    },
+    "retained_continuation_receipt_byte_identical": true,
+    "retained_serialization_unchanged": true,
+    "checkpoint_continuity_unchanged": true,
+    "examples": {
+      "finite": {
+        "sweep": 1,
+        "factor_id": "factor-b",
+        "block_order": [
+          "field",
+          "hyper"
+        ],
+        "block_energy": [
+          6.537118808183135,
+          -6.420477081446879
+        ]
+      },
+      "divergent": [
+        {
+          "sweep": 1,
+          "factor_id": "factor-b",
+          "block_order": [
+            "field",
+            "hyper"
+          ],
+          "block_energy": [
+            {
+              "_nonfinite": "inf"
+            },
+            -6.420477081446879
+          ]
+        },
+        {
+          "sweep": 1,
+          "factor_id": "factor-b",
+          "block_order": [
+            "field",
+            "hyper"
+          ],
+          "block_energy": [
+            {
+              "_nonfinite": "-inf"
+            },
+            -6.420477081446879
+          ]
+        },
+        {
+          "sweep": 1,
+          "factor_id": "factor-b",
+          "block_order": [
+            "field",
+            "hyper"
+          ],
+          "block_energy": [
+            {
+              "_nonfinite": "nan"
+            },
+            -6.420477081446879
+          ]
+        },
+        {
+          "sweep": 1,
+          "factor_id": "factor-b",
+          "block_order": [
+            "field",
+            "hyper"
+          ],
+          "block_energy": [
+            6.537118808183135,
+            {
+              "_nonfinite": "inf"
+            }
+          ]
+        },
+        {
+          "sweep": 1,
+          "factor_id": "factor-b",
+          "block_order": [
+            "field",
+            "hyper"
+          ],
+          "block_energy": [
+            6.537118808183135,
+            {
+              "_nonfinite": "-inf"
+            }
+          ]
+        },
+        {
+          "sweep": 1,
+          "factor_id": "factor-b",
+          "block_order": [
+            "field",
+            "hyper"
+          ],
+          "block_energy": [
+            6.537118808183135,
+            {
+              "_nonfinite": "nan"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -35,6 +35,12 @@ complete atomic sweep-boundary state with authenticated contracts, frozen tuning
 spectral and RNG restoration. It adds no retained draws, run orchestration,
 readaptation controller, GPU/HPC workflow or scientific fit.
 
+Layer 8 is the accepted canonical [retained-draw and diagnostic layer](docs/sampler/LAYER8.md).
+It preserves reconstructable native posterior state, immutable incremental records,
+explicit warning/failure diagnostics and exact checkpoint/archive boundary checks.
+It adds no production runner, convergence decision, readaptation, launcher or
+scientific run; cadence and run configuration remain explicit caller choices.
+
 ## 1. Expression preprocessing
 
 Recovery status: **historical normalization-recipe recovery completed through

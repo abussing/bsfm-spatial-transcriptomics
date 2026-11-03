@@ -1,0 +1,18 @@
+{
+  "exact": true,
+  "retained_record_hashes": [
+    "e829157b7414d18422b0d54ce451958ffc06e6d2c8697a9471a2172505e3cdab",
+    "47620bcdf6b92390755d046583a45b9704304874f78a136ea5d5a538dfb952c3"
+  ],
+  "completed_sweeps": 2,
+  "retained_draws": 2,
+  "checkpoint_unchanged": true,
+  "complete_diagnostics_exact": true,
+  "four_rng_endpoints_exact": true,
+  "schema": "bsfm.layer8-continuation.v1",
+  "baseline": "fb3b4f28b81605172eb9eeb2abbf321c4a1fa2f8",
+  "review_status": "accepted_canonical",
+  "environment": "Windows CPU; unchanged sampler-layer5 environment",
+  "scope": "Two complete synthetic sweeps; no scientific fit",
+  "clean_tree_at_execution": false
+}
