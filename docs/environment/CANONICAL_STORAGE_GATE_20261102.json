@@ -1,0 +1,66 @@
+{
+  "schema": "bsfm.canonical-artifact-storage-gate.v1",
+  "status": "stopped_no_durable_allocation",
+  "baseline_commit": "aae38fe26c5634b92e80adebafe6df0c560f3fe9",
+  "inspection_date": "2026-11-02",
+  "host": "login.rci.sc.edu",
+  "ssh_port": 222,
+  "preferred_destination": "/work/abussing/bsfm-consolidation/canonical-artifacts/v1",
+  "destination_exists": false,
+  "capacity": {
+    "filesystem": "gpfs0",
+    "mount": "/work",
+    "available_df_h": "237T",
+    "capacity_sufficient_for_approximately_7_GB": true
+  },
+  "quota": {
+    "user": "abussing",
+    "reported_usage_KB": 341385216,
+    "reported_soft_limit_KB": 1073741824,
+    "reported_hard_limit_KB": 1073741824,
+    "reported_in_doubt_KB": 41141888,
+    "nominally_sufficient": true,
+    "accounting_warning": "Quota management has been enabled but quota accounting information is outdated.",
+    "repair_attempted": false,
+    "queried_groups": [
+      "hoy-lab",
+      "yenyiho-lab",
+      "tingfung-lab"
+    ],
+    "group_limits": "no limits reported; same stale-accounting warning"
+  },
+  "retention": {
+    "ordinary_work_policy": "scratch; no backup; files without access/content modification for 90 days subject to purge",
+    "path_specific_durability_exemption_established": false,
+    "policy_source": "https://sc.edu/about/offices_and_divisions/division_of_information_technology/rc/resources/policies/",
+    "scope": "Published ordinary scratch policy; no path-specific exception established. /work is not treated as archival storage."
+  },
+  "alternative": {
+    "service": "USC Research Computing DataHub",
+    "assessment": "appears suitable for shared research storage; project allocation/access path not confirmed",
+    "source": "https://www.sc.edu/about/offices_and_divisions/division_of_information_technology/rc/resources/research_data_storage/index.php",
+    "administrative_request_made": false
+  },
+  "payload_bytes_transferred": 0,
+  "local_artifacts": {
+    "status": "present; identities authenticated in prior desktop reconciliation; source presence reconfirmed during gate",
+    "authentication_receipt": "DESKTOP_RECONCILIATION_20261102.json",
+    "new_whole_payload_hashing_performed": false
+  },
+  "commands": [
+    "df -hT /work/abussing /home/abussing",
+    "findmnt -T /work/abussing",
+    "findmnt -rn -t gpfs,nfs,nfs4,lustre,beegfs",
+    "/usr/lpp/mmfs/bin/mmlsquota -u abussing gpfs0",
+    "/usr/lpp/mmfs/bin/mmlsquota -Y -u abussing gpfs0",
+    "/usr/lpp/mmfs/bin/mmlsquota -g <named_group> gpfs0",
+    "/usr/lpp/mmfs/bin/mmlsfileset gpfs0",
+    "quota -v -u -f /home"
+  ],
+  "limitations": [
+    "User-owned fileset query found none; this does not prove absence of every possible project allocation.",
+    "Home quota query returned no usable account quota record.",
+    "No artifact transfer, environment retry, scheduler submission or durable-storage provisioning occurred."
+  ],
+  "interpretation": "Shared durable artifact storage remains an operational gap, not a canonical-code blocker. Artifacts are not missing. Preserve local originals; no transfer to purgeable /work is authorized."
+}

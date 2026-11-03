@@ -274,5 +274,11 @@
       }
     }
   ],
-  "reconciliation_receipt": "environment/DESKTOP_RECONCILIATION_20261102.json"
+  "reconciliation_receipt": "environment/DESKTOP_RECONCILIATION_20261102.json",
+  "storage_gate": {
+    "receipt": "environment/CANONICAL_STORAGE_GATE_20261102.json",
+    "status": "stopped_no_durable_allocation",
+    "payload_bytes_transferred": 0,
+    "canonical_code_blocker": false
+  }
 }

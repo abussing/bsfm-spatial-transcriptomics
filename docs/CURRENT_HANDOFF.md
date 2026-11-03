@@ -87,6 +87,19 @@ These are retained laptop observations, not a fresh service check. Public
 retrieval is unnecessary for the authenticated desktop copy. Raw-data transfer
 does not block bounded ports using the authenticated historical source on HPC.
 
+## Canonical artifact storage gate
+
+The [completed suitability gate](environment/CANONICAL_STORAGE_GATE_20261102.json)
+stopped before transfer: zero payload bytes moved. `/work` had sufficient
+capacity and nominal quota headroom, but GPFS reported stale quota accounting.
+Ordinary scratch retention permits purge after 90 days without access/content
+modification; no path-specific durability exemption was established. `/work`
+is not archival storage. DataHub appears suitable, but no project allocation
+or path is confirmed. No DataHub administration or Linux R retry is authorized
+in this task. The original desktop artifacts remain present and authenticated
+under the recorded desktop receipt; they are not missing. Shared durable
+storage is an operational gap, not a blocker for bounded canonical code ports.
+
 ## Environment portability
 
 The accepted [CPU lock](../environment/sampler-layer2/README.md) and builder

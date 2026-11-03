@@ -71,6 +71,19 @@ coverage. Do not infer absence from an unavailable old drive or a bounded search
 | Historical sampler/GP references and L16 rule | Selected HPC files authenticated in prior receipts; all 28 F/code ledger files now authenticated on desktop; frozen L16 arrays and synthetic sampler fixtures already in Git | Available for bounded reference checks; no raw-data download is needed for sampler unit tests |
 | Linux R build inputs | R source and 33 mesh sources authenticated; matching UDUNITS C headers separately authenticated | Retain both failed job 22012386 and timed-out retry 22012400 with their partial prefixes/logs; no passing fresh-session validation receipt exists |
 
+## Canonical artifact storage gate
+
+The [completed suitability gate](environment/CANONICAL_STORAGE_GATE_20261102.json)
+stopped before transfer: zero payload bytes moved. `/work` had sufficient
+capacity and nominal quota headroom, but GPFS reported stale quota accounting.
+Ordinary scratch retention permits purge after 90 days without access/content
+modification; no path-specific durability exemption was established. `/work`
+is not archival storage. DataHub appears suitable, but no project allocation
+or path is confirmed. No DataHub administration or Linux R retry is authorized
+in this task. The original desktop artifacts remain present and authenticated
+under the recorded desktop receipt; they are not missing. Shared durable
+storage is an operational gap, not a blocker for bounded canonical code ports.
+
 ## Environment restoration routes and limits
 
 - **Sampler CPU:** [setup and restoration](environment/HPC_CPU_SETUP.md) plus
