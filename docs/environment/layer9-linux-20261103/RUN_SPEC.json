@@ -1,0 +1,19 @@
+{
+  "schema": "bsfm.environment-build-run.v1",
+  "scope": "Environment-only correction for incompatible ml_dtypes Linux wheel",
+  "supersedes_job": "22013403",
+  "partition": "defq-64core",
+  "nodes": 1,
+  "tasks": 1,
+  "cpus_per_task": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 30,
+  "gpus": 0,
+  "fresh_prefix": "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source1",
+  "runtime_versions": "All 13 unchanged from prior proposal; ml_dtypes 0.6.0 compiled from authenticated official source",
+  "build_dependencies": "BUILD_DEPENDENCIES.json; separate build venv; accepted numpy 2.1.3 satisfies upstream numpy~=2.0",
+  "system_build_modules": ["gcc/12.2.0", "cmake/3.27.4", "ninja/1.10.2"],
+  "preservation": "Refuse existing prefix; retain failed first prefix and logs; rehash reusable archives before copy",
+  "outputs": ["build.log", "build-report.json", "package-validation.json", "requirements.lock.txt", "wheels/"],
+  "excluded": ["sampler execution", "scientific data access", "mesh regeneration", "SCT", "GPU execution"]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "verified",
+  "commit": "ecfbde4ffbab9d884d08dc6e64bef2439884545b",
+  "checkout": "/work/abussing/bsfm-consolidation/checkouts/ecfbde4ffbab9d884d08dc6e64bef2439884545b",
+  "evidence_files": 80,
+  "review_inventory_files": 45,
+  "archive_sha256": "a73494374b58d96af10bd1aa8dfa3e2158f0b0ad68ea175c017a96a188610503",
+  "bundle_sha256": "8162f8edc14c6953b14d894f51f7898bb7bdb2f1f317b76b86e978cd654a216f",
+  "git_clean": true,
+  "scientific_run": false
+}

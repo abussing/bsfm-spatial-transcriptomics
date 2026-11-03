@@ -1,0 +1,11 @@
+{
+  "schema": "bsfm.environment-submission.v1",
+  "job_id": "22013403",
+  "commit": "ecfbde4ffbab9d884d08dc6e64bef2439884545b",
+  "submitted_utc": "2026-11-03T08:19:35.476199+00:00",
+  "scope": "environment-only",
+  "cpus": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 30,
+  "user_approval": "User explicitly instructed proceeding after bounded environment-build explanation"
+}
