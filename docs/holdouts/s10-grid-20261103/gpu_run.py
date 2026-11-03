@@ -33,8 +33,15 @@ def authenticate_gpu_environment():
         or os.environ.get('BSFM_EXPERIMENTAL_CUDA')!='1'):
         raise ValueError('Recorded GPU/x64 environment required')
     devices=jax.devices()
-    if len(devices)!=1 or 'V100' not in devices[0].device_kind:
-        raise ValueError('One allocated V100 required')
+    if len(devices)!=1:raise ValueError('One allocated GPU required')
+    validation=RECEIPT
+    if 'P100' in devices[0].device_kind:
+        validation=RECEIPT.with_name('P100_VALIDATION_RECEIPT.json')
+        v=read_json(validation)
+        if v['status']!='COMPLETED' or v['exit_code']!='0:0' or v['focused_tests_passed']!=4:
+            raise ValueError('P100 execution validation required')
+    elif 'V100' not in devices[0].device_kind:
+        raise ValueError('Validated V100 or P100 required')
     distributions=list(metadata.distributions())
     if {d.metadata['Name']:d.version for d in distributions}!=expected['packages']:
         raise ValueError('GPU package versions changed')
@@ -80,6 +87,7 @@ def authenticate_gpu_environment():
     if any(p['num_threads']!=1 for p in blas):raise ValueError('One BLAS thread required')
     return dict(schema='bsfm.meeting-gpu-environment.v1',lock=file_record(RECEIPT),
                 backend='gpu',x64=True,device_kind=devices[0].device_kind,
+                device_validation=file_record(validation),
                 packages=expected['packages'],installed_numerical_files=count,
                 absent_unused_resources=sorted(ABSENT_UNUSED_RESOURCES),
                 limitation='Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations.')

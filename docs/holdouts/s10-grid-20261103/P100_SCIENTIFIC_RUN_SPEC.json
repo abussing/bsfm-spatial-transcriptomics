@@ -1,0 +1,16 @@
+{
+  "schema": "bsfm.available-gpu-fallback.v1",
+  "authorization": "User requested earliest GPU execution and additional submissions on other compatible queues while preserving V100 submissions",
+  "gate": "Validation job 22014518 must complete successfully before submission; retain its receipt",
+  "partition": "gpu",
+  "device": "Tesla P100-PCIE-16GB",
+  "jobs": 2,
+  "configuration": "circles12_diameter1of8",
+  "models": ["deep", "flat"],
+  "submission_tag": "p100",
+  "resources_per_job": {"gpus": 1, "cpus": 4, "host_memory_GiB": 16, "wall_hours": 12},
+  "scientific_settings": "Exactly GPU_SCIENTIFIC_RUN_SPEC.json: K12 L14 full mesh, 91 genes/3 types, tune50/bridge50/retune100/production1000, target_accept0.9, same prepared data and initialization",
+  "purpose": "Use the two available P100 slots for one matched deep/flat configuration while the complete four-configuration V100 sets remain queued",
+  "outputs": "New generating-commit and p100-tagged root, never shared with another queue alternative",
+  "limitations": "Same-seed duplicate attempts are not independent chains. Generic GPU queue is preemptible/requeue; same-environment complete-sweep resume applies, initial tuning is not checkpointed stepwise."
+}

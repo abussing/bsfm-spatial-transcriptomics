@@ -1,0 +1,20 @@
+{
+  "schema": "bsfm.p100-validation-receipt.v1",
+  "job": 22014518,
+  "generating_commit": "033d728e1d6ac55e0609508a796a3f5a5f3bd34d",
+  "status": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed": "00:04:42",
+  "device": "Tesla P100-PCIE-16GB",
+  "driver": "550.54.15",
+  "focused_tests_passed": 4,
+  "tests_seconds": 110.445,
+  "real_input": "circles12_diameter1of8; K12 L14/784 features; existing full mesh and training-only GPINIT",
+  "real_first_factor_warmup_steps": 20,
+  "warmup_seconds_including_compilation": 128.40514814853668,
+  "warmup_timing_sha256": "42efc73140783d2d1630bc8f581dac32d6dfadd33080cbbf1ec234a7d5220cf5",
+  "nvidia_smi_sha256": "2dd73c4449b87a53b5824405a21a8c72d927082ec54118136bb795718d95d368",
+  "log_sha256": "73b04647f341f6375c63ed17bf9a7e249c9e3a43d45b60f2e45646126d5bd06c",
+  "evidence_root": "/work/abussing/bsfm-consolidation/evidence/gpu-check-22014518",
+  "scope": "Same existing GPU environment and corrected GPU kernels; synthetic phase transitions and bounded real-input timing. No convergence or complete full-size run claim."
+}
