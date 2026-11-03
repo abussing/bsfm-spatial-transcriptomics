@@ -51,6 +51,11 @@ class RunController:
         self.store=Transactions(root,target,self.cp,self.rc,self.scale,spec,input_receipt)
         self.layer=GibbsSweep(target,b_sigma2=self.scale)
 
+    def _adapt_endpoint(self, fault):
+        e, keys = initialize(self.target, self.loading, self.eta, seed=self.spec['seed'])
+        fault('after_initialization')
+        return adapt(self.target, e, keys, steps=self.spec['warmup_steps'], split=self.layer.split)
+
     def _genesis(self,fault):
         s=self.store;final=s.segment/'genesis'
         def read(path):
@@ -71,9 +76,7 @@ class RunController:
         attempt=Path(tempfile.mkdtemp(prefix='genesis-',dir=s.segment/'attempts'));path=attempt/'genesis';path.mkdir()
         fault('before_initialization');start=time.perf_counter()
         try:
-            e,keys=initialize(self.target,self.loading,self.eta,seed=self.spec['seed'])
-            fault('after_initialization')
-            e=adapt(self.target,e,keys,steps=self.spec['warmup_steps'],split=self.layer.split)
+            e=self._adapt_endpoint(fault)
         except (ValueError,RuntimeError,FloatingPointError) as exc:
             write_json(s.segment/'failures'/('initialization-'+attempt.name+'.json'),dict(stage='initialization_warmup',error=str(exc)));raise
         write_json(attempt/'performance.json',dict(elapsed_seconds=time.perf_counter()-start,scope='initialization_and_warmup'))

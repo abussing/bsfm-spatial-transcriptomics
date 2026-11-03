@@ -1,0 +1,33 @@
+{
+  "schema": "bsfm.meeting-holdout-proposal.v1",
+  "status": "requires passing local and HPC extension validation before scientific submission",
+  "authorization": "User requested four holey S10 configurations, matched deep/flat fits, K=12 L=14, tune50/Gibbs50/retune100/production1000; explicitly approved full-sample SCTransform",
+  "configurations": ["circles12_diameter1of16", "circles12_diameter1of8", "circles8_diameter1of16", "circles8_diameter1of8"],
+  "models": ["deep", "flat"],
+  "chains_per_model_configuration": 1,
+  "K": 12,
+  "L": 14,
+  "features": 784,
+  "ell_eta": 0.14,
+  "target_accept": 0.9,
+  "mesh": "fixed full-cell mesh, all 371 modes; training projector rows only; omitted vertices marginalized, with conditional completion for prediction",
+  "preprocessing": "user-approved full-sample SCTransform; training-only centering; preliminary transductive comparison, not primary training-only-normalized validation",
+  "GPINIT": {"training_only": true, "nfit_per_type": 250, "seed": 20261103, "config": "config/initialization/c3-gp-svd.json"},
+  "phases": [
+    {"name": "initial_NUTS_tuning", "steps_per_factor": 50},
+    {"name": "bridge_Gibbs", "sweeps": 50, "excluded_from_production": true},
+    {"name": "child_NUTS_retuning", "steps_per_factor": 100, "reset_GPINIT": false},
+    {"name": "child_production", "sweeps": 1000, "save_every": 1, "checkpoint_every": 1}
+  ],
+  "RNG": "parent endpoint restored; child key split into master plus ordered factor warmup keys; NumPy streams preserved; separate deterministic prediction RNG",
+  "resources": {
+    "validation_and_dependencies": {"jobs": 1, "cpus": 2, "memory_GiB": 8, "wall_minutes": 30},
+    "preparation": {"jobs": 4, "cpus_per_job": 4, "memory_GiB_per_job": 8, "wall_minutes": 60},
+    "sampling": {"jobs": 8, "cpus_per_job": 4, "memory_GiB_per_job": 16, "wall_hours": 12},
+    "GPU": false
+  },
+  "runtime_environment": "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python",
+  "GPINIT_additions": "isolated target directory; scikit-learn 1.4.2 and joblib 1.4.2 only; use existing NumPy/SciPy/threadpoolctl; do not modify sampler environment",
+  "validation": ["synthetic both-model bridge/retune/production/resume and nonreplay", "flat target versus dense Gaussian value/gradient", "prediction versus dense Gaussian conditional", "L14 dimensions/weights/identities", "parent immutable and child parent-binding rejection"],
+  "claims": "No guarantee of completion or convergence before meeting; only committed child-production draws enter preliminary prediction plots"
+}

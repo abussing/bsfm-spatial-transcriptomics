@@ -1,0 +1,58 @@
+{
+    "status":  "requested_not_submitted",
+    "purpose":  "Partial-progress warped versus flat prediction plots for a meeting approximately five hours after the request",
+    "sample":  "S10__WT5",
+    "population":  "authenticated existing 4712-cell half-population",
+    "genes":  91,
+    "cell_types":  [
+                       "MIC",
+                       "AST",
+                       "OGC"
+                   ],
+    "mesh_policy":  "unchanged accepted full-cell mesh and reference coordinate frame",
+    "configurations":  [
+                           {
+                               "id":  "circles12_diameter1of16",
+                               "training":  4342,
+                               "heldout":  370
+                           },
+                           {
+                               "id":  "circles12_diameter1of8",
+                               "training":  3379,
+                               "heldout":  1333
+                           },
+                           {
+                               "id":  "circles8_diameter1of16",
+                               "training":  4472,
+                               "heldout":  240
+                           },
+                           {
+                               "id":  "circles8_diameter1of8",
+                               "training":  3756,
+                               "heldout":  956
+                           }
+                       ],
+    "models_requested":  [
+                             "warped/deep",
+                             "matched flat/identity-coordinate"
+                         ],
+    "user_phase_wording":  "50 warmups, 50 adaptation sweeps, then 100 warmups, then 1000 iters",
+    "phase_interpretation":  "50 initial NUTS steps per factor; 50 Gibbs bridge sweeps; 100 NUTS retuning steps per factor; 1000 production Gibbs sweeps",
+    "factors":  12,
+    "quadrature_order":  14,
+    "production_sweeps_requested":  1000,
+    "proposed_retention":  "checkpoint each completed sweep; retain each production sweep; consume only committed records for interim plots",
+    "readiness":  {
+                      "hole_masks":  "complete; independently verified HPC copies",
+                      "warped_runner":  "bounded L4 execution and exact resume smoke passed; not a production performance or convergence validation",
+                      "second_tuning_phase":  "not implemented by current exact-resume runner",
+                      "adaptive_gibbs_phase":  "not implemented; current Gibbs sweeps use frozen tuning",
+                      "matched_flat_runner":  "not implemented or authenticated",
+                      "heldout_prediction":  "not implemented in canonical sampler",
+                      "training_only_response_preparation":  "not implemented; existing canonical responses are full-data and ineligible for primary holdout scoring",
+                      "training_only_gpinit":  "accepted initializer exists; per-split preparation and fits outstanding"
+                  },
+    "submission_gate":  "resolve phase and K/L inputs; implement and validate required paths; freeze committed resource/run specification before submission",
+    "completion_claim":  "No assurance that eight fits or convergence will complete within five hours",
+    "preprocessing_approval":  "User explicitly approved full-sample SCTransform; preliminary comparison, not training-only normalization"
+}
