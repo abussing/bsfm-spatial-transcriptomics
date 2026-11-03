@@ -12,7 +12,7 @@ commit="${1:?commit}"; configuration="${2:?configuration}"
 module load gcc/12.2.0 mpfr/4.1.0
 cd "/work/abussing/bsfm-consolidation/checkouts/$commit"
 export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 JAX_PLATFORMS=cpu JAX_ENABLE_X64=true OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
-export PYTHONPATH="/work/abussing/bsfm-consolidation/environments/hole-gpinit-deps-$commit:$PWD/src"
+export PYTHONPATH="/work/abussing/bsfm-consolidation/environments/hole-gpinit-deps-35308476286373318b13ecf6626e2454bc008f8a:$PWD/src"
 python=/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/bin/python
 root="/work/abussing/bsfm-consolidation/evidence/holey-$commit/$configuration"
 "$python" -X faulthandler -B docs/holdouts/s10-grid-20261103/experiment.py prepare "$configuration" "$root/prepared" "$root" deep "$commit"
