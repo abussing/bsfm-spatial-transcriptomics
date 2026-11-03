@@ -16,6 +16,15 @@ History = namedtuple('History','state info adaptation_state')
 AdaptView = namedtuple('AdaptView','step_size inverse_mass_matrix')
 
 
+def gpu_acceptance_roundoff(ac):
+    """Bound only float64 log-sum-exp overshoot; preserve every other invalid value."""
+    mask=(ac>1)&(ac<=1+8*np.finfo(np.float64).eps)
+    jax.lax.cond(jnp.any(mask),
+        lambda _:jax.debug.print('GPU ACCEPTANCE ROUNDOFF excess={x}',x=ac-1),
+        lambda _:None,operand=None)
+    return jnp.where(mask,1.,ac)
+
+
 def build_split(ld, maps, dimension, target=.9, depth=10):
     field = jnp.concatenate((jnp.arange(2),jnp.arange(4,dimension)))
     hyper = jnp.array([2,3])
@@ -41,6 +50,8 @@ def build_split(ld, maps, dimension, target=.9, depth=10):
         Wn = maps['physical'](pn[2:4],pn[4:].reshape(-1,2))
         invariant = jnp.linalg.norm(Wn-W)/jnp.maximum(jnp.linalg.norm(W),1e-100)
         ac = jnp.array([fi.acceptance_rate,hi.acceptance_rate])
+        if jax.default_backend()=='gpu':
+            ac=gpu_acceptance_roundoff(ac)
         dv = jnp.array([fi.is_divergent,hi.is_divergent])
         lf = jnp.array([fi.num_integration_steps,hi.num_integration_steps])
         # Legacy energy diagnostic explicitly describes the FIELD block only.

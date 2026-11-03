@@ -184,7 +184,7 @@ class SplitTransition(_Binding):
             raise RuntimeError('Split fixed-physical-W relative invariant failed')
         ac = np.asarray(info.block_acceptance)
         if ac.shape[-1:] != (2,) or not np.isfinite(ac).all() or np.any((ac < 0) | (ac > 1)):
-            raise RuntimeError('Invalid block acceptance diagnostics')
+            raise RuntimeError('Invalid block acceptance diagnostics: '+repr(ac.tolist()))
         # A divergent trajectory stays visible; it is not silently retried.
         # Nonfinite trajectory energy is allowed only for that divergent block.
         energy = np.asarray(info.block_energy)
