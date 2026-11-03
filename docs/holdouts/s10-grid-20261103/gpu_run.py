@@ -29,7 +29,9 @@ CORE={'numpy','scipy','jax','jaxlib','jax-cuda12-plugin','jax-cuda12-pjrt','blac
 ABSENT_UNUSED_RESOURCES={'scipy/stats/_sobol_direction_numbers.npz',
                         'docs/_static/blackjax.png','docs/examples/data/blackjax.png'}
 
-def authenticate_gpu_environment():
+def authenticate_gpu_environment(*,blas_threads=1):
+    if type(blas_threads) is not int or blas_threads not in (1,4):
+        raise ValueError('Explicit supported BLAS thread count must be 1 or 4')
     expected=read_json(RECEIPT)
     if (Path(sys.prefix).resolve()!=PREFIX or sys.version!=expected['python'] or site.ENABLE_USER_SITE
         or jax.default_backend()!='gpu' or not jax.config.x64_enabled
@@ -87,11 +89,12 @@ def authenticate_gpu_environment():
                     raise ValueError('Bytecode does not match authenticated source')
             count+=1
     blas=threadpool_info()
-    if any(p['num_threads']!=1 for p in blas):raise ValueError('One BLAS thread required')
+    if not blas or any(p['num_threads']!=blas_threads for p in blas):
+        raise ValueError('BLAS thread count differs from requested execution configuration')
     return dict(schema='bsfm.meeting-gpu-environment.v1',lock=file_record(RECEIPT),
                 backend='gpu',x64=True,device_kind=devices[0].device_kind,
                 device_validation=file_record(validation),
-                packages=expected['packages'],installed_numerical_files=count,
+                packages=expected['packages'],installed_numerical_files=count,blas_threads=blas_threads,
                 absent_unused_resources=sorted(ABSENT_UNUSED_RESOURCES),
                 limitation='Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations.')
 
@@ -106,4 +109,4 @@ if __name__=='__main__':
     probe.block_until_ready();jax.effects_barrier()
     if probe.device.platform!='gpu' or float(probe[0])!=1.:raise ValueError('GPU callback preflight failed')
     print('GPU CALLBACK PREFLIGHT PASSED; computation device',probe.device,flush=True)
-    run(config,Path(prepared),Path(output),model,commit,runtime_auth=authenticate_gpu_environment)
+    run(config,Path(prepared),Path(output),model,commit,runtime_auth=authenticate_gpu_environment,incremental=True)

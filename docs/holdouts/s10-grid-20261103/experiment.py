@@ -92,7 +92,14 @@ def target_and_seeds(prepared,model,genesis=None):
     with np.load(prepared/'gpinit/gpinit.npz',allow_pickle=False) as z:loading=z['Lam_seed'].copy();eta=z['eta_seed'].copy()
     return target,loading,eta,receipt
 
-def controllers(config,prepared,output,model,commit,*,runtime_auth=authenticate_environment):
+def use_incremental_store(controller):
+    from bsfm.sampler.run_incremental import IncrementalTransactions
+    controller.store=IncrementalTransactions(controller.store.root,controller.target,
+        controller.cp,controller.rc,controller.scale,controller.spec,controller.store.input_receipt)
+    return controller
+
+
+def controllers(config,prepared,output,model,commit,*,runtime_auth=authenticate_environment,incremental=False):
     clean(commit); environment=runtime_auth()
     bridge=Path(output)/model/'bridge'
     target,loading,eta,receipt=target_and_seeds(Path(prepared),model,bridge/'segments/segment/genesis/endpoint.npz')
@@ -108,15 +115,17 @@ def controllers(config,prepared,output,model,commit,*,runtime_auth=authenticate_
             factor_ids=list(target.factor_ids),seed=20261103,warmup_steps=warmup,settling_sweeps=0,
             production_sweeps=sweeps,final_sweep=sweeps,save_every=1,checkpoint_every=1,
             mode='exact_resume',input_sha256=digest(bind))
-        s['software']=dict(git_commit=commit,clean_tree=True,run_config_sha256=digest(s),
+        config_identity=dict(s,storage_validation='incremental_lease_v1' if incremental else 'strict_history_v1')
+        s['software']=dict(git_commit=commit,clean_tree=True,run_config_sha256=digest(config_identity),
             environment_lock_sha256=environment['lock']['sha256'],environment_identity=digest(environment))
         return s
     parent=RunController(bridge,target,loading,eta,spec('bridge_'+config+'_'+model,50,50,binding),binding,authenticate=auth)
     if model=='flat':parent.layer.split=FlatTransition(target)
+    if incremental:use_incremental_store(parent)
     return parent,binding,spec
 
-def run(config,prepared,output,model,commit,*,runtime_auth=authenticate_environment):
-    parent,binding,spec=controllers(config,prepared,output,model,commit,runtime_auth=runtime_auth)
+def run(config,prepared,output,model,commit,*,runtime_auth=authenticate_environment,incremental=False):
+    parent,binding,spec=controllers(config,prepared,output,model,commit,runtime_auth=runtime_auth,incremental=incremental)
     print('PHASE initial tuning 50/factor then bridge 50 sweeps',config,model,flush=True)
     parent.run()
     print('PHASE bridge complete; retuning 100/factor then production 1000 sweeps',config,model,flush=True)
@@ -125,6 +134,7 @@ def run(config,prepared,output,model,commit,*,runtime_auth=authenticate_environm
     child=ReadaptationController(Path(output)/model/'production',parent.target,parent.loading,parent.eta,
         spec('production_'+config+'_'+model,100,1000,binding),binding,authenticate=parent.authenticate,parent=parent)
     if model=='flat':child.layer.split=FlatTransition(parent.target)
+    if incremental:use_incremental_store(child)
     print(json.dumps(child.run()),flush=True)
 
 if __name__=='__main__':
