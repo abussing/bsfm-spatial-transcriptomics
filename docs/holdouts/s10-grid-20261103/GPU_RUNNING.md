@@ -1,5 +1,8 @@
 # S10 GPU replacement runs
 
+The user also requested [additional 32GB queue submissions](GPU_QUEUE_ALTERNATIVES.md),
+without moving the original 16GB jobs listed here. Their output roots are separate.
+
 Generating commit: `18e437fc7960860f093bc0a79481fff356b4e1e9`, execution branch
 `run/s10-holey-20261103`. Eight jobs submitted to `v100-16gb-hiprio`, one V100,
 four CPUs, 16 GiB host memory and 12 hours per job. These are fresh GPU trajectories
