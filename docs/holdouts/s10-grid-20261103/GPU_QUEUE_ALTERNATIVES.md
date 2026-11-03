@@ -1,5 +1,8 @@
 # Additional V100 32GB submissions
 
+Use [CURRENT_GPU_JOBS.md](CURRENT_GPU_JOBS.md) for current job IDs and generating
+commits after the deep-only callback retry. The table below is earlier launch evidence.
+
 The idle generic queue was identified as P100 and passed bounded execution
 validation. [A paired P100 fallback](P100_RUNNING.md) was additionally submitted;
 the V100 submissions below remain in place.

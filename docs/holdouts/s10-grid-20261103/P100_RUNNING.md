@@ -1,5 +1,9 @@
 # Available P100 paired fallback
 
+**Superseded job map:** deep job 22014562 failed on a logging callback and was
+replaced by 22014615; flat 22014563 was preserved. Use
+[CURRENT_GPU_JOBS.md](CURRENT_GPU_JOBS.md) for current commits, outputs and resume.
+
 To obtain a paired result while V100 queues remain congested, the same
 `circles12_diameter1of8` deep/flat fits were additionally submitted on `gpu`:
 

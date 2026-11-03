@@ -1,5 +1,8 @@
 # S10 GPU replacement runs
 
+Use [CURRENT_GPU_JOBS.md](CURRENT_GPU_JOBS.md) for current job IDs and generating
+commits after the deep-only callback retry. This file retains earlier launch evidence.
+
 The user also requested [additional 32GB queue submissions](GPU_QUEUE_ALTERNATIVES.md),
 without moving the original 16GB jobs listed here. Their output roots are separate.
 
