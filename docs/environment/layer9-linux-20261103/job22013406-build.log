@@ -1,0 +1,19 @@
+["/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/build-python/bin/python", "-I", "-m", "pip", "install", "--no-deps", "--require-hashes", "-r", "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/build-requirements.txt"]
+Processing /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/archives/numpy-2.1.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/build-requirements.txt (line 1))
+Processing /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/archives/scikit_build_core-0.11.6-py3-none-any.whl (from -r /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/build-requirements.txt (line 2))
+Processing /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/archives/packaging-25.0-py3-none-any.whl (from -r /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/build-requirements.txt (line 3))
+Processing /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/archives/pathspec-0.12.1-py3-none-any.whl (from -r /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/build-requirements.txt (line 4))
+Processing /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/archives/cmake-3.27.9-py2.py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from -r /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/build-requirements.txt (line 5))
+Processing /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/archives/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl (from -r /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/build-requirements.txt (line 6))
+Installing collected packages: ninja, cmake, scikit-build-core, pathspec, packaging, numpy
+Successfully installed cmake-3.27.9 ninja-1.11.1.1 numpy-2.1.3 packaging-25.0 pathspec-0.12.1 scikit-build-core-0.11.6
+["/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/build-python/bin/python", "-I", "-m", "pip", "wheel", "--no-deps", "--no-build-isolation", "--wheel-dir", "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/wheels", "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/archives/ml_dtypes-0.6.0.tar.gz"]
+Processing /work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3/archives/ml_dtypes-0.6.0.tar.gz
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: ml_dtypes
+  Building wheel for ml_dtypes (pyproject.toml): started
+  Building wheel for ml_dtypes (pyproject.toml): finished with status 'done'
+  Created wheel for ml_dtypes: filename=ml_dtypes-0.0.0-cp311-cp311-linux_x86_64.whl size=376814 sha256=8ca28d387593fc115df08dc61f3863d1a0cd1348038db1dc369f98551738ddbd
+  Stored in directory: /home/abussing/.cache/pip/wheels/68/bc/fe/b6781dd0cfd7d7f26938d717f53c14f81a4926177fe053c101
+Successfully built ml_dtypes

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/work/abussing/bsfm-consolidation/checkouts/b09e07917a5d26d9c3ceae0cf686b33945527d40/docs/environment/layer9-linux-20261103/build.py", line 122, in <module>
+    main()
+  File "/work/abussing/bsfm-consolidation/checkouts/b09e07917a5d26d9c3ceae0cf686b33945527d40/docs/environment/layer9-linux-20261103/build.py", line 91, in main
+    assert len(built) == 1
+           ^^^^^^^^^^^^^^^
+AssertionError

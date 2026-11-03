@@ -25,13 +25,13 @@ def main():
     assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repo, text=True).strip() == args.expected_commit
     assert not subprocess.check_output(['git', 'status', '--porcelain'], cwd=repo, text=True).strip()
     assert (platform.system(), platform.machine(), platform.python_version()) == ('Linux', 'x86_64', '3.11.14')
-    root = Path('/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source3')
+    root = Path('/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4')
     root.mkdir(exist_ok=False)
     cache = root / 'archives'
     cache.mkdir()
     wheels = root / 'wheels'
     wheels.mkdir()
-    old_cache = root.parent / 'sampler-layer9-cpu-20261103-source2/archives'
+    old_cache = root.parent / 'sampler-layer9-cpu-20261103-source3/archives'
     lockpath = repo / 'docs/sampler/review-layer9-20261103/LINUX_ENVIRONMENT_PROPOSAL.json'
     lock = json.loads(lockpath.read_text())['packages']
     buildpath = Path(__file__).with_name('BUILD_DEPENDENCIES.json')
@@ -46,7 +46,7 @@ def main():
                   library_path=os.environ.get('LD_LIBRARY_PATH'))
     env = dict(os.environ, PYTHONNOUSERSITE='1', JAX_PLATFORMS='cpu',
                JAX_ENABLE_X64='true', OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1',
-               CMAKE_BUILD_PARALLEL_LEVEL='2', PIP_NO_INDEX='1')
+               CMAKE_BUILD_PARALLEL_LEVEL='2', PIP_NO_INDEX='1', PIP_NO_CACHE_DIR='1')
 
     def run(command):
         with (root / 'build.log').open('a') as stream:

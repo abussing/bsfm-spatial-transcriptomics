@@ -32,6 +32,14 @@ loader inspection confirms all cc1plus libraries resolve with that module.
 Its fresh prefix is `source3`; the successful authenticated downloads from
 `source2` are reused only after rehashing. Module/library paths are recorded.
 
+Job 22013406 at b09e079 compiled the source, but the strict wheel-version check
+rejected its 0.0.0 metadata before runtime installation. The source's
+`[[tool.dynamic-metadata]]` format requires scikit-build-core >=1.0, unlike the
+initially pinned 0.11.6. The corrected build backend is pinned to 1.1.2 in its
+separate build venv. No source patch or wheel relabeling is used. The next fresh
+prefix is `source4`, and pip's shared cache is disabled.
+See [upstream metadata-format documentation](https://scikit-build-core.readthedocs.io/en/latest/configuration/dynamic.html).
+
 Upstream references: [source metadata](https://pypi.org/pypi/ml_dtypes/0.6.0/json),
 [build requirements](https://github.com/jax-ml/ml_dtypes/blob/v0.6.0/pyproject.toml),
 [compiler requirements](https://github.com/jax-ml/ml_dtypes/blob/v0.6.0/CMakeLists.txt).

@@ -1,0 +1,9 @@
+{
+  "job_id": "22013406",
+  "commit": "b09e07917a5d26d9c3ceae0cf686b33945527d40",
+  "scope": "environment-only compiler dependency correction, unchanged runtime versions",
+  "submitted_utc": "2026-11-03T08:28:45.982287+00:00",
+  "cpus": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 30
+}
