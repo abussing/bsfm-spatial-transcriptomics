@@ -1,192 +1,228 @@
 # Current BSFM handoff
 
-Verified baseline: `main`, `2424d8cab374255c31d6a39f0aa031fed6ee6c21`
-(accepted Sampler Layers 1-7). Handoff updated: 2026-11-02; portability
-inspection and original-desktop reconciliation records retain their original scope.
+Updated 2026-11-03 after completed shutdown preservation and artifact transfer.
+This supersedes the earlier handoff's pending-transfer statements; older audits
+remain evidence of their original inspections.
 
-Git is authoritative. Read [AGENTS.md](../AGENTS.md),
-[the pipeline portability audit](PORTABILITY_AUDIT.md),
-[CAPABILITIES.md](../CAPABILITIES.md), the
-[sampler architecture](decisions/BSFM_SAMPLER_ARCHITECTURE.md), and
-[Layer 6](sampler/LAYER6.md) and [Layer 7](sampler/LAYER7.md) before implementation. Older checkpoint-specific
-paragraphs describe their original scope; they do not undo later accepted layers.
+## Accepted baseline and unreviewed work
 
-## Completed and remaining work
+Accepted scientific/preparation main baseline:
+`9c584353e74043e323ca327ff1764f9d094980d5`
+(`docs: register canonical S10 full-cell preparation artifacts`). The subsequent
+main commit containing this handoff changes documentation only.
 
-- Canonical SCTransform v2 full-data responses passed for 19 sections at depth
-  124. The final response is log1p(corrected counts), selected to the ordered
-  91 genes and MIC/AST/OGC cells, centered once by section/type/gene.
-- The October-26 adaptive mesh and GP-smooth SVD initializer are canonical,
-  with bounded S10 reproduction evidence, not all-section production claims.
-- Accepted sampler Layers 1-6 implement Gaussian/shrinkage/PX updates,
-  full-spectrum active marginalization, the frozen L16/direct-W factor target,
-  fixed-physical-W conditional/rewhitening, joint-eta PCG, and the split
-  field/hyper BlackJAX transition and window adaptation. The canonical
-  mathematical sampler now includes one complete Gibbs sweep with the selected
-  chronology, public numerical interfaces and all four RNG streams preserved.
-- Layer 5 passed 119 sampler/provenance and eight canonical mesh tests on the
-  original Windows CPU environment. These are not new Linux or GPU results.
-  The synthetic 100-step adaptation retained one divergence in each block;
-  this is mechanical regression evidence, not scientific warmup or mixing.
-- Layer 6 passed 145 sampler/provenance and eight canonical mesh tests on
-  Windows CPU, including exact historical-chronology regression and two
-  consecutive synthetic sweeps. This is not a production runner or scientific fit.
-- Layer 7 at the baseline above provides complete atomic sweep-boundary
-  checkpoints: Gaussian state, ordered factor positions, frozen tuning, all four
-  RNG streams (including cached normals), complete spectral chart/audit,
-  progress and explicit input/geometry/rule/software/run identities. Loading
-  returns fresh objects; the caller explicitly installs the validated global
-  RNG state. Exact uninterrupted-versus-save/load continuation passed for state,
-  chart, tuning, diagnostics, audits and RNG endpoints. All 170 sampler/provenance
-  and eight mesh tests passed on Windows CPU synthetic inputs.
-  Closed temporary files are validated before atomic replacement; a failure
-  preserves the existing checkpoint and retains the failed attempt. Atomicity
-  is not a backup system. Future production launch must require a clean
-  committed tree; checkpoints preserve the caller's clean-tree declaration.
-- Remaining work is retained draws and a diagnostic archive/aggregation,
-  readaptation control, run orchestration/launchers, and platform/GPU validation.
-  No production runner, GPU/HPC validation of Layers 4-7 or scientific fit exists.
-  K, chains, warmup, settling, production lengths and saving cadence remain
-  unresolved.
+Read [AGENTS.md](../AGENTS.md), [CAPABILITIES.md](../CAPABILITIES.md), the
+[sampler architecture](decisions/BSFM_SAMPLER_ARCHITECTURE.md),
+[Layer 8](sampler/LAYER8.md), [Layer 9A design](sampler/LAYER9A_DESIGN.md), and
+[accepted S10 full-cell preparation](initialization/S10_FULLCELL_PREPARATION.md).
+Layers 1-8 are accepted. Layer 9 and leave-out prediction are **not accepted**.
+The Layer-9A design's original preparation gaps are resolved only to the extent
+established by the separate accepted S10 v2 receipt; it is not implementation
+validation.
 
-Preserve the finite-feature likelihood (512 ordered nodes, 1,024 cosine-then-sine
-features, ell_eta=.14), direct-W coordinates, all full-mesh modes and exact
-inactive marginalization. Historical responses are not substitutes for canonical
-SCTransform v2 responses. No settled scientific choice is reopened here.
+The interrupted Layer-9 draft is preserved separately on GitHub:
 
-## Available machines and artifacts
+- Branch: `wip/layer9-orchestration-20261103`.
+- Commit: `a87532ec30d6daacada3245e2cbeb105da4435ce`.
+- Status: **UNREVIEWED, INCOMPLETE, NONCANONICAL. Do not run on scientific data.**
+- Thirteen committed files: six draft source modules, three test/support files,
+  and `docs/wip/layer9_20261103/{STATUS.md,focused-partial.log,inventory.csv,work.patch}`.
+- The inventory authenticates twelve files, excluding itself to avoid circularity;
+  all twelve byte counts/hashes were verified against the pushed Git blobs.
+- No complete Layer-9 test pass or synthetic continuation result exists. Both
+  exploratory test process trees were stopped. The retained partial log predates
+  the final snapshot of tests and does not validate that snapshot.
+- All accepted Layers 1-8 numerical code, fixtures and environments remain unchanged.
 
-The original `C:\Users\Data Viz` Windows desktop is available again, with the
-historical drive mounted at D:. Its raw H5AD and canonical S10 sampler-facing
-mesh match their recorded whole-file hashes. All 19 canonical SCT-v2 bundles
-pass the committed fast closed-file validator from their exact generating
-commit; this authenticates the original deep reports, not a new numerical fit.
-All 28 selected F/code entries in the source ledger also match locally.
-See the [desktop audit](environment/DESKTOP_RECONCILIATION_20261102.json).
+The draft includes initialization/adaptation, genesis, transaction publication
+and repair, storage, and authenticated NPZ-only inputs. Review it against the
+approved design before further development. Do not merge it as accepted code.
 
-The laptop's earlier `C:\Users\andyb\Desktop\johnston_brain\run_bundles`
-junction to E: was unavailable during its inspection. That machine-specific
-finding remains valid. Desktop availability does not imply that raw counts,
-canonical responses or the canonical mesh have been transferred to the laptop
-or HPC. Paths below are labeled by machine, not universal retrieval locations.
+## Canonical artifacts: verified HPC computational mirror
 
-HPC: `abussing@login.rci.sc.edu`, port 222; interactive authentication/Duo.
-Never store authentication secrets in the repository. Read-only checks reached
-`login001` and authenticated selected source and S10 reference files beneath:
+HPC: `abussing@login.rci.sc.edu`, SSH port `222`, interactive authentication/Duo.
+Destination:
 
 ```text
-/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1
+/work/abussing/bsfm-consolidation/canonical-artifacts-20261103
 ```
 
-See [external-artifacts.json](external-artifacts.json) for known paths, hashes,
-availability, classifications and recovery instructions. Hashes identify bytes;
-directory names do not establish canonical status. The raw H5AD, canonical
-response bundles and canonical `sampler-facing.npz` are authenticated on the
-original desktop. The earlier bounded laptop/HPC searches did not locate those
-canonical copies there; no transfer has been performed in this reconciliation.
+**Complete and independently verified at 2026-11-03 06:40:32 UTC:**
+187 payload files, **6,943,739,779 bytes**. No incomplete or mismatched payload
+remains in the transfer receipt. Desktop originals remain authoritative; this is
+a replaceable HPC computational mirror, not archival storage. Scratch retention
+is still a durability limitation, not a blocker to this authorized copy.
 
-**The historical 19-section HPC inputs are available.** All 19
-`gene_review19_20261004_v1/sections/<section_id>/input.npz` files were authenticated
-against the downstream production preparation contract on 2026-11-02. They retain
-300-gene raw-count arrays, historical expression, coordinates and cell identities
-for 187,100 glial cells. See the [per-file inventory](environment/HPC_19SECTION_INPUT_INVENTORY.json).
-The October-24 production tree and subsequent adaptation/production directories
-also exist. Their presence is not a new validation of historical model runs.
-Do not describe this as missing all project data or requiring a public redownload.
-The remaining HPC dependency is transfer of the authenticated full-cell input
-or canonical responses from the desktop. These historical bundles contain glial
-subsets, while canonical SCT is fitted before that subset. No additional blind
-storage search or public redownload is needed to establish the desktop source.
-The [recovery status](environment/HPC_RECOVERY_STATUS.md) records the expanded
-filesystem/archive search, restored S10 source files and remaining R-runtime gap.
+| Destination-relative component | Files | Bytes | Result |
+| --- | ---: | ---: | --- |
+| `s10-preparation-v2/` | 24 | 4,899,499 | Verified complete |
+| `s10-mesh/` | 12 | 8,073,940 | Verified complete |
+| `sct-v2/` | 137 | 1,446,987,796 | Verified complete |
+| `raw/` | 1 | 5,483,600,151 | Verified complete |
+| `receipts/external/` | 1 | 19,720 | Verified complete |
+| `receipts/sct-v2/` | 4 | 74,765 | Verified complete |
+| `receipts/s10-preparation-v2/` | 4 | 75,133 | Verified complete |
+| `receipts/s10-mesh/` | 4 | 8,775 | Verified complete |
 
-Public recovery now identifies the study's Brain Image Library dataset
-[`ace-ear-nap`](https://api.brainimagelibrary.org/web/view?bildid=ace-ear-nap).
-Its [2026-11-02 service update](https://www.brainimagelibrary.org/datacentermove.html)
-reports continuing migration downtime; metadata works but data downloads timed
-out. The archive's contents have not been matched to our required H5AD hash.
-These are retained laptop observations, not a fresh service check. Public
-retrieval is unnecessary for the authenticated desktop copy. Raw-data transfer
-does not block bounded ports using the authenticated historical source on HPC.
+Control inventories/receipts below are additional to the 187 payload files.
+Every destination payload was SHA-256/size checked independently on HPC before
+and after promotion from `.incomplete`, then checked again in a final complete
+inventory pass. Already transferred files and partial prefixes were authenticated
+before reuse. A post-transfer rehash of all 187 desktop sources also passed.
+No desktop source artifact was changed, and no installed Windows environment
+was transferred.
 
-## Canonical artifact storage gate
+The initial sessions stopped during verifier setup/verification and retained
+partial files. Repeated SSH command channels caused repeated approvals; the
+successful helper used one persistent remote verifier and one SFTP channel.
+The final receipt includes authenticated files reused from those partial copies;
+this is transport resumption, not scientific regeneration or reuse of rejected
+scientific artifacts. Credentials were not written to scripts, repository files,
+environment variables or transfer logs. No scientific HPC job was submitted.
 
-The [completed suitability gate](environment/CANONICAL_STORAGE_GATE_20261102.json)
-was recorded at commit `7d18eaeade6046367cb65588a98ab99199cf8108`
-and stopped before transfer: zero payload bytes moved. `/work` had sufficient
-capacity and nominal quota headroom, but GPFS reported stale quota accounting.
-Ordinary scratch retention permits purge after 90 days without access/content
-modification; no path-specific durability exemption was established. `/work`
-is not archival storage. DataHub appears suitable, but no project allocation
-or path is confirmed. No DataHub administration or Linux R retry is authorized
-in this task. The original desktop artifacts remain present and authenticated
-under the recorded desktop receipt; they are not missing. Shared durable
-storage is an operational gap, not a blocker for bounded canonical code ports.
+### Receipt and inventory identities
 
-## Environment portability
+All four files are at the HPC destination above. Byte-identical local copies:
 
-The accepted [CPU lock](../environment/sampler-layer2/README.md) and builder
-describe Windows CPython 3.12.0 and Windows wheels. They cannot be executed
-unchanged on Linux. The existing HPC environment at
-`/work/abussing/arka_trying_gpu_again/env` reports Python 3.11.14, JAX/JAXlib
-0.7.0, NumPy 2.1.3, SciPy 1.14.1 and BlackJAX 1.3. It is historical evidence,
-not a validated canonical environment, and must not be modified in place.
+```text
+C:\Users\Data Viz\Desktop\Anderson_Hail\BSFM_RECOVERY_EVIDENCE\portability_20261103
+```
 
-The login node has glibc 2.17. The official CPython-3.11 Linux wheel for pinned
-ml_dtypes 0.6.0 requires glibc 2.27+. A separate CPU environment has been installed
-under `/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311` using
-a successful source build of the same ml_dtypes version. The first approved
-CPU test job ran all 70 tests but failed the gate: 58 methods passed, 12 failed
-(17 failure records). That failure is retained. Follow-up job **22012334**
-passed all **75 tests** and seven exact same-environment historical/port
-comparisons, preserving the Windows fixtures and numerical tolerances.
-See [HPC CPU setup](environment/HPC_CPU_SETUP.md), the
-[initial result](environment/HPC_CPU_VALIDATION_22012327.json), and
-[passing Linux audit](environment/HPC_SAME_ENVIRONMENT_VALIDATION.md).
-Installed GPU package metadata is not GPU execution evidence.
+| Control file | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `source-inventory.json` | 71,037 | `8d5861b3ac76b4e4eaea5fd8d979cb360b3d425530d0b4faadb79a65b7f51a79` |
+| `source-inventory.csv` | 46,075 | `b30c0a8562be6871e6edfb81c8e525310c17ea3346f2b228afa1fd8e30b30752` |
+| `transfer-receipt.json` | 45,963 | `5ed5813756a19c73f672c6873b6f41093521ea1dd4a46d8a075ff18d13bb4f60` |
+| `destination-verification.json` | 36,311 | `8254cd7d7a4e96665a667d6a226a636076944f6161646d7ea8ea62984e69ba65` |
 
-## Resume sequence
+The inventory preserves exact original machine-local paths and their mapping to
+HPC-relative paths. Internal Windows provenance strings were copied unchanged;
+they are not Linux runtime paths. Do not rewrite immutable scientific contracts
+to pretend artifacts were generated on HPC. Resolve actual artifact paths
+explicitly while retaining their authenticated identities.
 
-1. Clone GitHub; verify origin, branch, HEAD and working-tree status. Read the
-   documents above and the artifact manifest. Do not rerun completed recovery.
-2. Authenticate accessible external files against the recorded SHA-256 values.
-   Ordinary sampler fixtures and the frozen rule are already in Git and do not
-   require the raw H5AD or historical drive.
-3. Preserve the installed Linux environment and both CPU validation receipts.
-   Same-environment source/port checks now pass; do not repeat that recovery.
-   Full source-build reproducibility remains unestablished. Prepare a committed
-   specification before further HPC jobs; follow AGENTS.md approval requirements.
-   Do not run the scientific suite on a login node.
-4. Plan transfer of the already authenticated desktop raw input, all 19 canonical
-   response bundles and canonical S10 mesh to the intended machine. Authenticate
-   hashes after transfer and restore the required platform-specific environments.
-   No transfer or regeneration was performed in this reconciliation. Preserve the
-   distinction between fast byte/provenance validation and new deep numerical
-   validation. A different payload requires explicit provenance reconciliation.
-5. Five exact S10 source-geometry files, including cells.csv, were restored from
-   the HPC SOURCE_INPUTS.zip archive and authenticated against the committed
-   inventory. See the [recovery receipt](environment/HPC_S10_GEOMETRY_RECOVERY.json).
-   No geometry adapter is needed for these inputs. The two preview topology files
-   were also recovered as exact duplicates; the preview projector and certificate
-   remain unresolved. Approved Linux R build job 22012386 failed during optional
-   NEWS.pdf documentation generation before installation; its logs and package
-   report are retained. The separately approved retry **22012400 timed out**
-   (exit `1:0`, elapsed `02:00:09`, node432; batch MaxRSS `902232K`). R installed
-   and 20 packages completed, ending with lifecycle. The retained receipt is
-   incomplete (`started`); package-s2 has no return code and its log ends at
-   `Using abseil-cpp from pkg-config`. No validate log exists. See the
-   [terminal run record](environment/HPC_R_MESH_BUILD_22012400.json). Preserve
-   the partial prefix unchanged; no retry or resume was performed or approved
-   by this integration. Fresh package/version/isolation validation was not
-   reached, and no canonical Linux mesh was reproduced. Restore/validate
-   the Linux mesh environment before a canonical rebuild.
-   Existing historical mesh
-   files are evidence and must not silently be relabeled canonical exports.
-6. Continue the remaining sampler components as bounded ports with source maps
-   and independent mechanical checks. This portability step adds no sampler
-   functionality and does not select a scientific run configuration.
+Required payload identities:
 
-New Linux execution produces new provenance and may differ in serialized bytes.
-Do not rewrite old receipts to claim reproduction. Keep large artifacts outside
-Git, with stable HPC paths and completion manifests linking them to their exact
-generating code/configuration/environment.
+- `s10-mesh/sampler-facing.npz`: 7,195,273 bytes;
+  `69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0`.
+- `sct-v2/run-manifest.json`:
+  `03b83d93891080f15b6a85684e2cb5de8d9a9b7cdf72f8c25dd8103403e1e06f`.
+- `raw/Johnston_MERFISH_Data.h5ad`: 5,483,600,151 bytes;
+  `d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38`.
+
+The S10 v2 package contains the exact 9,422-cell canonical response/mesh join,
+prepared model input, two deterministic GPINIT fits and independent readbacks.
+Its clean generating commit remains
+`679a7432430464ba0031f9762b77e48f50946964`; registration and transfer do not
+change the producer. K=20, nfit=250 and seed=2026102610 remain mechanical gate
+settings, not production choices. Historical 4,712-cell artifacts are not
+substitutes. See the [v2 receipt](initialization/audits/S10_fullcell_v2_20261103/receipt.json).
+
+## Environment and scientific limits
+
+Existing HPC sampler CPU environment:
+
+```text
+/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311
+```
+
+The [passing Linux CPU audit](environment/HPC_SAME_ENVIRONMENT_VALIDATION.md)
+records job 22012334: 75 tests and seven same-environment historical/port
+comparisons. This is its bounded historical validation scope, not validation
+of later Windows-only sampler layers, the WIP runner, or a GPU production fit.
+Use platform-specific locks and receipts; do not copy Windows virtualenvs or
+silently substitute dependency versions.
+
+**Canonical Linux fmesher remains incomplete.** Job 22012400 timed out
+(exit `1:0`, elapsed `02:00:09`, batch MaxRSS `902232K`); R and 20 packages
+completed, with the retained log stopping in s2. Fresh package/version/isolation
+validation and canonical Linux mesh reproduction were not reached. Preserve the
+partial prefix. See the [terminal record](environment/HPC_R_MESH_BUILD_22012400.json).
+The accepted Windows mesh and the transferred canonical mesh artifacts remain
+valid within their recorded scope; this transfer does not reproduce them on Linux.
+
+Full-data SCT at depth 124 is **ineligible for primary holdout scoring**.
+The copied S10 preparation is full-data preparation. Future primary leave-out
+experiments require approved training-only preprocessing/fitting/depth/centering
+populations and an explicit scoring policy. Reuse the approved fixed-design mesh
+for chunk holdouts; do not silently substitute historical responses or rebuild
+geometry after removing observations. No leave-out workflow, scientific fit,
+production K, chain count, or run lengths were selected by this task.
+
+## Exact resume instructions on another computer
+
+1. Clone accepted main and inspect the WIP without mixing it into main:
+
+   ```sh
+   git clone https://github.com/abussing/bsfm-spatial-transcriptomics.git
+   cd bsfm-spatial-transcriptomics
+   git fetch origin
+   git status --short --branch
+   git rev-parse HEAD origin/main
+   git show origin/wip/layer9-orchestration-20261103:docs/wip/layer9_20261103/STATUS.md
+   git worktree add --detach ../bsfm-layer9-review origin/wip/layer9-orchestration-20261103
+   ```
+
+   Verify the WIP commit equals `a87532ec30d6daacada3245e2cbeb105da4435ce`.
+   Read its status, inventory and patch before editing. Main must stay clean.
+
+2. Authenticate once to HPC, then run the following read-only integrity check
+   inside that shell. This hashes payload bytes; it does not execute a sampler:
+
+   ```sh
+   ssh -p 222 abussing@login.rci.sc.edu
+   /work/abussing/bsfm-consolidation/environments/sampler-cpu-py311/bin/python - <<'PY'
+   import hashlib, json
+   from pathlib import Path
+   root = Path('/work/abussing/bsfm-consolidation/canonical-artifacts-20261103')
+   def sha(p):
+       h = hashlib.sha256()
+       with p.open('rb') as f:
+           for chunk in iter(lambda: f.read(1048576), b''):
+               h.update(chunk)
+       return h.hexdigest()
+   assert sha(root/'source-inventory.json') == '8d5861b3ac76b4e4eaea5fd8d979cb360b3d425530d0b4faadb79a65b7f51a79'
+   assert sha(root/'transfer-receipt.json') == '5ed5813756a19c73f672c6873b6f41093521ea1dd4a46d8a075ff18d13bb4f60'
+   assert sha(root/'destination-verification.json') == '8254cd7d7a4e96665a667d6a226a636076944f6161646d7ea8ea62984e69ba65'
+   inv = json.loads((root/'source-inventory.json').read_text())
+   receipt = json.loads((root/'transfer-receipt.json').read_text())
+   assert receipt['status'] == 'complete_verified'
+   assert len(inv['files']) == len(receipt['files']) == 187
+   for row in inv['files']:
+       p = root / row['relative_path']
+       assert p.stat().st_size == row['bytes'], str(p)
+       assert sha(p) == row['sha256'], str(p)
+   assert sum(r['bytes'] for r in inv['files']) == receipt['total_verified_bytes'] == 6943739779
+   print('PASS: 187 payloads, 6,943,739,779 bytes')
+   PY
+   ```
+
+   If downloading to another computer, preserve the relative layout and repeat
+   the inventory check with `root` pointing at that local mirror. Never infer
+   integrity from a successful copy command or directory existence.
+
+3. Resume **review and bounded implementation**, not a scientific run. In the
+   separate WIP worktree, authenticate the twelve inventory entries, inspect
+   the draft against Layer 9A, finish initialization/RNG equivalence, genesis,
+   transaction crash/recovery and non-replay tests, and run the complete
+   sampler/provenance and eight canonical mesh suites in their accepted
+   environments. The existing draft's partial log is not a pass. No package
+   change, tolerance relaxation or automatic WIP promotion is authorized here.
+
+4. Preserve the approved NPZ/contract runtime boundary, target acceptance 0.9,
+   immutable run identity, separate genesis, per-sweep atomic transaction,
+   repairable projections, exact same-run resume and deferred readaptation.
+   Timing remains outside authoritative scientific records. Do not reopen
+   preparation, GPINIT or Layers 1-8 to evade a draft failure.
+
+5. After Layer-9 review/acceptance, separately specify and seek approval for
+   the S10 leave-out-chunk pilot: training-only preprocessing and scoring,
+   held-out identities, fixed geometry, explicit run parameters and platform
+   validation. The current full-data artifacts support mechanical integration,
+   not an honest primary holdout score. Any HPC job requires a committed run
+   specification and explicit approval under AGENTS.md.
+
+No transfer remains to resume. Operational helper scripts and interruption
+records remain in the local evidence directory above; no further scientific
+implementation was added during shutdown preservation. Large payloads,
+checkpoints, environments and logs remain outside Git.
