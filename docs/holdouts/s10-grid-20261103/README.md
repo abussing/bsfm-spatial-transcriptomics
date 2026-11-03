@@ -24,6 +24,15 @@ Local external outputs are under
 The split NPZ stores ordered canonical full-input row indices for both training
 and held-out cells in every configuration. No mesh arrays were modified.
 
+HPC copies of configurations.json and split-indices.npz are preserved at
+`/work/abussing/bsfm-consolidation/evidence/s10-grid-20261103`.
+Independent destination SHA-256 readbacks matched the local files:
+
+- configurations.json: `1258b20ba8b1274fd47a84ad8e57b1467a639df2ed5abda68fad3356b52b0223`
+- split-indices.npz: `fa7e24d4d4a8a7b336975ddc05571d895f5957bde694b9c646ec0ccb2e5c7cdd`
+
+Generating script and definitions were published in review commit `2f0e8be`.
+
 To reproduce the coordinate input on another machine, load the authenticated
 canonical mirror's `s10-preparation-v2/prepared/model-input.npz` and the
 historical `OBSERVATIONS.npz` registered in `docs/external-artifacts.json`.
