@@ -1,0 +1,16 @@
+{
+  "status": "SUBMITTED_NOT_YET_VALIDATED",
+  "job_id": "22015748",
+  "commit": "fc08d6e02b5142af43a02a6d6535d4173063e9a7",
+  "approval": "User approved committing candidate and bounded synthetic GPU gate in conversation on 2026-11-03",
+  "specification": "docs/recovery/gpu-workflow-20261103/gpu_validation.sbatch",
+  "partition": "v100-16gb-hiprio",
+  "limits": {"gpus": 1, "cpus": 4, "host_memory_gib": 16, "minutes": 30},
+  "scope": "Synthetic inputs only; existing scientific jobs unchanged",
+  "checkout": "/work/abussing/bsfm-consolidation/checkouts/fc08d6e02b5142af43a02a6d6535d4173063e9a7",
+  "log": "/work/abussing/bsfm-consolidation/evidence/workflow-gate-22015748.log",
+  "output": "/work/abussing/bsfm-consolidation/evidence/workflow-gate-22015748",
+  "transfer_bundle_sha256": "c77e6624b85e758f1a6b1b211d253c9ff5c4778a82babf5df519100735081396",
+  "preflight": "Bundle hash and Git prerequisites verified; exact detached checkout clean; bash syntax passed",
+  "supersedes": "Earlier review documents describe the pre-approval uncommitted snapshot. Candidate is now committed for this validation only; not selected by scientific launchers."
+}
