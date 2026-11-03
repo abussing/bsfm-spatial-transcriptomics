@@ -1,0 +1,115 @@
+{
+  "scope": "Retained synthetic artifacts only; no canonical data rehash",
+  "files": [
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/input-receipt.json",
+      "bytes": 3060,
+      "sha256": "0805ec0d7476b34212cf47e8d2a2ba532be572c34c935d7a0ca8c1ecb8bb8d47"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/run-spec.json",
+      "bytes": 686,
+      "sha256": "937c8099524dc53cdb1cf90a4693b8c77b68b32d24c6ea71282d6771a89bc9fc"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/archive/contract.json",
+      "bytes": 8378,
+      "sha256": "78371998d24b2b6f0910aa860a18d8241119a20b34086dde7fc188b284f9b83c"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/archive/records/000000000001/record.npz",
+      "bytes": 11742,
+      "sha256": "9ccb5465ffad5e7729fed18ce0bd62f4585d7a9be1a19d80c0f613613de6d4f9"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/archive/records/000000000002/record.npz",
+      "bytes": 11626,
+      "sha256": "c1200c74513925cba20d388d6f9e887c45531f64694d4defda5b81614022b58e"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/attempts/genesis-tezhpca_/performance.json",
+      "bytes": 75,
+      "sha256": "fe269ccc92ef2415df3f87cab31b5df2f2e0eaa7bd2385e41f32949914de7223"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/attempts/sweep-000000000001-mwhc9am_/intent.json",
+      "bytes": 178,
+      "sha256": "ddf4f46faf7e8b72bc7934d790926303461e07ccf1b621623896d515141561dc"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/attempts/sweep-000000000001-mwhc9am_/performance.json",
+      "bytes": 59,
+      "sha256": "a05b6b010315a1dac8a7c35269238c9cc0e0824f76ffe7b4d4ce921699bd1293"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/attempts/sweep-000000000002-kiy53ssq/intent.json",
+      "bytes": 178,
+      "sha256": "6514f32cc264e4229c0893e035695f240f1f94b598aed94140a8495e643e1524"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/attempts/sweep-000000000002-kiy53ssq/performance.json",
+      "bytes": 60,
+      "sha256": "5b049e839fd2a3bd8569e6d29ea015eeddf6d1fe18002eeb5e09e8e35453a544"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/checkpoints/000000000002.npz",
+      "bytes": 17924,
+      "sha256": "38f35d796aaedc5c9f0bc1d2ff50c8a00d354c84e5b7516469dee2b722a4d666"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/completion.json",
+      "bytes": 1740,
+      "sha256": "c2f7a959693e259715f61025049f5de0f0a3959aab1500f24f91bf1d71456688"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/genesis/endpoint.npz",
+      "bytes": 44615,
+      "sha256": "937b10f715ff41f6cc45aea05328e6e9e1fcbf5ef72e49ae42d899b7ed5d9185"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/genesis/receipt.json",
+      "bytes": 379,
+      "sha256": "e7a64addcca13c17f995d9c8e99f93ead89b3a4d1cb54ff48620f02d10b394f3"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/run-ledger.json",
+      "bytes": 103,
+      "sha256": "472b79b6176dd5a87ddbfa0909e5711dc01ea5dff07a835f85a3ac004ff94d90"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/transactions/000000000001/checkpoint.npz",
+      "bytes": 17824,
+      "sha256": "d2096194e369bdef714eb7e025e7bf3dd036d2022b05fea606017d7d588afe9e"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/transactions/000000000001/prepared.json",
+      "bytes": 980,
+      "sha256": "2eb0169e64b72c0f4256a7c29a756d37c46ec87a5fc5c01ea80060af0b068114"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/transactions/000000000001/record.npz",
+      "bytes": 11742,
+      "sha256": "9ccb5465ffad5e7729fed18ce0bd62f4585d7a9be1a19d80c0f613613de6d4f9"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/transactions/000000000002/checkpoint.npz",
+      "bytes": 17924,
+      "sha256": "38f35d796aaedc5c9f0bc1d2ff50c8a00d354c84e5b7516469dee2b722a4d666"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/transactions/000000000002/prepared.json",
+      "bytes": 980,
+      "sha256": "bcac089addace46c5e5eb1a2869e43875eb6d77b4dd94c48ac3cac3ac86c8bfc"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/segments/segment/transactions/000000000002/record.npz",
+      "bytes": 11626,
+      "sha256": "c1200c74513925cba20d388d6f9e887c45531f64694d4defda5b81614022b58e"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/synthetic/template/writer.lock",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    }
+  ]
+}

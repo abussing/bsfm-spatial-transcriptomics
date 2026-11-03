@@ -1,0 +1,10 @@
+{
+  "job_id": "22013417",
+  "commit": "8abee709c592440dbc42e00fcdeb5a5da8d9b050",
+  "scope": "Focused corrected storage validation only; no sampler transitions",
+  "approval": "Explicit user approval of final storage check",
+  "submitted_utc": "2026-11-03T08:56:52.154797+00:00",
+  "cpus": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 5
+}

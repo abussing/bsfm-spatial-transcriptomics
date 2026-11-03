@@ -1,0 +1,494 @@
+diff --git a/src/bsfm/sampler/run_controller.py b/src/bsfm/sampler/run_controller.py
+index 602c5bc..61e17d3 100644
+--- a/src/bsfm/sampler/run_controller.py
++++ b/src/bsfm/sampler/run_controller.py
+@@ -1,4 +1,4 @@
+-"""Bounded Windows CPU run composition. No readaptation or scientific defaults."""
++"""Bounded CPU run composition. No readaptation or scientific defaults."""
+ from pathlib import Path
+ import copy
+ import re
+diff --git a/src/bsfm/sampler/run_inputs.py b/src/bsfm/sampler/run_inputs.py
+index b313891..78e09fd 100644
+--- a/src/bsfm/sampler/run_inputs.py
++++ b/src/bsfm/sampler/run_inputs.py
+@@ -23,6 +23,9 @@ REPO=Path(__file__).resolve().parents[3]
+ 
+ 
+ def authenticate_environment():
++    if sys.platform=='linux':
++        from .run_linux_environment import authenticate_linux_environment
++        return authenticate_linux_environment()
+     lockpath=REPO/'environment/sampler-layer5/source-lock.json';lock=read_json(lockpath)
+     prefix=Path(sys.prefix).resolve();root=prefix.parent
+     if (sys.version.split()[0]!=lock['python'] or site.ENABLE_USER_SITE or sys.prefix==sys.base_prefix
+diff --git a/src/bsfm/sampler/run_linux_environment.py b/src/bsfm/sampler/run_linux_environment.py
+new file mode 100644
+index 0000000..0149f4b
+--- /dev/null
++++ b/src/bsfm/sampler/run_linux_environment.py
+@@ -0,0 +1,131 @@
++"""Authenticate the recorded Linux build without substituting a Windows lock."""
++import base64
++import csv
++import hashlib
++import importlib.metadata as metadata
++import importlib.util
++import marshal
++from pathlib import Path
++import platform
++import site
++import sys
++import zipfile
++
++from .run_storage import file_record, read_json
++
++REPO = Path(__file__).resolve().parents[3]
++RECEIPTS = REPO / 'docs/environment/layer9-linux-20261103'
++
++
++def verify_wheel(wheel, expected, site_packages, *, regenerated=None):
++    if file_record(wheel) != {k: expected[k] for k in ('bytes', 'sha256')}:
++        raise ValueError('Cached Linux wheel changed')
++    count = 0
++    with zipfile.ZipFile(wheel) as archive:
++        for name in archive.namelist():
++            if name.endswith('/') or name.endswith('.dist-info/RECORD'):
++                continue
++            if '.data/' in name:
++                continue  # Installed RECORD authenticates platform script relocation.
++            dest = (site_packages / name).resolve()
++            if not dest.is_relative_to(site_packages):
++                raise ValueError('Wheel member escapes site packages')
++            if hashlib.sha256(archive.read(name)).hexdigest() != file_record(dest)['sha256']:
++                if not name.endswith('.pyc'):
++                    raise ValueError('Installed Linux wheel member changed: '+name)
++                # pip recompiles wheel-bundled bytecode for the installation path.
++                # Authenticate that regenerated code against the source IN THE
++                # HASHED WHEEL; never merely exempt executable bytecode.
++                source = Path(importlib.util.source_from_cache(name)).as_posix()
++                raw = dest.read_bytes()
++                if raw[:4] != importlib.util.MAGIC_NUMBER:
++                    raise ValueError('Installed bytecode interpreter mismatch')
++                actual = marshal.loads(raw[16:])
++                optimization = 2 if '.opt-2.' in name else 1 if '.opt-1.' in name else 0
++                expected_code = compile(archive.read(source), actual.co_filename, 'exec',
++                                        dont_inherit=True, optimize=optimization)
++                if actual != expected_code:
++                    raise ValueError('Installed bytecode differs from authenticated wheel source')
++                if regenerated is not None:
++                    original = archive.read(name)
++                    regenerated[dest] = (hashlib.sha256(original).digest(), len(original))
++            count += 1
++    return count
++
++
++def authenticate_linux_environment():
++    import jax
++    from threadpoolctl import threadpool_info
++    prefix = Path(sys.prefix).resolve()
++    root = prefix.parent
++    expected_report = RECEIPTS / 'job22013408-build-report.json'
++    report = read_json(expected_report)
++    package_report = RECEIPTS / 'job22013408-package-validation.json'
++    packages = read_json(package_report)
++    lockpath = REPO / 'docs/sampler/review-layer9-20261103/LINUX_ENVIRONMENT_PROPOSAL.json'
++    if (platform.system(), platform.machine(), platform.python_version()) != ('Linux', 'x86_64', '3.11.14'):
++        raise ValueError('Recorded Linux x86_64 Python 3.11.14 required')
++    if (site.ENABLE_USER_SITE or sys.prefix == sys.base_prefix
++            or 'include-system-site-packages = false' not in (prefix/'pyvenv.cfg').read_text()
++            or not jax.config.x64_enabled or jax.default_backend() != 'cpu'):
++        raise ValueError('Isolated Linux CPU/x64 environment required')
++    if report['status'] != 'environment_restored_numerical_validation_pending':
++        raise ValueError('Unverified Linux build receipt')
++    if (file_record(root/'build-report.json') != file_record(expected_report)
++            or file_record(root/'package-validation.json') != file_record(package_report)
++            or file_record(package_report)['sha256'] != report['package_report_sha256']
++            or file_record(lockpath)['sha256'] != report['runtime_lock_sha256']):
++        raise ValueError('Linux build/lock receipt identity changed')
++    if file_record((Path(sys.base_prefix)/'bin/python').resolve())['sha256'] != report['base_python_sha256']:
++        raise ValueError('Linux base interpreter changed')
++    if file_record(sys.executable)['sha256'] != report['base_python_sha256']:
++        raise ValueError('Linux environment interpreter changed')
++    distributions = list(metadata.distributions())
++    actual = {d.metadata['Name'].lower().replace('_', '-'): d.version for d in distributions}
++    if actual != packages['packages'] or len(distributions) != len(actual):
++        raise ValueError('Linux installed package closure mismatch')
++    site_packages = prefix/'lib/python3.11/site-packages'
++    archives = {r['name']: r for r in report['archives']}
++    wheel_files = 0
++    regenerated = {}
++    for row in read_json(lockpath)['packages']:
++        if row['name'] == 'ml_dtypes':
++            wheel = report['built_wheel']
++            path = root/'wheels'/wheel['name']
++        else:
++            filename = row['url'].rsplit('/', 1)[-1]
++            wheel = archives[filename]
++            if wheel['sha256'] != row['sha256']:
++                raise ValueError('Linux archive differs from frozen lock')
++            path = root/'archives'/filename
++        wheel_files += verify_wheel(path, wheel, site_packages, regenerated=regenerated)
++    installed_files = 0
++    for distribution in distributions:
++        if Path(distribution.locate_file('')).resolve() != site_packages:
++            raise ValueError('Foreign Linux site package')
++        for name, encoded, size in csv.reader(distribution.read_text('RECORD').splitlines()):
++            if not encoded:
++                continue
++            alg, value = encoded.split('=', 1)
++            path = Path(distribution.locate_file(name)).resolve()
++            if alg != 'sha256' or not path.is_relative_to(prefix):
++                raise ValueError('Linux installed RECORD path/hash')
++            record = file_record(path)
++            if (base64.urlsafe_b64encode(bytes.fromhex(record['sha256'])).decode().rstrip('=') != value
++                    or record['bytes'] != int(size)):
++                original = regenerated.get(path)
++                if (original is None or original[1] != int(size)
++                        or base64.urlsafe_b64encode(original[0]).decode().rstrip('=') != value):
++                    raise ValueError('Linux installed RECORD mismatch: '+name)
++            installed_files += 1
++    blas = threadpool_info()
++    if any(row['num_threads'] != 1 for row in blas):
++        raise ValueError('Single-thread numerical libraries required')
++    return dict(schema='bsfm.layer9-linux-cpu-authentication.v1',
++                executable=str(Path(sys.executable).resolve()),
++                runtime=file_record(sys.executable), lock=file_record(lockpath),
++                installed_receipt=file_record(expected_report), packages=actual,
++                cpu=True, x64=True, blas=blas, installed_record_files=installed_files,
++                wheel_member_files=wheel_files,
++                source_authenticated_regenerated_bytecode=len(regenerated),
++                limitation='Same-platform validation required; bootstrap pip/setuptools checked by installed RECORD')
+diff --git a/src/bsfm/sampler/run_linux_storage.py b/src/bsfm/sampler/run_linux_storage.py
+new file mode 100644
+index 0000000..6c2accf
+--- /dev/null
++++ b/src/bsfm/sampler/run_linux_storage.py
+@@ -0,0 +1,34 @@
++"""Linux x86_64 no-replace namespace publication; no numerical operations."""
++import ctypes
++import errno
++import platform
++
++
++def rename_noreplace(source, destination, *, writer_owned=False):
++    """No replacement among cooperating writers; GPFS requires held run lock."""
++    if platform.system() != 'Linux' or platform.machine() != 'x86_64':
++        raise RuntimeError('Only Linux x86_64 publication is supported')
++    import os
++    libc = ctypes.CDLL(None, use_errno=True)
++    # x86_64 Linux syscall table: renameat2=316. This also supports glibc 2.17,
++    # which predates the libc wrapper. Unsupported filesystems require the
++    # existing single-cooperating-writer protocol, never an unowned fallback.
++    syscall = libc.syscall
++    syscall.restype = ctypes.c_long
++    result = syscall(ctypes.c_long(316), ctypes.c_int(-100),
++                     ctypes.c_char_p(os.fsencode(source)), ctypes.c_int(-100),
++                     ctypes.c_char_p(os.fsencode(destination)), ctypes.c_uint(1))
++    if result != 0:
++        error = ctypes.get_errno()
++        if error in (errno.ENOSYS, errno.EINVAL, errno.EOPNOTSUPP):
++            if not writer_owned:
++                raise RuntimeError('Filesystem publication requires exclusive run ownership')
++            if os.path.lexists(destination):
++                raise FileExistsError(errno.EEXIST, os.strerror(errno.EEXIST), str(destination))
++            # The held writer lease excludes every cooperating publisher for
++            # this root. Check+rename is serialized by that lease; rename is
++            # still the single namespace commit point. Uncooperating external
++            # mutation and machine/filesystem power loss are outside scope.
++            os.rename(source,destination)
++            return
++        raise OSError(error, os.strerror(error), str(destination))
+diff --git a/src/bsfm/sampler/run_storage.py b/src/bsfm/sampler/run_storage.py
+index 37a67de..f995f43 100644
+--- a/src/bsfm/sampler/run_storage.py
++++ b/src/bsfm/sampler/run_storage.py
+@@ -1,5 +1,6 @@
+ """Local single-writer publication primitives; no stochastic authority in ledgers."""
+ from contextlib import contextmanager
++from contextvars import ContextVar
+ import hashlib
+ import os
+ from pathlib import Path
+@@ -8,6 +9,15 @@ import tempfile
+ import numpy as np
+ from .checkpoint_rng import json_text, parse_json
+ 
++_WRITER_ROOTS=ContextVar('bsfm_writer_roots',default=())
++
++
++def owns_publication(source,destination):
++    """Normalize dot-dot components before deciding whether a lease covers paths."""
++    source=Path(source).resolve();destination=Path(destination).resolve()
++    return any(pid==os.getpid() and source.is_relative_to(root.resolve()) and destination.is_relative_to(root.resolve())
++               for root,pid in _WRITER_ROOTS.get())
++
+ 
+ def safe(path):
+     path=Path(path).absolute()
+@@ -42,7 +52,11 @@ def publish(source,destination):
+     source=safe(source);destination=safe(destination)
+     if destination.exists():raise FileExistsError(destination)
+     if source.stat().st_dev!=destination.parent.stat().st_dev:raise ValueError('Cross-filesystem publication')
+-    os.rename(source,destination)
++    if os.name=='posix':
++        from .run_linux_storage import rename_noreplace
++        rename_noreplace(source,destination,writer_owned=owns_publication(source,destination))
++    else:
++        os.rename(source,destination)
+ 
+ 
+ def copy_exact(source,destination):
+@@ -68,14 +82,25 @@ def advisory(path,value):
+ 
+ @contextmanager
+ def writer(root):
+-    """OS-held local byte lock, released on process death; no PID guessing."""
+-    import msvcrt
++    """OS-held exclusive lock, released on process death; no PID guessing."""
++    if os.name=='nt':
++        import msvcrt
++        acquire=lambda f:msvcrt.locking(f.fileno(),msvcrt.LK_NBLCK,1)
++        release=lambda f:msvcrt.locking(f.fileno(),msvcrt.LK_UNLCK,1)
++    elif os.name=='posix':
++        import fcntl
++        acquire=lambda f:fcntl.flock(f.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
++        release=lambda f:fcntl.flock(f.fileno(),fcntl.LOCK_UN)
++    else:raise RuntimeError('Unsupported writer-lock platform')
+     root=safe(root);root.mkdir(parents=True,exist_ok=True)
+     with safe(root/'writer.lock').open('a+b') as f:
+         f.seek(0,2)
+         if f.tell()==0:f.write(b'0');f.flush()
+         f.seek(0)
+-        try:msvcrt.locking(f.fileno(),msvcrt.LK_NBLCK,1)
++        try:acquire(f)
+         except OSError as exc:raise RuntimeError('Another local writer owns the run') from exc
++        token=_WRITER_ROOTS.set((*_WRITER_ROOTS.get(),(root,os.getpid())))
+         try:yield
+-        finally:f.seek(0);msvcrt.locking(f.fileno(),msvcrt.LK_UNLCK,1)
++        finally:
++            _WRITER_ROOTS.reset(token)
++            f.seek(0);release(f)
+diff --git a/tests/sampler_layer9_support.py b/tests/sampler_layer9_support.py
+index b3ff01a..3547f5e 100644
+--- a/tests/sampler_layer9_support.py
++++ b/tests/sampler_layer9_support.py
+@@ -3,6 +3,7 @@ import ast
+ import copy
+ import hashlib
+ import os
++import sys
+ from functools import lru_cache
+ from pathlib import Path
+ from types import SimpleNamespace
+@@ -32,7 +33,7 @@ def controller(path,*,every=2,settling=0,final=2):
+         mode='exact_resume',input_sha256=digest(binding),software=dict(git_commit=BASE,clean_tree=False,
+             run_config_sha256=digest(dict(scope='synthetic',every=every,settling=settling,final=final)),
+             environment_lock_sha256=hashlib.sha256((ROOT/'environment/sampler-layer5/source-lock.json').read_bytes()).hexdigest(),
+-            environment_identity='accepted-layer5-Windows-CPU:synthetic-review'))
++            environment_identity='layer9-'+sys.platform+'-CPU:synthetic-review'))
+     result=RunController(path,target,state.loading,state.eta,spec,binding,authenticate=target._validate_identities)
+     result.layer=layer
+     return result
+diff --git a/tests/test_sampler_layer9.py b/tests/test_sampler_layer9.py
+index 5e86e77..84dab82 100644
+--- a/tests/test_sampler_layer9.py
++++ b/tests/test_sampler_layer9.py
+@@ -309,7 +309,7 @@ class Layer9Tests(unittest.TestCase):
+         out=os.environ.get('BSFM_LAYER9_RECEIPT')
+         if out:
+             p=Path(out);p.parent.mkdir(parents=True,exist_ok=True)
+-            p.write_text(json.dumps(dict(scope='synthetic Windows CPU only',completion=cls.complete,
++            p.write_text(json.dumps(dict(scope='synthetic '+sys.platform+' CPU only',completion=cls.complete,
+                 boundary=cls.reference_chain['endpoint'].boundary,historical_initialization_reference=cls.reference_sources,
+                 target_acceptance=.9,warmup_steps_per_factor=20,real_sweeps_per_arm=2),indent=2,allow_nan=False)+'\n',encoding='utf-8')
+ 
+diff --git a/tests/test_sampler_layer9_portability.py b/tests/test_sampler_layer9_portability.py
+new file mode 100644
+index 0000000..8bd8f10
+--- /dev/null
++++ b/tests/test_sampler_layer9_portability.py
+@@ -0,0 +1,161 @@
++"""OS-process ownership and authenticated wheel corruption checks."""
++import os
++import importlib.util
++import marshal
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++import unittest
++import zipfile
++
++from bsfm.sampler.run_storage import writer, publish, file_record, owns_publication
++from bsfm.sampler.run_linux_environment import verify_wheel
++
++
++class PortabilityTests(unittest.TestCase):
++    def setUp(self):
++        self.temp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.temp.cleanup)
++        self.root = Path(self.temp.name)
++
++    def test_writer_excludes_fresh_process(self):
++        code = '''import sys
++from bsfm.sampler.run_storage import writer
++try:
++    with writer(sys.argv[1]): pass
++except RuntimeError:
++    sys.exit(17)
++'''
++        with writer(self.root):
++            result = subprocess.run([sys.executable, '-B', '-c', code, str(self.root)], timeout=30)
++            self.assertEqual(result.returncode, 17)
++        result = subprocess.run([sys.executable, '-B', '-c', code, str(self.root)], timeout=30)
++        self.assertEqual(result.returncode, 0)
++
++    def test_writer_ownership_rejects_dotdot_escape_and_ends_with_context(self):
++        source=self.root/'source'; dest=self.root/'destination'
++        with writer(self.root):
++            self.assertTrue(owns_publication(source,dest))
++            self.assertFalse(owns_publication(self.root/'sub/../../outside',dest))
++            self.assertFalse(owns_publication(source,self.root/'../outside'))
++        self.assertFalse(owns_publication(source,dest))
++
++    def test_writer_released_on_process_death(self):
++        code = '''import sys,time
++from bsfm.sampler.run_storage import writer
++with writer(sys.argv[1]):
++    print('LOCKED',flush=True)
++    time.sleep(60)
++'''
++        child = subprocess.Popen([sys.executable, '-B', '-c', code, str(self.root)], stdout=subprocess.PIPE, text=True)
++        try:
++            self.assertEqual(child.stdout.readline().strip(), 'LOCKED')
++            with self.assertRaises(RuntimeError):
++                with writer(self.root): pass
++            child.kill()
++            child.wait(timeout=30)
++            with writer(self.root): pass
++        finally:
++            if child.poll() is None:
++                child.kill()
++                child.wait(timeout=30)
++            child.stdout.close()
++
++    def test_directory_publication_and_collision(self):
++        source = self.root/'source'; source.mkdir()
++        (source/'payload').write_bytes(b'complete')
++        dest = self.root/'committed'
++        with writer(self.root): publish(source, dest)
++        self.assertEqual((dest/'payload').read_bytes(), b'complete')
++        source.mkdir()
++        (source/'payload').write_bytes(b'conflict')
++        with self.assertRaises(FileExistsError): publish(source, dest)
++        self.assertEqual((dest/'payload').read_bytes(), b'complete')
++        self.assertTrue(source.exists())
++
++    @unittest.skipUnless(sys.platform == 'linux', 'Linux syscall boundary')
++    def test_linux_syscall_cannot_replace_empty_directory(self):
++        from bsfm.sampler.run_linux_storage import rename_noreplace
++        source = self.root/'source'; source.mkdir()
++        dest = self.root/'dest'; dest.mkdir()
++        with self.assertRaises(FileExistsError): rename_noreplace(source, dest)
++        self.assertTrue(source.exists())
++        self.assertTrue(dest.exists())
++
++    @unittest.skipUnless(sys.platform == 'linux', 'Linux GPFS fallback boundary')
++    def test_unsupported_rename_requires_owned_root_and_never_replaces(self):
++        from unittest.mock import patch
++        import ctypes
++        import errno
++        from types import SimpleNamespace
++        def unsupported(*args):
++            ctypes.set_errno(errno.EOPNOTSUPP)
++            return -1
++        source=self.root/'source'; source.mkdir()
++        dest=self.root/'destination'
++        with patch('bsfm.sampler.run_linux_storage.ctypes.CDLL',return_value=SimpleNamespace(syscall=unsupported)):
++            with self.assertRaisesRegex(RuntimeError,'ownership'): publish(source,dest)
++            with writer(self.root): publish(source,dest)
++            source.mkdir()
++            with writer(self.root):
++                with self.assertRaises(FileExistsError): publish(source,dest)
++                from bsfm.sampler.run_linux_storage import rename_noreplace
++                with self.assertRaises(FileExistsError):
++                    rename_noreplace(source,dest,writer_owned=True)
++            self.assertTrue(source.exists())
++            self.assertTrue(dest.exists())
++            elsewhere=self.root/'unowned'; elsewhere.mkdir()
++            # A sibling lease cannot authorize publication in the root above it.
++            with writer(elsewhere):
++                with self.assertRaisesRegex(RuntimeError,'ownership'): publish(source,self.root/'other')
++
++    def wheel(self, name='pkg/module.py', payload=b'original'):
++        path = self.root/'package.whl'
++        with zipfile.ZipFile(path, 'w') as archive: archive.writestr(name, payload)
++        return path, file_record(path)
++
++    def test_wheel_members_and_mutation(self):
++        site = self.root/'site'; (site/'pkg').mkdir(parents=True)
++        target = site/'pkg/module.py'; target.write_bytes(b'original')
++        wheel, expected = self.wheel()
++        self.assertEqual(verify_wheel(wheel, expected, site), 1)
++        target.write_bytes(b'changed')
++        with self.assertRaisesRegex(ValueError, 'member changed'):
++            verify_wheel(wheel, expected, site)
++
++    def test_wheel_archive_mutation(self):
++        wheel, expected = self.wheel()
++        wheel.write_bytes(b'changed')
++        with self.assertRaisesRegex(ValueError, 'wheel changed'):
++            verify_wheel(wheel, expected, self.root/'site')
++
++    def test_wheel_escape_rejected(self):
++        wheel, expected = self.wheel('../escape.py')
++        with self.assertRaisesRegex(ValueError, 'escapes'):
++            verify_wheel(wheel, expected, self.root/'site')
++
++    def test_recompiled_wheel_bytecode_requires_exact_source_code(self):
++        site = self.root/'site'; (site/'pkg/__pycache__').mkdir(parents=True)
++        source = b'value = 42\n'
++        name = 'pkg/__pycache__/module.'+sys.implementation.cache_tag+'.pyc'
++        def bytecode(text, filename):
++            return importlib.util.MAGIC_NUMBER+b'\0'*12+marshal.dumps(compile(text, filename, 'exec', dont_inherit=True))
++        wheel = self.root/'compiled.whl'
++        with zipfile.ZipFile(wheel, 'w') as archive:
++            archive.writestr('pkg/module.py', source)
++            archive.writestr(name, bytecode(source, '/build/pkg/module.py'))
++        (site/'pkg/module.py').write_bytes(source)
++        (site/name).write_bytes(bytecode(source, str(site/'pkg/module.py')))
++        expected = file_record(wheel)
++        regenerated = {}
++        self.assertEqual(verify_wheel(wheel, expected, site, regenerated=regenerated), 2)
++        self.assertEqual(set(regenerated), {(site/name).resolve()})
++        self.assertEqual(regenerated[(site/name).resolve()][1], len(bytecode(source, '/build/pkg/module.py')))
++        (site/name).write_bytes(bytecode(b'value = 43\n', str(site/'pkg/module.py')))
++        with self.assertRaisesRegex(ValueError, 'bytecode differs'):
++            verify_wheel(wheel, expected, site)
++
++
++if __name__ == '__main__':
++    unittest.main()
+diff --git a/tests/test_sampler_layer9_receipts.py b/tests/test_sampler_layer9_receipts.py
+index b34e269..07d36ed 100644
+--- a/tests/test_sampler_layer9_receipts.py
++++ b/tests/test_sampler_layer9_receipts.py
+@@ -4,7 +4,7 @@ from unittest.mock import patch
+ REPO=Path(__file__).resolve().parents[1]
+ sys.path.insert(0,str(REPO/'src'))
+ from bsfm.sampler import run_receipts as proposal
+-from bsfm.sampler.run_storage import read_json
++from bsfm.sampler.run_storage import read_json,writer
+ 
+ class Interrupted(BaseException):pass
+ class ReceiptTests(unittest.TestCase):
+@@ -19,7 +19,7 @@ class ReceiptTests(unittest.TestCase):
+             self.assertEqual(list(envelope.iterdir()),[])
+             partial=list(attempt.glob('receipt-*/candidate.json'))
+             self.assertEqual(len(partial),1)
+-            proposal.publish_json(dest,{'schema':'test'},staging_directory=attempt)
++            with writer(attempt):proposal.publish_json(dest,{'schema':'test'},staging_directory=attempt)
+             self.assertEqual(read_json(dest),{'schema':'test'})
+             self.assertEqual(partial[0].read_bytes(),b'{"schema":')
+     def test_existing_receipt_never_overwritten(self):

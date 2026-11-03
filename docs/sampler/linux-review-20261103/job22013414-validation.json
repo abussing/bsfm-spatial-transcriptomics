@@ -1,0 +1,292 @@
+{
+  "status": "not_passed",
+  "commit": "a496b7cfc68a9c4d9858294c4a37fa851caaa562",
+  "job_id": "22013414",
+  "platform": "Linux-3.10.0-514.2.2.el7.x86_64-x86_64-with-glibc2.17",
+  "scope": "Synthetic CPU only",
+  "stages": {
+    "storage": {
+      "status": "pass",
+      "tests_run": 9,
+      "failures": [],
+      "errors": [],
+      "skipped": [],
+      "seconds": 2.249188238994975
+    },
+    "layer9": {
+      "status": "pass",
+      "tests_run": 46,
+      "failures": [],
+      "errors": [],
+      "skipped": [],
+      "seconds": 360.77792678800324
+    },
+    "accepted": {
+      "status": "not_passed",
+      "tests_run": 195,
+      "failures": [
+        [
+          "test_delta_tau_draw_exact (test_sampler_layer1.ExactRegressionTests.test_delta_tau_draw_exact) (seed=20261027, key='delta')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [1.502892121005843, 1.731444580454228, 0.4408592728964206, 0.6910940947507467] != [1.502892121005843, 1.731444580454228, 0.4408592728964207, 0.6910940947507465]\n\nFirst differing element 2:\n0.4408592728964206\n0.4408592728964207\n\n- [1.502892121005843, 1.731444580454228, 0.4408592728964206, 0.6910940947507467]\n?                                                         ^                   ^\n\n+ [1.502892121005843, 1.731444580454228, 0.4408592728964207, 0.6910940947507465]\n?                                                         ^                   ^\n\n"
+        ],
+        [
+          "test_delta_tau_draw_exact (test_sampler_layer1.ExactRegressionTests.test_delta_tau_draw_exact) (seed=20261027, key='tau')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [1.502892121005843, 2.6021744179229267, 1.1471927218351679, 0.7928181156013204] != [1.502892121005843, 2.6021744179229267, 1.1471927218351683, 0.7928181156013205]\n\nFirst differing element 2:\n1.1471927218351679\n1.1471927218351683\n\n- [1.502892121005843, 2.6021744179229267, 1.1471927218351679, 0.7928181156013204]\n?                                                         ^^                   ^\n\n+ [1.502892121005843, 2.6021744179229267, 1.1471927218351683, 0.7928181156013205]\n?                                                         ^^                   ^\n\n"
+        ],
+        [
+          "test_fitted_values_exact (test_sampler_layer1.ExactRegressionTests.test_fitted_values_exact) (seed=41, key='updated_Yhat')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [[-2.[647 chars]1385739, 1.236113492051335, -0.219731739762656[313 chars]096]] != [[-2.[647 chars]1385727, 1.236113492051335, -0.219731739762656[311 chars]096]]\n\nFirst differing element 2:\n[-0.9[135 chars]1385739, 1.236113492051335, -0.219731739762656[60 chars]9698]\n[-0.9[135 chars]1385727, 1.236113492051335, -0.219731739762656[58 chars]9697]\n\nDiff is 1627 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_fitted_values_exact (test_sampler_layer1.ExactRegressionTests.test_fitted_values_exact) (seed=20261027, key='updated_Yhat')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [[-0.6318240561598638, -0.62591804083219, 0.2997021362319320[692 chars]424]] != [[-0.6318240561598641, -0.62591804083219, 0.2997021362319319[690 chars]423]]\n\nFirst differing element 0:\n[-0.6318240561598638, -0.62591804083219, 0.2997021362319320[180 chars]0048]\n[-0.6318240561598641, -0.62591804083219, 0.2997021362319319[179 chars]0048]\n\nDiff is 2082 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_loading_draw_exact (test_sampler_layer1.ExactRegressionTests.test_loading_draw_exact) (seed=41, key='Lambda')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [[[-1[120 chars]2983264], [0.6419592398925913, 0.8296775707980[348 chars]04]]] != [[[-1[120 chars]298327], [0.6419592398925912, 0.82967757079806[347 chars]04]]]\n\nFirst differing element 0:\n[[-1.[107 chars]0.19852023992983264], [0.6419592398925913, 0.8296775707980688]]\n[[-1.[107 chars]0.1985202399298327], [0.6419592398925912, 0.8296775707980688]]\n\nDiff is 908 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_loading_draw_exact (test_sampler_layer1.ExactRegressionTests.test_loading_draw_exact) (seed=20261027, key='Lambda')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [[[0.7803573404018666, 0.07390795786579407, 0.989066044665763[711 chars]05]]] != [[[0.7803573404018664, 0.07390795786579407, 0.989066044665763[711 chars]94]]]\n\nFirst differing element 0:\n[[0.7803573404018666, 0.07390795786579407, 0.989066044665763[191 chars]304]]\n[[0.7803573404018664, 0.07390795786579407, 0.989066044665763[192 chars]301]]\n\nDiff is 2375 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_noise_draw_exact (test_sampler_layer1.ExactRegressionTests.test_noise_draw_exact) (seed=20261027, key='sigma2')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [0.456442893553062, 0.4621808789812579, 0.6070841665979041] != [0.45644289355306183, 0.4621808789812579, 0.6070841665979041]\n\nFirst differing element 0:\n0.456442893553062\n0.45644289355306183\n\n- [0.456442893553062, 0.4621808789812579, 0.6070841665979041]\n?                  ^\n\n+ [0.45644289355306183, 0.4621808789812579, 0.6070841665979041]\n?                  ^^^\n\n"
+        ],
+        [
+          "test_phi_draw_exact (test_sampler_layer1.ExactRegressionTests.test_phi_draw_exact) (seed=20261027, key='phi')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [[0.2918682808943138, 2.8360125146505575, 1.380264052717921,[179 chars]823]] != [[0.2918682808943139, 2.8360125146505575, 1.380264052717921,[175 chars]825]]\n\nFirst differing element 0:\n[0.2918682808943138, 2.8360125146505575, 1.380264052717921, 1.1857814886716098]\n[0.2918682808943139, 2.8360125146505575, 1.380264052717921, 1.1857814886716098]\n\n- [[0.2918682808943138,\n?                    ^\n\n+ [[0.2918682808943139,\n?                    ^\n\n    2.8360125146505575,\n    1.380264052717921,\n    1.1857814886716098],\n+  [2.069333935508887, 0.807716343895199, 2.539350509406589, 1.199601993876669],\n-  [2.0693339355088867,\n-   0.807716343895199,\n-   2.5393505094065887,\n-   1.1996019938766689],\n-  [0.42477394544292235,\n?                    ^^\n\n+  [0.4247739454429224,\n?                    ^\n\n    0.4246907856066138,\n    0.497377201243197,\n-   1.7772029252542823]]\n?                    ^\n\n+   1.7772029252542825]]\n?                    ^\n\n"
+        ],
+        [
+          "test_px_draw_and_audit_exact (test_sampler_layer1.ExactRegressionTests.test_px_draw_and_audit_exact) (seed=41, key='px_loading')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [[[-2[120 chars]9350258], [0.8279117459538423, 0.4592912750021[356 chars]06]]] != [[[-2[120 chars]9350261], [0.8279117459538422, 0.4592912750021[356 chars]06]]]\n\nFirst differing element 0:\n[[-2.[107 chars]0.10989644329350258], [0.8279117459538423, 0.4592912750021267]]\n[[-2.[107 chars]0.10989644329350261], [0.8279117459538422, 0.4592912750021267]]\n\nDiff is 918 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_px_draw_and_audit_exact (test_sampler_layer1.ExactRegressionTests.test_px_draw_and_audit_exact) (seed=20261027, key='px_loading')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: Lists differ: [[[0.9566150193595764, 0.35929308697389956, 1.023645051618236[707 chars]08]]] != [[[0.9566150193595763, 0.35929308697389956, 1.023645051618236[703 chars]06]]]\n\nFirst differing element 0:\n[[0.9566150193595764, 0.35929308697389956, 1.023645051618236[191 chars]971]]\n[[0.9566150193595763, 0.35929308697389956, 1.023645051618236[190 chars]966]]\n\nDiff is 2333 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_px_draw_and_audit_exact (test_sampler_layer1.ExactRegressionTests.test_px_draw_and_audit_exact) (seed=20261027, key='px_audit')",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer1.py\", line 50, in compare\n    self.assertEqual(actual[key], case['expected'][key])\nAssertionError: {'lab[243 chars]ng': 9.455912464636295e-17, 'standardized_fact[156 chars]True} != {'lab[243 chars]ng': 1.891182492927259e-16, 'standardized_fact[156 chars]True}\nDiff is 1179 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_exact_historical_fixtures (test_sampler_layer2.FoundationTests.test_exact_historical_fixtures)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer2.py\", line 42, in test_exact_historical_fixtures\n    self.assertEqual(actual,case['expected'])\nAssertionError: {'U': [[1.0000000000000009, 0.941817244232403, -2[4783 chars]: 3}} != {'U': [[-1.0000000000000016, 1.922962686383564e-1[4801 chars]: 3}}\nDiff is 22210 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_exact_original_eta_and_rng (test_sampler_layer3.TargetTests.test_exact_original_eta_and_rng)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer3.py\", line 54, in test_exact_original_eta_and_rng\n    for k in ('eta','rng_after'):self.assertEqual(got[k],c['expected'][k])\n                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [0.07845801805552961, 0.728804937993653, 0.269007279598639] != [0.07845801805552965, 0.728804937993653, 0.26900727959863885]\n\nFirst differing element 0:\n0.07845801805552961\n0.07845801805552965\n\n- [0.07845801805552961, 0.728804937993653, 0.269007279598639]\n?                    ^                                     ^\n\n+ [0.07845801805552965, 0.728804937993653, 0.26900727959863885]\n?                    ^                                     ^^^\n\n"
+        ],
+        [
+          "test_exact_original_feature_arrays_and_physical_coordinates (test_sampler_layer3.TargetTests.test_exact_original_feature_arrays_and_physical_coordinates)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer3.py\", line 46, in test_exact_original_feature_arrays_and_physical_coordinates\n    self.assertEqual(got[k],c['expected'][k])\nAssertionError: '9490af020f28577ed01b5000009bdad4c1cbdb14b45ce86fc6ee5fb7dc050e8b' != '8ac9e8776e12d8190d29a9e1d947843b9ea73d8060909eab8024bbbcda6b36ba'\n- 9490af020f28577ed01b5000009bdad4c1cbdb14b45ce86fc6ee5fb7dc050e8b\n+ 8ac9e8776e12d8190d29a9e1d947843b9ea73d8060909eab8024bbbcda6b36ba\n\n"
+        ],
+        [
+          "test_exact_original_target_values_and_all_gradients (test_sampler_layer3.TargetTests.test_exact_original_target_values_and_all_gradients)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer3.py\", line 41, in test_exact_original_target_values_and_all_gradients\n    self.assertEqual(got[k],c['expected'][k])\nAssertionError: -5.392714516272445 != -5.392714516272448\n"
+        ],
+        [
+          "test_public_target_equals_original_and_input_state_unchanged (test_sampler_layer3.TargetTests.test_public_target_equals_original_and_input_state_unchanged)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer3.py\", line 63, in test_public_target_equals_original_and_input_state_unchanged\n    self.assertEqual(value,FIXTURE['cases'][0]['expected']['value'])\nAssertionError: -5.392714516272445 != -5.392714516272448\n"
+        ],
+        [
+          "test_fresh_process_determinism (test_sampler_layer4.Layer4Tests.test_fresh_process_determinism)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer4.py\", line 227, in test_fresh_process_determinism\n    self.assertEqual(json.loads(output),FIXTURE['cases'][0]['expected'])\nAssertionError: {'AD_gradient': [-5.252649902233436, -4.728[2681 chars]9279} != {'value': 7.086026025089278, 'gradient': [-[2683 chars] 0}}}\nDiff is 8349 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_joint_public_boundary_exact_and_immutable (test_sampler_layer4.Layer4Tests.test_joint_public_boundary_exact_and_immutable)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer4.py\", line 120, in test_joint_public_boundary_exact_and_immutable\n    np.testing.assert_array_equal(eta,ref['eta']);self.assertEqual(logical_hash(beta),ref['beta_sha256'])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/lib/python3.11/site-packages/numpy/_utils/__init__.py\", line 85, in wrapper\n    return fun(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/lib/python3.11/site-packages/numpy/testing/_private/utils.py\", line 1025, in assert_array_equal\n    assert_array_compare(operator.__eq__, actual, desired, err_msg=err_msg,\n  File \"/work/abussing/arka_trying_gpu_again/env/lib/python3.11/contextlib.py\", line 81, in inner\n    return func(*args, **kwds)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/lib/python3.11/site-packages/numpy/testing/_private/utils.py\", line 889, in assert_array_compare\n    raise AssertionError(msg)\nAssertionError: \nArrays are not equal\n\nMismatched elements: 4 / 6 (66.7%)\nMax absolute difference among violations: 4.4408921e-16\nMax relative difference among violations: 7.49795705e-16\n ACTUAL: array([[-1.077492,  0.606575,  0.398088],\n       [ 0.39077 ,  1.071403,  0.14807 ]])\n DESIRED: array([[-1.077492,  0.606575,  0.398088],\n       [ 0.39077 ,  1.071403,  0.14807 ]])\n"
+        ],
+        [
+          "test_rewhitening_exact_source_and_physical_preservation (test_sampler_layer4.Layer4Tests.test_rewhitening_exact_source_and_physical_preservation)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer4.py\", line 89, in test_rewhitening_exact_source_and_physical_preservation\n    np.testing.assert_array_equal(z,FIXTURE['cases'][0]['expected']['rewhitened'])\n  File \"/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/lib/python3.11/site-packages/numpy/_utils/__init__.py\", line 85, in wrapper\n    return fun(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/lib/python3.11/site-packages/numpy/testing/_private/utils.py\", line 1025, in assert_array_equal\n    assert_array_compare(operator.__eq__, actual, desired, err_msg=err_msg,\n  File \"/work/abussing/arka_trying_gpu_again/env/lib/python3.11/contextlib.py\", line 81, in inner\n    return func(*args, **kwds)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/lib/python3.11/site-packages/numpy/testing/_private/utils.py\", line 889, in assert_array_compare\n    raise AssertionError(msg)\nAssertionError: \nArrays are not equal\n\nMismatched elements: 5 / 6 (83.3%)\nMax absolute difference among violations: 6.9388939e-17\nMax relative difference among violations: 7.52723381e-16\n ACTUAL: array([[-0.086986, -0.085389],\n       [-0.036874, -0.100813],\n       [ 0.118052, -0.223213]])\n DESIRED: array([[-0.086986, -0.085389],\n       [-0.036874, -0.100813],\n       [ 0.118052, -0.223213]])\n"
+        ],
+        [
+          "test_saved_historical_values_draws_diagnostics_rng_exact (test_sampler_layer4.Layer4Tests.test_saved_historical_values_draws_diagnostics_rng_exact) (seed=12)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer4.py\", line 45, in test_saved_historical_values_draws_diagnostics_rng_exact\n    with self.subTest(seed=case['seed']):self.assertEqual(evaluate(case['seed']),case['expected'])\n                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'val[16 chars]089279, 'gradient': [-5.252649902233436, -4.72[2657 chars] 0}}} != {'val[16 chars]089278, 'gradient': [-5.252649902233435, -4.72[2659 chars] 0}}}\nDiff is 8349 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_saved_historical_values_draws_diagnostics_rng_exact (test_sampler_layer4.Layer4Tests.test_saved_historical_values_draws_diagnostics_rng_exact) (seed=37)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer4.py\", line 45, in test_saved_historical_values_draws_diagnostics_rng_exact\n    with self.subTest(seed=case['seed']):self.assertEqual(evaluate(case['seed']),case['expected'])\n                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'val[17 chars]070735, 'gradient': [-5.193949562816732, -4.67[2658 chars] 0}}} != {'val[17 chars]07073, 'gradient': [-5.193949562816732, -4.677[2656 chars] 0}}}\nDiff is 7751 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_exact_historical_saved_fixture (test_sampler_layer5.Layer5Tests.test_exact_historical_saved_fixture)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer5.py\", line 47, in test_exact_historical_saved_fixture\n    self.assertEqual(evaluate(),self.fixture['expected'])\nAssertionError: {'gau[4616 chars]6': '691c89c0bf9fbb8d7a2fdc852c059089f8bcb91df[1698 chars]e-16} != {'gau[4616 chars]6': 'cd697715ca5dbf9f76341942ee342dae9647cb1cf[1699 chars]e-16}\nDiff is 11851 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_fresh_process_exact (test_sampler_layer5.Layer5Tests.test_fresh_process_exact)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer5.py\", line 149, in test_fresh_process_exact\n    self.assertEqual(json.loads(out.read_text()),self.fixture['expected'])\nAssertionError: {'gau[4616 chars]6': '691c89c0bf9fbb8d7a2fdc852c059089f8bcb91df[1698 chars]e-16} != {'gau[4616 chars]6': 'cd697715ca5dbf9f76341942ee342dae9647cb1cf[1699 chars]e-16}\nDiff is 11851 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_public_canonical_endpoint_matches_reference_exactly (test_sampler_layer5.Layer5Tests.test_public_canonical_endpoint_matches_reference_exactly)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer5.py\", line 50, in test_public_canonical_endpoint_matches_reference_exactly\n    self.assertEqual(tree_record((self.result.nuts_state,self.result.info)),\nAssertionError: Lists differ: [{'dt[38 chars]6': '691c89c0bf9fbb8d7a2fdc852c059089f8bcb91df[1375 chars]61'}] != [{'dt[38 chars]6': 'cd697715ca5dbf9f76341942ee342dae9647cb1cf[1375 chars]0e'}]\n\nFirst differing element 0:\n{'dty[37 chars]6': '691c89c0bf9fbb8d7a2fdc852c059089f8bcb91df[20 chars]6c1'}\n{'dty[37 chars]6': 'cd697715ca5dbf9f76341942ee342dae9647cb1cf[20 chars]70a'}\n\nDiff is 2104 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_exact_literal_fixture_all_state_diagnostics_and_streams (test_sampler_layer6.Layer6Tests.test_exact_literal_fixture_all_state_diagnostics_and_streams)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer6.py\", line 62, in test_exact_literal_fixture_all_state_diagnostics_and_streams\n    self.assertEqual(record_result(self.real),FIXTURE['expected'])\nAssertionError: {'sta[30 chars]27595495, 0.33614821420440893], [0.07474891698[7319 chars]21]}} != {'sta[30 chars]275955, 0.33614821420440893], [0.0747489169888[7317 chars]21]}}\nDiff is 21096 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_fresh_process_exact (test_sampler_layer6.Layer6Tests.test_fresh_process_exact)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer6.py\", line 380, in test_fresh_process_exact\n    self.assertEqual(json.loads(out.read_text()),FIXTURE['expected'])\nAssertionError: {'sta[30 chars]27595495, 0.33614821420440893], [0.07474891698[7319 chars]21]}} != {'sta[30 chars]275955, 0.33614821420440893], [0.0747489169888[7317 chars]21]}}\nDiff is 21096 characters long. Set self.maxDiff to None to see it.\n"
+        ],
+        [
+          "test_same_process_exact (test_sampler_layer6.Layer6Tests.test_same_process_exact)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer6.py\", line 382, in test_same_process_exact\n    def test_same_process_exact(self):self.assertEqual(run_case(),FIXTURE['expected'])\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'sta[30 chars]27595495, 0.33614821420440893], [0.07474891698[7319 chars]21]}} != {'sta[30 chars]275955, 0.33614821420440893], [0.0747489169888[7317 chars]21]}}\nDiff is 21096 characters long. Set self.maxDiff to None to see it.\n"
+        ]
+      ],
+      "errors": [
+        [
+          "test_shared_chart_initial_and_minimal_inconsistent_changes (test_sampler_layer6.Layer6Tests.test_shared_chart_initial_and_minimal_inconsistent_changes)",
+          "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_sampler_layer6.py\", line 343, in test_shared_chart_initial_and_minimal_inconsistent_changes\n    l6.validate_chart_state(self.target,replace(self.positions[0],values=a),self.initial,0)\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/src/bsfm/sampler/chart.py\", line 30, in validate_chart_state\n    raise ValueError('Position alpha/zeta mismatch with current state')\nValueError: Position alpha/zeta mismatch with current state\n"
+        ]
+      ],
+      "skipped": [],
+      "seconds": 950.9666581990023
+    },
+    "mesh": {
+      "status": "not_passed",
+      "tests_run": 10,
+      "failures": [],
+      "errors": [
+        [
+          "test_mesh_infrastructure (unittest.loader._FailedTest.test_mesh_infrastructure)",
+          "ImportError: Failed to import test module: test_mesh_infrastructure\nTraceback (most recent call last):\n  File \"/work/abussing/arka_trying_gpu_again/env/lib/python3.11/unittest/loader.py\", line 419, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/abussing/arka_trying_gpu_again/env/lib/python3.11/unittest/loader.py\", line 362, in _get_module_from_name\n    __import__(name)\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_mesh_infrastructure.py\", line 13, in <module>\n    from bsfm.mesh import projectors, resources, spectral, support\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/src/bsfm/mesh/resources.py\", line 4, in <module>\n    import psutil\nModuleNotFoundError: No module named 'psutil'\n\n"
+        ]
+      ],
+      "skipped": [
+        [
+          "test_fresh_R_mesh_projector_and_cross_language_roundtrip (test_mesh_environment_integration.MeshEnvironmentIntegration.test_fresh_R_mesh_projector_and_cross_language_roundtrip)",
+          "Set BSFM_MESH_INTEGRATION=1 for R/fmesher integration"
+        ],
+        [
+          "test_actual_python_JSON_R_boundary_preserves_numeric_angle (test_mesh_october26.October26Regression.test_actual_python_JSON_R_boundary_preserves_numeric_angle)",
+          "Accepted local mesh R environment unavailable"
+        ]
+      ],
+      "seconds": 0.23823664700466907
+    }
+  },
+  "source_inventory": {
+    "src/bsfm/__init__.py": "efe0ae5a4755e783521dc8989694d8a607dfc1e94caf36b33797876c560f8e8a",
+    "src/bsfm/initialization/__init__.py": "bea4e9fd9e136de7824b915699bbb8aafe5019359e9b583bd4b76825da3cf356",
+    "src/bsfm/initialization/gp_svd.py": "26be9b43ba03908934e3a3d9ebddf0bd6422a7fa5331412266073660a57797c1",
+    "src/bsfm/initialization/preparation_environment.py": "9805192e25d0925b030fa04cb967e3aa2be091b12781b48f425cb8b7dbbf02ff",
+    "src/bsfm/initialization/s10_gpinit_gate.py": "2bf80c6108d65e5c44489a0c38751e710c5290d4b8a9e679596caa7247c5fe73",
+    "src/bsfm/initialization/s10_preparation.py": "b5393568b9afd7e0356962a1dcb8bc128ed46d078c1d701160294050be64514d",
+    "src/bsfm/mesh/__init__.py": "45ba8c029070f490601bcdabb4dc34cbb7567581bfb87aafcac38818a84946d9",
+    "src/bsfm/mesh/continuum.py": "b25b81fe8033055b633a68a9d71bb9fb0016868890372aaddf0a87f4a5a9dbd4",
+    "src/bsfm/mesh/derivatives.py": "32864f1a59be771cef23c0c467f510b7f038daed06ef4c7d62d78f440ed4625b",
+    "src/bsfm/mesh/fem.py": "f0039c3544be2b6f655413d168c2ebf35621107e4ecc135579938e98fec25eff",
+    "src/bsfm/mesh/geometry.py": "dbcf232aec5848bb1a56d40de5fabc55fddb4c5a93b21f8d40467c61aad19e35",
+    "src/bsfm/mesh/identities.py": "730a53d8c3c7203f39b693765ce2649f0618277a267d58984f4af4d47803e04f",
+    "src/bsfm/mesh/marginal.py": "8ce7ec10f67d28cabfbd809f82d5225bc59569e41848f2fda2bf1c5b0b0d9b6c",
+    "src/bsfm/mesh/october26.py": "ddbd0ec696561d6f3bb439c87cbbd36c9c1fb655e311018e22fee6a962b53618",
+    "src/bsfm/mesh/projectors.py": "d10af2454494d0452701da5567e5e7c1ac2b3f5b60776a2fbf209eef3a60c9f6",
+    "src/bsfm/mesh/resources.py": "957c7e03e1d78cfc276eeaa2772f41957efb7a7d572003809a3138ae7c5b5c68",
+    "src/bsfm/mesh/spectral.py": "82ae5f362b997b8c5b55e4cdfd125050d7457c490d21b5a01fe8a26c7e7c79cb",
+    "src/bsfm/mesh/support.py": "059c8ec5f5243de48649d2c220682bebfeffc6cc4612caa956cff4025a856746",
+    "src/bsfm/preprocessing/__init__.py": "989a549faa45b151c5e45af2e94b578b33f5b79126bbdeecb00818abc1b05c9e",
+    "src/bsfm/preprocessing/execution_evidence.py": "6a91b718b3f2a903c155bbfa562142bb9b13e296c26884fe179b77f98e22480f",
+    "src/bsfm/preprocessing/mean_roundoff.py": "be9be035db2ae6b90d353e17dad2156dd842f6f616e94c4473f9e520c845f2ef",
+    "src/bsfm/preprocessing/production_run.py": "0dc45add8bf91791831996f45db7f0ce7fff373552bc77f3cc14928c1a5ea9a8",
+    "src/bsfm/preprocessing/production_state.py": "f6991bdfc129f5aa795cfab80ce810f4068e0e0f4cb8f75733d8bf26fbd1ad43",
+    "src/bsfm/preprocessing/raw_preflight.py": "56d0e07fa81366fb6ea91dc8140039367f1aee5b28c2adad1c0597675fb6c749",
+    "src/bsfm/preprocessing/response_contract.py": "d2391a004a4d2b171ba60bf94b843cb38c769703d9983088bdd18c659023f0a3",
+    "src/bsfm/preprocessing/response_run.py": "8c8744b4a112ee4a91cea2919010943898c88f2d24f0f2d182fccbc6c8412d36",
+    "src/bsfm/preprocessing/response_validate.py": "dd042bf70f43564cdcbc85cdb928dffbb1c4ce87040ed356f4ee8a1810b87ac7",
+    "src/bsfm/preprocessing/sct_smoke.py": "e8fd22f0177534f39253e8c290d2550c23f7c50a9cd6f477a9be0993008b228f",
+    "src/bsfm/preprocessing/source_attestation.py": "313837feac318dc9eb64b4510c7dbe44664adeb3d1ada937db72f5ab4cd43164",
+    "src/bsfm/sampler/__init__.py": "c5426eeed5f8c731ffedf56a9135880b030caa0b8915bfae812fc963a41ef732",
+    "src/bsfm/sampler/active.py": "dea6a16f8b3e6e06e953c309b6098b695f8d7e30d15ffff72f37a563161abe0b",
+    "src/bsfm/sampler/centered_hyper_kernels.py": "39fafe38e32837df5b8763b46f775c2e79eb9d3fdb887ea855ce1455d78a9680",
+    "src/bsfm/sampler/chart.py": "1132b490d80dca76fc6534300df7eb06e3fe6a55ec9a84ea1deb5129fae10394",
+    "src/bsfm/sampler/checkpoint.py": "5976cfdde8e5f01dec93efa1ce5042a098d3c563721ce6eaa02f88ab82439109",
+    "src/bsfm/sampler/checkpoint_contract.py": "1a9528aa6c52e96116816d39aae1a4234df21b63d00326cc85731fba5608dae8",
+    "src/bsfm/sampler/checkpoint_rng.py": "7f90954a19e8c9b45ccd24ad40171fc61420ef101bec52ff9c0253aeff829639",
+    "src/bsfm/sampler/conjugate.py": "1c7d9885e4ae99a2bcced723252b25a02a6adae189f584b17a4806b52abf41fb",
+    "src/bsfm/sampler/contracts.py": "72bc243cfa398217e24d863caf60bd4d920cc2c269a3f58bab7aea7c3676b0bf",
+    "src/bsfm/sampler/factor_statistics.py": "a25b1c7f9a75d7f3b98646bacbef25ffa82c725832b3f5f03b15ce0888a3498a",
+    "src/bsfm/sampler/field_kernels.py": "4f8ce74284404f1f56dac3796dadf50ada0e41d33a74bf852e4cee54fc07ccc5",
+    "src/bsfm/sampler/field_target.py": "194d5aa3f46a29028f91b6e0320dc1ce8ceb65f2f06b5d6519ecd4ca72554fd4",
+    "src/bsfm/sampler/finite_features.py": "5ba42ec0a747b95c1d820c8d9b0f1e763b0598fa9b3e7cfdb2958870d0e09b73",
+    "src/bsfm/sampler/joint_eta_kernels.py": "850b77cf86d23dcd9953aab776f3783d974eaea3d8338acfc9622a6686024b7d",
+    "src/bsfm/sampler/layer4.py": "34e2e5f448542f3f693bc0db5fbc28c0eae9ba0011dccab28051169aac65b3a4",
+    "src/bsfm/sampler/layer5.py": "d9222badda9b61aa5eb463b7d6a90a62af971485ba1da97f76348413e804450b",
+    "src/bsfm/sampler/layer6.py": "b6e93373a10c1b2de0416fc4d59a107f4fbc9e7f1b3f81149531ae6c2a049626",
+    "src/bsfm/sampler/projector_encoding.py": "f3cfe600b412fc48b832fb4d13139f8de3205d4e760837cb9573b05d0c3c4a8e",
+    "src/bsfm/sampler/px.py": "989d86e7bc15d9ed3dc70d0896f79ecdf9c705a065fce64300fbad4bf30cae82",
+    "src/bsfm/sampler/retained_archive.py": "abbecd059ca364157ed884b2f76214129b87ff733c8075ff66148106673bade0",
+    "src/bsfm/sampler/retained_contract.py": "60a1ad33e22cda6e2418642edde6d486ac4796ebd0b8d440be4b23b57a93dbe1",
+    "src/bsfm/sampler/retained_diagnostics.py": "fff6950887410e46f57965dff8a2c8179bf9791035e017c824e63ad6911f78b9",
+    "src/bsfm/sampler/retained_records.py": "c7e20c977e242f6cae69a0f7379f7bf38dc8f5b226afd21947686357241a76b1",
+    "src/bsfm/sampler/rule.py": "d26ce474aee5aa85a05d46d28c47a5ac36b557e1e8742a95db8bcb2ecca3a816",
+    "src/bsfm/sampler/run_chart.py": "c6ad9d8ed8f078be7a296a1ee3265bda177816985ad0d18825c2c14826365fad",
+    "src/bsfm/sampler/run_controller.py": "f3b0d96c7aecbc2e140488a35f5f8b1732f945a2ac2eda25db22728aa64bcea1",
+    "src/bsfm/sampler/run_genesis.py": "3284d8ea0b31402ad8e0270e6f0696eccf57c683ddd439f0d8559f198723a232",
+    "src/bsfm/sampler/run_initialization.py": "292422880e3a56227f49529f7aabb9ffa4f6937960bca8887df2c6bdeb784764",
+    "src/bsfm/sampler/run_inputs.py": "16648ab5f6019abf8b2502cc5600c771f2d252a93cfc7fff465c07d0e76e39c1",
+    "src/bsfm/sampler/run_linux_environment.py": "8388e58b958eabdacd24a9d2b074c594208eca169ac47e8b16c51cda87c6e066",
+    "src/bsfm/sampler/run_linux_storage.py": "2f06557eb8b80b781245a5619b4bec575c2387fb72746133ae7dba7548580bcb",
+    "src/bsfm/sampler/run_receipts.py": "82c15f73ce3eb88544e656fbd0f20bed2c91cbc799ad66c1ee21b3d93589d286",
+    "src/bsfm/sampler/run_storage.py": "b8cfb8aeb2a72dd3fe00da624c7100895ca19c8aae71497d0cb02651d204236a",
+    "src/bsfm/sampler/run_transactions.py": "db73737ff297221655ce8ff32c933cbded65d552d8c046383af968506f1fde12",
+    "src/bsfm/sampler/shrinkage.py": "8e97942a1eb2070de7534cebb933edd3b607cdff8eb3e61872312c00e88c4bd5",
+    "src/bsfm/sampler/spectral.py": "548677908b03e4f4e94008f9ecf98acdd3f2a30f6634d41449d8fd0797392c56",
+    "src/bsfm/sampler/split_kernels.py": "3ce4215c9a7195cc8b29f3d5b234e5eb19530cbfcbf4f5b0d972b6b038342754",
+    "src/bsfm/sampler/warp.py": "aaf3fbd1738e353ac5ded06a1bf4c658e8d96ef219c2e4ab5572629faa248b19",
+    "tests/audit_sampler_layer2_s10.py": "5025ec8215e11ee179e4ebd32b5c459506b20431801cde7e66469af5254ab8c9",
+    "tests/audit_sampler_layer3_s10.py": "608f19aad9c9cd004ed6fbdea19f428b7e1f44fe969e2ec39a9f4c4232add9c0",
+    "tests/audit_sampler_layer4_s10.py": "f423e89460dce011ab95155a989fefbb3484aa0473a795c4e639f07882ddb97c",
+    "tests/audit_sampler_same_environment.py": "0b02ffb838990f2dbed11b5db6d35c9c1061534dacbb549b624bf2e9fa1222a0",
+    "tests/build_sampler_layer1_fixture.py": "99faf6270bd53527c5066ccc0e5b3e0b32d3542506b26d1e6885779669cee07a",
+    "tests/build_sampler_layer2_fixture.py": "0afc9ecb85abcdc1d60ff25ab86cf3bf26605c2cc82e726987e6b556e4b302e7",
+    "tests/build_sampler_layer3_fixture.py": "bc32f4222e289b69b2dfc0af7c7b409deac2d0783d97c16d795b4143d465d228",
+    "tests/build_sampler_layer4_fixture.py": "8a838bee152eee2642ea34ba99e688e16fdee0382ef867ecbbcd1e01eda3d9a1",
+    "tests/build_sampler_layer5_fixture.py": "b7ff778833853f84d4501951c1466c10c6aa18d1761922e523b23692f8a7b6b8",
+    "tests/build_sampler_layer6_fixture.py": "c0fc31a760969f9a3d050f341843166bb339665d413b259e71e99caa1c500796",
+    "tests/check_bundle_portability.py": "42f927b794b54549840bb79a8fd7ec57feaf53031b42edc66fa0b9b2f01a8f4e",
+    "tests/check_sct_artifacts.R": "a3ab31f5e3463042b808dd01d62418ffc394255de1b7a45a92fd1e2b4f7ef2d7",
+    "tests/compare_sct_bundle.py": "3da323273753c4af1570c4315867e046195c52973d45a705a496ce4b68ef2f23",
+    "tests/fixtures/sampler_layer1.json": "b01ae2a55ede3bfa56986438e4b660d23b13f66187440eb276c4ceeaef9661a5",
+    "tests/fixtures/sampler_layer2.json": "0a902b8a008512fbe33d3d2cc4e955de6ce6fc8e930d7776b95af241a0c5a80f",
+    "tests/fixtures/sampler_layer3.json": "3288983f27d0949a6ed0c478421bac559ba88e3e6bbd7a1a81cf9e9cf0b9731b",
+    "tests/fixtures/sampler_layer4.json": "8ed862a556d6d5206d06cfb7899d6c66c07b5c9fa8639e1ab5bd8c1c21b8981e",
+    "tests/fixtures/sampler_layer5.json": "ae3224bc2b43aa4b0910aa838dde2f8fb3061ef980fa77e902831a5f7190e559",
+    "tests/fixtures/sampler_layer6.json": "dbdcfb58058e31103f4a551196fe72eedff6c8d46fd2860bbcbfa9c301eeb741",
+    "tests/layer9_crash_worker.py": "5d2375aaad6aaecfdcc77762e6eabcd8c809bd813b30a6a308b96354bc663c95",
+    "tests/sampler_layer2_support.py": "fd2865cd4a1eccaf4aa791e85d542dfe1788cfcffbd6802565fafc1beb3732b8",
+    "tests/sampler_layer3_support.py": "0f2296bfb34ce2af039a563387e8fbf2a55107f775c6c2a42ce3ba6f01acde59",
+    "tests/sampler_layer4_support.py": "ac846d5b0d6584a610f7d55a0e193ea5682bc842126b6d88de2de085985e3c51",
+    "tests/sampler_layer5_support.py": "44f6255f897c1e040989e57449e54929d32ff0f778147813f1800206a53938dc",
+    "tests/sampler_layer6_support.py": "0f89282e4b71957d038bdfb18e1cca0819e0de42dd5a00bddbd3c063c99b1a87",
+    "tests/sampler_layer7_support.py": "93794d644f6fe7e9cdf0a2c179068704eb548a028fa58649374a1862e5ae9810",
+    "tests/sampler_layer9_support.py": "2af065a75a7d77e3155c6d9eccc7ddcba4fa29223a823023b0bf18d16694ce7d",
+    "tests/sampler_provenance.py": "336bd1087b7442f5313bac5c3a534415a41ef807ccd392c71d31aae0f7e63906",
+    "tests/test_gp_initialization.py": "6c0039e930c78199f3560ab325ebc20c97c4c42ce7b30a9e8cee817131cd20c4",
+    "tests/test_mean_roundoff.py": "56950231d36e6279dd99e28e32d7ce0c6afc95a8734dc9f15ae852baa7143671",
+    "tests/test_mesh_environment_integration.py": "345235d2cf584a71e9ecdb302b2249a8fc4945fb66f81290198903bcbe6fbbfe",
+    "tests/test_mesh_infrastructure.py": "88fffb05c500a91c0da38d845844ff3e01e741f5167a01b2cfd497e1d6b2d05f",
+    "tests/test_mesh_october26.py": "d318ef6190bc5104104e3679fd3155b012a277fd6d4a4c59e23e3994d3e837aa",
+    "tests/test_production_integrity.py": "83a6e765522f1d462a04880c6eb1899333930f6cdf21e8b5f9f410b335bfe958",
+    "tests/test_production_run.py": "2c6468a4d222a63d3433948b5923d93deac4040daec4b3af0068a2ce0bcd1f06",
+    "tests/test_raw_preflight.py": "99b06c79738b8b4f74c48bd81aa3c9ded55a5521e7306fe27fa5ca323ffc0b46",
+    "tests/test_response_bundle.py": "8d6df6ea486ba1d2a7d59e45b9d1cd1c4adc295e6de88e0efd5b5b27f57905fa",
+    "tests/test_s10_preparation.py": "c27eabde088eb461a6c06507d395b0bfd16276a805d683b6727d6c0c366039c5",
+    "tests/test_sampler_layer1.py": "5fb74ce4ac4ad557881b58e9c937fa0ac15bd4ce9151790950757957cfae797e",
+    "tests/test_sampler_layer2.py": "8bb47022000f431c58bd828eedf9fcc91c2b2e0e0c5c19528e4ded20ed01a2c1",
+    "tests/test_sampler_layer3.py": "4171695fdb7e3bef7a07c9f50119bba9332863607c1abbb936809ebb79b02b86",
+    "tests/test_sampler_layer4.py": "0fee9b1c67c28ccf3ea7b64e9d5700443971559aa63ae8595543d87f9d137de3",
+    "tests/test_sampler_layer5.py": "a96a66938182a5b3811ddec0d05bc9c9a7e17f35e9c9bd71c401b2f1145d7aee",
+    "tests/test_sampler_layer6.py": "88275c9aeba15ef7bc7ba67315a571ea1f173cb6c8612721313c7946c96049fc",
+    "tests/test_sampler_layer7.py": "792391d933ecc3c1e320b90a2e56be2b39c66b44cc42e9ec88c8d9b46efc12f4",
+    "tests/test_sampler_layer8.py": "2902db92847fdad7001c4269c1bb5ee98c90eb984c3e2e67b7e93d26c534b18c",
+    "tests/test_sampler_layer9.py": "a6a58e12c7c72b9024091aa1868c95465d409bfd9b06ea96ca34a4afd937f2dd",
+    "tests/test_sampler_layer9_chart.py": "6738ceb30c79a147f5f8dd71cd3db0b385409dcca79f2d6e8d1608923c94a585",
+    "tests/test_sampler_layer9_portability.py": "b97c78249916a867c286ba65d548be3e97876151f43de2d959a3631841eae946",
+    "tests/test_sampler_layer9_receipts.py": "ef9149e99a613e155e25a0caef7d77ce525ab882f7466b16b2957369b6421a23",
+    "tests/test_sampler_provenance.py": "c5b8a3cb8117c80830689c31b41050d34f9bea1e5ce0966f6ad936e071018cbe",
+    "tests/test_sct_smoke.py": "6a2ed0b945164a61bfc2f430a635199e4b2a13a64478601c92d9559717f27e92",
+    "tests/test_sct_validation.R": "2efdb4ee6144ececb5fc0ffda8e02a852c44290ed12b6786cb06738ce777d522"
+  },
+  "source_unchanged": true
+}

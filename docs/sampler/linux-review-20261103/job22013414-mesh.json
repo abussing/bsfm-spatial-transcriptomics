@@ -1,0 +1,22 @@
+{
+  "status": "not_passed",
+  "tests_run": 10,
+  "failures": [],
+  "errors": [
+    [
+      "test_mesh_infrastructure (unittest.loader._FailedTest.test_mesh_infrastructure)",
+      "ImportError: Failed to import test module: test_mesh_infrastructure\nTraceback (most recent call last):\n  File \"/work/abussing/arka_trying_gpu_again/env/lib/python3.11/unittest/loader.py\", line 419, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/abussing/arka_trying_gpu_again/env/lib/python3.11/unittest/loader.py\", line 362, in _get_module_from_name\n    __import__(name)\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/tests/test_mesh_infrastructure.py\", line 13, in <module>\n    from bsfm.mesh import projectors, resources, spectral, support\n  File \"/work/abussing/bsfm-consolidation/checkouts/a496b7cfc68a9c4d9858294c4a37fa851caaa562/src/bsfm/mesh/resources.py\", line 4, in <module>\n    import psutil\nModuleNotFoundError: No module named 'psutil'\n\n"
+    ]
+  ],
+  "skipped": [
+    [
+      "test_fresh_R_mesh_projector_and_cross_language_roundtrip (test_mesh_environment_integration.MeshEnvironmentIntegration.test_fresh_R_mesh_projector_and_cross_language_roundtrip)",
+      "Set BSFM_MESH_INTEGRATION=1 for R/fmesher integration"
+    ],
+    [
+      "test_actual_python_JSON_R_boundary_preserves_numeric_angle (test_mesh_october26.October26Regression.test_actual_python_JSON_R_boundary_preserves_numeric_angle)",
+      "Accepted local mesh R environment unavailable"
+    ]
+  ],
+  "seconds": 0.23823664700466907
+}

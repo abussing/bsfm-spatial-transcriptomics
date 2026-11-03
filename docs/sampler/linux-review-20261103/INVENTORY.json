@@ -1,0 +1,311 @@
+{
+  "scope": "Current Linux review package, Layer-9 runtime/tests and small-S10 proposal; excludes this inventory",
+  "runtime_candidate": "8abee709c592440dbc42e00fcdeb5a5da8d9b050",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 888,
+      "sha256": "87520994b57548a4ab7919d9d53192d53ae40231e9b6f79ba4892e6a6b0382a6"
+    },
+    {
+      "path": "docs/CURRENT_HANDOFF.md",
+      "bytes": 15067,
+      "sha256": "5d131d742d76ef20d5a8437bc66499288787f072483349c623d405d4efc11d0d"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/ACCEPTED_FILES.json",
+      "bytes": 295,
+      "sha256": "dbb5d7306bf903f6e98d59030a3e3b053b54cebbb932189257ee41ca2377b0f7"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/IMPLEMENTATION.patch",
+      "bytes": 104238,
+      "sha256": "08da4356eefc60e42591a94c20ef78c0d425d4be9993696f4074cfef277d4b72"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job-accounting.txt",
+      "bytes": 231,
+      "sha256": "68b33730852cdbbd275d5ddc9c2ef3433b0118576d7d1cd0b39e359dc538fe30"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job-external-logs.json",
+      "bytes": 1213,
+      "sha256": "3695401a748f07e4cb05d9b29437058e4bd90885b3a69ef7c9754aa96304ebc0"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013411-scheduler.log",
+      "bytes": 1154,
+      "sha256": "22a9cbb70ac7b2e0b0426ca01adcef6626a9436f3d13858dd83ecd9f706c2a04"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013411-submission.json",
+      "bytes": 273,
+      "sha256": "fde33ed946b78e5d6647a48cce3203557b58dd7a5b4bfa081e127ff3a7f605f1"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013411-validation.json",
+      "bytes": 14434,
+      "sha256": "667c50cdd6137d8b0273638dcba70bb4fe5f3677710ae8c2b9a7b2478333f41d"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013412-summary.json",
+      "bytes": 1353,
+      "sha256": "09fd68a2779c3defe780be3239c19b0cec7d438b8531750ef8f61bb843f1c923"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013413-summary.json",
+      "bytes": 4138,
+      "sha256": "2638aebf491b32aeb8e2527f2d9ed41061236c27181a6bc67a210375d2a0daa4"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013414-accepted.json",
+      "bytes": 24542,
+      "sha256": "257cfca8bc9e8e965f549da1894e2655c91028c578022707d7de57c17fb397c1"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013414-environment-authentication.json",
+      "bytes": 2042,
+      "sha256": "edd4c7599d80a7ef7bbcaa28c94e1cc044245884fe1c79786109dbc7b9da3a10"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013414-layer9.json",
+      "bytes": 126,
+      "sha256": "b05cb13864c5e9d9fa402f5645a758f510ba820afd91463b46ced29727312d16"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013414-mesh.json",
+      "bytes": 1640,
+      "sha256": "61157262a22ac71d639da3f70119d108b0830b1420b4282df4843207bdb0d82f"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013414-storage.json",
+      "bytes": 124,
+      "sha256": "d5fe924bd1655ce600fc128df1fc17ac8b646ecf3d3eb4fa39009cce0c933573"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013414-synthetic-inventory.json",
+      "bytes": 5940,
+      "sha256": "6391370225693163164f77a1c6dd9160a9e1f44fdb869fb4ec140f035f0b7510"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013414-synthetic-receipt.json",
+      "bytes": 5729,
+      "sha256": "3de17905b6725150e6b5d7b63297014e849ba8bfdbccafc6b4c1708d21f9eaf3"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013414-validation.json",
+      "bytes": 40387,
+      "sha256": "50d50a08efd26f3eba4300e92f236f129ef47e48b772dfef5d3928ea04a8e97d"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013415-layers123.json",
+      "bytes": 8338,
+      "sha256": "53d0bad073b55e430b72d7a545220bc553caf9439fe694d3ef04f752ead72d33"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013415-report.json",
+      "bytes": 5389,
+      "sha256": "8e11359ecd6df6466633b6cb15172a762ee2718f6e01e24c5ab8c4fa8a0499a5"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013417-environment-authentication.json",
+      "bytes": 2042,
+      "sha256": "edd4c7599d80a7ef7bbcaa28c94e1cc044245884fe1c79786109dbc7b9da3a10"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013417-environment.json",
+      "bytes": 2042,
+      "sha256": "edd4c7599d80a7ef7bbcaa28c94e1cc044245884fe1c79786109dbc7b9da3a10"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013417-storage.json",
+      "bytes": 126,
+      "sha256": "db7b25b573ac02e0ecc04d3ef81543e2b4bb58da1b46c051999c935adfb9e411"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/job22013417-validation.json",
+      "bytes": 13455,
+      "sha256": "3c98c16e1426a987bde119b091f2ce9623cc43c4c3dfd3bad31cd60644084e70"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/linux-reference-submission.json",
+      "bytes": 360,
+      "sha256": "8b89152ff6113ba8a286868ce35740f3e0f1f5d7a6d871a4d8a48bbfcf7533f2"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/linux-storage-final-submission.json",
+      "bytes": 338,
+      "sha256": "50d4bd8f1289567ce3be4b6d9497d6567b0d7e614db776a92de4499e73f803b2"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/linux-validation4-submission.json",
+      "bytes": 282,
+      "sha256": "9d5f516474a24292fb9f92ebf7f64837dee761d70ffa56282334ec9a369e58c5"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/PORTABILITY.patch",
+      "bytes": 24499,
+      "sha256": "b5b959249b17aca313958db5b54938af573bbad4d0c62417127bc03f8ac7af33"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/README.md",
+      "bytes": 4673,
+      "sha256": "3bbfffaad08bd2b750d29db13a590c9ffa8a4deb2b718a477c1d6d7f564098f2"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/reference.sbatch",
+      "bytes": 790,
+      "sha256": "0c89e4d3a783839d323bfd79788c098aac25b67cb8e4507bd609da4ce9e9675f"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/reference_audit.py",
+      "bytes": 3498,
+      "sha256": "a1ee96af6b99109d6cb237a580f9d5fe59867ca98fd8194ca6dc6b46ccdbfe60"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/REFERENCE_RUN_SPEC.json",
+      "bytes": 1116,
+      "sha256": "9affbe6e3c536af8b766cc1cad0c465da0a256f34e97e2863e0f557f51e99db9"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/REVIEW_RESULTS.md",
+      "bytes": 5499,
+      "sha256": "adce990a0b0a70a3d9bd0f4bbb574ff0aaca69b5c0a436643569aff5d5264a8d"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/RUN_SPEC.json",
+      "bytes": 1103,
+      "sha256": "491c903de6da5f492aac22d2ae5dfeb5612b101b35534c0276e7c7b2b9d9a92a"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/SOURCE_MAP.csv",
+      "bytes": 1955,
+      "sha256": "a3f4991c12c0b0caf498204be09eb8477da526226c10f4beb321a0c4785425ef"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/storage.sbatch",
+      "bytes": 816,
+      "sha256": "0f8cb1a8f48d11bebf4a68577c41d3c3e9868e18362d219b808a57d7a7d13668"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/STORAGE_RUN_SPEC.json",
+      "bytes": 759,
+      "sha256": "b20f207e9d7193456eaad9fe3cf493a70f27940ae0c115733247058d461b8040"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/validate.py",
+      "bytes": 3685,
+      "sha256": "a7102e4fc8118fff93b1cb7e1c26033fafa29be2c84214a34b77534fdc6996bf"
+    },
+    {
+      "path": "docs/sampler/linux-review-20261103/validate.sbatch",
+      "bytes": 957,
+      "sha256": "b445e48d658a870d7e4fe1d4caaff772e4f4beb5adcacd89d1277cab21f06616"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/preflight.py",
+      "bytes": 2976,
+      "sha256": "39ed1a4096f10590fc57f9c5445a930612dd8e3eceac83050a09e6b461df150a"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/README.md",
+      "bytes": 2384,
+      "sha256": "227193900512024e15b11256e18e86f0b4583db22171d807832dab689496f51e"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/RUN_SPEC.json",
+      "bytes": 1723,
+      "sha256": "9d5821123b50cf984598fafeef1196fab6afc0312ec4c1772c32fee604faaf80"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/smoke.py",
+      "bytes": 8065,
+      "sha256": "f02ac109c1e7610b90933d60786f241da7c89b5ddb8720a1e4f677058b3d56d4"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/smoke.sbatch",
+      "bytes": 1134,
+      "sha256": "aec59ffe489fc3bb6d5992ca0668b744c4cfafb5b1e282caed95f365ec211320"
+    },
+    {
+      "path": "src/bsfm/sampler/run_chart.py",
+      "bytes": 6537,
+      "sha256": "c6ad9d8ed8f078be7a296a1ee3265bda177816985ad0d18825c2c14826365fad"
+    },
+    {
+      "path": "src/bsfm/sampler/run_controller.py",
+      "bytes": 9957,
+      "sha256": "f3b0d96c7aecbc2e140488a35f5f8b1732f945a2ac2eda25db22728aa64bcea1"
+    },
+    {
+      "path": "src/bsfm/sampler/run_genesis.py",
+      "bytes": 7670,
+      "sha256": "3284d8ea0b31402ad8e0270e6f0696eccf57c683ddd439f0d8559f198723a232"
+    },
+    {
+      "path": "src/bsfm/sampler/run_initialization.py",
+      "bytes": 6210,
+      "sha256": "292422880e3a56227f49529f7aabb9ffa4f6937960bca8887df2c6bdeb784764"
+    },
+    {
+      "path": "src/bsfm/sampler/run_inputs.py",
+      "bytes": 10275,
+      "sha256": "16648ab5f6019abf8b2502cc5600c771f2d252a93cfc7fff465c07d0e76e39c1"
+    },
+    {
+      "path": "src/bsfm/sampler/run_linux_environment.py",
+      "bytes": 7219,
+      "sha256": "8388e58b958eabdacd24a9d2b074c594208eca169ac47e8b16c51cda87c6e066"
+    },
+    {
+      "path": "src/bsfm/sampler/run_linux_storage.py",
+      "bytes": 1819,
+      "sha256": "2f06557eb8b80b781245a5619b4bec575c2387fb72746133ae7dba7548580bcb"
+    },
+    {
+      "path": "src/bsfm/sampler/run_receipts.py",
+      "bytes": 628,
+      "sha256": "82c15f73ce3eb88544e656fbd0f20bed2c91cbc799ad66c1ee21b3d93589d286"
+    },
+    {
+      "path": "src/bsfm/sampler/run_storage.py",
+      "bytes": 4116,
+      "sha256": "26c41b7ed37343eb068edfb3fac9b6aa37f5f4595d134e1a4f2fd3dcf274f3c6"
+    },
+    {
+      "path": "src/bsfm/sampler/run_transactions.py",
+      "bytes": 9496,
+      "sha256": "db73737ff297221655ce8ff32c933cbded65d552d8c046383af968506f1fde12"
+    },
+    {
+      "path": "tests/layer9_crash_worker.py",
+      "bytes": 458,
+      "sha256": "5d2375aaad6aaecfdcc77762e6eabcd8c809bd813b30a6a308b96354bc663c95"
+    },
+    {
+      "path": "tests/sampler_layer9_support.py",
+      "bytes": 4240,
+      "sha256": "2af065a75a7d77e3155c6d9eccc7ddcba4fa29223a823023b0bf18d16694ce7d"
+    },
+    {
+      "path": "tests/test_sampler_layer9.py",
+      "bytes": 18848,
+      "sha256": "a6a58e12c7c72b9024091aa1868c95465d409bfd9b06ea96ca34a4afd937f2dd"
+    },
+    {
+      "path": "tests/test_sampler_layer9_chart.py",
+      "bytes": 2749,
+      "sha256": "6738ceb30c79a147f5f8dd71cd3db0b385409dcca79f2d6e8d1608923c94a585"
+    },
+    {
+      "path": "tests/test_sampler_layer9_portability.py",
+      "bytes": 7303,
+      "sha256": "dda358d78c9a5376fee214c0fd14b5eb750ac5a1cb9961c283e7b18a0479098d"
+    },
+    {
+      "path": "tests/test_sampler_layer9_receipts.py",
+      "bytes": 1840,
+      "sha256": "ef9149e99a613e155e25a0caef7d77ce525ab882f7466b16b2957369b6421a23"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "job_id": "22013415",
+  "commit": "5260e1c27406a22964263e937a406778184d25dd",
+  "scope": "Independent synthetic same-runtime historical equivalence; no scientific data",
+  "approval": "Explicit user approval of reference audit from 5260e1c",
+  "submitted_utc": "2026-11-03T08:53:56.052657+00:00",
+  "cpus": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 30
+}

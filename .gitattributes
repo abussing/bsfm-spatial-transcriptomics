@@ -22,3 +22,4 @@ docs/environment/layer9-linux-20261103/job* -text
 docs/environment/layer9-linux-20261103/*.log -whitespace
 docs/sampler/linux-review-20261103/job* -text
 docs/sampler/linux-review-20261103/*.log -whitespace
+docs/sampler/linux-review-20261103/*.patch -text -whitespace

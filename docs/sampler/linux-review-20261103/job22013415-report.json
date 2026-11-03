@@ -1,0 +1,153 @@
+{
+  "status": "pass",
+  "commit": "5260e1c27406a22964263e937a406778184d25dd",
+  "job_id": "22013415",
+  "scope": "Synthetic same-runtime reference comparisons; frozen fixtures remain unchanged",
+  "fixture_inventory": {
+    "tests/fixtures/sampler_layer5.json": "ae3224bc2b43aa4b0910aa838dde2f8fb3061ef980fa77e902831a5f7190e559",
+    "tests/fixtures/sampler_layer2.json": "0a902b8a008512fbe33d3d2cc4e955de6ce6fc8e930d7776b95af241a0c5a80f",
+    "tests/fixtures/sampler_layer6.json": "dbdcfb58058e31103f4a551196fe72eedff6c8d46fd2860bbcbfa9c301eeb741",
+    "tests/fixtures/sampler_layer3.json": "3288983f27d0949a6ed0c478421bac559ba88e3e6bbd7a1a81cf9e9cf0b9731b",
+    "tests/fixtures/sampler_layer4.json": "8ed862a556d6d5206d06cfb7899d6c66c07b5c9fa8639e1ab5bd8c1c21b8981e",
+    "tests/fixtures/sampler_layer1.json": "b01ae2a55ede3bfa56986438e4b660d23b13f66187440eb276c4ceeaef9661a5"
+  },
+  "comparisons": {
+    "layers123": {
+      "exit_code": 0,
+      "receipt_sha256": "53d0bad073b55e430b72d7a545220bc553caf9439fe694d3ef04f752ead72d33"
+    },
+    "5": {
+      "same_environment_source_port_exact": true,
+      "saved_windows_fixture_exact": false,
+      "sources": [
+        {
+          "path": "/work/abussing/bsfm-consolidation/reviews/layer9-portability-20261103/payload/evidence/full_split.py",
+          "bytes": 4705,
+          "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd"
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/reviews/layer9-portability-20261103/payload/evidence/run_c3full_fixed_profile_nuts.py",
+          "bytes": 94890,
+          "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49"
+        }
+      ],
+      "elapsed_seconds": 66.92020267000044
+    },
+    "6": {
+      "same_environment_source_port_exact": true,
+      "saved_windows_fixture_exact": false,
+      "sources": {
+        "path": "/work/abussing/bsfm-consolidation/reviews/layer9-portability-20261103/payload/evidence/run_c3full_fixed_profile_nuts.py",
+        "bytes": 94890,
+        "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+        "top_statement_lines": [
+          1121,
+          1122,
+          1150,
+          1151,
+          1156,
+          1166,
+          1170,
+          1172,
+          1179,
+          1180
+        ],
+        "inner_statement_lines": [
+          1123,
+          1127,
+          1128,
+          1131,
+          1143,
+          1145,
+          1146
+        ],
+        "factor_statement_lines": [
+          1181,
+          1182,
+          1183,
+          1186,
+          1188,
+          1189,
+          1193,
+          1194,
+          1198,
+          1201,
+          1202,
+          1203,
+          1204,
+          1208,
+          1212,
+          1225,
+          1263,
+          1270
+        ],
+        "selected_AST_sha256": "17adf5454dc2423d3f27d5bcea88e4439c1205cacbc34e81eba6aae1f189b9a7",
+        "exclusions": "captures, persistent diagnostics, containment/fidelity monitoring, fixed-loading-precision branch; no numerical/RNG update omitted"
+      },
+      "elapsed_seconds": 132.1584023789983
+    }
+  },
+  "environment": {
+    "schema": "bsfm.layer9-linux-cpu-authentication.v1",
+    "executable": "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/bin/python",
+    "runtime": {
+      "bytes": 25511680,
+      "sha256": "9b3ba347a7b9dc429404683fd24fad63d96826be1817482541f905a1fac06cd7"
+    },
+    "lock": {
+      "bytes": 11145,
+      "sha256": "f1a86a48cedc4fa3a4247a0d442419645bc8b3243171073b8710cf478673ccf5"
+    },
+    "installed_receipt": {
+      "bytes": 5453,
+      "sha256": "ecf2249f60a21eb32bee284194e1b438ab33ef9a04fb09f2fe4babbffe855dc8"
+    },
+    "packages": {
+      "opt-einsum": "3.4.0",
+      "numpy": "2.1.3",
+      "jaxopt": "0.8.3",
+      "threadpoolctl": "3.5.0",
+      "optax": "0.2.8",
+      "scipy": "1.14.1",
+      "ml-dtypes": "0.6.0",
+      "blackjax": "1.3",
+      "pip": "24.0",
+      "jaxlib": "0.7.0",
+      "setuptools": "79.0.1",
+      "typing-extensions": "4.16.0",
+      "jax": "0.7.0",
+      "absl-py": "2.5.1",
+      "fastprogress": "1.0.3"
+    },
+    "cpu": true,
+    "x64": true,
+    "blas": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/lib/python3.11/site-packages/numpy.libs/libscipy_openblas64_-ff651d7f.so",
+        "version": "0.3.27",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/lib/python3.11/site-packages/scipy.libs/libscipy_openblas-c128ec02.so",
+        "version": "0.3.27.dev",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      }
+    ],
+    "installed_record_files": 4475,
+    "wheel_member_files": 3391,
+    "source_authenticated_regenerated_bytecode": 1,
+    "limitation": "Same-platform validation required; bootstrap pip/setuptools checked by installed RECORD"
+  },
+  "fixtures_unchanged": true,
+  "elapsed_seconds": 236.7581021829974
+}

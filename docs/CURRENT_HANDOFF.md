@@ -1,5 +1,33 @@
 # Current BSFM handoff
 
+## Current continuation: Linux checks and small S10 proposal
+
+The review branch `review/layer9-portability-20261103` now preserves the Linux
+results and a user-requested small S10 execution proposal. Read
+[the current review report](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/review/layer9-portability-20261103/docs/sampler/linux-review-20261103/REVIEW_RESULTS.md)
+and [the small smoke specification](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/review/layer9-portability-20261103/docs/sampler/s10-subset-smoke-20261103/RUN_SPEC.json).
+These supersede older pending-Linux operational statements below.
+
+- Job 22013414 at a496b7c: 46 focused Layer-9 tests passed. The ordinary
+  195-test suite recorded 27 saved-reference failure entries and one chart
+  rounding-plateau test error. Mesh checks: seven passed, two R-dependent
+  checks skipped, one import error due to missing psutil. Overall job FAILED,
+  exit 1:0; all stages completed. This is not a full regression-suite pass.
+- Job 22013415 at 5260e1c: 75 Layers 1-3 audit tests passed; independent
+  historical/port comparisons for Layers 5 and 6 matched exactly on HPC.
+- Job 22013417 at 8abee70: all ten final storage tests passed, including the
+  normalized ownership guard added after job 22013414 began.
+- All 181 accepted source/test/config/environment/schema blobs checked against
+  the shutdown baseline remain unchanged. No scientific Layer-9 merge occurred.
+- No S10 or leave-out run has yet been submitted by this checkpoint.
+
+The next proposal uses only 24 cells, two sliced GPINIT factors, 20 warmup steps
+per factor (the supported minimum), and two sweeps with a fresh-process restart,
+under a ten-minute cap. It first gates on same-runtime Layer-4 comparisons and
+an exact chart-boundary probe. Full-data SCT/GPINIT remain ineligible for primary
+holdout scoring; the subset is a labeled execution derivative, not new canonical
+preparation or a full-cell validation. No mesh or GPINIT regeneration is proposed.
+
 ## Linux Python environment completed
 
 Job 22013408 at `460ccdd6ca523d22f2c61c0cbacdf0f1f82ba0de` completed the isolated
@@ -186,78 +214,53 @@ production K, chain count, or run lengths were selected by this task.
 
 ## Exact resume instructions on another computer
 
-1. Clone accepted main and inspect the WIP without mixing it into main:
+1. Inspect local Git status and preserve any local edits. Fetch GitHub; update
+   clean main by fast-forward only. Read AGENTS.md and this handoff completely.
+   Accepted Layers 1-8 remain on main. Inspect
+   `review/layer9-portability-20261103` in a separate worktree; do not replace
+   it with the older `wip/layer9-orchestration-20261103` draft or merge it
+   automatically. The older draft and review receipts remain historical evidence.
 
-   ```sh
-   git clone https://github.com/abussing/bsfm-spatial-transcriptomics.git
-   cd bsfm-spatial-transcriptomics
-   git fetch origin
-   git status --short --branch
-   git rev-parse HEAD origin/main
-   git show origin/wip/layer9-orchestration-20261103:docs/wip/layer9_20261103/STATUS.md
-   git worktree add --detach ../bsfm-layer9-review origin/wip/layer9-orchestration-20261103
-   ```
-
-   Verify the WIP commit equals `a87532ec30d6daacada3245e2cbeb105da4435ce`.
-   Read its status, inventory and patch before editing. Main must stay clean.
-
-2. Authenticate once to HPC, then run the following read-only integrity check
-   inside that shell. This hashes payload bytes; it does not execute a sampler:
+2. The 187-file transfer is complete. If checking the mirror on reconnect,
+   verify only the transfer-receipt identity unless a concrete integrity concern
+   requires a payload recheck:
 
    ```sh
    ssh -p 222 abussing@login.rci.sc.edu
-   /work/abussing/bsfm-consolidation/environments/sampler-cpu-py311/bin/python - <<'PY'
-   import hashlib, json
-   from pathlib import Path
-   root = Path('/work/abussing/bsfm-consolidation/canonical-artifacts-20261103')
-   def sha(p):
-       h = hashlib.sha256()
-       with p.open('rb') as f:
-           for chunk in iter(lambda: f.read(1048576), b''):
-               h.update(chunk)
-       return h.hexdigest()
-   assert sha(root/'source-inventory.json') == '8d5861b3ac76b4e4eaea5fd8d979cb360b3d425530d0b4faadb79a65b7f51a79'
-   assert sha(root/'transfer-receipt.json') == '5ed5813756a19c73f672c6873b6f41093521ea1dd4a46d8a075ff18d13bb4f60'
-   assert sha(root/'destination-verification.json') == '8254cd7d7a4e96665a667d6a226a636076944f6161646d7ea8ea62984e69ba65'
-   inv = json.loads((root/'source-inventory.json').read_text())
-   receipt = json.loads((root/'transfer-receipt.json').read_text())
-   assert receipt['status'] == 'complete_verified'
-   assert len(inv['files']) == len(receipt['files']) == 187
-   for row in inv['files']:
-       p = root / row['relative_path']
-       assert p.stat().st_size == row['bytes'], str(p)
-       assert sha(p) == row['sha256'], str(p)
-   assert sum(r['bytes'] for r in inv['files']) == receipt['total_verified_bytes'] == 6943739779
-   print('PASS: 187 payloads, 6,943,739,779 bytes')
-   PY
+   sha256sum /work/abussing/bsfm-consolidation/canonical-artifacts-20261103/transfer-receipt.json
    ```
 
-   If downloading to another computer, preserve the relative layout and repeat
-   the inventory check with `root` pointing at that local mirror. Never infer
-   integrity from a successful copy command or directory existence.
+   Expected SHA-256:
+   `5ed5813756a19c73f672c6873b6f41093521ea1dd4a46d8a075ff18d13bb4f60`.
+   Do not repeat recovery, download raw data, regenerate preparations, or rehash
+   all payloads merely because original Windows paths differ. A newly copied
+   mirror still needs its own destination verification.
 
-3. Resume **review and bounded implementation**, not a scientific run. In the
-   separate WIP worktree, authenticate the twelve inventory entries, inspect
-   the draft against Layer 9A, finish initialization/RNG equivalence, genesis,
-   transaction crash/recovery and non-replay tests, and run the complete
-   sampler/provenance and eight canonical mesh suites in their accepted
-   environments. The existing draft's partial log is not a pass. No package
-   change, tolerance relaxation or automatic WIP promotion is authorized here.
+3. Read the current review branch's
+   `docs/sampler/linux-review-20261103/REVIEW_RESULTS.md`, validation receipts,
+   implementation/portability patches, inventory and source map. Distinguish
+   full tests at a496b7c from the final storage guard at 8abee70. Preserve
+   ordinary regression failures separately from passing historical comparisons.
+   Do not relax fixtures/tolerances or rewrite accepted mathematical kernels.
 
-4. Preserve the approved NPZ/contract runtime boundary, target acceptance 0.9,
-   immutable run identity, separate genesis, per-sweep atomic transaction,
-   repairable projections, exact same-run resume and deferred readaptation.
-   Timing remains outside authoritative scientific records. Do not reopen
-   preparation, GPINIT or Layers 1-8 to evade a draft failure.
+4. The Linux runtime is the isolated
+   `/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python`.
+   Its committed run scripts record required modules, CPU/x64 and thread limits.
+   Linux R mesh/SCT availability and scientific validation remain separate
+   limitations. The old sampler CPU environment does not replace this runtime.
 
-5. After Layer-9 review/acceptance, separately specify and seek approval for
-   the S10 leave-out-chunk pilot: training-only preprocessing and scoring,
-   held-out identities, fixed geometry, explicit run parameters and platform
-   validation. The current full-data artifacts support mechanical integration,
-   not an honest primary holdout score. Any HPC job requires a committed run
-   specification and explicit approval under AGENTS.md.
+5. Complete the Layer-9 acceptance review, then prepare the separately bounded
+   S10 mechanical integration using the transferred canonical full-cell input,
+   mesh and GPINIT. Any HPC submission needs a committed specification and
+   explicit approval under AGENTS.md. A full-data mechanical smoke is not an
+   honest primary holdout experiment.
 
-No transfer remains to resume. Operational helper scripts and interruption
-records remain in the local evidence directory above; no further scientific
-implementation was added during shutdown preservation. Large payloads,
-checkpoints, environments and logs remain outside Git.
+6. The subsequent vertical slice requires one deterministic hole, training-only
+   SCT fitting/depth/centering, training-only GPINIT, the accepted fixed-design
+   mesh, warped and matched identity-warp fits, and posterior prediction/scoring
+   on identical omitted cells. No large section/hole-size grid precedes that
+   working slice. No production K or run lengths are inferred from smoke settings.
+
+Keep code/evidence synchronized to GitHub and exact HPC checkouts. Never store
+credentials. Large data, environments, checkpoints and logs stay external with
+recorded identities.

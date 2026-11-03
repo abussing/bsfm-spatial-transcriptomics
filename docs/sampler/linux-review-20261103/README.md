@@ -1,5 +1,11 @@
 # Layer-9 Linux validation candidate
 
+Current results are in [REVIEW_RESULTS.md](REVIEW_RESULTS.md). The numbered
+failure/retry history below records earlier checkpoints, not the final status.
+The complete current runtime/test diff is `IMPLEMENTATION.patch`; the Linux
+increment is `PORTABILITY.patch`. Both identify the source candidate in the
+review report. The new source map supplements the preserved Windows review.
+
 This additive portability review leaves accepted Layers 1-8, scientific
 configuration, fixture values, tolerances and stochastic chronology unchanged.
 It does not accept Layer 9 or authorize an S10/holdout scientific fit.

@@ -1,0 +1,32 @@
+[
+  {
+    "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/accepted.log",
+    "bytes": 54964,
+    "sha256": "4ac09d249746b3724b9e8b169ca42756596cbd038ee8915078d52b648bedfd32"
+  },
+  {
+    "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/layer9.log",
+    "bytes": 6212,
+    "sha256": "dffd7b12761bfc874d3a120650c61cd79920704c7809c3e1f01e19492a64ae35"
+  },
+  {
+    "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/mesh.log",
+    "bytes": 2830,
+    "sha256": "660d1d07eec01e0d0a359dba65e623fe4658e4b05f2bdbd77754835f5e22f562"
+  },
+  {
+    "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013414/storage.log",
+    "bytes": 1364,
+    "sha256": "5432333339e8d10b840d1eee59bb9744d2dda99c0b0e6bead87fc78d3849294f"
+  },
+  {
+    "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013417/storage.log",
+    "bytes": 1555,
+    "sha256": "9ca045b3ba0f62191fb05266f8024d46fd6895e9353cd2703a9f7f3da48e7ea7"
+  },
+  {
+    "path": "/work/abussing/bsfm-consolidation/evidence/layer9-reference-22013415/layers123.log",
+    "bytes": 9592,
+    "sha256": "b818bba2027eacc41f644da412ce4844f9d30c058d4fd8a7de14e848125ac5cd"
+  }
+]

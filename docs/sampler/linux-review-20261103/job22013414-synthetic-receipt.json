@@ -1,0 +1,183 @@
+{
+  "scope": "synthetic linux CPU only",
+  "completion": {
+    "schema": "bsfm.run-completion.v1",
+    "status": "complete_with_warnings",
+    "head": "cf7b6ea0fb8285b94de7ca14258576d3d70264159b500ecd184b245a67b8cf36",
+    "spec_sha256": "116938929a09b86c6d2211c6d91607a3fed3a8b91aeb8a36789452d76efad5c9",
+    "completed": 2,
+    "retained": 2,
+    "warmup_divergences": 3,
+    "aggregate": {
+      "schema": "bsfm.raw-diagnostic-aggregate.v1",
+      "chains": {
+        "chain": {
+          "status": "valid_prefix",
+          "records": 2,
+          "retained": 2,
+          "head_sha256": "22dc682e00dd1511638ca33bf76c88d829910262dbeca6e1d5e99f73f1cb5412",
+          "rows": [
+            {
+              "sweep": 1,
+              "retained_index": 1,
+              "factor_order": [
+                1,
+                0
+              ],
+              "elapsed_seconds": null
+            },
+            {
+              "sweep": 2,
+              "retained_index": 2,
+              "factor_order": [
+                1,
+                0
+              ],
+              "elapsed_seconds": null
+            }
+          ],
+          "events": [],
+          "block_energy": [
+            {
+              "sweep": 1,
+              "factor_id": "factor-b",
+              "block_order": [
+                "field",
+                "hyper"
+              ],
+              "block_energy": [
+                -51.04349328404033,
+                -2.4280443448979194
+              ]
+            },
+            {
+              "sweep": 1,
+              "factor_id": "factor-a",
+              "block_order": [
+                "field",
+                "hyper"
+              ],
+              "block_energy": [
+                -81.63777574380376,
+                2.349650803029527
+              ]
+            },
+            {
+              "sweep": 2,
+              "factor_id": "factor-b",
+              "block_order": [
+                "field",
+                "hyper"
+              ],
+              "block_energy": [
+                -66.72900860690797,
+                -1.671264787488467
+              ]
+            },
+            {
+              "sweep": 2,
+              "factor_id": "factor-a",
+              "block_order": [
+                "field",
+                "hyper"
+              ],
+              "block_energy": [
+                -9.506602690427641,
+                -0.9034028252656472
+              ]
+            }
+          ],
+          "divergence_counts": [
+            2,
+            0
+          ],
+          "mean_block_acceptance": [
+            0.5267953483010177,
+            0.9695953071081177
+          ],
+          "pcg_iterations": [
+            6,
+            6,
+            5,
+            7,
+            7,
+            7
+          ],
+          "pcg_max_error_bound": 6.715316766573624e-11,
+          "px_max_invariant_error": 2.8055987023957956e-16,
+          "fidelity_status": "not_evaluated_by_layers_1_to_8"
+        }
+      },
+      "convergence_status": "not_assessed",
+      "energy_semantics": "separate field/hyper conditional Hamiltonians; no pooled BFMI",
+      "factor_alignment": "native labels; no cross-chain factor posterior pooling",
+      "logical_sha256": "a1f5f559dffbf8c5cd30e270db293c17630a4d0c530d7594fbaa732b228fbfa9"
+    },
+    "convergence_status": "not_assessed"
+  },
+  "boundary": {
+    "state_after": {
+      "loading": "b9ce9004467b18aad43d52f33057d60256edaa0665b7d086646a340d844b896c",
+      "eta": "092518404312bb62313778500afbd7fb5bd643c245ee529267cf9fc5572a9efc",
+      "alpha": "f7057affdd11e39bb879b7e03b924c69e151886819b73eae809401a0c07986dc",
+      "zeta": "a3da6b290933442676dac9107be65402d04b6299af746015dcd602214a992bc2",
+      "sigma2": "1358b52c5e33bc05c1d4bd563ca669f858c6ca5bf4e8db593a1e0ddb2512f336",
+      "phi": "52e437dc21fa717594e460fe712cc8db1d4bdd8d49ab50b7cc22b8d18d8b071e",
+      "delta": "5064210fd531bf675480fae0858a10daba108bf14d663dc74186da7d382ca505",
+      "tau": "7eaa83b24e02e2b0e057d785de0a88948c2a8f2b7cecfb6cd63d72dbbea08b1a"
+    },
+    "positions_after": [
+      "e61dce19918cb4b115a3e1d83a4c85e161fbb64398755dec7d06488000036935",
+      "098c1f84930250714dfb3ed821baf9da6777b5ec8831c9df93226d90acbebd5a"
+    ],
+    "target_sha256": "e9f9c2074bbc3dca9fb03ff8a30617db58c2b1eba7640b40eb3ee3e5df68b99f",
+    "b_sigma2_sha256": "111969eb31ed8b7bb49cfbc6324ca3fdf4fb463cc4be643a344af479cdbb7f0e",
+    "rng_after": {
+      "numpy_global_sha256": "b147436d26c5716a395b652db71f602296b2f19925d2057ba4e5d08812828e07",
+      "eta_generator": "PCG64",
+      "eta_rng_sha256": "72c1442090bf38392513a3e490a2eb2804ba779a5a4c12b0e5154bfb8a64ba77",
+      "gauge_generator": "PCG64",
+      "gauge_rng_sha256": "04f249d14020ef23814e0bb2e019a325ce19c265416d3bf840ba1dd7d9acce18",
+      "jax_impl": "threefry2x32",
+      "jax_key_data": [
+        4291979345,
+        3373556127
+      ]
+    },
+    "label": "mechanical/segment/chain/000000000002",
+    "fitted_Y_sha256": "0526d7fcfc88ed7868db3d3c9749b81a05c24886b498f45b930130dbceb66513"
+  },
+  "historical_initialization_reference": {
+    "path": "/work/abussing/bsfm-consolidation/reviews/layer9-portability-20261103/payload/evidence/run_c3full_fixed_profile_nuts.py",
+    "bytes": 94890,
+    "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+    "statement_lines": [
+      466,
+      467,
+      477,
+      478,
+      479,
+      480,
+      482,
+      483,
+      484,
+      485,
+      489,
+      493,
+      494,
+      495,
+      496,
+      510,
+      511,
+      514,
+      517,
+      518,
+      662,
+      663
+    ],
+    "AST_sha256": "bccf3701b1c49a95a33759220786124a3aa7b93fcb1efefe970f10e0de7fda11"
+  },
+  "target_acceptance": 0.9,
+  "warmup_steps_per_factor": 20,
+  "real_sweeps_per_arm": 2
+}
