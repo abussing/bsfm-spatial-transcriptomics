@@ -2,6 +2,18 @@
 
 ## Latest execution checkpoint: GPU replacement fits
 
+**Current operational job map:** [CURRENT_GPU_JOBS.md](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/run/s10-holey-20261103/docs/holdouts/s10-grid-20261103/CURRENT_GPU_JOBS.md)
+supersedes the earlier IDs below. Deep P100 22014562 failed because CUDA-only
+device visibility blocked a diagnostic CPU callback. Replacement **22014615**
+at `73939be3fd8cb37dfb96022d656ce999b48d8eaa` passed an explicit callback-on-GPU
+preflight and entered warmup. Flat **22014563** remains unchanged and had saved
+five bridge sweeps. Both were RUNNING at the last check. Eight queued deep V100
+copies were replaced by 22014622-22014629; all flat submissions remain intact.
+CUDA remains the default computation backend; CPU is visible for host logging.
+Deep and flat now have different generating commits/output roots. Read the job
+map before monitoring, predicting or resuming; do not combine queue alternatives
+as independent chains. Earlier submission history follows.
+
 An idle P100 fallback was found on generic partition `gpu`. Validation job
 22014518 passed four focused tests and a real L14 20-step factor warmup (128.41s).
 Additional paired jobs 22014562 (deep) / 22014563 (flat) use the 12-hole width/8
