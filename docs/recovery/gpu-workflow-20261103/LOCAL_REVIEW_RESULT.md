@@ -1,0 +1,13 @@
+# Incremental orchestration: local review result
+
+Status: local synthetic evidence complete; candidate remains uncommitted, unselected and not deployed. No active scientific job or accepted numerical layer was changed.
+
+The complete inherited fault suite ran 36 methods. Thirty-five passed on the first run. The fresh-process method failed in all five interruption subcases because the test launcher did not export the repository import path to child Python processes (`ModuleNotFoundError: bsfm`). The original FAIL receipt is preserved. After fixing only that launcher, the single failed method and all five subcases passed in a separate retry using the same independently revalidated synthetic template. Candidate implementation and test-module hashes were identical in both receipts. No reference values or numerical tolerances changed. These are 36 distinct methods covered across the two runs, not a claim that the first invocation passed.
+
+Strict and incremental synthetic initialization, adaptation, saved transactions and completion receipts matched exactly. Covered checks include writer-lease lifetime, full validation outside a lease, ordinary file mutation, interrupted writes, repair, RNG continuity and committed non-replay. The inherited fresh-process workers use the strict controller, followed by incremental recovery. Process death inside the incremental writer itself remains a separate GPU/Linux gate.
+
+The separate bookkeeping test passed: scanning growing prefixes through 50 records invoked 1,275 strict pair validators versus 50 incremental pair validators. Those validators were fake, explicitly testing orchestration counts. This is neither a numerical comparison nor a measured GPU speedup. Metadata checks still grow with history length.
+
+See `LOCAL_VALIDATION.json`, the original two receipts and `CANDIDATE_INVENTORY.json` for exact identities. The complete candidate patch and source bundle are outside Git under the audit evidence directory. The implementation report/design amendment is `INCREMENTAL_REVIEW.md`; provenance mapping is `CANDIDATE_SOURCE_MAP.csv`.
+
+The next bounded gate is the proposed `gpu_validation.sbatch` and `gpu_validation.py`: one V100, four CPUs, 16 GiB host RAM, at most 30 minutes, synthetic inputs only. It compares three strict and incremental sweeps and exercises fresh-process candidate interruption/recovery and committed non-replay. It records phase-event wall times but is not a matched scientific throughput benchmark. The code and run specification must be reviewed and committed before submission, with explicit user approval under AGENTS.md rule 6. Existing scientific runs stay on their original commits. No hot replacement or code-identity migration is authorized by this local result.

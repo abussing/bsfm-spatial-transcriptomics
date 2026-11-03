@@ -1,0 +1,29 @@
+{
+  "status": "LOCAL_CASE_COVERAGE_PASS_AFTER_HARNESS_RETRY",
+  "distinct_methods": 36,
+  "original_passed_methods": 35,
+  "original_failed_method_subcases": 5,
+  "retry_passed_methods": 1,
+  "candidate_source_unchanged_between_runs": true,
+  "original": {
+    "bytes": 5601,
+    "sha256": "ad1735d0505dbb03fa2c532e6a74be212db18c5798e32383fdc04f5cb0f2a639"
+  },
+  "retry": {
+    "bytes": 654,
+    "sha256": "4cae3f95c96e463ba9b3a640eb949d0ac39db79da33c1964391dad7627d268c7"
+  },
+  "bookkeeping": {
+    "status": "PASS",
+    "prefix": 50,
+    "strict_pair_calls": 1275,
+    "incremental_pair_calls": 50,
+    "validators": "fake; not a GPU speed measurement"
+  },
+  "limits": [
+    "CPU synthetic only",
+    "Inherited crash worker uses strict writer",
+    "No deployment or live-job migration",
+    "Full sampler/mesh suite not rerun: accepted numerical layers unchanged"
+  ]
+}

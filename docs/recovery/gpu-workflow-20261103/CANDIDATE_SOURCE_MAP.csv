@@ -1,0 +1,9 @@
+candidate,authority,relationship,limit
+src/bsfm/sampler/run_incremental.py,src/bsfm/sampler/run_transactions.py,Subclass retains original pair validators and strict startup/resume/closure,New lease-scoped caching requires explicit design amendment
+src/bsfm/sampler/run_incremental.py,src/bsfm/sampler/run_storage.py,Uses existing exclusive writer lease and atomic publication,Metadata guards are not content hashes
+src/bsfm/sampler/run_incremental.py,docs/sampler/LAYER9A_DESIGN.md,Preserves atomic checkpoint plus record and restart chronology,Amends full archive reopen after every commit during uninterrupted lease
+src/bsfm/sampler/run_incremental.py,docs/recovery/gpu-workflow-20261103/SOURCE_INVENTORY.json,Historical driver advances live state without rereading all prior states,No historical saving implementation copied wholesale
+tests/test_sampler_incremental.py,tests/test_sampler_layer9.py,Inherits fault matrix and adds exact strict comparison and lease guards,Inherited crash worker uses strict writer
+tests/test_sampler_incremental_bookkeeping.py,src/bsfm/sampler/run_transactions.py,Counts repeated pair validation through growing synthetic prefixes,Fake validators only
+docs/recovery/gpu-workflow-20261103/gpu_validation.py,tests/sampler_layer9_support.py,Synthetic fixture and existing exact transaction receipts,GPU execution still pending
+docs/recovery/gpu-workflow-20261103/gpu_validation.sbatch,docs/holdouts/s10-grid-20261103/gpu_run.py,Reuses recorded GPU environment authentication,No new environment or scientific fit

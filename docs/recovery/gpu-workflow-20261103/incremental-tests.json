@@ -1,0 +1,34 @@
+{
+  "scope": "Local CPU synthetic incremental orchestration candidate; no HPC deployment",
+  "tests_run": 36,
+  "failures": [
+    [
+      "test_fresh_process_kill_and_recovery (test_sampler_incremental.IncrementalTests.test_fresh_process_kill_and_recovery) (stage='after_checkpoint_candidate')",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\test_sampler_layer9.py\", line 146, in test_fresh_process_kill_and_recovery\n    self.assertEqual(child.returncode,91,child.stderr)\nAssertionError: 1 != 91 : Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\layer9_crash_worker.py\", line 4, in <module>\n    from sampler_layer9_support import controller\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer9_support.py\", line 14, in <module>\n    from sampler_layer6_support import fixture_system\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer6_support.py\", line 14, in <module>\n    from bsfm.sampler.contracts import GaussianState, logical_hash\nModuleNotFoundError: No module named 'bsfm'\n\n"
+    ],
+    [
+      "test_fresh_process_kill_and_recovery (test_sampler_incremental.IncrementalTests.test_fresh_process_kill_and_recovery) (stage='after_record_candidate')",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\test_sampler_layer9.py\", line 146, in test_fresh_process_kill_and_recovery\n    self.assertEqual(child.returncode,91,child.stderr)\nAssertionError: 1 != 91 : Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\layer9_crash_worker.py\", line 4, in <module>\n    from sampler_layer9_support import controller\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer9_support.py\", line 14, in <module>\n    from sampler_layer6_support import fixture_system\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer6_support.py\", line 14, in <module>\n    from bsfm.sampler.contracts import GaussianState, logical_hash\nModuleNotFoundError: No module named 'bsfm'\n\n"
+    ],
+    [
+      "test_fresh_process_kill_and_recovery (test_sampler_incremental.IncrementalTests.test_fresh_process_kill_and_recovery) (stage='after_transaction_publish')",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\test_sampler_layer9.py\", line 146, in test_fresh_process_kill_and_recovery\n    self.assertEqual(child.returncode,91,child.stderr)\nAssertionError: 1 != 91 : Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\layer9_crash_worker.py\", line 4, in <module>\n    from sampler_layer9_support import controller\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer9_support.py\", line 14, in <module>\n    from sampler_layer6_support import fixture_system\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer6_support.py\", line 14, in <module>\n    from bsfm.sampler.contracts import GaussianState, logical_hash\nModuleNotFoundError: No module named 'bsfm'\n\n"
+    ],
+    [
+      "test_fresh_process_kill_and_recovery (test_sampler_incremental.IncrementalTests.test_fresh_process_kill_and_recovery) (stage='after_record_projection')",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\test_sampler_layer9.py\", line 146, in test_fresh_process_kill_and_recovery\n    self.assertEqual(child.returncode,91,child.stderr)\nAssertionError: 1 != 91 : Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\layer9_crash_worker.py\", line 4, in <module>\n    from sampler_layer9_support import controller\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer9_support.py\", line 14, in <module>\n    from sampler_layer6_support import fixture_system\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer6_support.py\", line 14, in <module>\n    from bsfm.sampler.contracts import GaussianState, logical_hash\nModuleNotFoundError: No module named 'bsfm'\n\n"
+    ],
+    [
+      "test_fresh_process_kill_and_recovery (test_sampler_incremental.IncrementalTests.test_fresh_process_kill_and_recovery) (stage='before_ledger')",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\test_sampler_layer9.py\", line 146, in test_fresh_process_kill_and_recovery\n    self.assertEqual(child.returncode,91,child.stderr)\nAssertionError: 1 != 91 : Traceback (most recent call last):\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\layer9_crash_worker.py\", line 4, in <module>\n    from sampler_layer9_support import controller\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer9_support.py\", line 14, in <module>\n    from sampler_layer6_support import fixture_system\n  File \"C:\\Users\\andyb\\Desktop\\bsfm-gpu-audit\\tests\\sampler_layer6_support.py\", line 14, in <module>\n    from bsfm.sampler.contracts import GaussianState, logical_hash\nModuleNotFoundError: No module named 'bsfm'\n\n"
+    ]
+  ],
+  "errors": [],
+  "skipped": [],
+  "elapsed_seconds": 918.4369999999763,
+  "status": "FAIL",
+  "source_hashes": {
+    "src\\bsfm\\sampler\\run_incremental.py": "930a544824b36c120156e8413c009d1494ce8a4b368512c60b7c32dffb92a681",
+    "tests\\test_sampler_incremental.py": "cf4ecbc459d97ff3138e334758ea7f54ad5192bfb2b935e13e02c9bfa5ca5650"
+  }
+}

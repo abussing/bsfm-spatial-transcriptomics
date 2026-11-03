@@ -1,0 +1,52 @@
+{
+  "status": "UNCOMMITTED REVIEW CANDIDATE; NOT DEPLOYED",
+  "base_commit": "30cd770d82ed6e90c528dc11cb41800a67d97009",
+  "files": {
+    "src/bsfm/sampler/run_incremental.py": {
+      "bytes": 7933,
+      "sha256": "930a544824b36c120156e8413c009d1494ce8a4b368512c60b7c32dffb92a681"
+    },
+    "tests/test_sampler_incremental.py": {
+      "bytes": 3974,
+      "sha256": "cf4ecbc459d97ff3138e334758ea7f54ad5192bfb2b935e13e02c9bfa5ca5650"
+    },
+    "tests/test_sampler_incremental_bookkeeping.py": {
+      "bytes": 2324,
+      "sha256": "a35d4ad98a4a3b16d7cba9547ea1b8a7fa0a815310982311e1bcae6d7ef6f0da"
+    },
+    "docs/recovery/gpu-workflow-20261103/check_incremental.py": {
+      "bytes": 3002,
+      "sha256": "d1a254222ad46bec373a0b1bef2a68284334365edfee05191d4ac93c6d5d8523"
+    },
+    "docs/recovery/gpu-workflow-20261103/gpu_validation.py": {
+      "bytes": 5340,
+      "sha256": "a4c3b7d03e417898b6a5ad101787d90d4e8ff2134cfa270644433d30b97c698d"
+    },
+    "docs/recovery/gpu-workflow-20261103/gpu_validation.sbatch": {
+      "bytes": 1012,
+      "sha256": "3edf9f5bfcf1bde764c95c9d010fe3164e928b5d02e4b9d7f111ba1dad896fcd"
+    }
+  },
+  "external_artifacts": {
+    "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\candidate.patch": {
+      "bytes": 25429,
+      "sha256": "97ecda36724c9965c5812e77a4a120ccc25d64511128217489ae22002dfeca31"
+    },
+    "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\candidate-source.zip": {
+      "bytes": 9529,
+      "sha256": "fd5ea4771f789ace4051fe1647f317eff03a19c00df50161e522e290e3e7b90b"
+    },
+    "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\incremental-tests.log": {
+      "bytes": 25712,
+      "sha256": "9bd3189beafe5c499aa857cfac012bb6268beb0ed71c4b7ef205764bcdc317b1"
+    },
+    "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\incremental-fresh-process-retry.log": {
+      "bytes": 1170,
+      "sha256": "81e1c4b8a0a70433ca396eeaf6bc85cb1909045744b7474ac5a2deab370656b4"
+    },
+    "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\bookkeeping-tests.log": {
+      "bytes": 1440,
+      "sha256": "ca216dc7078e5ad5da9875c74dda9bda17928452b16eec01547f85d1cb03c424"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "scope": "Local CPU synthetic incremental orchestration candidate; no HPC deployment",
+  "tests_run": 1,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "elapsed_seconds": 129.51600000000326,
+  "status": "PASS",
+  "selected_case": "test_fresh_process_kill_and_recovery",
+  "reused_template": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\synthetic-template",
+  "source_hashes": {
+    "src\\bsfm\\sampler\\run_incremental.py": "930a544824b36c120156e8413c009d1494ce8a4b368512c60b7c32dffb92a681",
+    "tests\\test_sampler_incremental.py": "cf4ecbc459d97ff3138e334758ea7f54ad5192bfb2b935e13e02c9bfa5ca5650"
+  }
+}
