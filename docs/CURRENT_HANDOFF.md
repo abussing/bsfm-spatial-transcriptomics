@@ -7,11 +7,11 @@ Generating commit `21214c7f8de63ce9d8e87792316511e5f278af9a` on the separate
 `run/s10-holey-20261103` branch supplies the GPU launcher. Main's scientific
 code remains unchanged. Read the [GPU run record and exact launch/resume command](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/run/s10-holey-20261103/docs/holdouts/s10-grid-20261103/GPU_RUNNING.md).
 
-GPU jobs: deep/flat 22014408/22014409 (12 circles, width/16),
-22014347/22014410 (12, width/8), 22014411/22014412 (8, width/16),
-22014413/22014414 (8, width/8). Partition `v100-16gb-hiprio`, one V100,
+GPU jobs: deep/flat 22014417/22014418 (12 circles, width/16),
+22014347/22014419 (12, width/8), 22014420/22014422 (8, width/16),
+22014423/22014414 (8, width/8). Partition `v100-16gb-hiprio`, one V100,
 four CPUs, 16 GiB host memory, 12 hours each. First job entered full-data warmup;
-check current Slurm/log/checkpoint state rather than inferring completion here.
+the other seven replacements were queued on scheduler priority. Node398 failed before application startup and is excluded from the queued jobs. Check current Slurm/log/checkpoint state rather than inferring completion here.
 
 K=12, L14, full mesh, same prepared inputs and original iteration schedule.
 Fresh GPU trajectories reuse the existing training-only GPINIT; CPU checkpoint
