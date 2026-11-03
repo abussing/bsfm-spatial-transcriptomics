@@ -1,0 +1,13 @@
+/work/apps/cmake/3.27.4/bin/cmake: /lib64/libcrypto.so.10: version `OPENSSL_1.0.2' not found (required by /work/apps/cmake/3.27.4/bin/cmake)
+Traceback (most recent call last):
+  File "/work/abussing/bsfm-consolidation/checkouts/bc5bee63b8919011366e9a463f2326a9baebb031/docs/environment/layer9-linux-20261103/build.py", line 115, in <module>
+    main()
+  File "/work/abussing/bsfm-consolidation/checkouts/bc5bee63b8919011366e9a463f2326a9baebb031/docs/environment/layer9-linux-20261103/build.py", line 72, in main
+    version=subprocess.check_output([executable, '--version'], text=True).splitlines()[0])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/abussing/arka_trying_gpu_again/env/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/abussing/arka_trying_gpu_again/env/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/work/apps/cmake/3.27.4/bin/cmake', '--version']' returned non-zero exit status 1.

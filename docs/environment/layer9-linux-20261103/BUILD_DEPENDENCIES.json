@@ -89,5 +89,37 @@
     "url": "https://files.pythonhosted.org/packages/cc/20/ff623b09d963f88bfde16306a54e12ee5ea43e9b597108672ff3a408aad6/pathspec-0.12.1-py3-none-any.whl",
     "sha256": "a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08",
     "bytes": 31191
+  },
+  {
+    "name": "cmake",
+    "version": "3.27.9",
+    "metadata_url": "https://pypi.org/pypi/cmake/3.27.9/json",
+    "requires_dist": [
+      "coverage >=4.2 ; extra == 'test'",
+      "importlib-metadata >=2.0 ; extra == 'test'",
+      "pytest >=3.0.3 ; extra == 'test'",
+      "pytest-cov >=2.4.0 ; extra == 'test'"
+    ],
+    "url": "https://files.pythonhosted.org/packages/48/79/10d15c399a6fb92738f8d02c69eae6f6df0b9c6b9545c947a29c2a45adea/cmake-3.27.9-py2.py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "sha256": "434714990d82e3c3936a726c1706c6a1d5a34964a7415d1433af0904a994e414",
+    "bytes": 26050622
+  },
+  {
+    "name": "ninja",
+    "version": "1.11.1.1",
+    "metadata_url": "https://pypi.org/pypi/ninja/1.11.1.1/json",
+    "requires_dist": [
+      "codecov >=2.0.5 ; extra == 'test'",
+      "coverage >=4.2 ; extra == 'test'",
+      "flake8 >=3.0.4 ; extra == 'test'",
+      "pytest >=4.5.0 ; extra == 'test'",
+      "pytest-cov >=2.7.1 ; extra == 'test'",
+      "pytest-runner >=5.1 ; extra == 'test'",
+      "pytest-virtualenv >=1.7.0 ; extra == 'test'",
+      "virtualenv >=15.0.3 ; extra == 'test'"
+    ],
+    "url": "https://files.pythonhosted.org/packages/6d/92/8d7aebd4430ab5ff65df2bfee6d5745f95c004284db2d8ca76dcbfd9de47/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+    "sha256": "84502ec98f02a037a169c4b0d5d86075eaf6afc55e1879003d6cab51ced2ea4b",
+    "bytes": 307194
   }
 ]

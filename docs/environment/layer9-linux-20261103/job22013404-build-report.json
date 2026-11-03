@@ -1,0 +1,27 @@
+{
+  "status": "incomplete",
+  "git_commit": "bc5bee63b8919011366e9a463f2326a9baebb031",
+  "scope": "Environment only; numerical validation pending",
+  "script_sha256": "8ab470863ceab4dfe1695d7d51f54ea94ff351206a72cd6e6fd994a03fa10640",
+  "runtime_lock_sha256": "f1a86a48cedc4fa3a4247a0d442419645bc8b3243171073b8710cf478673ccf5",
+  "build_lock_sha256": "66bd33e97ad18ea4d9ce2e46258d9edc90401599106a7d7de5ea64d3777f5814",
+  "archives": [],
+  "base_python": "/work/abussing/bsfm-consolidation/environments/sampler-cpu-py311/bin/python",
+  "base_python_sha256": "9b3ba347a7b9dc429404683fd24fad63d96826be1817482541f905a1fac06cd7",
+  "glibc": [
+    "glibc",
+    "2.17"
+  ],
+  "tools": {
+    "gcc": {
+      "path": "/work/apps/gcc/12.2.0/bin/gcc",
+      "sha256": "08be23f170d5baa3093d41502c91300446857d3fef2fde569f307ce86973cb35",
+      "version": "gcc (GCC) 12.2.0"
+    },
+    "g++": {
+      "path": "/work/apps/gcc/12.2.0/bin/g++",
+      "sha256": "a9b372bff9e895727295cccb430ee59c1b6ca2eb1317d66e56a20c973cf09a9d",
+      "version": "g++ (GCC) 12.2.0"
+    }
+  }
+}

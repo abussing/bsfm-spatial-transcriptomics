@@ -25,7 +25,7 @@ def main():
     assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repo, text=True).strip() == args.expected_commit
     assert not subprocess.check_output(['git', 'status', '--porcelain'], cwd=repo, text=True).strip()
     assert (platform.system(), platform.machine(), platform.python_version()) == ('Linux', 'x86_64', '3.11.14')
-    root = Path('/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source1')
+    root = Path('/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source2')
     root.mkdir(exist_ok=False)
     cache = root / 'archives'
     cache.mkdir()
@@ -65,7 +65,7 @@ def main():
         return dest
 
     try:
-        for tool in ('gcc', 'g++', 'cmake', 'ninja'):
+        for tool in ('gcc', 'g++'):
             executable = shutil.which(tool)
             assert executable, tool
             report['tools'][tool] = dict(path=executable, sha256=sha(executable),
@@ -78,6 +78,11 @@ def main():
         build_wheels = [runtime['numpy']] + [p for n, p in build_archives.items() if n != 'ml_dtypes']
         req.write_text(''.join(f'{p} --hash=sha256:{sha(p)}\n' for p in build_wheels))
         run([bp, '-I', '-m', 'pip', 'install', '--no-deps', '--require-hashes', '-r', str(req)])
+        env['PATH'] = str(root / 'build-python/bin') + os.pathsep + env['PATH']
+        for tool in ('cmake', 'ninja'):
+            executable = str(root / 'build-python/bin' / tool)
+            report['tools'][tool] = dict(path=executable, sha256=sha(executable),
+                version=subprocess.check_output([executable, '--version'], text=True, env=env).splitlines()[0])
         run([bp, '-I', '-m', 'pip', 'wheel', '--no-deps', '--no-build-isolation',
              '--wheel-dir', str(wheels), str(build_archives['ml_dtypes'])])
         built = list(wheels.glob('ml_dtypes-0.6.0-*.whl'))
@@ -100,7 +105,7 @@ assert all(Path(p).is_relative_to(sys.prefix) for p in mods.values())
 packages={d.metadata['Name'].lower().replace('_','-'):d.version for d in m.distributions()}
 lock=json.loads(Path(sys.argv[1]).read_text())['packages']
 assert all(packages[r['name'].lower().replace('_','-')]==r['version'] for r in lock)
-assert not {'scikit-build-core','pathspec','packaging'}.intersection(packages)
+assert not {'scikit-build-core','pathspec','packaging','cmake','ninja'}.intersection(packages)
 Path(sys.argv[2]).write_text(json.dumps(dict(packages=packages,module_paths=mods,executable=sys.executable,base_prefix=sys.base_prefix,cpu=True,x64=True),indent=2)+'\\n')
 '''
         run([python, '-I', '-c', probe, str(lockpath), str(root / 'package-validation.json')])

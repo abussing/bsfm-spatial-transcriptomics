@@ -1,0 +1,9 @@
+{
+  "job_id": "22013404",
+  "commit": "bc5bee63b8919011366e9a463f2326a9baebb031",
+  "scope": "environment-only same-version source-build correction",
+  "submitted_utc": "2026-11-03T08:24:04.983478+00:00",
+  "cpus": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 30
+}
