@@ -1,5 +1,33 @@
 # Current BSFM handoff
 
+## Current task: GPU workflow consolidation audit
+
+The user requested a renewed stage-by-stage audit of historical best practices,
+conversations, recent submissions and the assembled GPU workflow. The
+[evidence audit and receipts](https://github.com/abussing/bsfm-spatial-transcriptomics/tree/30cd770/docs/recovery/gpu-workflow-20261103)
+are on `review/gpu-workflow-consolidation-20261103`, based on execution commit
+`ac886d7`. This is separate from accepted scientific main.
+
+Source verification passed for 61 captured files and eight selected historical
+sampler-file copies. Fresh same-runtime CPU comparisons passed exactly for
+50/100-step adaptation, split transitions and literal Gibbs chronology including
+state, diagnostics and RNG. Actual historical S00/S03 first-chain files reach
+1,000 production sweeps with fidelity-warning completion certificates; this is
+new execution evidence, not a convergence claim or matched speed benchmark.
+
+Repeated full-history checkpoint/record/archive validation is a confirmed
+orchestration scaling problem. A separate incremental-storage proposal is under
+local testing, not deployed or enabled by a launcher. Existing job checkpoints
+bind their software commit; do not hot-edit a running checkout or silently
+change immutable run/software identities to migrate them.
+
+Audit mirror: `/work/abussing/bsfm-consolidation/checkouts/gpu-workflow-audit-30cd770`.
+The eight primary V100 jobs were RUNNING during inspection. At the user's request,
+remaining CPU jobs 22013543/44/47/50/52/53 and P100 jobs 22014563/22014615 were
+cancelled, with saved outputs preserved. Earlier job-state statements below are
+historical. The flat meeting prediction snapshot remains under
+`/work/abussing/bsfm-consolidation/evidence/meeting-flat-922a558`.
+
 ## Latest execution checkpoint: GPU replacement fits
 
 **Current operational job map:** [CURRENT_GPU_JOBS.md](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/run/s10-holey-20261103/docs/holdouts/s10-grid-20261103/CURRENT_GPU_JOBS.md)
