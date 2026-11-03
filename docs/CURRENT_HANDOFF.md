@@ -1,5 +1,19 @@
 # Current BSFM handoff
 
+## GPU integration and representative timing submitted
+
+Commit `9fb50b3` integrates incremental saving into the GPU entry for bridge and
+production stages and explicitly authenticates one or four BLAS threads (scientific
+entry still defaults to one). This changes fresh execution from this commit only;
+existing scientific checkouts remain unchanged. Read
+[runner integration](recovery/gpu-workflow-20261103/RUNNER_INTEGRATION.md).
+Representative real-input GPU job **22015787** was submitted with K12/L14, 20 tuning
+steps/factor and three sweeps/arm, strict versus incremental and one versus four
+threads. Its [submission record](recovery/gpu-workflow-20261103/REPRESENTATIVE_SUBMISSION.json)
+contains exact limits, commit and evidence paths. No result or full-size speedup
+has been established at this checkpoint. Review its receipts before choosing
+threading and launching fresh scientific replacements. Old outputs are preserved.
+
 ## Executed split-NUTS and Wasserstein lineage verified
 
 Read [the executed-lineage report](recovery/gpu-workflow-20261103/EXECUTED_LINEAGE_REPORT.md).

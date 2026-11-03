@@ -1,0 +1,21 @@
+{
+  "status": "SUBMITTED_NOT_YET_VALIDATED",
+  "job_id": "22015787",
+  "commit": "9fb50b3b614f262cc956c81e61ee08bea2c12a36",
+  "specification": "docs/recovery/gpu-workflow-20261103/representative_timing.sbatch",
+  "approval": "User approved the proposed integration, representative GPU/thread comparison and subsequent fresh-fit plan; resource bounds selected within that task",
+  "limits": {"gpus": 1, "cpus": 4, "host_memory_gib": 16, "minutes": 90},
+  "configuration": "circles12_diameter1of8",
+  "model": "deep",
+  "K": 12,
+  "L": 14,
+  "warmup_steps_per_factor_per_thread_setting": 20,
+  "sweeps_per_arm": 3,
+  "thread_settings": [1, 4],
+  "storage_arms": ["strict", "incremental"],
+  "log": "/work/abussing/bsfm-consolidation/evidence/real-timing-22015787.log",
+  "output": "/work/abussing/bsfm-consolidation/evidence/real-timing-22015787",
+  "bundle_sha256": "6d6b892f553cfc1741490e242d1bfefdefe1dbfe23312dcce7cc06b1f654b10e",
+  "preflight": "Exact bundle hash and Git prerequisites verified; clean detached checkout; bash syntax and prepared input presence checked",
+  "limitations": "Short mechanical timing only, not scientific inference. Existing fits unchanged. Fresh production launch remains dependent on review of results."
+}
