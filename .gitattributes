@@ -14,4 +14,5 @@
 docs/recovery/evidence/** -text
 
 # Preserved unified-diff context includes structural single-space blank lines.
+docs/sampler/review-layer9-20261103/** -text
 docs/sampler/review-layer9-20261103/*.patch -whitespace

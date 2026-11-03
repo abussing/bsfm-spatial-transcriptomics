@@ -9,8 +9,11 @@ The preceding README, validation receipt, patches and 45-entry inventory are a
 frozen **pre-publication review snapshot**. Their statements about unstaged work
 and no commits describe that checkpoint. This publication record supersedes
 those operational-status statements; their numerical evidence is unchanged.
-The inventory excludes itself; CSV line endings were normalized for Git during
-publication. Its 45 listed file identities remain unchanged.
+The inventory excludes itself. Publication verification detected line-ending
+normalization in copied JSON receipts; the follow-up preservation commit restores
+the original snapshot bytes and disables text normalization for this evidence
+directory. All 45 listed file identities are verified against Git blobs before
+the HPC mirror is created. Numerical source and test results are unchanged.
 
 The user requested GitHub/HPC synchronization after reviewing the progress
 summary and bounded Linux build proposal. Publish code and evidence on this
