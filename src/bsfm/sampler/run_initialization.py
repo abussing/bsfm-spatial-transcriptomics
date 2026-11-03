@@ -86,6 +86,7 @@ def adapt(target, endpoint, warm_keys, *, steps, split=None):
     before=stream_audit(endpoint.eta_rng,endpoint.gauge_rng,endpoint.master_key,np.random.get_state())
     for i,fid in enumerate(target.factor_ids):
         state_before=state_hashes(work)
+        print('FACTOR WARMUP BEGIN',i+1,'/',len(target.factor_ids),fid,'steps',steps,flush=True)
         result=split.adapt(warm_keys[i],ps[i],work,state_factor_ids=target.factor_ids,steps=steps)
         ps[i]=result.endpoint.position;tuning.append(result.tuning)
         work.alpha[i]=float(np.exp(np.asarray(ps[i].values[0])))
@@ -96,6 +97,7 @@ def adapt(target, endpoint, warm_keys, *, steps, split=None):
         histories.append(dict(factor_id=fid,state_before=state_before,state_after=state_hashes(work),
             key=np.asarray(warm_keys[i]).tolist(),history=encode(result.history),
             endpoint_audit=result.endpoint.audit,eta_audit=eta_audit))
+        print('FACTOR WARMUP COMPLETE',i+1,'/',len(target.factor_ids),fid,flush=True)
     after=stream_audit(endpoint.eta_rng,endpoint.gauge_rng,endpoint.master_key,np.random.get_state())
     for key in ('numpy_global_sha256','gauge_rng_sha256','jax_key_data'):
         if before[key]!=after[key]:raise RuntimeError('Warmup advanced forbidden RNG stream')

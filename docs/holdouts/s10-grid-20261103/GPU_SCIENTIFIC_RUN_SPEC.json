@@ -1,0 +1,22 @@
+{
+  "schema": "bsfm.meeting-gpu-runs.v1",
+  "authorization": "User explicitly requests the same eight CPU fits running on GPU ASAP; named V100 high-priority partition",
+  "validation": {"job": 22014309, "commit": "efe6a59e90bbeac363708fa24f1ae55413957480", "status": "COMPLETED 0:0", "focused_tests_passed": 4, "real_L14_first_factor_20_warmup_seconds_including_compilation": 99.52113350000582},
+  "configurations": ["circles12_diameter1of16", "circles12_diameter1of8", "circles8_diameter1of16", "circles8_diameter1of8"],
+  "models": ["deep", "flat"],
+  "jobs": 8,
+  "partition": "v100-16gb-hiprio",
+  "resources_per_job": {"gpus": 1, "cpus": 4, "host_memory_GiB": 16, "wall_hours": 12},
+  "environment_receipt": "GPU_RUNTIME_RECEIPT.json",
+  "preparation_commit": "27f9b3f0dfa4c1df2acc9e845633a8031069daea",
+  "K": 12, "L": 14, "features": 784, "genes": 91, "cell_types": 3,
+  "mesh": "Existing full-cell canonical mesh; all 371 modes retained",
+  "initial_tuning_steps_per_factor": 50, "bridge_sweeps": 50,
+  "retuning_steps_per_factor": 100, "production_sweeps": 1000,
+  "target_accept": 0.9, "seed": 20261103,
+  "save_every": 1, "checkpoint_every": 1,
+  "restart_policy": "Fresh GPU runs from the existing training-only GPINIT. Never load or mutate CPU checkpoints. Same-GPU-environment resume uses GPU run identities.",
+  "preprocessing": "User-approved full-sample SCT, training-only centering and GPINIT; unchanged prepared files",
+  "preservation": "CPU outputs remain separate; no regeneration or CPU cancellation in this submission",
+  "limitations": "Focused GPU execution tests passed, not scientific convergence. Real-input warmup hits maximum tree depth frequently; no mixing or completion deadline claim."
+}

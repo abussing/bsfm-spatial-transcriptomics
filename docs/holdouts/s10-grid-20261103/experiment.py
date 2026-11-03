@@ -92,14 +92,14 @@ def target_and_seeds(prepared,model,genesis=None):
     with np.load(prepared/'gpinit/gpinit.npz',allow_pickle=False) as z:loading=z['Lam_seed'].copy();eta=z['eta_seed'].copy()
     return target,loading,eta,receipt
 
-def controllers(config,prepared,output,model,commit):
-    clean(commit); environment=authenticate_environment()
+def controllers(config,prepared,output,model,commit,*,runtime_auth=authenticate_environment):
+    clean(commit); environment=runtime_auth()
     bridge=Path(output)/model/'bridge'
     target,loading,eta,receipt=target_and_seeds(Path(prepared),model,bridge/'segments/segment/genesis/endpoint.npz')
     binding=dict(preparation=receipt,model=model,target=target.identity,spectral_identity=target.geometry.spectral_identity)
     def auth():
         clean(commit);target._validate_identities()
-        if authenticate_environment()!=environment:raise ValueError('Runtime environment changed')
+        if runtime_auth()!=environment:raise ValueError('Runtime environment changed')
         if read_json(Path(prepared)/'prepared.json')!=receipt:raise ValueError('Preparation changed')
         for name,record in receipt['files'].items():
             if file_record(Path(prepared)/name)!=record:raise ValueError('Prepared input changed')
@@ -115,9 +115,11 @@ def controllers(config,prepared,output,model,commit):
     if model=='flat':parent.layer.split=FlatTransition(target)
     return parent,binding,spec
 
-def run(config,prepared,output,model,commit):
-    parent,binding,spec=controllers(config,prepared,output,model,commit)
+def run(config,prepared,output,model,commit,*,runtime_auth=authenticate_environment):
+    parent,binding,spec=controllers(config,prepared,output,model,commit,runtime_auth=runtime_auth)
+    print('PHASE initial tuning 50/factor then bridge 50 sweeps',config,model,flush=True)
     parent.run()
+    print('PHASE bridge complete; retuning 100/factor then production 1000 sweeps',config,model,flush=True)
     _,receipt=parent_endpoint(parent)
     binding=dict(binding,readaptation_parent=receipt)
     child=ReadaptationController(Path(output)/model/'production',parent.target,parent.loading,parent.eta,
