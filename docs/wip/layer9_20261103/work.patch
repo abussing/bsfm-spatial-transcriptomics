@@ -1,0 +1,1115 @@
+diff --git a/src/bsfm/sampler/run_controller.py b/src/bsfm/sampler/run_controller.py
+new file mode 100644
+index 0000000..d04d349
+--- /dev/null
++++ b/src/bsfm/sampler/run_controller.py
+@@ -0,0 +1,121 @@
++"""Bounded Windows CPU run composition. No readaptation or scientific defaults."""
++from pathlib import Path
++import re
++import tempfile
++import time
++import numpy as np
++from .checkpoint import save_checkpoint_atomic
++from .checkpoint_contract import build_checkpoint_contract, digest
++from .checkpoint_rng import exact_keys
++from .retained_contract import build_retained_contract
++from .retained_records import make_completed
++from .retained_archive import aggregate_archives
++from .retained_diagnostics import decode
++from .layer6 import GibbsSweep
++from .run_initialization import initialize, adapt
++from .run_genesis import save_genesis, load_genesis
++from .run_storage import writer, read_json, write_json, write_npz, publish, file_record
++from .run_transactions import Transactions
++
++
++def validate_spec(spec):
++    exact_keys(spec,('schema','run_id','segment_id','chain_id','factor_ids','seed','warmup_steps',
++        'settling_sweeps','production_sweeps','save_every','checkpoint_every','final_sweep',
++        'mode','input_sha256','software'))
++    if spec['schema']!='bsfm.local-run.v1' or spec['mode']!='exact_resume':raise ValueError('Only exact same-run resume supported; readaptation deferred')
++    for n in ('run_id','segment_id','chain_id'):
++        if not isinstance(spec[n],str) or not re.fullmatch('[A-Za-z0-9_-]+',spec[n]):raise ValueError('Explicit safe run/segment/chain identity required')
++    for n,minimum in [('seed',0),('warmup_steps',20),('settling_sweeps',0),('production_sweeps',1),('save_every',1),('checkpoint_every',1),('final_sweep',1)]:
++        if type(spec[n]) is not int or spec[n]<minimum:raise ValueError('Invalid explicit run count: '+n)
++    if spec['final_sweep']!=spec['settling_sweeps']+spec['production_sweeps']:raise ValueError('Run-length mismatch')
++    return spec
++
++
++class RunController:
++    """Authenticate callback runs before work and closure; synthetic tests attest fixtures.
++
++    Real inputs use run_inputs.canonical_controller, including clean Git/environment
++    authentication. The lower-level API supports explicit synthetic fixtures only
++    when their software contract honestly records the dirty review tree.
++    """
++    def __init__(self,root,target,loading,eta,spec,input_receipt,*,authenticate):
++        self.spec=validate_spec(spec);self.target=target;self.loading=loading;self.eta=eta
++        if spec['factor_ids']!=list(target.factor_ids) or spec['input_sha256']!=digest(input_receipt):raise ValueError('Run inputs/factors mismatch')
++        self.authenticate=authenticate
++        self.scale=.25*np.var(target.inputs.arrays['Y'],axis=1)
++        sw=spec['software'];self.cp=build_checkpoint_contract(target,b_sigma2=self.scale,software=sw,expected_software_sha256=digest(sw))
++        self.rc=build_retained_contract(target,b_sigma2=self.scale,software=sw,expected_software_sha256=digest(sw),chain_id=spec['chain_id'],
++            save_every=spec['save_every'],settling_sweeps=spec['settling_sweeps'],final_sweep=spec['final_sweep'])
++        self.store=Transactions(root,target,self.cp,self.rc,self.scale,spec,input_receipt)
++        self.layer=GibbsSweep(target,b_sigma2=self.scale)
++
++    def _genesis(self,fault):
++        s=self.store;final=s.segment/'genesis'
++        def read(path):
++            if sorted(p.name for p in path.iterdir())!=['endpoint.npz','receipt.json']:raise ValueError('Incomplete genesis envelope')
++            e,h=load_genesis(path/'endpoint.npz',self.target,self.cp)
++            expected=dict(schema='bsfm.genesis.v1',spec_sha256=s.spec_hash,input_sha256=self.spec['input_sha256'],
++                endpoint=file_record(path/'endpoint.npz'),logical_sha256=h)
++            if read_json(path/'receipt.json')!=expected:raise ValueError('Genesis receipt mismatch')
++            return e,digest(expected)
++        if final.exists():return read(final)
++        complete=[p/'genesis' for p in (s.segment/'attempts').iterdir() if (p/'genesis/receipt.json').exists()]
++        if len(complete)>1:raise ValueError('Multiple prepared genesis candidates')
++        if complete:
++            value=read(complete[0]);publish(complete[0],final);return value
++        attempt=Path(tempfile.mkdtemp(prefix='genesis-',dir=s.segment/'attempts'));path=attempt/'genesis';path.mkdir()
++        fault('before_initialization');start=time.perf_counter()
++        try:
++            e,keys=initialize(self.target,self.loading,self.eta,seed=self.spec['seed'])
++            fault('after_initialization')
++            e=adapt(self.target,e,keys,steps=self.spec['warmup_steps'],split=self.layer.split)
++        except (ValueError,RuntimeError,FloatingPointError) as exc:
++            write_json(s.segment/'failures'/('initialization-'+attempt.name+'.json'),dict(stage='initialization_warmup',error=str(exc)));raise
++        write_json(attempt/'performance.json',dict(elapsed_seconds=time.perf_counter()-start,scope='initialization_and_warmup'))
++        fault('after_warmup');_,h=save_genesis(path/'endpoint.npz',e,self.target,self.cp)
++        write_json(path/'receipt.json',dict(schema='bsfm.genesis.v1',spec_sha256=s.spec_hash,input_sha256=self.spec['input_sha256'],endpoint=file_record(path/'endpoint.npz'),logical_sha256=h))
++        value=read(path);fault('before_genesis_publish');publish(path,final);fault('after_genesis_publish');return value
++
++    def run(self,*,stop_after=None,fault=lambda stage:None):
++        if stop_after is not None and (type(stop_after) is not int or stop_after<0):raise ValueError('Invalid pause boundary')
++        s=self.store
++        with writer(s.root):
++            self.authenticate();s.setup();genesis,gid=self._genesis(fault)
++            while True:
++                chain=s.scan(genesis,gid);n=len(chain['rows'])
++                if n>self.spec['final_sweep']:raise ValueError('Extra committed sweep')
++                if n<self.spec['final_sweep'] and s.recover_prepared(chain,fault):continue
++                archive=s.repair(chain,fault)
++                if n==self.spec['final_sweep']:
++                    self.authenticate();aggregate=aggregate_archives([archive])
++                    warm=sum(int(np.asarray(decode(r['history'])['info']['block_divergent']).sum()) for r in genesis.evidence['factors'])
++                    sweep_div=sum(aggregate['chains'][self.spec['chain_id']]['divergence_counts'])
++                    closure=dict(schema='bsfm.run-completion.v1',status='complete_with_warnings' if warm+sweep_div else 'complete',
++                        head=chain['head'],spec_sha256=s.spec_hash,completed=n,retained=chain['retained'],
++                        warmup_divergences=warm,aggregate=aggregate,convergence_status='not_assessed')
++                    dest=s.segment/'completion.json'
++                    if dest.exists():
++                        if read_json(dest)!=closure:raise ValueError('Completion mismatch')
++                    else:
++                        p=Path(tempfile.mkdtemp(prefix='closure-',dir=s.segment/'attempts'))/'completion.json'
++                        write_json(p,closure);fault('before_completion');publish(p,dest)
++                    return closure
++                if (s.segment/'completion.json').exists():raise ValueError('Premature completion')
++                if stop_after is not None and n>=stop_after:return dict(status='paused',completed=n,head=chain['head'])
++                e=chain['endpoint'];np.random.set_state(e.numpy_global_state)
++                attempt=Path(tempfile.mkdtemp(prefix=f'sweep-{n+1:012d}-',dir=s.segment/'attempts'))
++                write_json(attempt/'intent.json',dict(sweep=n+1,previous_sha256=chain['head'],spec_sha256=s.spec_hash))
++                path=attempt/'transaction';path.mkdir();fault('before_sweep');start=time.perf_counter()
++                try:
++                    result=self.layer.sweep(e.state,e.positions,e.tuning,eta_rng=e.eta_rng,gauge_rng=e.gauge_rng,
++                        master_key=e.master_key,state_factor_ids=self.target.factor_ids,label=s.label(n+1))
++                except (ValueError,RuntimeError,FloatingPointError) as exc:
++                    write_json(s.segment/'failures'/(attempt.name+'.json'),dict(stage='sweep',sweep=n+1,head=chain['head'],error=str(exc)));raise
++                fault('after_sweep');write_json(attempt/'performance.json',dict(elapsed_seconds=time.perf_counter()-start,scope='sweep_only'))
++                progress=dict(completed_local_sweep=n+1,settling_sweeps=self.spec['settling_sweeps'],completed_production_sweeps=max(0,n+1-self.spec['settling_sweeps']),checkpoint_type='complete',status='completed_sweep')
++                save_checkpoint_atomic(path/'checkpoint.npz',target=self.target,contract=self.cp,result=result,tuning=e.tuning,eta_rng=e.eta_rng,gauge_rng=e.gauge_rng,b_sigma2=self.scale,progress=progress)
++                fault('after_checkpoint_candidate')
++                data=make_completed(self.target,self.rc,self.scale,result,sweep=n+1,retained_index=chain['retained']+1,previous_sha256=chain['record_head'],events=[],elapsed_seconds=None)
++                write_npz(path/'record.npz',data);fault('after_record_candidate')
++                # Normal path and recovery use the same independent pair validator.
++                s.recover_prepared(chain,fault)
+diff --git a/src/bsfm/sampler/run_genesis.py b/src/bsfm/sampler/run_genesis.py
+new file mode 100644
+index 0000000..6d264ee
+--- /dev/null
++++ b/src/bsfm/sampler/run_genesis.py
+@@ -0,0 +1,99 @@
++"""Versioned pre-sweep endpoint, deliberately not a Layer-7 sweep-zero checkpoint."""
++import hashlib
++import numpy as np
++from .contracts import GaussianState, logical_hash
++from .conjugate import compute_Yhat
++from .layer4 import STATE_ARRAYS, state_hashes
++from .field_target import FieldPosition
++from .layer5 import SplitTransition, SplitTuning
++from .checkpoint_contract import digest, validate_contract
++from .checkpoint_rng import (json_text,parse_json,exact_keys,generator_record,restore_generator,
++    global_record,restore_global,key_record,restore_key,stream_audit)
++from .retained_records import descriptor
++from .retained_diagnostics import decode
++from .run_initialization import Endpoint
++from .run_storage import write_npz
++
++
++def boundary(endpoint,target):
++    e=endpoint;slices=e.state.validate(target.inputs,factors=len(target.factor_ids))
++    return dict(state_after=state_hashes(e.state),positions_after=[logical_hash(p.values) for p in e.positions],
++        rng_after=stream_audit(e.eta_rng,e.gauge_rng,e.master_key,e.numpy_global_state),
++        fitted_Y_sha256=logical_hash(compute_Yhat(e.state.loading,e.state.eta,slices)),
++        target_sha256=hashlib.sha256(target.identity.encode()).hexdigest(),b_sigma2_sha256=logical_hash(e.b_sigma2))
++
++
++def validate_endpoint(e,target,contract):
++    validate_contract(contract,target,e.b_sigma2)
++    k=len(target.factor_ids)
++    if len(e.positions)!=k or len(e.tuning)!=k:raise ValueError('Incomplete genesis tuning/positions')
++    split=SplitTransition(target)
++    for i,fid in enumerate(target.factor_ids):
++        if e.positions[i].factor_id!=fid or e.tuning[i].factor_id!=fid:raise ValueError('Genesis factor order')
++        split.validate_inputs(e.master_key,e.positions[i],e.state,e.tuning[i],state_factor_ids=target.factor_ids)
++    v=e.evidence
++    exact_keys(v,('initialization','adaptation_steps','target_acceptance','factors','rng_before','rng_after'))
++    if type(v['adaptation_steps']) is not int or v['adaptation_steps']<20 or v['target_acceptance']!=.9:
++        raise ValueError('Incomplete/changed genesis warmup')
++    if len(v['factors'])!=k:raise ValueError('Missing warmup histories')
++    for i,row in enumerate(v['factors']):
++        h=decode(row['history'])
++        if (row['factor_id']!=target.factor_ids[i] or row['key']!=v['initialization']['warm_keys'][i]
++            or h['state']['position'].shape!=(v['adaptation_steps'],len(e.positions[i].values))
++            or not np.array_equal(h['state']['position'][-1],e.positions[i].values)):
++            raise ValueError('Warmup endpoint/history mismatch')
++        if i and row['state_before']!=v['factors'][i-1]['state_after']:raise ValueError('Warmup state discontinuity')
++    if v['factors'][-1]['state_after']!=state_hashes(e.state):raise ValueError('Final warmup state mismatch')
++    if v['rng_after']!=boundary(e,target)['rng_after']:raise ValueError('Genesis RNG mismatch')
++    for key in ('numpy_global_sha256','gauge_rng_sha256','jax_key_data'):
++        if v['rng_before'][key]!=v['rng_after'][key]:raise ValueError('Warmup RNG chronology')
++    return boundary(e,target)
++
++
++def save_genesis(path,e,target,contract):
++    b=validate_endpoint(e,target,contract)
++    data={n:np.array(getattr(e.state,n),copy=True,order='K') for n in STATE_ARRAYS}
++    kr,kd=key_record(e.master_key)
++    data.update(positions=np.stack([p.values for p in e.positions]),b_sigma2=e.b_sigma2.copy(),
++        field_steps=np.array([t.step_size for t in e.tuning]),hyper_steps=np.array([t.hyper_step_size for t in e.tuning]),
++        inverse_mass=np.stack([t.inverse_mass_matrix for t in e.tuning]),master_key=kd,
++        numpy_global_keys=e.numpy_global_state[1].copy())
++    data.update({'spectral_'+k:np.array(v,copy=True,order='K') for k,v in target.geometry.spectral.items() if k!='audit'})
++    m=dict(schema='bsfm.pre-sweep-endpoint.v1',contract=contract.json,contract_sha256=contract.sha256,
++        factor_ids=list(target.factor_ids),boundary=b,evidence=e.evidence,
++        rng=dict(eta=generator_record(e.eta_rng),gauge=generator_record(e.gauge_rng),
++                 numpy_global=global_record(e.numpy_global_state),jax=kr),
++        spectral_audit=target.geometry.spectral['audit'],arrays={n:descriptor(a) for n,a in data.items()})
++    m['logical_sha256']=digest(m);data['metadata']=np.array(json_text(m));write_npz(path,data)
++    return load_genesis(path,target,contract)
++
++
++def load_genesis(path,target,contract):
++    with np.load(path,allow_pickle=False) as z:
++        if len(z.files)!=len(set(z.files)):raise ValueError('Duplicate genesis member')
++        d={n:z[n].copy(order='K') for n in z.files}
++    raw=d.pop('metadata')
++    if raw.shape!=() or raw.dtype.kind!='U':raise ValueError('Genesis metadata')
++    m=parse_json(str(raw));exact_keys(m,('schema','contract','contract_sha256','factor_ids','boundary','evidence','rng','spectral_audit','arrays','logical_sha256'))
++    if m['schema']!='bsfm.pre-sweep-endpoint.v1' or m['logical_sha256']!=digest({k:v for k,v in m.items() if k!='logical_sha256'}):raise ValueError('Genesis identity')
++    expected=set(STATE_ARRAYS)|{'positions','b_sigma2','field_steps','hyper_steps','inverse_mass','master_key','numpy_global_keys'}|{'spectral_'+k for k in target.geometry.spectral if k!='audit'}
++    if set(d)!=expected or set(m['arrays'])!=expected:raise ValueError('Missing/extra genesis fields')
++    if m['contract']!=contract.json or m['contract_sha256']!=contract.sha256 or m['factor_ids']!=list(target.factor_ids):raise ValueError('Genesis contract/factor mismatch')
++    for n,a in d.items():
++        if descriptor(a)!=m['arrays'][n]:raise ValueError('Genesis array hash mismatch')
++    if m['spectral_audit']!=target.geometry.spectral['audit']:raise ValueError('Spectral audit changed')
++    for key,v in target.geometry.spectral.items():
++        if key=='audit':continue
++        a=d['spectral_'+key];v=np.asarray(v)
++        if a.dtype!=v.dtype or a.shape!=v.shape or not np.array_equal(a,v):raise ValueError('Exact spectral chart mismatch')
++    state=GaussianState(**{n:d[n] for n in STATE_ARRAYS},input_identity_json=target.inputs.identity_json)
++    positions=[];tuning=[]
++    for i,fid in enumerate(target.factor_ids):
++        p=d['positions'][i].copy();mass=d['inverse_mass'][i].copy();p.flags.writeable=mass.flags.writeable=False
++        positions.append(FieldPosition(p,fid,target.identity))
++        tuning.append(SplitTuning(target.identity,fid,float(d['field_steps'][i]),float(d['hyper_steps'][i]),mass,logical_hash(mass)))
++    exact_keys(m['rng'],('eta','gauge','numpy_global','jax'))
++    e=Endpoint(state,tuple(positions),tuple(tuning),restore_generator(m['rng']['eta']),restore_generator(m['rng']['gauge']),
++        restore_key(m['rng']['jax'],d['master_key']),restore_global(m['rng']['numpy_global'],d['numpy_global_keys']),d['b_sigma2'],m['evidence'])
++    if validate_endpoint(e,target,contract)!=m['boundary']:raise ValueError('Genesis boundary changed')
++    return e,m['logical_sha256']
+diff --git a/src/bsfm/sampler/run_initialization.py b/src/bsfm/sampler/run_initialization.py
+new file mode 100644
+index 0000000..42eeb49
+--- /dev/null
++++ b/src/bsfm/sampler/run_initialization.py
+@@ -0,0 +1,105 @@
++"""Selected F/C initialization and sequential retained warmup; no run defaults.
++
++Driver eb452c4c:466-538,662-665,697-734,906-949. Numerical kernels
++are accepted Layers 1-5. Initial sigma is the historical literal, not exp(log).
++"""
++import copy
++from dataclasses import dataclass
++import jax
++import jax.numpy as jnp
++import numpy as np
++from scipy.linalg import solve_triangular
++from .contracts import GaussianState, array, logical_hash
++from .conjugate import compute_Yhat, sample_sigma2_twostage
++from .px import refresh_alpha_gauge
++from .field_target import FieldPosition
++from .layer4 import state_hashes
++from .layer5 import SplitTransition, MIN_ADAPTATION_STEPS
++from .checkpoint_rng import stream_audit
++from .retained_diagnostics import encode
++
++
++@dataclass
++class Endpoint:
++    state: object
++    positions: tuple
++    tuning: tuple
++    eta_rng: object
++    gauge_rng: object
++    master_key: object
++    numpy_global_state: tuple
++    b_sigma2: np.ndarray
++    evidence: dict
++
++
++def initialize(target, loading, eta, *, seed):
++    """Exactly one initial sigma2 draw and PX; caller explicitly supplies seed."""
++    target._validate_identities()
++    if type(seed) is not int or not 0 <= seed <= 2**32-3004:
++        raise ValueError('Explicit seed and offsets must fit uint32')
++    k=len(target.factor_ids); y=target.inputs.arrays['Y']; g,n=y.shape
++    c=len(target.inputs.arrays['cell_type_names'])
++    array(loading,'GPINIT loading',(c,g,k));array(eta,'GPINIT eta',(k,n))
++    # Validate fixed noise scale before advancing any stream.
++    b=.25*np.var(y,axis=1);array(b,'initial noise scale',(g,),positive=True)
++    np.random.seed(seed);eta_rng=np.random.default_rng(seed)
++    alpha=np.maximum(eta.std(axis=1),1e-3)
++    state=GaussianState(loading.copy(),eta.copy(),alpha.copy(),np.full(k,.5),
++        np.ones(g),np.ones((g,k)),np.ones(k),np.cumprod(np.ones(k)),target.inputs.identity_json)
++    slices=state.validate(target.inputs,factors=k)
++    signal=compute_Yhat(state.loading,state.eta,slices)
++    state.sigma2=sample_sigma2_twostage(y,signal,np.ones_like(y),2.,b)
++    before=state_hashes(state)
++    gauge=np.random.default_rng(seed+3003)
++    state.loading,state.eta,state.alpha,px=refresh_alpha_gauge(
++        state.loading,state.eta,state.alpha,gauge,np.full(k,.2),'gpinit_initial')
++    positions=[]; sigma=.31622776601683794
++    for i,fid in enumerate(target.factor_ids):
++        chol=np.asarray(target.geometry.geometry(0.)[0])
++        center=np.mean(target.inputs.arrays['slocs'],axis=0)
++        idx=target.geometry.arrays['active_indices']
++        identity=target.geometry.arrays['vertices'][idx]-center
++        latent=solve_triangular(chol,identity/sigma,lower=True)
++        projected=target.geometry.arrays['projector'][:,idx]@(sigma*chol@latent)
++        np.testing.assert_allclose(projected,target.inputs.arrays['slocs']-center,atol=1e-9,rtol=1e-9)
++        values=np.asarray(jnp.concatenate((jnp.asarray([np.log(state.alpha[i]),np.log(state.zeta[i]/(1-state.zeta[i])),0.,0.],jnp.float64),jnp.asarray(latent.ravel(),jnp.float64)))).copy()
++        values.flags.writeable=False;positions.append(FieldPosition(values,fid,target.identity))
++    keys=jax.random.split(jax.random.PRNGKey(seed+1),k+1)
++    evidence=dict(schema='bsfm.initialization.v1',seed=seed,initial_sigma_literal=sigma,
++        before_PX=before,after_PX=state_hashes(state),px=encode(px),
++        initial_signal_error=float(np.max(abs(compute_Yhat(state.loading,state.eta,slices)-signal))),
++        master_key=np.asarray(keys[0]).tolist(),warm_keys=[np.asarray(x).tolist() for x in keys[1:]],
++        initial_positions=[logical_hash(p.values) for p in positions],
++        fidelity_status='not_evaluated_by_layers_1_to_8')
++    return Endpoint(state,tuple(positions),(),eta_rng,gauge,keys[0],np.random.get_state(),b,evidence),tuple(keys[1:])
++
++
++def adapt(target, endpoint, warm_keys, *, steps, split=None):
++    """Natural factor order; keep each endpoint and draw one eta before next."""
++    if type(steps) is not int or steps<MIN_ADAPTATION_STEPS:raise ValueError('Warmup requires >=20 steps')
++    if len(warm_keys)!=len(target.factor_ids):raise ValueError('Missing ordered warmup keys')
++    split=SplitTransition(target) if split is None else split
++    if split.target is not target:raise ValueError('Foreign adaptation target')
++    work=copy.deepcopy(endpoint.state);ps=list(endpoint.positions);tuning=[];histories=[]
++    np.random.set_state(endpoint.numpy_global_state)
++    before=stream_audit(endpoint.eta_rng,endpoint.gauge_rng,endpoint.master_key,np.random.get_state())
++    for i,fid in enumerate(target.factor_ids):
++        state_before=state_hashes(work)
++        result=split.adapt(warm_keys[i],ps[i],work,state_factor_ids=target.factor_ids,steps=steps)
++        ps[i]=result.endpoint.position;tuning.append(result.tuning)
++        work.alpha[i]=float(np.exp(np.asarray(ps[i].values[0])))
++        work.zeta[i]=float(jax.nn.sigmoid(jnp.asarray(ps[i].values[1])))
++        work.eta[i],eta_audit=target.draw_eta(ps[i],work,endpoint.eta_rng,state_factor_ids=target.factor_ids)
++        for key in ('u_sha256','ct_sha256'):
++            if eta_audit[key]!=result.endpoint.audit['context'][key]:raise RuntimeError('Warmup eta conditional changed')
++        histories.append(dict(factor_id=fid,state_before=state_before,state_after=state_hashes(work),
++            key=np.asarray(warm_keys[i]).tolist(),history=encode(result.history),
++            endpoint_audit=result.endpoint.audit,eta_audit=eta_audit))
++    after=stream_audit(endpoint.eta_rng,endpoint.gauge_rng,endpoint.master_key,np.random.get_state())
++    for key in ('numpy_global_sha256','gauge_rng_sha256','jax_key_data'):
++        if before[key]!=after[key]:raise RuntimeError('Warmup advanced forbidden RNG stream')
++    work.validate(target.inputs,factors=len(target.factor_ids))
++    evidence=dict(initialization=endpoint.evidence,adaptation_steps=steps,target_acceptance=.9,
++        factors=histories,rng_before=before,rng_after=after)
++    return Endpoint(work,tuple(ps),tuple(tuning),endpoint.eta_rng,endpoint.gauge_rng,
++                    endpoint.master_key,np.random.get_state(),endpoint.b_sigma2.copy(),evidence)
+diff --git a/src/bsfm/sampler/run_inputs.py b/src/bsfm/sampler/run_inputs.py
+new file mode 100644
+index 0000000..8781b69
+--- /dev/null
++++ b/src/bsfm/sampler/run_inputs.py
+@@ -0,0 +1,125 @@
++"""Authenticated NPZ-only runtime entry. No h5py, R, sklearn or helper interpreter."""
++import base64
++import csv
++import hashlib
++import importlib.metadata as metadata
++import os
++from pathlib import Path
++import site
++import subprocess
++import sys
++import zipfile
++import numpy as np
++import jax
++from threadpoolctl import threadpool_info
++from .contracts import ModelInput, input_identity, logical_hash
++from .warp import WarpGeometry, mesh_identity
++from .field_target import DirectWTarget
++from .rule import load_rule
++from .checkpoint_contract import digest
++from .run_storage import file_record, read_json
++
++REPO=Path(__file__).resolve().parents[3]
++
++
++def authenticate_environment():
++    lockpath=REPO/'environment/sampler-layer5/source-lock.json';lock=read_json(lockpath)
++    prefix=Path(sys.prefix).resolve();root=prefix.parent
++    if (sys.version.split()[0]!=lock['python'] or site.ENABLE_USER_SITE or sys.prefix==sys.base_prefix
++        or os.name!='nt' or jax.default_backend()!='cpu' or not jax.config.x64_enabled
++        or 'include-system-site-packages = false' not in (prefix/'pyvenv.cfg').read_text()):
++        raise ValueError('Accepted isolated Windows CPU/x64 environment required')
++    norm=lambda s:s.lower().replace('_','-')
++    distributions=list(metadata.distributions());actual={norm(d.metadata['Name']):d.version for d in distributions}
++    expected={'pip':lock['pip'],**{norm(p['name']):p['version'] for p in lock['packages']}}
++    if actual!=expected or len(distributions)!=len(expected):raise ValueError('Environment closure mismatch')
++    for r in lock['runtime']:
++        if file_record(r['path'])!={k:r[k] for k in ('bytes','sha256')}:raise ValueError('Runtime changed')
++    installed=read_json(root/'installed.json')
++    for filename,field in [('source-lock.json','lock_sha256'),('requirements.lock.txt','requirements_sha256')]:
++        data=(lockpath.parent/filename).read_bytes()
++        if installed[field] not in [hashlib.sha256(x).hexdigest() for x in (data,data.replace(b'\n',b'\r\n'))]:raise ValueError('Installed source-lock mismatch')
++    wheel_files=0
++    for w in installed['wheels']:
++        p=root/'wheels'/w['filename']
++        if file_record(p)!={k:w[k] for k in ('bytes','sha256')}:raise ValueError('Cached wheel changed')
++        with zipfile.ZipFile(p) as z:
++            for name in z.namelist():
++                if name.endswith('/') or name.endswith('.dist-info/RECORD'):continue
++                if '.data/' in name:continue # installed RECORD checked below; layout recorded as limitation
++                dest=prefix/'Lib/site-packages'/name
++                if hashlib.sha256(z.read(name)).hexdigest()!=file_record(dest)['sha256']:raise ValueError('Installed wheel member changed')
++                wheel_files+=1
++    installed_files=0
++    for d in distributions:
++        if Path(d.locate_file('')).resolve()!=prefix/'Lib/site-packages':raise ValueError('Foreign site package')
++        for name,h,size in csv.reader(d.read_text('RECORD').splitlines()):
++            if not h:continue
++            alg,value=h.split('=',1);p=Path(d.locate_file(name)).resolve()
++            if alg!='sha256' or not p.is_relative_to(prefix):raise ValueError('Installed RECORD path/hash')
++            r=file_record(p)
++            if base64.urlsafe_b64encode(bytes.fromhex(r['sha256'])).decode().rstrip('=')!=value or r['bytes']!=int(size):raise ValueError('Installed RECORD mismatch')
++            installed_files+=1
++    blas=threadpool_info()
++    if any(v['num_threads']!=1 for v in blas):raise ValueError('Single-thread numerical libraries required')
++    return dict(schema='bsfm.layer9-cpu-authentication.v1',runtime=lock['runtime'],executable=str(Path(sys.executable).resolve()),
++        lock=file_record(lockpath),installed_receipt=file_record(root/'installed.json'),packages=actual,
++        cpu=True,x64=True,blas=blas,installed_record_files=installed_files,wheel_member_files=wheel_files,
++        limitation='Wheel .data entries use installed RECORD integrity; Windows CPU only')
++
++
++def authenticate_files(files):
++    for name,r in files.items():
++        if set(r)!= {'path','bytes','sha256'} or file_record(r['path'])!={k:r[k] for k in ('bytes','sha256')}:raise ValueError('Input file changed: '+name)
++
++
++def load_inputs(files,factor_ids):
++    """Caller supplies expected file hashes from accepted registration; paths relocatable."""
++    required={'registration','prepared','contract','mesh','gpinit','certificate','response_manifest','response_validation'}
++    if set(files)!=required:raise ValueError('Exact runtime artifact closure required')
++    authenticate_files(files)
++    receipt=read_json(files['registration']['path']);c=read_json(files['contract']['path']);cert=read_json(files['certificate']['path'])
++    if receipt['status']!='clean_commit_regeneration_passed_registration_accepted':raise ValueError('Unaccepted preparation registration')
++    for role,rec in [('prepared',receipt['prepared_npz']),('contract',receipt['prepared_contract']),('mesh',receipt['upstream']['mesh']),('response_manifest',receipt['upstream']['response_manifest']),('response_validation',receipt['upstream']['validation'])]:
++        if any(files[role][k]!=rec[k] for k in ('bytes','sha256')):raise ValueError('Preparation upstream join mismatch')
++    if not any(all(files[a][k]==fit[b][k] for a,b in [('gpinit','output'),('certificate','certificate')] for k in ('bytes','sha256')) for fit in receipt['fits']):raise ValueError('Unregistered GPINIT pair')
++    if (c['producer']['generating_commit']!=receipt['generating_commit'] or not c['producer']['worktree_clean']
++        or c['source_sha256']!=files['prepared']['sha256'] or c['arrays']!=cert['input_identities']
++        or cert['provenance']['contract_sha256']!=files['contract']['sha256']
++        or cert['provenance']['input_sha256']!=files['prepared']['sha256'] or cert['factors']!=len(factor_ids)):
++        raise ValueError('Canonical GPINIT/preparation binding mismatch')
++    with np.load(files['prepared']['path'],allow_pickle=False) as z:d={k:z[k].copy() for k in z.files}
++    identity=input_identity(d,section=c['section'],response_sha256=c['upstream']['response_h5']['sha256'],coordinate_system='october26_glial_min_max_span')
++    if identity['arrays']!=c['arrays']:raise ValueError('Prepared array identities')
++    inputs=ModelInput.authenticate(d,identity)
++    with np.load(files['mesh']['path'],allow_pickle=False) as z:m={k:z[k].copy() for k in z.files}
++    from bsfm.mesh.identities import logical
++    if set(m)!=set(c['upstream']['mesh_arrays']) or any(logical(a)!=c['upstream']['mesh_arrays'][k]['sha256'] for k,a in m.items()):raise ValueError('Mesh payload identity')
++    if not all(np.array_equal(m[a],d[b]) for a,b in [('source_rows','source_row_indices'),('cell_type','cell_id'),('slocs','slocs')]):raise ValueError('Full population mesh join')
++    geometry_data=dict(terms=np.stack([m['fem_C']]+[m[f'fem_g{i}'] for i in range(1,7)]),vertices=m['mesh_vertices'],
++        projector=m['A_full'],locations=m['slocs'],active_indices=m['active_indices_full'],source_rows=m['source_rows'],
++        vertex_ids=np.array([f'vertex-{i}' for i in range(len(m['mesh_vertices']))]),cell_ids=d['cell_names'])
++    geo=WarpGeometry.authenticate(geometry_data,mesh_identity(geometry_data,section=c['section'],mesh_sha256=files['mesh']['sha256']))
++    with np.load(files['gpinit']['path'],allow_pickle=False) as z:seeds={k:z[k].copy() for k in z.files}
++    if {k:logical_hash(a) for k,a in seeds.items()}!=cert['output_logical_hashes']:raise ValueError('GPINIT output logical hashes')
++    target=DirectWTarget(inputs,geo,load_rule(),factor_ids=tuple(factor_ids))
++    binding=dict(files=files,preparation_commit=c['producer']['generating_commit'],target_identity=target.identity,
++        spectral_identity=geo.spectral_identity,full_data=True,primary_holdout_scoring_eligible=False)
++    return target,seeds['Lam_seed'],seeds['eta_seed'],binding
++
++
++def canonical_controller(root,spec,files):
++    """Only real-artifact entry: clean committed tree and current locked environment."""
++    from .run_controller import RunController
++    def clean():
++        head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
++        if head!=spec['software']['git_commit'] or subprocess.check_output(['git','status','--porcelain'],cwd=REPO,text=True).strip():raise ValueError('Clean exact generating commit required')
++    clean();env=authenticate_environment();target,loading,eta,binding=load_inputs(files,spec['factor_ids'])
++    if (spec['software']['clean_tree'] is not True or spec['software']['environment_identity']!=digest(env)
++        or spec['software']['environment_lock_sha256']!=env['lock']['sha256']):raise ValueError('Frozen environment declaration mismatch')
++    if spec['software']['run_config_sha256']!=digest({k:v for k,v in spec.items() if k!='software'}):raise ValueError('Run specification hash mismatch')
++    def authenticate():
++        clean();authenticate_files(files)
++        if authenticate_environment()!=env:raise ValueError('Environment changed')
++        target._validate_identities()
++    return RunController(root,target,loading,eta,spec,binding,authenticate=authenticate)
+diff --git a/src/bsfm/sampler/run_storage.py b/src/bsfm/sampler/run_storage.py
+new file mode 100644
+index 0000000..9cef98f
+--- /dev/null
++++ b/src/bsfm/sampler/run_storage.py
+@@ -0,0 +1,81 @@
++"""Local single-writer publication primitives; no stochastic authority in ledgers."""
++from contextlib import contextmanager
++import hashlib
++import os
++from pathlib import Path
++import stat
++import tempfile
++import numpy as np
++from .checkpoint_rng import json_text, parse_json
++
++
++def safe(path):
++    path=Path(path).absolute()
++    for p in (path,*path.parents):
++        if p.exists() or p.is_symlink():
++            s=p.lstat()
++            if p.is_symlink() or getattr(s,'st_file_attributes',0)&getattr(stat,'FILE_ATTRIBUTE_REPARSE_POINT',1024):
++                raise ValueError('Reparse/symlink paths unsupported')
++    return path
++
++
++def file_record(path):
++    p=safe(path)
++    with p.open('rb') as f:sha=hashlib.file_digest(f,'sha256').hexdigest()
++    return dict(bytes=p.stat().st_size,sha256=sha)
++
++
++def read_json(path):return parse_json(safe(path).read_text(encoding='utf-8'))
++
++
++def write_json(path,value):
++    with safe(path).open('x',encoding='utf-8',newline='\n') as f:
++        f.write(json_text(value)+'\n');f.flush();os.fsync(f.fileno())
++
++
++def write_npz(path,arrays):
++    with safe(path).open('xb') as f:
++        np.savez_compressed(f,**arrays);f.flush();os.fsync(f.fileno())
++
++
++def publish(source,destination):
++    source=safe(source);destination=safe(destination)
++    if destination.exists():raise FileExistsError(destination)
++    if source.stat().st_dev!=destination.parent.stat().st_dev:raise ValueError('Cross-filesystem publication')
++    os.rename(source,destination)
++
++
++def copy_exact(source,destination):
++    """No hard links or overwrite; preserve any failed projection candidate."""
++    source=safe(source);destination=safe(destination)
++    if destination.exists():
++        if file_record(source)!=file_record(destination):raise ValueError('Conflicting projection')
++        return
++    fd,name=tempfile.mkstemp(prefix='.attempt-',dir=destination.parent)
++    with os.fdopen(fd,'wb') as out,source.open('rb') as inp:
++        import shutil
++        shutil.copyfileobj(inp,out);out.flush();os.fsync(out.fileno())
++    if file_record(name)!=file_record(source):raise ValueError('Projection copy mismatch')
++    publish(name,destination)
++
++
++def advisory(path,value):
++    path=safe(path);fd,name=tempfile.mkstemp(prefix='.attempt-ledger-',dir=path.parent)
++    with os.fdopen(fd,'w',encoding='utf-8',newline='\n') as f:
++        f.write(json_text(value)+'\n');f.flush();os.fsync(f.fileno())
++    os.replace(name,path)
++
++
++@contextmanager
++def writer(root):
++    """OS-held local byte lock, released on process death; no PID guessing."""
++    import msvcrt
++    root=safe(root);root.mkdir(parents=True,exist_ok=True)
++    with (root/'writer.lock').open('a+b') as f:
++        f.seek(0,2)
++        if f.tell()==0:f.write(b'0');f.flush()
++        f.seek(0)
++        try:msvcrt.locking(f.fileno(),msvcrt.LK_NBLCK,1)
++        except OSError as exc:raise RuntimeError('Another local writer owns the run') from exc
++        try:yield
++        finally:f.seek(0);msvcrt.locking(f.fileno(),msvcrt.LK_UNLCK,1)
+diff --git a/src/bsfm/sampler/run_transactions.py b/src/bsfm/sampler/run_transactions.py
+new file mode 100644
+index 0000000..c060037
+--- /dev/null
++++ b/src/bsfm/sampler/run_transactions.py
+@@ -0,0 +1,139 @@
++"""Whole-directory sweep commits; immutable authority, repairable projections."""
++import os
++from pathlib import Path
++import re
++import tempfile
++import uuid
++import zipfile
++from .checkpoint import load_checkpoint
++from .checkpoint_contract import digest
++from .checkpoint_rng import json_text, parse_json
++from .retained_records import load_record
++from .retained_contract import retain_at
++from .retained_archive import create_archive, RetainedArchive
++from .run_genesis import boundary
++from .run_storage import safe, file_record, read_json, write_json, publish, copy_exact, advisory
++
++
++def tuning_identity(tuning):
++    return [dict(factor_id=t.factor_id,step=t.step_size,hyper_step=t.hyper_step_size,mass=t.mass_sha256) for t in tuning]
++
++
++class Transactions:
++    def __init__(self,root,target,checkpoint_contract,archive_contract,scale,spec,input_receipt):
++        self.root=safe(root);self.target=target;self.cp=checkpoint_contract;self.rc=archive_contract
++        self.scale=scale;self.spec=spec;self.spec_hash=digest(spec);self.input_receipt=input_receipt
++        self.segment=self.root/'segments'/spec['segment_id'];self.records=parse_json(archive_contract.json)
++
++    def setup(self):
++        for name,value in [('run-spec.json',self.spec),('input-receipt.json',self.input_receipt)]:
++            path=self.root/name
++            if path.exists():
++                if read_json(path)!=value:raise ValueError('Immutable run/input identity changed')
++            else:
++                attempt=self.root/('.attempt-'+name+'-'+uuid.uuid4().hex)
++                write_json(attempt,value);publish(attempt,path)
++        self.segment.mkdir(parents=True,exist_ok=True)
++        for name in ('attempts','transactions','checkpoints','failures'):(self.segment/name).mkdir(exist_ok=True)
++        if list((self.segment/'failures').iterdir()):raise ValueError('Recorded terminal failure; no automatic retry')
++
++    def label(self,n):return f"{self.spec['run_id']}/{self.spec['segment_id']}/{self.spec['chain_id']}/{n:012d}"
++
++    def pair(self,path,n,previous,record_previous,retained,prior,frozen):
++        """Independent public Layer-7/8 readers, then cross-boundary authentication."""
++        path=safe(path)
++        cp=load_checkpoint(path/'checkpoint.npz',target=self.target,contract=self.cp)
++        m,_,d=load_record(path/'record.npz',target=self.target,contract=self.rc,b_sigma2=self.scale)
++        if (m['status']!='completed' or m['sweep']!=n or m['previous_sha256']!=record_previous
++            or cp.progress['completed_local_sweep']!=n
++            or cp.progress['settling_sweeps']!=self.spec['settling_sweeps']
++            or cp.progress['completed_production_sweeps']!=m['production_sweep']
++            or d['elapsed_seconds'] is not None or d['sweep_audit']['label']!=self.label(n)):
++            raise ValueError('Transaction progress/record mismatch')
++        expected_index=retained+1 if retain_at(self.records,n) else None
++        if m['retained_index']!=expected_index:raise ValueError('Retention chronology mismatch')
++        a=d['sweep_audit']
++        for before,after in [('state_before','state_after'),('positions_before','positions_after'),('rng_before','rng_after')]:
++            if a[before]!=prior[after]:raise ValueError('Transaction predecessor boundary mismatch')
++        if any(a.get(k)!=v for k,v in cp.boundary.items()):raise ValueError('Record/checkpoint boundary mismatch')
++        if tuning_identity(cp.tuning)!=frozen:raise ValueError('Frozen tuning changed')
++        body=dict(schema='bsfm.sweep-transaction.v1',spec_sha256=self.spec_hash,input_sha256=digest(self.input_receipt),
++            checkpoint_contract_sha256=self.cp.sha256,archive_contract_sha256=self.rc.sha256,
++            sweep=n,previous_sha256=previous,checkpoint=file_record(path/'checkpoint.npz'),
++            record=file_record(path/'record.npz'),checkpoint_logical_sha256=cp.logical_sha256,
++            record_logical_sha256=m['logical_sha256'],joint_validation='pass')
++        body['sha256']=digest(body)
++        if (path/'prepared.json').exists() and read_json(path/'prepared.json')!=body:raise ValueError('Prepared receipt mismatch')
++        return cp,m,body
++
++    def scan(self,genesis,genesis_identity):
++        head=digest(dict(spec=self.spec_hash,input=digest(self.input_receipt),genesis=genesis_identity))
++        previous_record=self.rc.sha256;retained=0;prior=boundary(genesis,self.target);rows=[];last=genesis
++        paths=sorted((self.segment/'transactions').iterdir())
++        frozen=tuning_identity(genesis.tuning)
++        for n,p in enumerate(paths,1):
++            if p.name!=f'{n:012d}' or not p.is_dir() or sorted(x.name for x in p.iterdir())!=['checkpoint.npz','prepared.json','record.npz']:
++                raise ValueError('Gapped/extra/incomplete committed transaction')
++            last,m,receipt=self.pair(p,n,head,previous_record,retained,prior,frozen)
++            rows.append(receipt);head=receipt['sha256'];previous_record=m['logical_sha256']
++            retained+=int(m['retained_index'] is not None);prior=last.boundary
++        return dict(head=head,record_head=previous_record,retained=retained,boundary=prior,
++                    rows=rows,endpoint=last,frozen=frozen)
++
++    def recover_prepared(self,chain,fault):
++        n=len(chain['rows'])+1;candidates=[]
++        for attempt in sorted((self.segment/'attempts').iterdir()):
++            intent=attempt/'intent.json';p=attempt/'transaction'
++            if not intent.exists():continue
++            try:value=read_json(intent)
++            except ValueError:
++                if (p/'prepared.json').exists():raise
++                continue # torn pre-sweep intent is not a completed pair
++            if value['sweep']<n:continue # older attempts never displace a committed transaction
++            if value!=dict(sweep=n,previous_sha256=chain['head'],spec_sha256=self.spec_hash):
++                raise ValueError('Conflicting/stale future attempt')
++            if not (p/'checkpoint.npz').exists() or not (p/'record.npz').exists():continue
++            # Two complete but invalid files are not permission to replay silently.
++            try:
++                _,_,receipt=self.pair(p,n,chain['head'],chain['record_head'],chain['retained'],chain['boundary'],chain['frozen'])
++            except (EOFError,zipfile.BadZipFile):
++                if (p/'prepared.json').exists():raise
++                continue # interrupted file write; preserve and recompute uncommitted sweep
++            candidates.append((p,receipt))
++        if len(candidates)>1:raise ValueError('Multiple prepared next transactions; review required')
++        if not candidates:return False
++        p,receipt=candidates[0]
++        if not (p/'prepared.json').exists():write_json(p/'prepared.json',receipt)
++        if sorted(x.name for x in p.iterdir())!=['checkpoint.npz','prepared.json','record.npz']:raise ValueError('Unexpected candidate files')
++        fault('before_transaction_publish');publish(p,self.segment/'transactions'/f'{n:012d}');fault('after_transaction_publish')
++        return True
++
++    def repair(self,chain,fault):
++        count=len(chain['rows']);archive=self.segment/'archive'
++        if not archive.exists():
++            temp=Path(tempfile.mkdtemp(prefix='archive-',dir=self.segment/'attempts'))/'archive'
++            create_archive(temp,target=self.target,contract=self.rc,b_sigma2=self.scale);publish(temp,archive)
++        if read_json(archive/'contract.json')!=parse_json(self.rc.json):raise ValueError('Projection contract mismatch')
++        for p in (archive/'records').iterdir():
++            safe(p)
++            if p.name.startswith('.attempt-'):continue
++            if not re.fullmatch(r'\d{12}',p.name) or not 1<=int(p.name)<=count:raise ValueError('Orphan archive projection')
++        wanted={n for n in range(1,count+1) if n%self.spec['checkpoint_every']==0 or n==self.spec['final_sweep']}
++        for p in (self.segment/'checkpoints').iterdir():
++            safe(p)
++            if p.name.startswith('.attempt-'):continue
++            if p.name not in {f'{n:012d}.npz' for n in wanted}:raise ValueError('Orphan checkpoint projection')
++        for n in range(1,count+1):
++            src=self.segment/'transactions'/f'{n:012d}';dst=archive/'records'/f'{n:012d}'
++            if dst.exists():
++                if sorted(p.name for p in dst.iterdir())!=['record.npz'] or file_record(dst/'record.npz')!=file_record(src/'record.npz'):raise ValueError('Conflicting archive projection')
++            else:
++                tmp=Path(tempfile.mkdtemp(prefix='.attempt-',dir=archive/'records'))
++                copy_exact(src/'record.npz',tmp/'record.npz');publish(tmp,dst)
++            fault('after_record_projection')
++            if n in wanted:copy_exact(src/'checkpoint.npz',self.segment/'checkpoints'/f'{n:012d}.npz')
++            fault('after_checkpoint_projection')
++        view=RetainedArchive(archive,target=self.target,contract=self.rc,b_sigma2=self.scale)
++        if count:view.require_resume_boundary(chain['endpoint'])
++        fault('before_ledger');advisory(self.segment/'run-ledger.json',dict(head=chain['head'],completed=count,retained=chain['retained']))
++        return view
+diff --git a/tests/layer9_crash_worker.py b/tests/layer9_crash_worker.py
+new file mode 100644
+index 0000000..2803158
+--- /dev/null
++++ b/tests/layer9_crash_worker.py
+@@ -0,0 +1,12 @@
++"""Fresh process death at an explicit local publication boundary; synthetic only."""
++import os
++import sys
++from sampler_layer9_support import controller
++from unittest.mock import patch
++
++if __name__=='__main__':
++    ctl=controller(sys.argv[1])
++    def die(stage):
++        if stage==sys.argv[2]:os._exit(91)
++    with patch('bsfm.sampler.run_controller.initialize',side_effect=AssertionError('Committed genesis replay')):
++        ctl.run(stop_after=1,fault=die)
+diff --git a/tests/sampler_layer9_support.py b/tests/sampler_layer9_support.py
+new file mode 100644
+index 0000000..3890bef
+--- /dev/null
++++ b/tests/sampler_layer9_support.py
+@@ -0,0 +1,66 @@
++"""Synthetic inputs and SHA-authenticated bounded initialization reference."""
++import ast
++import copy
++import hashlib
++from functools import lru_cache
++from pathlib import Path
++from types import SimpleNamespace
++import jax
++import jax.numpy as jnp
++import numpy as np
++from scipy.linalg import solve_triangular
++from sampler_layer6_support import fixture_system
++from sampler_provenance import selected_source_record
++from bsfm.sampler.conjugate import compute_Yhat,sample_sigma2_twostage
++from bsfm.sampler.px import refresh_alpha_gauge
++from bsfm.sampler.active import active_geometry
++from bsfm.sampler.checkpoint_contract import digest
++from bsfm.sampler.run_controller import RunController
++
++ROOT=Path(__file__).resolve().parents[1]
++BASE='9c584353e74043e323ca327ff1764f9d094980d5'
++SYSTEM=lru_cache(maxsize=1)(fixture_system)
++
++
++def controller(path,*,every=2,settling=0,final=2):
++    target,state,_,layer,_,_=SYSTEM()
++    binding=dict(kind='synthetic_layer9_test',target=target.identity)
++    spec=dict(schema='bsfm.local-run.v1',run_id='mechanical',segment_id='segment',chain_id='chain',
++        factor_ids=list(target.factor_ids),seed=491,warmup_steps=20,settling_sweeps=settling,
++        production_sweeps=final-settling,final_sweep=final,save_every=2,checkpoint_every=every,
++        mode='exact_resume',input_sha256=digest(binding),software=dict(git_commit=BASE,clean_tree=False,
++            run_config_sha256=digest(dict(scope='synthetic',every=every,settling=settling,final=final)),
++            environment_lock_sha256=hashlib.sha256((ROOT/'environment/sampler-layer5/source-lock.json').read_bytes()).hexdigest(),
++            environment_identity='accepted-layer5-Windows-CPU:synthetic-review'))
++    result=RunController(path,target,state.loading,state.eta,spec,binding,authenticate=target._validate_identities)
++    result.layer=layer
++    return result
++
++
++def literal_initialization(target,loading,eta,seed):
++    path=Path(r'D:\johnston_brain\run_bundles\bsfm_l4_k20_cell50_fmesher_20261026_v1\code\sampler\run_c3full_fixed_profile_nuts.py')
++    raw=path.read_bytes();r=selected_source_record(path.name)
++    assert len(raw)==int(r['bytes']) and hashlib.sha256(raw).hexdigest()==r['sha256']
++    tree=ast.parse(raw);lines=(466,467,477,478,479,480,482,483,484,485,489,493,494,495,496,510,511,514,517,518,662,663)
++    body=[]
++    for line in lines:
++        node=copy.deepcopy(next(n for n in ast.walk(tree) if isinstance(n,ast.stmt) and n.lineno==line))
++        if line==518:
++            # Imports only: use authenticated accepted dependency already supplied;
++            # no historical sys.path or top-level driver execution.
++            node.body=[s for s in node.body if s.lineno!=533]
++            for n in node.body:
++                if isinstance(n,ast.If) and n.lineno==525:n.body=[s for s in n.body if not isinstance(s,(ast.Import,ast.ImportFrom))]
++        body.append(node)
++    module=ast.fix_missing_locations(ast.Module(body=body,type_ignores=[]))
++    c,g,k=loading.shape;y=target.inputs.arrays['Y'];codes=target.inputs.arrays['cell_id']
++    cuts=np.r_[0,np.cumsum(np.bincount(codes))]
++    ns=dict(np=np,jax=jax,jnp=jnp,args=SimpleNamespace(seed=seed,live_ell_eta=False,live_warp_hypers=True,direct_w=True,sigma_u_prior_center=.31622776601683794),
++        lambda_gpinit=loading,eta_gpinit=eta,genes=g,factors=k,y=y,FIXED_SHARING_S=.2,
++        cell_slices=tuple(slice(int(a),int(b)) for a,b in zip(cuts[:-1],cuts[1:])),
++        compute_Yhat=compute_Yhat,sample_sigma2_twostage=sample_sigma2_twostage,refresh_alpha_gauge=refresh_alpha_gauge,
++        active=target.geometry.arrays['active_indices'],spectral=target.geometry.spectral,slocs=target.inputs.arrays['slocs'],
++        data=dict(mesh_vertices=target.geometry.arrays['vertices'],A_active=target.geometry.arrays['projector'][:,target.geometry.arrays['active_indices']]),
++        active_geometry=active_geometry,solve_triangular=solve_triangular,mu_log_ell_u=0.,mu_log_sigma_u=-.5*np.log(10.))
++    exec(compile(module,str(path),'exec'),ns)
++    return ns,dict(path=str(path),bytes=len(raw),sha256=r['sha256'],statement_lines=list(lines),AST_sha256=hashlib.sha256(ast.dump(module,include_attributes=False).encode()).hexdigest())
+diff --git a/tests/test_sampler_layer9.py b/tests/test_sampler_layer9.py
+new file mode 100644
+index 0000000..7e263a1
+--- /dev/null
++++ b/tests/test_sampler_layer9.py
+@@ -0,0 +1,259 @@
++"""Actual synthetic warmup/sweeps plus isolated transaction fault injection."""
++import copy
++import hashlib
++import json
++import os
++from pathlib import Path
++import shutil
++import subprocess
++import sys
++import tempfile
++import unittest
++from unittest.mock import patch
++import numpy as np
++from bsfm.sampler.run_initialization import initialize,adapt
++from bsfm.sampler.run_genesis import load_genesis,save_genesis,boundary
++from bsfm.sampler.run_controller import validate_spec
++from bsfm.sampler.run_storage import read_json,write_json,file_record,writer
++from bsfm.sampler.checkpoint_rng import stream_audit,json_text
++from bsfm.sampler.checkpoint_contract import digest
++from bsfm.sampler.layer4 import STATE_ARRAYS,state_hashes
++from bsfm.sampler.retained_diagnostics import decode
++from sampler_layer9_support import controller,literal_initialization,ROOT
++
++
++class Interrupt(BaseException):pass
++
++
++class Layer9Tests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        cls.cache=tempfile.TemporaryDirectory();cls.addClassCleanup(cls.cache.cleanup)
++        cls.template=Path(cls.cache.name)/'template';c=controller(cls.template)
++        # Real historical-sequence initialization, 20-step adaptation per factor,
++        # and two complete real Layer-6 sweeps. Never a section/production fit.
++        cls.complete=c.run()
++        cls.genesis,_=load_genesis(c.store.segment/'genesis/endpoint.npz',c.target,c.cp)
++        cls.reference_chain=c.store.scan(cls.genesis,digest(read_json(c.store.segment/'genesis/receipt.json')))
++        cls.reference_sources=None
++
++    def setUp(self):
++        self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
++        self.root=Path(self.tmp.name)/'run';self.saved=np.random.get_state();self.addCleanup(np.random.set_state,self.saved)
++
++    def copy_prefix(self,sweeps=0):
++        # Synthetic test setup only. No scientific v1/v2 artifacts reused.
++        shutil.copytree(self.template,self.root)
++        seg=self.root/'segments/segment'
++        for directory in ('transactions','checkpoints','archive','attempts'):
++            shutil.rmtree(seg/directory);(seg/directory).mkdir()
++        (seg/'archive').rmdir()
++        for name in ('completion.json','run-ledger.json'):
++            (seg/name).unlink(missing_ok=True)
++        for i in range(1,sweeps+1):
++            shutil.copytree(self.template/'segments/segment/transactions'/f'{i:012d}',seg/'transactions'/f'{i:012d}')
++        return controller(self.root)
++
++    def no_reinitialize(self):
++        return patch('bsfm.sampler.run_controller.initialize',side_effect=AssertionError('Genesis replay'))
++
++    def test_initialization_literal_source_and_four_rngs_exact(self):
++        c=controller(self.root);e,keys=initialize(c.target,c.loading,c.eta,seed=491)
++        before=stream_audit(e.eta_rng,e.gauge_rng,e.master_key,e.numpy_global_state)
++        ns,source=literal_initialization(c.target,c.loading,c.eta,491)
++        for n in STATE_ARRAYS:np.testing.assert_array_equal(getattr(e.state,n),ns[n])
++        for a,b in zip(e.positions,ns['positions']):np.testing.assert_array_equal(a.values,b)
++        for a,b in zip(keys,ns['warm_keys']):np.testing.assert_array_equal(a,b)
++        self.assertEqual(before,stream_audit(ns['rng'],ns['gauge_rng'],ns['master_key'],np.random.get_state()))
++        type(self).reference_sources=source
++
++    def test_sequential_adaptation_endpoint_and_rng_chronology(self):
++        c=controller(self.root);e,keys=initialize(c.target,c.loading,c.eta,seed=491)
++        other=adapt(c.target,e,keys,steps=20,split=c.layer.split)
++        self.assertEqual(boundary(other,c.target),boundary(self.genesis,c.target))
++        self.assertEqual(other.evidence,self.genesis.evidence)
++        for row in other.evidence['factors']:
++            self.assertEqual(row['endpoint_audit']['context']['u_sha256'],row['eta_audit']['u_sha256'])
++
++    def test_genesis_roundtrip_is_not_checkpoint_zero(self):
++        c=controller(self.root);p=Path(self.tmp.name)/'e.npz';e=copy.deepcopy(self.genesis)
++        a=save_genesis(p,e,c.target,c.cp);b=load_genesis(p,c.target,c.cp)
++        self.assertEqual(a[1],b[1]);self.assertEqual(boundary(e,c.target),boundary(b[0],c.target))
++        with np.load(p,allow_pickle=False) as z:self.assertEqual(json.loads(str(z['metadata']))['schema'],'bsfm.pre-sweep-endpoint.v1')
++
++    def test_genesis_missing_history_rejected(self):
++        c=controller(self.root);e=copy.deepcopy(self.genesis);e.evidence['factors'].pop()
++        with self.assertRaises(ValueError):save_genesis(Path(self.tmp.name)/'e.npz',e,c.target,c.cp)
++
++    def test_genesis_spectral_corruption_rejected(self):
++        c=self.copy_prefix();p=c.store.segment/'genesis/endpoint.npz'
++        with np.load(p,allow_pickle=False) as z:d={k:z[k].copy() for k in z.files}
++        d['spectral_U'][0,0]+=1e-8;np.savez_compressed(p,**d)
++        with self.assertRaises(ValueError):c.run()
++
++    def test_actual_exact_two_arm_continuation(self):
++        c=self.copy_prefix();c.run(stop_after=1)
++        with self.no_reinitialize():result=controller(self.root).run()
++        self.assertEqual(result,self.complete)
++        for i in (1,2):
++            a=read_json(c.store.segment/'transactions'/f'{i:012d}'/'prepared.json')
++            b=read_json(self.template/'segments/segment/transactions'/f'{i:012d}'/'prepared.json')
++            self.assertEqual(a,b)
++        self.assertEqual(c.store.scan(self.genesis,digest(read_json(c.store.segment/'genesis/receipt.json')))['endpoint'].boundary,self.reference_chain['endpoint'].boundary)
++
++    def test_commit_non_replay_and_projection_repair(self):
++        c=self.copy_prefix(2)
++        with self.no_reinitialize(),patch.object(c.layer,'sweep',side_effect=AssertionError('Committed sweep replay')):
++            self.assertEqual(c.run(),self.complete)
++            (c.store.segment/'archive/records/000000000002/record.npz').unlink()
++            (c.store.segment/'archive/records/000000000002').rmdir()
++            (c.store.segment/'checkpoints/000000000002.npz').unlink()
++            (c.store.segment/'run-ledger.json').write_text('torn')
++            self.assertEqual(c.run(),self.complete)
++
++    def test_all_interruption_boundaries(self):
++        stages=['before_sweep','after_sweep','after_checkpoint_candidate','after_record_candidate',
++                'before_transaction_publish','after_transaction_publish','after_record_projection','after_checkpoint_projection']
++        for stage in stages:
++            with self.subTest(stage=stage):
++                if self.root.exists():shutil.rmtree(self.root)
++                c=self.copy_prefix();hit=[]
++                def fault(s):
++                    # Initial empty projection repair is not the sweep fault.
++                    if s==stage and (s not in ('after_record_projection','after_checkpoint_projection') or list((c.store.segment/'transactions').iterdir())):
++                        hit.append(s);raise Interrupt(s)
++                with self.assertRaises(Interrupt):c.run(stop_after=1,fault=fault)
++                self.assertEqual(hit,[stage])
++                # Completed pairs must publish without executing the sweep again.
++                paired=stage in ('after_record_candidate','before_transaction_publish','after_transaction_publish','after_record_projection','after_checkpoint_projection')
++                with self.no_reinitialize():
++                    if paired:
++                        with patch.object(c.layer,'sweep',side_effect=AssertionError('Completed pair replay')):c.run(stop_after=1)
++                    else:c.run(stop_after=1)
++                self.assertEqual(read_json(c.store.segment/'transactions/000000000001/prepared.json'),read_json(self.template/'segments/segment/transactions/000000000001/prepared.json'))
++
++    def test_fresh_process_kill_and_recovery(self):
++        for stage in ('after_checkpoint_candidate','after_record_candidate','after_transaction_publish','after_record_projection','before_ledger'):
++            with self.subTest(stage=stage):
++                if self.root.exists():shutil.rmtree(self.root)
++                c=self.copy_prefix()
++                child=subprocess.run([sys.executable,'-B',str(ROOT/'tests/layer9_crash_worker.py'),str(self.root),stage],capture_output=True,text=True)
++                self.assertEqual(child.returncode,91,child.stderr)
++                with self.no_reinitialize():c.run(stop_after=1)
++                self.assertEqual(read_json(c.store.segment/'transactions/000000000001/prepared.json'),read_json(self.template/'segments/segment/transactions/000000000001/prepared.json'))
++
++    def test_genesis_publish_interruption_no_readaptation(self):
++        c=self.copy_prefix();seg=c.store.segment
++        dest=seg/'attempts/prepared/genesis';dest.parent.mkdir();os.rename(seg/'genesis',dest)
++        with self.no_reinitialize():c.run(stop_after=0)
++        self.assertTrue((seg/'genesis/receipt.json').exists())
++
++    def test_conflicting_projections_rejected(self):
++        c=self.copy_prefix(1);c.run(stop_after=1)
++        (c.store.segment/'archive/records/000000000001/record.npz').write_bytes(b'corrupt')
++        with self.assertRaises(ValueError):c.run()
++
++    def test_orphan_projection_rejected(self):
++        c=self.copy_prefix();c.run(stop_after=0)
++        (c.store.segment/'archive/records/000000000001').mkdir()
++        with self.assertRaises(ValueError):c.run()
++
++    def test_corrupt_committed_transaction_never_replayed(self):
++        c=self.copy_prefix(1);(c.store.segment/'transactions/000000000001/checkpoint.npz').write_bytes(b'bad')
++        with patch.object(c.layer,'sweep',side_effect=AssertionError('Replay')):
++            with self.assertRaises((ValueError,EOFError)):c.run()
++
++    def test_identity_and_run_length_drift_rejected(self):
++        c=self.copy_prefix();c.spec['seed']+=1
++        with self.assertRaises(ValueError):c.run()
++
++    def test_readaptation_rejected(self):
++        c=controller(self.root);c.spec['mode']='readapt'
++        with self.assertRaises(ValueError):validate_spec(c.spec)
++
++    def test_known_numerical_failure_is_terminal(self):
++        c=self.copy_prefix()
++        with patch.object(c.layer,'sweep',side_effect=RuntimeError('synthetic failed invariant')):
++            with self.assertRaises(RuntimeError):c.run()
++        with self.assertRaisesRegex(ValueError,'terminal'):c.run()
++
++    def test_nonretained_records_and_cadence_greater_than_one(self):
++        for every in (2,3,5):
++            with self.subTest(every=every):
++                path=Path(self.tmp.name)/str(every);c=controller(path,every=every,settling=1)
++                with patch('bsfm.sampler.run_controller.initialize',return_value=(None,None)),patch('bsfm.sampler.run_controller.adapt',return_value=copy.deepcopy(self.genesis)):
++                    c.run(stop_after=1)
++                self.assertEqual(list((c.store.segment/'checkpoints').iterdir()),[])
++                with self.no_reinitialize():c.run()
++                self.assertTrue((c.store.segment/'checkpoints/000000000002.npz').exists())
++                a=read_json(c.store.segment/'completion.json');self.assertEqual(a['retained'],1)
++
++    def test_writer_lock_excludes_second_writer(self):
++        with writer(self.root):
++            with self.assertRaises(RuntimeError):
++                with writer(self.root):pass
++
++    def test_interrupted_sweep_discards_advanced_rng(self):
++        c=self.copy_prefix()
++        def interrupted(*args,**kwargs):
++            np.random.standard_normal(7);kwargs['eta_rng'].normal(size=5);kwargs['gauge_rng'].normal(size=4)
++            raise Interrupt('process died during uncommitted work')
++        with patch.object(c.layer,'sweep',side_effect=interrupted):
++            with self.assertRaises(Interrupt):c.run(stop_after=1)
++        c.run(stop_after=1)
++        self.assertEqual(read_json(c.store.segment/'transactions/000000000001/prepared.json'),read_json(self.template/'segments/segment/transactions/000000000001/prepared.json'))
++
++    def test_record_only_attempt_recomputed_not_invented(self):
++        c=self.copy_prefix();c.run(stop_after=0)
++        gid=digest(read_json(c.store.segment/'genesis/receipt.json'));chain=c.store.scan(self.genesis,gid)
++        a=c.store.segment/'attempts/record-only';(a/'transaction').mkdir(parents=True)
++        write_json(a/'intent.json',dict(sweep=1,previous_sha256=chain['head'],spec_sha256=c.store.spec_hash))
++        shutil.copyfile(self.template/'segments/segment/transactions/000000000001/record.npz',a/'transaction/record.npz')
++        c.run(stop_after=1)
++        self.assertFalse((a/'transaction/checkpoint.npz').exists())
++        self.assertTrue((a/'transaction/record.npz').exists())
++
++    def test_multiple_prepared_pairs_fail_closed(self):
++        c=self.copy_prefix();c.run(stop_after=0)
++        chain=c.store.scan(self.genesis,digest(read_json(c.store.segment/'genesis/receipt.json')))
++        for name in ('one','two'):
++            a=c.store.segment/'attempts'/name;a.mkdir()
++            write_json(a/'intent.json',dict(sweep=1,previous_sha256=chain['head'],spec_sha256=c.store.spec_hash))
++            shutil.copytree(self.template/'segments/segment/transactions/000000000001',a/'transaction')
++        with patch.object(c.layer,'sweep',side_effect=AssertionError('Replay')):
++            with self.assertRaisesRegex(ValueError,'Multiple prepared'):c.run()
++
++    def test_checkpoint_projection_only_repaired(self):
++        c=self.copy_prefix(2)
++        shutil.copyfile(c.store.segment/'transactions/000000000002/checkpoint.npz',c.store.segment/'checkpoints/000000000002.npz')
++        with patch.object(c.layer,'sweep',side_effect=AssertionError('Replay')):self.assertEqual(c.run(),self.complete)
++
++    def test_environment_authentication(self):
++        from bsfm.sampler.run_inputs import authenticate_environment
++        r=authenticate_environment();self.assertTrue(r['cpu'] and r['x64']);self.assertGreater(r['installed_record_files'],100)
++
++    def test_file_identity_rejects_mutation(self):
++        from bsfm.sampler.run_inputs import authenticate_files
++        p=Path(self.tmp.name)/'binding';p.write_bytes(b'bound')
++        records={'input':dict(path=str(p),**file_record(p))};authenticate_files(records)
++        p.write_bytes(b'changed')
++        with self.assertRaisesRegex(ValueError,'Input file changed'):authenticate_files(records)
++
++    def test_no_hdf5_runtime_dependency(self):
++        import ast
++        for p in (ROOT/'src/bsfm/sampler').glob('run_*.py'):
++            for n in ast.walk(ast.parse(p.read_text())):
++                if isinstance(n,ast.Import):self.assertFalse(any(a.name in ('h5py','sklearn') for a in n.names))
++                if isinstance(n,ast.ImportFrom):self.assertNotIn(n.module,('h5py','sklearn'))
++
++    @classmethod
++    def tearDownClass(cls):
++        out=os.environ.get('BSFM_LAYER9_RECEIPT')
++        if out:
++            p=Path(out);p.parent.mkdir(parents=True,exist_ok=True)
++            p.write_text(json.dumps(dict(scope='synthetic Windows CPU only',completion=cls.complete,
++                boundary=cls.reference_chain['endpoint'].boundary,historical_initialization_reference=cls.reference_sources,
++                target_acceptance=.9,warmup_steps_per_factor=20,real_sweeps_per_arm=2),indent=2,allow_nan=False)+'\n',encoding='utf-8')
++
++
++if __name__=='__main__':unittest.main()
+diff --git a/docs/wip/layer9_20261103/STATUS.md b/docs/wip/layer9_20261103/STATUS.md
+new file mode 100644
+index 0000000..19bc776
+--- /dev/null
++++ b/docs/wip/layer9_20261103/STATUS.md
+@@ -0,0 +1,36 @@
++# NONCANONICAL Layer-9 shutdown snapshot
++
++Status: **UNREVIEWED, INCOMPLETE, NOT ACCEPTED. Do not run on scientific data.**
++Accepted main baseline: `9c584353e74043e323ca327ff1764f9d094980d5`.
++Preservation branch: `wip/layer9-orchestration-20261103`.
++
++The user interrupted implementation to prioritize shutdown preservation and
++canonical-artifact transfer. No Layer-9 capability has passed acceptance.
++
++Completed draft work: six new orchestration modules for initialization/adaptation,
++genesis, transaction publication/projection repair, storage, authenticated NPZ-only
++inputs and the accepted CPU environment. Three test/support files contain a
++synthetic historical initialization comparison, exact-resume and interruption tests.
++All accepted Layers 1-8, scientific settings and environments are unchanged.
++
++Validation is unfinished. The initial exploratory 100-step warmup test was stopped
++for bounded runtime after progress through 80/100 on its first factor. A second
++20-step-per-factor test was stopped on user shutdown instruction after reporting
++first-factor acceptance [0.88, 0.833] and divergences [1, 2]. No complete test result,
++complete synthetic exercise, source-provenance audit, or full-suite pass is claimed.
++The test files were still being expanded while that exploratory process was active;
++its partial log cannot validate the complete preserved snapshot. Both test process
++trees were terminated. No S10 transition or scientific run occurred.
++
++Unfinished work: inspect the draft against LAYER9A_DESIGN.md, finish initialization
++and warmup equivalence checks, independently review genesis and transaction recovery,
++exercise all crash boundaries and committed non-replay, finish runtime identity and
++spectral-chart restoration review, run every sampler/provenance and canonical mesh
++test, and produce a reviewed implementation report/source map/validation receipt.
++No package installation, environment modification, HPC job or Layer-9 acceptance.
++
++`work.patch` is the complete addition diff of the nine source/test files plus this
++status and the byte-identical partial review log. `inventory.csv` gives exact byte
++counts and SHA-256 values for those files and the patch; it excludes itself to avoid
++cryptographic self-reference. The WIP commit and Git tree authenticate the inventory.
++The ignored original review log remains locally in artifacts/review/layer9.
+diff --git a/docs/wip/layer9_20261103/focused-partial.log b/docs/wip/layer9_20261103/focused-partial.log
+new file mode 100644
+index 0000000000000000000000000000000000000000..745bf3bdd111b863ede026a45c854adb60c625ad
+GIT binary patch
+literal 134
+zcmX|&u?mAg07Ks__z(91MeE(->L^$!)zaZ`5G}<;N)<m}4JVX9NW#m$)!eBlX)wGf
+zcyQyX&0x98(|_vdr8i#|I;M~fUQ|LZT|}PQ;b_$cMpiw3eB|e2*6zsyZAHaI9MPE+
+AI{*Lx
+
+literal 0
+HcmV?d00001
+
