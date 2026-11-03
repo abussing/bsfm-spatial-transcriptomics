@@ -2,6 +2,13 @@
 
 ## Latest execution checkpoint: GPU replacement fits
 
+The user subsequently requested additional submissions on `v100-32gb-hiprio`,
+leaving the original 16GB jobs in place. Jobs 22014499-22014506 use generating
+commit `c6f23ad2c9d03fc6421f878b20e0d8a107cbaa2e` and a separate `v10032` output
+root. Read the [queue alternative record](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/run/s10-holey-20261103/docs/holdouts/s10-grid-20261103/GPU_QUEUE_ALTERNATIVES.md).
+Do not pool duplicate same-seed attempts as independent chains. Hardware-only
+job 22014507 checks the older generic GPU queue; it is not a sampler run.
+
 The user explicitly requested moving the same eight hole fits onto V100 GPUs.
 Generating commit `18e437fc7960860f093bc0a79481fff356b4e1e9` on the separate
 `run/s10-holey-20261103` branch supplies the GPU launcher. Main's scientific
