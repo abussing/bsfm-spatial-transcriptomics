@@ -6,6 +6,7 @@ Gibbs updates. Fixed kernels are cached; conditional statistics are rebuilt.
 from dataclasses import dataclass
 import importlib.metadata
 import json
+import os
 from weakref import WeakKeyDictionary
 
 import jax
@@ -71,7 +72,9 @@ class SplitTransition(_Binding):
         if importlib.metadata.version('blackjax') != '1.3':
             raise ValueError('BlackJAX 1.3 required')
         if jax.default_backend() != 'cpu':
-            raise ValueError('Layer-5 proposal is CPU validated only')
+            if not (jax.default_backend() == 'gpu' and jax.config.x64_enabled
+                    and os.environ.get('BSFM_EXPERIMENTAL_CUDA') == '1'):
+                raise ValueError('Non-CPU execution requires explicit experimental CUDA/x64 opt-in')
         self.dimension = 4 + 2*len(target.geometry.arrays['active_indices'])
         self.centered = CenteredHyperTarget(target)
         self._runner = build_split(make_logdensity(target._kernels),
