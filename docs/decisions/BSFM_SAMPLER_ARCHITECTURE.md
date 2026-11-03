@@ -10,6 +10,11 @@ The frozen L16/direct-W factor target Layer 3 is implemented and validated; see 
 [implementation and validation report](../sampler/LAYER3.md). It reuses the
 accepted CPU environment and does not implement NUTS, factor chronology or a
 complete sampler. No scientific choice in this architecture is changed.
+Layer 4 is the accepted canonical [implementation](../sampler/LAYER4.md) of the
+fixed-physical-W conditional/rewhitening and joint-eta PCG draw, validated on
+Windows CPU. It does not implement NUTS, adaptation, sweep chronology, checkpoints,
+a GPU capability or HPC workflow, and is not a mixing study or scientific fit.
+The full sampler is not yet ported; K and production run lengths remain unresolved.
 Decision date: 2026-11-02. Recovery baseline:
 `10cb6e27168aae7581831a6591089b4d88629c49`.
 

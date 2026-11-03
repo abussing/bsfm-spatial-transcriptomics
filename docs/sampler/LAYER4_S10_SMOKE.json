@@ -1,0 +1,119 @@
+{
+  "schema": "bsfm.sampler-layer4-S10-smoke.v1",
+  "status": "PASS",
+  "review_status": "proposed_for_review",
+  "scope": "Synthetic two-gene/two-factor numerical smoke on existing geometry; no mixing test, scientific fit, K selection or mesh rebuild",
+  "baseline_commit": "7d18eaeade6046367cb65588a98ab99199cf8108",
+  "artifact": {
+    "path_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\sampler-facing.npz",
+    "bytes": 7195273,
+    "sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0"
+  },
+  "identity_limitation": "Cell IDs explicitly alias raw source rows, not unavailable original cell-name strings; Y and GaussianState are synthetic",
+  "cells": 9422,
+  "types": [
+    996,
+    3337,
+    5089
+  ],
+  "genes": 2,
+  "synthetic_factors": 2,
+  "full_vertices": 371,
+  "full_modes": 371,
+  "active_vertices": 168,
+  "feature_shape": [
+    2,
+    9422,
+    1024
+  ],
+  "eta_shape": [
+    2,
+    9422
+  ],
+  "beta_shape": [
+    2,
+    1024
+  ],
+  "fixed_W_value": 2839.9334758316486,
+  "fixed_W_gradient": [
+    1053.8013175378355,
+    -330.0250733909823
+  ],
+  "exact_repeat": true,
+  "state_unchanged": true,
+  "rewhitening": {
+    "max_absolute_error": 5.551115123125783e-17,
+    "tolerance": 2e-08,
+    "W_active_sha256": "7efc30b768691c582cc19142a2df78d88b077c62f383d3dbe7895bd7dc5666d9",
+    "factor_id": "synthetic-factor-a",
+    "target_sha256": "259bd99d7e87f414d88a2057a94d9659676168115600097b81773e025afedf5c"
+  },
+  "logical_hashes": {
+    "eta": "30282225ce70d7120bf17d72ac0f295148df798811e0e63c8f049c4660a00b00",
+    "beta": "3ee350a3a852c61c8140adb83c7365c7f955427cd8173c936718cc4595e370aa",
+    "gradient": "2c861730305b27f1115b989f715664561f490e33a9382d6009613b85be0b8c95",
+    "rewhitened": "c35e9384166307f313e05ccc5c20b2fa228ac91fbdf97173167793fa0a1c956c",
+    "W_active": "7efc30b768691c582cc19142a2df78d88b077c62f383d3dbe7895bd7dc5666d9"
+  },
+  "runs": [
+    {
+      "centered_seconds": 2.489343799999915,
+      "joint_eta_seconds": 3.0044361000182107,
+      "diagnostics": {
+        "iterations": 10,
+        "relative_residual": 5.029113872072221e-13,
+        "absolute_residual": 2.3314110746710446e-11,
+        "posterior_mahalanobis_RMS_error_upper_bound": 5.1517393144791e-13,
+        "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+        "converged": true,
+        "minimum_h_eigenvalue": 0.0006281638748789993,
+        "maximum_h_asymmetry": 6.938893903907228e-18,
+        "preconditioner_diagonal_minimum": 1.000000000047433
+      }
+    },
+    {
+      "centered_seconds": 0.9595717999909539,
+      "joint_eta_seconds": 2.325499900005525,
+      "diagnostics": {
+        "iterations": 10,
+        "relative_residual": 5.029113872072221e-13,
+        "absolute_residual": 2.3314110746710446e-11,
+        "posterior_mahalanobis_RMS_error_upper_bound": 5.1517393144791e-13,
+        "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+        "converged": true,
+        "minimum_h_eigenvalue": 0.0006281638748789993,
+        "maximum_h_asymmetry": 6.938893903907228e-18,
+        "preconditioner_diagonal_minimum": 1.000000000047433
+      }
+    }
+  ],
+  "total_seconds": 10.998096299997997,
+  "peak_process_working_set_bytes": 983420928,
+  "memory_measurement": "Windows process lifetime peak resident working set including Python/JAX/native libraries; no child workers",
+  "executable": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Scripts\\python.exe",
+  "backend": "cpu",
+  "x64": true,
+  "synthetic_seed": 410,
+  "draw_seed": 411,
+  "target_sha256": "259bd99d7e87f414d88a2057a94d9659676168115600097b81773e025afedf5c",
+  "code_sha256": {
+    "tests/audit_sampler_layer4_s10.py": "f423e89460dce011ab95155a989fefbb3484aa0473a795c4e639f07882ddb97c",
+    "src/bsfm/sampler/__init__.py": "c5426eeed5f8c731ffedf56a9135880b030caa0b8915bfae812fc963a41ef732",
+    "src/bsfm/sampler/active.py": "dea6a16f8b3e6e06e953c309b6098b695f8d7e30d15ffff72f37a563161abe0b",
+    "src/bsfm/sampler/centered_hyper_kernels.py": "39fafe38e32837df5b8763b46f775c2e79eb9d3fdb887ea855ce1455d78a9680",
+    "src/bsfm/sampler/conjugate.py": "1c7d9885e4ae99a2bcced723252b25a02a6adae189f584b17a4806b52abf41fb",
+    "src/bsfm/sampler/contracts.py": "72bc243cfa398217e24d863caf60bd4d920cc2c269a3f58bab7aea7c3676b0bf",
+    "src/bsfm/sampler/factor_statistics.py": "a25b1c7f9a75d7f3b98646bacbef25ffa82c725832b3f5f03b15ce0888a3498a",
+    "src/bsfm/sampler/field_kernels.py": "4f8ce74284404f1f56dac3796dadf50ada0e41d33a74bf852e4cee54fc07ccc5",
+    "src/bsfm/sampler/field_target.py": "194d5aa3f46a29028f91b6e0320dc1ce8ceb65f2f06b5d6519ecd4ca72554fd4",
+    "src/bsfm/sampler/finite_features.py": "5ba42ec0a747b95c1d820c8d9b0f1e763b0598fa9b3e7cfdb2958870d0e09b73",
+    "src/bsfm/sampler/joint_eta_kernels.py": "850b77cf86d23dcd9953aab776f3783d974eaea3d8338acfc9622a6686024b7d",
+    "src/bsfm/sampler/layer4.py": "7a0bfd873884172e38f40ce8b61bbf0ea487a84218f935b180e9b9df950d2def",
+    "src/bsfm/sampler/projector_encoding.py": "f3cfe600b412fc48b832fb4d13139f8de3205d4e760837cb9573b05d0c3c4a8e",
+    "src/bsfm/sampler/px.py": "989d86e7bc15d9ed3dc70d0896f79ecdf9c705a065fce64300fbad4bf30cae82",
+    "src/bsfm/sampler/rule.py": "d26ce474aee5aa85a05d46d28c47a5ac36b557e1e8742a95db8bcb2ecca3a816",
+    "src/bsfm/sampler/shrinkage.py": "8e97942a1eb2070de7534cebb933edd3b607cdff8eb3e61872312c00e88c4bd5",
+    "src/bsfm/sampler/spectral.py": "548677908b03e4f4e94008f9ecf98acdd3f2a30f6634d41449d8fd0797392c56",
+    "src/bsfm/sampler/warp.py": "aaf3fbd1738e353ac5ded06a1bf4c658e8d96ef219c2e4ab5572629faa248b19"
+  }
+}

@@ -12,6 +12,12 @@ confirms raw/S10 artifact hashes, fast integrity of all 19 SCT-v2 bundles and
 restores machine-local availability, not Linux output reproduction or data
 transfer. No additional sampler layer or scientific run was performed.
 
+Sampler Layer 4 is the accepted canonical [implementation](docs/sampler/LAYER4.md)
+of the fixed-physical-W conditional/rewhitening and joint-eta PCG draw, validated
+on Windows CPU. It is not a complete sampler, NUTS transition, adaptation system,
+sweep chronology, checkpoint implementation, GPU capability, HPC workflow, mixing
+study or scientific fit. K and production run lengths remain unresolved.
+
 ## 1. Expression preprocessing
 
 Recovery status: **historical normalization-recipe recovery completed through

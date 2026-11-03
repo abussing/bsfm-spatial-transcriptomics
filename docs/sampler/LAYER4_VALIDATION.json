@@ -1,0 +1,286 @@
+{
+  "schema": "bsfm.sampler-layer4-validation.v1",
+  "status": "PASS",
+  "review_status": "accepted",
+  "baseline": "7d18eaeade6046367cb65588a98ab99199cf8108",
+  "tests": {
+    "layer1": 27,
+    "layer2": 22,
+    "layer3": 21,
+    "provenance": 5,
+    "layer4": 24,
+    "sampler_total": 99,
+    "canonical_mesh": 8,
+    "total": 107,
+    "skips": 0
+  },
+  "historical": {
+    "selected_sources": [
+      {
+        "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\centered_hyper_target_qr.py",
+        "bytes": 3354,
+        "sha256": "4bdd57d688652bf4dffb85a9c9dee1879229a7bff5c72ff34902e216226fdf5e",
+        "functions": {
+          "positive_qr_factor": [
+            13,
+            16
+          ],
+          "qr_contractions": [
+            19,
+            23
+          ],
+          "spectral_qr_geometry": [
+            26,
+            35
+          ],
+          "build_centered_hyper_target": [
+            38,
+            93
+          ]
+        }
+      },
+      {
+        "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\joint_eta_pcg.py",
+        "bytes": 12136,
+        "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c",
+        "functions": {
+          "JointEtaDiagnostics": [
+            26,
+            35
+          ],
+          "_joint_cell_statistics": [
+            38,
+            70
+          ],
+          "_block_preconditioner_cholesky": [
+            74,
+            81
+          ],
+          "_precision_matvec": [
+            85,
+            88
+          ],
+          "_preconditioner_solve": [
+            92,
+            95
+          ],
+          "_pcg": [
+            99,
+            133
+          ],
+          "_precision_noise": [
+            136,
+            149
+          ],
+          "sample_joint_eta_pcg": [
+            152,
+            262
+          ]
+        }
+      }
+    ],
+    "exact_fixtures": 2,
+    "exact_source_bodies": 12,
+    "comparison": "Exact in accepted CPU environment, no tolerance adjustment or alignment; ordinary tests use saved fixture"
+  },
+  "independent_metrics": [
+    {
+      "seed": 12,
+      "centered": [
+        {
+          "log_ell_log_r": [
+            -0.2,
+            0.1
+          ],
+          "value_relative_error": 0.0,
+          "gradient_relative_error": 6.923960077008891e-16
+        },
+        {
+          "log_ell_log_r": [
+            0.15,
+            -0.08
+          ],
+          "value_relative_error": 5.8650043429416486e-15,
+          "gradient_relative_error": 5.285734740685536e-15
+        }
+      ],
+      "beta_max_absolute_difference": 4.33019332196638e-12,
+      "eta_max_absolute_difference": 1.0806910921701274e-12,
+      "posterior_metric_error": 2.0110728058643622e-12,
+      "reported_bound": 2.025592292336935e-12,
+      "PCG_iterations": 7,
+      "eta_error_propagation_max": 1.0522616999592813e-16,
+      "eta_posterior_mean_max": 4.85722573273506e-17,
+      "eta_posterior_covariance_max": 2.220446049250313e-16
+    },
+    {
+      "seed": 37,
+      "centered": [
+        {
+          "log_ell_log_r": [
+            -0.2,
+            0.1
+          ],
+          "value_relative_error": 0.0,
+          "gradient_relative_error": 4.0941886970239336e-16
+        },
+        {
+          "log_ell_log_r": [
+            0.15,
+            -0.08
+          ],
+          "value_relative_error": 5.878054165195972e-15,
+          "gradient_relative_error": 8.921511302831527e-16
+        }
+      ],
+      "beta_max_absolute_difference": 1.9230769754408072e-11,
+      "eta_max_absolute_difference": 1.4344192500459485e-11,
+      "posterior_metric_error": 1.1428813415297884e-11,
+      "reported_bound": 1.2560265140044325e-11,
+      "PCG_iterations": 7,
+      "eta_error_propagation_max": 2.943493629894206e-16,
+      "eta_posterior_mean_max": 8.326672684688674e-17,
+      "eta_posterior_covariance_max": 4.440892098500626e-16
+    }
+  ],
+  "tolerances": {
+    "centered_value_relative": 2e-12,
+    "centered_gradient_relative": 2e-10,
+    "dense_algebra_relative": 2e-12,
+    "dense_algebra_absolute": 2e-12,
+    "posterior_metric_RMS": 1e-10,
+    "PCG_maximum_iterations": 80,
+    "physical_W_preservation": 2e-08
+  },
+  "reference_test_corrections": [
+    {
+      "initial_assertion": "2e-12 elementwise dense beta/eta equality",
+      "observed_beta_max_absolute": 4.33019332e-12,
+      "observed_eta_max_absolute": 1.43441925e-11,
+      "result": "failed; retained as diagnostic, not claimed exact",
+      "correction": "Check original posterior-metric PCG contract and independently calculated eta-error propagation; existing 2e-12 budget remains for algebraic roundoff"
+    },
+    {
+      "initial_assertion": "exact bound equality with independently assembled dense RHS",
+      "values": [
+        2.025592292336935e-12,
+        2.0255922923366827e-12
+      ],
+      "result": "failed bit equality",
+      "correction": "Exact diagnostic recomputation uses identical native RHS; dense solution and precision comparisons remain independent"
+    }
+  ],
+  "kernel_or_solver_tolerance_changed_to_pass": false,
+  "environment": {
+    "reused": true,
+    "modified": false,
+    "executable": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer2-cpu-20261102\\python\\Scripts\\python.exe",
+    "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+    "packages": {
+      "jax": "0.7.0",
+      "jaxlib": "0.7.0",
+      "ml-dtypes": "0.6.0",
+      "numpy": "2.1.3",
+      "opt-einsum": "3.4.0",
+      "pip": "23.2.1",
+      "scipy": "1.14.1",
+      "threadpoolctl": "3.5.0"
+    },
+    "backend": "cpu",
+    "x64": true,
+    "source_lock_sha256": "5e7cdc83ba60a1473cb63781921118e94ed10cc9887486a1e1cc1995c9440505",
+    "requirements_sha256": "a47d4af684c9fe7fd7f0763a69a2708dacdf5b4262057fdb398e9a7b4e6c84d8",
+    "python_executable_sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb",
+    "runtime_files_authenticated": 3,
+    "wheels": [
+      {
+        "name": "jax",
+        "version": "0.7.0",
+        "bytes": 2785944,
+        "sha256": "62833036cbaf4641d66ae94c61c0446890a91b2c0d153946583a0ebe04877a76"
+      },
+      {
+        "name": "jaxlib",
+        "version": "0.7.0",
+        "bytes": 60191213,
+        "sha256": "df003e5a31ce15e1f2ed8826195a45906ac822e9d304aaef567770c2df1cd67e"
+      },
+      {
+        "name": "numpy",
+        "version": "2.1.3",
+        "bytes": 12566858,
+        "sha256": "0d30c543f02e84e92c4b1f415b7c6b5326cbe45ee7882b6b77db7195fb971e3a"
+      },
+      {
+        "name": "scipy",
+        "version": "1.14.1",
+        "bytes": 44521212,
+        "sha256": "2ff38e22128e6c03ff73b6bb0f85f897d2362f8c052e3b8ad00532198fbdae3f"
+      },
+      {
+        "name": "threadpoolctl",
+        "version": "3.5.0",
+        "bytes": 18414,
+        "sha256": "56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467"
+      },
+      {
+        "name": "ml_dtypes",
+        "version": "0.6.0",
+        "bytes": 439333,
+        "sha256": "2a3e9d53925597fbffafd2a37048dadeddd0bdaba58058f6ae0869ed709a184d"
+      },
+      {
+        "name": "opt_einsum",
+        "version": "3.4.0",
+        "bytes": 71932,
+        "sha256": "69bb92469f86a1565195ece4ac0323943e83477171b91d24c35afe028a90d7cd"
+      }
+    ]
+  },
+  "code_and_fixture_hashes": {
+    "src/bsfm/sampler/__init__.py": "c5426eeed5f8c731ffedf56a9135880b030caa0b8915bfae812fc963a41ef732",
+    "src/bsfm/sampler/active.py": "dea6a16f8b3e6e06e953c309b6098b695f8d7e30d15ffff72f37a563161abe0b",
+    "src/bsfm/sampler/centered_hyper_kernels.py": "39fafe38e32837df5b8763b46f775c2e79eb9d3fdb887ea855ce1455d78a9680",
+    "src/bsfm/sampler/conjugate.py": "1c7d9885e4ae99a2bcced723252b25a02a6adae189f584b17a4806b52abf41fb",
+    "src/bsfm/sampler/contracts.py": "72bc243cfa398217e24d863caf60bd4d920cc2c269a3f58bab7aea7c3676b0bf",
+    "src/bsfm/sampler/factor_statistics.py": "a25b1c7f9a75d7f3b98646bacbef25ffa82c725832b3f5f03b15ce0888a3498a",
+    "src/bsfm/sampler/field_kernels.py": "4f8ce74284404f1f56dac3796dadf50ada0e41d33a74bf852e4cee54fc07ccc5",
+    "src/bsfm/sampler/field_target.py": "194d5aa3f46a29028f91b6e0320dc1ce8ceb65f2f06b5d6519ecd4ca72554fd4",
+    "src/bsfm/sampler/finite_features.py": "5ba42ec0a747b95c1d820c8d9b0f1e763b0598fa9b3e7cfdb2958870d0e09b73",
+    "src/bsfm/sampler/joint_eta_kernels.py": "850b77cf86d23dcd9953aab776f3783d974eaea3d8338acfc9622a6686024b7d",
+    "src/bsfm/sampler/layer4.py": "7a0bfd873884172e38f40ce8b61bbf0ea487a84218f935b180e9b9df950d2def",
+    "src/bsfm/sampler/projector_encoding.py": "f3cfe600b412fc48b832fb4d13139f8de3205d4e760837cb9573b05d0c3c4a8e",
+    "src/bsfm/sampler/px.py": "989d86e7bc15d9ed3dc70d0896f79ecdf9c705a065fce64300fbad4bf30cae82",
+    "src/bsfm/sampler/rule.py": "d26ce474aee5aa85a05d46d28c47a5ac36b557e1e8742a95db8bcb2ecca3a816",
+    "src/bsfm/sampler/shrinkage.py": "8e97942a1eb2070de7534cebb933edd3b607cdff8eb3e61872312c00e88c4bd5",
+    "src/bsfm/sampler/spectral.py": "548677908b03e4f4e94008f9ecf98acdd3f2a30f6634d41449d8fd0797392c56",
+    "src/bsfm/sampler/warp.py": "aaf3fbd1738e353ac5ded06a1bf4c658e8d96ef219c2e4ab5572629faa248b19",
+    "tests/test_sampler_layer4.py": "0fee9b1c67c28ccf3ea7b64e9d5700443971559aa63ae8595543d87f9d137de3",
+    "tests/sampler_layer4_support.py": "ac846d5b0d6584a610f7d55a0e193ea5682bc842126b6d88de2de085985e3c51",
+    "tests/build_sampler_layer4_fixture.py": "8a838bee152eee2642ea34ba99e688e16fdee0382ef867ecbbcd1e01eda3d9a1",
+    "tests/audit_sampler_layer4_s10.py": "f423e89460dce011ab95155a989fefbb3484aa0473a795c4e639f07882ddb97c",
+    "tests/fixtures/sampler_layer4.json": "8ed862a556d6d5206d06cfb7899d6c66c07b5c9fa8639e1ab5bd8c1c21b8981e",
+    "docs/sampler/LAYER4_SOURCE_MAP.csv": "eafc082135e05370142d7a17b896f28b7657fa9a1617bdac0643d8d0c77cb634",
+    "docs/sampler/LAYER4_S10_SMOKE.json": "cd31dcf06999e406feda6ea83eba1474eab0bdee56fb839c137cff175ac35014"
+  },
+  "limitations": [
+    "CPU Windows only; no GPU or Linux validation",
+    "No complete sampler, NUTS, chronology, checkpoint or production fit",
+    "Historical recursive residual is preserved; bound is not an interval certificate for every floating-point operation",
+    "No artifact transfer or HPC execution; S10 state is synthetic"
+  ],
+  "checks": {
+    "json": 3,
+    "links": 69,
+    "syntax": 7,
+    "source_map": 12,
+    "record_consistency": "PASS; versioned fixture/validation/smoke conventions, no standalone JSON Schemas for these receipts",
+    "source_fragment_file_and_port_hashes": "PASS",
+    "runtime_and_wheel_lock": "PASS",
+    "frozen_rule_identity": "PASS",
+    "credential_patterns": "PASS",
+    "whitespace_and_diff": "PASS including untracked text",
+    "git_index": "empty; no Layer-4 file staged",
+    "existing_numerical_code_configuration_fixtures": "unchanged"
+  }
+}

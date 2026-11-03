@@ -1,0 +1,366 @@
+{
+  "schema": "bsfm.sampler-layer4-fixture.v1",
+  "sources": [
+    {
+      "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\centered_hyper_target_qr.py",
+      "bytes": 3354,
+      "sha256": "4bdd57d688652bf4dffb85a9c9dee1879229a7bff5c72ff34902e216226fdf5e",
+      "functions": {
+        "positive_qr_factor": [
+          13,
+          16
+        ],
+        "qr_contractions": [
+          19,
+          23
+        ],
+        "spectral_qr_geometry": [
+          26,
+          35
+        ],
+        "build_centered_hyper_target": [
+          38,
+          93
+        ]
+      }
+    },
+    {
+      "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\joint_eta_pcg.py",
+      "bytes": 12136,
+      "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c",
+      "functions": {
+        "JointEtaDiagnostics": [
+          26,
+          35
+        ],
+        "_joint_cell_statistics": [
+          38,
+          70
+        ],
+        "_block_preconditioner_cholesky": [
+          74,
+          81
+        ],
+        "_precision_matvec": [
+          85,
+          88
+        ],
+        "_preconditioner_solve": [
+          92,
+          95
+        ],
+        "_pcg": [
+          99,
+          133
+        ],
+        "_precision_noise": [
+          136,
+          149
+        ],
+        "sample_joint_eta_pcg": [
+          152,
+          262
+        ]
+      }
+    }
+  ],
+  "cases": [
+    {
+      "seed": 12,
+      "expected": {
+        "value": 7.086026025089278,
+        "gradient": [
+          -5.252649902233435,
+          -4.728854858921013
+        ],
+        "AD_gradient": [
+          -5.252649902233435,
+          -4.728854858921013
+        ],
+        "W_active": [
+          [
+            -0.03534455360696168,
+            -0.03469583233404063
+          ],
+          [
+            -0.014863113680328333,
+            -0.040845189010441006
+          ],
+          [
+            0.008629286369745038,
+            -0.052660607549697036
+          ]
+        ],
+        "rewhitened": [
+          [
+            -0.08698599676799841,
+            -0.085389437728743
+          ],
+          [
+            -0.03687353986654146,
+            -0.10081263985892401
+          ],
+          [
+            0.11805232683077997,
+            -0.2232128024887451
+          ]
+        ],
+        "small": {
+          "eta": [
+            [
+              0.4293187929207366,
+              -0.6456150271561762,
+              0.566558211112852,
+              1.2849257071973683,
+              -0.25718811532815944
+            ],
+            [
+              -0.4388734049126483,
+              -0.4224524590243317,
+              -0.9537454293369816,
+              -0.17683006472721297,
+              0.20582577138490313
+            ]
+          ],
+          "beta_sha256": "c2ac62f9f35034affd20bd17bd2f26a9d93a6a36285bc0ff6f6d02c8264bfee2",
+          "diagnostics": {
+            "iterations": 7,
+            "relative_residual": 2.1329756669782044e-12,
+            "absolute_residual": 5.729240183322602e-12,
+            "posterior_mahalanobis_RMS_error_upper_bound": 2.025592292336935e-12,
+            "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+            "converged": true,
+            "minimum_h_eigenvalue": 0.07605344006488364,
+            "maximum_h_asymmetry": 2.7755575615628914e-17,
+            "preconditioner_diagonal_minimum": 1.0437014511107956
+          },
+          "rng_before": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 198185154027693640346472568472860695032,
+              "inc": 168678710323447357454955047835026792803
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "rng_after": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 24123276954509248304523654840470099716,
+              "inc": 168678710323447357454955047835026792803
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "beta": [
+            [
+              -0.5761371310024674,
+              -0.7499501267465961,
+              -0.004017078891806379,
+              1.6175473267272962
+            ],
+            [
+              0.8874854396347313,
+              0.666537733162814,
+              0.6688996055650787,
+              -0.47108792050092024
+            ]
+          ]
+        },
+        "canonical": {
+          "eta": [
+            [
+              -1.0774919944442858,
+              0.6065749541951029,
+              0.3980877990967029
+            ],
+            [
+              0.3907700089222426,
+              1.0714028923944932,
+              0.14807006995803057
+            ]
+          ],
+          "beta_sha256": "14ee2518763db777689d12e50a1022dba4ce02c3e06ec319e9b0695f69292b66",
+          "diagnostics": {
+            "iterations": 5,
+            "relative_residual": 6.422812848546571e-14,
+            "absolute_residual": 2.885193218873847e-12,
+            "posterior_mahalanobis_RMS_error_upper_bound": 6.375436531559813e-14,
+            "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+            "converged": true,
+            "minimum_h_eigenvalue": 0.026142503633955413,
+            "maximum_h_asymmetry": 2.7755575615628914e-17,
+            "preconditioner_diagonal_minimum": 1.0000000000002125
+          },
+          "rng_before": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 198185154027693640346472568472860695032,
+              "inc": 168678710323447357454955047835026792803
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "rng_after": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 305122489555661874323280011594464661875,
+              "inc": 168678710323447357454955047835026792803
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 37,
+      "expected": {
+        "value": 7.060455449307073,
+        "gradient": [
+          -5.193949562816732,
+          -4.677713707356603
+        ],
+        "AD_gradient": [
+          -5.193949562816732,
+          -4.677713707356603
+        ],
+        "W_active": [
+          [
+            -0.015857702255651644,
+            -0.004087165471308882
+          ],
+          [
+            -0.08577725876220342,
+            0.008714815341508152
+          ],
+          [
+            -0.041989936202511485,
+            0.04591667740899018
+          ]
+        ],
+        "rewhitened": [
+          [
+            -0.039027173818551225,
+            -0.010058866959562407
+          ],
+          [
+            -0.21123831456413905,
+            0.021414046216738765
+          ],
+          [
+            -0.12408695232808721,
+            0.274349065682807
+          ]
+        ],
+        "small": {
+          "eta": [
+            [
+              1.1256027382013913,
+              -0.8201733305674543,
+              0.725172183807403,
+              1.3660107332924452,
+              0.2379215579101375
+            ],
+            [
+              -0.5543872374981066,
+              -0.16702148741109818,
+              -0.4239701096583882,
+              -0.4083971276350393,
+              0.1448786455741433
+            ]
+          ],
+          "beta_sha256": "105a3746f652079a7818d9f9d0b7b72bed9010dc50aa76efab9368e38dac7ab1",
+          "diagnostics": {
+            "iterations": 7,
+            "relative_residual": 1.3379083214995228e-11,
+            "absolute_residual": 3.5525794616105376e-11,
+            "posterior_mahalanobis_RMS_error_upper_bound": 1.2560265140044325e-11,
+            "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+            "converged": true,
+            "minimum_h_eigenvalue": 0.027882641830748515,
+            "maximum_h_asymmetry": 1.1102230246251565e-16,
+            "preconditioner_diagonal_minimum": 1.0312196774801612
+          },
+          "rng_before": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 198185154027693640346472568472860695032,
+              "inc": 168678710323447357454955047835026792803
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "rng_after": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 24123276954509248304523654840470099716,
+              "inc": 168678710323447357454955047835026792803
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "beta": [
+            [
+              -0.49682362411814074,
+              -1.2119773481597123,
+              -0.889832867756432,
+              0.6548190354313993
+            ],
+            [
+              0.5149628745947288,
+              0.96297931281019,
+              0.04817143592186212,
+              0.7135850820798321
+            ]
+          ]
+        },
+        "canonical": {
+          "eta": [
+            [
+              -1.0222028906783767,
+              1.1138917196950953,
+              1.0840726182173102
+            ],
+            [
+              0.12884661173158493,
+              0.9218726158733919,
+              0.2923605082133071
+            ]
+          ],
+          "beta_sha256": "c0d8d3d1672ed5ee87d220c74e6c8a754537f2b499251fd2bf371857c64d34e2",
+          "diagnostics": {
+            "iterations": 6,
+            "relative_residual": 1.3395551434239436e-11,
+            "absolute_residual": 6.012502598368744e-10,
+            "posterior_mahalanobis_RMS_error_upper_bound": 1.328587924752586e-11,
+            "requested_posterior_mahalanobis_RMS_tolerance": 1e-10,
+            "converged": true,
+            "minimum_h_eigenvalue": 0.025750031632671852,
+            "maximum_h_asymmetry": 5.551115123125783e-17,
+            "preconditioner_diagonal_minimum": 1.0000000000000941
+          },
+          "rng_before": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 198185154027693640346472568472860695032,
+              "inc": 168678710323447357454955047835026792803
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "rng_after": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 305122489555661874323280011594464661875,
+              "inc": 168678710323447357454955047835026792803
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          }
+        }
+      }
+    }
+  ],
+  "comparison": "Exact same accepted CPU environment; canonical beta arrays stored as ordered logical hashes; small beta arrays explicit"
+}
