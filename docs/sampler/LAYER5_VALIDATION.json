@@ -1,0 +1,158 @@
+{
+  "schema": "bsfm.sampler-layer5-validation.v1",
+  "status": "PASS",
+  "review_status": "accepted",
+  "baseline": "68c0f2214849daf051a29db08acf55429fd246ed",
+  "tests": {
+    "prior_sampler_provenance": 99,
+    "layer5": 20,
+    "sampler_total": 119,
+    "canonical_mesh": 8,
+    "total": 127,
+    "skips": 0
+  },
+  "sampler_command": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer5-cpu-20261102\\python\\Scripts\\python.exe",
+    "-B",
+    "-W",
+    "error::ResourceWarning",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_sampler*.py",
+    "-v"
+  ],
+  "sampler_wall_seconds": 190.35551490000216,
+  "sampler_unittest_seconds": 182.187,
+  "mesh_unittest_seconds": 5.63,
+  "selected_sources": [
+    {
+      "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\full_split.py",
+      "bytes": 4705,
+      "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd"
+    },
+    {
+      "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\run_c3full_fixed_profile_nuts.py",
+      "bytes": 94890,
+      "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49"
+    }
+  ],
+  "source_body_AST_exact": 2,
+  "exact_historical_source_port": true,
+  "same_process_exact": true,
+  "fresh_process_exact": true,
+  "restored_environment_semantics_exact": true,
+  "synthetic_adaptation": {
+    "transitions": 100,
+    "dimension": 8,
+    "step_size": 0.5127343488239458,
+    "hyper_step_size": 0.35506691967937576,
+    "inverse_mass_matrix": [
+      0.23276285155091314,
+      1.5175280225572072,
+      0.42006793695775735,
+      0.37231573056341705,
+      0.7890571709261476,
+      0.7948242206342938,
+      1.5506592231970073,
+      0.37076852115230485
+    ],
+    "maximum_W_relative_error": 2.2460516003145884e-16,
+    "block_divergences": [
+      1,
+      1
+    ],
+    "purpose": "mechanical adaptation/key/endpoint regression; not scientific warmup or mixing"
+  },
+  "canonical_small_system": {
+    "cells": 3,
+    "genes": 2,
+    "factors_in_synthetic_state": 2,
+    "transitioned_factors": 1,
+    "active_vertices": 3,
+    "position_dimension": 10,
+    "feature_columns": 1024,
+    "block_leapfrogs": [
+      255,
+      63
+    ],
+    "W_relative_error": 1.0518123301794553e-16,
+    "eta_draws": 0
+  },
+  "settings": {
+    "blackjax": "1.3",
+    "target_acceptance": 0.9,
+    "max_num_doublings": 10,
+    "initial_field_step": 0.01,
+    "initial_hyper_step": 0.01,
+    "minimum_adaptation_steps": 20,
+    "W_relative_error_strict_upper_bound": 2e-08
+  },
+  "independent_checks": [
+    "coordinate/key partition instrumentation",
+    "hyper likelihood exclusion",
+    "independent field step plus physical-W reconstruction",
+    "analytic gradient bridge",
+    "state/Y/eta nonmutation",
+    "fresh caller context",
+    "separate tuning and propagated endpoints",
+    "identity/rule/order/tuning rejection",
+    "divergence visibility and fatal W/finite checks"
+  ],
+  "initial_test_failure": {
+    "test": "test_geometry_rule_input_mutation_rejected",
+    "kind": "test-harness error",
+    "error": "TypeError: mappingproxy does not support item assignment",
+    "correction": "Replace the immutable dataclass record with a deliberately identity-inconsistent array mapping, then require validator rejection.",
+    "numerical_code_or_tolerance_changed": false
+  },
+  "environment": "../../environment/sampler-layer5/build-validation.json",
+  "restoration": "../../environment/sampler-layer5/restoration-comparison.json",
+  "file_hashes": {
+    "src/bsfm/sampler/layer5.py": "589e082af1a0c63066f0e5886412709fe221051d0218bb2be7431d37a0d8c6a8",
+    "src/bsfm/sampler/split_kernels.py": "3ce4215c9a7195cc8b29f3d5b234e5eb19530cbfcbf4f5b0d972b6b038342754",
+    "tests/build_sampler_layer5_fixture.py": "b7ff778833853f84d4501951c1466c10c6aa18d1761922e523b23692f8a7b6b8",
+    "tests/fixtures/sampler_layer5.json": "ae3224bc2b43aa4b0910aa838dde2f8fb3061ef980fa77e902831a5f7190e559",
+    "tests/sampler_layer5_support.py": "44f6255f897c1e040989e57449e54929d32ff0f778147813f1800206a53938dc",
+    "tests/test_sampler_layer5.py": "a96a66938182a5b3811ddec0d05bc9c9a7e17f35e9c9bd71c401b2f1145d7aee",
+    "docs/sampler/LAYER5_SOURCE_MAP.csv": "96e0a15d2609df3e7a65d2725e7c9568b179f85de7fffed135ec781c510ba163",
+    "environment/sampler-layer5/source-lock.json": "54fc9d6029c867c880d481839097fca3535c53bf6e547c0ba2c32d6fa6527488",
+    "environment/sampler-layer5/requirements.lock.txt": "9bd9f4567e6062bdd4d5aad9149c0350c608e753b8920c64d3f2fcae6af1beb1"
+  },
+  "logs": [
+    {
+      "path": "artifacts/review/sampler_layer5/focused-tests.log",
+      "machine_local_ignored": true,
+      "bytes": 4371,
+      "sha256": "ac64014917b0d5a23e888d31271bb0d82de9ff111738496db95504bd3719f28d"
+    },
+    {
+      "path": "artifacts/review/sampler_layer5/sampler-tests.log",
+      "machine_local_ignored": true,
+      "bytes": 16282,
+      "sha256": "543ab57d2d3b6c1664c09695a3fa128e46eb3078b765833cb851a0443e2e2d30"
+    },
+    {
+      "path": "artifacts/review/sampler_layer5/mesh-tests.log",
+      "machine_local_ignored": true,
+      "bytes": 1684,
+      "sha256": "2e33c4be598c6866a016bf17a32332763182f01ea7ad26303c962634498ecab0"
+    },
+    {
+      "path": "artifacts/review/sampler_layer5/restore-semantic.log",
+      "machine_local_ignored": true,
+      "bytes": 373,
+      "sha256": "c6a241cca3b4647362f03aeb118bfbb01203d362acd3899e007e0918558f6611"
+    }
+  ],
+  "limitations": [
+    "Windows CPU only; Python 3.12.0, not historical Linux 3.11.14",
+    "One divergence per block in retained synthetic adaptation; not evidence of mixing",
+    "No S10 transition smoke performed",
+    "No complete sweep, post-factor eta, checkpoint/restart, retained draws, production diagnostics or launcher",
+    "No GPU/HPC execution, K or run-length choice, scientific warmup or fit"
+  ]
+}

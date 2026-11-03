@@ -1,0 +1,28 @@
+{
+  "schema": "bsfm.sampler-layer5-restoration-comparison.v1",
+  "status": "PASS",
+  "matched_fields": [
+    "python",
+    "packages",
+    "architecture",
+    "pointer_bits",
+    "user_site_enabled",
+    "backend",
+    "x64",
+    "runtime",
+    "wheels",
+    "source_lock_sha256",
+    "requirements_sha256",
+    "thread_environment"
+  ],
+  "blas_comparison": "all fields except installed filepath exact",
+  "semantic_fixture_exact": true,
+  "accepted_layer2_file_count": 6055,
+  "accepted_layer2_changed_files": [],
+  "accepted_layer2_added_files": [],
+  "accepted_layer2_inventory_sha256": "64b4ca475592d2ac7806cd0d36a86aa51367e13b299f616a6cedf6b1f3388375",
+  "restore_root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer5-restore-check-20261102",
+  "retained": true,
+  "offline": true,
+  "installed_libraries_copied": false
+}

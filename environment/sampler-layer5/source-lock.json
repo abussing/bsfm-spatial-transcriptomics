@@ -1,0 +1,227 @@
+{
+  "schema": "bsfm.sampler-layer5-cpu-environment.v1",
+  "status": "proposed_for_review",
+  "machine_local_root": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer5-cpu-20261102",
+  "python": "3.12.0",
+  "python_preferred_historical": "3.11.14",
+  "python_difference": "No registered 3.11 runtime; official 3.11.14 release source-only on Windows. Reuse authenticated 3.12.0 runtime; not historical platform identity.",
+  "platform": "win_amd64",
+  "runtime": [
+    {
+      "path": "C:\\Program Files\\Python312\\python.exe",
+      "bytes": 103192,
+      "sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0"
+    },
+    {
+      "path": "C:\\Program Files\\Python312\\python312.dll",
+      "bytes": 6972184,
+      "sha256": "e7890e38256f04ee0b55ac5276bbf3ac61392c3a3ce150bb5497b709803e17ce"
+    },
+    {
+      "path": "C:\\Program Files\\Python312\\python3.dll",
+      "bytes": 68376,
+      "sha256": "1e9224ba7190b6301ef47befa8e383d0c55700255d04a36f7dac88ea9573f2fb"
+    }
+  ],
+  "pip": "23.2.1",
+  "packages": [
+    {
+      "name": "blackjax",
+      "version": "1.3",
+      "url": "https://files.pythonhosted.org/packages/28/c9/5a1143b5e525f0813c0c8e64812796f520775b675c85a59463e46ed4905a/blackjax-1.3-py3-none-any.whl",
+      "sha256": "afcc41ae41fae98cc1b20eefdeae438f53a0a5ab91f083eea1226d62dfe58abc",
+      "requires_dist": [
+        "fastprogress>=1.0.0",
+        "jax>=0.4.16",
+        "jaxlib>=0.4.16",
+        "jaxopt<=0.8.3",
+        "optax>=0.1.7",
+        "typing-extensions>=4.4.0"
+      ]
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.5.0",
+      "url": "https://files.pythonhosted.org/packages/4b/2c/ffbf7a134b9ab11a67b0cf0726453cedd9c5043a4fe7a35d1cefa9a1bcfb/threadpoolctl-3.5.0-py3-none-any.whl",
+      "sha256": "56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467",
+      "requires_dist": []
+    },
+    {
+      "name": "fastprogress",
+      "version": "1.0.3",
+      "url": "https://files.pythonhosted.org/packages/a7/8f/213223fdee199c55db81e2d0c669f30e8285c5be2526c4ed924de39247da/fastprogress-1.0.3-py3-none-any.whl",
+      "sha256": "6dfea88f7a4717b0a8d6ee2048beae5dbed369f932a368c5dd9caff34796f7c5",
+      "requires_dist": []
+    },
+    {
+      "name": "jax",
+      "version": "0.7.0",
+      "url": "https://files.pythonhosted.org/packages/ad/de/3092df5073cd9c07c01b10612fc541538b74b02184fac90e3beada20f758/jax-0.7.0-py3-none-any.whl",
+      "sha256": "62833036cbaf4641d66ae94c61c0446890a91b2c0d153946583a0ebe04877a76",
+      "requires_dist": [
+        "jaxlib<=0.7.0,>=0.7.0",
+        "ml_dtypes>=0.5.0",
+        "numpy>=1.26",
+        "opt_einsum",
+        "scipy>=1.12",
+        "jaxlib==0.7.0; extra == \"minimum-jaxlib\"",
+        "jaxlib==0.6.2; extra == \"ci\"",
+        "jaxlib<=0.7.0,>=0.7.0; extra == \"tpu\"",
+        "libtpu==0.0.19.*; extra == \"tpu\"",
+        "requests; extra == \"tpu\"",
+        "jaxlib<=0.7.0,>=0.7.0; extra == \"cuda\"",
+        "jax-cuda12-plugin[with-cuda]<=0.7.0,>=0.7.0; extra == \"cuda\"",
+        "jaxlib<=0.7.0,>=0.7.0; extra == \"cuda12\"",
+        "jax-cuda12-plugin[with-cuda]<=0.7.0,>=0.7.0; extra == \"cuda12\"",
+        "jaxlib<=0.7.0,>=0.7.0; extra == \"cuda13\"",
+        "jax-cuda13-plugin[with-cuda]<=0.7.0,>=0.7.0; extra == \"cuda13\"",
+        "jaxlib<=0.7.0,>=0.7.0; extra == \"cuda12-local\"",
+        "jax-cuda12-plugin<=0.7.0,>=0.7.0; extra == \"cuda12-local\"",
+        "jaxlib<=0.7.0,>=0.7.0; extra == \"cuda13-local\"",
+        "jax-cuda13-plugin<=0.7.0,>=0.7.0; extra == \"cuda13-local\"",
+        "jaxlib<=0.7.0,>=0.7.0; extra == \"rocm\"",
+        "jax-rocm60-plugin<=0.7.0,>=0.7.0; extra == \"rocm\"",
+        "kubernetes; extra == \"k8s\"",
+        "xprof; extra == \"xprof\""
+      ]
+    },
+    {
+      "name": "jaxlib",
+      "version": "0.7.0",
+      "url": "https://files.pythonhosted.org/packages/91/29/6701b60687e41aef126b4f0bac2b786e91055fac3452f91c8dc910027157/jaxlib-0.7.0-cp312-cp312-win_amd64.whl",
+      "sha256": "df003e5a31ce15e1f2ed8826195a45906ac822e9d304aaef567770c2df1cd67e",
+      "requires_dist": [
+        "scipy>=1.12",
+        "numpy>=1.26",
+        "ml_dtypes>=0.5.0"
+      ]
+    },
+    {
+      "name": "jaxopt",
+      "version": "0.8.3",
+      "url": "https://files.pythonhosted.org/packages/64/a4/fc292a90a9c51d1b633cdffe2df30c702e1e0b3e0b568c7b81004cac0a06/jaxopt-0.8.3-py3-none-any.whl",
+      "sha256": "4be2f82798393682529c9ca5046e5397ac6c8657b8acb6bf275e773b28df15b6",
+      "requires_dist": [
+        "jax >=0.2.18",
+        "jaxlib >=0.1.69",
+        "numpy >=1.18.4",
+        "scipy >=1.0.0"
+      ]
+    },
+    {
+      "name": "optax",
+      "version": "0.2.8",
+      "url": "https://files.pythonhosted.org/packages/8a/69/6a93d8600c339d7687a05857c7907bd4dd8cf88691a5ea106d7a50af90a1/optax-0.2.8-py3-none-any.whl",
+      "sha256": "e3ca2d36c99daab1800ae9dbc0545034382d6bc780b24d969e1b0df65fa31cb4",
+      "requires_dist": [
+        "absl-py>=0.7.1",
+        "jax>=0.5.3",
+        "jaxlib>=0.5.3",
+        "numpy>=1.18.0",
+        "sphinx>=6.0.0 ; extra == \"docs\"",
+        "sphinx-book-theme>=1.0.1 ; extra == \"docs\"",
+        "sphinxcontrib-katex ; extra == \"docs\"",
+        "sphinx-autodoc-typehints ; extra == \"docs\"",
+        "ipython>=8.8.0 ; extra == \"docs\"",
+        "myst-nb>=1.0.0 ; extra == \"docs\"",
+        "matplotlib>=3.5.0 ; extra == \"docs\"",
+        "sphinx-gallery>=0.14.0 ; extra == \"docs\"",
+        "sphinx-collections>=0.0.1 ; extra == \"docs\"",
+        "flax ; extra == \"docs\"",
+        "sphinx_contributors ; extra == \"docs\"",
+        "setuptools ; extra == \"docs\"",
+        "flax>=0.5.3 ; extra == \"test\"",
+        "scipy>=1.7.1 ; extra == \"test\"",
+        "scikit-learn ; extra == \"test\""
+      ]
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "requires_dist": []
+    },
+    {
+      "name": "absl-py",
+      "version": "2.5.1",
+      "url": "https://files.pythonhosted.org/packages/b3/7d/01e62f59e4166af1be6238d9f2b7f3453630c51b8044b412d05b5606532a/absl_py-2.5.1-py3-none-any.whl",
+      "sha256": "721200f2f0e9960f2ca9dc3a2a706b201f5f75d812c158f059cbbe29eeafbdb8",
+      "requires_dist": []
+    },
+    {
+      "name": "ml_dtypes",
+      "version": "0.6.0",
+      "url": "https://files.pythonhosted.org/packages/ba/db/9c61ec2760b5cbfb1c6558d5c991a6d8fd3271053c32db20506a9a90272b/ml_dtypes-0.6.0-cp312-cp312-win_amd64.whl",
+      "sha256": "2a3e9d53925597fbffafd2a37048dadeddd0bdaba58058f6ae0869ed709a184d",
+      "requires_dist": [
+        "numpy>=2.0.0",
+        "numpy>=2.1.0; python_version >= \"3.13\"",
+        "numpy>=2.3.0; python_version >= \"3.14\"",
+        "absl-py; extra == \"dev\"",
+        "pytest; extra == \"dev\"",
+        "pytest-xdist; extra == \"dev\"",
+        "pylint>=2.6.0; extra == \"dev\"",
+        "pyink; extra == \"dev\""
+      ]
+    },
+    {
+      "name": "numpy",
+      "version": "2.1.3",
+      "url": "https://files.pythonhosted.org/packages/a6/84/fa11dad3404b7634aaab50733581ce11e5350383311ea7a7010f464c0170/numpy-2.1.3-cp312-cp312-win_amd64.whl",
+      "sha256": "0d30c543f02e84e92c4b1f415b7c6b5326cbe45ee7882b6b77db7195fb971e3a",
+      "requires_dist": []
+    },
+    {
+      "name": "scipy",
+      "version": "1.14.1",
+      "url": "https://files.pythonhosted.org/packages/aa/7d/43ab67228ef98c6b5dd42ab386eae2d7877036970a0d7e3dd3eb47a0d530/scipy-1.14.1-cp312-cp312-win_amd64.whl",
+      "sha256": "2ff38e22128e6c03ff73b6bb0f85f897d2362f8c052e3b8ad00532198fbdae3f",
+      "requires_dist": [
+        "numpy<2.3,>=1.23.5",
+        "pytest; extra == \"test\"",
+        "pytest-cov; extra == \"test\"",
+        "pytest-timeout; extra == \"test\"",
+        "pytest-xdist; extra == \"test\"",
+        "asv; extra == \"test\"",
+        "mpmath; extra == \"test\"",
+        "gmpy2; extra == \"test\"",
+        "threadpoolctl; extra == \"test\"",
+        "scikit-umfpack; extra == \"test\"",
+        "pooch; extra == \"test\"",
+        "hypothesis>=6.30; extra == \"test\"",
+        "array-api-strict>=2.0; extra == \"test\"",
+        "Cython; extra == \"test\"",
+        "meson; extra == \"test\"",
+        "ninja; sys_platform != \"emscripten\" and extra == \"test\"",
+        "sphinx<=7.3.7,>=5.0.0; extra == \"doc\"",
+        "pydata-sphinx-theme>=0.15.2; extra == \"doc\"",
+        "sphinx-design>=0.4.0; extra == \"doc\"",
+        "matplotlib>=3.5; extra == \"doc\"",
+        "numpydoc; extra == \"doc\"",
+        "jupytext; extra == \"doc\"",
+        "myst-nb; extra == \"doc\"",
+        "pooch; extra == \"doc\"",
+        "jupyterlite-sphinx>=0.13.1; extra == \"doc\"",
+        "jupyterlite-pyodide-kernel; extra == \"doc\"",
+        "mypy==1.10.0; extra == \"dev\"",
+        "typing_extensions; extra == \"dev\"",
+        "types-psutil; extra == \"dev\"",
+        "pycodestyle; extra == \"dev\"",
+        "ruff>=0.0.292; extra == \"dev\"",
+        "cython-lint>=0.12.2; extra == \"dev\"",
+        "rich-click; extra == \"dev\"",
+        "doit>=0.36.0; extra == \"dev\"",
+        "pydevtool; extra == \"dev\""
+      ]
+    },
+    {
+      "name": "opt_einsum",
+      "version": "3.4.0",
+      "url": "https://files.pythonhosted.org/packages/23/cd/066e86230ae37ed0be70aae89aabf03ca8d9f39c8aea0dec8029455b5540/opt_einsum-3.4.0-py3-none-any.whl",
+      "sha256": "69bb92469f86a1565195ece4ac0323943e83477171b91d24c35afe028a90d7cd",
+      "requires_dist": []
+    }
+  ],
+  "resolution_notes": "Retain all seven Layer-2 pins. Constrain fastprogress to 1.0.3 to avoid unrelated web framework dependency closure. Official PyPI wheels; all packages resolved together."
+}
