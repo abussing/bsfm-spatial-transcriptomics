@@ -1,5 +1,11 @@
 # Small S10 execution smoke proposal
 
+Current retry: [L4_RETRY.md](L4_RETRY.md). The original L16 job 22013422
+timed out before saved genesis. The user explicitly requested lower L for this
+execution check. The current launcher uses L4 (32 frequencies, 64 columns) and
+30 minutes of scheduler headroom; cell/factor/warmup/sweep counts are unchanged.
+The text below describes the original L16 proposal at commit 1aecadb.
+
 The user explicitly requested a small subset, few factors, short warmup and
 very few iterations. RUN_SPEC.json fixes 24 cells, two factors, 20 warmup steps
 per factor and two sweeps total, with a ten-minute scheduler cap. This replaces

@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "canonical_L16_joint_draw_beta_diagnostics_audit_and_rng_exact": true,
+  "smoke_L4_feature_columns": 64,
+  "finite_target_and_gradient": true,
+  "changed_rule_rejected": true,
+  "canonical_boundary_rejects_L4": true,
+  "state_unchanged": true,
+  "canonical_registry_sha256": "e39e1597b842b1c71698e9ee180cff3632b6f7b966f9cdaadef1ee13214812d9"
+}

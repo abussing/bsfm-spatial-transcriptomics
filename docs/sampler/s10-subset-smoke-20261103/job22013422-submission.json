@@ -1,0 +1,8 @@
+{
+  "job_id": "22013422",
+  "commit": "1aecadb6a95810d2182b3944694a5a9ae7b08854",
+  "run_spec_sha256": "9d5821123b50cf984598fafeef1196fab6afc0312ec4c1772c32fee604faaf80",
+  "submitted_utc": "2026-11-03T09:22:41.809963+00:00",
+  "approval": "User requested proceeding and explicitly requested small subset, short warmup, few iterations and few factors; disclosed 24 cells, two factors, 20 warmup steps/factor, two sweeps, 2 CPUs/8 GiB/10 minutes",
+  "scope": "Bounded derivative execution smoke; no holdout scoring or Layer-9 merge"
+}

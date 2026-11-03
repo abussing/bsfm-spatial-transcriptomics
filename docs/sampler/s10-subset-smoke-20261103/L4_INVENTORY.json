@@ -1,0 +1,80 @@
+{
+  "scope": "User-authorized L4 execution retry; previous Linux inventory belongs to 1aecadb",
+  "files": [
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/build_smoke_rule.py",
+      "bytes": 3298,
+      "sha256": "1d27189eaec1a4a68860be6a83d7aa0d2824afaa360e2347df8cf30c03da5d91"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/check_rule_dimensions.py",
+      "bytes": 3176,
+      "sha256": "83b014ff336c3fd35aa527a188d8716c250b1b7f8f03dca7882436233d68d818"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/job22013422-preflight.json",
+      "bytes": 3512,
+      "sha256": "51ac5f18bbc8fbc9064cbc97b7a98e803258839c6ccc0a1c2e448c184fd6b433"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/job22013422-submission.json",
+      "bytes": 534,
+      "sha256": "e18c3f5239d8d1ab25303ad19f044903f191e7eb217f1c16149f5e33866cd8bc"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/job22013422-terminal.json",
+      "bytes": 1748,
+      "sha256": "42280198592b6711f976c5ddd1faebe6bb5b1ba4be0028d91e3a4c409837c42d"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/L4_ell14_smoke.json",
+      "bytes": 5984,
+      "sha256": "5ebf7561ee4a72b609ebd4639d584d11360f93dd07ebf5ab4f53db75c2165168"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/L4_RETRY.md",
+      "bytes": 3200,
+      "sha256": "d5ad28f82a3384d9e272befb12b58e520fbee58791e2c45f38709ec014658c02"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/local-dimension-check.json",
+      "bytes": 368,
+      "sha256": "b0c71cfd8eedb5df232b59c6338048464ac9ca64dedc94930c0e7dea3522fcd6"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/preflight.py",
+      "bytes": 2976,
+      "sha256": "39ed1a4096f10590fc57f9c5445a930612dd8e3eceac83050a09e6b461df150a"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/README.md",
+      "bytes": 2767,
+      "sha256": "9df31c28d72ebe4743e3a1b9fc20b26aa52596fb359359593c447bbb1e5f0e10"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/RUN_SPEC.json",
+      "bytes": 2042,
+      "sha256": "ab6bf4562980b3d4cdca8e1d1947aefc22966293a9bdf6ded00e119feee0447e"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/smoke.py",
+      "bytes": 8315,
+      "sha256": "30d7692c8ec20a2e4542e37d950e31b9dd8dc2eb535df61f77d395de5763ba20"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/smoke.sbatch",
+      "bytes": 1278,
+      "sha256": "550d833306e4f528f6e43ff30e3e79962c1ad25feed5bd519c093073ccf056ab"
+    },
+    {
+      "path": "docs/sampler/s10-subset-smoke-20261103/smoke_rule.py",
+      "bytes": 2246,
+      "sha256": "83ad3b758c5719ae10b026cf39304fa6c0a13b7a33836bda691c4eafd0605f57"
+    },
+    {
+      "path": "src/bsfm/sampler/layer4.py",
+      "bytes": 7242,
+      "sha256": "fd1c8f560aebf3e9cbdc777524a70c1684c50b06650c2f4c6761f9d1460052b9"
+    }
+  ]
+}

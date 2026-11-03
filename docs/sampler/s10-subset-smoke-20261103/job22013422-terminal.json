@@ -1,0 +1,57 @@
+{
+  "job_id": "22013422",
+  "commit": "1aecadb6a95810d2182b3944694a5a9ae7b08854",
+  "status": "timeout_incomplete",
+  "extension_attempt": "Requested 30 minutes while running; Slurm denied permission",
+  "genesis_saved": false,
+  "completed_sweep_receipt": false,
+  "preflight": "pass",
+  "accounting": "22013422|TIMEOUT|1:0|00:10:04|00:10:00\n22013422.batch|CANCELLED|0:15|00:10:05|\n",
+  "files": [
+    {
+      "path": "environment.json",
+      "bytes": 1700,
+      "sha256": "2812575a8047a658f856208873576ac0a5abfff703c4c3cbe2c4e90f2184e444"
+    },
+    {
+      "path": "first.log",
+      "bytes": 66,
+      "sha256": "8a40ce33035e895decbf9b44ecb8df40536ed2ee03e93b28910cc0b0091c37f9"
+    },
+    {
+      "path": "input-binding.json",
+      "bytes": 8391,
+      "sha256": "672765fbe86b357b014dda62bb2f11eab833a8a50080a25cfc914e81efb0bbcb"
+    },
+    {
+      "path": "preflight.json",
+      "bytes": 3512,
+      "sha256": "51ac5f18bbc8fbc9064cbc97b7a98e803258839c6ccc0a1c2e448c184fd6b433"
+    },
+    {
+      "path": "preflight.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "run/input-receipt.json",
+      "bytes": 8391,
+      "sha256": "672765fbe86b357b014dda62bb2f11eab833a8a50080a25cfc914e81efb0bbcb"
+    },
+    {
+      "path": "run/run-spec.json",
+      "bytes": 731,
+      "sha256": "1504390c6457146860a5457e6b2973503010322fa5592398fc879bef4060fcaa"
+    },
+    {
+      "path": "run/writer.lock",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "run-spec.json",
+      "bytes": 731,
+      "sha256": "1504390c6457146860a5457e6b2973503010322fa5592398fc879bef4060fcaa"
+    }
+  ]
+}

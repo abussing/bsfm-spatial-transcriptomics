@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
-#SBATCH --time=00:10:00
+#SBATCH --time=00:30:00
 #SBATCH --output=/work/abussing/bsfm-consolidation/evidence/s10-subset-smoke-%j.log
 set -euo pipefail
 commit="${1:?Exact committed source required}"
@@ -19,6 +19,7 @@ output="/work/abussing/bsfm-consolidation/evidence/s10-subset-smoke-$SLURM_JOB_I
 mkdir "$output"
 export TMPDIR="$output/tmp"
 mkdir "$TMPDIR"
+"$python" -B docs/sampler/s10-subset-smoke-20261103/check_rule_dimensions.py "$output/rule-dimensions.json" >"$output/rule-dimensions.log" 2>&1
 "$python" -B docs/sampler/s10-subset-smoke-20261103/preflight.py "$output/preflight.json" >"$output/preflight.log" 2>&1
 for phase in first resume nonreplay; do
   "$python" -B docs/sampler/s10-subset-smoke-20261103/smoke.py "$commit" "$output" "$phase" >"$output/$phase.log" 2>&1

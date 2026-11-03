@@ -12,6 +12,7 @@ from bsfm.sampler.run_controller import RunController
 from bsfm.sampler.run_inputs import authenticate_environment, authenticate_files, load_inputs
 from bsfm.sampler.run_storage import file_record, read_json, write_json
 from bsfm.sampler.warp import WarpGeometry, mesh_identity
+from smoke_rule import load_smoke_rule
 
 REPO = Path(__file__).resolve().parents[3]
 MIRROR = Path('/work/abussing/bsfm-consolidation/canonical-artifacts-20261103')
@@ -64,11 +65,13 @@ def subset(parent, loading, eta, genesis):
     original = json.loads(parent.geometry.identity_json)
     expected = mesh_identity(geometry, section=original['section'], mesh_sha256=original['mesh_sha256'])
     geo = geometry_from_genesis(geometry, expected, genesis) if genesis.exists() else WarpGeometry.authenticate(geometry, expected)
-    target = DirectWTarget(inputs, geo, parent.rule, factor_ids=parent.factor_ids[:2])
+    target = DirectWTarget(inputs, geo, load_smoke_rule(), factor_ids=parent.factor_ids[:2])
     seeds = (loading[:, :, :2].copy(), eta[:2, rows].copy())
     selection = dict(parent_row_indices=rows.tolist(), source_row_indices=arrays['source_row_indices'].tolist(),
         cell_names=arrays['cell_names'].tolist(), factor_indices=[0, 1], cells=len(rows), factors=2,
         genes=len(arrays['gene_names']), full_modes=len(geometry['vertices']),
+        smoke_rule_order=json.loads(target.rule.identity_json)['order'],
+        frequency_nodes=len(target.rule.arrays['omega']), feature_columns=2*len(target.rule.arrays['omega']),
         active_vertices=len(geometry['active_indices']), response_recentered=False,
         gpinit_refitted=False, mesh_regenerated=False, primary_holdout_scoring_eligible=False,
         loading_sha256=logical_hash(seeds[0]), eta_sha256=logical_hash(seeds[1]))
@@ -100,7 +103,7 @@ def main(commit, output, phase):
     binding = dict(schema='bsfm.s10-subset-smoke-input.v1', files=files,
         parent_preparation_commit=parent_binding['preparation_commit'], selection=selection,
         target_identity=target.identity, spectral_identity=target.geometry.spectral_identity,
-        scope='24-cell two-factor full-data derivative; execution check only; no held-out prediction')
+        scope='24-cell two-factor L4 full-data derivative; execution check only; not L16 validation or held-out prediction')
     spec = dict(schema='bsfm.local-run.v1', run_id='s10_subset_smoke', segment_id='segment', chain_id='chain',
         factor_ids=list(target.factor_ids), seed=20261103, warmup_steps=20, settling_sweeps=0,
         production_sweeps=2, final_sweep=2, save_every=1, checkpoint_every=1,
