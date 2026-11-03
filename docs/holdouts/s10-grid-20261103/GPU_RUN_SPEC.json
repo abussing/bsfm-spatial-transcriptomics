@@ -1,0 +1,18 @@
+{
+  "schema": "bsfm.gpu-validation.v1",
+  "authorization": "User directed migration to V100 high-priority GPU execution and instructed continuing work",
+  "partition": "v100-16gb-hiprio",
+  "resources": {"gpus": 1, "cpus": 4, "memory_GiB": 16, "wall_minutes": 30},
+  "environment": "/work/abussing/arka_trying_gpu_again/env",
+  "environment_policy": "Inspect and validate existing environment without modifying it; record all package versions and device identity. This is not the CPU environment lock or cross-device exact continuation.",
+  "scope": ["CUDA/x64 device and numerical checks", "four existing focused meeting extension tests", "one real S10 L14 deep-factor 20-step warmup timing"],
+  "preparation_commit": "27f9b3f0dfa4c1df2acc9e845633a8031069daea",
+  "configuration": "circles12_diameter1of8",
+  "K": 12,
+  "L": 14,
+  "features": 784,
+  "mesh": "Existing canonical full mesh, unchanged",
+  "target_accept": 0.9,
+  "preservation": "No CPU cancellation, environment mutation, artifact regeneration, production publication or CPU checkpoint mutation. Separate validation output root.",
+  "gate": "No replacement scientific run until GPU validation succeeds and a GPU-specific environment identity and run specification are committed."
+}
