@@ -1,0 +1,286 @@
+{
+  "validation": {
+    "status": "PASS",
+    "commit": "2551f6d3c71be8956ab5d6f649371a2ad4615342",
+    "scope": "Three real-size diagnostic sweeps, sparse saving, restart and actual held-out scoring; no warmup",
+    "checks": [
+      "Periodic sweeps 1 and 3 match previous every-sweep GPU state/RNG exactly",
+      "Fresh-process unsaved sweep recomputed exactly; completed boundaries never replayed",
+      "Actual held-out predictive log densities finite; scorer restart does not double-count"
+    ],
+    "bytes_per_boundary": {
+      "1": {
+        "diagnostics.json": 6715,
+        "record.npz": 1104751,
+        "checkpoint.npz": 433874,
+        "receipt.json": 621
+      },
+      "3": {
+        "diagnostics.json": 13431,
+        "record.npz": 1107346,
+        "checkpoint.npz": 433561,
+        "receipt.json": 622
+      }
+    },
+    "prediction": {
+      "file": {
+        "bytes": 4519028,
+        "sha256": "35b6891d984667050300110c1054cd6100c2e5cb52ce960a165e1cb58966763b"
+      },
+      "metadata": {
+        "MAE": 0.2348073607174178,
+        "RMSE": 0.3767291447448321,
+        "draws": [
+          {
+            "receipt": {
+              "bytes": 621,
+              "sha256": "7b7e8d2e0295e3cd11c31026f6afb7ed6dac2cae41b3b875c5c60ed929f0a643"
+            },
+            "sweep": 1
+          },
+          {
+            "receipt": {
+              "bytes": 622,
+              "sha256": "bc1945afa1d8b4ef79b2924d7a2d61d01d5d955f5acbfe8a5796f83c52543dab"
+            },
+            "sweep": 3
+          }
+        ],
+        "identity": {
+          "commit": "2551f6d3c71be8956ab5d6f649371a2ad4615342",
+          "model": "deep",
+          "rule": "pointwise_normal_mixture_v1_one_conditional_warp_draw_per_posterior_draw",
+          "scoring": {
+            "bytes": 103848,
+            "sha256": "7ad7500a90a6992f0f7f89ea9c0493883c81b4d7a3898463c2eb272889bac02d"
+          },
+          "spec_sha256": "eef08888cbf9f3f500a22e63a620ada0128a8c058ea08e5e9541cc9be82f154f"
+        },
+        "last_production_sweep": 3,
+        "mean_pointwise_log_predictive_density": -0.15718409162166155,
+        "prediction_draws": 2,
+        "scope": "Preliminary full-sample SCT; pointwise marginals, not joint hole likelihood; no convergence claim",
+        "sum_pointwise_log_predictive_density": -19066.90186598241
+      }
+    }
+  },
+  "submissions": {
+    "commit": "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+    "gate_job": 22016122,
+    "jobs": [
+      {
+        "job_id": "22016141",
+        "configuration": "circles12_diameter1of16",
+        "model": "deep",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+          "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+          "circles12_diameter1of16",
+          "deep"
+        ]
+      },
+      {
+        "job_id": "22016142",
+        "configuration": "circles12_diameter1of16",
+        "model": "flat",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+          "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+          "circles12_diameter1of16",
+          "flat"
+        ]
+      },
+      {
+        "job_id": "22016143",
+        "configuration": "circles12_diameter1of8",
+        "model": "deep",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+          "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+          "circles12_diameter1of8",
+          "deep"
+        ]
+      },
+      {
+        "job_id": "22016144",
+        "configuration": "circles12_diameter1of8",
+        "model": "flat",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+          "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+          "circles12_diameter1of8",
+          "flat"
+        ]
+      },
+      {
+        "job_id": "22016145",
+        "configuration": "circles8_diameter1of16",
+        "model": "deep",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+          "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+          "circles8_diameter1of16",
+          "deep"
+        ]
+      },
+      {
+        "job_id": "22016146",
+        "configuration": "circles8_diameter1of16",
+        "model": "flat",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+          "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+          "circles8_diameter1of16",
+          "flat"
+        ]
+      },
+      {
+        "job_id": "22016147",
+        "configuration": "circles8_diameter1of8",
+        "model": "deep",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+          "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+          "circles8_diameter1of8",
+          "deep"
+        ]
+      },
+      {
+        "job_id": "22016148",
+        "configuration": "circles8_diameter1of8",
+        "model": "flat",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+          "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+          "circles8_diameter1of8",
+          "flat"
+        ]
+      }
+    ]
+  },
+  "cancellations": {
+    "reason": "User requested stopping all BSFM jobs before periodic-saving relaunch",
+    "jobs": [
+      {
+        "job": "22014442",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014444",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014446",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014448",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014500",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014502",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014504",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014506",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014622",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014623",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014624",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014625",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014626",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014627",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014628",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22014629",
+        "name": "bsfm-holey-gpu"
+      },
+      {
+        "job": "22016018",
+        "name": "bsfm-fixed-gpu"
+      },
+      {
+        "job": "22016019",
+        "name": "bsfm-fixed-gpu"
+      },
+      {
+        "job": "22016020",
+        "name": "bsfm-fixed-gpu"
+      },
+      {
+        "job": "22016021",
+        "name": "bsfm-fixed-gpu"
+      },
+      {
+        "job": "22016022",
+        "name": "bsfm-fixed-gpu"
+      },
+      {
+        "job": "22016023",
+        "name": "bsfm-fixed-gpu"
+      },
+      {
+        "job": "22016024",
+        "name": "bsfm-fixed-gpu"
+      },
+      {
+        "job": "22016025",
+        "name": "bsfm-fixed-gpu"
+      }
+    ]
+  }
+}

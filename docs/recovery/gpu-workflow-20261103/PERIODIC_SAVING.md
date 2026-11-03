@@ -54,3 +54,40 @@ pairs, K12/L14, 91 genes/three types, initial50/bridge50/retune100/production100
 one V100/four CPUs/16 GiB/12 hours per job. Saving is first/every10/final and one
 BLAS thread. The scorer uses a separate CPU process within the same allocation.
 Mechanical correctness does not establish convergence or a completion deadline.
+
+## Completed gate and deployment
+
+Seven focused local tests passed. Real GPU job 22016122 passed all three checks
+in `PERIODIC_FINAL_EVIDENCE.json`: exact periodic/every-sweep state and RNG,
+fresh-process interruption/restart plus non-replay, and finite actual held-out
+predictive scores with idempotent scorer restart. The two diagnostic draws are
+validation evidence, not scientific posterior results.
+
+All eight replacement jobs started and reached initial warmup on V100 GPUs:
+
+| Holes | Diameter/tissue width | Deep job | Flat job |
+| --- | --- | --- | --- |
+| 12 | 1/16 | 22016141 | 22016142 |
+| 12 | 1/8 | 22016143 | 22016144 |
+| 8 | 1/16 | 22016145 | 22016146 |
+| 8 | 1/8 | 22016147 | 22016148 |
+
+Generating commit: `cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414`. Its sampler and
+scoring source matches the GPU-tested commit; launcher checks this before fitting.
+The launcher performs a final scoring drain after both fitting and the watcher
+finish, covering a final publication concurrent with the watcher's last read.
+
+Logs: `/work/abussing/bsfm-consolidation/evidence/periodic-fit-JOBID.log` and
+`periodic-prediction-JOBID.log` in the same directory. The prediction log stays
+empty until production draws arrive. Results live under
+`evidence/holey-periodic-cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414/CONFIGURATION`.
+Each model's cumulative result is `predictions/MODEL/latest.npz`, atomically
+replaced per processed draw. It contains pointwise predictive density and
+prediction moments, plus truth and cell/gene identities for plotting.
+
+Measured saved boundary: 433,874-byte checkpoint and 1,104,751-byte retained draw,
+plus small diagnostics/receipt. A thousand production sweeps save 101 draws,
+approximately 155 MB for checkpoints/draws, plus fixed genesis and diagnostics;
+the prediction summary is one overwritten file (4.5 MB in the diagnostic case).
+An interruption can recompute up to nine unsaved sweeps. No scientific output
+or convergence is claimed from this startup check.

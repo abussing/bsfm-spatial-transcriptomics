@@ -1,6 +1,6 @@
 # Current BSFM handoff
 
-## User-directed stop and periodic-saving replacement in progress
+## Periodic-saving replacement: eight V100 fits running
 
 The user requested stopping all BSFM jobs and relaunching with inexpensive
 periodic saving and leave-out metrics. All 24 active BSFM jobs, including
@@ -10,9 +10,21 @@ The remaining `cs-*` jobs are a separate centering simulation and were not touch
 Candidate `2551f6d3c71be8956ab5d6f649371a2ad4615342` adds compact periodic
 checkpoints/draws (first, every10, final), no duplicate projections, and an
 independent streaming predictive-density scorer. Seven focused local tests pass.
-Real GPU gate **22016122** is pending at this checkpoint; no replacement scientific
-fit has been submitted yet. Read
+Real GPU gate **22016122 PASSED**: exact numerical/RNG agreement with the previous
+every-sweep run, exact interrupted restart, completed non-replay and actual
+held-out predictive scoring with no double-counting on scorer restart.
+Eight replacement jobs **22016141-22016148** are RUNNING and have entered
+initial warmup, from clean generating commit
+`cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414`. Read
 [the policy and committed validation specification](recovery/gpu-workflow-20261103/PERIODIC_SAVING.md).
+The [completion evidence](recovery/gpu-workflow-20261103/PERIODIC_FINAL_EVIDENCE.json)
+records cancellation, validation and the exact configuration/job map.
+Fresh roots are `evidence/holey-periodic-cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414/CONFIGURATION`
+under `/work/abussing/bsfm-consolidation`. Production prediction summaries are
+`predictions/MODEL/latest.npz` under each root. No production draws or convergence
+are claimed at this startup checkpoint. Fixed geometry remains in genesis;
+measured boundary checkpoint is 434 KB and retained draw 1.1 MB, saved first,
+every ten sweeps and final. Old outputs remain preserved.
 Do not use the older running-job statements below as current state.
 
 ## GPU correction passed complete replay; eight fresh V100 fits running
