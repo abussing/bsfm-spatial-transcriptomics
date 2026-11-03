@@ -21,6 +21,10 @@ PREFIX=Path('/work/abussing/arka_trying_gpu_again/env')
 CORE={'numpy','scipy','jax','jaxlib','jax-cuda12-plugin','jax-cuda12-pjrt','blackjax',
       'jaxopt','optax','ml-dtypes','opt-einsum','absl-py','typing-extensions',
       'fastprogress','fastcore','threadpoolctl','nvidia-cudnn-cu12'}
+# Observed in the existing GPU environment, which passed the execution checks.
+# BSFM uses JAX threefry and NumPy RNGs, not scipy.stats Sobol QMC.
+ABSENT_UNUSED_RESOURCES={'scipy/stats/_sobol_direction_numbers.npz',
+                        'docs/_static/blackjax.png','docs/examples/data/blackjax.png'}
 
 def authenticate_gpu_environment():
     expected=read_json(RECEIPT)
@@ -51,6 +55,7 @@ def authenticate_gpu_environment():
             # Historical installation omits package test fixtures. They are not
             # sampler runtime dependencies; numpy.testing itself remains checked.
             if 'tests' in Path(name).parts:continue
+            if name in ABSENT_UNUSED_RESOURCES and not p.exists():continue
             actual=file_record(p)
             if actual['bytes']!=int(size) or base64.urlsafe_b64encode(bytes.fromhex(actual['sha256'])).decode().rstrip('=')!=value:
                 # pip regenerates wheel-bundled bytecode for the install path.
@@ -76,6 +81,7 @@ def authenticate_gpu_environment():
     return dict(schema='bsfm.meeting-gpu-environment.v1',lock=file_record(RECEIPT),
                 backend='gpu',x64=True,device_kind=devices[0].device_kind,
                 packages=expected['packages'],installed_numerical_files=count,
+                absent_unused_resources=sorted(ABSENT_UNUSED_RESOURCES),
                 limitation='Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations.')
 
 if __name__=='__main__':
