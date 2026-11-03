@@ -1,0 +1,3492 @@
+{
+  "gates": {
+    "22015934": {
+      "status": "PASS",
+      "commit": "51e1ee91d6cb3e54ce0e80baaaaa1c99e891c000",
+      "scope": "Three real K12/L14 sweeps per arm, diagnostic seed, no new warmup or scientific fit",
+      "checks": [
+        {
+          "left": "strict",
+          "right": "incremental",
+          "three_transactions_exact": true
+        },
+        {
+          "left": "incremental",
+          "right": "restart",
+          "three_transactions_exact": true
+        },
+        {
+          "completed_nonreplay": true,
+          "fresh_process_uncommitted_recomputation": true
+        }
+      ],
+      "source_genesis": {
+        "path": "/work/abussing/bsfm-consolidation/evidence/real-timing-22015787/threads-1/strict/segments/segment/genesis/endpoint.npz",
+        "bytes": 14139989,
+        "sha256": "f975ea51f834482eecd8f943d19663ce703d78cada254beaa697db40110e242e"
+      },
+      "receipt": {
+        "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22015934/validation.json",
+        "bytes": 85490,
+        "sha256": "f59c6b2564fd5a348acf4d2a20aab231d7be7c6cdbdff124c854c5b6fdd70bce"
+      },
+      "log": {
+        "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22015934.log",
+        "bytes": 1062,
+        "sha256": "fc816cb488455e76d146599c942350acf39722eef857d95b0020037b86e7bfef"
+      },
+      "arms": {
+        "strict": {
+          "receipt": {
+            "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22015934/strict.json",
+            "bytes": 20689,
+            "sha256": "ad9d733e528fd3a14e122b428a1f11388551e22144cf3311e8fe819183e5033b"
+          },
+          "total_seconds": 257.00555285598966,
+          "sweep_seconds": [
+            55.296298240005854,
+            42.04046845900302,
+            41.38944755400007
+          ],
+          "between_sweeps_seconds": [
+            19.88274319098855,
+            27.80031685299764
+          ],
+          "completion": {
+            "schema": "bsfm.run-completion.v1",
+            "status": "complete_with_warnings",
+            "head": "f0ff48542943fe2f7729b0e2f06c63738e72aee3b76707dc76b86906db80484c",
+            "spec_sha256": "e516d78c1d89d8508c8a3086a86e46083acd3b017e038ed1f8cc11eba8ced0e9",
+            "completed": 3,
+            "retained": 3,
+            "warmup_divergences": 31,
+            "aggregate": {
+              "schema": "bsfm.raw-diagnostic-aggregate.v1",
+              "chains": {
+                "chain": {
+                  "status": "valid_prefix",
+                  "records": 3,
+                  "retained": 3,
+                  "head_sha256": "5856d9d8d2470704fabc94314f675b6b102297e6c9b460984e9b4e8dcbcc3292",
+                  "rows": [
+                    {
+                      "sweep": 1,
+                      "retained_index": 1,
+                      "factor_order": [
+                        10,
+                        8,
+                        3,
+                        7,
+                        6,
+                        5,
+                        11,
+                        1,
+                        2,
+                        9,
+                        4,
+                        0
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 2,
+                      "retained_index": 2,
+                      "factor_order": [
+                        6,
+                        3,
+                        4,
+                        0,
+                        9,
+                        10,
+                        2,
+                        7,
+                        5,
+                        8,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 3,
+                      "retained_index": 3,
+                      "factor_order": [
+                        6,
+                        5,
+                        9,
+                        4,
+                        8,
+                        3,
+                        10,
+                        7,
+                        0,
+                        2,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    }
+                  ],
+                  "events": [],
+                  "block_energy": [
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -247.58369001779533,
+                        -2637.713360964759
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3767.8736512857226,
+                        -2743.7377188274913
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2817.8663540184393,
+                        -2809.076858567057
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4322.958562062572,
+                        -2622.8459998850003
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5025.122302053296,
+                        -2606.8532944190906
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1221.8581294300966,
+                        -2828.248238344626
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1101.9228285395552,
+                        -3222.0620618629205
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11771.81736797621,
+                        -3288.2942350138887
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6601.20400103826,
+                        -2631.627721517919
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3287.3424867468016,
+                        -2637.7271121288513
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -830.6177729556914,
+                        -2682.0696728527582
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8308.537650101978,
+                        -3009.5278789113036
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7697.52921053531,
+                        -2617.3439938374777
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6577.792042998845,
+                        -2778.6278650860822
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2424.243832620855,
+                        -2683.1106368396795
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10199.6987202103,
+                        -3005.855807392581
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5490.826431969071,
+                        -2635.2385414924265
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1065.4602581912368,
+                        -2618.692053243829
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8712.061242074595,
+                        -2627.35193797998
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10850.955890767473,
+                        -2621.228570690555
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2972.6466210230165,
+                        -2828.557298276087
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8434.594581009202,
+                        -2757.1677013878916
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -15155.257478227337,
+                        -3293.2538104339505
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5121.098962592299,
+                        -3188.012253627087
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9896.349315216723,
+                        -2622.7439239369855
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4026.01899660694,
+                        -2827.641372975439
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6532.107040298905,
+                        -2626.480957778419
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3949.1385722603536,
+                        -2701.8991961836987
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9437.605800958825,
+                        -2743.5009471210833
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7781.555956956679,
+                        -2781.523312793518
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2626.865381414492,
+                        -2641.313905364421
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -13397.839923396561,
+                        -2620.604058223228
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11604.391968331072,
+                        -3020.917834321146
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9923.332765114545,
+                        -2628.3814080023376
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -17559.714043994372,
+                        -3306.7534408952665
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7095.762063322437,
+                        -3206.656514206143
+                      ]
+                    }
+                  ],
+                  "divergence_counts": [
+                    2,
+                    0
+                  ],
+                  "mean_block_acceptance": [
+                    0.5426466019205123,
+                    0.9989436488520654
+                  ],
+                  "pcg_iterations": [
+                    18,
+                    19,
+                    18,
+                    17,
+                    16,
+                    16,
+                    16,
+                    15,
+                    16
+                  ],
+                  "pcg_max_error_bound": 7.59007402801997e-11,
+                  "px_max_invariant_error": 4.55945826520384e-16,
+                  "fidelity_status": "not_evaluated_by_layers_1_to_8"
+                }
+              },
+              "convergence_status": "not_assessed",
+              "energy_semantics": "separate field/hyper conditional Hamiltonians; no pooled BFMI",
+              "factor_alignment": "native labels; no cross-chain factor posterior pooling",
+              "logical_sha256": "b68ab0512206dcd48adde3c412034340fe0dab66e4c9e1e503aa9e4fdbb314df"
+            },
+            "convergence_status": "not_assessed"
+          },
+          "environment": {
+            "schema": "bsfm.meeting-gpu-environment.v1",
+            "lock": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "backend": "gpu",
+            "x64": true,
+            "device_kind": "Tesla V100-PCIE-16GB",
+            "device_validation": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "packages": {
+              "opt_einsum": "3.4.0",
+              "joblib": "1.6.0",
+              "numpy": "2.1.3",
+              "ptyprocess": "0.7.0",
+              "httpcore": "1.0.9",
+              "watchfiles": "1.1.1",
+              "matplotlib-inline": "0.2.1",
+              "python-multipart": "0.0.22",
+              "parso": "0.8.6",
+              "uvicorn": "0.43.0",
+              "fonttools": "4.62.1",
+              "fastlite": "0.2.4",
+              "pyparsing": "3.3.2",
+              "fastcore": "1.12.34",
+              "pillow": "12.2.0",
+              "contourpy": "1.3.3",
+              "python-fasthtml": "0.13.2",
+              "jaxopt": "0.8.3",
+              "tzdata": "2026.2",
+              "nvidia-cudnn-cu12": "9.8.0.87",
+              "six": "1.17.0",
+              "soupsieve": "2.8.3",
+              "h11": "0.16.0",
+              "wcwidth": "0.6.0",
+              "optax": "0.2.8",
+              "ipython": "9.10.1",
+              "websockets": "16.0",
+              "pexpect": "4.9.0",
+              "ml_dtypes": "0.5.4",
+              "scipy": "1.14.1",
+              "decorator": "5.2.1",
+              "typing_extensions": "4.15.0",
+              "python-dotenv": "1.2.2",
+              "beautifulsoup4": "4.14.3",
+              "scikit-learn": "1.4.2",
+              "stack-data": "0.6.3",
+              "certifi": "2026.2.25",
+              "jax-cuda12-pjrt": "0.7.0",
+              "asttokens": "3.0.1",
+              "pure_eval": "0.2.3",
+              "uvloop": "0.22.1",
+              "cycler": "0.12.1",
+              "anyio": "4.13.0",
+              "blackjax": "1.3",
+              "matplotlib": "3.10.8",
+              "pip": "26.0.1",
+              "jedi": "0.19.2",
+              "apswutils": "0.1.2",
+              "packaging": "25.0",
+              "executing": "2.2.1",
+              "cma": "4.4.4",
+              "ipython_pygments_lexers": "1.1.1",
+              "jax-cuda12-plugin": "0.7.0",
+              "PyYAML": "6.0.3",
+              "idna": "3.11",
+              "prompt_toolkit": "3.0.52",
+              "setuptools": "80.10.2",
+              "jaxlib": "0.7.0",
+              "pandas": "2.2.3",
+              "httptools": "0.7.1",
+              "absl-py": "2.4.0",
+              "starlette": "1.0.0",
+              "oauthlib": "3.3.1",
+              "kiwisolver": "1.5.0",
+              "cloudpickle": "3.1.2",
+              "jax": "0.7.0",
+              "pytz": "2026.1.post1",
+              "traitlets": "5.14.3",
+              "polyagamma": "2.0.2",
+              "fastprogress": "1.1.5",
+              "apsw": "3.51.3.0",
+              "python-dateutil": "2.9.0.post0",
+              "itsdangerous": "2.2.0",
+              "httpx": "0.28.1",
+              "wheel": "0.46.3",
+              "click": "8.3.2",
+              "threadpoolctl": "3.6.0",
+              "Pygments": "2.20.0"
+            },
+            "installed_numerical_files": 2355,
+            "blas_threads": 1,
+            "absent_unused_resources": [
+              "docs/_static/blackjax.png",
+              "docs/examples/data/blackjax.png",
+              "scipy/stats/_sobol_direction_numbers.npz"
+            ],
+            "limitation": "Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations."
+          }
+        },
+        "incremental": {
+          "receipt": {
+            "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22015934/incremental.json",
+            "bytes": 20498,
+            "sha256": "5c28eab0c4d2494c57a506bd08f51261d301518fb5595cd45173170b769a2b35"
+          },
+          "total_seconds": 237.71909879799932,
+          "sweep_seconds": [
+            54.73791606299346,
+            41.659749091995764,
+            41.00294599100016
+          ],
+          "between_sweeps_seconds": [
+            15.288861218999955,
+            15.243482625999604
+          ],
+          "completion": {
+            "schema": "bsfm.run-completion.v1",
+            "status": "complete_with_warnings",
+            "head": "f0ff48542943fe2f7729b0e2f06c63738e72aee3b76707dc76b86906db80484c",
+            "spec_sha256": "e516d78c1d89d8508c8a3086a86e46083acd3b017e038ed1f8cc11eba8ced0e9",
+            "completed": 3,
+            "retained": 3,
+            "warmup_divergences": 31,
+            "aggregate": {
+              "schema": "bsfm.raw-diagnostic-aggregate.v1",
+              "chains": {
+                "chain": {
+                  "status": "valid_prefix",
+                  "records": 3,
+                  "retained": 3,
+                  "head_sha256": "5856d9d8d2470704fabc94314f675b6b102297e6c9b460984e9b4e8dcbcc3292",
+                  "rows": [
+                    {
+                      "sweep": 1,
+                      "retained_index": 1,
+                      "factor_order": [
+                        10,
+                        8,
+                        3,
+                        7,
+                        6,
+                        5,
+                        11,
+                        1,
+                        2,
+                        9,
+                        4,
+                        0
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 2,
+                      "retained_index": 2,
+                      "factor_order": [
+                        6,
+                        3,
+                        4,
+                        0,
+                        9,
+                        10,
+                        2,
+                        7,
+                        5,
+                        8,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 3,
+                      "retained_index": 3,
+                      "factor_order": [
+                        6,
+                        5,
+                        9,
+                        4,
+                        8,
+                        3,
+                        10,
+                        7,
+                        0,
+                        2,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    }
+                  ],
+                  "events": [],
+                  "block_energy": [
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -247.58369001779533,
+                        -2637.713360964759
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3767.8736512857226,
+                        -2743.7377188274913
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2817.8663540184393,
+                        -2809.076858567057
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4322.958562062572,
+                        -2622.8459998850003
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5025.122302053296,
+                        -2606.8532944190906
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1221.8581294300966,
+                        -2828.248238344626
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1101.9228285395552,
+                        -3222.0620618629205
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11771.81736797621,
+                        -3288.2942350138887
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6601.20400103826,
+                        -2631.627721517919
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3287.3424867468016,
+                        -2637.7271121288513
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -830.6177729556914,
+                        -2682.0696728527582
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8308.537650101978,
+                        -3009.5278789113036
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7697.52921053531,
+                        -2617.3439938374777
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6577.792042998845,
+                        -2778.6278650860822
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2424.243832620855,
+                        -2683.1106368396795
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10199.6987202103,
+                        -3005.855807392581
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5490.826431969071,
+                        -2635.2385414924265
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1065.4602581912368,
+                        -2618.692053243829
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8712.061242074595,
+                        -2627.35193797998
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10850.955890767473,
+                        -2621.228570690555
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2972.6466210230165,
+                        -2828.557298276087
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8434.594581009202,
+                        -2757.1677013878916
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -15155.257478227337,
+                        -3293.2538104339505
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5121.098962592299,
+                        -3188.012253627087
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9896.349315216723,
+                        -2622.7439239369855
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4026.01899660694,
+                        -2827.641372975439
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6532.107040298905,
+                        -2626.480957778419
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3949.1385722603536,
+                        -2701.8991961836987
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9437.605800958825,
+                        -2743.5009471210833
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7781.555956956679,
+                        -2781.523312793518
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2626.865381414492,
+                        -2641.313905364421
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -13397.839923396561,
+                        -2620.604058223228
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11604.391968331072,
+                        -3020.917834321146
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9923.332765114545,
+                        -2628.3814080023376
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -17559.714043994372,
+                        -3306.7534408952665
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7095.762063322437,
+                        -3206.656514206143
+                      ]
+                    }
+                  ],
+                  "divergence_counts": [
+                    2,
+                    0
+                  ],
+                  "mean_block_acceptance": [
+                    0.5426466019205123,
+                    0.9989436488520654
+                  ],
+                  "pcg_iterations": [
+                    18,
+                    19,
+                    18,
+                    17,
+                    16,
+                    16,
+                    16,
+                    15,
+                    16
+                  ],
+                  "pcg_max_error_bound": 7.59007402801997e-11,
+                  "px_max_invariant_error": 4.55945826520384e-16,
+                  "fidelity_status": "not_evaluated_by_layers_1_to_8"
+                }
+              },
+              "convergence_status": "not_assessed",
+              "energy_semantics": "separate field/hyper conditional Hamiltonians; no pooled BFMI",
+              "factor_alignment": "native labels; no cross-chain factor posterior pooling",
+              "logical_sha256": "b68ab0512206dcd48adde3c412034340fe0dab66e4c9e1e503aa9e4fdbb314df"
+            },
+            "convergence_status": "not_assessed"
+          },
+          "environment": {
+            "schema": "bsfm.meeting-gpu-environment.v1",
+            "lock": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "backend": "gpu",
+            "x64": true,
+            "device_kind": "Tesla V100-PCIE-16GB",
+            "device_validation": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "packages": {
+              "opt_einsum": "3.4.0",
+              "joblib": "1.6.0",
+              "numpy": "2.1.3",
+              "ptyprocess": "0.7.0",
+              "httpcore": "1.0.9",
+              "watchfiles": "1.1.1",
+              "matplotlib-inline": "0.2.1",
+              "python-multipart": "0.0.22",
+              "parso": "0.8.6",
+              "uvicorn": "0.43.0",
+              "fonttools": "4.62.1",
+              "fastlite": "0.2.4",
+              "pyparsing": "3.3.2",
+              "fastcore": "1.12.34",
+              "pillow": "12.2.0",
+              "contourpy": "1.3.3",
+              "python-fasthtml": "0.13.2",
+              "jaxopt": "0.8.3",
+              "tzdata": "2026.2",
+              "nvidia-cudnn-cu12": "9.8.0.87",
+              "six": "1.17.0",
+              "soupsieve": "2.8.3",
+              "h11": "0.16.0",
+              "wcwidth": "0.6.0",
+              "optax": "0.2.8",
+              "ipython": "9.10.1",
+              "websockets": "16.0",
+              "pexpect": "4.9.0",
+              "ml_dtypes": "0.5.4",
+              "scipy": "1.14.1",
+              "decorator": "5.2.1",
+              "typing_extensions": "4.15.0",
+              "python-dotenv": "1.2.2",
+              "beautifulsoup4": "4.14.3",
+              "scikit-learn": "1.4.2",
+              "stack-data": "0.6.3",
+              "certifi": "2026.2.25",
+              "jax-cuda12-pjrt": "0.7.0",
+              "asttokens": "3.0.1",
+              "pure_eval": "0.2.3",
+              "uvloop": "0.22.1",
+              "cycler": "0.12.1",
+              "anyio": "4.13.0",
+              "blackjax": "1.3",
+              "matplotlib": "3.10.8",
+              "pip": "26.0.1",
+              "jedi": "0.19.2",
+              "apswutils": "0.1.2",
+              "packaging": "25.0",
+              "executing": "2.2.1",
+              "cma": "4.4.4",
+              "ipython_pygments_lexers": "1.1.1",
+              "jax-cuda12-plugin": "0.7.0",
+              "PyYAML": "6.0.3",
+              "idna": "3.11",
+              "prompt_toolkit": "3.0.52",
+              "setuptools": "80.10.2",
+              "jaxlib": "0.7.0",
+              "pandas": "2.2.3",
+              "httptools": "0.7.1",
+              "absl-py": "2.4.0",
+              "starlette": "1.0.0",
+              "oauthlib": "3.3.1",
+              "kiwisolver": "1.5.0",
+              "cloudpickle": "3.1.2",
+              "jax": "0.7.0",
+              "pytz": "2026.1.post1",
+              "traitlets": "5.14.3",
+              "polyagamma": "2.0.2",
+              "fastprogress": "1.1.5",
+              "apsw": "3.51.3.0",
+              "python-dateutil": "2.9.0.post0",
+              "itsdangerous": "2.2.0",
+              "httpx": "0.28.1",
+              "wheel": "0.46.3",
+              "click": "8.3.2",
+              "threadpoolctl": "3.6.0",
+              "Pygments": "2.20.0"
+            },
+            "installed_numerical_files": 2355,
+            "blas_threads": 1,
+            "absent_unused_resources": [
+              "docs/_static/blackjax.png",
+              "docs/examples/data/blackjax.png",
+              "scipy/stats/_sobol_direction_numbers.npz"
+            ],
+            "limitation": "Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations."
+          }
+        },
+        "resume": {
+          "receipt": {
+            "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22015934/resume.json",
+            "bytes": 19543,
+            "sha256": "574436b8776c483a1bf7d91e277ec21b3aebb33e6e4d4ce7ecf423744fb332c0"
+          },
+          "total_seconds": 181.99577656599286,
+          "sweep_seconds": [
+            49.91875515299034,
+            40.97612418999779
+          ],
+          "between_sweeps_seconds": [
+            15.177421922009671
+          ],
+          "completion": {
+            "schema": "bsfm.run-completion.v1",
+            "status": "complete_with_warnings",
+            "head": "f0ff48542943fe2f7729b0e2f06c63738e72aee3b76707dc76b86906db80484c",
+            "spec_sha256": "e516d78c1d89d8508c8a3086a86e46083acd3b017e038ed1f8cc11eba8ced0e9",
+            "completed": 3,
+            "retained": 3,
+            "warmup_divergences": 31,
+            "aggregate": {
+              "schema": "bsfm.raw-diagnostic-aggregate.v1",
+              "chains": {
+                "chain": {
+                  "status": "valid_prefix",
+                  "records": 3,
+                  "retained": 3,
+                  "head_sha256": "5856d9d8d2470704fabc94314f675b6b102297e6c9b460984e9b4e8dcbcc3292",
+                  "rows": [
+                    {
+                      "sweep": 1,
+                      "retained_index": 1,
+                      "factor_order": [
+                        10,
+                        8,
+                        3,
+                        7,
+                        6,
+                        5,
+                        11,
+                        1,
+                        2,
+                        9,
+                        4,
+                        0
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 2,
+                      "retained_index": 2,
+                      "factor_order": [
+                        6,
+                        3,
+                        4,
+                        0,
+                        9,
+                        10,
+                        2,
+                        7,
+                        5,
+                        8,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 3,
+                      "retained_index": 3,
+                      "factor_order": [
+                        6,
+                        5,
+                        9,
+                        4,
+                        8,
+                        3,
+                        10,
+                        7,
+                        0,
+                        2,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    }
+                  ],
+                  "events": [],
+                  "block_energy": [
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -247.58369001779533,
+                        -2637.713360964759
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3767.8736512857226,
+                        -2743.7377188274913
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2817.8663540184393,
+                        -2809.076858567057
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4322.958562062572,
+                        -2622.8459998850003
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5025.122302053296,
+                        -2606.8532944190906
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1221.8581294300966,
+                        -2828.248238344626
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1101.9228285395552,
+                        -3222.0620618629205
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11771.81736797621,
+                        -3288.2942350138887
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6601.20400103826,
+                        -2631.627721517919
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3287.3424867468016,
+                        -2637.7271121288513
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -830.6177729556914,
+                        -2682.0696728527582
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8308.537650101978,
+                        -3009.5278789113036
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7697.52921053531,
+                        -2617.3439938374777
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6577.792042998845,
+                        -2778.6278650860822
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2424.243832620855,
+                        -2683.1106368396795
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10199.6987202103,
+                        -3005.855807392581
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5490.826431969071,
+                        -2635.2385414924265
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1065.4602581912368,
+                        -2618.692053243829
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8712.061242074595,
+                        -2627.35193797998
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10850.955890767473,
+                        -2621.228570690555
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2972.6466210230165,
+                        -2828.557298276087
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8434.594581009202,
+                        -2757.1677013878916
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -15155.257478227337,
+                        -3293.2538104339505
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5121.098962592299,
+                        -3188.012253627087
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9896.349315216723,
+                        -2622.7439239369855
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4026.01899660694,
+                        -2827.641372975439
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6532.107040298905,
+                        -2626.480957778419
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3949.1385722603536,
+                        -2701.8991961836987
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9437.605800958825,
+                        -2743.5009471210833
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7781.555956956679,
+                        -2781.523312793518
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2626.865381414492,
+                        -2641.313905364421
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -13397.839923396561,
+                        -2620.604058223228
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11604.391968331072,
+                        -3020.917834321146
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9923.332765114545,
+                        -2628.3814080023376
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -17559.714043994372,
+                        -3306.7534408952665
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7095.762063322437,
+                        -3206.656514206143
+                      ]
+                    }
+                  ],
+                  "divergence_counts": [
+                    2,
+                    0
+                  ],
+                  "mean_block_acceptance": [
+                    0.5426466019205123,
+                    0.9989436488520654
+                  ],
+                  "pcg_iterations": [
+                    18,
+                    19,
+                    18,
+                    17,
+                    16,
+                    16,
+                    16,
+                    15,
+                    16
+                  ],
+                  "pcg_max_error_bound": 7.59007402801997e-11,
+                  "px_max_invariant_error": 4.55945826520384e-16,
+                  "fidelity_status": "not_evaluated_by_layers_1_to_8"
+                }
+              },
+              "convergence_status": "not_assessed",
+              "energy_semantics": "separate field/hyper conditional Hamiltonians; no pooled BFMI",
+              "factor_alignment": "native labels; no cross-chain factor posterior pooling",
+              "logical_sha256": "b68ab0512206dcd48adde3c412034340fe0dab66e4c9e1e503aa9e4fdbb314df"
+            },
+            "convergence_status": "not_assessed"
+          },
+          "environment": {
+            "schema": "bsfm.meeting-gpu-environment.v1",
+            "lock": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "backend": "gpu",
+            "x64": true,
+            "device_kind": "Tesla V100-PCIE-16GB",
+            "device_validation": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "packages": {
+              "opt_einsum": "3.4.0",
+              "joblib": "1.6.0",
+              "numpy": "2.1.3",
+              "ptyprocess": "0.7.0",
+              "httpcore": "1.0.9",
+              "watchfiles": "1.1.1",
+              "matplotlib-inline": "0.2.1",
+              "python-multipart": "0.0.22",
+              "parso": "0.8.6",
+              "uvicorn": "0.43.0",
+              "fonttools": "4.62.1",
+              "fastlite": "0.2.4",
+              "pyparsing": "3.3.2",
+              "fastcore": "1.12.34",
+              "pillow": "12.2.0",
+              "contourpy": "1.3.3",
+              "python-fasthtml": "0.13.2",
+              "jaxopt": "0.8.3",
+              "tzdata": "2026.2",
+              "nvidia-cudnn-cu12": "9.8.0.87",
+              "six": "1.17.0",
+              "soupsieve": "2.8.3",
+              "h11": "0.16.0",
+              "wcwidth": "0.6.0",
+              "optax": "0.2.8",
+              "ipython": "9.10.1",
+              "websockets": "16.0",
+              "pexpect": "4.9.0",
+              "ml_dtypes": "0.5.4",
+              "scipy": "1.14.1",
+              "decorator": "5.2.1",
+              "typing_extensions": "4.15.0",
+              "python-dotenv": "1.2.2",
+              "beautifulsoup4": "4.14.3",
+              "scikit-learn": "1.4.2",
+              "stack-data": "0.6.3",
+              "certifi": "2026.2.25",
+              "jax-cuda12-pjrt": "0.7.0",
+              "asttokens": "3.0.1",
+              "pure_eval": "0.2.3",
+              "uvloop": "0.22.1",
+              "cycler": "0.12.1",
+              "anyio": "4.13.0",
+              "blackjax": "1.3",
+              "matplotlib": "3.10.8",
+              "pip": "26.0.1",
+              "jedi": "0.19.2",
+              "apswutils": "0.1.2",
+              "packaging": "25.0",
+              "executing": "2.2.1",
+              "cma": "4.4.4",
+              "ipython_pygments_lexers": "1.1.1",
+              "jax-cuda12-plugin": "0.7.0",
+              "PyYAML": "6.0.3",
+              "idna": "3.11",
+              "prompt_toolkit": "3.0.52",
+              "setuptools": "80.10.2",
+              "jaxlib": "0.7.0",
+              "pandas": "2.2.3",
+              "httptools": "0.7.1",
+              "absl-py": "2.4.0",
+              "starlette": "1.0.0",
+              "oauthlib": "3.3.1",
+              "kiwisolver": "1.5.0",
+              "cloudpickle": "3.1.2",
+              "jax": "0.7.0",
+              "pytz": "2026.1.post1",
+              "traitlets": "5.14.3",
+              "polyagamma": "2.0.2",
+              "fastprogress": "1.1.5",
+              "apsw": "3.51.3.0",
+              "python-dateutil": "2.9.0.post0",
+              "itsdangerous": "2.2.0",
+              "httpx": "0.28.1",
+              "wheel": "0.46.3",
+              "click": "8.3.2",
+              "threadpoolctl": "3.6.0",
+              "Pygments": "2.20.0"
+            },
+            "installed_numerical_files": 2355,
+            "blas_threads": 1,
+            "absent_unused_resources": [
+              "docs/_static/blackjax.png",
+              "docs/examples/data/blackjax.png",
+              "scipy/stats/_sobol_direction_numbers.npz"
+            ],
+            "limitation": "Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations."
+          }
+        },
+        "nonreplay": {
+          "receipt": {
+            "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22015934/nonreplay.json",
+            "bytes": 17877,
+            "sha256": "ad32bf615bb77a6d9067b8eadae80d60c223434473d6ec9f22f6c4f548791bfa"
+          },
+          "total_seconds": 56.06614922900917,
+          "sweep_seconds": [],
+          "between_sweeps_seconds": [],
+          "completion": {
+            "schema": "bsfm.run-completion.v1",
+            "status": "complete_with_warnings",
+            "head": "f0ff48542943fe2f7729b0e2f06c63738e72aee3b76707dc76b86906db80484c",
+            "spec_sha256": "e516d78c1d89d8508c8a3086a86e46083acd3b017e038ed1f8cc11eba8ced0e9",
+            "completed": 3,
+            "retained": 3,
+            "warmup_divergences": 31,
+            "aggregate": {
+              "schema": "bsfm.raw-diagnostic-aggregate.v1",
+              "chains": {
+                "chain": {
+                  "status": "valid_prefix",
+                  "records": 3,
+                  "retained": 3,
+                  "head_sha256": "5856d9d8d2470704fabc94314f675b6b102297e6c9b460984e9b4e8dcbcc3292",
+                  "rows": [
+                    {
+                      "sweep": 1,
+                      "retained_index": 1,
+                      "factor_order": [
+                        10,
+                        8,
+                        3,
+                        7,
+                        6,
+                        5,
+                        11,
+                        1,
+                        2,
+                        9,
+                        4,
+                        0
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 2,
+                      "retained_index": 2,
+                      "factor_order": [
+                        6,
+                        3,
+                        4,
+                        0,
+                        9,
+                        10,
+                        2,
+                        7,
+                        5,
+                        8,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 3,
+                      "retained_index": 3,
+                      "factor_order": [
+                        6,
+                        5,
+                        9,
+                        4,
+                        8,
+                        3,
+                        10,
+                        7,
+                        0,
+                        2,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    }
+                  ],
+                  "events": [],
+                  "block_energy": [
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -247.58369001779533,
+                        -2637.713360964759
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3767.8736512857226,
+                        -2743.7377188274913
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2817.8663540184393,
+                        -2809.076858567057
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4322.958562062572,
+                        -2622.8459998850003
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5025.122302053296,
+                        -2606.8532944190906
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1221.8581294300966,
+                        -2828.248238344626
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1101.9228285395552,
+                        -3222.0620618629205
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11771.81736797621,
+                        -3288.2942350138887
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6601.20400103826,
+                        -2631.627721517919
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3287.3424867468016,
+                        -2637.7271121288513
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -830.6177729556914,
+                        -2682.0696728527582
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8308.537650101978,
+                        -3009.5278789113036
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7697.52921053531,
+                        -2617.3439938374777
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6577.792042998845,
+                        -2778.6278650860822
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2424.243832620855,
+                        -2683.1106368396795
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10199.6987202103,
+                        -3005.855807392581
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5490.826431969071,
+                        -2635.2385414924265
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1065.4602581912368,
+                        -2618.692053243829
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8712.061242074595,
+                        -2627.35193797998
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10850.955890767473,
+                        -2621.228570690555
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2972.6466210230165,
+                        -2828.557298276087
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8434.594581009202,
+                        -2757.1677013878916
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -15155.257478227337,
+                        -3293.2538104339505
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5121.098962592299,
+                        -3188.012253627087
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9896.349315216723,
+                        -2622.7439239369855
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4026.01899660694,
+                        -2827.641372975439
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6532.107040298905,
+                        -2626.480957778419
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3949.1385722603536,
+                        -2701.8991961836987
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9437.605800958825,
+                        -2743.5009471210833
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7781.555956956679,
+                        -2781.523312793518
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2626.865381414492,
+                        -2641.313905364421
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -13397.839923396561,
+                        -2620.604058223228
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11604.391968331072,
+                        -3020.917834321146
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9923.332765114545,
+                        -2628.3814080023376
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -17559.714043994372,
+                        -3306.7534408952665
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7095.762063322437,
+                        -3206.656514206143
+                      ]
+                    }
+                  ],
+                  "divergence_counts": [
+                    2,
+                    0
+                  ],
+                  "mean_block_acceptance": [
+                    0.5426466019205123,
+                    0.9989436488520654
+                  ],
+                  "pcg_iterations": [
+                    18,
+                    19,
+                    18,
+                    17,
+                    16,
+                    16,
+                    16,
+                    15,
+                    16
+                  ],
+                  "pcg_max_error_bound": 7.59007402801997e-11,
+                  "px_max_invariant_error": 4.55945826520384e-16,
+                  "fidelity_status": "not_evaluated_by_layers_1_to_8"
+                }
+              },
+              "convergence_status": "not_assessed",
+              "energy_semantics": "separate field/hyper conditional Hamiltonians; no pooled BFMI",
+              "factor_alignment": "native labels; no cross-chain factor posterior pooling",
+              "logical_sha256": "b68ab0512206dcd48adde3c412034340fe0dab66e4c9e1e503aa9e4fdbb314df"
+            },
+            "convergence_status": "not_assessed"
+          },
+          "environment": {
+            "schema": "bsfm.meeting-gpu-environment.v1",
+            "lock": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "backend": "gpu",
+            "x64": true,
+            "device_kind": "Tesla V100-PCIE-16GB",
+            "device_validation": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "packages": {
+              "opt_einsum": "3.4.0",
+              "joblib": "1.6.0",
+              "numpy": "2.1.3",
+              "ptyprocess": "0.7.0",
+              "httpcore": "1.0.9",
+              "watchfiles": "1.1.1",
+              "matplotlib-inline": "0.2.1",
+              "python-multipart": "0.0.22",
+              "parso": "0.8.6",
+              "uvicorn": "0.43.0",
+              "fonttools": "4.62.1",
+              "fastlite": "0.2.4",
+              "pyparsing": "3.3.2",
+              "fastcore": "1.12.34",
+              "pillow": "12.2.0",
+              "contourpy": "1.3.3",
+              "python-fasthtml": "0.13.2",
+              "jaxopt": "0.8.3",
+              "tzdata": "2026.2",
+              "nvidia-cudnn-cu12": "9.8.0.87",
+              "six": "1.17.0",
+              "soupsieve": "2.8.3",
+              "h11": "0.16.0",
+              "wcwidth": "0.6.0",
+              "optax": "0.2.8",
+              "ipython": "9.10.1",
+              "websockets": "16.0",
+              "pexpect": "4.9.0",
+              "ml_dtypes": "0.5.4",
+              "scipy": "1.14.1",
+              "decorator": "5.2.1",
+              "typing_extensions": "4.15.0",
+              "python-dotenv": "1.2.2",
+              "beautifulsoup4": "4.14.3",
+              "scikit-learn": "1.4.2",
+              "stack-data": "0.6.3",
+              "certifi": "2026.2.25",
+              "jax-cuda12-pjrt": "0.7.0",
+              "asttokens": "3.0.1",
+              "pure_eval": "0.2.3",
+              "uvloop": "0.22.1",
+              "cycler": "0.12.1",
+              "anyio": "4.13.0",
+              "blackjax": "1.3",
+              "matplotlib": "3.10.8",
+              "pip": "26.0.1",
+              "jedi": "0.19.2",
+              "apswutils": "0.1.2",
+              "packaging": "25.0",
+              "executing": "2.2.1",
+              "cma": "4.4.4",
+              "ipython_pygments_lexers": "1.1.1",
+              "jax-cuda12-plugin": "0.7.0",
+              "PyYAML": "6.0.3",
+              "idna": "3.11",
+              "prompt_toolkit": "3.0.52",
+              "setuptools": "80.10.2",
+              "jaxlib": "0.7.0",
+              "pandas": "2.2.3",
+              "httptools": "0.7.1",
+              "absl-py": "2.4.0",
+              "starlette": "1.0.0",
+              "oauthlib": "3.3.1",
+              "kiwisolver": "1.5.0",
+              "cloudpickle": "3.1.2",
+              "jax": "0.7.0",
+              "pytz": "2026.1.post1",
+              "traitlets": "5.14.3",
+              "polyagamma": "2.0.2",
+              "fastprogress": "1.1.5",
+              "apsw": "3.51.3.0",
+              "python-dateutil": "2.9.0.post0",
+              "itsdangerous": "2.2.0",
+              "httpx": "0.28.1",
+              "wheel": "0.46.3",
+              "click": "8.3.2",
+              "threadpoolctl": "3.6.0",
+              "Pygments": "2.20.0"
+            },
+            "installed_numerical_files": 2355,
+            "blas_threads": 1,
+            "absent_unused_resources": [
+              "docs/_static/blackjax.png",
+              "docs/examples/data/blackjax.png",
+              "scipy/stats/_sobol_direction_numbers.npz"
+            ],
+            "limitation": "Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations."
+          }
+        }
+      }
+    },
+    "22015984": {
+      "status": "FAIL",
+      "commit": "e1077fd3d7cf60526575ab604629485cb5a4f5c8",
+      "scope": "Three real K12/L14 sweeps per arm, diagnostic seed, no new warmup or scientific fit",
+      "checks": [],
+      "threads": 4,
+      "error": "AssertionError(('incremental', 1, 0))",
+      "source_genesis": {
+        "path": "/work/abussing/bsfm-consolidation/evidence/real-timing-22015787/threads-1/strict/segments/segment/genesis/endpoint.npz",
+        "bytes": 14139989,
+        "sha256": "f975ea51f834482eecd8f943d19663ce703d78cada254beaa697db40110e242e"
+      },
+      "receipt": {
+        "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22015984/validation.json",
+        "bytes": 526,
+        "sha256": "b09dae9c4e0400d9b1bb85700d0ada1b299c171bc76e493e474bb3a4d45cd334"
+      },
+      "log": {
+        "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22015984.log",
+        "bytes": 1527,
+        "sha256": "b3187a591d40acbc970c5a89126dda1d77e82b64b4cc2981a76c3fc60ac01f7b"
+      },
+      "arms": {}
+    },
+    "22016006": {
+      "status": "TIMING_COMPLETE",
+      "commit": "7472d69792036967421d3e1d1d6e4bfedc69c5ce",
+      "scope": "Three incremental diagnostic sweeps only; not an equivalence gate",
+      "checks": [],
+      "threads": 4,
+      "source_genesis": {
+        "path": "/work/abussing/bsfm-consolidation/evidence/real-timing-22015787/threads-1/strict/segments/segment/genesis/endpoint.npz",
+        "bytes": 14139989,
+        "sha256": "f975ea51f834482eecd8f943d19663ce703d78cada254beaa697db40110e242e"
+      },
+      "receipt": {
+        "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22016006/validation.json",
+        "bytes": 22579,
+        "sha256": "83e83ee8aec6cd8319499e981beec1d57d8dae88d5e5dbdb5e192cc762e3b711"
+      },
+      "log": {
+        "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22016006.log",
+        "bytes": 425,
+        "sha256": "ad3085aef839194be8d7a73fc5b76222f51fae68e3edef58c33be432509831d8"
+      },
+      "arms": {
+        "incremental": {
+          "receipt": {
+            "path": "/work/abussing/bsfm-consolidation/evidence/real-replay-22016006/incremental.json",
+            "bytes": 20504,
+            "sha256": "a3ad6b1ee6ea6bf2f52163661c4e3c35b98b1a1febabad6ef3227371fdc7ee99"
+          },
+          "total_seconds": 242.18318854499375,
+          "sweep_seconds": [
+            55.19213125000533,
+            42.13961945999472,
+            41.51070216600783
+          ],
+          "between_sweeps_seconds": [
+            15.835914067996782,
+            15.730929846002255
+          ],
+          "completion": {
+            "schema": "bsfm.run-completion.v1",
+            "status": "complete_with_warnings",
+            "head": "615a9163d2b596a4ee87e151abe82f05e571da096a3965e34ef258fcc94b5581",
+            "spec_sha256": "b9c2119b99e4042ddf03673eb3afe887fb5ea746ed96d015452945ffb61d560b",
+            "completed": 3,
+            "retained": 3,
+            "warmup_divergences": 31,
+            "aggregate": {
+              "schema": "bsfm.raw-diagnostic-aggregate.v1",
+              "chains": {
+                "chain": {
+                  "status": "valid_prefix",
+                  "records": 3,
+                  "retained": 3,
+                  "head_sha256": "492e355b6c19e043019b1d5eb3c8267ebf65efdc77cc4c61ab2019f2a59afe29",
+                  "rows": [
+                    {
+                      "sweep": 1,
+                      "retained_index": 1,
+                      "factor_order": [
+                        10,
+                        8,
+                        3,
+                        7,
+                        6,
+                        5,
+                        11,
+                        1,
+                        2,
+                        9,
+                        4,
+                        0
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 2,
+                      "retained_index": 2,
+                      "factor_order": [
+                        6,
+                        3,
+                        4,
+                        0,
+                        9,
+                        10,
+                        2,
+                        7,
+                        5,
+                        8,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    },
+                    {
+                      "sweep": 3,
+                      "retained_index": 3,
+                      "factor_order": [
+                        6,
+                        5,
+                        9,
+                        4,
+                        8,
+                        3,
+                        10,
+                        7,
+                        0,
+                        2,
+                        1,
+                        11
+                      ],
+                      "elapsed_seconds": null
+                    }
+                  ],
+                  "events": [],
+                  "block_energy": [
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -247.5836900178817,
+                        -2637.7133609647617
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3767.8736512845285,
+                        -2743.7377188275304
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2817.8663540248463,
+                        -2809.0768585672577
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4322.95856205032,
+                        -2622.845999884806
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5025.122302045587,
+                        -2606.8532944210724
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1221.858129431722,
+                        -2828.2482383443885
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1101.9228661223879,
+                        -3222.0620652418183
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11771.817449809128,
+                        -3288.2942349967334
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6601.20426317325,
+                        -2631.6277214774773
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -3286.5370328113167,
+                        -2637.7360449961743
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -830.5953172468708,
+                        -2682.0696728527582
+                      ]
+                    },
+                    {
+                      "sweep": 1,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8309.36146922459,
+                        -3009.5007665377816
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7680.120315933152,
+                        -2606.1083183221754
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6579.258330609952,
+                        -2775.2922935297725
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2419.487266162361,
+                        -2687.3531811427097
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10143.571636485864,
+                        -3005.7974746942737
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5492.54964860167,
+                        -2635.2378592951527
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -1066.1432732420783,
+                        -2604.5282526074056
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8768.547680674506,
+                        -2627.3442721617976
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -10848.14892659649,
+                        -2621.466811425073
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2948.510976420741,
+                        -2828.5572982759986
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -8361.839030965732,
+                        -2756.283463514092
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -15151.31385454391,
+                        -3293.281557381845
+                      ]
+                    },
+                    {
+                      "sweep": 2,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -5115.165192452366,
+                        -3185.5545822206236
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-007",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9561.285380929048,
+                        -2612.824378972855
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-006",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4026.8256930937687,
+                        -2827.6413729754036
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-010",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6574.128386599219,
+                        -2631.0148203998906
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-005",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -4628.211202330818,
+                        -2687.661557632471
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-009",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9339.56548989053,
+                        -2744.2565831769175
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-004",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -7592.172554329995,
+                        -2774.46654442468
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-011",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -2654.715516587974,
+                        -2638.0406918295803
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-008",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -14947.313887894104,
+                        -2630.248703147811
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-001",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -11469.499781433371,
+                        -2998.3019706779305
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-003",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -9968.30181566901,
+                        -2628.373933619763
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-002",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -17690.28059930767,
+                        -3296.2344353957737
+                      ]
+                    },
+                    {
+                      "sweep": 3,
+                      "factor_id": "factor-012",
+                      "block_order": [
+                        "field",
+                        "hyper"
+                      ],
+                      "block_energy": [
+                        -6960.240247362879,
+                        -3201.970663172612
+                      ]
+                    }
+                  ],
+                  "divergence_counts": [
+                    1,
+                    0
+                  ],
+                  "mean_block_acceptance": [
+                    0.5133051443380547,
+                    0.9989753677357773
+                  ],
+                  "pcg_iterations": [
+                    18,
+                    19,
+                    18,
+                    17,
+                    16,
+                    16,
+                    16,
+                    15,
+                    16
+                  ],
+                  "pcg_max_error_bound": 8.811161834720757e-11,
+                  "px_max_invariant_error": 4.809828905246296e-16,
+                  "fidelity_status": "not_evaluated_by_layers_1_to_8"
+                }
+              },
+              "convergence_status": "not_assessed",
+              "energy_semantics": "separate field/hyper conditional Hamiltonians; no pooled BFMI",
+              "factor_alignment": "native labels; no cross-chain factor posterior pooling",
+              "logical_sha256": "034f7f6a950fb0145a5a1133f8a1aa8797ee4694f18acdb67be72b107760c20c"
+            },
+            "convergence_status": "not_assessed"
+          },
+          "environment": {
+            "schema": "bsfm.meeting-gpu-environment.v1",
+            "lock": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "backend": "gpu",
+            "x64": true,
+            "device_kind": "Tesla V100-PCIE-16GB",
+            "device_validation": {
+              "bytes": 14379,
+              "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+            },
+            "packages": {
+              "opt_einsum": "3.4.0",
+              "joblib": "1.6.0",
+              "numpy": "2.1.3",
+              "ptyprocess": "0.7.0",
+              "httpcore": "1.0.9",
+              "watchfiles": "1.1.1",
+              "matplotlib-inline": "0.2.1",
+              "python-multipart": "0.0.22",
+              "parso": "0.8.6",
+              "uvicorn": "0.43.0",
+              "fonttools": "4.62.1",
+              "fastlite": "0.2.4",
+              "pyparsing": "3.3.2",
+              "fastcore": "1.12.34",
+              "pillow": "12.2.0",
+              "contourpy": "1.3.3",
+              "python-fasthtml": "0.13.2",
+              "jaxopt": "0.8.3",
+              "tzdata": "2026.2",
+              "nvidia-cudnn-cu12": "9.8.0.87",
+              "six": "1.17.0",
+              "soupsieve": "2.8.3",
+              "h11": "0.16.0",
+              "wcwidth": "0.6.0",
+              "optax": "0.2.8",
+              "ipython": "9.10.1",
+              "websockets": "16.0",
+              "pexpect": "4.9.0",
+              "ml_dtypes": "0.5.4",
+              "scipy": "1.14.1",
+              "decorator": "5.2.1",
+              "typing_extensions": "4.15.0",
+              "python-dotenv": "1.2.2",
+              "beautifulsoup4": "4.14.3",
+              "scikit-learn": "1.4.2",
+              "stack-data": "0.6.3",
+              "certifi": "2026.2.25",
+              "jax-cuda12-pjrt": "0.7.0",
+              "asttokens": "3.0.1",
+              "pure_eval": "0.2.3",
+              "uvloop": "0.22.1",
+              "cycler": "0.12.1",
+              "anyio": "4.13.0",
+              "blackjax": "1.3",
+              "matplotlib": "3.10.8",
+              "pip": "26.0.1",
+              "jedi": "0.19.2",
+              "apswutils": "0.1.2",
+              "packaging": "25.0",
+              "executing": "2.2.1",
+              "cma": "4.4.4",
+              "ipython_pygments_lexers": "1.1.1",
+              "jax-cuda12-plugin": "0.7.0",
+              "PyYAML": "6.0.3",
+              "idna": "3.11",
+              "prompt_toolkit": "3.0.52",
+              "setuptools": "80.10.2",
+              "jaxlib": "0.7.0",
+              "pandas": "2.2.3",
+              "httptools": "0.7.1",
+              "absl-py": "2.4.0",
+              "starlette": "1.0.0",
+              "oauthlib": "3.3.1",
+              "kiwisolver": "1.5.0",
+              "cloudpickle": "3.1.2",
+              "jax": "0.7.0",
+              "pytz": "2026.1.post1",
+              "traitlets": "5.14.3",
+              "polyagamma": "2.0.2",
+              "fastprogress": "1.1.5",
+              "apsw": "3.51.3.0",
+              "python-dateutil": "2.9.0.post0",
+              "itsdangerous": "2.2.0",
+              "httpx": "0.28.1",
+              "wheel": "0.46.3",
+              "click": "8.3.2",
+              "threadpoolctl": "3.6.0",
+              "Pygments": "2.20.0"
+            },
+            "installed_numerical_files": 2355,
+            "blas_threads": 4,
+            "absent_unused_resources": [
+              "docs/_static/blackjax.png",
+              "docs/examples/data/blackjax.png",
+              "scipy/stats/_sobol_direction_numbers.npz"
+            ],
+            "limitation": "Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations."
+          }
+        }
+      }
+    }
+  },
+  "thread_selection": 1,
+  "scientific_submission": {
+    "commit": "f7ce41405fbc8ef4c1d0a84b50edc2611efd6780",
+    "status": "SUBMITTED",
+    "jobs": [
+      {
+        "configuration": "circles12_diameter1of16",
+        "model": "deep",
+        "job": 22016018,
+        "command": [
+          "sbatch",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/fresh_gpu.sbatch",
+          "f7ce41405fbc8ef4c1d0a84b50edc2611efd6780",
+          "circles12_diameter1of16",
+          "deep"
+        ]
+      },
+      {
+        "configuration": "circles12_diameter1of16",
+        "model": "flat",
+        "job": 22016019,
+        "command": [
+          "sbatch",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/fresh_gpu.sbatch",
+          "f7ce41405fbc8ef4c1d0a84b50edc2611efd6780",
+          "circles12_diameter1of16",
+          "flat"
+        ]
+      },
+      {
+        "configuration": "circles12_diameter1of8",
+        "model": "deep",
+        "job": 22016020,
+        "command": [
+          "sbatch",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/fresh_gpu.sbatch",
+          "f7ce41405fbc8ef4c1d0a84b50edc2611efd6780",
+          "circles12_diameter1of8",
+          "deep"
+        ]
+      },
+      {
+        "configuration": "circles12_diameter1of8",
+        "model": "flat",
+        "job": 22016021,
+        "command": [
+          "sbatch",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/fresh_gpu.sbatch",
+          "f7ce41405fbc8ef4c1d0a84b50edc2611efd6780",
+          "circles12_diameter1of8",
+          "flat"
+        ]
+      },
+      {
+        "configuration": "circles8_diameter1of16",
+        "model": "deep",
+        "job": 22016022,
+        "command": [
+          "sbatch",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/fresh_gpu.sbatch",
+          "f7ce41405fbc8ef4c1d0a84b50edc2611efd6780",
+          "circles8_diameter1of16",
+          "deep"
+        ]
+      },
+      {
+        "configuration": "circles8_diameter1of16",
+        "model": "flat",
+        "job": 22016023,
+        "command": [
+          "sbatch",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/fresh_gpu.sbatch",
+          "f7ce41405fbc8ef4c1d0a84b50edc2611efd6780",
+          "circles8_diameter1of16",
+          "flat"
+        ]
+      },
+      {
+        "configuration": "circles8_diameter1of8",
+        "model": "deep",
+        "job": 22016024,
+        "command": [
+          "sbatch",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/fresh_gpu.sbatch",
+          "f7ce41405fbc8ef4c1d0a84b50edc2611efd6780",
+          "circles8_diameter1of8",
+          "deep"
+        ]
+      },
+      {
+        "configuration": "circles8_diameter1of8",
+        "model": "flat",
+        "job": 22016025,
+        "command": [
+          "sbatch",
+          "--exclude=node398",
+          "docs/recovery/gpu-workflow-20261103/fresh_gpu.sbatch",
+          "f7ce41405fbc8ef4c1d0a84b50edc2611efd6780",
+          "circles8_diameter1of8",
+          "flat"
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,15 @@
 # Current BSFM handoff
 
-## GPU accumulation correction: first real-input gate passed
+## GPU correction passed complete replay; eight fresh V100 fits running
+
+Read [the completed correction and fresh job map](recovery/gpu-workflow-20261103/FIXED_GRADIENT_RESULTS.md).
+Jobs **22016018–22016025** were all RUNNING and passed CUDA startup checks.
+Generating commit: `f7ce41405fbc8ef4c1d0a84b50edc2611efd6780`; fresh output
+tag `fixed-order`. They use K12/L14, the four approved hole configurations,
+deep/flat pairs, the agreed 50/50/100/1000 schedule and save every production
+sweep. Existing old scientific jobs/outputs were not changed. Do not pool
+same-seed duplicates. No completed production draws or convergence are claimed
+for these fresh runs at this checkpoint.
 
 The GPU-only fixed-incidence reduction at `8dbff58` passed job **22015917**
 (89 seconds, exit 0): ten full gradients exact, same-key split transitions exact
@@ -11,14 +20,15 @@ kernel comparisons against `51cd306`. Read
 The complete receipt is `FIXED_GRADIENT_GPU_VALIDATION.json` in that directory.
 
 Complete-sweep/restart gate **22015934**, commit
-`51e1ee91d6cb3e54ce0e80baaaaa1c99e891c000`, is pending results at this checkpoint.
+`51e1ee91d6cb3e54ce0e80baaaaa1c99e891c000`, PASSED (15m13s, exit 0).
 It uses authenticated saved real K12/L14 input as an explicitly labeled diagnostic
 seed under a new software contract; no warmup or scientific checkpoint migration.
 Output: `/work/abussing/bsfm-consolidation/evidence/real-replay-22015934`.
-It must pass exact strict/incremental transaction comparison, fresh-process
-interrupted-sweep recomputation, and committed non-replay before deployment.
-Do not mistake the passing first-factor gate for this complete-sweep gate.
-Existing scientific runs have not been modified.
+All three strict/incremental transactions matched exactly; a fresh process
+recomputed interrupted sweep 2 exactly and completed sweep 3 identically.
+Completed-run non-replay passed. Full evidence and timing/failed-attempt identities
+are in `FIXED_GRADIENT_FINAL_EVIDENCE.json`. Four-thread timing 22016006 completed
+without useful improvement; fresh fits keep the replay-tested one-thread setting.
 
 Local focused correction tests passed (2/2). Broader Layer-3/5 tests recorded
 35 passes and six failures: five saved-reference comparisons and the existing
