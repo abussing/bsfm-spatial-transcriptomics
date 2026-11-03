@@ -1,5 +1,44 @@
 # Current BSFM handoff
 
+## Latest execution checkpoint: small L4 smoke completed
+
+Job **22013500** completed successfully in **2 minutes 32 seconds**, exit 0:0,
+from review commit `9823423a1315070b50c01a18f711d424f2b2b691`.
+The user requested a lower-L, small execution check after the L16 attempt hit
+its wall-time cap. This run used **24 cells, two factors, L4/64 features,
+20 warmup steps per factor and two sweeps total**.
+
+Both factors completed adaptation; sweep 1 was saved, a fresh process restored
+the run and completed sweep 2, and a third process verified completed non-replay.
+There were four warmup divergences and zero sweep divergences. Convergence was
+not assessed. This validates the bounded L4 execution/restart path, not L16
+scientific performance, full-cell fitting or held-out prediction.
+
+The original L16 job 22013422 timed out before saved genesis; its preflight
+checks passed and its incomplete attempt remains preserved. Slurm denied the
+requested live wall-time extension. The successful retry used 30 minutes of
+headroom without increasing iteration counts.
+
+The retry derives joint-eta feature dimensions from the authenticated rule
+instead of two fixed 1,024-column checks. Same-runtime L16 comparisons against
+the previous implementation passed exactly for draws, diagnostics, audit and
+RNG on both local Windows and HPC. This boundary-only change is on the review
+branch; accepted main's scientific code and canonical L16 registry are unchanged.
+The frozen 181-unchanged-files receipt describes the earlier candidate, not
+this subsequent user-authorized boundary change.
+
+Read the [completion report and receipts](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/review/layer9-portability-20261103/docs/sampler/s10-subset-smoke-20261103/RESULTS.md).
+External outputs:
+`/work/abussing/bsfm-consolidation/evidence/s10-subset-smoke-22013500`.
+
+No leave-out fit has been submitted. The next development task is the single
+deterministic chunk workflow: training-only preprocessing/initialization,
+fixed mesh, warped and matched flat fits, and omitted-cell prediction/scoring.
+Do not repeat completed artifact recovery or lower-L smoke merely to regain
+context. Layer-9 code remains on the review branch, not merged into main.
+Full L16 execution/performance and scientific-run settings remain separate
+unverified requirements before claiming a production holdout result.
+
 ## Current continuation: Linux checks and small S10 proposal
 
 The review branch `review/layer9-portability-20261103` now preserves the Linux

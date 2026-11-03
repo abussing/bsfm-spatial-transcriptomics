@@ -1,0 +1,9 @@
+{
+  "job_id": "22013500",
+  "commit": "9823423a1315070b50c01a18f711d424f2b2b691",
+  "run_spec_sha256": "ab6bf4562980b3d4cdca8e1d1947aefc22966293a9bdf6ded00e119feee0447e",
+  "bundle_sha256": "5f1616c20dfe578378aceaa6c331c0a5ea1372b9898698b43220a1320e0f0203",
+  "submitted_utc": "2026-11-03T09:43:35.750271+00:00",
+  "approval": "User explicitly requested lower TQFF L for execution smoke and avoiding progress loss at prior ten-minute cap; disclosed L4, 64 features, unchanged 24 cells/two factors/20 warmup/two sweeps, two CPUs/8 GiB and 30-minute headroom",
+  "scope": "L4 execution smoke only; not L16 or scientific validation"
+}

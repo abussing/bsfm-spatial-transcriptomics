@@ -1,0 +1,170 @@
+{
+  "status": "pass",
+  "layer4": [
+    {
+      "seed": 12,
+      "source_port_exact": true
+    },
+    {
+      "seed": 37,
+      "source_port_exact": true
+    }
+  ],
+  "chart": [
+    {
+      "coordinate": 0,
+      "decisions": [
+        {
+          "ulp_steps": 1,
+          "expected": true,
+          "accepted": true
+        },
+        {
+          "ulp_steps": 2,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 3,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 4,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 5,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 6,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 7,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 8,
+          "expected": false,
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "coordinate": 1,
+      "decisions": [
+        {
+          "ulp_steps": 1,
+          "expected": true,
+          "accepted": true
+        },
+        {
+          "ulp_steps": 2,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 3,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 4,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 5,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 6,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 7,
+          "expected": false,
+          "accepted": false
+        },
+        {
+          "ulp_steps": 8,
+          "expected": false,
+          "accepted": false
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/centered_hyper_target_qr.py",
+      "bytes": 3354,
+      "sha256": "4bdd57d688652bf4dffb85a9c9dee1879229a7bff5c72ff34902e216226fdf5e",
+      "functions": {
+        "positive_qr_factor": [
+          13,
+          16
+        ],
+        "qr_contractions": [
+          19,
+          23
+        ],
+        "spectral_qr_geometry": [
+          26,
+          35
+        ],
+        "build_centered_hyper_target": [
+          38,
+          93
+        ]
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/joint_eta_pcg.py",
+      "bytes": 12136,
+      "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c",
+      "functions": {
+        "JointEtaDiagnostics": [
+          26,
+          35
+        ],
+        "_joint_cell_statistics": [
+          38,
+          70
+        ],
+        "_block_preconditioner_cholesky": [
+          74,
+          81
+        ],
+        "_precision_matvec": [
+          85,
+          88
+        ],
+        "_preconditioner_solve": [
+          92,
+          95
+        ],
+        "_pcg": [
+          99,
+          133
+        ],
+        "_precision_noise": [
+          136,
+          149
+        ],
+        "sample_joint_eta_pcg": [
+          152,
+          262
+        ]
+      }
+    }
+  ],
+  "scope": "Same-runtime source equality and exact chart contract; no Windows fixture waiver or scientific fit"
+}
