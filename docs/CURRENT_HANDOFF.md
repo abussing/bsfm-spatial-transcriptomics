@@ -1,5 +1,30 @@
 # Current BSFM handoff
 
+## Latest execution checkpoint: GPU replacement fits
+
+The user explicitly requested moving the same eight hole fits onto V100 GPUs.
+Generating commit `21214c7f8de63ce9d8e87792316511e5f278af9a` on the separate
+`run/s10-holey-20261103` branch supplies the GPU launcher. Main's scientific
+code remains unchanged. Read the [GPU run record and exact launch/resume command](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/run/s10-holey-20261103/docs/holdouts/s10-grid-20261103/GPU_RUNNING.md).
+
+GPU jobs: deep/flat 22014408/22014409 (12 circles, width/16),
+22014347/22014410 (12, width/8), 22014411/22014412 (8, width/16),
+22014413/22014414 (8, width/8). Partition `v100-16gb-hiprio`, one V100,
+four CPUs, 16 GiB host memory, 12 hours each. First job entered full-data warmup;
+check current Slurm/log/checkpoint state rather than inferring completion here.
+
+K=12, L14, full mesh, same prepared inputs and original iteration schedule.
+Fresh GPU trajectories reuse the existing training-only GPINIT; CPU checkpoint
+continuation across devices is not claimed. CPU jobs/outputs were preserved.
+Output root: `/work/abussing/bsfm-consolidation/evidence/holey-gpu-21214c7f8de63ce9d8e87792316511e5f278af9a`.
+
+Existing HPC GPU environment is reused without installations. GPU validation
+22014309 passed all four focused extension tests and a real-input 20-step deep
+factor warmup in 99.52 seconds including compilation. Runtime receipt, package
+verification scope and startup failures are recorded on the execution branch.
+This is execution evidence, not scientific convergence or a fully general GPU
+pipeline acceptance. Do not repeat preparation or overwrite CPU/GPU run identities.
+
 ## Latest execution checkpoint: four paired hole comparisons running
 
 The user selected S10's existing 4,712-cell subset, 12/8 circular holes crossed
