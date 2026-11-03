@@ -11,10 +11,13 @@ import site
 import sys
 
 import jax
+import jax.numpy as jnp
+import numpy as np
 from threadpoolctl import threadpool_info
 
 from experiment import run, CONFIGS
 from bsfm.sampler.run_storage import file_record, read_json
+from bsfm.sampler.split_kernels import gpu_acceptance_roundoff
 
 RECEIPT=Path(__file__).with_name('GPU_RUNTIME_RECEIPT.json')
 PREFIX=Path('/work/abussing/arka_trying_gpu_again/env')
@@ -96,4 +99,11 @@ if __name__=='__main__':
     config,prepared,output,model,commit=sys.argv[1:]
     if config not in CONFIGS or model not in ('deep','flat'):raise ValueError('Unknown run configuration')
     print('GPU SCIENTIFIC RUN',config,model,'K=12 L=14',flush=True)
+    # Exercise the rare diagnostic branch before expensive initialization.
+    # CUDA remains the computation backend; CPU is available for host callbacks.
+    if jax.default_backend()!='gpu':raise ValueError('GPU computation backend required')
+    probe=jax.jit(gpu_acceptance_roundoff)(jnp.asarray([1+np.finfo(np.float64).eps],dtype=jnp.float64))
+    probe.block_until_ready();jax.effects_barrier()
+    if probe.device.platform!='gpu' or float(probe[0])!=1.:raise ValueError('GPU callback preflight failed')
+    print('GPU CALLBACK PREFLIGHT PASSED; computation device',probe.device,flush=True)
     run(config,Path(prepared),Path(output),model,commit,runtime_auth=authenticate_gpu_environment)

@@ -1,0 +1,11 @@
+{
+  "schema": "bsfm.gpu-callback-launcher-retry.v1",
+  "failure": "P100 deep job 22014562 failed after 5:03 because the rare roundoff diagnostic callback requires a visible CPU device, but JAX_PLATFORMS=cuda hid CPU devices",
+  "correction": "JAX_PLATFORMS=cuda,cpu, preserving CUDA as default. Require the probe result on GPU and verify the rare callback branch before initialization. No sampler equation, RNG, input or iteration changes.",
+  "authorization": "Existing user instructions to run and fix the same GPU fits; this is a launcher correction within those resources",
+  "preservation": "Leave working P100 flat job 22014563 and all flat V100 submissions unchanged. Preserve every old output. Replace only failed deep P100 and affected queued deep V100 attempts.",
+  "P100_retry": {"configuration": "circles12_diameter1of8", "model": "deep", "partition": "gpu", "tag": "p100"},
+  "V100_retries": {"configurations": ["circles12_diameter1of8", "circles12_diameter1of16", "circles8_diameter1of16", "circles8_diameter1of8"], "model": "deep", "partitions": ["v100-16gb-hiprio", "v100-32gb-hiprio"], "tags": ["primary", "v10032"]},
+  "resources_per_job": {"gpus": 1, "cpus": 4, "host_memory_GiB": 16, "wall_hours": 12},
+  "scientific_settings": "Unchanged GPU_SCIENTIFIC_RUN_SPEC.json: K12 L14 full mesh 91 genes/3 types; tune50/bridge50/retune100/production1000, target_accept0.9"
+}

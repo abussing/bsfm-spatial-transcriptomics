@@ -14,7 +14,7 @@ attempt="${4:-primary}"
 [[ "$attempt" =~ ^[A-Za-z0-9_-]+$ ]] || { echo 'Invalid submission tag'; exit 2; }
 module load gcc/12.2.0 mpfr/4.1.0 cuda/12.3
 cd "/work/abussing/bsfm-consolidation/checkouts/$commit"
-export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 JAX_PLATFORMS=cuda JAX_ENABLE_X64=true
+export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 JAX_PLATFORMS=cuda,cpu JAX_ENABLE_X64=true
 export BSFM_EXPERIMENTAL_CUDA=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 XLA_PYTHON_CLIENT_PREALLOCATE=false
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/work/apps/cuda/12.3
 export PYTHONPATH="$PWD/src"

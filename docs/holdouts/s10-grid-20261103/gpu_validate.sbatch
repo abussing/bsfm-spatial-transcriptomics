@@ -16,7 +16,7 @@ export XLA_FLAGS=--xla_gpu_cuda_data_dir=/work/apps/cuda/12.3
 cd "/work/abussing/bsfm-consolidation/checkouts/$commit"
 test "$(git rev-parse HEAD)" = "$commit"
 test -z "$(git status --porcelain)"
-export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 JAX_PLATFORMS=cuda JAX_ENABLE_X64=true
+export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 JAX_PLATFORMS=cuda,cpu JAX_ENABLE_X64=true
 export BSFM_EXPERIMENTAL_CUDA=1
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 XLA_PYTHON_CLIENT_PREALLOCATE=false
 export PYTHONPATH="$PWD/src:$PWD/tests:$PWD/docs/sampler/s10-subset-smoke-20261103:$PWD/docs/holdouts/s10-grid-20261103"
