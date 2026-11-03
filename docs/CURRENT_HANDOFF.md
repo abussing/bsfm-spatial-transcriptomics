@@ -1,5 +1,14 @@
 # Current BSFM handoff
 
+## Linux Python environment completed
+
+Job 22013408 at `460ccdd6ca523d22f2c61c0cbacdf0f1f82ba0de` completed the isolated
+Linux environment build. All 13 runtime versions, dependency checks, CPU/x64
+and module-path isolation passed. See the [environment receipt and history](environment/layer9-linux-20261103/README.md).
+This does not validate the Layer-9 runtime on Linux or authorize scientific
+fits. Windows-only writer locking and environment authentication still require
+a reviewed Linux implementation and synthetic continuation validation.
+
 ## Continuation update: Layer-9 review publication, 2026-11-03
 
 The verified artifact transfer below remains complete. No recovery was repeated.

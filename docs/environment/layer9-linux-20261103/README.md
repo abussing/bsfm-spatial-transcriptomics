@@ -1,5 +1,33 @@
 # Linux sampler environment build
 
+## Completed environment restoration
+
+Job **22013408** completed with exit 0:0 in 00:01:14; batch MaxRSS 803116K.
+Generating commit: `460ccdd6ca523d22f2c61c0cbacdf0f1f82ba0de`.
+All 13 runtime package versions match the accepted version list; pip check,
+CPU/x64 and module-path isolation passed. Build-only packages are absent from
+the runtime venv. Bootstrap packages are recorded separately: pip 24.0 and
+setuptools 79.0.1. This is a Linux Python 3.11.14 environment, not the accepted
+Windows Python 3.12.0 runtime or a claim of cross-platform exact numerical output.
+
+```text
+/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/bin/python
+```
+
+The build used `module load gcc/12.2.0 mpfr/4.1.0`; preserve that module context
+for the next validation until runtime shared-library requirements are explicitly
+checked. Launch numerical work only through an approved scheduler specification.
+The exact package report, build report, logs, submission and scheduler accounting
+are retained here as `job22013408-*`; full caches, built wheel and installation
+remain under the external prefix. The report authenticates the source archives,
+built wheel, compiler paths and package report. Earlier failed prefixes remain.
+
+No sampler tests, scientific fits, mesh regeneration or preprocessing were run
+by these environment jobs. Next requirements remain Linux writer/runtime
+authentication support and synthetic sampler initialization/sweep/resume checks.
+
+## Preserved failure history and corrections
+
 Job 22013403 at commit ecfbde4 failed in 13 seconds before installation:
 the selected ml_dtypes 0.6.0 wheel requires glibc 2.27, while HPC has 2.17.
 Its exact submission receipt, build report and log are preserved here; its
