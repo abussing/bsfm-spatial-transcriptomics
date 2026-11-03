@@ -1,13 +1,14 @@
 # Current BSFM handoff
 
-Verified baseline: `main`, `49f33c441e1cde9e1b8139ffef0103993eaa0222`
-(Sampler Layer 3). Portability inspection and original-desktop reconciliation: 2026-11-02.
+Verified baseline: `main`, `b028663b027d60e2914c70542a6d82246834a2ee`
+(accepted Sampler Layers 1-4). Handoff updated: 2026-11-02; portability
+inspection and original-desktop reconciliation records retain their original scope.
 
 Git is authoritative. Read [AGENTS.md](../AGENTS.md),
 [the pipeline portability audit](PORTABILITY_AUDIT.md),
 [CAPABILITIES.md](../CAPABILITIES.md), the
 [sampler architecture](decisions/BSFM_SAMPLER_ARCHITECTURE.md), and
-[Layer 3](sampler/LAYER3.md) before implementation. Older checkpoint-specific
+[Layer 4](sampler/LAYER4.md) before implementation. Older checkpoint-specific
 paragraphs describe their original scope; they do not undo later accepted layers.
 
 ## Completed and remaining work
@@ -17,15 +18,15 @@ paragraphs describe their original scope; they do not undo later accepted layers
   91 genes and MIC/AST/OGC cells, centered once by section/type/gene.
 - The October-26 adaptive mesh and GP-smooth SVD initializer are canonical,
   with bounded S10 reproduction evidence, not all-section production claims.
-- Sampler Layers 1–3 implement Gaussian/shrinkage/PX updates, full-spectrum
-  active marginalization, and the frozen L16/direct-W factor target.
-- Layer 3 records 70 sampler and eight mesh tests passing on the original
-  Windows desktop. The continuation branch now also passes 75 sampler/provenance
-  and eight mesh tests on that desktop; these are not new HPC test results.
-- A complete Gibbs sampler is not implemented. Fixed-physical-W hyper targets,
-  joint-eta PCG, NUTS/adaptation, sweep chronology, checkpoint/restart,
-  diagnostics, retained draws and launchers remain. Production GPU validation
-  also remains. K, chains, run lengths and saving cadence are not selected.
+- Accepted sampler Layers 1-4 implement Gaussian/shrinkage/PX updates,
+  full-spectrum active marginalization, the frozen L16/direct-W factor target,
+  and fixed-physical-W conditional/rewhitening plus joint-eta PCG.
+- Layer 4 passed 99 sampler/provenance and eight canonical mesh tests on the
+  original Windows CPU environment. These are not new Linux or GPU results.
+- A complete Gibbs sampler is not implemented. Remaining work is split BlackJAX
+  transitions/adaptation, Gibbs chronology, checkpoints/restart, retained
+  draws/diagnostics, launcher and platform/GPU validation. K, chains, warmup,
+  settling, production lengths and saving cadence remain unresolved.
 
 Preserve the finite-feature likelihood (512 ordered nodes, 1,024 cosine-then-sine
 features, ell_eta=.14), direct-W coordinates, all full-mesh modes and exact
@@ -90,7 +91,8 @@ does not block bounded ports using the authenticated historical source on HPC.
 ## Canonical artifact storage gate
 
 The [completed suitability gate](environment/CANONICAL_STORAGE_GATE_20261102.json)
-stopped before transfer: zero payload bytes moved. `/work` had sufficient
+was recorded at commit `7d18eaeade6046367cb65588a98ab99199cf8108`
+and stopped before transfer: zero payload bytes moved. `/work` had sufficient
 capacity and nominal quota headroom, but GPFS reported stale quota accounting.
 Ordinary scratch retention permits purge after 90 days without access/content
 modification; no path-specific durability exemption was established. `/work`
