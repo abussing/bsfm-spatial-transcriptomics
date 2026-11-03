@@ -29,6 +29,12 @@ complete Gibbs sweep composing accepted Layers 1-5. It preserves the four RNG
 streams and selected chronology. No warmup controller, checkpoint/restart,
 retained-draw workflow, launcher, GPU/HPC execution or scientific fit is claimed.
 
+Layer 7 is the accepted, implemented and validated canonical
+[checkpoint/restart layer](docs/sampler/LAYER7.md):
+complete atomic sweep-boundary state with authenticated contracts, frozen tuning,
+spectral and RNG restoration. It adds no retained draws, run orchestration,
+readaptation controller, GPU/HPC workflow or scientific fit.
+
 ## 1. Expression preprocessing
 
 Recovery status: **historical normalization-recipe recovery completed through

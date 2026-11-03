@@ -1,0 +1,171 @@
+{
+  "schema": "bsfm.sampler-layer7-validation.v1",
+  "status": "PASS",
+  "review_status": "accepted",
+  "baseline": "164b0b1a6475805ebce3f0026f0ff58bd50f18c3",
+  "tests": {
+    "prior_sampler_provenance": 145,
+    "layer7": 25,
+    "sampler_total": 170,
+    "canonical_mesh": 8,
+    "total": 178,
+    "skips": 0
+  },
+  "sampler_run": {
+    "tests": 170,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 542.6041640999902
+  },
+  "mesh_unittest_seconds": 5.299,
+  "command": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer5-cpu-20261102\\python\\Scripts\\python.exe",
+    "-B",
+    "-W",
+    "error::ResourceWarning",
+    "artifacts/review/sampler_layer7/run_suite.py"
+  ],
+  "reproducible_test_command": [
+    "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\sampler-layer5-cpu-20261102\\python\\Scripts\\python.exe",
+    "-B",
+    "-W",
+    "error::ResourceWarning",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_sampler*.py",
+    "-v"
+  ],
+  "environment": {
+    "path": "environment/sampler-layer5/build-validation.json",
+    "fresh_receipt_exact": true,
+    "packages": {
+      "absl-py": "2.5.1",
+      "blackjax": "1.3",
+      "fastprogress": "1.0.3",
+      "jax": "0.7.0",
+      "jaxlib": "0.7.0",
+      "jaxopt": "0.8.3",
+      "ml-dtypes": "0.6.0",
+      "numpy": "2.1.3",
+      "optax": "0.2.8",
+      "opt-einsum": "3.4.0",
+      "pip": "23.2.1",
+      "scipy": "1.14.1",
+      "threadpoolctl": "3.5.0",
+      "typing-extensions": "4.16.0"
+    },
+    "no_changes_or_installation": true
+  },
+  "provenance": {
+    "entries_all_layers": 72,
+    "entries_layer7": 7,
+    "distinct_historical_sources": 12,
+    "historical_source_executed": false,
+    "legacy_conversion": false
+  },
+  "continuation": {
+    "receipt": "docs/sampler/LAYER7_CONTINUATION.json",
+    "exact": true,
+    "tolerances_used": false,
+    "result_sha256": "53c1ee8d97f5e71d9f636e3e8f186db6cf2af0e43049d89a06da7d6289b54b65",
+    "audit_sha256": "3c3d9faad958d507c6ca3ba1e3f9cf2c5287f3dd34faf4388b6e9bb6b0aab90c",
+    "fresh_objects": true,
+    "explicit_global_install": true
+  },
+  "atomic_failure_tests": {
+    "interrupted_write": "PASS",
+    "temporary_validation_failure": "PASS",
+    "replacement_failure": "PASS",
+    "valid_final_preserved": "PASS",
+    "failed_attempt_retained_and_reported": "PASS",
+    "closed_file_validated_before_replace": "PASS"
+  },
+  "rejection_tests": {
+    "truncated_corrupt_duplicate_npz": "PASS",
+    "object_arrays": "PASS",
+    "altered_values_dtypes_shapes_domains": "PASS",
+    "unknown_missing_fields": "PASS",
+    "wrong_identity_provenance_order": "PASS",
+    "spectral_target_not_replaced": "PASS",
+    "changed_noise_scale": "PASS",
+    "invalid_progress": "PASS",
+    "invalid_rng": "PASS",
+    "no_caller_mutation": "PASS"
+  },
+  "initial_focused_run": {
+    "tests": 19,
+    "passed": true,
+    "observation": "Corrupt NPZ early failure exposed a NumPy unclosed-file ResourceWarning. Explicit file-stream ownership added; final full suite rerun with ResourceWarning treated as error."
+  },
+  "original_layer6_fixture_sha256": "dbdcfb58058e31103f4a551196fe72eedff6c8d46fd2860bbcbfa9c301eeb741",
+  "artifacts": [
+    {
+      "path": "src/bsfm/sampler/checkpoint.py",
+      "bytes": 12403,
+      "sha256": "5976cfdde8e5f01dec93efa1ce5042a098d3c563721ce6eaa02f88ab82439109"
+    },
+    {
+      "path": "src/bsfm/sampler/checkpoint_contract.py",
+      "bytes": 4567,
+      "sha256": "1a9528aa6c52e96116816d39aae1a4234df21b63d00326cc85731fba5608dae8"
+    },
+    {
+      "path": "src/bsfm/sampler/checkpoint_rng.py",
+      "bytes": 6366,
+      "sha256": "7f90954a19e8c9b45ccd24ad40171fc61420ef101bec52ff9c0253aeff829639"
+    },
+    {
+      "path": "tests/sampler_layer7_support.py",
+      "bytes": 2850,
+      "sha256": "93794d644f6fe7e9cdf0a2c179068704eb548a028fa58649374a1862e5ae9810"
+    },
+    {
+      "path": "tests/test_sampler_layer7.py",
+      "bytes": 18506,
+      "sha256": "792391d933ecc3c1e320b90a2e56be2b39c66b44cc42e9ec88c8d9b46efc12f4"
+    },
+    {
+      "path": "config/sampler/checkpoint-v1.schema.json",
+      "bytes": 12497,
+      "sha256": "fcfc3d3043e1afb6b7228121aff709bd6eec589f6b01df9345f1b746bc68a6f1"
+    },
+    {
+      "path": "docs/sampler/LAYER7_SOURCE_MAP.csv",
+      "bytes": 3242,
+      "sha256": "7ff39493648a99a72dc7e513d55880ea3d1f311e7c7d9ef516826f7be05adcb0"
+    },
+    {
+      "path": "docs/sampler/LAYER7_CONTINUATION.json",
+      "bytes": 10949,
+      "sha256": "911af4b9bc6b1d5b9237c3b35df65935deff80bd42631329d280ba5024e6a3aa"
+    }
+  ],
+  "local_logs": [
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer7/sampler-tests.log",
+      "bytes": 22603,
+      "sha256": "3e2335692d33e942da20477999f62ce8f5d494e4074bac4761e36f5fb2113901"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer7/mesh-tests.log",
+      "bytes": 1325,
+      "sha256": "8caa42858f601c44981851032434ad6f303d12c9a70fadee6cf60d04eb2e280e"
+    },
+    {
+      "path": "C:/Users/Data Viz/Desktop/Anderson_Hail/bsfm-spatial-transcriptomics/artifacts/review/sampler_layer7/environment-validation.json",
+      "bytes": 17371,
+      "sha256": "88eb74b00ec603b19e8a9d25d4f9a55d51093c623506cc0242fc50407b3905f5"
+    }
+  ],
+  "limitations": [
+    "Windows CPU synthetic validation only; no platform/GPU claim",
+    "Caller authenticates software contract; synthetic review declares clean_tree=false",
+    "No directory-fsync/power-loss backup or concurrent-writer guarantee",
+    "No warmup/readaptation, retained draws, diagnostics aggregation, launchers, legacy conversion or scientific run"
+  ]
+}

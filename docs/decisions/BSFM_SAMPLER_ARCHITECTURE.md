@@ -29,6 +29,12 @@ mismatches without altering accepted numerical kernels.
 This layer does not supply a production sampler, warmup controller,
 checkpoint/restart, retained draws, launcher or platform/GPU validation.
 
+Layer 7 is [implemented and validated](../sampler/LAYER7.md): the accepted canonical
+complete atomic checkpoint
+and frozen-tuning restart, with explicit global-RNG installation after validation.
+Legacy incomplete-checkpoint conversion is excluded. Retained draws, diagnostic
+aggregation, readaptation/run orchestration and platform/GPU validation remain.
+
 Decision date: 2026-11-02. Recovery baseline:
 `10cb6e27168aae7581831a6591089b4d88629c49`.
 

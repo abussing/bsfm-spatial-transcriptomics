@@ -1,0 +1,501 @@
+{
+  "type": "object",
+  "required": [
+    "schema",
+    "contract",
+    "contract_sha256",
+    "progress",
+    "boundary",
+    "position_bindings",
+    "tuning_bindings",
+    "rng",
+    "spectral_audit",
+    "arrays",
+    "logical_sha256"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "bsfm.complete-checkpoint.v1"
+    },
+    "contract": {
+      "type": "object",
+      "required": [
+        "schema",
+        "target_identity",
+        "input_identity",
+        "geometry_identity",
+        "rule_identity",
+        "spectral_identity",
+        "factor_ids",
+        "b_sigma2_sha256",
+        "fixed",
+        "software",
+        "software_sha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "bsfm.checkpoint-contract.v1"
+        },
+        "target_identity": {
+          "type": "string"
+        },
+        "input_identity": {
+          "type": "string"
+        },
+        "geometry_identity": {
+          "type": "string"
+        },
+        "rule_identity": {
+          "type": "string"
+        },
+        "spectral_identity": {
+          "type": "string"
+        },
+        "factor_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "b_sigma2_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "fixed": {
+          "type": "object",
+          "required": [
+            "chronology_schema",
+            "n_inner",
+            "sharing",
+            "ell_eta",
+            "sigma2_prior_shape",
+            "layer6_source_sha256"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "chronology_schema": {
+              "const": "bsfm.layer6-complete-sweep.v1"
+            },
+            "n_inner": {
+              "const": 3
+            },
+            "sharing": {
+              "const": 0.2
+            },
+            "ell_eta": {
+              "const": 0.14
+            },
+            "sigma2_prior_shape": {
+              "const": 2.0
+            },
+            "layer6_source_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        },
+        "software": {
+          "type": "object",
+          "required": [
+            "git_commit",
+            "clean_tree",
+            "run_config_sha256",
+            "environment_lock_sha256",
+            "environment_identity"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "git_commit": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "clean_tree": {
+              "type": "boolean"
+            },
+            "run_config_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "environment_lock_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "environment_identity": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "software_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "contract_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "progress": {
+      "type": "object",
+      "required": [
+        "completed_local_sweep",
+        "settling_sweeps",
+        "completed_production_sweeps",
+        "checkpoint_type",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "completed_local_sweep": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "settling_sweeps": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "completed_production_sweeps": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "checkpoint_type": {
+          "const": "complete"
+        },
+        "status": {
+          "const": "completed_sweep"
+        }
+      }
+    },
+    "boundary": {
+      "type": "object",
+      "required": [
+        "state_after",
+        "positions_after",
+        "target_sha256",
+        "b_sigma2_sha256",
+        "rng_after",
+        "label",
+        "fitted_Y_sha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "state_after": {
+          "type": "object",
+          "required": [
+            "loading",
+            "eta",
+            "alpha",
+            "zeta",
+            "sigma2",
+            "phi",
+            "delta",
+            "tau"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "loading": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "eta": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "alpha": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "zeta": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "sigma2": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "phi": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "delta": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "tau": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        },
+        "positions_after": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "target_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "b_sigma2_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "rng_after": {
+          "type": "object",
+          "required": [
+            "numpy_global_sha256",
+            "eta_generator",
+            "eta_rng_sha256",
+            "gauge_generator",
+            "gauge_rng_sha256",
+            "jax_impl",
+            "jax_key_data"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "numpy_global_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "eta_generator": {
+              "type": "string"
+            },
+            "eta_rng_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "gauge_generator": {
+              "type": "string"
+            },
+            "gauge_rng_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "jax_impl": {
+              "const": "threefry2x32"
+            },
+            "jax_key_data": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          }
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fitted_Y_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "position_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "factor_id",
+          "target_identity"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "factor_id": {
+            "type": "string"
+          },
+          "target_identity": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tuning_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "factor_id",
+          "target_identity",
+          "mass_sha256"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "factor_id": {
+            "type": "string"
+          },
+          "target_identity": {
+            "type": "string"
+          },
+          "mass_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "rng": {
+      "type": "object",
+      "required": [
+        "eta",
+        "gauge",
+        "numpy_global",
+        "jax"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "eta": {
+          "type": "object",
+          "required": [
+            "type",
+            "state"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "PCG64",
+                "PCG64DXSM",
+                "MT19937",
+                "Philox",
+                "SFC64"
+              ]
+            },
+            "state": {
+              "type": "object",
+              "description": "Exact named NumPy bit-generator state; tagged uint32/uint64 arrays; validated by strict native roundtrip."
+            }
+          }
+        },
+        "gauge": {
+          "type": "object",
+          "required": [
+            "type",
+            "state"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "PCG64",
+                "PCG64DXSM",
+                "MT19937",
+                "Philox",
+                "SFC64"
+              ]
+            },
+            "state": {
+              "type": "object",
+              "description": "Exact named NumPy bit-generator state; tagged uint32/uint64 arrays; validated by strict native roundtrip."
+            }
+          }
+        },
+        "numpy_global": {
+          "type": "object",
+          "required": [
+            "type",
+            "position",
+            "has_gauss",
+            "cached_gaussian"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "MT19937"
+            },
+            "position": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 624
+            },
+            "has_gauss": {
+              "enum": [
+                0,
+                1
+              ]
+            },
+            "cached_gaussian": {
+              "type": "number"
+            }
+          }
+        },
+        "jax": {
+          "type": "object",
+          "required": [
+            "implementation",
+            "representation"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "implementation": {
+              "const": "threefry2x32"
+            },
+            "representation": {
+              "enum": [
+                "legacy",
+                "typed"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "spectral_audit": {
+      "type": "object",
+      "description": "Exact full target.geometry.spectral audit; no extra or missing fields accepted by the loader."
+    },
+    "arrays": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "dtype",
+          "shape",
+          "sha256",
+          "fortran_order"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "dtype": {
+            "type": "string"
+          },
+          "shape": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "fortran_order": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "logical_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bsfm.complete-checkpoint.metadata.v1",
+  "title": "Complete canonical checkpoint metadata v1",
+  "description": "NPZ metadata is scalar Unicode canonical JSON. The loader additionally enforces exact NPZ keys, dimensions/dtypes, target identities, source/contract hashes, progress equation, spectral content and complete state/RNG roundtrips. No pickle or legacy conversion."
+}
