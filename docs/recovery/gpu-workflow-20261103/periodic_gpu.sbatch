@@ -43,3 +43,7 @@ trap 'kill "$predict_pid" 2>/dev/null || true' EXIT
     "$configuration" "$prepared" "$output" "$model" "$commit"
 # A failed predictor makes job completion nonzero; sampler draws remain reusable.
 wait "$predict_pid"
+# Catch a final boundary published while the watcher's last update was in flight.
+JAX_PLATFORMS=cpu "$python" -u docs/holdouts/s10-grid-20261103/periodic_prediction.py \
+    "$prepared" "$output" "$model" "$commit" \
+    >> "/work/abussing/bsfm-consolidation/evidence/periodic-prediction-$SLURM_JOB_ID.log" 2>&1
