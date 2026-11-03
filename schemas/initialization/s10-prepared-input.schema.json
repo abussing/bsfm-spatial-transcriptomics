@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Full-cell S10 preparation extension of bsfm.gpinit-input.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "response", "section", "source_sha256", "arrays", "upstream", "producer", "environment", "scope", "gpinit_gate"],
+  "properties": {
+    "schema": {"const": "bsfm.gpinit-input.v1"},
+    "response": {"const": "final_centered_Y"},
+    "section": {"const": "S10__WT5"},
+    "source_sha256": {"$ref": "#/$defs/hash"},
+    "arrays": {
+      "type": "object", "additionalProperties": false,
+      "required": ["Y", "slocs", "cell_id", "cell_names", "source_row_indices", "gene_names", "cell_type_names"],
+      "properties": {
+        "Y": {"$ref": "#/$defs/hash"}, "slocs": {"$ref": "#/$defs/hash"},
+        "cell_id": {"$ref": "#/$defs/hash"}, "cell_names": {"$ref": "#/$defs/hash"},
+        "source_row_indices": {"$ref": "#/$defs/hash"}, "gene_names": {"$ref": "#/$defs/hash"},
+        "cell_type_names": {"$ref": "#/$defs/hash"}
+      }
+    },
+    "upstream": {
+      "type": "object", "additionalProperties": false,
+      "required": ["response_manifest", "validation", "response_h5", "response_producer_commit", "production_manifest", "raw_source", "registry", "panel", "mesh", "mesh_receipt", "mesh_arrays", "metadata", "coordinate_transform", "join", "response_transformation", "preprocessing_regime", "primary_holdout_scoring_eligible"],
+      "properties": {
+        "response_manifest": {"$ref": "#/$defs/file"}, "validation": {"$ref": "#/$defs/file"},
+        "response_h5": {"$ref": "#/$defs/file"}, "production_manifest": {"$ref": "#/$defs/file"},
+        "raw_source": {"$ref": "#/$defs/file"}, "registry": {"$ref": "#/$defs/file"},
+        "panel": {"$ref": "#/$defs/file"}, "mesh": {"$ref": "#/$defs/file"},
+        "mesh_receipt": {"$ref": "#/$defs/file"},
+        "response_producer_commit": {"const": "6eb672bebbaf5cde6c9d50391aac275a210832a6"},
+        "mesh_arrays": {"type": "object", "minProperties": 1},
+        "metadata": {"type": "object", "required": ["gen", "gen_coarse"]},
+        "coordinate_transform": {
+          "type": "object", "additionalProperties": false,
+          "required": ["formula", "origin", "scale", "axes", "source_units", "geometry_population"],
+          "properties": {
+            "formula": {"const": "(source_coordinates-origin)/scale"},
+            "origin": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+            "scale": {"type": "number", "exclusiveMinimum": 0},
+            "axes": {"const": ["center_y", "center_x"]},
+            "source_units": {"const": "source_native"},
+            "geometry_population": {"const": "all 9422 modeled glial cells"}
+          }
+        },
+        "join": {
+          "type": "object", "required": ["status", "cells", "types", "vertices", "triangles", "active_vertices", "modes", "source_rows_equal", "type_order_equal", "locations_equal", "historical_subset_used"],
+          "properties": {
+            "status": {"const": "pass"}, "cells": {"const": 9422}, "types": {"const": [996,3337,5089]},
+            "vertices": {"const": 371}, "triangles": {"const": 708}, "active_vertices": {"const": 168},
+            "modes": {"const": 371}, "source_rows_equal": {"const": true}, "type_order_equal": {"const": true},
+            "locations_equal": {"const": true}, "historical_subset_used": {"const": false}
+          }
+        },
+        "response_transformation": {"const": "none; exact final_centered_Y copy"},
+        "preprocessing_regime": {"const": "full_data"},
+        "primary_holdout_scoring_eligible": {"const": false}
+      }
+    },
+    "producer": {
+      "type": "object", "additionalProperties": false,
+      "required": ["baseline_commit", "worktree_clean", "generating_commit", "status", "source_files"],
+      "properties": {
+        "baseline_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "worktree_clean": {"type": "boolean"},
+        "generating_commit": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+        "status": {"enum": ["uncommitted_preparation_review_evidence", "committed_preparation"]},
+        "source_files": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/file"}}
+      },
+      "allOf": [{"if": {"properties": {"worktree_clean": {"const": false}}},
+        "then": {"properties": {"generating_commit": {"const": null}, "status": {"const": "uncommitted_preparation_review_evidence"}}}}]
+    },
+    "environment": {"type": "object", "required": ["schema", "role", "executable", "packages", "lock", "runtime_lock", "status"],
+      "properties": {"schema": {"const": "bsfm.preparation-environment-check.v1"}, "role": {"const": "preparation"}, "status": {"const": "pass"}}},
+    "scope": {"const": "mechanical full-cell S10 validation; K=20 is not a production choice"},
+    "gpinit_gate": {"const": {"factors": 20, "nfit": 250, "seed": 2026102610}}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "file": {"type": "object", "additionalProperties": false, "required": ["path", "bytes", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "bytes": {"type": "integer", "minimum": 1}, "sha256": {"$ref": "#/$defs/hash"}}}
+  },
+  "$comment": "Structural validation only. Independent closed-file checks must verify response equality, identities, raw-coordinate/source-row joins, mesh hashes and environment provenance. This does not authorize a sampler run."
+}

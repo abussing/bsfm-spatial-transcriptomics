@@ -1,0 +1,1141 @@
+{
+  "schema": "bsfm.canonical-s10-preparation-review.v1",
+  "status": "implementation_accepted_v1_review_artifacts_only",
+  "baseline_commit": "0c5bed151def7c2ae429c0bc894cdb3aead96251",
+  "clean_preparation_generating_commit": null,
+  "preparation_source_identity": {
+    "baseline_commit": "0c5bed151def7c2ae429c0bc894cdb3aead96251",
+    "worktree_clean": false,
+    "generating_commit": null,
+    "status": "uncommitted_preparation_review_evidence",
+    "source_files": [
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\initialization\\s10_preparation.py",
+        "bytes": 14224,
+        "sha256": "b5393568b9afd7e0356962a1dcb8bc128ed46d078c1d701160294050be64514d"
+      },
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\initialization\\preparation_environment.py",
+        "bytes": 5343,
+        "sha256": "9805192e25d0925b030fa04cb967e3aa2be091b12781b48f425cb8b7dbbf02ff"
+      }
+    ]
+  },
+  "scope": "Full-cell S10 mechanical validation only; no Layer-9 implementation",
+  "settings": {
+    "factors": 20,
+    "nfit": 250,
+    "seed": 2026102610
+  },
+  "prepared_contract": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\initialization\\audits\\S10_fullcell_20261103\\input-contract.json",
+    "bytes": 12030,
+    "sha256": "7abaa3433878c47b225bfc2d7077b91e448bb6b529ef1277a7737bd550441017"
+  },
+  "prepared_npz": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\model-input.npz",
+    "bytes": 547049,
+    "sha256": "fc9478949f06d5c4c53e77caeb25426eba84b5df93a95c32335b638f912e83f3"
+  },
+  "join": {
+    "status": "pass",
+    "cells": 9422,
+    "types": [
+      996,
+      3337,
+      5089
+    ],
+    "vertices": 371,
+    "triangles": 708,
+    "active_vertices": 168,
+    "inactive_vertices": 203,
+    "modes": 371,
+    "source_rows_equal": true,
+    "type_order_equal": true,
+    "locations_equal": true,
+    "maximum_location_error": 0.0,
+    "projector_row_sum_error": 2.220446049250313e-16,
+    "affine_reconstruction_error": 1.1102230246251565e-15,
+    "historical_subset_used": false,
+    "origin": [
+      -76.71150369109931,
+      384.4526611067433
+    ],
+    "scale": 7551.6955652603265
+  },
+  "upstream": {
+    "response_manifest": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S10__WT5\\manifest.json",
+      "bytes": 11279,
+      "sha256": "40e2028f2aeff0cec2e9ba3a23b748702da65947d4637db304a136e52599ff13"
+    },
+    "validation": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S10__WT5\\validation.json",
+      "bytes": 73394,
+      "sha256": "73067ad357eea6daaab252f84b1e21f62dd5c217562c11593ded0d457afbbac1"
+    },
+    "response_h5": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\sections\\S10__WT5\\response.h5",
+      "bytes": 22721165,
+      "sha256": "ac8bf0e51f2a92b16f7a980b847abab6d060b18516a57364209e85841b8888fe"
+    },
+    "response_producer_commit": "6eb672bebbaf5cde6c9d50391aac275a210832a6",
+    "production_manifest": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_PRODUCTION\\sctransform_full_data_v2\\run-manifest.json",
+      "bytes": 48980,
+      "sha256": "03b83d93891080f15b6a85684e2cb5de8d9a9b7cdf72f8c25dd8103403e1e06f"
+    },
+    "raw_source": {
+      "path": "D:\\johnston_brain\\Johnston_MERFISH_Data.h5ad",
+      "bytes": 5483600151,
+      "sha256": "d6876020cfdb5cb2fdeb848550e8334cfc2684b6ce6f7755b862cac567f06a38"
+    },
+    "registry": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\preprocessing\\sections.json",
+      "bytes": 3865,
+      "sha256": "f336de10e58e0b2269ceed62c4c6c454af9956f9460c9097b3d42c7ccf368166"
+    },
+    "panel": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\config\\preprocessing\\modeling-panel.json",
+      "bytes": 3470,
+      "sha256": "85707ff1db48b697de58f2b0260daef2d40d6ac6a7710cdfa5e87da422c14f98"
+    },
+    "mesh": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\mesh_october26_S10_angle_fix_20261102\\sampler-facing.npz",
+      "bytes": 7195273,
+      "sha256": "69c4df099766a7d393c570f7d77f6a85fbc88b0c9466f15049f85c3d3536bae0"
+    },
+    "mesh_receipt": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\docs\\mesh\\audits\\october26_S10_localization_20261102\\corrected-reproduction.json",
+      "bytes": 9023,
+      "sha256": "5d243884b8e8007c262ef4cb31f5b796294f6c51d469858f67b185de3328dadb"
+    },
+    "mesh_arrays": {
+      "mesh_vertices": {
+        "shape": [
+          371,
+          2
+        ],
+        "dtype": "<f8",
+        "sha256": "c57b43e8b66b717047eb5f6859f2422a773dd73851311b95b255e3c9270fb09c"
+      },
+      "triangles": {
+        "shape": [
+          708,
+          3
+        ],
+        "dtype": "<i8",
+        "sha256": "80096003bafd20232f0623f306edf5d96e1f4de428bd6a3ef235768569d8a901"
+      },
+      "A_full": {
+        "shape": [
+          9422,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "591893154a59d910635a66f3d410e4996220f703065488e2275b61c0949a266b"
+      },
+      "active_indices_full": {
+        "shape": [
+          168
+        ],
+        "dtype": "<i8",
+        "sha256": "ff2dd88ca537f2730b61d09ab01fb7b8f88e1a71f821edb290148dcbc46d7a81"
+      },
+      "inactive_indices_full": {
+        "shape": [
+          203
+        ],
+        "dtype": "<i8",
+        "sha256": "36ba3b2cb146ab9f13df0107cb4b104c790fe7b6ea7d0cb03df4da035eb60585"
+      },
+      "A_active": {
+        "shape": [
+          9422,
+          168
+        ],
+        "dtype": "<f8",
+        "sha256": "a3d9459a4ab51bbc172deefad44f25283c5533457c5bc9a089fda4631cb887d1"
+      },
+      "source_rows": {
+        "shape": [
+          9422
+        ],
+        "dtype": "<i8",
+        "sha256": "ee20cd625176608ce024766ef5407a728deb2c8c63e5bbe32ab6aee9ab0064d3"
+      },
+      "slocs": {
+        "shape": [
+          9422,
+          2
+        ],
+        "dtype": "<f8",
+        "sha256": "1e1d4d754c6cf4149b25236f04ffd8055815379ab2adf0863026b92c364a41d7"
+      },
+      "cell_type": {
+        "shape": [
+          9422
+        ],
+        "dtype": "<i4",
+        "sha256": "d90cab233cb95243047922d6e313a3ab458d18d463b8a83ce7768b2847ffb582"
+      },
+      "historical_half_rows": {
+        "shape": [
+          4712
+        ],
+        "dtype": "<i8",
+        "sha256": "9bc828600650f936904fbd8ee1b34cabf508f846372d4aab4fd46ea28a902bd7"
+      },
+      "historical_half_active": {
+        "shape": [
+          167
+        ],
+        "dtype": "<i8",
+        "sha256": "698c427a6df34f72a910dde96319bde64754d5613b53a91275235a9d24f2273f"
+      },
+      "historical_half_A_active": {
+        "shape": [
+          4712,
+          167
+        ],
+        "dtype": "<f8",
+        "sha256": "a9ddd502443df6144f13f0cbace9651103fd62514211983eb5eaea0ed656f299"
+      },
+      "spectral_U": {
+        "shape": [
+          371,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "83bcd3df5e2bf6ecd0e2d4e05dc42b58f26fb62f4d526e7180557af32eb24ea3"
+      },
+      "modal_diagonals": {
+        "shape": [
+          7,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "c9ea62dfdfa584c76385dee631f21a53f840d93b245248353accab32ac4a30a1"
+      },
+      "fem_C": {
+        "shape": [
+          371,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "8a0c372fbd6db7dbddb62f86394b742c482170b61d3340864ca662b10afe2757"
+      },
+      "fem_g1": {
+        "shape": [
+          371,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "d537e9558f3476121555ea1a9dc300fd25cdd83f978486f7ea1e34bc9b0d8597"
+      },
+      "fem_g2": {
+        "shape": [
+          371,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "522c86f817140d9ef24689e065e41ad7153e6d7a5216efe6532d69a20d4ebf9b"
+      },
+      "fem_g3": {
+        "shape": [
+          371,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "cd32cc1848bcea52389a64f9a8579bb5ebc790194cdc3674b7f2416558d20441"
+      },
+      "fem_g4": {
+        "shape": [
+          371,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "9b4c5ae7831062c629ae6782221c064b820c33321a6d46e3300fe9240304308a"
+      },
+      "fem_g5": {
+        "shape": [
+          371,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "94f0bb97c17cef8971ec52a2e64a4d3ef53f34f6fc9a3ba6bcb80e1d3b2f81d7"
+      },
+      "fem_g6": {
+        "shape": [
+          371,
+          371
+        ],
+        "dtype": "<f8",
+        "sha256": "14df6af452911bf96bec8f7ffed8881fc3c1444baaed2b2a192384bbd002b38f"
+      }
+    },
+    "metadata": {
+      "gen": [
+        "WT5"
+      ],
+      "gen_coarse": [
+        "WT"
+      ]
+    },
+    "coordinate_transform": {
+      "formula": "(source_coordinates-origin)/scale",
+      "origin": [
+        -76.71150369109931,
+        384.4526611067433
+      ],
+      "scale": 7551.6955652603265,
+      "axes": [
+        "center_y",
+        "center_x"
+      ],
+      "source_units": "source_native",
+      "geometry_population": "all 9422 modeled glial cells"
+    },
+    "join": {
+      "status": "pass",
+      "cells": 9422,
+      "types": [
+        996,
+        3337,
+        5089
+      ],
+      "vertices": 371,
+      "triangles": 708,
+      "active_vertices": 168,
+      "inactive_vertices": 203,
+      "modes": 371,
+      "source_rows_equal": true,
+      "type_order_equal": true,
+      "locations_equal": true,
+      "maximum_location_error": 0.0,
+      "projector_row_sum_error": 2.220446049250313e-16,
+      "affine_reconstruction_error": 1.1102230246251565e-15,
+      "historical_subset_used": false,
+      "origin": [
+        -76.71150369109931,
+        384.4526611067433
+      ],
+      "scale": 7551.6955652603265
+    },
+    "response_transformation": "none; exact final_centered_Y copy",
+    "preprocessing_regime": "full_data",
+    "primary_holdout_scoring_eligible": false
+  },
+  "preparation_environment": {
+    "schema": "bsfm.preparation-environment-check.v1",
+    "role": "preparation",
+    "executable": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python\\Scripts\\python.exe",
+      "bytes": 270616,
+      "sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb"
+    },
+    "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+    "packages": {
+      "attrs": "26.1.0",
+      "h5py": "3.16.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "numpy": "2.5.4",
+      "pip": "23.2.1",
+      "psutil": "7.2.2",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.9.1",
+      "scipy": "1.18.1",
+      "typing-extensions": "4.16.0"
+    },
+    "lock": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\python-source-lock.json",
+      "bytes": 5907,
+      "sha256": "adce4fcd7f516174bd314b39182fa9270ece5676255b832a08079d0fcd67d500"
+    },
+    "runtime_lock": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\mesh\\runtime-lock.json",
+      "bytes": 1921,
+      "sha256": "f81dc8d8b529fe04e3903d94a04c3724df14b9554957a9d0077f7cbb4365575e"
+    },
+    "runtime_files": [
+      {
+        "path": "C:\\Program Files\\Python312\\python.exe",
+        "bytes": 103192,
+        "sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0"
+      },
+      {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\mesh-phase0-20261031\\python\\Scripts\\python.exe",
+        "bytes": 270616,
+        "sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb"
+      },
+      {
+        "path": "C:\\Program Files\\Python312\\python312.dll",
+        "bytes": 6972184,
+        "sha256": "e7890e38256f04ee0b55ac5276bbf3ac61392c3a3ce150bb5497b709803e17ce"
+      },
+      {
+        "path": "C:\\Program Files\\Python312\\python3.dll",
+        "bytes": 68376,
+        "sha256": "1e9224ba7190b6301ef47befa8e383d0c55700255d04a36f7dac88ea9573f2fb"
+      }
+    ],
+    "installed_record_files_checked": 3262,
+    "authenticated_wheel_files_checked": 2728,
+    "user_site": false,
+    "system_site": false,
+    "status": "pass",
+    "limitation": null
+  },
+  "preparation_fresh_process_readback": "pass; complete source/metadata/mesh reauthentication and exact seven-array comparison",
+  "fits": [
+    {
+      "label": "gpinit-run1",
+      "certificate": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1\\certificate.json",
+        "bytes": 30115,
+        "sha256": "ca65037751075895cf29bd7bc8c222c773302bde287d6c216d489df4997331f0"
+      },
+      "output": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1\\gpinit.npz",
+        "bytes": 1486057,
+        "sha256": "59e60b385f7a012c23322606dc194f46812e7bbfa4220201530f0547fa763374"
+      },
+      "fit_seconds": 63.18037300001015,
+      "execution": {
+        "command": [
+          "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\gpinit-20261102\\python\\Scripts\\python.exe",
+          "-B",
+          "-u",
+          "-m",
+          "bsfm.initialization.s10_gpinit_gate",
+          "--prepared",
+          "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared",
+          "--output",
+          "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1"
+        ],
+        "pid": 4120,
+        "exit_code": 0,
+        "wall_seconds": 67.13393079998787,
+        "sampled_peak_process_tree_working_set_bytes": 266391552,
+        "os_peak_parent_working_set_bytes": 4435968,
+        "sample_interval_seconds": 0.2,
+        "scope": "includes environment authentication, fit, serialization and readback",
+        "log": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1.log"
+      },
+      "checks": {
+        "status": "pass",
+        "settings": {
+          "factors": 20,
+          "nfit": 250,
+          "seed": 2026102610
+        },
+        "dimensions": {
+          "types": 3,
+          "genes": 91,
+          "cells": 9422
+        },
+        "output": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1\\gpinit.npz",
+          "bytes": 1486057,
+          "sha256": "59e60b385f7a012c23322606dc194f46812e7bbfa4220201530f0547fa763374"
+        },
+        "certificate": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1\\certificate.json",
+          "bytes": 30115,
+          "sha256": "ca65037751075895cf29bd7bc8c222c773302bde287d6c216d489df4997331f0"
+        },
+        "input": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\model-input.npz",
+          "bytes": 547049,
+          "sha256": "fc9478949f06d5c4c53e77caeb25426eba84b5df93a95c32335b638f912e83f3"
+        },
+        "contract": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\input-contract.json",
+          "bytes": 12030,
+          "sha256": "7abaa3433878c47b225bfc2d7077b91e448bb6b529ef1277a7737bd550441017"
+        },
+        "output_logical_hashes": {
+          "Lam_seed": "aed52a58df9e5db7d896068e4d6fa5da20da1cc5229360962dd3eb31f29b74e5",
+          "eta_seed": "4100d7529e099b7f7513516d661f95c0ce565296c391b8e9894e7b8100cc0e84",
+          "theta_prior_mu": "0ecd89a79560b10fcbd499584bf9df85459870971c3065df15842c9f72d2a2c1",
+          "field_ls": "05884c0aaacc09eb4d7b4047af0dd0a7648749a7c0ed9613a00e56a77f71f98b",
+          "theta_seed": "05884c0aaacc09eb4d7b4047af0dd0a7648749a7c0ed9613a00e56a77f71f98b",
+          "singular_values": "d2a372e8a973a30445336893c8dc3aa0bc6098131fffdee3c6d27f9d33d965d6",
+          "seed_vs_smoothed_correlation": "9feb12cc65f3d9a5a4b2a25c657d53850917b0a425c0258ead6eccfd5e9ef64e",
+          "seed_vs_observed_correlation": "e22e809195823585d9580bb81fdc33c9349866f1733a4b02d2999948e857344f"
+        },
+        "loading_orthogonality_max": 7.355227538141662e-16,
+        "eta_mean_max": 2.4886340776993533e-17,
+        "eta_gram_relative_error": 1.3726978254733055e-15,
+        "product_norm_relative_error": 1.790043944658092e-16,
+        "truncation_identity_relative_error": 0.0,
+        "thresholds": {
+          "orthogonality_atol": 1e-13,
+          "eta_mean_atol": 1e-13,
+          "svd_identity_rtol": 1e-12
+        },
+        "fitting_points": [
+          250,
+          250,
+          250
+        ],
+        "input_unchanged": true
+      },
+      "warnings": {
+        "ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k1__constant_value is close to the specified lower bound 0.01. Decreasing the bound and calling fit again may find a better value.": 96,
+        "ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified upper bound 3.0. Increasing the bound and calling fit again may find a better value.": 40,
+        "ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified lower bound 0.02. Decreasing the bound and calling fit again may find a better value.": 41,
+        "ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 0.001. Decreasing the bound and calling fit again may find a better value.": 24
+      },
+      "environment": {
+        "schema": "bsfm.preparation-environment-check.v1",
+        "role": "gpinit",
+        "executable": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\gpinit-20261102\\python\\Scripts\\python.exe",
+          "bytes": 270616,
+          "sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb"
+        },
+        "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+        "packages": {
+          "joblib": "1.4.2",
+          "numpy": "2.1.3",
+          "pip": "23.2.1",
+          "scikit-learn": "1.4.2",
+          "scipy": "1.14.1",
+          "threadpoolctl": "3.5.0"
+        },
+        "lock": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\gpinit\\source-lock.json",
+          "bytes": 6714,
+          "sha256": "5f86291e8657de3a2129843dd0db40ec5ffb903fc8381c6982bc5a1a179115da"
+        },
+        "runtime_lock": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\gpinit\\source-lock.json",
+          "bytes": 6714,
+          "sha256": "5f86291e8657de3a2129843dd0db40ec5ffb903fc8381c6982bc5a1a179115da"
+        },
+        "runtime_files": [
+          {
+            "path": "C:\\Program Files\\Python312\\python.exe",
+            "bytes": 103192,
+            "sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0"
+          },
+          {
+            "path": "C:\\Program Files\\Python312\\python312.dll",
+            "bytes": 6972184,
+            "sha256": "e7890e38256f04ee0b55ac5276bbf3ac61392c3a3ce150bb5497b709803e17ce"
+          },
+          {
+            "path": "C:\\Program Files\\Python312\\python3.dll",
+            "bytes": 68376,
+            "sha256": "1e9224ba7190b6301ef47befa8e383d0c55700255d04a36f7dac88ea9573f2fb"
+          }
+        ],
+        "installed_record_files_checked": 3772,
+        "authenticated_wheel_files_checked": 0,
+        "user_site": false,
+        "system_site": false,
+        "status": "pass",
+        "limitation": "Installed RECORD integrity and accepted install/source lock; cached wheel byte comparison not performed"
+      },
+      "provenance": {
+        "input": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\model-input.npz",
+        "input_sha256": "fc9478949f06d5c4c53e77caeb25426eba84b5df93a95c32335b638f912e83f3",
+        "contract_sha256": "7abaa3433878c47b225bfc2d7077b91e448bb6b529ef1277a7737bd550441017",
+        "config_sha256": "63589c3fb02847d7971f3d39753d08be483c7c9ff2f7acc74a2481bf356062d2",
+        "implementation_sha256": "26be9b43ba03908934e3a3d9ebddf0bd6422a7fa5331412266073660a57797c1",
+        "accepted_code_commit": "0c5bed151def7c2ae429c0bc894cdb3aead96251",
+        "gate_source": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\initialization\\s10_gpinit_gate.py",
+          "bytes": 8644,
+          "sha256": "9ed155fd22a49ad2bb2fb193030e848695cb9af9f437c1b40cf9172adb81640b"
+        },
+        "gate_status": "uncommitted_preparation_review",
+        "environment": {
+          "schema": "bsfm.preparation-environment-check.v1",
+          "role": "gpinit",
+          "executable": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\gpinit-20261102\\python\\Scripts\\python.exe",
+            "bytes": 270616,
+            "sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb"
+          },
+          "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+          "packages": {
+            "joblib": "1.4.2",
+            "numpy": "2.1.3",
+            "pip": "23.2.1",
+            "scikit-learn": "1.4.2",
+            "scipy": "1.14.1",
+            "threadpoolctl": "3.5.0"
+          },
+          "lock": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\gpinit\\source-lock.json",
+            "bytes": 6714,
+            "sha256": "5f86291e8657de3a2129843dd0db40ec5ffb903fc8381c6982bc5a1a179115da"
+          },
+          "runtime_lock": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\gpinit\\source-lock.json",
+            "bytes": 6714,
+            "sha256": "5f86291e8657de3a2129843dd0db40ec5ffb903fc8381c6982bc5a1a179115da"
+          },
+          "runtime_files": [
+            {
+              "path": "C:\\Program Files\\Python312\\python.exe",
+              "bytes": 103192,
+              "sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0"
+            },
+            {
+              "path": "C:\\Program Files\\Python312\\python312.dll",
+              "bytes": 6972184,
+              "sha256": "e7890e38256f04ee0b55ac5276bbf3ac61392c3a3ce150bb5497b709803e17ce"
+            },
+            {
+              "path": "C:\\Program Files\\Python312\\python3.dll",
+              "bytes": 68376,
+              "sha256": "1e9224ba7190b6301ef47befa8e383d0c55700255d04a36f7dac88ea9573f2fb"
+            }
+          ],
+          "installed_record_files_checked": 3772,
+          "authenticated_wheel_files_checked": 0,
+          "user_site": false,
+          "system_site": false,
+          "status": "pass",
+          "limitation": "Installed RECORD integrity and accepted install/source lock; cached wheel byte comparison not performed"
+        },
+        "preparation_producer": {
+          "baseline_commit": "0c5bed151def7c2ae429c0bc894cdb3aead96251",
+          "worktree_clean": false,
+          "generating_commit": null,
+          "status": "uncommitted_preparation_review_evidence",
+          "source_files": [
+            {
+              "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\initialization\\s10_preparation.py",
+              "bytes": 14224,
+              "sha256": "b5393568b9afd7e0356962a1dcb8bc128ed46d078c1d701160294050be64514d"
+            },
+            {
+              "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\initialization\\preparation_environment.py",
+              "bytes": 5343,
+              "sha256": "9805192e25d0925b030fa04cb967e3aa2be091b12781b48f425cb8b7dbbf02ff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "gpinit-run2",
+      "certificate": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2\\certificate.json",
+        "bytes": 30115,
+        "sha256": "1a1d093ec8fcadcc061603152d37480e67635ca2346d7507ccfa5bb15c679baa"
+      },
+      "output": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2\\gpinit.npz",
+        "bytes": 1486057,
+        "sha256": "59e60b385f7a012c23322606dc194f46812e7bbfa4220201530f0547fa763374"
+      },
+      "fit_seconds": 68.82955070000025,
+      "execution": {
+        "command": [
+          "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\gpinit-20261102\\python\\Scripts\\python.exe",
+          "-B",
+          "-u",
+          "-m",
+          "bsfm.initialization.s10_gpinit_gate",
+          "--prepared",
+          "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared",
+          "--output",
+          "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2"
+        ],
+        "pid": 14676,
+        "exit_code": 0,
+        "wall_seconds": 73.08404069999233,
+        "sampled_peak_process_tree_working_set_bytes": 266620928,
+        "os_peak_parent_working_set_bytes": 4411392,
+        "sample_interval_seconds": 0.2,
+        "scope": "includes environment authentication, fit, serialization and readback",
+        "log": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2.log"
+      },
+      "checks": {
+        "status": "pass",
+        "settings": {
+          "factors": 20,
+          "nfit": 250,
+          "seed": 2026102610
+        },
+        "dimensions": {
+          "types": 3,
+          "genes": 91,
+          "cells": 9422
+        },
+        "output": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2\\gpinit.npz",
+          "bytes": 1486057,
+          "sha256": "59e60b385f7a012c23322606dc194f46812e7bbfa4220201530f0547fa763374"
+        },
+        "certificate": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2\\certificate.json",
+          "bytes": 30115,
+          "sha256": "1a1d093ec8fcadcc061603152d37480e67635ca2346d7507ccfa5bb15c679baa"
+        },
+        "input": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\model-input.npz",
+          "bytes": 547049,
+          "sha256": "fc9478949f06d5c4c53e77caeb25426eba84b5df93a95c32335b638f912e83f3"
+        },
+        "contract": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\input-contract.json",
+          "bytes": 12030,
+          "sha256": "7abaa3433878c47b225bfc2d7077b91e448bb6b529ef1277a7737bd550441017"
+        },
+        "output_logical_hashes": {
+          "Lam_seed": "aed52a58df9e5db7d896068e4d6fa5da20da1cc5229360962dd3eb31f29b74e5",
+          "eta_seed": "4100d7529e099b7f7513516d661f95c0ce565296c391b8e9894e7b8100cc0e84",
+          "theta_prior_mu": "0ecd89a79560b10fcbd499584bf9df85459870971c3065df15842c9f72d2a2c1",
+          "field_ls": "05884c0aaacc09eb4d7b4047af0dd0a7648749a7c0ed9613a00e56a77f71f98b",
+          "theta_seed": "05884c0aaacc09eb4d7b4047af0dd0a7648749a7c0ed9613a00e56a77f71f98b",
+          "singular_values": "d2a372e8a973a30445336893c8dc3aa0bc6098131fffdee3c6d27f9d33d965d6",
+          "seed_vs_smoothed_correlation": "9feb12cc65f3d9a5a4b2a25c657d53850917b0a425c0258ead6eccfd5e9ef64e",
+          "seed_vs_observed_correlation": "e22e809195823585d9580bb81fdc33c9349866f1733a4b02d2999948e857344f"
+        },
+        "loading_orthogonality_max": 7.355227538141662e-16,
+        "eta_mean_max": 2.4886340776993533e-17,
+        "eta_gram_relative_error": 1.3726978254733055e-15,
+        "product_norm_relative_error": 1.790043944658092e-16,
+        "truncation_identity_relative_error": 0.0,
+        "thresholds": {
+          "orthogonality_atol": 1e-13,
+          "eta_mean_atol": 1e-13,
+          "svd_identity_rtol": 1e-12
+        },
+        "fitting_points": [
+          250,
+          250,
+          250
+        ],
+        "input_unchanged": true
+      },
+      "warnings": {
+        "ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k1__constant_value is close to the specified lower bound 0.01. Decreasing the bound and calling fit again may find a better value.": 96,
+        "ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified upper bound 3.0. Increasing the bound and calling fit again may find a better value.": 40,
+        "ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified lower bound 0.02. Decreasing the bound and calling fit again may find a better value.": 41,
+        "ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 0.001. Decreasing the bound and calling fit again may find a better value.": 24
+      },
+      "environment": {
+        "schema": "bsfm.preparation-environment-check.v1",
+        "role": "gpinit",
+        "executable": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\gpinit-20261102\\python\\Scripts\\python.exe",
+          "bytes": 270616,
+          "sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb"
+        },
+        "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+        "packages": {
+          "joblib": "1.4.2",
+          "numpy": "2.1.3",
+          "pip": "23.2.1",
+          "scikit-learn": "1.4.2",
+          "scipy": "1.14.1",
+          "threadpoolctl": "3.5.0"
+        },
+        "lock": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\gpinit\\source-lock.json",
+          "bytes": 6714,
+          "sha256": "5f86291e8657de3a2129843dd0db40ec5ffb903fc8381c6982bc5a1a179115da"
+        },
+        "runtime_lock": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\gpinit\\source-lock.json",
+          "bytes": 6714,
+          "sha256": "5f86291e8657de3a2129843dd0db40ec5ffb903fc8381c6982bc5a1a179115da"
+        },
+        "runtime_files": [
+          {
+            "path": "C:\\Program Files\\Python312\\python.exe",
+            "bytes": 103192,
+            "sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0"
+          },
+          {
+            "path": "C:\\Program Files\\Python312\\python312.dll",
+            "bytes": 6972184,
+            "sha256": "e7890e38256f04ee0b55ac5276bbf3ac61392c3a3ce150bb5497b709803e17ce"
+          },
+          {
+            "path": "C:\\Program Files\\Python312\\python3.dll",
+            "bytes": 68376,
+            "sha256": "1e9224ba7190b6301ef47befa8e383d0c55700255d04a36f7dac88ea9573f2fb"
+          }
+        ],
+        "installed_record_files_checked": 3772,
+        "authenticated_wheel_files_checked": 0,
+        "user_site": false,
+        "system_site": false,
+        "status": "pass",
+        "limitation": "Installed RECORD integrity and accepted install/source lock; cached wheel byte comparison not performed"
+      },
+      "provenance": {
+        "input": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\model-input.npz",
+        "input_sha256": "fc9478949f06d5c4c53e77caeb25426eba84b5df93a95c32335b638f912e83f3",
+        "contract_sha256": "7abaa3433878c47b225bfc2d7077b91e448bb6b529ef1277a7737bd550441017",
+        "config_sha256": "63589c3fb02847d7971f3d39753d08be483c7c9ff2f7acc74a2481bf356062d2",
+        "implementation_sha256": "26be9b43ba03908934e3a3d9ebddf0bd6422a7fa5331412266073660a57797c1",
+        "accepted_code_commit": "0c5bed151def7c2ae429c0bc894cdb3aead96251",
+        "gate_source": {
+          "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\initialization\\s10_gpinit_gate.py",
+          "bytes": 8644,
+          "sha256": "9ed155fd22a49ad2bb2fb193030e848695cb9af9f437c1b40cf9172adb81640b"
+        },
+        "gate_status": "uncommitted_preparation_review",
+        "environment": {
+          "schema": "bsfm.preparation-environment-check.v1",
+          "role": "gpinit",
+          "executable": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_ENVIRONMENTS\\gpinit-20261102\\python\\Scripts\\python.exe",
+            "bytes": 270616,
+            "sha256": "d55736b9f3d6b4ca7985b82db8ce11edfa09994cf93ce31c6b506543b74f32eb"
+          },
+          "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+          "packages": {
+            "joblib": "1.4.2",
+            "numpy": "2.1.3",
+            "pip": "23.2.1",
+            "scikit-learn": "1.4.2",
+            "scipy": "1.14.1",
+            "threadpoolctl": "3.5.0"
+          },
+          "lock": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\gpinit\\source-lock.json",
+            "bytes": 6714,
+            "sha256": "5f86291e8657de3a2129843dd0db40ec5ffb903fc8381c6982bc5a1a179115da"
+          },
+          "runtime_lock": {
+            "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\environment\\gpinit\\source-lock.json",
+            "bytes": 6714,
+            "sha256": "5f86291e8657de3a2129843dd0db40ec5ffb903fc8381c6982bc5a1a179115da"
+          },
+          "runtime_files": [
+            {
+              "path": "C:\\Program Files\\Python312\\python.exe",
+              "bytes": 103192,
+              "sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0"
+            },
+            {
+              "path": "C:\\Program Files\\Python312\\python312.dll",
+              "bytes": 6972184,
+              "sha256": "e7890e38256f04ee0b55ac5276bbf3ac61392c3a3ce150bb5497b709803e17ce"
+            },
+            {
+              "path": "C:\\Program Files\\Python312\\python3.dll",
+              "bytes": 68376,
+              "sha256": "1e9224ba7190b6301ef47befa8e383d0c55700255d04a36f7dac88ea9573f2fb"
+            }
+          ],
+          "installed_record_files_checked": 3772,
+          "authenticated_wheel_files_checked": 0,
+          "user_site": false,
+          "system_site": false,
+          "status": "pass",
+          "limitation": "Installed RECORD integrity and accepted install/source lock; cached wheel byte comparison not performed"
+        },
+        "preparation_producer": {
+          "baseline_commit": "0c5bed151def7c2ae429c0bc894cdb3aead96251",
+          "worktree_clean": false,
+          "generating_commit": null,
+          "status": "uncommitted_preparation_review_evidence",
+          "source_files": [
+            {
+              "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\initialization\\s10_preparation.py",
+              "bytes": 14224,
+              "sha256": "b5393568b9afd7e0356962a1dcb8bc128ed46d078c1d701160294050be64514d"
+            },
+            {
+              "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\src\\bsfm\\initialization\\preparation_environment.py",
+              "bytes": 5343,
+              "sha256": "9805192e25d0925b030fa04cb967e3aa2be091b12781b48f425cb8b7dbbf02ff"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "repeat": {
+    "status": "pass",
+    "all_output_arrays_exact": true,
+    "diagnostics_exact": [
+      "input_identities",
+      "fitting_indices",
+      "diagnostic_fitting_indices",
+      "centered_surface_sha256",
+      "all_singular_values",
+      "surface_norm",
+      "surface_mean_max",
+      "truncation_error",
+      "loading_orthogonality_max",
+      "eta_mean_max",
+      "eta_sd",
+      "maximum_input_recentering_mean",
+      "warnings",
+      "output_logical_hashes"
+    ],
+    "file_bytes_equal": true,
+    "timing_excluded": true,
+    "no_historical_output_equality_expected": true
+  },
+  "historical_rejections": [
+    {
+      "kind": "historical_input",
+      "source": {
+        "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\inputs\\S10__WT5\\OBSERVATIONS.npz",
+        "bytes": 630227,
+        "sha256": "c6356cc2da031e441c1955e831308cc1c3f87ac391845fa40feede1ba97ba4fc"
+      },
+      "shape": [
+        91,
+        4712
+      ],
+      "rejected": true,
+      "reason": "Canonical full-cell S10 requires Y[91,9422]"
+    },
+    {
+      "kind": "accepted_port_on_historical_population",
+      "source": {
+        "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\gpinit_S10_20261102\\port\\gpinit.npz",
+        "bytes": 765869,
+        "sha256": "b45851298e01ef3818c6166f950e7717eba144864f517ee7554b15d0d5d27c8e"
+      },
+      "rejected": true,
+      "reason": "Canonical full-cell GPINIT dimensions"
+    },
+    {
+      "kind": "original_historical_GPINIT",
+      "archive": {
+        "path": "D:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1_READY.tar.gz",
+        "bytes": 98111074,
+        "sha256": "4458f784c8e760893c5fcd620f8ec74f40d9f504a0fa7d5fcbda9f29fe600f07"
+      },
+      "member": "inputs/S10__WT5/gpinit/gpinit.npz",
+      "sha256": "e912139820413de0e4f5365cd0d8eb70512b71a9f31c32bd042d565b04f044fc",
+      "bytes": 765813,
+      "eta_shape": [
+        20,
+        4712
+      ],
+      "rejected": true,
+      "reason": "Canonical full-cell GPINIT requires eta_seed[20,9422]"
+    }
+  ],
+  "independent_final_validation": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\final-validation.json",
+    "bytes": 9413,
+    "sha256": "16ef25e423b6f7ccf15e60a0f9422079e8309632373c9e884a1db64ebcf26a71"
+  },
+  "schema_and_join_validation": {
+    "status": "pass",
+    "schema": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\bsfm-spatial-transcriptomics\\schemas\\initialization\\s10-prepared-input.schema.json",
+      "bytes": 5531,
+      "sha256": "53032f3668ddaf6b6db6567d2973c66419ec5bedfdb48ffda98dd0434f3e701c"
+    },
+    "contract": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\input-contract.json",
+      "bytes": 12030,
+      "sha256": "7abaa3433878c47b225bfc2d7077b91e448bb6b529ef1277a7737bd550441017"
+    },
+    "corruption_cases": {
+      "half_population": "rejected",
+      "retained_support": "rejected",
+      "truncated_modes": "rejected",
+      "unproven_rows": "rejected"
+    },
+    "join_table": {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\cell-join.csv",
+      "bytes": 1271009,
+      "sha256": "bc3da42b2bb2f050084bd94bff301706f8267486660385d589cfee091433b90b"
+    },
+    "rows": 9422,
+    "cell_ids_committed_to_git": false
+  },
+  "tests": {
+    "preparation_unit_tests": 15,
+    "accepted_GPINIT_tests": 13,
+    "all_passed": true,
+    "schema_corruption_rejections": 4,
+    "historical_population_rejections": 3
+  },
+  "artifact_root_machine_local": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103",
+  "external_artifacts": [
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\cell-join.csv",
+      "bytes": 1271009,
+      "sha256": "bc3da42b2bb2f050084bd94bff301706f8267486660385d589cfee091433b90b"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\executed-source\\manifest.json",
+      "bytes": 1341,
+      "sha256": "82d27bba0540eaa878a4158d4919505670c4fd687d82e203bb2b2b783fbdb082"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\executed-source\\preparation_environment.py",
+      "bytes": 5343,
+      "sha256": "9805192e25d0925b030fa04cb967e3aa2be091b12781b48f425cb8b7dbbf02ff"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\executed-source\\s10_gpinit_gate.py",
+      "bytes": 8644,
+      "sha256": "9ed155fd22a49ad2bb2fb193030e848695cb9af9f437c1b40cf9172adb81640b"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\executed-source\\s10_preparation.py",
+      "bytes": 14224,
+      "sha256": "b5393568b9afd7e0356962a1dcb8bc128ed46d078c1d701160294050be64514d"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\final-validation.json",
+      "bytes": 9413,
+      "sha256": "16ef25e423b6f7ccf15e60a0f9422079e8309632373c9e884a1db64ebcf26a71"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1\\certificate.json",
+      "bytes": 30115,
+      "sha256": "ca65037751075895cf29bd7bc8c222c773302bde287d6c216d489df4997331f0"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1\\gpinit.npz",
+      "bytes": 1486057,
+      "sha256": "59e60b385f7a012c23322606dc194f46812e7bbfa4220201530f0547fa763374"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1\\independent-validation.json",
+      "bytes": 2437,
+      "sha256": "1a7b74bfdbcc7bba509a5c5c02b60dc7023bad51b7e236c1395cad0e4bc2e5d0"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1-execution.json",
+      "bytes": 920,
+      "sha256": "5b8ee89214575abbe1fd7867acfe134327f7dcf93cd0f4261f1c68c0f9d8f08c"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run1.log",
+      "bytes": 2899,
+      "sha256": "3d2520795369369fee1b688fc556c5124e5340e6bb81715113942aa35c021520"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2\\certificate.json",
+      "bytes": 30115,
+      "sha256": "1a1d093ec8fcadcc061603152d37480e67635ca2346d7507ccfa5bb15c679baa"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2\\gpinit.npz",
+      "bytes": 1486057,
+      "sha256": "59e60b385f7a012c23322606dc194f46812e7bbfa4220201530f0547fa763374"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2\\independent-validation.json",
+      "bytes": 2437,
+      "sha256": "a7e30c9dbc99e86702908552b3abcf0ced02e03ce01ebbb8e84f83d8f4a57d91"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2-execution.json",
+      "bytes": 921,
+      "sha256": "97ec90726b5c30989464eaddb3d280b65d66cdab409db5386ba5af1360b140b7"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\gpinit-run2.log",
+      "bytes": 2899,
+      "sha256": "8fe838eb59cc781977de6d67d268112b1400424b9e685905de455a41cf9d1e01"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\input-contract.json",
+      "bytes": 12030,
+      "sha256": "7abaa3433878c47b225bfc2d7077b91e448bb6b529ef1277a7737bd550441017"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\model-input.npz",
+      "bytes": 547049,
+      "sha256": "fc9478949f06d5c4c53e77caeb25426eba84b5df93a95c32335b638f912e83f3"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\prepared\\preparation-validation.json",
+      "bytes": 1163,
+      "sha256": "2355ed6f788eaeb2f0a97129b087b875e5311fc1f2ab7d5a809d534545e0312e"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\provenance-validation.json",
+      "bytes": 7648,
+      "sha256": "d83488f5def118d09a1d90502f3c482b61ed5c3e545eaaaee1179927f46d7e2e"
+    },
+    {
+      "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\schema-and-join-validation.json",
+      "bytes": 1055,
+      "sha256": "61446785c1b759cc1a5859eb88c625b0519bce690db66a7e0228a8f86fc60ecc"
+    }
+  ],
+  "total_external_artifact_bytes": 4923776,
+  "no_environment_changes": true,
+  "no_accepted_numerical_changes": true,
+  "no_HPC": true,
+  "no_layer9_execution": true,
+  "limitations": [
+    "Uncommitted preparation/validation wrapper; baseline and exact source hashes do not constitute a clean generating commit",
+    "Mechanical K=20, nfit=250, seed=2026102610; no production parameter selection",
+    "Full-data preprocessing is ineligible for primary holdout scoring",
+    "Windows CPU environment only",
+    "201 optimizer bound warnings per fit retained; no tuning or bound changes",
+    "Resource peak is a 0.2-second sampled process-tree working set, not a guaranteed instantaneous maximum",
+    "GPINIT installed RECORD/source-lock authentication does not newly prove wheel-to-installed-byte equality",
+    "Original response deep validation authenticated, not repeated SCT fitting or R recorrection"
+  ],
+  "additional_provenance_validation": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\provenance-validation.json",
+    "bytes": 7648,
+    "sha256": "d83488f5def118d09a1d90502f3c482b61ed5c3e545eaaaee1179927f46d7e2e"
+  },
+  "executed_source_capture_manifest": {
+    "path": "C:\\Users\\Data Viz\\Desktop\\Anderson_Hail\\BSFM_EXPERIMENTS\\canonical_S10_preparation_20261103\\executed-source\\manifest.json",
+    "bytes": 1341,
+    "sha256": "82d27bba0540eaa878a4158d4919505670c4fd687d82e203bb2b2b783fbdb082"
+  },
+  "post_fit_validator_amendment": "Metadata-only explicit comparison of certificate code commit/configuration/environment/preparation producer; no refit, numerical or tolerance change; exact executed sources preserved externally",
+  "acceptance": {
+    "implementation": "accepted",
+    "v1_artifacts": "immutable uncommitted review evidence; not canonical",
+    "required_next_gate": "fresh clean-commit v2 regeneration",
+    "warning_comparison_evidence": "user supplied independent review",
+    "warning_comparison": {
+      "constant_lower_bound": {
+        "old": 100,
+        "full_cell": 96
+      },
+      "length_upper_bound": {
+        "old": 50,
+        "full_cell": 40
+      },
+      "length_lower_bound": {
+        "old": 45,
+        "full_cell": 41
+      },
+      "noise_lower_bound": {
+        "old": 21,
+        "full_cell": 24
+      },
+      "total": {
+        "old": 216,
+        "full_cell": 201
+      }
+    },
+    "full_cell_summary": {
+      "theta_prior_mu": 0.1042418124099303,
+      "factor_length_min_approx": 0.0445,
+      "factor_length_max_approx": 0.2414,
+      "factor_lengths_at_diagnostic_bounds": false,
+      "diagnostic_bounds": [
+        0.02,
+        1.5
+      ],
+      "seed_vs_smoothed_correlation": 0.9683669678903485,
+      "seed_vs_observed_correlation": 0.2295329332610675
+    },
+    "interpretation": "The smoother extracts spatial initialization signal rather than reconstructing all observed expression. Optimizer-bound warnings are constrained-fit diagnostics, not harmless posterior diagnostics. No retuning authorized.",
+    "gate_status_amendment": "Provenance status now follows preparation producer status; no numerical code or settings changed."
+  }
+}
