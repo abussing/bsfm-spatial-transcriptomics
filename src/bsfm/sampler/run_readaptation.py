@@ -13,6 +13,8 @@ from .run_storage import file_record, read_json, writer
 
 def parent_endpoint(parent):
     """Authenticate the complete immutable parent transaction chain under its lock."""
+    if hasattr(parent, 'completed_endpoint'):
+        return parent.completed_endpoint()
     with writer(parent.store.root):
         parent.authenticate()
         path = parent.store.segment/'genesis'
