@@ -1,5 +1,9 @@
 # Additional V100 32GB submissions
 
+The idle generic queue was identified as P100 and passed bounded execution
+validation. [A paired P100 fallback](P100_RUNNING.md) was additionally submitted;
+the V100 submissions below remain in place.
+
 The user explicitly requested additional submissions rather than moving the
 original eight pending V100 16GB jobs. The existing jobs 22014441-22014448 remain
 in place at generating commit `18e437fc7960860f093bc0a79481fff356b4e1e9`.
