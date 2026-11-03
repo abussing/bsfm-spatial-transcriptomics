@@ -1,5 +1,20 @@
 # Current BSFM handoff
 
+## User-directed stop and periodic-saving replacement in progress
+
+The user requested stopping all BSFM jobs and relaunching with inexpensive
+periodic saving and leave-out metrics. All 24 active BSFM jobs, including
+22016018–22016025 and the older 16 alternatives, were canceled. Files remain.
+The remaining `cs-*` jobs are a separate centering simulation and were not touched.
+
+Candidate `2551f6d3c71be8956ab5d6f649371a2ad4615342` adds compact periodic
+checkpoints/draws (first, every10, final), no duplicate projections, and an
+independent streaming predictive-density scorer. Seven focused local tests pass.
+Real GPU gate **22016122** is pending at this checkpoint; no replacement scientific
+fit has been submitted yet. Read
+[the policy and committed validation specification](recovery/gpu-workflow-20261103/PERIODIC_SAVING.md).
+Do not use the older running-job statements below as current state.
+
 ## GPU correction passed complete replay; eight fresh V100 fits running
 
 Read [the completed correction and fresh job map](recovery/gpu-workflow-20261103/FIXED_GRADIENT_RESULTS.md).
