@@ -1,5 +1,30 @@
 # Current BSFM handoff
 
+## GPU workflow consolidation audit, 2026-11-03
+
+The user requested renewed stage-by-stage consolidation of historical practice,
+recent conversations/submissions and the current GPU workflow. Read the
+[staged evidence audit](recovery/gpu-workflow-20261103/AUDIT.md) on
+`review/gpu-workflow-consolidation-20261103`, based on execution commit `ac886d7`.
+Accepted main was separately fetched and remains `c42e058` at this inspection;
+this review branch does not promote Layer 9 to accepted main.
+
+Source capture verification and fresh same-runtime 50/100-step adaptation,
+split transition and literal Gibbs chronology checks passed. Repeated full-history
+transaction/archive validation is a confirmed orchestration scaling problem.
+An incremental storage candidate is under local fault testing, not enabled in
+any launcher and not deployed. Preserve strict resume/publication/RNG guarantees;
+do not edit current jobs' immutable commits or software contracts.
+
+The user authorized cancellation of the six remaining CPU hole jobs and both
+P100 jobs; cancellation was confirmed. Their saved data remains. The eight
+primary V100 jobs (four flat, four deep) were still RUNNING during this audit.
+Other same-seed queue alternatives must not be pooled as independent chains.
+The meeting flat snapshot is preserved under `evidence/meeting-flat-922a558`
+on HPC and described in `docs/holdouts/s10-grid-20261103/MEETING_RESULTS.md`.
+
+Older sections below are chronological evidence and do not supersede this audit.
+
 ## Latest execution checkpoint: small L4 smoke completed
 
 Job **22013500** completed successfully in **2 minutes 32 seconds**, exit 0:0,

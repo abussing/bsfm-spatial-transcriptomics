@@ -1,0 +1,135 @@
+{
+  "scope": "Synthetic same-runtime CPU lineage comparison; not GPU performance validation",
+  "checks": [
+    {
+      "stage": "adaptation",
+      "steps": 50,
+      "all_leaves_exact": true
+    },
+    {
+      "stage": "adaptation",
+      "steps": 100,
+      "all_leaves_exact": true
+    },
+    {
+      "stage": "layer5_gaussian_and_canonical_transition",
+      "exact": true
+    },
+    {
+      "stage": "layer6_literal_chronology_state_diagnostics_rng",
+      "exact": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\full_split.py",
+      "bytes": 4705,
+      "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd"
+    },
+    {
+      "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\run_c3full_fixed_profile_nuts.py",
+      "bytes": 94890,
+      "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49"
+    }
+  ],
+  "driver": {
+    "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\layer9-review-20261103\\run_c3full_fixed_profile_nuts.py",
+    "bytes": 94890,
+    "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+    "top_statement_lines": [
+      1121,
+      1122,
+      1150,
+      1151,
+      1156,
+      1166,
+      1170,
+      1172,
+      1179,
+      1180
+    ],
+    "inner_statement_lines": [
+      1123,
+      1127,
+      1128,
+      1131,
+      1143,
+      1145,
+      1146
+    ],
+    "factor_statement_lines": [
+      1181,
+      1182,
+      1183,
+      1186,
+      1188,
+      1189,
+      1193,
+      1194,
+      1198,
+      1201,
+      1202,
+      1203,
+      1204,
+      1208,
+      1212,
+      1225,
+      1263,
+      1270
+    ],
+    "selected_AST_sha256": "17adf5454dc2423d3f27d5bcea88e4439c1205cacbc34e81eba6aae1f189b9a7",
+    "exclusions": "captures, persistent diagnostics, containment/fidelity monitoring, fixed-loading-precision branch; no numerical/RNG update omitted"
+  },
+  "status": "PASS",
+  "elapsed_seconds": 425.155999999959,
+  "environment": {
+    "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+    "jax": "0.7.0",
+    "numpy": "2.1.3",
+    "backend": "cpu"
+  },
+  "source_hashes": {
+    "src\\bsfm\\sampler\\active.py": "dea6a16f8b3e6e06e953c309b6098b695f8d7e30d15ffff72f37a563161abe0b",
+    "src\\bsfm\\sampler\\centered_hyper_kernels.py": "39fafe38e32837df5b8763b46f775c2e79eb9d3fdb887ea855ce1455d78a9680",
+    "src\\bsfm\\sampler\\chart.py": "1132b490d80dca76fc6534300df7eb06e3fe6a55ec9a84ea1deb5129fae10394",
+    "src\\bsfm\\sampler\\checkpoint.py": "5976cfdde8e5f01dec93efa1ce5042a098d3c563721ce6eaa02f88ab82439109",
+    "src\\bsfm\\sampler\\checkpoint_contract.py": "1a9528aa6c52e96116816d39aae1a4234df21b63d00326cc85731fba5608dae8",
+    "src\\bsfm\\sampler\\checkpoint_rng.py": "7f90954a19e8c9b45ccd24ad40171fc61420ef101bec52ff9c0253aeff829639",
+    "src\\bsfm\\sampler\\conjugate.py": "1c7d9885e4ae99a2bcced723252b25a02a6adae189f584b17a4806b52abf41fb",
+    "src\\bsfm\\sampler\\contracts.py": "72bc243cfa398217e24d863caf60bd4d920cc2c269a3f58bab7aea7c3676b0bf",
+    "src\\bsfm\\sampler\\factor_statistics.py": "a25b1c7f9a75d7f3b98646bacbef25ffa82c725832b3f5f03b15ce0888a3498a",
+    "src\\bsfm\\sampler\\field_kernels.py": "4f8ce74284404f1f56dac3796dadf50ada0e41d33a74bf852e4cee54fc07ccc5",
+    "src\\bsfm\\sampler\\field_target.py": "194d5aa3f46a29028f91b6e0320dc1ce8ceb65f2f06b5d6519ecd4ca72554fd4",
+    "src\\bsfm\\sampler\\finite_features.py": "5ba42ec0a747b95c1d820c8d9b0f1e763b0598fa9b3e7cfdb2958870d0e09b73",
+    "src\\bsfm\\sampler\\flat_control.py": "014a48982173b22c45b456ff37d89596c2c67d270c38e0c184940665061f5da2",
+    "src\\bsfm\\sampler\\holdout_prediction.py": "cc5e1c819b48e7e6899b175cda6a8244b229377a90714229d6e6782912fb9b31",
+    "src\\bsfm\\sampler\\joint_eta_kernels.py": "850b77cf86d23dcd9953aab776f3783d974eaea3d8338acfc9622a6686024b7d",
+    "src\\bsfm\\sampler\\layer4.py": "fd1c8f560aebf3e9cbdc777524a70c1684c50b06650c2f4c6761f9d1460052b9",
+    "src\\bsfm\\sampler\\layer5.py": "e48acaff932409d14a719835cf57762981beb4ec8e304d9547a238fb537c50e8",
+    "src\\bsfm\\sampler\\layer6.py": "b6e93373a10c1b2de0416fc4d59a107f4fbc9e7f1b3f81149531ae6c2a049626",
+    "src\\bsfm\\sampler\\projector_encoding.py": "f3cfe600b412fc48b832fb4d13139f8de3205d4e760837cb9573b05d0c3c4a8e",
+    "src\\bsfm\\sampler\\px.py": "989d86e7bc15d9ed3dc70d0896f79ecdf9c705a065fce64300fbad4bf30cae82",
+    "src\\bsfm\\sampler\\retained_archive.py": "abbecd059ca364157ed884b2f76214129b87ff733c8075ff66148106673bade0",
+    "src\\bsfm\\sampler\\retained_contract.py": "60a1ad33e22cda6e2418642edde6d486ac4796ebd0b8d440be4b23b57a93dbe1",
+    "src\\bsfm\\sampler\\retained_diagnostics.py": "fff6950887410e46f57965dff8a2c8179bf9791035e017c824e63ad6911f78b9",
+    "src\\bsfm\\sampler\\retained_records.py": "c7e20c977e242f6cae69a0f7379f7bf38dc8f5b226afd21947686357241a76b1",
+    "src\\bsfm\\sampler\\rule.py": "d26ce474aee5aa85a05d46d28c47a5ac36b557e1e8742a95db8bcb2ecca3a816",
+    "src\\bsfm\\sampler\\run_chart.py": "c6ad9d8ed8f078be7a296a1ee3265bda177816985ad0d18825c2c14826365fad",
+    "src\\bsfm\\sampler\\run_controller.py": "3cb1573b0dab9f702b10bb8521a9693e0c3e8a491242c3d2fa110fb16fba77b2",
+    "src\\bsfm\\sampler\\run_genesis.py": "b0cdb278f0e335ac1d7aa6cbb273844502542a43c2efbd8e507c415c704188f2",
+    "src\\bsfm\\sampler\\run_incremental.py": "930a544824b36c120156e8413c009d1494ce8a4b368512c60b7c32dffb92a681",
+    "src\\bsfm\\sampler\\run_initialization.py": "c11930951d93d3fcc9eb95023933f5d413eb1544112f6c95aac7e35f117e9fbb",
+    "src\\bsfm\\sampler\\run_inputs.py": "16648ab5f6019abf8b2502cc5600c771f2d252a93cfc7fff465c07d0e76e39c1",
+    "src\\bsfm\\sampler\\run_linux_environment.py": "8388e58b958eabdacd24a9d2b074c594208eca169ac47e8b16c51cda87c6e066",
+    "src\\bsfm\\sampler\\run_linux_storage.py": "2f06557eb8b80b781245a5619b4bec575c2387fb72746133ae7dba7548580bcb",
+    "src\\bsfm\\sampler\\run_readaptation.py": "a001c440b6646ae26568c129c1a7b6311ec5c5bb12268c0ef5d17ae3b8ac4006",
+    "src\\bsfm\\sampler\\run_receipts.py": "82c15f73ce3eb88544e656fbd0f20bed2c91cbc799ad66c1ee21b3d93589d286",
+    "src\\bsfm\\sampler\\run_storage.py": "26c41b7ed37343eb068edfb3fac9b6aa37f5f4595d134e1a4f2fd3dcf274f3c6",
+    "src\\bsfm\\sampler\\run_transactions.py": "db73737ff297221655ce8ff32c933cbded65d552d8c046383af968506f1fde12",
+    "src\\bsfm\\sampler\\shrinkage.py": "8e97942a1eb2070de7534cebb933edd3b607cdff8eb3e61872312c00e88c4bd5",
+    "src\\bsfm\\sampler\\spectral.py": "548677908b03e4f4e94008f9ecf98acdd3f2a30f6634d41449d8fd0797392c56",
+    "src\\bsfm\\sampler\\split_kernels.py": "bd5296b9e3fd1b9f543d9597d1a6dea5aecb043e7c229d7879f390237bf59ff8",
+    "src\\bsfm\\sampler\\warp.py": "aaf3fbd1738e353ac5ded06a1bf4c658e8d96ef219c2e4ab5572629faa248b19",
+    "src\\bsfm\\sampler\\__init__.py": "c5426eeed5f8c731ffedf56a9135880b030caa0b8915bfae812fc963a41ef732"
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "status": "PASS",
+  "capture_sha256": "1f30047895579dde4f13c30aad7ab2ad161289df43df609be4d8eafc036aaf28",
+  "captured_files": 61,
+  "selected_sampler_matches": 8,
+  "files": [
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/PRODUCTION_CODE_MANIFEST.json",
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/CURRENT_CONFIGURATION.json",
+      "bytes": 2370,
+      "sha256": "61722bedd583bec3b55bc2dc68a84a82aa4d587231ff880504de17584a4f9485",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/PRODUCTION_LAUNCH_CONTRACT.json",
+      "bytes": 2240,
+      "sha256": "df94190a16293f39f479bf1da5e34e2b270690c6d9858f3b229c3abcda8f58e2",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/VALIDATION.json",
+      "bytes": 1637,
+      "sha256": "1b206a018d8d30afc458656126fed0983dffb7d6e8fa351ac252d4b55547f59a",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/PRODUCTION_RETENTION_CONTRACT.json",
+      "bytes": 3355,
+      "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/FILE_INDEX.json",
+      "bytes": 37465,
+      "sha256": "72b0416e5c5575b203c1d4b5dbd94b3198b02615d6c9f6c61f2bfe6754de9be8",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/MANIFEST.json",
+      "bytes": 7315,
+      "sha256": "9cad2e18322a8c8922f8e316e0e817bac0dc8fde11aded4f389c8751aadb2921",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/BSFM_ANALYSIS_ROADMAP.md",
+      "bytes": 3974,
+      "sha256": "1a983760ecd384beb0862246d719ed2375b25b50382ec868972fe53e3c0e93b2",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/PRODUCTION_OVERLAY_README.md",
+      "bytes": 1052,
+      "sha256": "4602deed295ff2fb9c7c673f5322e5ab44ca9bc40784760223986295752c0f0a",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/CURRENT_MODEL_AND_UPDATES.txt",
+      "bytes": 9965,
+      "sha256": "80de874eaf2a247ff02bd55ef57b776b915ca09e24e6be3500e250d307e5f137",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/RUNNING_AND_VALIDATION.txt",
+      "bytes": 3831,
+      "sha256": "3b91c28ccbdd711d576baf75f15add9dabd8b2cef56110bb63ed342b87a3f227",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/START_HERE.txt",
+      "bytes": 3500,
+      "sha256": "511099eca461fa56703a59758b0ca93a7004374df043db50b24c239162497d80",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/requirements-core.txt",
+      "bytes": 350,
+      "sha256": "8691274bd1684e30038a045f86120e77b7234de06b19d741dbab853711f124f2",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/production/build_all_k20_cell75_inputs.py",
+      "bytes": 4871,
+      "sha256": "67e8457461a522acea86537e2e26bbf5ff9e2c099b49368208962f969b8633cd",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/production/freeze_gene_panel.py",
+      "bytes": 4877,
+      "sha256": "3ae2a32108691ef7101a3ec27074151818707c8d33ecb6b668e46e79c5163327",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/production/audit_production_readiness.py",
+      "bytes": 3935,
+      "sha256": "5437af4736bc345133e35ff5a50bd5a3fedaddecae1441850ce02f57343568aa",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/production/prepare_sections.py",
+      "bytes": 7609,
+      "sha256": "c6fbec4f619e7fa65a8fbcea38da893a746af6c1124e5dbda116b1ad620c3248",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/production/build_k20_memory_gate.py",
+      "bytes": 5152,
+      "sha256": "e8543700c88b486476d3f2f1af361d904c2a5be40664c3ce476c2ce1add7e321",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/production/write_run_manifest.py",
+      "bytes": 3429,
+      "sha256": "ce94798d377b311db76f9d740fc5d90f6813776a03d701d2161ab331cadd4db5",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/production/build_k20_cell75_gate.py",
+      "bytes": 8112,
+      "sha256": "9392920a105903836e8b35ff57601a7ce7f9f0cff750a63b332e0b2f18632b00",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/production/diagnose_full_smoothed_rank.py",
+      "bytes": 2870,
+      "sha256": "0ae3d31f27b94b0e8244cbdad5f5f0da7ecf1d51d2a05be043e2d8c77bc2e16f",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/production/build_section_mesh.py",
+      "bytes": 14205,
+      "sha256": "05bd94a484d3e8c2161d72175143e864f0e46295b89f68ae42ac0f9af3753771",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/run_cloud.sh",
+      "bytes": 388,
+      "sha256": "6df3b2a3bbb2bf40d9f68b0c7aa45c7ff3ef59a64c62fd60276acc560a5b2928",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/launch.sh",
+      "bytes": 466,
+      "sha256": "8b44d012df5b35ffd4b75b3707909af2af75a63906b05077bd355b1cd5d4e887",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/prepare_cpu.sh",
+      "bytes": 862,
+      "sha256": "2713f6f120fff645f4161d487f4ba6240e29df812cb8b21de17df9df376af7d8",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/submit_prepare.sbatch",
+      "bytes": 334,
+      "sha256": "1e699732465cb6a3c06fd066b835295b98be9562e00861b09212bd891d49209d",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/prepare_inputs.py",
+      "bytes": 5797,
+      "sha256": "5589abd66ddc5dea3c186e426653a50620643c7c47f5b4303382a0c43e38ae13",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/cloud_run.py",
+      "bytes": 6606,
+      "sha256": "0c4c4b87aa9020574c2b34125c31a59776a5c4fc3101a194fefa497fa26c8dfc",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/validate_mesh.py",
+      "bytes": 4719,
+      "sha256": "5268ac6d10e0c14a8333b768dad703811f30f91a70a07f062972186fc99ac416",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/package_bundle.py",
+      "bytes": 2143,
+      "sha256": "60999ce2e114c61c72392b1a79e0bf631373539c036d218eb1ba2e3b1a38959e",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/run_c3full_fixed_profile_nuts.py",
+      "bytes": 94890,
+      "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "evidence": "measured source bytes; not execution",
+      "selected_source_match": true
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/restart_state.py",
+      "bytes": 6593,
+      "sha256": "943a934c35a862bbc8b2d7dd80bc81ea98987e8ef10d9e7cfb152d485094b111",
+      "evidence": "measured source bytes; not execution",
+      "selected_source_match": true
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/joint_eta_pcg.py",
+      "bytes": 12136,
+      "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c",
+      "evidence": "measured source bytes; not execution",
+      "selected_source_match": true
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_l4_k20_cell50_fmesher_20261026_v1/code/sampler/full_split.py",
+      "bytes": 4705,
+      "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd",
+      "evidence": "measured source bytes; not execution",
+      "selected_source_match": true
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/PRODUCTION_CODE_MANIFEST.json",
+      "bytes": 2394,
+      "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/CURRENT_CONFIGURATION.json",
+      "bytes": 2370,
+      "sha256": "61722bedd583bec3b55bc2dc68a84a82aa4d587231ff880504de17584a4f9485",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/PRODUCTION_LAUNCH_CONTRACT.json",
+      "bytes": 2240,
+      "sha256": "df94190a16293f39f479bf1da5e34e2b270690c6d9858f3b229c3abcda8f58e2",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/VALIDATION.json",
+      "bytes": 1637,
+      "sha256": "1b206a018d8d30afc458656126fed0983dffb7d6e8fa351ac252d4b55547f59a",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/PRODUCTION_RETENTION_CONTRACT.json",
+      "bytes": 3355,
+      "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/FILE_INDEX.json",
+      "bytes": 37465,
+      "sha256": "72b0416e5c5575b203c1d4b5dbd94b3198b02615d6c9f6c61f2bfe6754de9be8",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/MANIFEST.json",
+      "bytes": 7315,
+      "sha256": "9cad2e18322a8c8922f8e316e0e817bac0dc8fde11aded4f389c8751aadb2921",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/BSFM_ANALYSIS_ROADMAP.md",
+      "bytes": 3974,
+      "sha256": "1a983760ecd384beb0862246d719ed2375b25b50382ec868972fe53e3c0e93b2",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/PRODUCTION_OVERLAY_README.md",
+      "bytes": 1052,
+      "sha256": "4602deed295ff2fb9c7c673f5322e5ab44ca9bc40784760223986295752c0f0a",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/CURRENT_MODEL_AND_UPDATES.txt",
+      "bytes": 9965,
+      "sha256": "80de874eaf2a247ff02bd55ef57b776b915ca09e24e6be3500e250d307e5f137",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/RUNNING_AND_VALIDATION.txt",
+      "bytes": 3831,
+      "sha256": "3b91c28ccbdd711d576baf75f15add9dabd8b2cef56110bb63ed342b87a3f227",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/START_HERE.txt",
+      "bytes": 3500,
+      "sha256": "511099eca461fa56703a59758b0ca93a7004374df043db50b24c239162497d80",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/requirements-core.txt",
+      "bytes": 350,
+      "sha256": "8691274bd1684e30038a045f86120e77b7234de06b19d741dbab853711f124f2",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/build_all_k20_cell75_inputs.py",
+      "bytes": 4871,
+      "sha256": "67e8457461a522acea86537e2e26bbf5ff9e2c099b49368208962f969b8633cd",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/freeze_gene_panel.py",
+      "bytes": 4877,
+      "sha256": "3ae2a32108691ef7101a3ec27074151818707c8d33ecb6b668e46e79c5163327",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/audit_production_readiness.py",
+      "bytes": 3935,
+      "sha256": "5437af4736bc345133e35ff5a50bd5a3fedaddecae1441850ce02f57343568aa",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/prepare_sections.py",
+      "bytes": 7609,
+      "sha256": "c6fbec4f619e7fa65a8fbcea38da893a746af6c1124e5dbda116b1ad620c3248",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/build_k20_memory_gate.py",
+      "bytes": 5152,
+      "sha256": "e8543700c88b486476d3f2f1af361d904c2a5be40664c3ce476c2ce1add7e321",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/write_run_manifest.py",
+      "bytes": 3429,
+      "sha256": "ce94798d377b311db76f9d740fc5d90f6813776a03d701d2161ab331cadd4db5",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/build_k20_cell75_gate.py",
+      "bytes": 8112,
+      "sha256": "9392920a105903836e8b35ff57601a7ce7f9f0cff750a63b332e0b2f18632b00",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/diagnose_full_smoothed_rank.py",
+      "bytes": 2870,
+      "sha256": "0ae3d31f27b94b0e8244cbdad5f5f0da7ecf1d51d2a05be043e2d8c77bc2e16f",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/build_section_mesh.py",
+      "bytes": 14205,
+      "sha256": "05bd94a484d3e8c2161d72175143e864f0e46295b89f68ae42ac0f9af3753771",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/launch/PRELAUNCH_AUDIT_20261025.json",
+      "bytes": 8881,
+      "sha256": "06562ce8c4e38a9fe3040466461f9f1c6d3b87cdfecb808b6c12aafd5585603c",
+      "evidence": "measured source bytes; not execution"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/run_c3full_fixed_profile_nuts.py",
+      "bytes": 94890,
+      "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "evidence": "measured source bytes; not execution",
+      "selected_source_match": true
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/restart_state.py",
+      "bytes": 6593,
+      "sha256": "943a934c35a862bbc8b2d7dd80bc81ea98987e8ef10d9e7cfb152d485094b111",
+      "evidence": "measured source bytes; not execution",
+      "selected_source_match": true
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/joint_eta_pcg.py",
+      "bytes": 12136,
+      "sha256": "fad132d5d171c7e7db965915b41508227521225b6397be77d747555e1aa7f74c",
+      "evidence": "measured source bytes; not execution",
+      "selected_source_match": true
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/sampler/full_split.py",
+      "bytes": 4705,
+      "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd",
+      "evidence": "measured source bytes; not execution",
+      "selected_source_match": true
+    }
+  ]
+}

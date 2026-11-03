@@ -1,0 +1,1723 @@
+{
+  "captured_at": "2026-11-03T18:43:28.021311+00:00",
+  "historical": [
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S00__Trem2_5xFAD4/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "d0943815bde4e7a0498417f1983848b325162857625caa14aeca31d17587228b",
+      "bytes": 2223854,
+      "rows": 1100,
+      "last_sweep": "1100",
+      "last_production_sweep": "1000",
+      "median_seconds": 118.42074662749656,
+      "last20_median_seconds": 118.98732918361202,
+      "evidence": {
+        "C3FULL_SAMPLER_CERTIFICATE.json": {
+          "sha256": "48607258f1cf63ddb7823110d6601ad4dc13091e7c8a65e86d3f98e91a5d13a7",
+          "bytes": 32042,
+          "keys": [
+            "status",
+            "stage",
+            "N",
+            "genes",
+            "cell_types",
+            "factors",
+            "statistical_parameterization",
+            "sampled_blocks",
+            "fixed_blocks",
+            "hyperpriors",
+            "inactive_vertices_exactly_marginalized",
+            "TQFF_order",
+            "TQFF_columns_per_factor",
+            "TQFF_live_ell_eta_implementation",
+            "ell_eta_final_by_factor",
+            "ell_U_final_by_factor",
+            "sigma_U_final_by_factor",
+            "ell_eta_warmup_min_median_max",
+            "TQFF_warmup_kernel_RMSE_maximum",
+            "TQFF_warmup_kernel_maximum_absolute_error",
+            "TQFF_production_kernel_RMSE_maximum",
+            "TQFF_production_kernel_maximum_absolute_error",
+            "TQFF_fidelity_gates",
+            "sampler_choreography",
+            "warmup_state_handoff",
+            "joint_eta_method",
+            "joint_eta_exactness_statement",
+            "warmup_per_factor",
+            "sweeps",
+            "warmup_seconds",
+            "sampling_seconds",
+            "divergences_by_factor",
+            "joint_eta_PCG_iterations_min_median_max",
+            "joint_eta_PCG_max_relative_residual",
+            "joint_eta_PCG_max_posterior_mahalanobis_RMS_error_upper_bound",
+            "joint_eta_PCG_requested_posterior_metric_RMS_tolerance",
+            "analytic_target_vs_reverse_AD_relative_maximum",
+            "custom_VJP_bridge_relative_maximum",
+            "PX_alpha_maximum_invariant_relative_error",
+            "projector_audit",
+            "initialization",
+            "final_trace",
+            "files",
+            "truth_available",
+            "gene_names",
+            "cell_type_names",
+            "settling_sweeps",
+            "production_sweeps",
+            "warp_model",
+            "containment",
+            "direct_W_prior",
+            "numerical_diagnostics_status",
+            "exact_SE_posterior_certified",
+            "feedback_recording",
+            "loading_prior"
+          ],
+          "summary": {
+            "status": "COMPLETE_WITH_FIDELITY_WARNINGS",
+            "genes": 91,
+            "factors": 20,
+            "warmup_seconds": 14925.20908212196,
+            "sampling_seconds": 137967.10568624688,
+            "settling_sweeps": 100,
+            "production_sweeps": 1000
+          }
+        },
+        "input_manifest.json": {
+          "sha256": "9ae32a88e8be7e9b0a0f6c82cba7a80a30896f1b5fc588e7a0a3f2bbcd2730a8",
+          "bytes": 625,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S00__Trem2_5xFAD4"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "c163d48d3a9d307050d92e3874938294a8a90731dc92e22fad884c5c6c619f6d",
+          "bytes": 15875,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S01__5xFAD4/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "96717e38f6d4593294153f77a20db981970642eaebae1474a6da77bc48f90eca",
+      "bytes": 1912031,
+      "rows": 947,
+      "last_sweep": "947",
+      "last_production_sweep": "847",
+      "median_seconds": 176.3094117641449,
+      "last20_median_seconds": 175.9817132614553,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "72600a8553b7fa32cafeab8f8a6867666fd39eb650bfbe129f0ed6ca4d38cc30",
+          "bytes": 614,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S01__5xFAD4"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "69c0707bc2e44a7558a42ccb3cf10f0a771c31b718beea301c1f15368d396c06",
+          "bytes": 15878,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S02__Trem2_4/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "f6188aa6a75a813a49ce799a34cf2d26db5c23ec83ed8078da9f69a94d12ce53",
+      "bytes": 886164,
+      "rows": 439,
+      "last_sweep": "439",
+      "last_production_sweep": "339",
+      "median_seconds": 131.8993524038233,
+      "last20_median_seconds": 131.91410712338984,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "ddc340f646f0184e6f5fcd816b8782f11957af75d3c6ddfe5cda2449ce945888",
+          "bytes": 615,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S02__Trem2_4"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "8cfad6fe40486a7f3959a913fb0560a3f859f8b84b9ea3aea178a35f3ae18655",
+          "bytes": 15838,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S03__Trem2_5xFAD3/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "88575cfd6f74af0efcfcd65dd0e4bdd9648faf09e9052b2bb8de469e28c2c3e8",
+      "bytes": 2220862,
+      "rows": 1100,
+      "last_sweep": "1100",
+      "last_production_sweep": "1000",
+      "median_seconds": 154.4903702950105,
+      "last20_median_seconds": 154.5872407341376,
+      "evidence": {
+        "C3FULL_SAMPLER_CERTIFICATE.json": {
+          "sha256": "f201180cfbff59ced148af6e21477b1c5fcb4ebb8d110b12d4d7ad32f03595d5",
+          "bytes": 32065,
+          "keys": [
+            "status",
+            "stage",
+            "N",
+            "genes",
+            "cell_types",
+            "factors",
+            "statistical_parameterization",
+            "sampled_blocks",
+            "fixed_blocks",
+            "hyperpriors",
+            "inactive_vertices_exactly_marginalized",
+            "TQFF_order",
+            "TQFF_columns_per_factor",
+            "TQFF_live_ell_eta_implementation",
+            "ell_eta_final_by_factor",
+            "ell_U_final_by_factor",
+            "sigma_U_final_by_factor",
+            "ell_eta_warmup_min_median_max",
+            "TQFF_warmup_kernel_RMSE_maximum",
+            "TQFF_warmup_kernel_maximum_absolute_error",
+            "TQFF_production_kernel_RMSE_maximum",
+            "TQFF_production_kernel_maximum_absolute_error",
+            "TQFF_fidelity_gates",
+            "sampler_choreography",
+            "warmup_state_handoff",
+            "joint_eta_method",
+            "joint_eta_exactness_statement",
+            "warmup_per_factor",
+            "sweeps",
+            "warmup_seconds",
+            "sampling_seconds",
+            "divergences_by_factor",
+            "joint_eta_PCG_iterations_min_median_max",
+            "joint_eta_PCG_max_relative_residual",
+            "joint_eta_PCG_max_posterior_mahalanobis_RMS_error_upper_bound",
+            "joint_eta_PCG_requested_posterior_metric_RMS_tolerance",
+            "analytic_target_vs_reverse_AD_relative_maximum",
+            "custom_VJP_bridge_relative_maximum",
+            "PX_alpha_maximum_invariant_relative_error",
+            "projector_audit",
+            "initialization",
+            "final_trace",
+            "files",
+            "truth_available",
+            "gene_names",
+            "cell_type_names",
+            "settling_sweeps",
+            "production_sweeps",
+            "warp_model",
+            "containment",
+            "direct_W_prior",
+            "numerical_diagnostics_status",
+            "exact_SE_posterior_certified",
+            "feedback_recording",
+            "loading_prior"
+          ],
+          "summary": {
+            "status": "COMPLETE_WITH_FIDELITY_WARNINGS",
+            "genes": 91,
+            "factors": 20,
+            "warmup_seconds": 17027.446938222274,
+            "sampling_seconds": 175247.4350083042,
+            "settling_sweeps": 100,
+            "production_sweeps": 1000
+          }
+        },
+        "input_manifest.json": {
+          "sha256": "fb3bb6dc1af03defc07b2704275f8713c2b042c54591aedaff67fb07288feb0f",
+          "bytes": 627,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S03__Trem2_5xFAD3"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "133f1c66f6248e9d5091cee9730566f7721e20aadfe5cfa2787fd4d0063493cd",
+          "bytes": 15866,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S04__WT3/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "728d01774ec8d835551cd5589a19dec455118bd75745cdeb02748caedc147661",
+      "bytes": 412229,
+      "rows": 205,
+      "last_sweep": "205",
+      "last_production_sweep": "105",
+      "median_seconds": 120.52474873466417,
+      "last20_median_seconds": 120.69525151210837,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "3fdd64163ea7f764d925b599cdc7cf4d2a280526e4ec312e672d7078e71c7a4d",
+          "bytes": 605,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S04__WT3"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "3ab4a90507559d765af1fb1f08e303c381d3f1cc36779ffc21d8f67e586c76c5",
+          "bytes": 15841,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S06__5xFAD3/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "11e374557374d623a867e23979bcc6f51a61a616738b9a1ee537dbd0d375e910",
+      "bytes": 879404,
+      "rows": 436,
+      "last_sweep": "436",
+      "last_production_sweep": "336",
+      "median_seconds": 152.66349864914082,
+      "last20_median_seconds": 152.21808251575567,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "afc4d6d79d87ac822ea25d8cf1adf967f81f77b90498bcbd3c1c0c550f9338a9",
+          "bytes": 615,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S06__5xFAD3"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "bb9047194dcd7d62353027e9f63c74ad0073607826cf030c2d9f697478a52da4",
+          "bytes": 15842,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S07__Trem2_5xFAD5/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "fb047cdd7480475f8096a0bc84d26b53a95348336c4ee2225d10998f32d68cfb",
+      "bytes": 1033583,
+      "rows": 512,
+      "last_sweep": "512",
+      "last_production_sweep": "412",
+      "median_seconds": 100.96471510408446,
+      "last20_median_seconds": 101.42183710308746,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "df813e2beffa398ef9e7349c68400ace987f5db532f9a1435ea33d4d01367eca",
+          "bytes": 625,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S07__Trem2_5xFAD5"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "b9845d0937ae4da3af2a9774c0c9cb4eb6931734813c9f8a4001d40b25c90d9c",
+          "bytes": 15872,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S09__Trem2_5/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "df80956bb3a3a67332b75f3f51a57a60da53bc08b98c08840f9f923dec8d6f0f",
+      "bytes": 2094290,
+      "rows": 1034,
+      "last_sweep": "1034",
+      "last_production_sweep": "934",
+      "median_seconds": 104.79724473319948,
+      "last20_median_seconds": 104.92340305447578,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "9f85123e42d6799b1efbf01c8fbe1d610a36927f712fe1ee94b967a09ff53581",
+          "bytes": 613,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S09__Trem2_5"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "6ffe9c18ed4a3a18da481f767a840162e25c01675e134cd4e606e7ec00735bd4",
+          "bytes": 15862,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S12__Trem2_1/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "75b134bde614e691a9b2275e191e0691c393d020ac2c588766d59e558056f22f",
+      "bytes": 156844,
+      "rows": 78,
+      "last_sweep": "78",
+      "last_production_sweep": "0",
+      "median_seconds": 149.43892339710146,
+      "last20_median_seconds": 149.4762136109639,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "b74fe9501e46997fa8a44a45c47af9d53856e6fdcfafc616263875ebce0cbf48",
+          "bytes": 616,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S12__Trem2_1"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "fe20259cfc9e8ed78b5eb5e5c3a9d527c9820be85f38cd1a4e02f907ab049473",
+          "bytes": 15845,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S12__Trem2_5xFAD2/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "fcb513f2dad6647d5d5ee76872cc4e229deb72dc9e8c6347c36cf95b02a31a07",
+      "bytes": 462436,
+      "rows": 230,
+      "last_sweep": "230",
+      "last_production_sweep": "130",
+      "median_seconds": 242.80148917715997,
+      "last20_median_seconds": 242.9657607395202,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "5166ec18fc2f4867c0fe7b09a249af543a320d67bdf3b82985016b54ba11e816",
+          "bytes": 628,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S12__Trem2_5xFAD2"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "6f2ced78633cad332723cbf0cbbf3f53f66f86ca6571e301c5c917229c9bf52a",
+          "bytes": 15837,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S15__5xFAD1/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "788cc7fc36b80b9cbdf62762425189a803b0d241671d5a9a2d1cbd01b392dc86",
+      "bytes": 376340,
+      "rows": 187,
+      "last_sweep": "187",
+      "last_production_sweep": "87",
+      "median_seconds": 168.09028774080798,
+      "last20_median_seconds": 172.5798511202447,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "936c9d273896168f28e0a4b7dfe6df811bcc176dadc90fa7fd8b95e7fc164999",
+          "bytes": 614,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S15__5xFAD1"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "131cfc1568a1fa547f44bc013da3d7a136760685c254f14a306b2109c6999c68",
+          "bytes": 15863,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/production_runs_k20_cell75/S16__WT2/chain_1/C3FULL_SWEEP_TRACE.csv",
+      "sha256": "e72e9d2bfb84be153967566d4c4886ffbc9c0c0ce55e3ac7bb3adcc26114c8a7",
+      "bytes": 6405,
+      "rows": 3,
+      "last_sweep": "3",
+      "last_production_sweep": "0",
+      "median_seconds": 113.33422993915156,
+      "last20_median_seconds": 113.33422993915156,
+      "evidence": {
+        "input_manifest.json": {
+          "sha256": "1a316b032a0ca9f45641ce78e0a31d933d583c92b0438d7572f82b1d074489fe",
+          "bytes": 604,
+          "keys": [
+            "section",
+            "source_cells",
+            "retained_cells",
+            "retained_fraction",
+            "source_cells_by_type",
+            "retained_cells_by_type",
+            "max_abs_within_type_gene_mean",
+            "observations_sha256",
+            "gpinit_sha256",
+            "source_mesh"
+          ],
+          "summary": {
+            "section": "S16__WT2"
+          }
+        },
+        "code_manifest.json": {
+          "sha256": "3db5810c459fd685c097aea6fece41dd467be705f18a19ee2c937ec93b346511",
+          "bytes": 2394,
+          "keys": [
+            "base_bundle",
+            "allowed_base_file_change",
+            "base_driver_sha256",
+            "production_driver_sha256",
+            "production_driver_change",
+            "new_files"
+          ],
+          "summary": {}
+        },
+        "retention_contract.json": {
+          "sha256": "9d9fc45254b89d126145de77b86cb488774420dc9d233087f875a3d692811f15",
+          "bytes": 3355,
+          "keys": [
+            "version",
+            "scientific_scope",
+            "immutable_fit_inputs_per_section",
+            "retained_draw_arrays",
+            "required_run_artifacts",
+            "prelaunch_gate",
+            "sampling_schedule",
+            "planned_analysis_support"
+          ],
+          "summary": {}
+        },
+        "RESTART_PROVENANCE.json": {
+          "sha256": "f3c3c6b0ed7439776b3da5520dead7cd77749974989246ea9366dddd3d577d62",
+          "bytes": 15850,
+          "keys": [
+            "legacy",
+            "source",
+            "settling_sweeps",
+            "warmup_repeated",
+            "auxiliary_initialization",
+            "new_rng_seed"
+          ],
+          "summary": {
+            "settling_sweeps": 100
+          }
+        }
+      }
+    }
+  ],
+  "current": [
+    {
+      "segment": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment",
+      "committed": 36,
+      "performance": [
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000031-3i8j6etb/performance.json",
+          "sha256": "beebaffc496c7b353e16b2dc7ca067a0793d8ab0af7b945bcae700bc97499499",
+          "content": {
+            "elapsed_seconds": 24.51075693400344,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000032-36_r4vft/performance.json",
+          "sha256": "14302c680a7816af6c56c811fdfa0cf9b95011e6e873834817dc69efecc36c89",
+          "content": {
+            "elapsed_seconds": 24.057533851999324,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000033-prvofofl/performance.json",
+          "sha256": "09fa3c8a35e5f27e3751a6141202d3535a4a0fb62d2135eaeaab7cf24064ef8e",
+          "content": {
+            "elapsed_seconds": 24.165431025001453,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000034-f3j83eux/performance.json",
+          "sha256": "c14ad96fd43798fec8930d413bb8fc028f224e2ec0f20bcd65f1e85f1f8127df",
+          "content": {
+            "elapsed_seconds": 24.527444125997135,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000035-v4ditfqp/performance.json",
+          "sha256": "31a4f8bc60e20464c6b3bb9b6533030cfd1e7073499eb8af3c21c9c5e4fe0b26",
+          "content": {
+            "elapsed_seconds": 24.090388305005035,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000036-_su_7oo_/performance.json",
+          "sha256": "848b48c2641f7bbb39423a5e86a7c0f967c5be3e71df291a15264a0240002480",
+          "content": {
+            "elapsed_seconds": 24.050778106000507,
+            "scope": "sweep_only"
+          }
+        }
+      ],
+      "publication_mtime_intervals": [
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000030",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000031",
+          "seconds": 315.15430092811584
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000031",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000032",
+          "seconds": 323.63885593414307
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000032",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000033",
+          "seconds": 332.15726613998413
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000033",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000034",
+          "seconds": 342.31486797332764
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000034",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000035",
+          "seconds": 351.2112169265747
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000035",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of16/flat/bridge/segments/segment/transactions/000000000036",
+          "seconds": 354.9225130081177
+        }
+      ]
+    },
+    {
+      "segment": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment",
+      "committed": 40,
+      "performance": [
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000035-lbfcynn4/performance.json",
+          "sha256": "6e3124ff6388b66f650e8faedf2ef32ace7081766fadf12a371e8ab97b2ad49a",
+          "content": {
+            "elapsed_seconds": 20.354930499990587,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000036-dle_jz5k/performance.json",
+          "sha256": "d5db074b029023762530e55e25566cc0bfd83b0eb576a18519cfdc80a9e9ed48",
+          "content": {
+            "elapsed_seconds": 20.363567285996396,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000037-xogirvvs/performance.json",
+          "sha256": "cb2b0ea90047bbf421f984239c63cb2a64b05955e0ef4aa80ed90b214b33ae42",
+          "content": {
+            "elapsed_seconds": 20.248079254000913,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000038-t58q5vey/performance.json",
+          "sha256": "81a862e25de02d4ab0c299df22c1ffcf8476ec1ca8b0fe39df6435418bc3d9d6",
+          "content": {
+            "elapsed_seconds": 19.88354620798782,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000039-v_k5zzff/performance.json",
+          "sha256": "4f3be08c12b2cd64c7ff436957761e2bb506ecfabca0c3a70ab4e7c1adae4aa5",
+          "content": {
+            "elapsed_seconds": 20.242708863006555,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000040-69jabebf/performance.json",
+          "sha256": "debf9562aaba5ebe640376e2dac744274b6183e532522ec75ea10c2a14cb03ab",
+          "content": {
+            "elapsed_seconds": 19.730574928005808,
+            "scope": "sweep_only"
+          }
+        }
+      ],
+      "publication_mtime_intervals": [
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000034",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000035",
+          "seconds": 294.5361659526825
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000035",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000036",
+          "seconds": 304.3662009239197
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000036",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000037",
+          "seconds": 309.7761299610138
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000037",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000038",
+          "seconds": 315.32266306877136
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000038",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000039",
+          "seconds": 326.0747969150543
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000039",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles12_diameter1of8/flat/bridge/segments/segment/transactions/000000000040",
+          "seconds": 327.87088418006897
+        }
+      ]
+    },
+    {
+      "segment": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment",
+      "committed": 35,
+      "performance": [
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000030-9uqnh0_u/performance.json",
+          "sha256": "2bf189d7d86d33c578ef9dc09e0cd2a4115ab78bfc8725022cf42c743fb7e371",
+          "content": {
+            "elapsed_seconds": 24.78973372100154,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000031-nlav5ch0/performance.json",
+          "sha256": "190b74404253f464d6580336d1d73745de51ea89203b5e3b7da411bfacd92fe5",
+          "content": {
+            "elapsed_seconds": 24.677616749992012,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000032-njt_8d4m/performance.json",
+          "sha256": "bc5e197e9273e2e8612b883c8aabc1a70c364af95ae2d202d77d998e8c785d2c",
+          "content": {
+            "elapsed_seconds": 24.61214662299608,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000033-a240c325/performance.json",
+          "sha256": "06bde3eb3a3f21962be807de874de78d8cff33436a6d3b8f5bfb07646a3a2849",
+          "content": {
+            "elapsed_seconds": 24.675783415994374,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000034-ahh5i9rg/performance.json",
+          "sha256": "abb87aaf0da6e87b8cb4733b5cc37a9edf81e6054331e17e7c4dc0e071891c29",
+          "content": {
+            "elapsed_seconds": 24.644617778991233,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/attempts/sweep-000000000035-1viwabo2/performance.json",
+          "sha256": "057c59b577e0da8f7cf6f138588d3de1e448b35f1fb9f30cffeffa94c410f03d",
+          "content": {
+            "elapsed_seconds": 25.04423375800252,
+            "scope": "sweep_only"
+          }
+        }
+      ],
+      "publication_mtime_intervals": [
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000029",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000030",
+          "seconds": 308.55261611938477
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000030",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000031",
+          "seconds": 317.8189308643341
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000031",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000032",
+          "seconds": 327.2113711833954
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000032",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000033",
+          "seconds": 336.538192987442
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000033",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000034",
+          "seconds": 346.0863618850708
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000034",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of16/flat/bridge/segments/segment/transactions/000000000035",
+          "seconds": 356.03893995285034
+        }
+      ]
+    },
+    {
+      "segment": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment",
+      "committed": 38,
+      "performance": [
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000033-d020yox7/performance.json",
+          "sha256": "cd1d6e67d125e55339da4a10b198fb9808049db724159f9060cae6b79714301c",
+          "content": {
+            "elapsed_seconds": 21.22836608500802,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000034-nqcircdb/performance.json",
+          "sha256": "628f74d34b020aa5f900a45a4df7accc87c9e9b2f9723d86f75b702896919f3e",
+          "content": {
+            "elapsed_seconds": 21.284345146996202,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000035-mdq0o8lg/performance.json",
+          "sha256": "357c44077a38bcabbe0856fdfd23391f2380d6ebd2e0d7f65a450871ed61d6be",
+          "content": {
+            "elapsed_seconds": 21.349124276006478,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000036-xwez0ws8/performance.json",
+          "sha256": "4d16fd894bac89c9d3ae8ba96915031edb7270f8dd038a6dd4077b7d7917bf3a",
+          "content": {
+            "elapsed_seconds": 21.259398435999174,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000037-uwn6pldc/performance.json",
+          "sha256": "c3e9b1ac9d21cc3aa2e1d74af3731db9806e0de02d56afcd1558f041f992d6a0",
+          "content": {
+            "elapsed_seconds": 21.284701215990935,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/attempts/sweep-000000000038-vpurrpr8/performance.json",
+          "sha256": "b40a99f074417a6aa35dd9835234e712a86f59b9cb85d327d404ea8962bf7641",
+          "content": {
+            "elapsed_seconds": 21.251532431997475,
+            "scope": "sweep_only"
+          }
+        }
+      ],
+      "publication_mtime_intervals": [
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000032",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000033",
+          "seconds": 287.17233300209045
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000033",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000034",
+          "seconds": 295.2497408390045
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000034",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000035",
+          "seconds": 303.2622320652008
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000035",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000036",
+          "seconds": 310.1077790260315
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000036",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000037",
+          "seconds": 318.97004103660583
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000037",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9/circles8_diameter1of8/flat/bridge/segments/segment/transactions/000000000038",
+          "seconds": 327.06755900382996
+        }
+      ]
+    },
+    {
+      "segment": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment",
+      "committed": 16,
+      "performance": [
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000011-mi0c5zk4/performance.json",
+          "sha256": "741ba3870c5ac083b94f268745d9b8ee4bb8625523c4543c4cba02320162296d",
+          "content": {
+            "elapsed_seconds": 58.05768205400091,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000012-9s5z9zpa/performance.json",
+          "sha256": "1d73300eef1a4c55f4bf4152a86c089adec21883da32cf75565e137f4a189f0c",
+          "content": {
+            "elapsed_seconds": 57.01230757699523,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000013-10j24xsg/performance.json",
+          "sha256": "4a0dd6f8aa9189d7c2659438314fae7c6408c1cfda98148a3fcebe22f4f22a56",
+          "content": {
+            "elapsed_seconds": 56.37101233800058,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000014-_oievilw/performance.json",
+          "sha256": "b54eaf601972e568586273b42646936d1f0759008053eb43dfcabb0129130138",
+          "content": {
+            "elapsed_seconds": 56.24876976100495,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000015-q_z8e6q4/performance.json",
+          "sha256": "d79948a6960e3c3a5eeddb1ce73335250bae05f5c210f349b78846744dbc42de",
+          "content": {
+            "elapsed_seconds": 56.30875602499873,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000016-d3dfvrg3/performance.json",
+          "sha256": "f020b59626179cfa0aefb65a981a2a9bc83634b1372278fe4463911218025d9a",
+          "content": {
+            "elapsed_seconds": 56.45337869800278,
+            "scope": "sweep_only"
+          }
+        }
+      ],
+      "publication_mtime_intervals": [
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000010",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000011",
+          "seconds": 173.3902850151062
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000011",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000012",
+          "seconds": 182.82717299461365
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000012",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000013",
+          "seconds": 192.83170104026794
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000013",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000014",
+          "seconds": 202.2211229801178
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000014",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000015",
+          "seconds": 212.35207891464233
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000015",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of16/deep/bridge/segments/segment/transactions/000000000016",
+          "seconds": 223.96746110916138
+        }
+      ]
+    },
+    {
+      "segment": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment",
+      "committed": 19,
+      "performance": [
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000014-204bbujg/performance.json",
+          "sha256": "c3a4ee2ccff8862be3b06886a3a9177a983225005d2e23cd06aefceb6233901e",
+          "content": {
+            "elapsed_seconds": 47.30038327400689,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000015-u5fhzw92/performance.json",
+          "sha256": "604833b3fa0b5643eeed829c1168cdb30b475074f38cb53a0df997b7faebd225",
+          "content": {
+            "elapsed_seconds": 47.980648586992174,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000016-2qj7b4y0/performance.json",
+          "sha256": "ff7dd49a3c1f316de85bf4be73cbd915f91b0a9d43eec8a1856fab505e653227",
+          "content": {
+            "elapsed_seconds": 47.689965017008944,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000017-3byys8ni/performance.json",
+          "sha256": "6a36e1c993a68b21fcdd91a67dea6b7d0095fc2130eeb513c0e99fbed6f2b57f",
+          "content": {
+            "elapsed_seconds": 47.68270535398915,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000018-3rjh903c/performance.json",
+          "sha256": "b644950efa767d69ebfda27cfbbb0da00ffb583fae5038a2148fc4778a321c81",
+          "content": {
+            "elapsed_seconds": 47.16331558700767,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000019-4_x5ipdr/performance.json",
+          "sha256": "f9e04c1f527878ead3a2e7af08ab21f67ac2321b73586b06a864e3d0be949420",
+          "content": {
+            "elapsed_seconds": 47.01837303300272,
+            "scope": "sweep_only"
+          }
+        }
+      ],
+      "publication_mtime_intervals": [
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000013",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000014",
+          "seconds": 169.0958230495453
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000014",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000015",
+          "seconds": 184.76461386680603
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000015",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000016",
+          "seconds": 193.46798419952393
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000016",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000017",
+          "seconds": 199.63892197608948
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000017",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000018",
+          "seconds": 204.46992802619934
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000018",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles12_diameter1of8/deep/bridge/segments/segment/transactions/000000000019",
+          "seconds": 212.59367489814758
+        }
+      ]
+    },
+    {
+      "segment": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment",
+      "committed": 15,
+      "performance": [
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000010-8yus_xgk/performance.json",
+          "sha256": "f75b52d69831c469ae59b967190e9cc9aff56142bde6065eb2fbce20bd8a3d34",
+          "content": {
+            "elapsed_seconds": 52.05152174799878,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000011-jagly4c3/performance.json",
+          "sha256": "5aa829cb09df9b9fe9d5dddeb8282831ff3499c83c21bdac3f5e3053a51b0bbd",
+          "content": {
+            "elapsed_seconds": 55.27043107499776,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000012-8g2kydvq/performance.json",
+          "sha256": "ccab10916e75929cabc8c61e51aaad229babb921a55834a5690826151104c506",
+          "content": {
+            "elapsed_seconds": 55.356779060995905,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000013-mg3784gh/performance.json",
+          "sha256": "e12d188f3ae54f7aee1171fc30d23ece821c39c45c692c26d6dd2e7229f919ce",
+          "content": {
+            "elapsed_seconds": 55.38893660600297,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000014-i6kc148b/performance.json",
+          "sha256": "73a9fba60011d163aca1c8263175c00d600d37af116ea6bd5bc7f607df40a7e9",
+          "content": {
+            "elapsed_seconds": 56.714282393004396,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/attempts/sweep-000000000015-lp1p60l5/performance.json",
+          "sha256": "b665eb5eebbbb758a86117532e9547437ef04bf43908494346938b50d58cc1c3",
+          "content": {
+            "elapsed_seconds": 55.23311739199562,
+            "scope": "sweep_only"
+          }
+        }
+      ],
+      "publication_mtime_intervals": [
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000009",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000010",
+          "seconds": 158.847806930542
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000010",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000011",
+          "seconds": 172.31725001335144
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000011",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000012",
+          "seconds": 182.91675209999084
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000012",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000013",
+          "seconds": 193.51638293266296
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000013",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000014",
+          "seconds": 205.76830887794495
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000014",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of16/deep/bridge/segments/segment/transactions/000000000015",
+          "seconds": 216.96399307250977
+        }
+      ]
+    },
+    {
+      "segment": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment",
+      "committed": 15,
+      "performance": [
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000010-2_g47qpi/performance.json",
+          "sha256": "cfca996eb36305c6230711c88faf984d98ae859eb57b2273160e87ae04472b5f",
+          "content": {
+            "elapsed_seconds": 60.13462337000237,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000011-mt027e30/performance.json",
+          "sha256": "aa4bc45e87279fb3c524c62a4ca15b66f2d6161d3e3dbae54b0083e19a00ddde",
+          "content": {
+            "elapsed_seconds": 60.13203473300382,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000012-e4mbme1i/performance.json",
+          "sha256": "d98c879b9d31679b1a725d5f48321e068bd1a5b9c0b59faa7cac8eaceb359cc6",
+          "content": {
+            "elapsed_seconds": 60.14656102399749,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000013-9b8hslfi/performance.json",
+          "sha256": "b0b7872886066f5a4b7cc810b9553fcf964869bd4c73a0fbd5c797327cac3d2b",
+          "content": {
+            "elapsed_seconds": 60.08401525999943,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000014-9g08h9nz/performance.json",
+          "sha256": "9a23c2100adb592bc2e1724fcf24489c94f02ba791c44d28482a07fa1a12f01b",
+          "content": {
+            "elapsed_seconds": 59.97998818499036,
+            "scope": "sweep_only"
+          }
+        },
+        {
+          "path": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/attempts/sweep-000000000015-n6u2zd2c/performance.json",
+          "sha256": "a4899b635057c77b94ad8c2d74164907d0b7e804234c590c5b9d507b4e7b0780",
+          "content": {
+            "elapsed_seconds": 60.05069436399208,
+            "scope": "sweep_only"
+          }
+        }
+      ],
+      "publication_mtime_intervals": [
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000009",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000010",
+          "seconds": 154.02830696105957
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000010",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000011",
+          "seconds": 163.26708102226257
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000011",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000012",
+          "seconds": 172.60325694084167
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000012",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000013",
+          "seconds": 181.14950013160706
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000013",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000014",
+          "seconds": 190.47465705871582
+        },
+        {
+          "previous": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000014",
+          "next": "/work/abussing/bsfm-consolidation/evidence/holey-gpu-73939be3fd8cb37dfb96022d656ce999b48d8eaa/circles8_diameter1of8/deep/bridge/segments/segment/transactions/000000000015",
+          "seconds": 199.35029101371765
+        }
+      ]
+    }
+  ]
+}
