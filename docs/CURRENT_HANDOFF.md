@@ -3,20 +3,19 @@
 ## Latest execution checkpoint: GPU replacement fits
 
 The user explicitly requested moving the same eight hole fits onto V100 GPUs.
-Generating commit `21214c7f8de63ce9d8e87792316511e5f278af9a` on the separate
+Generating commit `18e437fc7960860f093bc0a79481fff356b4e1e9` on the separate
 `run/s10-holey-20261103` branch supplies the GPU launcher. Main's scientific
 code remains unchanged. Read the [GPU run record and exact launch/resume command](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/run/s10-holey-20261103/docs/holdouts/s10-grid-20261103/GPU_RUNNING.md).
 
-GPU jobs: deep/flat 22014417/22014418 (12 circles, width/16),
-22014347/22014419 (12, width/8), 22014420/22014422 (8, width/16),
-22014423/22014414 (8, width/8). Partition `v100-16gb-hiprio`, one V100,
-four CPUs, 16 GiB host memory, 12 hours each. First job entered full-data warmup;
-the other seven replacements were queued on scheduler priority. Node398 failed before application startup and is excluded from the queued jobs. Check current Slurm/log/checkpoint state rather than inferring completion here.
+GPU jobs: deep/flat 22014443/22014444 (12 circles, width/16),
+22014441/22014442 (12, width/8), 22014445/22014446 (8, width/16),
+22014447/22014448 (8, width/8). Partition `v100-16gb-hiprio`, one V100,
+four CPUs, 16 GiB host memory, 12 hours each. All eight corrected jobs were queued on scheduler priority. Node398 failed before application startup and is excluded from the queued jobs. Check current Slurm/log/checkpoint state rather than inferring completion here.
 
 K=12, L14, full mesh, same prepared inputs and original iteration schedule.
 Fresh GPU trajectories reuse the existing training-only GPINIT; CPU checkpoint
 continuation across devices is not claimed. CPU jobs/outputs were preserved.
-Output root: `/work/abussing/bsfm-consolidation/evidence/holey-gpu-21214c7f8de63ce9d8e87792316511e5f278af9a`.
+Output root: `/work/abussing/bsfm-consolidation/evidence/holey-gpu-18e437fc7960860f093bc0a79481fff356b4e1e9`.
 
 Existing HPC GPU environment is reused without installations. GPU validation
 22014309 passed all four focused extension tests and a real-input 20-step deep
@@ -24,6 +23,8 @@ factor warmup in 99.52 seconds including compilation. Runtime receipt, package
 verification scope and startup failures are recorded on the execution branch.
 This is execution evidence, not scientific convergence or a fully general GPU
 pipeline acceptance. Do not repeat preparation or overwrite CPU/GPU run identities.
+
+Earlier full-data GPU job 22014347 reached 50 first-factor steps, then failed strict acceptance diagnostics. The corrected commit applies a bounded GPU-only probability-roundoff policy, with a passing local boundary test. The corrected full-factor result remains pending scheduling; earlier synthetic GPU tests and 20-step timing do not establish that later result.
 
 ## Latest execution checkpoint: four paired hole comparisons running
 
