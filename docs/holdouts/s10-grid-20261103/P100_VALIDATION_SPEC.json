@@ -1,0 +1,11 @@
+{
+  "schema": "bsfm.alternative-gpu-validation.v1",
+  "authorization": "User requested inspection of other GPU queues and earliest GPU execution; retain V100 queue submissions",
+  "hardware_probe_job": 22014507,
+  "observed_hardware": "node242, two Tesla P100-PCIE-16GB GPUs, idle at probe",
+  "partition": "gpu",
+  "resources": {"gpus": 1, "cpus": 4, "host_memory_GiB": 16, "wall_minutes": 30},
+  "command": "sbatch --partition=gpu docs/holdouts/s10-grid-20261103/gpu_validate.sbatch EXACT_COMMIT",
+  "scope": "Reuse unchanged existing GPU environment and existing focused validation script: four synthetic tests then one real L14 factor 20-step warmup. No production output and no V100 cancellation.",
+  "gate": "No P100 fit until this runtime/device check passes; scientific launcher currently admits V100 only."
+}
