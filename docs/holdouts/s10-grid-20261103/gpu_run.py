@@ -48,6 +48,9 @@ def authenticate_gpu_environment():
             if not h:continue
             alg,value=h.split('=',1);p=Path(d.locate_file(name)).resolve()
             if alg!='sha256' or not p.is_relative_to(PREFIX):raise ValueError('Package path/hash invalid')
+            # Historical installation omits package test fixtures. They are not
+            # sampler runtime dependencies; numpy.testing itself remains checked.
+            if 'tests' in Path(name).parts:continue
             actual=file_record(p)
             if actual['bytes']!=int(size) or base64.urlsafe_b64encode(bytes.fromhex(actual['sha256'])).decode().rstrip('=')!=value:
                 # pip regenerates wheel-bundled bytecode for the install path.
@@ -73,7 +76,7 @@ def authenticate_gpu_environment():
     return dict(schema='bsfm.meeting-gpu-environment.v1',lock=file_record(RECEIPT),
                 backend='gpu',x64=True,device_kind=devices[0].device_kind,
                 packages=expected['packages'],installed_numerical_files=count,
-                limitation='Existing shared environment; recorded package inventory and numerical RECORD integrity. GPU trajectories are not CPU-exact continuations.')
+                limitation='Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations.')
 
 if __name__=='__main__':
     config,prepared,output,model,commit=sys.argv[1:]
