@@ -309,7 +309,7 @@ class Layer9Tests(unittest.TestCase):
         out=os.environ.get('BSFM_LAYER9_RECEIPT')
         if out:
             p=Path(out);p.parent.mkdir(parents=True,exist_ok=True)
-            p.write_text(json.dumps(dict(scope='synthetic Windows CPU only',completion=cls.complete,
+            p.write_text(json.dumps(dict(scope='synthetic '+sys.platform+' CPU only',completion=cls.complete,
                 boundary=cls.reference_chain['endpoint'].boundary,historical_initialization_reference=cls.reference_sources,
                 target_acceptance=.9,warmup_steps_per_factor=20,real_sweeps_per_arm=2),indent=2,allow_nan=False)+'\n',encoding='utf-8')
 

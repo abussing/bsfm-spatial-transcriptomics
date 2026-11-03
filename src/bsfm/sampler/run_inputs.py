@@ -23,6 +23,9 @@ REPO=Path(__file__).resolve().parents[3]
 
 
 def authenticate_environment():
+    if sys.platform=='linux':
+        from .run_linux_environment import authenticate_linux_environment
+        return authenticate_linux_environment()
     lockpath=REPO/'environment/sampler-layer5/source-lock.json';lock=read_json(lockpath)
     prefix=Path(sys.prefix).resolve();root=prefix.parent
     if (sys.version.split()[0]!=lock['python'] or site.ENABLE_USER_SITE or sys.prefix==sys.base_prefix

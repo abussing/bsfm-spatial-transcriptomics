@@ -1,4 +1,4 @@
-"""Bounded Windows CPU run composition. No readaptation or scientific defaults."""
+"""Bounded CPU run composition. No readaptation or scientific defaults."""
 from pathlib import Path
 import copy
 import re

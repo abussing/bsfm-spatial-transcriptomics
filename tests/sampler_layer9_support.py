@@ -3,6 +3,7 @@ import ast
 import copy
 import hashlib
 import os
+import sys
 from functools import lru_cache
 from pathlib import Path
 from types import SimpleNamespace
@@ -32,7 +33,7 @@ def controller(path,*,every=2,settling=0,final=2):
         mode='exact_resume',input_sha256=digest(binding),software=dict(git_commit=BASE,clean_tree=False,
             run_config_sha256=digest(dict(scope='synthetic',every=every,settling=settling,final=final)),
             environment_lock_sha256=hashlib.sha256((ROOT/'environment/sampler-layer5/source-lock.json').read_bytes()).hexdigest(),
-            environment_identity='accepted-layer5-Windows-CPU:synthetic-review'))
+            environment_identity='layer9-'+sys.platform+'-CPU:synthetic-review'))
     result=RunController(path,target,state.loading,state.eta,spec,binding,authenticate=target._validate_identities)
     result.layer=layer
     return result

@@ -1,0 +1,19 @@
+{
+  "schema": "bsfm.synthetic-validation-run.v1",
+  "scope": "Linux Layer-9 synthetic and accepted regression validation only",
+  "partition": "defq-64core",
+  "nodes": 1,
+  "tasks": 1,
+  "cpus_per_task": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 30,
+  "gpus": 0,
+  "environment_build_job": "22013408",
+  "python": "/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/bin/python",
+  "modules": ["gcc/12.2.0", "mpfr/4.1.0"],
+  "source_commit": "Exact clean commit supplied as scheduler argument and verified by runner",
+  "output": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-<SLURM_JOB_ID>",
+  "inputs": "Committed synthetic fixtures and hash-authenticated transferred historical reference source only",
+  "stages": ["environment authentication", "GPFS process-lock/publication tests", "all focused Layer-9 tests", "accepted sampler/provenance tests", "canonical mesh tests"],
+  "excluded": ["scientific data", "S10 fitting", "leave-out fitting", "preprocessing", "mesh regeneration", "package installation", "GPU", "fixture or tolerance changes"]
+}

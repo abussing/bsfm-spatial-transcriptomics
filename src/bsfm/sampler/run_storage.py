@@ -42,7 +42,11 @@ def publish(source,destination):
     source=safe(source);destination=safe(destination)
     if destination.exists():raise FileExistsError(destination)
     if source.stat().st_dev!=destination.parent.stat().st_dev:raise ValueError('Cross-filesystem publication')
-    os.rename(source,destination)
+    if os.name=='posix':
+        from .run_linux_storage import rename_noreplace
+        rename_noreplace(source,destination)
+    else:
+        os.rename(source,destination)
 
 
 def copy_exact(source,destination):
@@ -68,14 +72,22 @@ def advisory(path,value):
 
 @contextmanager
 def writer(root):
-    """OS-held local byte lock, released on process death; no PID guessing."""
-    import msvcrt
+    """OS-held exclusive lock, released on process death; no PID guessing."""
+    if os.name=='nt':
+        import msvcrt
+        acquire=lambda f:msvcrt.locking(f.fileno(),msvcrt.LK_NBLCK,1)
+        release=lambda f:msvcrt.locking(f.fileno(),msvcrt.LK_UNLCK,1)
+    elif os.name=='posix':
+        import fcntl
+        acquire=lambda f:fcntl.flock(f.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
+        release=lambda f:fcntl.flock(f.fileno(),fcntl.LOCK_UN)
+    else:raise RuntimeError('Unsupported writer-lock platform')
     root=safe(root);root.mkdir(parents=True,exist_ok=True)
     with safe(root/'writer.lock').open('a+b') as f:
         f.seek(0,2)
         if f.tell()==0:f.write(b'0');f.flush()
         f.seek(0)
-        try:msvcrt.locking(f.fileno(),msvcrt.LK_NBLCK,1)
+        try:acquire(f)
         except OSError as exc:raise RuntimeError('Another local writer owns the run') from exc
         try:yield
-        finally:f.seek(0);msvcrt.locking(f.fileno(),msvcrt.LK_UNLCK,1)
+        finally:f.seek(0);release(f)
