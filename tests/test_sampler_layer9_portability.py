@@ -113,7 +113,10 @@ with writer(sys.argv[1]):
         (site/'pkg/module.py').write_bytes(source)
         (site/name).write_bytes(bytecode(source, str(site/'pkg/module.py')))
         expected = file_record(wheel)
-        self.assertEqual(verify_wheel(wheel, expected, site), 2)
+        regenerated = {}
+        self.assertEqual(verify_wheel(wheel, expected, site, regenerated=regenerated), 2)
+        self.assertEqual(set(regenerated), {(site/name).resolve()})
+        self.assertEqual(regenerated[(site/name).resolve()][1], len(bytecode(source, '/build/pkg/module.py')))
         (site/name).write_bytes(bytecode(b'value = 43\n', str(site/'pkg/module.py')))
         with self.assertRaisesRegex(ValueError, 'bytecode differs'):
             verify_wheel(wheel, expected, site)

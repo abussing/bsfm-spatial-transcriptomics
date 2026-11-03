@@ -17,7 +17,7 @@ REPO = Path(__file__).resolve().parents[3]
 RECEIPTS = REPO / 'docs/environment/layer9-linux-20261103'
 
 
-def verify_wheel(wheel, expected, site_packages):
+def verify_wheel(wheel, expected, site_packages, *, regenerated=None):
     if file_record(wheel) != {k: expected[k] for k in ('bytes', 'sha256')}:
         raise ValueError('Cached Linux wheel changed')
     count = 0
@@ -46,6 +46,9 @@ def verify_wheel(wheel, expected, site_packages):
                                         dont_inherit=True, optimize=optimization)
                 if actual != expected_code:
                     raise ValueError('Installed bytecode differs from authenticated wheel source')
+                if regenerated is not None:
+                    original = archive.read(name)
+                    regenerated[dest] = (hashlib.sha256(original).digest(), len(original))
             count += 1
     return count
 
@@ -84,6 +87,7 @@ def authenticate_linux_environment():
     site_packages = prefix/'lib/python3.11/site-packages'
     archives = {r['name']: r for r in report['archives']}
     wheel_files = 0
+    regenerated = {}
     for row in read_json(lockpath)['packages']:
         if row['name'] == 'ml_dtypes':
             wheel = report['built_wheel']
@@ -94,7 +98,7 @@ def authenticate_linux_environment():
             if wheel['sha256'] != row['sha256']:
                 raise ValueError('Linux archive differs from frozen lock')
             path = root/'archives'/filename
-        wheel_files += verify_wheel(path, wheel, site_packages)
+        wheel_files += verify_wheel(path, wheel, site_packages, regenerated=regenerated)
     installed_files = 0
     for distribution in distributions:
         if Path(distribution.locate_file('')).resolve() != site_packages:
@@ -109,7 +113,10 @@ def authenticate_linux_environment():
             record = file_record(path)
             if (base64.urlsafe_b64encode(bytes.fromhex(record['sha256'])).decode().rstrip('=') != value
                     or record['bytes'] != int(size)):
-                raise ValueError('Linux installed RECORD mismatch')
+                original = regenerated.get(path)
+                if (original is None or original[1] != int(size)
+                        or base64.urlsafe_b64encode(original[0]).decode().rstrip('=') != value):
+                    raise ValueError('Linux installed RECORD mismatch: '+name)
             installed_files += 1
     blas = threadpool_info()
     if any(row['num_threads'] != 1 for row in blas):
@@ -120,4 +127,5 @@ def authenticate_linux_environment():
                 installed_receipt=file_record(expected_report), packages=actual,
                 cpu=True, x64=True, blas=blas, installed_record_files=installed_files,
                 wheel_member_files=wheel_files,
+                source_authenticated_regenerated_bytecode=len(regenerated),
                 limitation='Same-platform validation required; bootstrap pip/setuptools checked by installed RECORD')

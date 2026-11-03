@@ -31,6 +31,12 @@ the authenticated wheel, rather than exempting bytecode. A mutation test
 rejects changed executable code. Updated local result: seven passed, one
 Linux-only test skipped. The original failure receipt is retained unchanged.
 
+Job 22013412 passed wheel/source verification and then found the corresponding
+stale NumPy RECORD entry: it still records the wheel's pre-install bytecode hash
+and size. The corrected check permits this only when RECORD exactly matches
+the original authenticated wheel member and the installed code has independently
+matched compilation of that wheel's source. Other RECORD mismatches still fail.
+
 The job first authenticates the environment and tests storage on GPFS. Only
 after that passes does it run all focused Layer-9 tests, including real
 synthetic initialization, 20-step adaptation per factor, complete sweeps and

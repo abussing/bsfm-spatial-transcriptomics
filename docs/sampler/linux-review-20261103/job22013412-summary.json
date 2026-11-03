@@ -1,0 +1,14 @@
+{
+  "status": "not_passed",
+  "commit": "98ae781368f5070af1850a144e04dbc100efa205",
+  "job_id": "22013412",
+  "platform": "Linux-3.10.0-514.2.2.el7.x86_64-x86_64-with-glibc2.17",
+  "scope": "Synthetic CPU only",
+  "stages": {},
+  "exception": "Traceback (most recent call last):\n  File \"/work/abussing/bsfm-consolidation/checkouts/98ae781368f5070af1850a144e04dbc100efa205/docs/sampler/linux-review-20261103/validate.py\", line 65, in <module>\n    save('environment-authentication', authenticate_environment())\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/abussing/bsfm-consolidation/checkouts/98ae781368f5070af1850a144e04dbc100efa205/src/bsfm/sampler/run_inputs.py\", line 28, in authenticate_environment\n    return authenticate_linux_environment()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/abussing/bsfm-consolidation/checkouts/98ae781368f5070af1850a144e04dbc100efa205/src/bsfm/sampler/run_linux_environment.py\", line 112, in authenticate_linux_environment\n    raise ValueError('Linux installed RECORD mismatch')\nValueError: Linux installed RECORD mismatch\n",
+  "external_receipt": {
+    "path": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-22013412/validation.json",
+    "bytes": 14138,
+    "sha256": "11d3e7b02eae8f5379acf2c4ad3fc1b296c864c1e01d6099c33d0ee255a445a0"
+  }
+}
