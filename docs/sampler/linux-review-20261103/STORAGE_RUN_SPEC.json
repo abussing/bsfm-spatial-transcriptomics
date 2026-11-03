@@ -1,0 +1,16 @@
+{
+  "schema": "bsfm.synthetic-validation-run.v1",
+  "scope": "Focused follow-up for normalized writer ownership paths; environment authentication and storage tests only",
+  "reason": "A post-submission review added dot-dot path normalization to lease containment and its regression test",
+  "partition": "defq-64core",
+  "nodes": 1,
+  "tasks": 1,
+  "cpus_per_task": 2,
+  "memory_gib": 8,
+  "walltime_minutes": 5,
+  "gpus": 0,
+  "environment_build_job": "22013408",
+  "source_commit": "Exact clean commit supplied to storage.sbatch and verified before tests",
+  "outputs": "/work/abussing/bsfm-consolidation/evidence/layer9-linux-<SLURM_JOB_ID>",
+  "excluded": ["sampler transitions", "adaptation", "scientific data", "model fitting", "environment changes"]
+}

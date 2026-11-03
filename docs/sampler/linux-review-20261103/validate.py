@@ -12,7 +12,9 @@ import traceback
 import unittest
 
 repo = Path(__file__).resolve().parents[3]
-commit, job = sys.argv[1:]
+commit, job = sys.argv[1:3]
+mode = sys.argv[3] if len(sys.argv) == 4 else 'full'
+assert mode in ('full', 'storage')
 assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repo, text=True).strip() == commit
 assert not subprocess.check_output(['git', 'status', '--porcelain'], cwd=repo, text=True).strip()
 assert job.isdigit()
@@ -58,7 +60,7 @@ def run_stage(name, pattern, exclude_layer9=False):
 
 before = inventory()
 report = dict(status='incomplete', commit=commit, job_id=job, platform=platform.platform(),
-              scope='Synthetic CPU only', stages={}, source_inventory=before)
+              scope='Synthetic CPU only', mode=mode, stages={}, source_inventory=before)
 save('validation', report)
 try:
     from bsfm.sampler.run_inputs import authenticate_environment
@@ -66,11 +68,12 @@ try:
     report['stages']['storage'] = run_stage('storage', 'test_sampler_layer9_portability.py')
     if report['stages']['storage']['status'] != 'pass':
         raise RuntimeError('Storage gate failed; numerical stages not started')
-    report['stages']['layer9'] = run_stage('layer9', 'test_sampler_layer9*.py')
-    save('validation', report)
-    report['stages']['accepted'] = run_stage('accepted', 'test_sampler*.py', exclude_layer9=True)
-    save('validation', report)
-    report['stages']['mesh'] = run_stage('mesh', 'test_mesh*.py')
+    if mode == 'full':
+        report['stages']['layer9'] = run_stage('layer9', 'test_sampler_layer9*.py')
+        save('validation', report)
+        report['stages']['accepted'] = run_stage('accepted', 'test_sampler*.py', exclude_layer9=True)
+        save('validation', report)
+        report['stages']['mesh'] = run_stage('mesh', 'test_mesh*.py')
     report['source_unchanged'] = before == inventory()
     report['status'] = 'pass' if report['source_unchanged'] and all(s['status']=='pass' for s in report['stages'].values()) else 'not_passed'
 except BaseException:

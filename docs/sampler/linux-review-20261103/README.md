@@ -49,6 +49,12 @@ The ownership-required fallback above preserves the approved single-writer
 transaction design and one atomic directory rename. Tests explicitly reject
 unowned/outside-root fallback and existing empty destinations.
 
+While job 22013414 ran at a496b7c, a final path review added normalization of
+dot-dot components before testing writer-root containment. Its local regression
+passed (eight portability tests passed, two Linux-only tests skipped). This
+small guard is separately tested by storage.sbatch; do not attribute it to the
+earlier full-sampler run. No numerical operation or transition changed.
+
 The job first authenticates the environment and tests storage on GPFS. Only
 after that passes does it run all focused Layer-9 tests, including real
 synthetic initialization, 20-step adaptation per factor, complete sweeps and

@@ -12,6 +12,13 @@ from .checkpoint_rng import json_text, parse_json
 _WRITER_ROOTS=ContextVar('bsfm_writer_roots',default=())
 
 
+def owns_publication(source,destination):
+    """Normalize dot-dot components before deciding whether a lease covers paths."""
+    source=Path(source).resolve();destination=Path(destination).resolve()
+    return any(pid==os.getpid() and source.is_relative_to(root.resolve()) and destination.is_relative_to(root.resolve())
+               for root,pid in _WRITER_ROOTS.get())
+
+
 def safe(path):
     path=Path(path).absolute()
     for p in (path,*path.parents):
@@ -47,9 +54,7 @@ def publish(source,destination):
     if source.stat().st_dev!=destination.parent.stat().st_dev:raise ValueError('Cross-filesystem publication')
     if os.name=='posix':
         from .run_linux_storage import rename_noreplace
-        owned=any(pid==os.getpid() and source.is_relative_to(root) and destination.is_relative_to(root)
-                  for root,pid in _WRITER_ROOTS.get())
-        rename_noreplace(source,destination,writer_owned=owned)
+        rename_noreplace(source,destination,writer_owned=owns_publication(source,destination))
     else:
         os.rename(source,destination)
 

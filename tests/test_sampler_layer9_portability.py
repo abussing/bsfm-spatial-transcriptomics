@@ -9,7 +9,7 @@ import tempfile
 import unittest
 import zipfile
 
-from bsfm.sampler.run_storage import writer, publish, file_record
+from bsfm.sampler.run_storage import writer, publish, file_record, owns_publication
 from bsfm.sampler.run_linux_environment import verify_wheel
 
 
@@ -32,6 +32,14 @@ except RuntimeError:
             self.assertEqual(result.returncode, 17)
         result = subprocess.run([sys.executable, '-B', '-c', code, str(self.root)], timeout=30)
         self.assertEqual(result.returncode, 0)
+
+    def test_writer_ownership_rejects_dotdot_escape_and_ends_with_context(self):
+        source=self.root/'source'; dest=self.root/'destination'
+        with writer(self.root):
+            self.assertTrue(owns_publication(source,dest))
+            self.assertFalse(owns_publication(self.root/'sub/../../outside',dest))
+            self.assertFalse(owns_publication(source,self.root/'../outside'))
+        self.assertFalse(owns_publication(source,dest))
 
     def test_writer_released_on_process_death(self):
         code = '''import sys,time
