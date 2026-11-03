@@ -134,13 +134,15 @@ Installed GPU package metadata is not GPU execution evidence.
    were also recovered as exact duplicates; the preview projector and certificate
    remain unresolved. Approved Linux R build job 22012386 failed during optional
    NEWS.pdf documentation generation before installation; its logs and package
-   report are retained. The separately approved retry **22012400** is running at
-   the desktop live check (elapsed **01:54:57**, node432): R built/installed,
-   20 package completions in the log, and no new validation result. The prior
-   inspection recorded s2 dependency lookup; that exact subprocess was not
-   re-inspected in this query. See the [interim run record](environment/HPC_R_MESH_BUILD_22012400.json)
-   and query Slurm before continuing; do not submit a duplicate build. Fresh
-   package/version/isolation validation has not run. Restore/validate
+   report are retained. The separately approved retry **22012400 timed out**
+   (exit `1:0`, elapsed `02:00:09`, node432; batch MaxRSS `902232K`). R installed
+   and 20 packages completed, ending with lifecycle. The retained receipt is
+   incomplete (`started`); package-s2 has no return code and its log ends at
+   `Using abseil-cpp from pkg-config`. No validate log exists. See the
+   [terminal run record](environment/HPC_R_MESH_BUILD_22012400.json). Preserve
+   the partial prefix unchanged; no retry or resume was performed or approved
+   by this integration. Fresh package/version/isolation validation was not
+   reached, and no canonical Linux mesh was reproduced. Restore/validate
    the Linux mesh environment before a canonical rebuild.
    Existing historical mesh
    files are evidence and must not silently be relabeled canonical exports.

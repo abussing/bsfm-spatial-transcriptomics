@@ -1,9 +1,9 @@
 {
   "schema": "bsfm.hpc-environment-build-result.v1",
   "job_id": "22012400",
-  "status": "running_at_last_inspection",
+  "status": "timed_out",
   "inspection_date": "2026-11-02",
-  "scheduler_elapsed_at_inspection": "01:54:57",
+  "scheduler_elapsed_at_inspection": "02:00:09",
   "node": "node432",
   "resources": {
     "cpus": 4,
@@ -26,11 +26,11 @@
     "install-runtime"
   ],
   "completed_package_install_count": 20,
-  "current_stage_at_inspection": "No new package completion after the 20th (lifecycle) in the observed build log; package-s2 was the prior recorded active stage, not re-inspected in this query",
-  "observation": "squeue and sacct both reported RUNNING on node432 at 01:54:57. Last 50 build-log lines show configure, make, runtime install and 20 package PASS messages. No validate PASS was present. Running exit code 0:0 is not a completion result.",
-  "fresh_version_and_namespace_validation": "no_new_validation_evidence_observed",
+  "current_stage_at_inspection": "package-s2; last log line: ** Using abseil-cpp from pkg-config",
+  "observation": "squeue returned its header only. sacct reports TIMEOUT, exit 1:0, elapsed 02:00:09; batch step CANCELLED, exit 0:15, elapsed 02:00:10, MaxRSS 902232K. R installation and 20 package installs completed; lifecycle was last. Retained build receipt remains started, with package-s2 last and no returncode. validate.log is absent.",
+  "fresh_version_and_namespace_validation": "not_reached",
   "prior_job_preserved": "22012386",
-  "interpretation": "Live interim observation, not a completion receipt. Job may subsequently finish or time out; query scheduler before further action. No collector, retry, package installation, partial-prefix resume or duplicate job was run by this reconciliation. Preserve the existing root and logs.",
+  "interpretation": "Terminal scheduler failure at the two-hour time limit. The retained started receipt is incomplete, not a running claim or a successful build receipt. Logs locate the last recorded activity in s2 configuration but do not establish the underlying reason it did not finish. No collector, retry, installation, partial-prefix resume or build modification performed. Accepted Windows mesh environment and canonical implementation remain valid; no canonical Linux mesh reproduction is claimed.",
   "previous_inspection": {
     "status": "running_at_last_inspection",
     "inspection_date": "2026-11-02",
@@ -40,15 +40,20 @@
     "observation": "s2 configure is executing /usr/bin/pkg-config absl_s2 --libs. System pkg-config reports 0.27.1; the process is active but the stage log has not advanced. This is an observation, not a proven cause of failure.",
     "fresh_version_and_namespace_validation": "not_reached"
   },
-  "scheduler_state_at_inspection": "RUNNING",
-  "scheduler_exit_code_at_inspection": "0:0",
-  "inspection_context": "Read-only original-desktop reconciliation; interactive SSH on port 222",
+  "scheduler_state_at_inspection": "TIMEOUT",
+  "scheduler_exit_code_at_inspection": "1:0",
+  "inspection_context": "Read-only terminal-outcome check from original desktop; interactive SSH on port 222",
   "inspection_commands": [
     "squeue -j 22012400",
     "sacct -j 22012400 --format=JobID,State,ExitCode,Elapsed,MaxRSS -P",
-    "tail -50 /work/abussing/bsfm-consolidation/evidence/r-mesh-build-22012400.log"
+    "tail -80 /work/abussing/bsfm-consolidation/evidence/r-mesh-build-22012400.log",
+    "cat /work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/build-receipt.json",
+    "tail -80 /work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/logs/package-s2.log",
+    "if test -f /work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/logs/validate.log; then tail -20 /work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/logs/validate.log; else echo VALIDATE_LOG_ABSENT; fi",
+    "sha256sum /work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/build-receipt.json /work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/logs/package-s2.log /work/abussing/bsfm-consolidation/evidence/r-mesh-build-22012400.log",
+    "wc -c /work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/build-receipt.json /work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/logs/package-s2.log /work/abussing/bsfm-consolidation/evidence/r-mesh-build-22012400.log"
   ],
-  "scheduler_output": "JOBID 22012400; PARTITION defq-64co; USER abussing; ST R; TIME 1:54:57; NODES 1; NODELIST node432\nJobID|State|ExitCode|Elapsed|MaxRSS\n22012400|RUNNING|0:0|01:54:57|",
+  "scheduler_output": "JobID|State|ExitCode|Elapsed|MaxRSS\n22012400|TIMEOUT|1:0|02:00:09|\n22012400.batch|CANCELLED|0:15|02:00:10|902232K",
   "build_log_tail_lines": [
     "PASS configure",
     "PASS make",
@@ -72,6 +77,72 @@
     "PASS package-wk",
     "PASS package-Matrix",
     "PASS package-class",
-    "PASS package-lifecycle"
-  ]
+    "PASS package-lifecycle",
+    "slurmstepd: error: *** JOB 22012400 ON node432 CANCELLED AT 2026-11-02T19:47:11 DUE TO TIME LIMIT ***"
+  ],
+  "previous_desktop_inspection": {
+    "status": "running_at_last_inspection",
+    "inspection_date": "2026-11-02",
+    "scheduler_elapsed_at_inspection": "01:54:57",
+    "scheduler_state_at_inspection": "RUNNING",
+    "scheduler_exit_code_at_inspection": "0:0",
+    "current_stage_at_inspection": "No new package completion after the 20th (lifecycle) in the observed build log; package-s2 was the prior recorded active stage, not re-inspected in this query",
+    "observation": "squeue and sacct both reported RUNNING on node432 at 01:54:57. Last 50 build-log lines show configure, make, runtime install and 20 package PASS messages. No validate PASS was present. Running exit code 0:0 is not a completion result.",
+    "scheduler_output": "JOBID 22012400; PARTITION defq-64co; USER abussing; ST R; TIME 1:54:57; NODES 1; NODELIST node432\nJobID|State|ExitCode|Elapsed|MaxRSS\n22012400|RUNNING|0:0|01:54:57|"
+  },
+  "scheduler_rows": [
+    {
+      "job_id": "22012400",
+      "state": "TIMEOUT",
+      "exit_code": "1:0",
+      "elapsed": "02:00:09",
+      "MaxRSS": null
+    },
+    {
+      "job_id": "22012400.batch",
+      "state": "CANCELLED",
+      "exit_code": "0:15",
+      "elapsed": "02:00:10",
+      "MaxRSS": "902232K"
+    }
+  ],
+  "squeue_job_present": false,
+  "last_completed_package": "lifecycle",
+  "retained_build_receipt": {
+    "path": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/build-receipt.json",
+    "bytes": 35355,
+    "sha256": "0b0280ee7d8096357cf238728dacb3760d6ad1cdf0949a753b922744f0eef61d",
+    "recorded_status": "started",
+    "terminal_success_or_failure_recorded": false,
+    "last_command_label": "package-s2",
+    "last_command_returncode": null,
+    "last_command_argv": [
+      "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/R/bin/R",
+      "CMD",
+      "INSTALL",
+      "--no-multiarch",
+      "--library=/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/r-library",
+      "/work/abussing/bsfm-consolidation/environments/r-linux-sources/s2_1.1.9.tar.gz"
+    ]
+  },
+  "retained_logs": [
+    {
+      "path": "/work/abussing/bsfm-consolidation/environments/mesh-r-linux-build-22012400/logs/package-s2.log",
+      "bytes": 564,
+      "sha256": "c72debb7dc5d29696b5f69501469ce6b5bd95d23ad4eb02a98af509036e51f55",
+      "last_line": "** Using abseil-cpp from pkg-config"
+    },
+    {
+      "path": "/work/abussing/bsfm-consolidation/evidence/r-mesh-build-22012400.log",
+      "bytes": 539,
+      "sha256": "b3a698972a6850019414311be88fcabf39ed24dd42de64f5f55dbb13ece07df6"
+    }
+  ],
+  "validate_log_exists": false,
+  "readiness": {
+    "source_acquisition": "R source and all 33 package sources authenticated under unchanged locks",
+    "environment_compilation": "R configure/make/install-runtime passed; 20 package installs passed; s2 unfinished at timeout",
+    "package_version_loading_isolation_validation": "not reached; no passing final receipt",
+    "canonical_mesh_output_reproduction": "not performed"
+  }
 }

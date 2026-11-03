@@ -8,10 +8,10 @@
       "id": "linux-r-mesh-sources",
       "classification": "regenerable;required_for_prepared_linux_R_build",
       "accessible_path": "/work/abussing/bsfm-consolidation/environments/r-linux-sources",
-      "status": "R_4.5.3_and_33_package_sources_authenticated;job_22012386_failed_in_optional_NEWS_pdf_before_installation",
+      "status": "R_4.5.3_and_33_package_sources_authenticated;job_22012386_failed_in_optional_NEWS_pdf_before_installation;job_22012400_timed_out_after_R_install_and_20_packages",
       "acquisition_receipt_sha256": "528edcb58aa9ee2157f4033b63c3f9f55dfc550c1831f97f887a9e01879fb214",
       "authority": "../environment/mesh/r-source-lock.json; ../environment/sctransform/source-lock.json",
-      "restore": "Retain the authenticated source cache and unchanged source/header locks. Job 22012386 failed; job 22012400 was RUNNING at the desktop check (01:54:57). Consult HPC_R_MESH_BUILD_22012400.json and query its final scheduler state before acting. A prepared specification is not authorization to resubmit. Source acquisition is not successful compilation or runtime validation."
+      "restore": "Retain authenticated source cache, unchanged locks and both failed build prefixes. Job 22012400 ended TIMEOUT, exit 1:0, elapsed 02:00:09, with package-s2 unfinished and no validate log. See HPC_R_MESH_BUILD_22012400.json for terminal evidence. No partial-prefix resume or retry was performed. A prepared specification does not authorize resubmission. Source acquisition, compilation, package/loading validation and canonical mesh reproduction are separate gates."
     },
     {
       "id": "s10-preview-topology",
@@ -266,7 +266,7 @@
           "status": "accepted_CPU_and_mesh_environments_run_75_plus_8_tests;SCT_locks_pass_fast_integrity"
         },
         "hpc": {
-          "status": "bounded_CPU_gate_previously_passed;R_mesh_job_22012400_requires_final_status"
+          "status": "bounded_CPU_gate_previously_passed;R_mesh_job_22012400_TIMEOUT_no_final_validation"
         },
         "laptop": {
           "status": "no_scientific_runtime_validation_claim"

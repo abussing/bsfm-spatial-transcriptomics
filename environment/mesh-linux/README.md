@@ -11,10 +11,13 @@ The approved retry adds only `PDFLATEX=` to the make command. The authenticated
 R source's `doc/Makefile` explicitly skips NEWS PDF generation when this variable
 is empty. R sources, configure arguments, compiler settings, package pins,
 installation order and validation are unchanged. Job **22012400** passed make
-and runtime installation. The desktop read-only check found it RUNNING at
-01:54:57 on node432, with 20 package completions and no new validate result.
-The prior inspection recorded s2 dependency lookup; the desktop query did not
-re-inspect that subprocess. This remains an interim observation. See the [interim record](../../docs/environment/HPC_R_MESH_BUILD_22012400.json).
+and runtime installation, then **timed out** on node432: scheduler exit `1:0`,
+elapsed `02:00:09`; batch MaxRSS `902232K`. Twenty packages completed, ending
+with lifecycle. The retained receipt remains `started`, with package-s2 last
+and no return code; its log ends at `Using abseil-cpp from pkg-config`.
+`validate.log` is absent. This locates the last recorded activity, not the
+underlying cause. See the [terminal record](../../docs/environment/HPC_R_MESH_BUILD_22012400.json).
+The partial prefix and logs are preserved unchanged; no resume or retry occurred.
 It does not overwrite job 22012386 or establish completed environment validation.
 
 `build.py` uses the existing R 4.5.3 runtime-source hash from

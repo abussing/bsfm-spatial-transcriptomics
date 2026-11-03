@@ -75,11 +75,17 @@ reached. See the [execution receipt](HPC_R_MESH_BUILD_22012386.json) and
 [package/version report](HPC_R_PACKAGE_VALIDATION_22012386.json).
 
 The separately approved retry [22012400](HPC_R_MESH_BUILD_22012400.json) was
-RUNNING at the original-desktop read-only check, elapsed 01:54:57 on node432.
-R installation and 20 package completions appear in the log; fresh namespace
-validation is not observed. This is not a completed build. Preserve the prefix;
-no retry, pkgconf install, partial-prefix resume or duplicate submission occurred.
-Query its final scheduler state before any next step.
+**TIMEOUT** at the terminal original-desktop check: exit `1:0`, elapsed
+`02:00:09`, node432. The batch step reports `CANCELLED`, exit `0:15`, elapsed
+`02:00:10`, MaxRSS `902232K`; the parent row has no MaxRSS value. R installation
+and 20 packages completed, with lifecycle last. The build receipt remains
+`started`; package-s2 has no recorded return code and its log ends at
+`Using abseil-cpp from pkg-config`. No `validate.log` exists. The logs do not
+establish why that stage failed to finish before the time limit.
+The partial prefix and logs remain unchanged. No collector, retry, installation,
+resume or duplicate submission occurred. Package/version/loading validation and
+canonical Linux mesh reproduction remain unestablished; this does not undo the
+accepted Windows environment or canonical mesh implementation.
 
 ## Remaining work
 
