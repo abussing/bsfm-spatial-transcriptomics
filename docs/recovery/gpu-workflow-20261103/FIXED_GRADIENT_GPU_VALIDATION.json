@@ -1,0 +1,593 @@
+{
+  "status": "PASS",
+  "commit": "8dbff5863d2b3e2f58411180354b006bed243082",
+  "scope": "Real K12/L14 saved-input gradient and first split transition; no warmup or scientific fitting",
+  "gradient": {
+    "status": "DIAGNOSTIC_COMPLETE",
+    "commit": "8dbff5863d2b3e2f58411180354b006bed243082",
+    "environment": {
+      "schema": "bsfm.meeting-gpu-environment.v1",
+      "lock": {
+        "bytes": 14379,
+        "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+      },
+      "backend": "gpu",
+      "x64": true,
+      "device_kind": "Tesla V100-PCIE-16GB",
+      "device_validation": {
+        "bytes": 14379,
+        "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+      },
+      "packages": {
+        "opt_einsum": "3.4.0",
+        "joblib": "1.6.0",
+        "numpy": "2.1.3",
+        "ptyprocess": "0.7.0",
+        "httpcore": "1.0.9",
+        "watchfiles": "1.1.1",
+        "matplotlib-inline": "0.2.1",
+        "python-multipart": "0.0.22",
+        "parso": "0.8.6",
+        "uvicorn": "0.43.0",
+        "fonttools": "4.62.1",
+        "fastlite": "0.2.4",
+        "pyparsing": "3.3.2",
+        "fastcore": "1.12.34",
+        "pillow": "12.2.0",
+        "contourpy": "1.3.3",
+        "python-fasthtml": "0.13.2",
+        "jaxopt": "0.8.3",
+        "tzdata": "2026.2",
+        "nvidia-cudnn-cu12": "9.8.0.87",
+        "six": "1.17.0",
+        "soupsieve": "2.8.3",
+        "h11": "0.16.0",
+        "wcwidth": "0.6.0",
+        "optax": "0.2.8",
+        "ipython": "9.10.1",
+        "websockets": "16.0",
+        "pexpect": "4.9.0",
+        "ml_dtypes": "0.5.4",
+        "scipy": "1.14.1",
+        "decorator": "5.2.1",
+        "typing_extensions": "4.15.0",
+        "python-dotenv": "1.2.2",
+        "beautifulsoup4": "4.14.3",
+        "scikit-learn": "1.4.2",
+        "stack-data": "0.6.3",
+        "certifi": "2026.2.25",
+        "jax-cuda12-pjrt": "0.7.0",
+        "asttokens": "3.0.1",
+        "pure_eval": "0.2.3",
+        "uvloop": "0.22.1",
+        "cycler": "0.12.1",
+        "anyio": "4.13.0",
+        "blackjax": "1.3",
+        "matplotlib": "3.10.8",
+        "pip": "26.0.1",
+        "jedi": "0.19.2",
+        "apswutils": "0.1.2",
+        "packaging": "25.0",
+        "executing": "2.2.1",
+        "cma": "4.4.4",
+        "ipython_pygments_lexers": "1.1.1",
+        "jax-cuda12-plugin": "0.7.0",
+        "PyYAML": "6.0.3",
+        "idna": "3.11",
+        "prompt_toolkit": "3.0.52",
+        "setuptools": "80.10.2",
+        "jaxlib": "0.7.0",
+        "pandas": "2.2.3",
+        "httptools": "0.7.1",
+        "absl-py": "2.4.0",
+        "starlette": "1.0.0",
+        "oauthlib": "3.3.1",
+        "kiwisolver": "1.5.0",
+        "cloudpickle": "3.1.2",
+        "jax": "0.7.0",
+        "pytz": "2026.1.post1",
+        "traitlets": "5.14.3",
+        "polyagamma": "2.0.2",
+        "fastprogress": "1.1.5",
+        "apsw": "3.51.3.0",
+        "python-dateutil": "2.9.0.post0",
+        "itsdangerous": "2.2.0",
+        "httpx": "0.28.1",
+        "wheel": "0.46.3",
+        "click": "8.3.2",
+        "threadpoolctl": "3.6.0",
+        "Pygments": "2.20.0"
+      },
+      "installed_numerical_files": 2355,
+      "blas_threads": 1,
+      "absent_unused_resources": [
+        "docs/_static/blackjax.png",
+        "docs/examples/data/blackjax.png",
+        "scipy/stats/_sobol_direction_numbers.npz"
+      ],
+      "limitation": "Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations."
+    },
+    "scope": "Fixed-input gradient/scatter diagnostic; no transition, fit or production changes",
+    "full_value_gradient": {
+      "repeats": 10,
+      "comparisons": [
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        }
+      ],
+      "all_exact": true
+    },
+    "analytic_vs_autodiff": {
+      "relative_value_error": 0.0,
+      "relative_gradient_error": 2.1764643911194787e-13
+    },
+    "scatter_add": {
+      "repeats": 10,
+      "comparisons": [
+        {
+          "exact": false,
+          "max_abs": 1.4921397450962104e-13
+        },
+        {
+          "exact": false,
+          "max_abs": 1.7053025658242404e-13
+        },
+        {
+          "exact": false,
+          "max_abs": 1.4210854715202004e-13
+        },
+        {
+          "exact": false,
+          "max_abs": 1.7053025658242404e-13
+        },
+        {
+          "exact": false,
+          "max_abs": 1.4210854715202004e-13
+        },
+        {
+          "exact": false,
+          "max_abs": 1.2789769243681803e-13
+        },
+        {
+          "exact": false,
+          "max_abs": 2.2737367544323206e-13
+        },
+        {
+          "exact": false,
+          "max_abs": 1.7053025658242404e-13
+        },
+        {
+          "exact": false,
+          "max_abs": 2.1671553440683056e-13
+        }
+      ],
+      "all_exact": false
+    },
+    "fixed_order_diagnostic_only": {
+      "repeats": 10,
+      "comparisons": [
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        },
+        {
+          "exact": true,
+          "max_abs": 0.0
+        }
+      ],
+      "all_exact": true
+    },
+    "operator_comparison": {
+      "active_vertices": 166,
+      "contributions": 10137,
+      "max_incidence": 185,
+      "scatter_vs_cpu_max_abs": 2.8421709430404007e-13,
+      "fixed_order_vs_cpu_max_abs": 1.7053025658242404e-13,
+      "scatter_vs_fixed_order_max_abs": 1.4210854715202004e-13
+    }
+  },
+  "transition": {
+    "status": "DIAGNOSTIC_COMPLETE",
+    "commit": "8dbff5863d2b3e2f58411180354b006bed243082",
+    "scope": "First-factor reproducibility isolation; no warmup or output migration",
+    "environment": {
+      "schema": "bsfm.meeting-gpu-environment.v1",
+      "lock": {
+        "bytes": 14379,
+        "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+      },
+      "backend": "gpu",
+      "x64": true,
+      "device_kind": "Tesla V100-PCIE-16GB",
+      "device_validation": {
+        "bytes": 14379,
+        "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+      },
+      "packages": {
+        "opt_einsum": "3.4.0",
+        "joblib": "1.6.0",
+        "numpy": "2.1.3",
+        "ptyprocess": "0.7.0",
+        "httpcore": "1.0.9",
+        "watchfiles": "1.1.1",
+        "matplotlib-inline": "0.2.1",
+        "python-multipart": "0.0.22",
+        "parso": "0.8.6",
+        "uvicorn": "0.43.0",
+        "fonttools": "4.62.1",
+        "fastlite": "0.2.4",
+        "pyparsing": "3.3.2",
+        "fastcore": "1.12.34",
+        "pillow": "12.2.0",
+        "contourpy": "1.3.3",
+        "python-fasthtml": "0.13.2",
+        "jaxopt": "0.8.3",
+        "tzdata": "2026.2",
+        "nvidia-cudnn-cu12": "9.8.0.87",
+        "six": "1.17.0",
+        "soupsieve": "2.8.3",
+        "h11": "0.16.0",
+        "wcwidth": "0.6.0",
+        "optax": "0.2.8",
+        "ipython": "9.10.1",
+        "websockets": "16.0",
+        "pexpect": "4.9.0",
+        "ml_dtypes": "0.5.4",
+        "scipy": "1.14.1",
+        "decorator": "5.2.1",
+        "typing_extensions": "4.15.0",
+        "python-dotenv": "1.2.2",
+        "beautifulsoup4": "4.14.3",
+        "scikit-learn": "1.4.2",
+        "stack-data": "0.6.3",
+        "certifi": "2026.2.25",
+        "jax-cuda12-pjrt": "0.7.0",
+        "asttokens": "3.0.1",
+        "pure_eval": "0.2.3",
+        "uvloop": "0.22.1",
+        "cycler": "0.12.1",
+        "anyio": "4.13.0",
+        "blackjax": "1.3",
+        "matplotlib": "3.10.8",
+        "pip": "26.0.1",
+        "jedi": "0.19.2",
+        "apswutils": "0.1.2",
+        "packaging": "25.0",
+        "executing": "2.2.1",
+        "cma": "4.4.4",
+        "ipython_pygments_lexers": "1.1.1",
+        "jax-cuda12-plugin": "0.7.0",
+        "PyYAML": "6.0.3",
+        "idna": "3.11",
+        "prompt_toolkit": "3.0.52",
+        "setuptools": "80.10.2",
+        "jaxlib": "0.7.0",
+        "pandas": "2.2.3",
+        "httptools": "0.7.1",
+        "absl-py": "2.4.0",
+        "starlette": "1.0.0",
+        "oauthlib": "3.3.1",
+        "kiwisolver": "1.5.0",
+        "cloudpickle": "3.1.2",
+        "jax": "0.7.0",
+        "pytz": "2026.1.post1",
+        "traitlets": "5.14.3",
+        "polyagamma": "2.0.2",
+        "fastprogress": "1.1.5",
+        "apsw": "3.51.3.0",
+        "python-dateutil": "2.9.0.post0",
+        "itsdangerous": "2.2.0",
+        "httpx": "0.28.1",
+        "wheel": "0.46.3",
+        "click": "8.3.2",
+        "threadpoolctl": "3.6.0",
+        "Pygments": "2.20.0"
+      },
+      "installed_numerical_files": 2355,
+      "blas_threads": 1,
+      "absent_unused_resources": [
+        "docs/_static/blackjax.png",
+        "docs/examples/data/blackjax.png",
+        "scipy/stats/_sobol_direction_numbers.npz"
+      ],
+      "limitation": "Existing shared environment; recorded inventory and numerical runtime RECORD integrity; package tests excluded. GPU trajectories are not CPU-exact continuations."
+    },
+    "genesis": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/real-timing-22015787/threads-1/strict/segments/segment/genesis/endpoint.npz",
+      "bytes": 14139989,
+      "sha256": "f975ea51f834482eecd8f943d19663ce703d78cada254beaa697db40110e242e"
+    },
+    "factor": "factor-011",
+    "input_context": {
+      "ct_sha256": "cacf9acb7076bec0a253fbdb7c39cc95ed4cfba95e24ce020ceaf3d321585695",
+      "factor_id": "factor-011",
+      "penalty": 9622.166903797826,
+      "state_array_hashes": {
+        "alpha": "1dca088c9f576d925859c60385a551d6662e9110f822145070948cbd87373885",
+        "delta": "e71556a858c238c6ce4def44e565caa4c725f64472f8ca7b03c52353408f2003",
+        "eta": "36fc263f6d61541c86f0b4541b3e8eec35b275909a4db7272d136fe6d9086a9c",
+        "loading": "62b544b9e3108384737896fea4179f415de2d4bf52dd80675d705bfd4d3960b7",
+        "phi": "9695ef2e072a5d3c079d59f5766debfff3b4dc4f00b2b04138ba087a1e10e4a2",
+        "sigma2": "4b4967ee6e705addeac2b5f79657bf3876e370f1fc1cde7ce6419952b70c0d84",
+        "tau": "6b917410a483ae53ce485ad4c1e04e181b1a0c1f1be6352540b73c5d52ce3f6a",
+        "zeta": "068f36976e8ce4709827f12708d9f86a5f18cac631cf29052104fbdf063182f4"
+      },
+      "target_sha256": "2086bfaf76cc04b3c7d4a90edeb3891c8aaf4ad246d058ee948d8b38d9208fe7",
+      "u_sha256": "5394a60a6a0d1776666942373f06ef8f96cad3790f8c2cefa07f55f25a9d96bc"
+    },
+    "input_position_sha256": "26decf6355b423b5b50b5c5cbbfcb86e8b87a6af45c8f2f2e9a1324f3d34acd5",
+    "key": [
+      2988715357,
+      1615159132
+    ],
+    "same_runner_first": {
+      "seconds": 8.186234595996211,
+      "position_sha256": "c269c40d1bb26033a2973abf1a80c821664b75b778316f7bc681d1da1b359758",
+      "audit": {
+        "target_sha256": "2086bfaf76cc04b3c7d4a90edeb3891c8aaf4ad246d058ee948d8b38d9208fe7",
+        "factor_ids": [
+          "factor-001",
+          "factor-002",
+          "factor-003",
+          "factor-004",
+          "factor-005",
+          "factor-006",
+          "factor-007",
+          "factor-008",
+          "factor-009",
+          "factor-010",
+          "factor-011",
+          "factor-012"
+        ],
+        "state_array_hashes": {
+          "loading": "62b544b9e3108384737896fea4179f415de2d4bf52dd80675d705bfd4d3960b7",
+          "eta": "36fc263f6d61541c86f0b4541b3e8eec35b275909a4db7272d136fe6d9086a9c",
+          "alpha": "1dca088c9f576d925859c60385a551d6662e9110f822145070948cbd87373885",
+          "zeta": "068f36976e8ce4709827f12708d9f86a5f18cac631cf29052104fbdf063182f4",
+          "sigma2": "4b4967ee6e705addeac2b5f79657bf3876e370f1fc1cde7ce6419952b70c0d84",
+          "phi": "9695ef2e072a5d3c079d59f5766debfff3b4dc4f00b2b04138ba087a1e10e4a2",
+          "delta": "e71556a858c238c6ce4def44e565caa4c725f64472f8ca7b03c52353408f2003",
+          "tau": "6b917410a483ae53ce485ad4c1e04e181b1a0c1f1be6352540b73c5d52ce3f6a"
+        },
+        "context": {
+          "ct_sha256": "cacf9acb7076bec0a253fbdb7c39cc95ed4cfba95e24ce020ceaf3d321585695",
+          "factor_id": "factor-011",
+          "penalty": 9622.166903797826,
+          "state_array_hashes": {
+            "alpha": "1dca088c9f576d925859c60385a551d6662e9110f822145070948cbd87373885",
+            "delta": "e71556a858c238c6ce4def44e565caa4c725f64472f8ca7b03c52353408f2003",
+            "eta": "36fc263f6d61541c86f0b4541b3e8eec35b275909a4db7272d136fe6d9086a9c",
+            "loading": "62b544b9e3108384737896fea4179f415de2d4bf52dd80675d705bfd4d3960b7",
+            "phi": "9695ef2e072a5d3c079d59f5766debfff3b4dc4f00b2b04138ba087a1e10e4a2",
+            "sigma2": "4b4967ee6e705addeac2b5f79657bf3876e370f1fc1cde7ce6419952b70c0d84",
+            "tau": "6b917410a483ae53ce485ad4c1e04e181b1a0c1f1be6352540b73c5d52ce3f6a",
+            "zeta": "068f36976e8ce4709827f12708d9f86a5f18cac631cf29052104fbdf063182f4"
+          },
+          "target_sha256": "2086bfaf76cc04b3c7d4a90edeb3891c8aaf4ad246d058ee948d8b38d9208fe7",
+          "u_sha256": "5394a60a6a0d1776666942373f06ef8f96cad3790f8c2cefa07f55f25a9d96bc"
+        },
+        "input_position_sha256": "26decf6355b423b5b50b5c5cbbfcb86e8b87a6af45c8f2f2e9a1324f3d34acd5",
+        "key_data": [
+          2988715357,
+          1615159132
+        ],
+        "eta_redrawn": false,
+        "key_policy": "Caller supplies one key; no next key returned or implicit advancement",
+        "output_position_sha256": "c269c40d1bb26033a2973abf1a80c821664b75b778316f7bc681d1da1b359758",
+        "maximum_W_relative_error": 3.291080391560724e-16,
+        "W_relative_tolerance": 2e-08
+      }
+    },
+    "same_runner_repeat": {
+      "seconds": 0.9308416850108188,
+      "position_sha256": "c269c40d1bb26033a2973abf1a80c821664b75b778316f7bc681d1da1b359758",
+      "audit": {
+        "target_sha256": "2086bfaf76cc04b3c7d4a90edeb3891c8aaf4ad246d058ee948d8b38d9208fe7",
+        "factor_ids": [
+          "factor-001",
+          "factor-002",
+          "factor-003",
+          "factor-004",
+          "factor-005",
+          "factor-006",
+          "factor-007",
+          "factor-008",
+          "factor-009",
+          "factor-010",
+          "factor-011",
+          "factor-012"
+        ],
+        "state_array_hashes": {
+          "loading": "62b544b9e3108384737896fea4179f415de2d4bf52dd80675d705bfd4d3960b7",
+          "eta": "36fc263f6d61541c86f0b4541b3e8eec35b275909a4db7272d136fe6d9086a9c",
+          "alpha": "1dca088c9f576d925859c60385a551d6662e9110f822145070948cbd87373885",
+          "zeta": "068f36976e8ce4709827f12708d9f86a5f18cac631cf29052104fbdf063182f4",
+          "sigma2": "4b4967ee6e705addeac2b5f79657bf3876e370f1fc1cde7ce6419952b70c0d84",
+          "phi": "9695ef2e072a5d3c079d59f5766debfff3b4dc4f00b2b04138ba087a1e10e4a2",
+          "delta": "e71556a858c238c6ce4def44e565caa4c725f64472f8ca7b03c52353408f2003",
+          "tau": "6b917410a483ae53ce485ad4c1e04e181b1a0c1f1be6352540b73c5d52ce3f6a"
+        },
+        "context": {
+          "ct_sha256": "cacf9acb7076bec0a253fbdb7c39cc95ed4cfba95e24ce020ceaf3d321585695",
+          "factor_id": "factor-011",
+          "penalty": 9622.166903797826,
+          "state_array_hashes": {
+            "alpha": "1dca088c9f576d925859c60385a551d6662e9110f822145070948cbd87373885",
+            "delta": "e71556a858c238c6ce4def44e565caa4c725f64472f8ca7b03c52353408f2003",
+            "eta": "36fc263f6d61541c86f0b4541b3e8eec35b275909a4db7272d136fe6d9086a9c",
+            "loading": "62b544b9e3108384737896fea4179f415de2d4bf52dd80675d705bfd4d3960b7",
+            "phi": "9695ef2e072a5d3c079d59f5766debfff3b4dc4f00b2b04138ba087a1e10e4a2",
+            "sigma2": "4b4967ee6e705addeac2b5f79657bf3876e370f1fc1cde7ce6419952b70c0d84",
+            "tau": "6b917410a483ae53ce485ad4c1e04e181b1a0c1f1be6352540b73c5d52ce3f6a",
+            "zeta": "068f36976e8ce4709827f12708d9f86a5f18cac631cf29052104fbdf063182f4"
+          },
+          "target_sha256": "2086bfaf76cc04b3c7d4a90edeb3891c8aaf4ad246d058ee948d8b38d9208fe7",
+          "u_sha256": "5394a60a6a0d1776666942373f06ef8f96cad3790f8c2cefa07f55f25a9d96bc"
+        },
+        "input_position_sha256": "26decf6355b423b5b50b5c5cbbfcb86e8b87a6af45c8f2f2e9a1324f3d34acd5",
+        "key_data": [
+          2988715357,
+          1615159132
+        ],
+        "eta_redrawn": false,
+        "key_policy": "Caller supplies one key; no next key returned or implicit advancement",
+        "output_position_sha256": "c269c40d1bb26033a2973abf1a80c821664b75b778316f7bc681d1da1b359758",
+        "maximum_W_relative_error": 3.291080391560724e-16,
+        "W_relative_tolerance": 2e-08
+      },
+      "comparison": {
+        "exact": true,
+        "differences": []
+      }
+    },
+    "new_runner": {
+      "seconds": 8.653118631002144,
+      "position_sha256": "c269c40d1bb26033a2973abf1a80c821664b75b778316f7bc681d1da1b359758",
+      "audit": {
+        "target_sha256": "2086bfaf76cc04b3c7d4a90edeb3891c8aaf4ad246d058ee948d8b38d9208fe7",
+        "factor_ids": [
+          "factor-001",
+          "factor-002",
+          "factor-003",
+          "factor-004",
+          "factor-005",
+          "factor-006",
+          "factor-007",
+          "factor-008",
+          "factor-009",
+          "factor-010",
+          "factor-011",
+          "factor-012"
+        ],
+        "state_array_hashes": {
+          "loading": "62b544b9e3108384737896fea4179f415de2d4bf52dd80675d705bfd4d3960b7",
+          "eta": "36fc263f6d61541c86f0b4541b3e8eec35b275909a4db7272d136fe6d9086a9c",
+          "alpha": "1dca088c9f576d925859c60385a551d6662e9110f822145070948cbd87373885",
+          "zeta": "068f36976e8ce4709827f12708d9f86a5f18cac631cf29052104fbdf063182f4",
+          "sigma2": "4b4967ee6e705addeac2b5f79657bf3876e370f1fc1cde7ce6419952b70c0d84",
+          "phi": "9695ef2e072a5d3c079d59f5766debfff3b4dc4f00b2b04138ba087a1e10e4a2",
+          "delta": "e71556a858c238c6ce4def44e565caa4c725f64472f8ca7b03c52353408f2003",
+          "tau": "6b917410a483ae53ce485ad4c1e04e181b1a0c1f1be6352540b73c5d52ce3f6a"
+        },
+        "context": {
+          "ct_sha256": "cacf9acb7076bec0a253fbdb7c39cc95ed4cfba95e24ce020ceaf3d321585695",
+          "factor_id": "factor-011",
+          "penalty": 9622.166903797826,
+          "state_array_hashes": {
+            "alpha": "1dca088c9f576d925859c60385a551d6662e9110f822145070948cbd87373885",
+            "delta": "e71556a858c238c6ce4def44e565caa4c725f64472f8ca7b03c52353408f2003",
+            "eta": "36fc263f6d61541c86f0b4541b3e8eec35b275909a4db7272d136fe6d9086a9c",
+            "loading": "62b544b9e3108384737896fea4179f415de2d4bf52dd80675d705bfd4d3960b7",
+            "phi": "9695ef2e072a5d3c079d59f5766debfff3b4dc4f00b2b04138ba087a1e10e4a2",
+            "sigma2": "4b4967ee6e705addeac2b5f79657bf3876e370f1fc1cde7ce6419952b70c0d84",
+            "tau": "6b917410a483ae53ce485ad4c1e04e181b1a0c1f1be6352540b73c5d52ce3f6a",
+            "zeta": "068f36976e8ce4709827f12708d9f86a5f18cac631cf29052104fbdf063182f4"
+          },
+          "target_sha256": "2086bfaf76cc04b3c7d4a90edeb3891c8aaf4ad246d058ee948d8b38d9208fe7",
+          "u_sha256": "5394a60a6a0d1776666942373f06ef8f96cad3790f8c2cefa07f55f25a9d96bc"
+        },
+        "input_position_sha256": "26decf6355b423b5b50b5c5cbbfcb86e8b87a6af45c8f2f2e9a1324f3d34acd5",
+        "key_data": [
+          2988715357,
+          1615159132
+        ],
+        "eta_redrawn": false,
+        "key_policy": "Caller supplies one key; no next key returned or implicit advancement",
+        "output_position_sha256": "c269c40d1bb26033a2973abf1a80c821664b75b778316f7bc681d1da1b359758",
+        "maximum_W_relative_error": 3.291080391560724e-16,
+        "W_relative_tolerance": 2e-08
+      },
+      "comparison": {
+        "exact": true,
+        "differences": []
+      }
+    },
+    "against_saved_strict": {
+      "exact": false,
+      "differences": [
+        {
+          "leaf": 0,
+          "shape": [
+            336
+          ],
+          "dtype": "float64",
+          "max_abs": 2.3049229191940412e-11
+        }
+      ]
+    },
+    "against_saved_incremental": {
+      "exact": false,
+      "differences": [
+        {
+          "leaf": 0,
+          "shape": [
+            336
+          ],
+          "dtype": "float64",
+          "max_abs": 2.8683166952703232e-11
+        }
+      ]
+    }
+  }
+}

@@ -41,3 +41,10 @@ the authenticated old adapted state; the source identity is in the configuration
 digest. This is an isolated diagnostic experiment, not scientific chain migration.
 Wall times include compilation and validation; three sweeps do not establish
 long-history scaling. No existing scientific run is modified.
+
+The script also supports an isolated four-thread timing arm: `COMMIT 4 timing`,
+with a 15-minute Slurm override. This performs only three incremental sweeps and
+reports TIMING_COMPLETE, not equivalence PASS. It authenticates all BLAS pools at
+four threads. Compare against the one-thread incremental arm; threading changes
+the environment identity, so cross-thread trajectories are not claimed identical.
+This completes the previously authorized one-versus-four-thread timing question.

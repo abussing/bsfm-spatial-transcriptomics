@@ -9,6 +9,8 @@ from pathlib import Path
 p = argparse.ArgumentParser()
 p.add_argument('--commit', required=True)
 p.add_argument('--output', type=Path, required=True)
+p.add_argument('--threads', type=int, choices=[1, 4], default=1)
+p.add_argument('--timing-only', action='store_true')
 p.add_argument('--worker', choices=['strict', 'incremental', 'interrupt', 'resume', 'nonreplay'])
 a = p.parse_args()
 repo = Path(__file__).resolve().parents[3]
@@ -27,7 +29,7 @@ prepared = Path('/work/abussing/bsfm-consolidation/evidence/holey-27f9b3f0dfa4c1
 
 def make(root, incremental):
     clean(a.commit)
-    runtime = authenticate_gpu_environment()
+    runtime = authenticate_gpu_environment(blas_threads=a.threads)
     target, loading, eta, receipt = target_and_seeds(prepared, 'deep', genesis)
     binding = read_json(source/'input-receipt.json')
     old_spec = read_json(source/'run-spec.json')
@@ -44,7 +46,7 @@ def make(root, incremental):
     def auth():
         clean(a.commit)
         target._validate_identities()
-        if authenticate_gpu_environment() != runtime:
+        if authenticate_gpu_environment(blas_threads=a.threads) != runtime:
             raise ValueError('Runtime changed')
         if read_json(prepared/'prepared.json') != receipt:
             raise ValueError('Preparation receipt changed')
@@ -86,11 +88,11 @@ if a.worker:
 a.output.mkdir(parents=True, exist_ok=False)
 receipt = dict(status='INCOMPLETE', commit=a.commit,
     scope='Three real K12/L14 sweeps per arm, diagnostic seed, no new warmup or scientific fit',
-    source_genesis=dict(path=str(genesis), **file_record(genesis)), checks=[])
+    source_genesis=dict(path=str(genesis), **file_record(genesis)), threads=a.threads, checks=[])
 
 def worker(name, expected=0):
     result = subprocess.run([sys.executable, '-u', str(Path(__file__).resolve()),
-        '--commit', a.commit, '--output', str(a.output), '--worker', name])
+        '--commit', a.commit, '--output', str(a.output), '--threads', str(a.threads), '--worker', name])
     if result.returncode != expected:
         raise AssertionError((name, result.returncode, expected))
     if expected == 0:
@@ -105,6 +107,10 @@ def compare(left, right):
     receipt['checks'].append(dict(left=left, right=right, three_transactions_exact=True))
 
 try:
+    if a.timing_only:
+        worker('incremental')
+        receipt.update(status='TIMING_COMPLETE', scope='Three incremental diagnostic sweeps only; not an equivalence gate')
+        sys.exit(0)
     worker('strict')
     worker('incremental')
     compare('strict', 'incremental')
@@ -125,7 +131,7 @@ try:
     worker('nonreplay')
     receipt['checks'].append(dict(completed_nonreplay=True, fresh_process_uncommitted_recomputation=True))
     receipt['status'] = 'PASS'
-except BaseException as exc:
+except Exception as exc:
     receipt.update(status='FAIL', error=repr(exc))
     raise
 finally:

@@ -1,5 +1,31 @@
 # Current BSFM handoff
 
+## GPU accumulation correction: first real-input gate passed
+
+The GPU-only fixed-incidence reduction at `8dbff58` passed job **22015917**
+(89 seconds, exit 0): ten full gradients exact, same-key split transitions exact
+with both reused and newly compiled runners. Independent autodiff gradient
+relative error was 2.18e-13. CPU arithmetic is unchanged in 18 same-runtime
+kernel comparisons against `51cd306`. Read
+[the correction and bounded next gate](recovery/gpu-workflow-20261103/ACCUMULATION_CORRECTION.md).
+The complete receipt is `FIXED_GRADIENT_GPU_VALIDATION.json` in that directory.
+
+Complete-sweep/restart gate **22015934**, commit
+`51e1ee91d6cb3e54ce0e80baaaaa1c99e891c000`, is pending results at this checkpoint.
+It uses authenticated saved real K12/L14 input as an explicitly labeled diagnostic
+seed under a new software contract; no warmup or scientific checkpoint migration.
+Output: `/work/abussing/bsfm-consolidation/evidence/real-replay-22015934`.
+It must pass exact strict/incremental transaction comparison, fresh-process
+interrupted-sweep recomputation, and committed non-replay before deployment.
+Do not mistake the passing first-factor gate for this complete-sweep gate.
+Existing scientific runs have not been modified.
+
+Local focused correction tests passed (2/2). Broader Layer-3/5 tests recorded
+35 passes and six failures: five saved-reference comparisons and the existing
+Layer-5 split-kernel source-map mismatch from the prior GPU roundoff amendment.
+See `ACCUMULATION_LOCAL_VALIDATION.json`; fixtures/tolerances were not relaxed.
+The earlier failed strict/incremental test below remains preserved evidence.
+
 ## Representative failure diagnosed: inherited GPU scatter nondeterminism
 
 Job 22015787 failed exact strict/incremental comparison after both one-thread

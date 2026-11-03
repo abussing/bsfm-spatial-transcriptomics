@@ -1,0 +1,144 @@
+{
+  "scope": "Local focused correction and unchanged CPU arithmetic; saved fixtures not relaxed",
+  "correction_tests": {
+    "passed": 2,
+    "tests": [
+      "repeated_indices_and_unused_vertex",
+      "fixed_reduction_full_target_vs_dense_gaussian"
+    ]
+  },
+  "regression": {
+    "tests": 41,
+    "passed": 35,
+    "failed": 6,
+    "log": {
+      "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\accumulation-cpu-regression.log",
+      "bytes": 25206,
+      "sha256": "b5faae4b0e33d1af68d23d0156c9512e7172a03175c05be722602fa9d454ec09"
+    },
+    "failures": [
+      "layer3 exact_original_target_values_and_all_gradients",
+      "layer3 public_target_equals_original_and_input_state_unchanged",
+      "layer5 exact_historical_saved_fixture",
+      "layer5 fresh_process_exact",
+      "layer5 public_canonical_endpoint_matches_reference_exactly",
+      "layer5 source_bodies_provenance"
+    ]
+  },
+  "baseline": {
+    "status": "PASS",
+    "baseline": "51cd306",
+    "checks": [
+      {
+        "seed": 831,
+        "kernel": "value_grad",
+        "jit": false,
+        "exact": true
+      },
+      {
+        "seed": 831,
+        "kernel": "value_grad",
+        "jit": true,
+        "exact": true
+      },
+      {
+        "seed": 831,
+        "kernel": "reference_value_grad",
+        "jit": false,
+        "exact": true
+      },
+      {
+        "seed": 831,
+        "kernel": "reference_value_grad",
+        "jit": true,
+        "exact": true
+      },
+      {
+        "seed": 831,
+        "kernel": "warp_features",
+        "jit": false,
+        "exact": true
+      },
+      {
+        "seed": 831,
+        "kernel": "warp_features",
+        "jit": true,
+        "exact": true
+      },
+      {
+        "seed": 732,
+        "kernel": "value_grad",
+        "jit": false,
+        "exact": true
+      },
+      {
+        "seed": 732,
+        "kernel": "value_grad",
+        "jit": true,
+        "exact": true
+      },
+      {
+        "seed": 732,
+        "kernel": "reference_value_grad",
+        "jit": false,
+        "exact": true
+      },
+      {
+        "seed": 732,
+        "kernel": "reference_value_grad",
+        "jit": true,
+        "exact": true
+      },
+      {
+        "seed": 732,
+        "kernel": "warp_features",
+        "jit": false,
+        "exact": true
+      },
+      {
+        "seed": 732,
+        "kernel": "warp_features",
+        "jit": true,
+        "exact": true
+      },
+      {
+        "seed": 123,
+        "kernel": "value_grad",
+        "jit": false,
+        "exact": true
+      },
+      {
+        "seed": 123,
+        "kernel": "value_grad",
+        "jit": true,
+        "exact": true
+      },
+      {
+        "seed": 123,
+        "kernel": "reference_value_grad",
+        "jit": false,
+        "exact": true
+      },
+      {
+        "seed": 123,
+        "kernel": "reference_value_grad",
+        "jit": true,
+        "exact": true
+      },
+      {
+        "seed": 123,
+        "kernel": "warp_features",
+        "jit": false,
+        "exact": true
+      },
+      {
+        "seed": 123,
+        "kernel": "warp_features",
+        "jit": true,
+        "exact": true
+      }
+    ],
+    "scope": "Same-runtime CPU kernel arithmetic unchanged",
+    "canonical_split_transition_and_audit_exact": true
+  }
+}
