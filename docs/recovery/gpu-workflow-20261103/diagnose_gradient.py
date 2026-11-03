@@ -28,7 +28,11 @@ try:
                 max_abs=max(float(np.max(np.abs(x-y))) for x,y in zip(first,leaves))))
         return dict(repeats=10,comparisons=diff,all_exact=all(x['exact'] for x in diff)),results[0]
     args=tuple(jnp.asarray(d[k]) for k in ['position','u','ct','penalty'])
-    receipt['full_value_gradient'],_=repeat(jax.jit(target._kernels['value_grad']),args)
+    receipt['full_value_gradient'],analytic=repeat(jax.jit(target._kernels['value_grad']),args)
+    reference=jax.tree.map(np.asarray,jax.jit(target._kernels['reference_value_grad'])(*args))
+    receipt['analytic_vs_autodiff']=dict(
+        relative_value_error=float(abs(analytic[0]-reference[0])/max(1.,abs(reference[0]))),
+        relative_gradient_error=float(np.linalg.norm(analytic[1]-reference[1])/max(1.,np.linalg.norm(reference[1]))))
     ka=kernel_arguments(target.inputs,target.geometry,target.rule)
     idx=np.asarray(ka['cell_vertex_idx']);weights=jnp.asarray(ka['cell_weights']);n=ka['u_active'].shape[0]
     w=target._kernels['warp_features'](args[0])[0]

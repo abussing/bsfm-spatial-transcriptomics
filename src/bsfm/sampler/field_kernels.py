@@ -6,6 +6,7 @@ import jax.scipy.linalg as jsla
 import numpy as np
 from .active import active_geometry
 from .finite_features import make_feature_kernel
+from .gradient_accumulation import fixed_incidence_reducer
 
 def build_base_target(*, slocs, cell_vertex_idx, cell_weights, u_active, spectral, omega, sqrt_weights, mu_log_alpha, variance_log_alpha, a_zeta, b_zeta, loading_dimension, ell_eta_reference, mu_log_ell_u, variance_log_ell_u, mu_log_sigma_u, variance_log_sigma_u):
     """Selected fixed-ell_eta/live-warp base, called only by direct-W adapter."""
@@ -20,6 +21,10 @@ def build_base_target(*, slocs, cell_vertex_idx, cell_weights, u_active, spectra
     omega = jnp.asarray(omega, jnp.float64)
     sqrt_weights = jnp.asarray(sqrt_weights, jnp.float64)
     n_active = int(u_active.shape[0])
+    # Keep authenticated CPU arithmetic; GPU conflicting scatter writes do not
+    # have a reproducible accumulation order. Select once for this bound target.
+    gpu_reduce = (fixed_incidence_reducer(cell_vertex_idx, n_active)
+                  if jax.default_backend() == 'gpu' else None)
     mu_log_alpha = jnp.asarray(float(mu_log_alpha), jnp.float64)
     variance_log_alpha = jnp.asarray(float(variance_log_alpha), jnp.float64)
     a_zeta = jnp.asarray(float(a_zeta), jnp.float64)
@@ -43,6 +48,8 @@ def build_base_target(*, slocs, cell_vertex_idx, cell_weights, u_active, spectra
 
     def scatter(cell_gradient):
         contributions = weights[:, :, None] * cell_gradient[:, None, :]
+        if gpu_reduce is not None:
+            return gpu_reduce(contributions.reshape(-1, 2))
         return jnp.zeros((n_active, 2), jnp.float64).at[indices.reshape(-1)].add(contributions.reshape(-1, 2))
 
     def unpack(position):
