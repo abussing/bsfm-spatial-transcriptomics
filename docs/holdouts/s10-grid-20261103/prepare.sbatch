@@ -15,4 +15,4 @@ export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 JAX_PLATFORMS=cpu JAX_ENABLE
 export PYTHONPATH="/work/abussing/bsfm-consolidation/environments/hole-gpinit-deps-$commit:$PWD/src"
 python=/work/abussing/bsfm-consolidation/environments/sampler-layer9-cpu-20261103-source4/python/bin/python
 root="/work/abussing/bsfm-consolidation/evidence/holey-$commit/$configuration"
-"$python" -B docs/holdouts/s10-grid-20261103/experiment.py prepare "$configuration" "$root/prepared" "$root" deep "$commit"
+"$python" -X faulthandler -B docs/holdouts/s10-grid-20261103/experiment.py prepare "$configuration" "$root/prepared" "$root" deep "$commit"
