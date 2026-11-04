@@ -1,5 +1,17 @@
 # Current BSFM handoff
 
+## 2026-11-04: reusable workflow consolidation requested
+
+The user requires repository methods/rationale and configurable new-dataset
+workflows, not only Johnston fixtures. Read [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
+for the audit, completed first increment and remaining implementation order.
+The 91-gene rationale is recovered and reproduced exactly. New reusable selection,
+library normalization, training-only centering and order-configured quadrature
+loading pass six focused tests. Existing S10 source checkouts and sampler kernels
+are unchanged. Generic end-to-end execution and axolotl fitting remain unfinished.
+Axolotl source: `E:/axolotl/artista_data.RData`, SHA256
+`37287f741ddbd899ff7590143c8985d2d20588e6b32bab0879e93298c589c8cf`.
+
 ## 2026-11-04: deep-chain continuation submitted
 
 The four flat fits completed 1,000 production sweeps and 101 scored draws each.

@@ -17,16 +17,18 @@ purpose, and relationship to the intended method are understood.
 
 ## Current phase
 
-Canonical full-data SCTransform v2 production passed for all 19 sections at
-common correction depth 124. See the [production receipt](docs/preprocessing/audits/20261031_production_v2/README.md).
-These artifacts are not eligible for primary holdout scoring; that requires
-training-only preprocessing. Sampler Layers 1-3 and their architecture are
-accepted; the complete sampler and production HPC workflow remain unimplemented.
-Bounded Linux environment/test receipts are recorded separately. Canonical raw,
-SCT-v2 bundles and S10 mesh are authenticated on the original Windows desktop;
-transfer to laptop/HPC remains outstanding. See the
-[desktop reconciliation](docs/environment/DESKTOP_RECONCILIATION_20261102.json). See the [preflight guide](docs/preprocessing/RAW_INPUT_PREFLIGHT.md)
-for the CLI, dependencies, tests and artifact contract.
+Start with the [reusable workflow guide](docs/WORKFLOW_GUIDE.md): scientific
+rationale, methods versus dataset recipes, implemented interfaces and remaining
+new-dataset gaps. New datasets must not require editing names or dimensions in
+numerical routines.
+
+The accepted baseline includes sampler Layers 1-8 and all-19-section SCT v2
+production. The 187-file canonical artifact transfer to HPC is complete. This
+review branch also contains tested GPU orchestration, periodic saving/restart
+and preliminary S10 deep/flat holdout fits. Those additions are not automatically
+promoted to accepted main. Read the [current handoff](docs/CURRENT_HANDOFF.md)
+for jobs and validation limits. Training-only SCT and a complete generic dataset
+launcher remain unfinished; S10 scripts are not their substitute.
 
 ## Canonical mesh entry point
 

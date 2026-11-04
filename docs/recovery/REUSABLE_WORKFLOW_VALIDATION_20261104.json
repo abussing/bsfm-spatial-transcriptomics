@@ -1,0 +1,25 @@
+{
+  "scope": "First reusable-workflow increment; not end-to-end dataset validation",
+  "status": "PASS",
+  "tests": [
+    {"command": "python -m unittest discover -s tests -p test_dataset_preprocessing.py -v", "passed": 5},
+    {"command": "python -m unittest discover -s tests -p test_registry_rule.py -v", "passed": 1}
+  ],
+  "checks": [
+    "Independent production-table recurrence filter matches exact canonical 91-gene order",
+    "Gene selection does not depend on genotype or held-out gain columns",
+    "Same-type animal recurrence and duplicate biological-key rejection",
+    "Expression eligibility applies all thresholds within the same observation group",
+    "Explicit library target/log base and raw-input checks",
+    "Centering excludes held-out responses and preserves input arrays",
+    "Registered L4/L14/L16 quadrature arrays load exactly with configured order and pinned hash",
+    "Gene-selection CLI produces the provenance-bearing report without executing historical code"
+  ],
+  "environment": "C:/Users/andyb/Desktop/BSFM_ENVIRONMENTS/layer9-review-20261103/sampler/python/Scripts/python.exe",
+  "limitations": [
+    "No new scientific run or screening GP fit",
+    "No claim of completed generic mesh/response/launcher integration",
+    "Existing S10 continuation code and numerical kernels unchanged",
+    "New registry loader is not a migration of existing checkpoint identities"
+  ]
+}
