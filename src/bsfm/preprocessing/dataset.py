@@ -157,15 +157,30 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--dataset',type=Path,required=True);p.add_argument('--manifest-sha256',required=True)
     p.add_argument('--selection',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--gpinit-contract',action='store_true',
+                   help='Also export the existing authenticated GP/SVD input contract (requires GPINIT dependencies)')
     a=p.parse_args();data,meta=load_dataset(a.dataset,expected_manifest_sha256=a.manifest_sha256)
     selection=json.loads(a.selection.read_text(encoding='utf-8'))
     train,test,receipt=prepare_response(data,meta,**selection)
+    if a.gpinit_contract:
+        from bsfm.initialization import gp_svd
+        gp_svd.validate(train,1,1,0)
     if a.output.exists():raise FileExistsError(a.output)
     a.output.parent.mkdir(parents=True,exist_ok=True)
     stage=Path(tempfile.mkdtemp(prefix='.response-',dir=a.output.parent))
     np.savez_compressed(stage/'training.npz',**train);np.savez_compressed(stage/'scoring.npz',**test)
     receipt.update(dataset_manifest_sha256=a.manifest_sha256,selection_sha256=file_hash(a.selection),
                    files={n:file_hash(stage/n) for n in ('training.npz','scoring.npz')})
+    if a.gpinit_contract:
+        contract=dict(schema='bsfm.gpinit-input.v1',response='final_centered_Y',
+            source_sha256=file_hash(stage/'training.npz'),arrays=gp_svd.identities(train),
+            dataset_manifest_sha256=a.manifest_sha256,selection_sha256=file_hash(a.selection),
+            coordinate_transform=receipt['coordinate_transform'],normalization=receipt['normalization'],
+            centering=receipt['centering'])
+        (stage/'gpinit-input.json').write_text(json.dumps(contract,indent=2,allow_nan=False)+'\n',encoding='utf-8')
+        # Use the actual consumer's byte/order checks before publication.
+        gp_svd.load_input(stage/'training.npz',contract)
+        receipt['files']['gpinit-input.json']=file_hash(stage/'gpinit-input.json')
     (stage/'response.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
     os.rename(stage,a.output)
 

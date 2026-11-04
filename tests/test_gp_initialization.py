@@ -21,6 +21,42 @@ def fixture():
 
 
 class GPInitializationTests(unittest.TestCase):
+    def test_generic_preparation_cli_to_existing_initializer(self):
+        from bsfm.preprocessing import dataset
+        original=fixture()
+        labels=np.array(['group-one','group-two','group-three'])
+        data=dict(expression=original['Y']+10,coordinates=original['slocs'],
+            gene_names=original['gene_names'],cell_names=original['cell_names'],
+            group_names=labels[original['cell_id']],sample_names=np.array(['new-sample']*36),
+            animal_names=np.array(['']*36),source_row_indices=original['source_row_indices'])
+        metadata=dict(schema='bsfm.dataset.v1',dataset_id='integration-fixture',
+            animal_identity_known=False,coordinate_units='synthetic',normalization=dict(
+                response='uncentered_normalized',method='synthetic',units='synthetic',
+                population='all declared cells',evidence='test fixture'))
+        selection=dict(sample='new-sample',groups=labels.tolist(),genes=original['gene_names'].tolist(),
+            training_cells=original['cell_names'].tolist(),heldout_cells=[])
+        direct,_,_=dataset.prepare_response(data,metadata,**selection)
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);bundle=root/'dataset';prepared=root/'prepared';out=root/'seeds'
+            dataset.write_dataset(bundle,data,metadata,sources=[dict(path='synthetic',sha256='0'*64)])
+            recipe=root/'selection.json';recipe.write_text(json.dumps(selection))
+            argv=['dataset','--dataset',str(bundle),'--manifest-sha256',dataset.file_hash(bundle/'dataset.json'),
+                  '--selection',str(recipe),'--output',str(prepared),'--gpinit-contract']
+            with patch('sys.argv',argv):dataset.main()
+            contract=json.loads((prepared/'gpinit-input.json').read_text())
+            loaded=gp.load_input(prepared/'training.npz',contract)
+            for key in direct:np.testing.assert_array_equal(direct[key],loaded[key])
+            receipt=json.loads((prepared/'response.json').read_text())
+            self.assertEqual(receipt['files']['gpinit-input.json'],gp.sha(prepared/'gpinit-input.json'))
+            expected,_=gp.fit(direct,factors=2,nfit=8,seed=41)
+            with patch('sys.argv',['gp_svd','--input',str(prepared/'training.npz'),
+                '--contract',str(prepared/'gpinit-input.json'),'--output',str(out),
+                '--factors','2','--nfit','8','--seed','41']):gp.main()
+            with np.load(out/'gpinit.npz',allow_pickle=False) as bank:
+                for key in expected:np.testing.assert_array_equal(expected[key],bank[key])
+            contract['arrays']['gene_names']='0'*64
+            with self.assertRaises(ValueError):gp.load_input(prepared/'training.npz',contract)
+
     @classmethod
     def setUpClass(cls):
         cls.data=fixture()

@@ -2,6 +2,12 @@
 
 ## 2026-11-04: narrow consolidation cleanup
 
+Generic response preparation now optionally emits the existing GPINIT contract
+using `--gpinit-contract`; see the dataset guide. Both existing CLIs are tested
+together on a small synthetic all-cell dataset. Saved seeds exactly match direct
+initialization and all 14 initialization tests pass. No GPINIT fitting code was
+changed. Next: mesh runtime/boundary portability, separately from experiments.
+
 Continue from [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md), the single current method
 map. Extend existing layer boundaries; do not introduce a parallel pipeline
 framework or competing current guide. The draft wrapper and duplicate guide

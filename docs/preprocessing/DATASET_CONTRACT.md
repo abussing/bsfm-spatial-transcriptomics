@@ -77,14 +77,37 @@ output passes the sampler's dimension/order contract for arbitrary groups and
 genes. Geometry authentication, GPINIT fitting and run orchestration are separate
 subsequent layers; this command does not claim those are already integrated.
 
+### Connect to the existing initializer
+
+Add `--gpinit-contract` to the preparation command to emit `gpinit-input.json`
+alongside the existing arrays. This uses the initializer's existing schema,
+logical identity encoding and loader; there is no second preparation command
+or new initialization algorithm. It requires the GPINIT Python dependencies.
+For an ordinary fit, list all declared modeling cells in `training_cells` and
+use `heldout_cells: []`; no experimental split is required.
+
+```text
+python -m bsfm.initialization.gp_svd --input /external/path/prepared-response/training.npz --contract /external/path/prepared-response/gpinit-input.json --output /external/path/gpinit --factors 12 --nfit 250 --seed 41
+```
+
+K=12, nfit=250 and seed=41 above illustrate CLI syntax, not recommended settings.
+The exported contract preserves input byte and array hashes, normalization,
+centering and coordinate-transform provenance. Preparation checks it with the
+actual GPINIT loader before publishing the output directory. Preparation does
+not fit GPs; the second command invokes the existing accepted initializer.
+
 ## Validation and boundaries
 
 Four focused tests cover portable readback/tampering, missing animal identities,
 duplicate cells, group/gene ordering, exact centering, unchanged training results
 after perturbing held-out values, source immutability and invalid splits/groups.
-The initial test invocation also attempted to import GPINIT's validator, but the
-local environment lacks scikit-learn. The passing interface check uses the actual
-sampler input validator; no GPINIT numerical execution is claimed.
+The original check used the sampler input validator. The subsequent generic
+preparation-to-GPINIT integration test uses both real CLIs, all declared cells,
+new group names, two factors and a small synthetic response. Exported arrays
+match direct preparation exactly; saved seeds match direct initialization exactly;
+changed identity hashes are rejected. All 14 initialization tests pass locally
+with scikit-learn 1.4.2 installed in the isolated screening dependency directory.
+This is bounded interface/numerical validation, not a new scientific-data fit.
 
 Current limitations: dense response storage, single-sample model preparation,
 source-specific adapters, and user-declared original normalization provenance.
