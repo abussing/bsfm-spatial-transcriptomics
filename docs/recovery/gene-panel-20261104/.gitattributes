@@ -1,0 +1,4 @@
+# Preserve evidence byte identities, including historical line endings.
+*.json -text
+*.csv -text
+*.py -text
