@@ -1,0 +1,260 @@
+{
+  "created_utc": "2026-10-05T21:42:30.389485+00:00",
+  "genes": 300,
+  "sections": 19,
+  "animal_groups": 15,
+  "type_section_gene_blocks": 17100,
+  "thresholds": {
+    "detection": 0.3,
+    "q90_SCT": 1.0,
+    "numerical_nonconstant_ptp": 1e-12,
+    "distinct_animals": 2,
+    "near_constant_review_modal_fraction": 0.95
+  },
+  "rules": "All three expression criteria in the same type/section. Any type can qualify; any section can qualify an animal. No WT requirement. No spatial gate.",
+  "counts": {
+    "NOT_ELIGIBLE": 147,
+    "ELIGIBLE": 137,
+    "REVIEW_PAPER_EXCEPTION": 8,
+    "REVIEW_SINGLE_ANIMAL": 8
+  },
+  "eligible": 137,
+  "new_beyond_previous72": 73,
+  "retained_previous72": 64,
+  "current72_not_eligible": [
+    "Bdnf",
+    "Cnr1",
+    "Fos",
+    "Grm1",
+    "Htr1a",
+    "Ngf",
+    "Ntf3",
+    "Pilra"
+  ],
+  "stage_counts": [
+    {
+      "stage": "finite SCT",
+      "passing_blocks": 17100,
+      "genes_any_animal": 300,
+      "genes_two_or_more_animals": 300
+    },
+    {
+      "stage": "plus >=30% detection",
+      "passing_blocks": 3511,
+      "genes_any_animal": 146,
+      "genes_two_or_more_animals": 138
+    },
+    {
+      "stage": "plus q90>=1",
+      "passing_blocks": 3341,
+      "genes_any_animal": 145,
+      "genes_two_or_more_animals": 137
+    },
+    {
+      "stage": "plus nonconstant",
+      "passing_blocks": 3341,
+      "genes_any_animal": 145,
+      "genes_two_or_more_animals": 137
+    }
+  ],
+  "GP_worklist": {
+    "REUSE_EXISTING_GP": 1959,
+    "NEEDS_GP_FIT": 1372
+  },
+  "matched_previous_expression_records": 4104,
+  "provenance": [
+    {
+      "section": "S00__Trem2_5xFAD4",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S00__Trem2_5xFAD4\\input.npz",
+      "input_bytes": 1604406,
+      "ready_sha256": "90b79950ea35488dd6cbd549f227a7a06d4f5dc4f245d41258df2f84344d7149",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S00__Trem2_5xFAD4\\sct_data.csv.gz",
+      "SCT_sha256": "48e5e138a698b75879ea879baf777f94df6d46594050b00158ea99c6ea7ea6c5",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S01__5xFAD4",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S01__5xFAD4\\input.npz",
+      "input_bytes": 2397365,
+      "ready_sha256": "529566dd092107ef7b25cc5a35ef54aa47e41819c4f135b356577c68c164ed4c",
+      "SCT_source": "E:\\johnston_brain\\region_story\\hipp_build_ad\\S01_sct.csv",
+      "SCT_sha256": "3590bb56482792e19e1941df21608108bdead8d574a740a4488f6cfcd969a7c2",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S02__Trem2_4",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S02__Trem2_4\\input.npz",
+      "input_bytes": 1536332,
+      "ready_sha256": "7f166e54f13c9cc5449f97c41be7fdc242b8821f4cc731da292c7cf29fc346b1",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S02__Trem2_4\\sct_data.csv.gz",
+      "SCT_sha256": "1a9599e483efd035a0c72e56abc5b7b4e15dca8f2333ebb80cbc705ca4919c28",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S03__Trem2_5xFAD3",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S03__Trem2_5xFAD3\\input.npz",
+      "input_bytes": 2638523,
+      "ready_sha256": "49f1fff86cefa8d2e4cf4eeed33cd029efe356534327271650ae3c4be4c181f6",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S03__Trem2_5xFAD3\\sct_data.csv.gz",
+      "SCT_sha256": "f0d7ad691cf7d47ebd098e480f178480062a84a03a3136958e0815ba6e4cd3e1",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S04__WT3",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S04__WT3\\input.npz",
+      "input_bytes": 2039985,
+      "ready_sha256": "619a3b1c4eef7e4c5c08148a21cf4ea814dbaf9ada7d99c6cd03b952c6697dc4",
+      "SCT_source": "E:\\johnston_brain\\sct_work\\sct4.csv",
+      "SCT_sha256": "7a94c01eff8d3c8bf173656cab6cd2e7a1d40d437fed12b74d2a3487c841a2d5",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S05__Trem2_3",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S05__Trem2_3\\input.npz",
+      "input_bytes": 2497828,
+      "ready_sha256": "594888eb3cdffaa85c37fd5f10a578b355fabe270448e99851e8f46cec0ce37e",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S05__Trem2_3\\sct_data.csv.gz",
+      "SCT_sha256": "50dbf953fe2e00f18808b4724e33127c5088daa724cb289fd66a9d8546bac9ba",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S06__5xFAD3",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S06__5xFAD3\\input.npz",
+      "input_bytes": 2997078,
+      "ready_sha256": "b8e44d655d200178f7856339b5d0c993087e50c49f868d748d99fc768a1680d6",
+      "SCT_source": "E:\\johnston_brain\\sct_work\\sct6.csv",
+      "SCT_sha256": "010329e852f379f29bab1c1521de87c8e40ec80ecc2f19191c0177a01a23a068",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S07__Trem2_5xFAD5",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S07__Trem2_5xFAD5\\input.npz",
+      "input_bytes": 1325616,
+      "ready_sha256": "217c77394a4e1e84590556a6bac8a9d75921aec8bad15138f46221ce2f6884a5",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S07__Trem2_5xFAD5\\sct_data.csv.gz",
+      "SCT_sha256": "440653b38d5c48358b6bb42a77532c6c613ec3f009858269b94e203bb640f381",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S08__5xFAD5",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S08__5xFAD5\\input.npz",
+      "input_bytes": 1388432,
+      "ready_sha256": "5eb54de4d75de8dfb84bba60e41026d77de15942aa5c29bfd349efd602ed1958",
+      "SCT_source": "E:\\johnston_brain\\region_story\\hipp_build_s08\\sct.csv",
+      "SCT_sha256": "8c0d2848f062e9004a6633290d13fe417dc7cb875c38d4a12d62a688191cb302",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S09__Trem2_5",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S09__Trem2_5\\input.npz",
+      "input_bytes": 1461882,
+      "ready_sha256": "d466ac80cba38a4423019358c046498f27e8ba11e447889b67f2017873471c73",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S09__Trem2_5\\sct_data.csv.gz",
+      "SCT_sha256": "59a8b91478e1ffb6acdc7cfc13df406cae58bfc95c450c7191a7ab85d00e12bc",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S10__WT5",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S10__WT5\\input.npz",
+      "input_bytes": 1568579,
+      "ready_sha256": "6043d921223efed62bfdf725594668e57e57e585118d7e19003c72daf8777889",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S10__WT5\\sct_data.csv.gz",
+      "SCT_sha256": "f803b428d4baeaf497f33023f08d648a6c704252fad5f0647870a2c9c70708aa",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S11__Trem2_5xFAD1",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S11__Trem2_5xFAD1\\input.npz",
+      "input_bytes": 2959759,
+      "ready_sha256": "511a6fb99efd25295680a779edf15b5a04436113db8de90a370fc48a73c414e5",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S11__Trem2_5xFAD1\\sct_data.csv.gz",
+      "SCT_sha256": "576ce8954bdd620ac3846d6d354bceb7af5a22da27bb52f5d499626dc7c46591",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S12__Trem2_1",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S12__Trem2_1\\input.npz",
+      "input_bytes": 2982095,
+      "ready_sha256": "6c9ccae5371da1d525ebd3b8866cfdd24d7533abcde18a41d1e5a4e1be26f02e",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S12__Trem2_1\\sct_data.csv.gz",
+      "SCT_sha256": "4b386535968d0e66ca32cc27039638b6e7ff86b30f6d97f573911eb48525a79c",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S12__Trem2_5xFAD2",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S12__Trem2_5xFAD2\\input.npz",
+      "input_bytes": 3723612,
+      "ready_sha256": "09dfbe3f350cb7bd44a94addf0780d83fa94809f4f8726ac7d72d76345db3d78",
+      "SCT_source": "E:\\johnston_brain\\region_story\\hipp_build_s12ad\\sct.csv",
+      "SCT_sha256": "f7aea163fdb53f2c0076ccfb648424af392bf5c6c5696a26e4fe429fa7b36237",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S13__Trem2_2",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S13__Trem2_2\\input.npz",
+      "input_bytes": 1256738,
+      "ready_sha256": "4fc14cf6b85eb69e49afb307d242aa86845f196a5d31d512f8014a0ea8c0545f",
+      "SCT_source": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S13__Trem2_2\\sct_data.csv.gz",
+      "SCT_sha256": "bb6bf50c9df94c8af22fcc122380e128e66253d20d9298a5d49ccbd23d7a9dc4",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S14__WT1",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S14__WT1\\input.npz",
+      "input_bytes": 2098994,
+      "ready_sha256": "beb4f1815890b890713d181d3aa994369746bc8e5640cee8299a6c4a9155695c",
+      "SCT_source": "E:\\johnston_brain\\sct_work\\sct14.csv",
+      "SCT_sha256": "0f5533ae0f5ac418db88effc42906f707145f0fe1ac58737ed13c9d1c919ee10",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S15__5xFAD1",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S15__5xFAD1\\input.npz",
+      "input_bytes": 2550349,
+      "ready_sha256": "90f7ba4409ce2ec276329d34de1d08108d2c51900bfc56008d9cf9491f208465",
+      "SCT_source": "E:\\johnston_brain\\sct_work\\sct15.csv",
+      "SCT_sha256": "62467f925d58840eda563bc2f7802ea1b6606880b9a01aff874f183860558437",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S16__WT2",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S16__WT2\\input.npz",
+      "input_bytes": 1992795,
+      "ready_sha256": "a3d99697e152929263fd67408c4ef43dfb491d74b0234897583c49dec3174183",
+      "SCT_source": "E:\\johnston_brain\\sct_work\\sct16.csv",
+      "SCT_sha256": "16dbc75e042826281ec2e8d0897186c8d9862e479f275cbf4134d73db7c60a22",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    },
+    {
+      "section": "S17__5xFAD2",
+      "input": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\sections\\S17__5xFAD2\\input.npz",
+      "input_bytes": 2721810,
+      "ready_sha256": "e612a6d4e575179d8612405ed079b57ec245fa9c5cff5e716674e53ada0f1f10",
+      "SCT_source": "E:\\johnston_brain\\sct_work\\sct17.csv",
+      "SCT_sha256": "d08f1aa11414450e46ef825db0f59f6e54ea84f07a6d638fac1d90db74017833",
+      "normalization": "sample-specific SCT; legacy correction depth not harmonized across sections",
+      "scale": "SCT data, already log1p; uncentered display and GP input"
+    }
+  ],
+  "fits_launched": false,
+  "preprocessing_changed": false,
+  "caveat": "Initial expression eligibility only, not final panel or model safety. q90 is level, not spread. Near-constant flags are review-only. Known paper labels cover the previous candidate review, not exhaustive paper annotation of all300 genes."
+}
