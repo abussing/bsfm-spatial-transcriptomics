@@ -1,5 +1,29 @@
 # Current BSFM handoff
 
+## 2026-11-04: deep-chain continuation submitted
+
+The four flat fits completed 1,000 production sweeps and 101 scored draws each.
+The deep fits reached the 12-hour time limit with saved production boundaries
+670, 830, 670 and 850 (configurations in the order listed below). Their prediction
+summaries contain 68, 84, 68 and 86 draws. Saved outputs remain intact.
+
+The user authorized continuation. The original clean generating commit and
+committed launcher are reused, with identical output roots, resources, settings,
+and the original target of 1,000 production sweeps. No fresh warmup is intended;
+resume authenticates existing boundaries and recomputes only the unsaved tail.
+
+| Configuration | New deep job | Resume boundary |
+| --- | --- | --- |
+| circles12_diameter1of16 | 22018064 | 670 |
+| circles12_diameter1of8 | 22018065 | 830 |
+| circles8_diameter1of16 | 22018066 | 670 |
+| circles8_diameter1of8 | 22018067 | 850 |
+
+[Submission receipt](recovery/gpu-workflow-20261103/PERIODIC_RESUME_20261104.json)
+records commands, exact commit and saved-boundary receipt hashes. The same receipt
+is preserved on HPC at `evidence/gpu-workflow-audit-20261103/periodic-resume-20261104.json`.
+Convergence remains unassessed. Older running-job statements below are historical.
+
 ## Periodic-saving replacement: eight V100 fits running
 
 The user requested stopping all BSFM jobs and relaunching with inexpensive

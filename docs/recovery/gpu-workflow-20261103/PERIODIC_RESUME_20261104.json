@@ -1,0 +1,66 @@
+{
+  "commit": "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+  "scope": "User-authorized continuation of four deep chains to original 1000 sweeps; same committed launcher/resources and output roots",
+  "jobs": [
+    {
+      "job_id": "22018064",
+      "configuration": "circles12_diameter1of16",
+      "resume_sweep": 670,
+      "checkpoint_receipt_sha256": "6a2ec4d0821b7a71d2c76d7c7d5f5ed25e1c9c51b620efb3efd4a274a2a39448",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--exclude=node398",
+        "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+        "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+        "circles12_diameter1of16",
+        "deep"
+      ]
+    },
+    {
+      "job_id": "22018065",
+      "configuration": "circles12_diameter1of8",
+      "resume_sweep": 830,
+      "checkpoint_receipt_sha256": "7497df07a67bac2e0144b46d4640e9ae598a1992336591783f8db9635c382a1f",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--exclude=node398",
+        "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+        "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+        "circles12_diameter1of8",
+        "deep"
+      ]
+    },
+    {
+      "job_id": "22018066",
+      "configuration": "circles8_diameter1of16",
+      "resume_sweep": 670,
+      "checkpoint_receipt_sha256": "4de727fe7bcbd35a77a424664e75215d151f5d6aaf04e2023b28494cb6677317",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--exclude=node398",
+        "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+        "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+        "circles8_diameter1of16",
+        "deep"
+      ]
+    },
+    {
+      "job_id": "22018067",
+      "configuration": "circles8_diameter1of8",
+      "resume_sweep": 850,
+      "checkpoint_receipt_sha256": "f7d1d2f972b9e04498319aa2cd73e507efd07622f0f17ee6a060183a8916d1ef",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--exclude=node398",
+        "docs/recovery/gpu-workflow-20261103/periodic_gpu.sbatch",
+        "cfb9e4a7ec8ba0934aef71a71dcbf7950d8ad414",
+        "circles8_diameter1of8",
+        "deep"
+      ]
+    }
+  ]
+}
