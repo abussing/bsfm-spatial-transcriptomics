@@ -27,8 +27,11 @@ The [workflow guide](WORKFLOW_GUIDE.md) owns the implementation map and remainin
 work. The existing mesh module now contains the geometry-only outer-boundary
 producer; its S10 vertices and triangles reproduce saved arrays exactly. See the
 [existing mesh guide](mesh/OCTOBER26_CANONICALIZATION.md) for the interface,
-source, validation and limitations. Next connect the existing geometry export/assembly interfaces and extract the
-shared GPU environment/launcher boundary documented in the workflow guide. Do not substitute the older boundary-carrier triangles
+source, validation and limitations. Shared GPU environment authentication is now extracted and connected to the
+existing runtime entry, with deployment paths in a separate recipe. Six synthetic
+authentication tests pass; no new GPU execution is claimed. Next connect the
+existing geometry export/assembly interfaces and generic input assembly; the
+scientific launcher still needs generalization. See the workflow guide. Do not substitute the older boundary-carrier triangles
 as the final mesh. A complete generic run command is not implemented yet.
 
 ## Where to find verified methods and evidence

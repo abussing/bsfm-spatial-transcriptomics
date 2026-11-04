@@ -1,0 +1,10 @@
+{
+  "receipt": "docs/environment/gpu-runtime-20261103/GPU_RUNTIME_RECEIPT.json",
+  "expected_sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c",
+  "prefix": "/work/abussing/arka_trying_gpu_again/env",
+  "site_packages": "/work/abussing/arka_trying_gpu_again/env/lib/python3.11/site-packages",
+  "libdevice": "/work/apps/cuda/12.3/nvvm/libdevice/libdevice.10.bc",
+  "p100_receipt": "docs/environment/gpu-runtime-20261103/P100_VALIDATION_RECEIPT.json",
+  "p100_sha256": "22e6dacda6e253146fcce99c9aaef13dcdf982f5cdd8c83412544149eeae0652",
+  "blas_threads": 1
+}

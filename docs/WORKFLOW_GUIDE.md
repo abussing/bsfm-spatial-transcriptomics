@@ -33,7 +33,7 @@ contracts; update this guide in place rather than adding competing current guide
 | Mesh | [Accepted builder](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` accepts cell/boundary paths and explicit authenticated runtime relocation | Recovered boundary-carrier function available; final dataset/mesh assembly remains separate. Platform environment validation remains separate. S10 `reproduce` is only a regression |
 | GP initialization | [GP smooth/SVD](initialization/C3_GP_SVD.md); existing dataset CLI exports its contract via `--gpinit-contract`; both CLIs tested together | Environment provisioning and full sampler assembly remain separate; no initializer rewrite |
 | Quadrature | `sampler.registry_rule.load_registry_rule(path, expected_sha256=..., order=L)` derives tensor shapes from L | Existing L4/L14/L16 arrays verified exactly. Other orders need authenticated tables. Target still scientifically fixes ell_eta=.14 |
-| GPU sampler | Main contains reviewed GPU kernel corrections, periodic controllers, compact checkpoints and restart | S10 experiment wrapper embeds paths, K, L, type loops, split names and schedules; generic target/launcher needed |
+| GPU sampler | Main contains reviewed GPU kernel corrections, periodic controllers, compact checkpoints and restart | Shared GPU authentication and deployment recipe available; S10 input assembly and scientific launcher still need generalization |
 | Prediction | `holdout_prediction` and `predictive_summary` preserve the tested conditional prediction/mixture score | Sidecar and geometry/split lookup are S10-specific; generic reporting needed |
 
 ## Runtime interfaces and acceptance scope
@@ -51,11 +51,41 @@ input receipt and environment-authentication callback. K follows factor identiti
 L follows an authenticated registry. Schedules and save cadence are explicit.
 The target acceptance remains 0.9. GPU execution requires x64 and the existing
 `BSFM_EXPERIMENTAL_CUDA=1` opt-in; that flag alone is not environment validation.
-`run_inputs.canonical_controller` is still the registered S10 CPU adapter.
-The validated GPU environment authenticator and launcher remain in the
-[pinned S10 adapter](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/1bb4493/docs/holdouts/s10-grid-20261103/gpu_run.py).
-Extracting its shared environment/assembly boundary is unfinished; do not treat
-the CPU adapter as a generic GPU command or silently fall back to CPU.
+`run_gpu_environment.authenticate_gpu_environment` now provides the shared GPU
+checks recovered from the [reviewed adapter](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/1bb4493/docs/holdouts/s10-grid-20261103/gpu_run.py).
+Deployment paths and receipt hashes live in `config/sampler/hpc-gpu-runtime.json`;
+this is an environment recipe, independent of dataset, K, L and run length.
+The existing `run_inputs.authenticate_environment(gpu_runtime=...)` dispatches
+explicitly to it. `canonical_controller(..., gpu_runtime=...)` authenticates it
+and exercises the original GPU callback before initialization. Omit the argument
+only when intentionally requesting the existing CPU path. A GPU request fails
+on CPU; it never falls back. Registered S10 input assembly remains unchanged.
+
+For a caller already using the existing controller API:
+
+```python
+from pathlib import Path
+from bsfm.sampler.run_storage import read_json
+from bsfm.sampler.run_inputs import authenticate_environment
+
+repo = Path("/path/to/exact/clean/checkout")
+gpu_runtime = read_json(repo / "config/sampler/hpc-gpu-runtime.json")
+for key in ("receipt", "p100_receipt"):
+    gpu_runtime[key] = str(repo / gpu_runtime[key])
+environment = authenticate_environment(gpu_runtime=gpu_runtime)
+# Bind this environment into the existing software contract, and pass the same
+# gpu_runtime arguments to canonical_controller or the controller callback.
+```
+
+The recovered authenticator retains package RECORD/source/bytecode checks,
+interpreter/libdevice hashes, one V100/P100, float64 and explicit BLAS threads.
+It adds receipt pins, site-package containment and duplicate-package rejection.
+It is scoped to the recorded shared environment; this does not provision a new
+CUDA environment or validate arbitrary GPU models. Six synthetic local tests
+cover dispatch, tampering, devices and failure behavior. No new GPU execution
+has validated the extraction yet. Immutable old runs keep their original adapter
+and environment identities. Generic dataset/mesh/GPINIT assembly and a shared
+scientific launcher remain unfinished.
 
 Evidence retained at pinned revisions rather than duplicated here:
 

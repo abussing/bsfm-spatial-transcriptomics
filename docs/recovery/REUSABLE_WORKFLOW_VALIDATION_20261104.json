@@ -446,5 +446,72 @@
       }
     ],
     "remaining": "GPU environment authenticator/launcher still embedded in pinned S10 experiment adapter; generic assembly unfinished. No new GPU performance or convergence result."
+  },
+  "shared_gpu_environment": {
+    "date": "2026-11-04",
+    "status": "PASS_SYNTHETIC_AUTHENTICATION_ONLY",
+    "source": {
+      "commit": "1bb4493",
+      "path": "docs/holdouts/s10-grid-20261103/gpu_run.py",
+      "sha256": "22ca683e49d5d9b54076795e33844226871a707cc6d2688021eef95ff18ce8d8"
+    },
+    "changes": [
+      "Extract existing GPU authentication and callback preflight; replace fixed deployment paths with explicit arguments.",
+      "Pin both runtime/P100 receipts; reject outside-prefix site packages and duplicate distributions.",
+      "Existing runtime entry gains explicit GPU option; default CPU path and registered input assembly preserved."
+    ],
+    "passed": 6,
+    "initial_test_failure": "Synthetic receipt used POSIX path separators on Windows; corrected fixture to match existing platform-relative RECORD keys. No runtime exemption.",
+    "scope": "Mock GPU/device/package inventory with real temporary files; no CUDA execution, HPC job, numerical-kernel change, or new-dataset fit.",
+    "inventory": [
+      {
+        "path": "src/bsfm/sampler/run_gpu_environment.py",
+        "bytes": 7669,
+        "sha256": "71f888a763f521c1315a694c8b13fb130b5b60b02ae2935d961569dae8fd692c"
+      },
+      {
+        "path": "src/bsfm/sampler/run_inputs.py",
+        "bytes": 10799,
+        "sha256": "dc1091c51110199555ca4b0bfb3483da410076b5a49666dbf6665aa917d322b0"
+      },
+      {
+        "path": "tests/test_gpu_environment.py",
+        "bytes": 6938,
+        "sha256": "d56e882887dc8a9515a14e46031556ec132af13e2608638d9ffab51ca2944de2"
+      },
+      {
+        "path": "config/sampler/hpc-gpu-runtime.json",
+        "bytes": 583,
+        "sha256": "2611bfe7851046946488ac2b71673e12ac7235297a501984863656f20b2641db"
+      },
+      {
+        "path": "docs/environment/gpu-runtime-20261103/GPU_RUNTIME_RECEIPT.json",
+        "bytes": 14379,
+        "sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c"
+      },
+      {
+        "path": "docs/environment/gpu-runtime-20261103/P100_VALIDATION_RECEIPT.json",
+        "bytes": 1068,
+        "sha256": "22e6dacda6e253146fcce99c9aaef13dcdf982f5cdd8c83412544149eeae0652"
+      }
+    ],
+    "logs": [
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\shared-gpu-environment-tests.log",
+        "bytes": 7032,
+        "sha256": "b516637ab874426e0fdc6c8bce9cfc625bc6defd4a08094fdd2fd5dcbd96186b"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\shared-gpu-environment-tests-corrected.log",
+        "bytes": 2174,
+        "sha256": "8503b08609d093e8e937c44a2b478afe4ed9eef1b5c2d2a3a72a323dbb2bcb29"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\shared-gpu-environment-final.log",
+        "bytes": 2520,
+        "sha256": "4ddafc5538d356bd073c4f3d8a4514daf925aab1d233bbe813892d6522bc6e70"
+      }
+    ],
+    "next": "Generic input/mesh/GPINIT assembly and launcher; bounded GPU execution validation before claiming new end-to-end deployment."
   }
 }

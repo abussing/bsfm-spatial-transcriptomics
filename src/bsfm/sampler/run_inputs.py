@@ -22,7 +22,10 @@ from .run_storage import file_record, read_json
 REPO=Path(__file__).resolve().parents[3]
 
 
-def authenticate_environment():
+def authenticate_environment(*, gpu_runtime=None):
+    if gpu_runtime is not None:
+        from .run_gpu_environment import authenticate_gpu_environment
+        return authenticate_gpu_environment(**gpu_runtime)
     if sys.platform=='linux':
         from .run_linux_environment import authenticate_linux_environment
         return authenticate_linux_environment()
@@ -123,15 +126,22 @@ def load_inputs(files,factor_ids,*,genesis_path=None):
     return target,seeds['Lam_seed'],seeds['eta_seed'],binding
 
 
-def canonical_controller(root,spec,files):
-    """Only real-artifact entry: clean committed tree and current locked environment."""
+def canonical_controller(root,spec,files,*,gpu_runtime=None):
+    """Registered S10 inputs with clean Git and explicit CPU/GPU environment.
+
+    GPU deployment arguments come from a committed recipe; no CPU fallback.
+    Input assembly remains specific to the registered preparation contract.
+    """
     from .run_controller import RunController,validate_spec
     from .run_storage import safe
     validate_spec(spec)
     def clean():
         head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
         if head!=spec['software']['git_commit'] or subprocess.check_output(['git','status','--porcelain'],cwd=REPO,text=True).strip():raise ValueError('Clean exact generating commit required')
-    clean();env=authenticate_environment()
+    clean();env=authenticate_environment(gpu_runtime=gpu_runtime)
+    if gpu_runtime is not None:
+        from .run_gpu_environment import preflight_gpu_callback
+        preflight_gpu_callback()
     genesis=safe(Path(root)/'segments'/spec['segment_id']/'genesis/endpoint.npz')
     target,loading,eta,binding=load_inputs(files,spec['factor_ids'],genesis_path=genesis if genesis.exists() else None)
     if (spec['software']['clean_tree'] is not True or spec['software']['environment_identity']!=digest(env)
@@ -139,6 +149,6 @@ def canonical_controller(root,spec,files):
     if spec['software']['run_config_sha256']!=digest({k:v for k,v in spec.items() if k!='software'}):raise ValueError('Run specification hash mismatch')
     def authenticate():
         clean();authenticate_files(files)
-        if authenticate_environment()!=env:raise ValueError('Environment changed')
+        if authenticate_environment(gpu_runtime=gpu_runtime)!=env:raise ValueError('Environment changed')
         target._validate_identities()
     return RunController(root,target,loading,eta,spec,binding,authenticate=authenticate)
