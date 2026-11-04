@@ -189,3 +189,58 @@ because the recorded accepted local environment was unavailable. The new test
 uses real executable-file hashing and mocked process execution to check relocation,
 unchanged argument order/thread settings, receipt identities and rejection of a
 modified executable before launch. No new mesh or HPC job was generated.
+
+## Recovered outer-boundary producer (2026-11-04)
+
+The inherited polygon has a recoverable producer, rather than being a manually
+drawn S10-specific outline. F `code/production/build_section_mesh.py` and
+A `source_geometry/source/build_section_mesh.py` both match the already recorded
+P source SHA256 `05bd94a484d3e8c2161d72175143e864f0e46295b89f68ae42ac0f9af3753771`.
+The copies were inspected at their corresponding `E:/johnston_brain` paths;
+they were not imported or executed. This extends the existing source ledger's
+interpretation; it does not promote the older mesh as the final warp basis.
+
+Its geometry-only sequence (lines 117–215) is:
+
+1. Use full declared geometry in minimum/common-maximum-span coordinates.
+2. Expand the coordinate bounding box by 1.0. Generate triangular lattices with
+   (maximum nearest-cell distance, spacing) pairs (.070,.045), (.180,.080),
+   (.450,.140), (1.000,.280). Bands use successive nearest-cell distance ranges;
+   discard coarse candidates closer than .42 times their spacing to accepted
+   finer points. Append exact observed convex-hull vertices and deduplicate at
+   1e-10, preserving first occurrence order.
+3. Delaunay triangulate using `Qbb Qc Qz Q12`. Retain nondegenerate triangles
+   whose centroids are within 1.0 of the tissue, plus observation-containing
+   triangles. Refine edges exceeding 1.75 times band targets
+   (.060,.105,.180,.350), adding longest-edge midpoints and affected observation
+   locations. The bounded loop has at most 17 triangulations; unresolved edge
+   exceptions are reported. Remap retained vertices without reordering them.
+4. The accepted fmesher builder extracts edges occurring once from this supplied
+   triangulation, uses their coordinates as its fourth/far boundary, and rebuilds
+   the interior with the accepted graded fmesher procedure.
+
+The older builder also writes FEM and response artifacts. Those operations are
+not needed to recover its boundary and must not become a second final-mesh
+pipeline. A conservative geometry-only port and bounded saved-geometry comparison
+are still needed before this producer can be used for a new dataset. In particular,
+1.0 is part of the recovered rule in normalized coordinates, not a newly selected
+universal physical padding or an exact constant-offset polygon construction.
+Disconnected-region topology still needs explicit validation on the new input.
+
+Independent saved-artifact checks, without rebuilding either mesh:
+
+- F `source_geometry/S10__WT5/MESH_CERTIFICATE.json` SHA256:
+  `4cdf3f80712320c6ac969aae24ac9c98aa15c18c7853ec09076ca6ae5384521f`.
+- Source vertex/triangle CSVs match the certificate:
+  `fbca0dd7f8007010f710b8a94138cbdc83b01b4bfc4092ba83ee2f04a1957e6d`
+  and `2bf966a021459d8bfa5f244ccacc981d9e02ab1e24737dbe3b474577692530bc`.
+- Source: 639 vertices, 1,251 triangles, 25 boundary edges. Accepted preview:
+  371 vertices, 32 boundary edges. Preview CSV hashes are
+  `1dee661450240ada93254c8b2f00aba5b39ea71bacc71dd0450686b0d39f8b99`
+  and `b434e4e6e693b7a1173d0ab70e9ec47322255a4c26846a0eec2e00ce5ffbbeff`.
+- Counting undirected triangle-edge occurrences identifies boundary edges.
+  Maximum vertex-to-opposite-boundary-segment distances in both directions are
+  4.44228e-15 and 4.44089e-15; summed triangle areas differ by 6.21725e-15.
+  These are saved-geometry checks, not execution provenance for the old producer
+  or validation of a new implementation. Boundary vertex arrays themselves
+  differ because the accepted mesh subdivides edges.

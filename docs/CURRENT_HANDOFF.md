@@ -12,6 +12,10 @@ mesh tests pass; one actual R integration check is skipped for unavailable local
 environment. R geometry and numerical code are unchanged. Next: resolve the
 generic inherited-boundary input policy, separately from experiments; runtime
 relocation alone does not establish platform environment/mesh equivalence.
+The boundary's older graded-Delaunay producer is now recovered by source
+inspection, with hashes and independent saved-boundary checks in the existing
+mesh guide. Next bounded implementation: geometry-only boundary production and
+comparison to saved S10 geometry; do not revive the older final-mesh/FEM pipeline.
 
 Continue from [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md), the single current method
 map. Extend existing layer boundaries; do not introduce a parallel pipeline

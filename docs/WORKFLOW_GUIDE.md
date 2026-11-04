@@ -102,7 +102,10 @@ has no training observations. It supports arbitrary group counts and names.
    a second preparation interface; replication policy remains explicit.
 3. Generic preparation now connects to the unchanged GPINIT command through its
    existing authenticated contract (14 initialization tests pass). Next expose
-   boundary configuration while preserving accepted geometry rules. Runtime-lock
+   boundary production while preserving accepted geometry rules. Its older
+   graded-Delaunay producer is now traced to authenticated source and saved
+   boundary agreement; see the existing mesh guide. A geometry-only port and
+   reproduction remain required, not a new hull policy. Runtime-lock
    selection/relocation now works through the existing builder; eight Python
    checks pass and one R integration check is skipped for unavailable environment.
 4. Generalize configuration at existing assembly/GPU launcher boundaries while
