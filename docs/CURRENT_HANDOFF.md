@@ -1,5 +1,16 @@
 # Current BSFM handoff
 
+## 2026-11-04: dataset/response foundation implemented
+
+Read [the dataset contract](preprocessing/DATASET_CONTRACT.md) and
+[validation receipt](preprocessing/DATASET_LAYER_VALIDATION.json).
+The portable NPZ/manifest format, explicit RData adapter and generic train/scoring
+response exporter are implemented. Four focused tests pass. Real axolotl import
+preserves 16,586 genes, 4,410 cells and six broad groups; independent sampled R/CSV
+readback passes. Data remain external at the receipt's local path, not on HPC
+yet. No gene/group selection, GP fitting, mesh construction or scientific run
+was performed. The original SCT pipeline and running S10 source remain intact.
+
 ## 2026-11-04: reusable workflow consolidation requested
 
 The user requires repository methods/rationale and configurable new-dataset

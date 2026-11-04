@@ -13,13 +13,13 @@ and exact source checkouts remain unchanged.
 
 | Stage | Rationale / reusable implementation | Remaining coupling or gap |
 | --- | --- | --- |
-| Input | Explicit gene/cell/group/animal identities and coordinate units; `initialization.gp_svd.validate` accepts arbitrary axes | Raw adapter, sections registry and HDF5 response axes are Johnston-specific |
+| Input | [Portable dataset contract](preprocessing/DATASET_CONTRACT.md), hash-pinned read/write and explicit RData adapter; real axolotl readback passes | Johnston raw adapter remains separate; more source formats require adapters |
 | SCT | [Accepted design](decisions/SCTRANSFORM_DESIGN.md); `preprocessing/sct_core.R` accepts counts/depth | Extraction, depth policy and 300-gene validators are Johnston-specific; training-only SCT application unfinished |
 | Library normalization | `preprocessing.normalization.log_library_size` takes explicit target sum and log base; distinct from SCT | Dense helper only; generic file ingestion and transform manifest needed |
-| Existing response | Preserve verified scale; never double-normalize | Axolotl `scater_norm` reconstructs as log2(1 + library-scaled count_use) to 1.78e-15 max error; generic importer still needed |
+| Existing response | Portable dataset manifest declares method/units/population/evidence; no automatic transformation | Original fit-population independence must be established separately |
 | Expression eligibility | `preprocessing.gene_selection.expression_eligible`: explicit detection, level and nonconstancy thresholds | Thresholds depend on response units; screening GP producer and biological aggregation need a unified interface |
 | Spatial selection | [Recovered rule](recovery/gene-panel-20261104/README.md); `select_spatial_genes` and CLI reproduce all 91 genes | Single-group axolotl cannot silently satisfy two-animal recurrence |
-| Centering | `normalization.center_from_training`: training group/gene means, no SD scaling | Generic response exporter must consume this interface |
+| Centering | `dataset.prepare_response` exports named training/scoring arrays using training-only means; arbitrary group/gene counts pass sampler contract | Single-sample preparation; mesh and GPINIT still separate |
 | Mesh | [Accepted builder](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` accepts cell/boundary paths | Machine-local runtime lock; generic boundary preparation and dataset CLI needed. S10 `reproduce` is only a regression |
 | GP initialization | [GP smooth/SVD](initialization/C3_GP_SVD.md); `gp_svd.fit` accepts K/nfit/seed, arbitrary genes/groups | Preparation/environment wrappers remain S10-specific |
 | Quadrature | `sampler.registry_rule.load_registry_rule(path, expected_sha256=..., order=L)` derives tensor shapes from L | Existing L4/L14/L16 arrays verified exactly. Other orders need authenticated tables. Target still scientifically fixes ell_eta=.14 |
@@ -56,9 +56,9 @@ has no training observations. It supports arbitrary group counts and names.
 
 ## Remaining implementation order
 
-1. Generic dataset/response contract and adapters, preserving transformation
-   evidence and arbitrary cell/gene/group/animal axes. Use Johnston and axolotl
-   as separate integration fixtures; do not force identical normalization.
+1. Dataset/response foundation implemented and checked on synthetic inputs and
+   real axolotl import. Add a Johnston adapter/integration fixture; do not force
+   identical normalization. See the dataset guide and validation receipt.
 2. Recover/port screening GP producer and technical-section aggregation; connect
    expression eligibility and recurrent gene selection. Explicitly adapt the
    replication requirement for a single axolotl group.
