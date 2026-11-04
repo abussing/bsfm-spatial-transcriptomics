@@ -55,9 +55,15 @@ and the otherwise unchanged historical split body. Eleven fresh local checks
 passed, including gradient checks, periodic/every-sweep exact endpoints,
 interrupted recomputation, committed non-replay and parent binding. See the
 [pinned receipt](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/59d8416/docs/recovery/gpu-workflow-20261103/PERIODIC_LOCAL_VALIDATION.json).
-No sampler code changed. Remaining acceptance issue: reconcile saved-reference
-numerical failures with same-runtime equivalence evidence without weakening
-fixtures. This local pass is not a new GPU execution or full-branch acceptance.
+No sampler code changed. The subsequent [numerical reconciliation](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/1bb4493/docs/recovery/gpu-workflow-20261103/FIXED_GRADIENT_RESULTS.md#saved-reference-reconciliation-2026-11-04)
+passed six exact historical/current comparisons, including adaptation and full
+Gibbs state/RNG. Both implementations show the same saved-reference differences:
+Layer-3 gradients at most 2.77556e-17; Layer 5 only one gradient hash, with all
+stored numeric values matching. Fixtures and tolerances are unchanged. These
+bounded failures are not consolidation-induced changes; the precise low-level
+rounding cause remains unisolated. Next assemble the GPU-runtime promotion scope
+against its recorded environment, restart and interface evidence. No new GPU
+execution or blanket full-branch acceptance is claimed.
 
 ## External artifacts and environments
 
