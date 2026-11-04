@@ -1,5 +1,17 @@
 # Current BSFM handoff
 
+## 2026-11-04: narrow consolidation cleanup
+
+Continue from [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md), the single current method
+map. Extend existing layer boundaries; do not introduce a parallel pipeline
+framework or competing current guide. The draft wrapper and duplicate guide
+were removed before publication. Axolotl/CELINA evidence is folded into the
+existing dataset contract. A bounded recovered screening GP and biological
+aggregation fill the upstream selection gap; their source and test scope are
+recorded in the workflow guide. Core mesh, GPINIT and sampler implementations
+are unchanged. Generic execution remains incomplete. Leave-out experiment work
+is separate from the current core-interface cleanup.
+
 ## 2026-11-04: dataset/response foundation implemented
 
 Read [the dataset contract](preprocessing/DATASET_CONTRACT.md) and

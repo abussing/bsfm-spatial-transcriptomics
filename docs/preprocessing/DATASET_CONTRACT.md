@@ -89,3 +89,53 @@ sampler input validator; no GPINIT numerical execution is claimed.
 Current limitations: dense response storage, single-sample model preparation,
 source-specific adapters, and user-declared original normalization provenance.
 Whole-sample imported normalization is not silently relabeled training-only.
+
+## Reference adapter: axolotl provenance
+
+Source file: `E:/axolotl/artista_data.RData`, 90,188,253 bytes, SHA256
+`37287f741ddbd899ff7590143c8985d2d20588e6b32bab0879e93298c589c8cf`.
+The user supplied Lulu Shang's Artista preprocessing example on 2026-11-04.
+It identifies `data_use$count_use`, `cluster` and `location_coord` as the counts,
+cell labels and coordinates. The [published tutorial](https://lulushang.org/Celina_Tutorial/Artista.html)
+matches that workflow. It creates one-hot cell-type indicators, keeps types
+representing more than 1% of observations, invokes preprocessing with threshold
+5e-5, and then calculates kernels and tests genes. All six local broad groups
+exceed 1% of the 4,410 cells. These groups are cell types, not animal IDs.
+
+### Source inspection
+
+Inspected [CELINA source revision 305f57958acace00811caea6bd9a92514249182c](https://github.com/shangll123/CELINA/blob/305f57958acace00811caea6bd9a92514249182c/R/CELINA.R):
+`preprocess_input` obtains testing gene lists, calls `scater::normalizeCounts`
+on the expression matrix, and subsets normalized rows afterward. The initial
+5e-5 filter is applied to mean counts divided by each cell's library total, with
+mitochondrial-name exclusion. Further cell-type lists use estimated relative
+expression and abundance thresholds. This is not the BSFM recurrent spatial-GP
+criterion. `Create_Celina_Object` also scales coordinates; its scaling should not
+silently replace BSFM's separately declared geometry transform.
+
+The pinned inspected source is not proof of the exact version originally used
+to create the RData. The tutorial does not identify the original producer of
+the saved `scater_norm` field. No CELINA model or tests were run in this recovery.
+
+### Independently measured local representation
+
+`count_use` and `scater_norm` contain matching ordered 16,586-gene and 4,410-cell
+axes. `count_use` is nonnegative integer valued. The saved response reconstructs
+as log2(1 + per-cell library-scaled counts), with a common scaled library total
+approximately 10,397, to maximum absolute error 1.776357e-15. Its precise original
+software execution history remains distinct from that numerical verification.
+
+The [import recipe](../../config/datasets/axolotl-artista.json) reuses this response
+without another logarithm, SCT fit or library-size correction. The
+[dataset validation receipt](DATASET_LAYER_VALIDATION.json) records full payload
+identity and independent sampled R/CSV readback. This imported whole-data
+normalization is not relabeled training-only for future holdout evaluation.
+
+### Workflow consequence
+
+Keep three separate recipe decisions: response transformation, expression
+eligibility, and spatial gene selection. CELINA's test-specific gene filters are
+useful provenance, not an automatic replacement of the recovered BSFM rule.
+Unknown animal identity and single-group recurrence need an explicit adaptation;
+do not invent independent animals from cell types. No axolotl fitting group or
+panel is selected by this document.
