@@ -9,12 +9,55 @@ import numpy as np
 from scipy import sparse
 
 from bsfm.mesh.october26 import (normalize_glia, historical_half_indices,
-    fem_matrices, polynomial_fem, spectral_artifact, marginal_root, warp_cells, build)
+    fem_matrices, polynomial_fem, spectral_artifact, marginal_root, warp_cells, build,
+    inherited_geometry)
 from bsfm.mesh.projectors import project, validate, active
-from bsfm.mesh.identities import REPO
+from bsfm.mesh.identities import REPO, file_record
 
 
 class October26Regression(unittest.TestCase):
+    def test_inherited_geometry_general_inputs_coverage_and_repeatability(self):
+        for xy in (np.array([[0.,0.],[1.,0.],[0.,.6],[.6,.4]]),
+                   np.array([[0.,0.],[.2,0.],[.1,.9],[.2,1.],[.05,.5]])):
+            before=xy.copy()
+            v,t,report=inherited_geometry(xy)
+            v2,t2,r2=inherited_geometry(xy)
+            np.testing.assert_array_equal(v,v2);np.testing.assert_array_equal(t,t2)
+            np.testing.assert_array_equal(xy,before);self.assertEqual(report,r2)
+            a=project(v,t,xy)
+            self.assertLess(validate(a,v,xy,5e-12)['affine_error'],5e-12)
+            self.assertLessEqual(report['refinement_iterations'],16)
+            self.assertEqual(report['remaining_oversize_triangles'],0)
+            edges=np.concatenate([t[:,[0,1]],t[:,[1,2]],t[:,[2,0]]])
+            edges,count=np.unique(np.sort(edges,axis=1),axis=0,return_counts=True)
+            self.assertTrue(np.all(count<=2))
+            _,degree=np.unique(edges[count==1],return_counts=True)
+            self.assertTrue(np.all(degree==2))
+        for bad in (np.zeros((2,2)),np.array([[0.,0.],[1.,1.],[np.nan,0.]])):
+            with self.assertRaises(ValueError):inherited_geometry(bad)
+
+    def test_runtime_relocation_retains_identity_and_builder_arguments(self):
+        # Mock only process execution; real file hashing guards launch.
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);exe=root/'relocated Rscript';exe.write_bytes(b'test runtime, never executed')
+            lock=root/'runtime.json'
+            lock.write_text(json.dumps({'R':dict(path=str(root/'old-machine-path'),**file_record(exe))}))
+            args=[root/n for n in ('cells.csv','vertices.csv','triangles.csv','environment','config.json','output')]
+            completed=subprocess.CompletedProcess([],0,stdout=b'fixture',stderr=b'')
+            with patch('bsfm.mesh.october26.subprocess.run',return_value=completed) as run:
+                receipt=build(*args,runtime_lock=lock,rscript=exe)
+                command=run.call_args.args[0]
+                self.assertEqual(command[0],str(exe.resolve()))
+                self.assertEqual(command[3:],[str(args[i].resolve()) for i in (3,4,0,1,2,5)])
+                self.assertEqual(receipt['runtime_lock']['sha256'],file_record(lock)['sha256'])
+                self.assertEqual(receipt['runtime_executable']['sha256'],file_record(exe)['sha256'])
+                self.assertEqual(run.call_args.kwargs['env']['OMP_NUM_THREADS'],'1')
+            exe.write_bytes(b'changed runtime')
+            with patch('bsfm.mesh.october26.subprocess.run') as run:
+                with self.assertRaisesRegex(ValueError,'runtime executable identity'):
+                    build(*args,runtime_lock=lock,rscript=exe)
+                run.assert_not_called()
+
     def setUp(self):
         self.v = np.array([[0., 0.], [1., 0.], [0., 1.], [1., 1.]])
         self.t = np.array([[0, 1, 2], [1, 3, 2]])

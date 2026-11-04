@@ -1,0 +1,23 @@
+{
+  "source_sha256": "37287f741ddbd899ff7590143c8985d2d20588e6b32bab0879e93298c589c8cf",
+  "object": "data_use",
+  "expression_field": "scater_norm",
+  "coordinate_field": "location_coord",
+  "group_field": "cluster",
+  "sample": "artista_data",
+  "column_alignment_confirmed": true,
+  "metadata": {
+    "schema": "bsfm.dataset.v1",
+    "dataset_id": "axolotl-artista",
+    "animal_identity_known": false,
+    "coordinate_units": "source_native_unverified",
+    "coordinate_axes": ["row", "col"],
+    "normalization": {
+      "response": "uncentered_normalized",
+      "method": "imported_library_size_log2",
+      "units": "log2(1 + library-scaled count_use)",
+      "population": "all 4410 source observations; existing full-data transformation",
+      "evidence": "2026-11-04 inspection: count_use and scater_norm have identical dimensions and gene names; per-cell inverse-log2/count ratio constant to floating precision; scaled column totals equal approximately 10397; maximum reconstructed-response error 1.776357e-15. This verifies numerical representation, not the original scater execution history."
+    }
+  }
+}

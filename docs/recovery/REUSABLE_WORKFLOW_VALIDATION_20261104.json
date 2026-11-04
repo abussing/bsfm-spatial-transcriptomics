@@ -1,0 +1,87 @@
+{
+  "scope": "First reusable-workflow increment; not end-to-end dataset validation",
+  "status": "PASS",
+  "tests": [
+    {
+      "command": "python -m unittest discover -s tests -p test_dataset_preprocessing.py -v",
+      "passed": 5
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_registry_rule.py -v",
+      "passed": 1
+    }
+  ],
+  "checks": [
+    "Independent production-table recurrence filter matches exact canonical 91-gene order",
+    "Gene selection does not depend on genotype or held-out gain columns",
+    "Same-type animal recurrence and duplicate biological-key rejection",
+    "Expression eligibility applies all thresholds within the same observation group",
+    "Explicit library target/log base and raw-input checks",
+    "Centering excludes held-out responses and preserves input arrays",
+    "Registered L4/L14/L16 quadrature arrays load exactly with configured order and pinned hash",
+    "Gene-selection CLI produces the provenance-bearing report without executing historical code"
+  ],
+  "environment": "C:/Users/andyb/Desktop/BSFM_ENVIRONMENTS/layer9-review-20261103/sampler/python/Scripts/python.exe",
+  "limitations": [
+    "No new scientific run or screening GP fit",
+    "No claim of completed generic mesh/response/launcher integration",
+    "Existing S10 continuation code and numerical kernels unchanged",
+    "New registry loader is not a migration of existing checkpoint identities"
+  ],
+  "main_promotion": {
+    "date": "2026-11-04",
+    "base_main": "7331881",
+    "source_review": "147f79e",
+    "scope": "Validated reusable-method subset only; no Layer-9/GPU orchestration promotion",
+    "tests": {
+      "non_jax_passed": 34,
+      "non_jax_skipped": 1,
+      "registry_separate_process_passed": 1
+    },
+    "initial_combined_attempt": "JAX DLL initialization failed after other libraries loaded; isolated registry test passed. Not a combined-process pass.",
+    "unchanged": "Existing main sampler numerical kernels, GP/SVD fitting implementation, R geometry builder",
+    "validation": "Main checkout rerun; all promoted source files match reviewed versions; local Markdown links checked",
+    "files": [
+      "AGENTS.md",
+      "README.md",
+      "config/datasets/axolotl-artista.json",
+      "config/preprocessing/johnston-gene-selection.json",
+      "config/preprocessing/recovered-gp-screen.json",
+      "docs/CURRENT_HANDOFF.md",
+      "docs/WORKFLOW_GUIDE.md",
+      "docs/decisions/MODELING_RESPONSE_HANDOFF.md",
+      "docs/holdouts/s10-grid-20261103/L14_ell14.json",
+      "docs/mesh/OCTOBER26_CANONICALIZATION.md",
+      "docs/preprocessing/DATASET_CONTRACT.md",
+      "docs/preprocessing/DATASET_LAYER_VALIDATION.json",
+      "docs/recovery/REUSABLE_WORKFLOW_VALIDATION_20261104.json",
+      "docs/recovery/gene-panel-20261104/.gitattributes",
+      "docs/recovery/gene-panel-20261104/EXPANDED_GP_ANIMAL_SUMMARY.csv",
+      "docs/recovery/gene-panel-20261104/EXPRESSION_SCREEN_QC.json",
+      "docs/recovery/gene-panel-20261104/FROZEN_GENE_PANEL.csv",
+      "docs/recovery/gene-panel-20261104/GENE_PANEL_CONTRACT.json",
+      "docs/recovery/gene-panel-20261104/PANEL_THRESHOLD_SENSITIVITY.csv",
+      "docs/recovery/gene-panel-20261104/README.md",
+      "docs/recovery/gene-panel-20261104/UPSTREAM_CAPTURE.json",
+      "docs/recovery/gene-panel-20261104/VALIDATION.json",
+      "docs/recovery/gene-panel-20261104/freeze_gene_panel.py",
+      "docs/recovery/gene-panel-20261104/historical_expression_screen.py",
+      "docs/recovery/gene-panel-20261104/historical_gp_extension.py",
+      "docs/sampler/s10-subset-smoke-20261103/L4_ell14_smoke.json",
+      "src/bsfm/mesh/october26.py",
+      "src/bsfm/preprocessing/dataset.py",
+      "src/bsfm/preprocessing/export_rdata.R",
+      "src/bsfm/preprocessing/gene_selection.py",
+      "src/bsfm/preprocessing/import_rdata.py",
+      "src/bsfm/preprocessing/normalization.py",
+      "src/bsfm/preprocessing/spatial_screen.py",
+      "src/bsfm/sampler/registry_rule.py",
+      "tests/test_dataset_contract.py",
+      "tests/test_dataset_preprocessing.py",
+      "tests/test_gp_initialization.py",
+      "tests/test_mesh_october26.py",
+      "tests/test_registry_rule.py",
+      "tests/test_spatial_screen.py"
+    ]
+  }
+}

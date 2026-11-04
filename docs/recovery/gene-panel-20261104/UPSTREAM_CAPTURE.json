@@ -1,0 +1,17 @@
+[
+  {
+    "path": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\screen_all_genes_expression.py",
+    "sha256": "d0879963584aec446890327758ee04b3504423e1887a2297f2b626f6aa006493",
+    "capture": "historical_expression_screen.py"
+  },
+  {
+    "path": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\all300_expression_screen\\QC.json",
+    "sha256": "8611cabcf8852a07853cd7d2029e465271eee961037a0146d59062e2842a174e",
+    "capture": "EXPRESSION_SCREEN_QC.json"
+  },
+  {
+    "path": "E:\\johnston_brain\\artifacts\\GENE_REVIEW_20261004\\all300_gp_extension_v1\\extension.py",
+    "sha256": "f70746cda66087d3dabde45c2830ce8a28447a0aefb75f9f81c283c644561267",
+    "capture": "historical_gp_extension.py"
+  }
+]

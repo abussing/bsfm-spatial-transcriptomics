@@ -1,0 +1,9 @@
+{
+  "rationale": "Recurrent spatial expression in the same cell type across distinct animals; genotype-blind and no held-out-gain gate. See docs/recovery/gene-panel-20261104/README.md.",
+  "selection": {
+    "spatial_fraction_threshold": 0.1,
+    "minimum_animals": 2,
+    "expected_animals": 15,
+    "allowed_celltypes": ["Mic", "AST", "OGC"]
+  }
+}

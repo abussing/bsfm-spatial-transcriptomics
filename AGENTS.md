@@ -22,4 +22,16 @@
 11. Consolidate rather than redevelop: recover the best-supported working
     implementation, port it conservatively, and perform a bounded reproduction
     test. Open-ended scientific redesign requires explicit user approval.
+12. The repository must explain and implement reusable workflows for new datasets.
+    Put dataset paths, gene panels, group labels, K, quadrature order and run
+    lengths in explicit recipes. Derive dimensions from authenticated inputs.
+    Fixed mathematical choices require a linked rationale and scope.
+13. Distinguish reusable methods, dataset recipes and historical regressions.
+    Preserve verified recipes and checkpoint identities while generalizing.
+    Never infer normalization solely from a field name or silently double-log
+    an already transformed matrix. A regression-only CLI is not a pipeline.
+14. Gene-selection code must accompany panel provenance and scientific rationale.
+    Adaptation to new datasets must handle biological replication and response
+    units explicitly. Do not select genes for favorable deep-versus-flat test
+    outcomes. Record remaining workflow gaps in docs/WORKFLOW_GUIDE.md.
 

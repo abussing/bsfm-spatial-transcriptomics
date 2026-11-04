@@ -157,3 +157,128 @@ The permanent angle test now invokes the actual Python `build()` command path,
 passes the real JSON configuration to the actual R builder prefix, verifies
 double 25 in fmesher options, and rejects a test-only mutant with the conversion
 removed. It stops before mesh construction. See the [acceptance test record](audits/october26_acceptance_20261102/README.md).
+
+## Runtime relocation (2026-11-04)
+
+The existing `build` function accepts optional keyword arguments `runtime_lock`
+and `rscript`. Existing calls retain the committed runtime lock and its recorded
+executable path. To relocate the same executable, supply `rscript` with its new
+path; it must still match the selected lock's `R.bytes` and `R.sha256`. To use a
+separately validated platform environment, explicitly supply its runtime lock.
+No executable is selected from PATH and no hash check is bypassed.
+
+```python
+build(cells, inherited_vertices, inherited_triangles, environment, config, output,
+      runtime_lock=validated_runtime_lock, rscript=local_rscript)
+```
+
+The returned construction record now includes the selected lock and executable
+paths, sizes and hashes. `environment` still identifies the isolated `r-library`;
+the unchanged R bridge checks package isolation and the configured fmesher
+version. Executable authentication alone does not validate all package versions,
+the R distribution, or cross-platform mesh output. Use the environment validation
+records separately; a hand-written lock is not evidence of environment validation.
+
+The R builder, adaptation, FEM, projections and inherited-boundary requirement
+are unchanged. Boundary production is now available through the recovered geometry-only
+function documented below; runtime relocation itself does not define geometry. The module CLI remains
+the historical regression command, not a new competing launcher.
+
+Validation: eight Python tests passed; one actual R/fmesher boundary test skipped
+because the recorded accepted local environment was unavailable. The new test
+uses real executable-file hashing and mocked process execution to check relocation,
+unchanged argument order/thread settings, receipt identities and rejection of a
+modified executable before launch. No new mesh or HPC job was generated.
+
+## Recovered outer-boundary producer (2026-11-04)
+
+The inherited polygon has a recoverable producer, rather than being a manually
+drawn S10-specific outline. F `code/production/build_section_mesh.py` and
+A `source_geometry/source/build_section_mesh.py` both match the already recorded
+P source SHA256 `05bd94a484d3e8c2161d72175143e864f0e46295b89f68ae42ac0f9af3753771`.
+The copies were inspected at their corresponding `E:/johnston_brain` paths;
+they were not imported or executed. This extends the existing source ledger's
+interpretation; it does not promote the older mesh as the final warp basis.
+
+Its geometry-only sequence (lines 117–215) is:
+
+1. Use full declared geometry in minimum/common-maximum-span coordinates.
+2. Expand the coordinate bounding box by 1.0. Generate triangular lattices with
+   (maximum nearest-cell distance, spacing) pairs (.070,.045), (.180,.080),
+   (.450,.140), (1.000,.280). Bands use successive nearest-cell distance ranges;
+   discard coarse candidates closer than .42 times their spacing to accepted
+   finer points. Append exact observed convex-hull vertices and deduplicate at
+   1e-10, preserving first occurrence order.
+3. Delaunay triangulate using `Qbb Qc Qz Q12`. Retain nondegenerate triangles
+   whose centroids are within 1.0 of the tissue, plus observation-containing
+   triangles. Refine edges exceeding 1.75 times band targets
+   (.060,.105,.180,.350), adding longest-edge midpoints and affected observation
+   locations. The bounded loop has at most 17 triangulations; unresolved edge
+   exceptions are reported. Remap retained vertices without reordering them.
+4. The accepted fmesher builder extracts edges occurring once from this supplied
+   triangulation, uses their coordinates as its fourth/far boundary, and rebuilds
+   the interior with the accepted graded fmesher procedure.
+
+The older builder also writes FEM and response artifacts. Those operations are
+not needed to recover its boundary and must not become a second final-mesh
+pipeline. The geometry-only port and bounded saved-geometry comparison described below
+now establish this producer under the recovered recipe. In particular,
+1.0 is part of the recovered rule in normalized coordinates, not a newly selected
+universal physical padding or an exact constant-offset polygon construction.
+Disconnected-region topology still needs explicit validation on the new input.
+
+Independent saved-artifact checks, without rebuilding either mesh:
+
+- F `source_geometry/S10__WT5/MESH_CERTIFICATE.json` SHA256:
+  `4cdf3f80712320c6ac969aae24ac9c98aa15c18c7853ec09076ca6ae5384521f`.
+- Source vertex/triangle CSVs match the certificate:
+  `fbca0dd7f8007010f710b8a94138cbdc83b01b4bfc4092ba83ee2f04a1957e6d`
+  and `2bf966a021459d8bfa5f244ccacc981d9e02ab1e24737dbe3b474577692530bc`.
+- Source: 639 vertices, 1,251 triangles, 25 boundary edges. Accepted preview:
+  371 vertices, 32 boundary edges. Preview CSV hashes are
+  `1dee661450240ada93254c8b2f00aba5b39ea71bacc71dd0450686b0d39f8b99`
+  and `b434e4e6e693b7a1173d0ab70e9ec47322255a4c26846a0eec2e00ce5ffbbeff`.
+- Counting undirected triangle-edge occurrences identifies boundary edges.
+  Maximum vertex-to-opposite-boundary-segment distances in both directions are
+  4.44228e-15 and 4.44089e-15; summed triangle areas differ by 6.21725e-15.
+  These are saved-geometry checks, not execution provenance for the old producer
+  or validation of a new implementation. Boundary vertex arrays themselves
+  differ because the accepted mesh subdivides edges.
+
+### Existing-module interface and bounded reproduction
+
+`bsfm.mesh.october26.inherited_geometry(normalized_coordinates)` returns
+`vertices, triangles, report`. Supply the full declared geometry in the same
+minimum/common-maximum-span coordinate system used by the accepted mesh. No
+expression, gene identifiers, group names or dataset names enter this function.
+Its constants preserve the recovered boundary recipe above; they are not fitted
+from expression or presented as a universally optimal mesh design.
+
+Write the returned vertices with CSV header `x,y` and the zero-based triangles
+with header `v1,v2,v3` and integer formatting, then pass those paths as
+`inherited_vertices` and `inherited_triangles` to the existing `build()` function.
+Use fresh paths and retain the report with their hashes. The accepted builder
+extracts their boundary and constructs the final mesh; these intermediate
+triangles must not be substituted as the final mesh. Nonzero unresolved-edge
+counts in the report require review rather than an unqualified success claim.
+Degenerate point geometry can fail the underlying convex-hull construction.
+
+Local bounded reproduction on 2026-11-04 used all 9,422 rows of F
+`source_geometry/S10__WT5/cells.csv` (SHA256
+`ccf6e21a44aa8594f7a1debb3cfc7b99938c5d366fcd90b6b4a661a350c27124`).
+Both complete output arrays matched the authenticated source CSVs listed above
+**exactly**, including order: 639 vertices, 1,251 triangles, one refinement
+iteration, zero unresolved triangles and maximum edge/target ratio
+1.583333333333333. No historical Python source was executed, no final fmesher
+mesh was rebuilt and no expression data were processed.
+
+Nine mesh tests pass; the existing actual R integration test remains skipped
+for unavailable recorded environment. The new test checks deterministic output,
+input immutability, cell coverage, affine projector reproduction and closed
+boundary-edge incidence for two synthetic geometries, plus invalid input
+rejection. All 12 pre-existing Python mesh function ASTs are unchanged from
+`e730742`; the R builder is unchanged. New function AST SHA256 (Python
+`ast.dump(..., include_attributes=False)`):
+`19ce8f96bd4cf1ee09b6d2259fbc195d7425cac21d7e0c553327677761fa825d`.
+This validates the recovered carrier geometry, not final-mesh reproduction on
+Linux or scientific performance on arbitrary tissue topology.

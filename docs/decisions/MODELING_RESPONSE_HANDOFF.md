@@ -25,6 +25,12 @@ No historical implementation is selected or imported.
 
 ## Canonical panel and evidence
 
+Update 2026-11-04: the historical final selection rule and its exact reproduction
+have now been [recovered and verified](../recovery/gene-panel-20261104/README.md).
+It requires GP spatial variance fraction >=0.10 in at least two distinct animals
+within at least one cell type, without genotype or held-out-gain gating. This
+adds provenance; it does not change the panel or establish holdout independence.
+
 The authoritative ordered panel is now
 [modeling-panel.json](../../config/preprocessing/modeling-panel.json), validated
 structurally by its [schema](../../schemas/preprocessing/modeling-panel.schema.json).

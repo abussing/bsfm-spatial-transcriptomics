@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Source SHA256 matches recorded contract",
+    "Independent standard-library recurrence filter reproduces all 91 genes in canonical order",
+    "Frozen panel CSV and production contract agree"
+  ],
+  "genes": 91,
+  "animals": 15,
+  "files": [
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/panel/GENE_PANEL_CONTRACT.json",
+      "sha256": "65880832deea5a17b5e66799ec7501732d9bbb7d4a37d5dce2328e0eb4eb033f",
+      "capture": "GENE_PANEL_CONTRACT.json"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/panel/FROZEN_GENE_PANEL.csv",
+      "sha256": "e9656e2c1ef888d12cb99cb2dee247945fa290c078a1217435b0dfbcb88898df",
+      "capture": "FROZEN_GENE_PANEL.csv"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/panel/PANEL_THRESHOLD_SENSITIVITY.csv",
+      "sha256": "297723e0bff1e024038fb55b4f6bdcfdbdc528777c203188f73a711a042ce87d",
+      "capture": "PANEL_THRESHOLD_SENSITIVITY.csv"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/bsfm_19section_production_20261024/code/production/freeze_gene_panel.py",
+      "sha256": "3ae2a32108691ef7101a3ec27074151818707c8d33ecb6b668e46e79c5163327",
+      "capture": "freeze_gene_panel.py"
+    },
+    {
+      "path": "/work/abussing/arka_trying_gpu_again/gene_review19_20261004_v1/all300_gp_extension_v1/EXPANDED_GP_ANIMAL_SUMMARY.csv",
+      "sha256": "aa6749d9b09a2d3595f27f4e6000ecee3d4cc65ab1b88d8e2e84735c6f25d2f2",
+      "capture": "EXPANDED_GP_ANIMAL_SUMMARY.csv"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "Real axolotl import and independent R/CSV sampled readback; no fitting",
+  "dataset_path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\axolotl-audit-20261104\\dataset-v1",
+  "manifest_sha256": "a04f87fd3fdf9ca8eafebf8528d194efafed52edd08212ddbcd2e6e44fc41663",
+  "artifact_sha256": "6b39b91fb1ea8dac783473728178b10b739e4ac1e3c3d137450f28a2d5ddc0a8",
+  "dimensions": {
+    "genes": 16586,
+    "cells": 4410
+  },
+  "groups": {
+    "CP": 382,
+    "EGC": 1190,
+    "Immature_Neuron": 1626,
+    "Mature_Neuron": 201,
+    "NBL": 606,
+    "VLMC": 405
+  },
+  "readback_entries": 25,
+  "max_readback_error": 4.218847493575595e-15,
+  "readback_sha256": "54ae3f3891fa4f54a0e3c30c53107bd34aeaf8778b0a9bc455b57d9ab24179f6",
+  "normalization": {
+    "response": "uncentered_normalized",
+    "method": "imported_library_size_log2",
+    "units": "log2(1 + library-scaled count_use)",
+    "population": "all 4410 source observations; existing full-data transformation",
+    "evidence": "2026-11-04 inspection: count_use and scater_norm have identical dimensions and gene names; per-cell inverse-log2/count ratio constant to floating precision; scaled column totals equal approximately 10397; maximum reconstructed-response error 1.776357e-15. This verifies numerical representation, not the original scater execution history."
+  },
+  "tests_passed": 4,
+  "code_state": "uncommitted implementation at validation; source file hashes below",
+  "source_files": {
+    "src/bsfm/preprocessing/dataset.py": "5b09dfe31b3ef317c32ca12e9dc6d14efed9f5b09cce86a49b71469168f49c82",
+    "src/bsfm/preprocessing/import_rdata.py": "72b1b17287950a6f76828500ffa386496088505afc1815f012179fe938928269",
+    "src/bsfm/preprocessing/export_rdata.R": "06e5dddfa82a3e8f25bed1e2babbe87abb387e835fb5fbaa039113afae847ec3",
+    "config/datasets/axolotl-artista.json": "374521fe6fb0e9969d4d753f7f402e22ca13bbe36dcf448af730701cc4875090"
+  }
+}
