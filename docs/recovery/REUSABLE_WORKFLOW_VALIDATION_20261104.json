@@ -513,5 +513,64 @@
       }
     ],
     "next": "Generic input/mesh/GPINIT assembly and launcher; bounded GPU execution validation before claiming new end-to-end deployment."
+  },
+  "dataset_sampler_connection": {
+    "date": "2026-11-04",
+    "status": "PASS_BOUNDED_ONE_THREAD_SYNTHETIC_CONNECTION",
+    "base_commit": "7378838",
+    "preservation": {
+      "all_preexisting_mesh_function_bodies_unchanged": 13,
+      "registered_S10_loader_unchanged_after_removing_new_dispatch": true
+    },
+    "passed": 13,
+    "skipped": 1,
+    "skip_reason": "Recorded mesh R environment unavailable",
+    "scope": "Real dataset/GPINIT CLIs with temporary threads=1 config; synthetic final mesh, 24 cells, 2 named groups, 2 genes, K2, registered L4; finite target/gradient and repeat initialization state/RNG. No new R build, GPU trajectory or scientific fitting.",
+    "rejections": [
+      "mixed GPINIT certificate",
+      "mesh cell order",
+      "file mutation",
+      "sample",
+      "K",
+      "L",
+      "coordinate chart",
+      "final geometry source hashes",
+      "projector/coordinate mismatch"
+    ],
+    "remaining_failure": "Accepted four-thread GPINIT causes Windows native access violation, reproduced in unchanged GP tests and outside sandbox. One-thread diagnostic passes. Root cause not isolated; accepted config unchanged.",
+    "inventory": [
+      {
+        "path": "src/bsfm/mesh/october26.py",
+        "bytes": 23577,
+        "sha256": "15cfedcf1cad149730d83ab86e699767efea4f771c4341c4065a77a5bcaa9bcb"
+      },
+      {
+        "path": "src/bsfm/sampler/run_inputs.py",
+        "bytes": 15391,
+        "sha256": "b72da00d337172a9c7baf4544e3681ceb3328cfd6324015675e07fc664e92d22"
+      },
+      {
+        "path": "tests/test_dataset_sampler_inputs.py",
+        "bytes": 8803,
+        "sha256": "079eabfc014e2bcb1c7a7452e02a37e7f326314cbe9c86465fe8492e3f951b4c"
+      }
+    ],
+    "logs": [
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\dataset-sampler-assembly-preinitialized-tests.log",
+        "bytes": 40,
+        "sha256": "b7ca38fad6780b1f369d0ebb9e6030a757a9121cf94a8ac6b1e88a1048290c8b"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\dataset-sampler-assembly-diagnostic.log",
+        "bytes": 976,
+        "sha256": "0dab917f7d4e0d8fe366581e9f272ebc9a7f407c6faf4b28e9a0280c06cf990d"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\dataset-sampler-assembly-one-thread.log",
+        "bytes": 5588,
+        "sha256": "500c09dacbc55ab9b096d34fdc0f32fa9ab33bd55d13460b6f0dc15d08a58f59"
+      }
+    ]
   }
 }

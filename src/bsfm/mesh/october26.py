@@ -259,6 +259,46 @@ def build(cells, inherited_vertices, inherited_triangles, environment, config, d
                 log=file_record(destination.parent/'construction.log'))
 
 
+def sampler_geometry(directory, *, locations, cell_ids, source_rows, expected_files,
+                     coordinate_system):
+    """Assemble the existing warp arrays from pinned final builder output.
+
+    No mesh construction or population selection occurs here. The caller supplies
+    identities in the exact order of the cells used by build(). Persist the
+    returned arrays as an NPZ and pin its file hash in the runtime file records.
+    The inherited boundary carrier is not a final mesh input to this adapter.
+    """
+    directory=Path(directory)
+    required={'mesh_loc.csv','mesh_tv.csv','A_proj.mtx','geometry.json'}
+    require(set(expected_files)==required, 'Exact final geometry file closure required')
+    for name in required:
+        require(file_record(directory/name)==expected_files[name], 'Final geometry file changed: '+name)
+    report=read_json(directory/'geometry.json')
+    # geometry.json echoes the builder config's legacy "source_native" units.
+    # It does not establish whether the supplied cells were normalized.
+    require(coordinate_system=='october26_glial_min_max_span'
+            and report['index_base']==0 and report['axis_order']==['center_y','center_x'],
+            'Explicit accepted normalized mesh chart required')
+    vertices=np.loadtxt(directory/'mesh_loc.csv',delimiter=',',skiprows=1,ndmin=2)
+    triangles=np.loadtxt(directory/'mesh_tv.csv',delimiter=',',skiprows=1,dtype=np.int64,ndmin=2)
+    projector=mmread(directory/'A_proj.mtx').tocsr()
+    require(report['vertices']==len(vertices) and report['triangles']==len(triangles), 'Final mesh counts')
+    validate(projector,vertices,locations,5e-12)
+    independent=project(vertices,triangles,locations,5e-12)
+    require(float(abs(independent-projector).max())<5e-12, 'Independent final projector disagreement')
+    indices=active(projector)
+    require(report['active']==len(indices), 'Final mesh active count')
+    mass,stiffness,_=fem_matrices(vertices,triangles)
+    arrays=dict(terms=np.stack(polynomial_fem(mass,stiffness)),vertices=vertices,
+        projector=projector.toarray(),locations=np.array(locations,copy=True),active_indices=indices,
+        vertex_ids=np.array([f'vertex-{i}' for i in range(len(vertices))]),
+        cell_ids=np.array(cell_ids,copy=True),source_rows=np.array(source_rows,copy=True))
+    # Reuse the consumer's identity/dtype checks; do not build a second contract.
+    from bsfm.sampler.warp import validate_mesh
+    validate_mesh(arrays)
+    return arrays
+
+
 def reproduce(bundle, environment, output, config):
     """One S10 regression from exact historical data, never executing legacy code."""
     bundle, output, config = Path(bundle), Path(output), Path(config)

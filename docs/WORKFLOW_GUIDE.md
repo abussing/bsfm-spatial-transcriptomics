@@ -29,11 +29,11 @@ contracts; update this guide in place rather than adding competing current guide
 | Existing response | Portable dataset manifest declares method/units/population/evidence; no automatic transformation | Original fit-population independence must be established separately |
 | Expression eligibility | `preprocessing.gene_selection.expression_eligible`: explicit detection, level and nonconstancy thresholds | Thresholds depend on response units; no implicit transfer between normalization methods |
 | Spatial selection | [Recovered rule](recovery/gene-panel-20261104/README.md); `select_spatial_genes` and CLI reproduce all 91 genes | `spatial_screen` supplies GP fits and technical-section medians; unknown biological replication requires an explicit policy |
-| Centering | `dataset.prepare_response` exports named training/scoring arrays using training-only means; arbitrary group/gene counts pass sampler contract | Single-sample preparation; mesh and GPINIT still separate |
-| Mesh | [Accepted builder](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` accepts cell/boundary paths and explicit authenticated runtime relocation | Recovered boundary-carrier function available; final dataset/mesh assembly remains separate. Platform environment validation remains separate. S10 `reproduce` is only a regression |
-| GP initialization | [GP smooth/SVD](initialization/C3_GP_SVD.md); existing dataset CLI exports its contract via `--gpinit-contract`; both CLIs tested together | Environment provisioning and full sampler assembly remain separate; no initializer rewrite |
+| Centering | `dataset.prepare_response` exports named training/scoring arrays using training-only means; arbitrary group/gene counts pass sampler contract | Single-sample preparation joins GPINIT and final warp arrays through the existing runtime loader |
+| Mesh | [Accepted builder](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` accepts cell/boundary paths and explicit authenticated runtime relocation | `sampler_geometry` assembles pinned final builder outputs with unchanged FEM routines; actual R environment validation remains separate. S10 `reproduce` is only a regression |
+| GP initialization | [GP smooth/SVD](initialization/C3_GP_SVD.md); existing dataset CLI exports its contract via `--gpinit-contract`; both CLIs tested together | Prepared arrays, certificate and output hashes now join in `run_inputs.load_inputs`; accepted four-thread Windows runtime currently fails local checks; no initializer rewrite |
 | Quadrature | `sampler.registry_rule.load_registry_rule(path, expected_sha256=..., order=L)` derives tensor shapes from L | Existing L4/L14/L16 arrays verified exactly. Other orders need authenticated tables. Target still scientifically fixes ell_eta=.14 |
-| GPU sampler | Main contains reviewed GPU kernel corrections, periodic controllers, compact checkpoints and restart | Shared GPU authentication and deployment recipe available; S10 input assembly and scientific launcher still need generalization |
+| GPU sampler | Main contains reviewed GPU kernel corrections, periodic controllers, compact checkpoints and restart | Shared GPU authentication and generic prepared-input assembly available; scientific launcher and fresh GPU execution validation remain |
 | Prediction | `holdout_prediction` and `predictive_summary` preserve the tested conditional prediction/mixture score | Sidecar and geometry/split lookup are S10-specific; generic reporting needed |
 
 ## Runtime interfaces and acceptance scope
@@ -59,7 +59,8 @@ The existing `run_inputs.authenticate_environment(gpu_runtime=...)` dispatches
 explicitly to it. `canonical_controller(..., gpu_runtime=...)` authenticates it
 and exercises the original GPU callback before initialization. Omit the argument
 only when intentionally requesting the existing CPU path. A GPU request fails
-on CPU; it never falls back. Registered S10 input assembly remains unchanged.
+on CPU; it never falls back. Omitting `dataset_recipe` preserves registered S10 input assembly; supplying it
+selects the generic prepared-artifact connection below.
 
 For a caller already using the existing controller API:
 
@@ -84,8 +85,8 @@ It is scoped to the recorded shared environment; this does not provision a new
 CUDA environment or validate arbitrary GPU models. Six synthetic local tests
 cover dispatch, tampering, devices and failure behavior. No new GPU execution
 has validated the extraction yet. Immutable old runs keep their original adapter
-and environment identities. Generic dataset/mesh/GPINIT assembly and a shared
-scientific launcher remain unfinished.
+and environment identities. The generic dataset/mesh/GPINIT connection below is available; a shared
+scientific launcher remains unfinished.
 
 Evidence retained at pinned revisions rather than duplicated here:
 
@@ -99,6 +100,58 @@ implementations have the same discrepancies in the tested runtime. No fixtures
 or tolerances were changed. Local CPU checks do not establish GPU speed, arbitrary
 hardware equivalence, posterior convergence or a complete new-dataset workflow.
 Immutable running checkouts and their continuation contracts are unchanged.
+
+## Prepared artifacts to sampler inputs
+
+Use the existing dataset CLI with `--gpinit-contract`, then the existing GP/SVD
+CLI with explicit factor count, fitting count and seed. After the accepted mesh
+builder finishes, `mesh.october26.sampler_geometry` consumes its pinned
+`mesh_loc.csv`, `mesh_tv.csv`, `A_proj.mtx` and `geometry.json`. Supply the prepared
+cell coordinates, names and source rows in exact order, plus their declared
+coordinate system. It uses the existing projector checks, FEM assembly and
+polynomial terms. Save the returned dictionary as an external NPZ; retain the
+builder source hashes with that artifact. Do not pass boundary-carrier triangles
+as final mesh output. The function validates geometry; it does not run R.
+
+`run_inputs.load_inputs(files, factor_ids, dataset_recipe=recipe)` accepts exactly
+seven file roles, each with `path`, `bytes` and independently pinned `sha256`:
+
+| Role | Existing producer/output |
+| --- | --- |
+| `prepared` | Dataset preparation `training.npz` |
+| `contract` | Dataset preparation `gpinit-input.json` |
+| `response_manifest` | Dataset preparation `response.json` |
+| `mesh` | NPZ of `sampler_geometry` arrays, including exact cell identities |
+| `gpinit` | Existing initializer `gpinit.npz` |
+| `certificate` | Existing initializer `certificate.json` |
+| `rule` | Explicit registered quadrature JSON |
+
+The recipe has `schema: bsfm.dataset-run-inputs.v1`, explicit `sample`,
+`coordinate_system: october26_glial_min_max_span`, and `quadrature_order`.
+That legacy chart name means the existing componentwise-minimum/common-maximum-
+span transform and ordered y,x axes; it does not select glial cell types. Adapters
+must supply the axes in that order. The builder's `geometry.json` echoes its
+legacy config `units` field and cannot establish normalization by itself.
+The explicit chart declaration and projector/coordinate joins remain required.
+
+The loader verifies preparation metadata, ordered genes/groups, initializer
+input/output identities and dimensions, mesh/cell alignment, and quadrature.
+It returns the existing target, loading seed, eta seed and input binding. Pass
+that same recipe to `canonical_controller(..., dataset_recipe=recipe)`; K comes
+from explicit factor IDs and must match the initializer. Existing saved-genesis
+restoration is reused. No HDF5 or scikit-learn import enters sampler loading.
+This interface does not make imported normalization eligible for holdout scoring.
+
+A synthetic 24-cell, two-group/two-gene/K2/L4 case passed real preparation and
+GP/SVD initialization, final-output mesh assembly, repeated deterministic sampler
+initialization, and finite target/gradient checks. Mixed certificates, reordered
+mesh cells, changed files, wrong sample, K and L were rejected. Together with mesh
+checks, 13 tests passed and one unavailable-R integration was skipped. The final
+mesh fixture is synthetic: this is not a new R mesh build or GPU trajectory test.
+The accepted four-thread GPINIT config causes a native access violation in the
+current local Windows environment, including on unchanged tests. The connection
+test uses a temporary one-thread config; the accepted config remains unchanged.
+Restoring that four-thread environment is still unresolved.
 
 ## Reproduce the panel with the reusable selector
 
@@ -167,13 +220,14 @@ has no training observations. It supports arbitrary group counts and names.
 2. Screening GP producer and technical-section aggregation are ported with a
    bounded same-runtime test. Connect existing stage contracts without introducing
    a second preparation interface; replication policy remains explicit.
-3. Generic preparation connects to the unchanged GPINIT command (14 tests pass).
+3. Generic preparation connects to the unchanged GPINIT command (14 tests passed
+   in the earlier check; the current four-thread failure is recorded above).
    The existing mesh module now produces its inherited boundary carrier from
    normalized geometry: exact saved-S10 array agreement, nine mesh tests passed,
-   one R integration skipped. Runtime relocation remains authenticated. Next
-   connect the existing geometry export/assembly interfaces without replacing
-   the accepted final fmesher builder or numerical kernels.
-4. Generalize configuration at existing assembly/GPU launcher boundaries while
+   one R integration skipped. Runtime relocation remains authenticated. The final geometry-to-sampler assembly now uses the existing FEM routines;
+   actual R environment restoration remains separate.
+4. The prepared-artifact assembly now accepts an explicit dataset recipe.
+   Generalize the remaining scientific launcher boundary while
    preserving numerical kernels, saving and restart contracts. Validate on a
    second dataset before claiming generic execution.
 5. Return to downstream scientific experiments separately after core integration.

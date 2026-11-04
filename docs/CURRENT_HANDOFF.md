@@ -29,9 +29,12 @@ producer; its S10 vertices and triangles reproduce saved arrays exactly. See the
 [existing mesh guide](mesh/OCTOBER26_CANONICALIZATION.md) for the interface,
 source, validation and limitations. Shared GPU environment authentication is now extracted and connected to the
 existing runtime entry, with deployment paths in a separate recipe. Six synthetic
-authentication tests pass; no new GPU execution is claimed. Next connect the
-existing geometry export/assembly interfaces and generic input assembly; the
-scientific launcher still needs generalization. See the workflow guide. Do not substitute the older boundary-carrier triangles
+authentication tests pass; no new GPU execution is claimed. The existing mesh module now assembles final builder outputs into warp arrays,
+and the runtime loader joins generic prepared/GPINIT artifacts with explicit
+recipes. Thirteen assembly/mesh tests pass; one R integration is skipped. The
+synthetic GP fit uses one thread because unchanged four-thread GPINIT also crashes
+in this local Windows environment; the accepted config is unchanged. Next
+generalize the scientific launcher and validate the shared path on GPU. See the workflow guide. Do not substitute the older boundary-carrier triangles
 as the final mesh. A complete generic run command is not implemented yet.
 
 ## Where to find verified methods and evidence

@@ -282,3 +282,12 @@ rejection. All 12 pre-existing Python mesh function ASTs are unchanged from
 `19ce8f96bd4cf1ee09b6d2259fbc195d7425cac21d7e0c553327677761fa825d`.
 This validates the recovered carrier geometry, not final-mesh reproduction on
 Linux or scientific performance on arbitrary tissue topology.
+
+### Final output connection
+
+`sampler_geometry(directory, locations=..., cell_ids=..., source_rows=...,
+expected_files=..., coordinate_system=...)` assembles the accepted final builder
+outputs using unchanged FEM/projector functions. Its required file identities,
+normalized-chart declaration, runtime connection and bounded test limits are in
+the [workflow guide](../WORKFLOW_GUIDE.md#prepared-artifacts-to-sampler-inputs).
+This does not regenerate a mesh or substitute the inherited boundary carrier.

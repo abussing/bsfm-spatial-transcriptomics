@@ -12,7 +12,7 @@ import zipfile
 import numpy as np
 import jax
 from threadpoolctl import threadpool_info
-from .contracts import ModelInput, input_identity, logical_hash
+from .contracts import ModelInput, input_identity, logical_hash, array
 from .warp import WarpGeometry, mesh_identity
 from .field_target import DirectWTarget
 from .rule import load_rule
@@ -86,8 +86,10 @@ def authenticate_files(files):
         if set(r)!= {'path','bytes','sha256'} or file_record(r['path'])!={k:r[k] for k in ('bytes','sha256')}:raise ValueError('Input file changed: '+name)
 
 
-def load_inputs(files,factor_ids,*,genesis_path=None):
+def load_inputs(files,factor_ids,*,genesis_path=None,dataset_recipe=None):
     """Caller supplies expected file hashes from accepted registration; paths relocatable."""
+    if dataset_recipe is not None:
+        return _load_dataset_inputs(files,factor_ids,dataset_recipe,genesis_path)
     required={'registration','prepared','contract','mesh','gpinit','certificate','response_manifest','response_validation'}
     if set(files)!=required:raise ValueError('Exact runtime artifact closure required')
     authenticate_files(files)
@@ -126,11 +128,74 @@ def load_inputs(files,factor_ids,*,genesis_path=None):
     return target,seeds['Lam_seed'],seeds['eta_seed'],binding
 
 
-def canonical_controller(root,spec,files,*,gpu_runtime=None):
-    """Registered S10 inputs with clean Git and explicit CPU/GPU environment.
+def _load_dataset_inputs(files,factor_ids,recipe,genesis_path):
+    """Join existing prepared response, GPINIT certificate and warp NPZ contracts."""
+    if (set(recipe)!={'schema','sample','coordinate_system','quadrature_order'}
+        or recipe['schema']!='bsfm.dataset-run-inputs.v1'
+        or recipe['coordinate_system']!='october26_glial_min_max_span'):
+        raise ValueError('Explicit dataset recipe and accepted normalized coordinate chart required')
+    if set(files)!={'prepared','contract','response_manifest','mesh','gpinit','certificate','rule'}:
+        raise ValueError('Exact dataset runtime artifact closure required')
+    authenticate_files(files)
+    c=read_json(files['contract']['path']); response=read_json(files['response_manifest']['path'])
+    cert=read_json(files['certificate']['path'])
+    if (c['schema']!='bsfm.gpinit-input.v1' or c['response']!='final_centered_Y'
+        or c['source_sha256']!=files['prepared']['sha256']
+        or response['files']['training.npz']!=files['prepared']['sha256']
+        or response['files']['gpinit-input.json']!=files['contract']['sha256']
+        or response['sample']!=recipe['sample']):
+        raise ValueError('Prepared response/contract/sample join mismatch')
+    for key in ('dataset_manifest_sha256','selection_sha256','coordinate_transform','normalization','centering'):
+        if c[key]!=response[key]:raise ValueError('Preparation metadata join mismatch: '+key)
+    def bank(role):
+        with np.load(files[role]['path'],allow_pickle=False) as z:
+            if len(z.files)!=len(set(z.files)):raise ValueError('Duplicate NPZ members')
+            return {k:z[k].copy() for k in z.files}
+    d=bank('prepared')
+    identity=input_identity(d,section=recipe['sample'],response_sha256=files['prepared']['sha256'],
+                            coordinate_system=recipe['coordinate_system'])
+    if identity['arrays']!=c['arrays']:raise ValueError('Prepared array identities')
+    if (response['genes']!=d['gene_names'].tolist()
+        or response['groups']!=d['cell_type_names'].tolist()):
+        raise ValueError('Prepared gene/group order mismatch')
+    inputs=ModelInput.authenticate(d,identity)
+    if (cert['status']!='pass' or cert['schema']!='bsfm.gpinit-diagnostics.v1'
+        or cert['input_identities']!=c['arrays'] or cert['factors']!=len(factor_ids)
+        or cert['provenance']['input_sha256']!=files['prepared']['sha256']
+        or cert['provenance']['contract_sha256']!=files['contract']['sha256']
+        or cert['output_sha256']!=files['gpinit']['sha256']):
+        raise ValueError('GPINIT certificate/preparation binding mismatch')
+    seeds=bank('gpinit')
+    if {k:logical_hash(a) for k,a in seeds.items()}!=cert['output_logical_hashes']:
+        raise ValueError('GPINIT output logical hashes')
+    g,n=d['Y'].shape; types=len(d['cell_type_names']); k=len(factor_ids)
+    if cert['dimensions']!=dict(types=types,genes=g,cells=n):raise ValueError('GPINIT dimensions')
+    array(seeds['Lam_seed'],'GPINIT loading',(types,g,k));array(seeds['eta_seed'],'GPINIT eta',(k,n))
+    geometry_data=bank('mesh')
+    expected=mesh_identity(geometry_data,section=recipe['sample'],mesh_sha256=files['mesh']['sha256'])
+    # Reject mismatched population/order before spectral work or initialization.
+    for left,right in [('slocs','locations'),('cell_names','cell_ids'),('source_row_indices','source_rows')]:
+        if not np.array_equal(d[left],geometry_data[right]):raise ValueError('Prepared/mesh join mismatch: '+left)
+    if genesis_path is None:
+        geo=WarpGeometry.authenticate(geometry_data,expected)
+    else:
+        from .run_chart import geometry_from_genesis
+        geo=geometry_from_genesis(geometry_data,expected,genesis_path)
+    from .registry_rule import load_registry_rule
+    rule=load_registry_rule(files['rule']['path'],expected_sha256=files['rule']['sha256'],order=recipe['quadrature_order'])
+    target=DirectWTarget(inputs,geo,rule,factor_ids=tuple(factor_ids))
+    binding=dict(files=files,dataset_recipe=recipe,response_manifest=response,
+                 target_identity=target.identity,spectral_identity=geo.spectral_identity,
+                 primary_holdout_scoring_eligible=False)
+    return target,seeds['Lam_seed'],seeds['eta_seed'],binding
+
+
+def canonical_controller(root,spec,files,*,gpu_runtime=None,dataset_recipe=None):
+    """Authenticated prepared inputs with clean Git and explicit CPU/GPU environment.
 
     GPU deployment arguments come from a committed recipe; no CPU fallback.
-    Input assembly remains specific to the registered preparation contract.
+    An explicit dataset_recipe selects the reusable prepared-artifact join;
+    omission preserves the original registered S10 preparation contract.
     """
     from .run_controller import RunController,validate_spec
     from .run_storage import safe
@@ -143,7 +208,8 @@ def canonical_controller(root,spec,files,*,gpu_runtime=None):
         from .run_gpu_environment import preflight_gpu_callback
         preflight_gpu_callback()
     genesis=safe(Path(root)/'segments'/spec['segment_id']/'genesis/endpoint.npz')
-    target,loading,eta,binding=load_inputs(files,spec['factor_ids'],genesis_path=genesis if genesis.exists() else None)
+    target,loading,eta,binding=load_inputs(files,spec['factor_ids'],genesis_path=genesis if genesis.exists() else None,
+                                        dataset_recipe=dataset_recipe)
     if (spec['software']['clean_tree'] is not True or spec['software']['environment_identity']!=digest(env)
         or spec['software']['environment_lock_sha256']!=env['lock']['sha256']):raise ValueError('Frozen environment declaration mismatch')
     if spec['software']['run_config_sha256']!=digest({k:v for k,v in spec.items() if k!='software'}):raise ValueError('Run specification hash mismatch')
