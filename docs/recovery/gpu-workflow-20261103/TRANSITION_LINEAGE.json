@@ -131,5 +131,497 @@
     "src\\bsfm\\sampler\\split_kernels.py": "bd5296b9e3fd1b9f543d9597d1a6dea5aecb043e7c229d7879f390237bf59ff8",
     "src\\bsfm\\sampler\\warp.py": "aaf3fbd1738e353ac5ded06a1bf4c658e8d96ef219c2e4ab5572629faa248b19",
     "src\\bsfm\\sampler\\__init__.py": "c5426eeed5f8c731ffedf56a9135880b030caa0b8915bfae812fc963a41ef732"
+  },
+  "fixture_reconciliation_20261104": {
+    "scope": "Synthetic same-runtime CPU lineage comparison; not GPU performance validation",
+    "checks": [
+      {
+        "stage": "layer3_target_gradient_features_eta_rng",
+        "seed": 12,
+        "exact": true
+      },
+      {
+        "stage": "layer3_target_gradient_features_eta_rng",
+        "seed": 37,
+        "exact": true
+      },
+      {
+        "stage": "adaptation",
+        "steps": 50,
+        "all_leaves_exact": true
+      },
+      {
+        "stage": "adaptation",
+        "steps": 100,
+        "all_leaves_exact": true
+      },
+      {
+        "stage": "layer5_gaussian_and_canonical_transition",
+        "exact": true
+      },
+      {
+        "stage": "layer6_literal_chronology_state_diagnostics_rng",
+        "exact": true
+      }
+    ],
+    "target_sources": [
+      {
+        "path": "E:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\fixed_splusu_dynamic_target.py",
+        "bytes": 21073,
+        "sha256": "b172a3732b30c2e15387ad898565a1c9971d902352d9bfd54485a7937295748e",
+        "functions": {
+          "_build_log_range_target": [
+            21,
+            409
+          ],
+          "sufficient_statistics": [
+            412,
+            431
+          ],
+          "build_dynamic_fixed_target": [
+            434,
+            476
+          ],
+          "sample_single_eta": [
+            479,
+            503
+          ]
+        }
+      },
+      {
+        "path": "E:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\direct_w_dynamic_target.py",
+        "bytes": 2459,
+        "sha256": "245c5e9f5ed91f511a9bf69e75a0a832b68f8a66a04d424d05dbdd3734adfd65",
+        "functions": {
+          "build_dynamic_fixed_target": [
+            9,
+            55
+          ]
+        }
+      },
+      {
+        "path": "E:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\run_c3full_fixed_profile_nuts.py",
+        "bytes": 94890,
+        "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+        "functions": {
+          "factor_context": [
+            233,
+            239
+          ]
+        }
+      },
+      {
+        "path": "E:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\rule_contract.py",
+        "bytes": 686,
+        "sha256": "955ce44ef4df3a07a232fb33dd0e1310526df1dae84dc92f32bf2c768be230de",
+        "functions": {
+          "validate_rule": [
+            3,
+            10
+          ]
+        }
+      }
+    ],
+    "saved_fixture_comparisons": [
+      {
+        "stage": "layer3",
+        "seed": 12,
+        "historical_vs_saved": {
+          "exact": false,
+          "numeric_mismatches": 8,
+          "other_mismatches": 0,
+          "max_absolute_error": 2.7755575615628914e-17,
+          "max_error_scaled_by_max_one_reference": 2.7755575615628914e-17,
+          "largest_numeric_differences": [
+            {
+              "path": "/gradient/4",
+              "actual": 0.12172432232939534,
+              "saved": 0.12172432232939537,
+              "absolute_error": 2.7755575615628914e-17,
+              "error_scaled_by_max_one_reference": 2.7755575615628914e-17
+            },
+            {
+              "path": "/gradient/6",
+              "actual": 0.02496029308293589,
+              "saved": 0.024960293082935906,
+              "absolute_error": 1.734723475976807e-17,
+              "error_scaled_by_max_one_reference": 1.734723475976807e-17
+            },
+            {
+              "path": "/gradient/7",
+              "actual": 0.11574407333947936,
+              "saved": 0.11574407333947935,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/gradient/8",
+              "actual": -0.12327570327968809,
+              "saved": -0.12327570327968808,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/reference_gradient/4",
+              "actual": 0.12172432232939535,
+              "saved": 0.12172432232939537,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/reference_gradient/7",
+              "actual": 0.11574407333947939,
+              "saved": 0.11574407333947938,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/reference_gradient/8",
+              "actual": -0.12327570327968809,
+              "saved": -0.12327570327968808,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/reference_gradient/6",
+              "actual": 0.0249602930829359,
+              "saved": 0.02496029308293591,
+              "absolute_error": 1.0408340855860843e-17,
+              "error_scaled_by_max_one_reference": 1.0408340855860843e-17
+            }
+          ],
+          "other_paths": []
+        },
+        "current_vs_saved": {
+          "exact": false,
+          "numeric_mismatches": 8,
+          "other_mismatches": 0,
+          "max_absolute_error": 2.7755575615628914e-17,
+          "max_error_scaled_by_max_one_reference": 2.7755575615628914e-17,
+          "largest_numeric_differences": [
+            {
+              "path": "/gradient/4",
+              "actual": 0.12172432232939534,
+              "saved": 0.12172432232939537,
+              "absolute_error": 2.7755575615628914e-17,
+              "error_scaled_by_max_one_reference": 2.7755575615628914e-17
+            },
+            {
+              "path": "/gradient/6",
+              "actual": 0.02496029308293589,
+              "saved": 0.024960293082935906,
+              "absolute_error": 1.734723475976807e-17,
+              "error_scaled_by_max_one_reference": 1.734723475976807e-17
+            },
+            {
+              "path": "/gradient/7",
+              "actual": 0.11574407333947936,
+              "saved": 0.11574407333947935,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/gradient/8",
+              "actual": -0.12327570327968809,
+              "saved": -0.12327570327968808,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/reference_gradient/4",
+              "actual": 0.12172432232939535,
+              "saved": 0.12172432232939537,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/reference_gradient/7",
+              "actual": 0.11574407333947939,
+              "saved": 0.11574407333947938,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/reference_gradient/8",
+              "actual": -0.12327570327968809,
+              "saved": -0.12327570327968808,
+              "absolute_error": 1.3877787807814457e-17,
+              "error_scaled_by_max_one_reference": 1.3877787807814457e-17
+            },
+            {
+              "path": "/reference_gradient/6",
+              "actual": 0.0249602930829359,
+              "saved": 0.02496029308293591,
+              "absolute_error": 1.0408340855860843e-17,
+              "error_scaled_by_max_one_reference": 1.0408340855860843e-17
+            }
+          ],
+          "other_paths": []
+        }
+      },
+      {
+        "stage": "layer3",
+        "seed": 37,
+        "historical_vs_saved": {
+          "exact": false,
+          "numeric_mismatches": 6,
+          "other_mismatches": 0,
+          "max_absolute_error": 2.7755575615628914e-17,
+          "max_error_scaled_by_max_one_reference": 2.7755575615628914e-17,
+          "largest_numeric_differences": [
+            {
+              "path": "/gradient/4",
+              "actual": 0.024887316783200015,
+              "saved": 0.024887316783199987,
+              "absolute_error": 2.7755575615628914e-17,
+              "error_scaled_by_max_one_reference": 2.7755575615628914e-17
+            },
+            {
+              "path": "/gradient/8",
+              "actual": 0.1377805585786562,
+              "saved": 0.13778055857865623,
+              "absolute_error": 2.7755575615628914e-17,
+              "error_scaled_by_max_one_reference": 2.7755575615628914e-17
+            },
+            {
+              "path": "/gradient/5",
+              "actual": 0.0044731630776001854,
+              "saved": 0.004473163077600178,
+              "absolute_error": 7.806255641895632e-18,
+              "error_scaled_by_max_one_reference": 7.806255641895632e-18
+            },
+            {
+              "path": "/gradient/7",
+              "actual": -0.022365372906784187,
+              "saved": -0.022365372906784194,
+              "absolute_error": 6.938893903907228e-18,
+              "error_scaled_by_max_one_reference": 6.938893903907228e-18
+            },
+            {
+              "path": "/reference_gradient/4",
+              "actual": 0.024887316783200008,
+              "saved": 0.02488731678320001,
+              "absolute_error": 3.469446951953614e-18,
+              "error_scaled_by_max_one_reference": 3.469446951953614e-18
+            },
+            {
+              "path": "/reference_gradient/5",
+              "actual": 0.0044731630776001854,
+              "saved": 0.004473163077600189,
+              "absolute_error": 3.469446951953614e-18,
+              "error_scaled_by_max_one_reference": 3.469446951953614e-18
+            }
+          ],
+          "other_paths": []
+        },
+        "current_vs_saved": {
+          "exact": false,
+          "numeric_mismatches": 6,
+          "other_mismatches": 0,
+          "max_absolute_error": 2.7755575615628914e-17,
+          "max_error_scaled_by_max_one_reference": 2.7755575615628914e-17,
+          "largest_numeric_differences": [
+            {
+              "path": "/gradient/4",
+              "actual": 0.024887316783200015,
+              "saved": 0.024887316783199987,
+              "absolute_error": 2.7755575615628914e-17,
+              "error_scaled_by_max_one_reference": 2.7755575615628914e-17
+            },
+            {
+              "path": "/gradient/8",
+              "actual": 0.1377805585786562,
+              "saved": 0.13778055857865623,
+              "absolute_error": 2.7755575615628914e-17,
+              "error_scaled_by_max_one_reference": 2.7755575615628914e-17
+            },
+            {
+              "path": "/gradient/5",
+              "actual": 0.0044731630776001854,
+              "saved": 0.004473163077600178,
+              "absolute_error": 7.806255641895632e-18,
+              "error_scaled_by_max_one_reference": 7.806255641895632e-18
+            },
+            {
+              "path": "/gradient/7",
+              "actual": -0.022365372906784187,
+              "saved": -0.022365372906784194,
+              "absolute_error": 6.938893903907228e-18,
+              "error_scaled_by_max_one_reference": 6.938893903907228e-18
+            },
+            {
+              "path": "/reference_gradient/4",
+              "actual": 0.024887316783200008,
+              "saved": 0.02488731678320001,
+              "absolute_error": 3.469446951953614e-18,
+              "error_scaled_by_max_one_reference": 3.469446951953614e-18
+            },
+            {
+              "path": "/reference_gradient/5",
+              "actual": 0.0044731630776001854,
+              "saved": 0.004473163077600189,
+              "absolute_error": 3.469446951953614e-18,
+              "error_scaled_by_max_one_reference": 3.469446951953614e-18
+            }
+          ],
+          "other_paths": []
+        }
+      },
+      {
+        "stage": "layer5",
+        "historical_vs_saved": {
+          "exact": false,
+          "numeric_mismatches": 0,
+          "other_mismatches": 1,
+          "max_absolute_error": 0,
+          "max_error_scaled_by_max_one_reference": 0,
+          "largest_numeric_differences": [],
+          "other_paths": [
+            "/canonical_transition/2/sha256"
+          ]
+        },
+        "current_vs_saved": {
+          "exact": false,
+          "numeric_mismatches": 0,
+          "other_mismatches": 1,
+          "max_absolute_error": 0,
+          "max_error_scaled_by_max_one_reference": 0,
+          "largest_numeric_differences": [],
+          "other_paths": [
+            "/canonical_transition/2/sha256"
+          ]
+        }
+      }
+    ],
+    "sources": [
+      {
+        "path": "E:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\full_split.py",
+        "bytes": 4705,
+        "sha256": "f2b26f954d49dc51dfa542874df0de87936698db7714fca907292a7c495b06cd"
+      },
+      {
+        "path": "E:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\run_c3full_fixed_profile_nuts.py",
+        "bytes": 94890,
+        "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49"
+      }
+    ],
+    "driver": {
+      "path": "E:\\johnston_brain\\run_bundles\\bsfm_l4_k20_cell50_fmesher_20261026_v1\\code\\sampler\\run_c3full_fixed_profile_nuts.py",
+      "bytes": 94890,
+      "sha256": "eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49",
+      "top_statement_lines": [
+        1121,
+        1122,
+        1150,
+        1151,
+        1156,
+        1166,
+        1170,
+        1172,
+        1179,
+        1180
+      ],
+      "inner_statement_lines": [
+        1123,
+        1127,
+        1128,
+        1131,
+        1143,
+        1145,
+        1146
+      ],
+      "factor_statement_lines": [
+        1181,
+        1182,
+        1183,
+        1186,
+        1188,
+        1189,
+        1193,
+        1194,
+        1198,
+        1201,
+        1202,
+        1203,
+        1204,
+        1208,
+        1212,
+        1225,
+        1263,
+        1270
+      ],
+      "selected_AST_sha256": "17adf5454dc2423d3f27d5bcea88e4439c1205cacbc34e81eba6aae1f189b9a7",
+      "exclusions": "captures, persistent diagnostics, containment/fidelity monitoring, fixed-loading-precision branch; no numerical/RNG update omitted"
+    },
+    "status": "PASS",
+    "elapsed_seconds": 348.2029999999795,
+    "environment": {
+      "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+      "jax": "0.7.0",
+      "numpy": "2.1.3",
+      "backend": "cpu"
+    },
+    "source_hashes": {
+      "src\\bsfm\\sampler\\active.py": "dea6a16f8b3e6e06e953c309b6098b695f8d7e30d15ffff72f37a563161abe0b",
+      "src\\bsfm\\sampler\\centered_hyper_kernels.py": "39fafe38e32837df5b8763b46f775c2e79eb9d3fdb887ea855ce1455d78a9680",
+      "src\\bsfm\\sampler\\chart.py": "1132b490d80dca76fc6534300df7eb06e3fe6a55ec9a84ea1deb5129fae10394",
+      "src\\bsfm\\sampler\\checkpoint.py": "5976cfdde8e5f01dec93efa1ce5042a098d3c563721ce6eaa02f88ab82439109",
+      "src\\bsfm\\sampler\\checkpoint_contract.py": "1a9528aa6c52e96116816d39aae1a4234df21b63d00326cc85731fba5608dae8",
+      "src\\bsfm\\sampler\\checkpoint_rng.py": "7f90954a19e8c9b45ccd24ad40171fc61420ef101bec52ff9c0253aeff829639",
+      "src\\bsfm\\sampler\\compact_checkpoint.py": "a4e6821801251b8e225b63dfa17f9399eb3c015567f7df95f9c07c26e8b3e468",
+      "src\\bsfm\\sampler\\conjugate.py": "1c7d9885e4ae99a2bcced723252b25a02a6adae189f584b17a4806b52abf41fb",
+      "src\\bsfm\\sampler\\contracts.py": "72bc243cfa398217e24d863caf60bd4d920cc2c269a3f58bab7aea7c3676b0bf",
+      "src\\bsfm\\sampler\\factor_statistics.py": "a25b1c7f9a75d7f3b98646bacbef25ffa82c725832b3f5f03b15ce0888a3498a",
+      "src\\bsfm\\sampler\\field_kernels.py": "2255b653e49f1fd1a5a2feb3a1899835da4b197565fab9c6da9578efbb500d63",
+      "src\\bsfm\\sampler\\field_target.py": "194d5aa3f46a29028f91b6e0320dc1ce8ceb65f2f06b5d6519ecd4ca72554fd4",
+      "src\\bsfm\\sampler\\finite_features.py": "5ba42ec0a747b95c1d820c8d9b0f1e763b0598fa9b3e7cfdb2958870d0e09b73",
+      "src\\bsfm\\sampler\\flat_control.py": "014a48982173b22c45b456ff37d89596c2c67d270c38e0c184940665061f5da2",
+      "src\\bsfm\\sampler\\gradient_accumulation.py": "7d4f8876be8340eb6de209f2d90f325c15b1a019158b7866a71dc4a0086567d5",
+      "src\\bsfm\\sampler\\holdout_prediction.py": "cc5e1c819b48e7e6899b175cda6a8244b229377a90714229d6e6782912fb9b31",
+      "src\\bsfm\\sampler\\joint_eta_kernels.py": "850b77cf86d23dcd9953aab776f3783d974eaea3d8338acfc9622a6686024b7d",
+      "src\\bsfm\\sampler\\layer4.py": "fd1c8f560aebf3e9cbdc777524a70c1684c50b06650c2f4c6761f9d1460052b9",
+      "src\\bsfm\\sampler\\layer5.py": "e48acaff932409d14a719835cf57762981beb4ec8e304d9547a238fb537c50e8",
+      "src\\bsfm\\sampler\\layer6.py": "b6e93373a10c1b2de0416fc4d59a107f4fbc9e7f1b3f81149531ae6c2a049626",
+      "src\\bsfm\\sampler\\predictive_summary.py": "05f471067bc15cba1b8cd1744bb5aca891b9047b21d948b293270c7af95cfe2e",
+      "src\\bsfm\\sampler\\projector_encoding.py": "f3cfe600b412fc48b832fb4d13139f8de3205d4e760837cb9573b05d0c3c4a8e",
+      "src\\bsfm\\sampler\\px.py": "989d86e7bc15d9ed3dc70d0896f79ecdf9c705a065fce64300fbad4bf30cae82",
+      "src\\bsfm\\sampler\\registry_rule.py": "f68b5b95653adae8d6706001469dc169b68606357637c744634aaa063fbdf870",
+      "src\\bsfm\\sampler\\retained_archive.py": "abbecd059ca364157ed884b2f76214129b87ff733c8075ff66148106673bade0",
+      "src\\bsfm\\sampler\\retained_contract.py": "60a1ad33e22cda6e2418642edde6d486ac4796ebd0b8d440be4b23b57a93dbe1",
+      "src\\bsfm\\sampler\\retained_diagnostics.py": "fff6950887410e46f57965dff8a2c8179bf9791035e017c824e63ad6911f78b9",
+      "src\\bsfm\\sampler\\retained_records.py": "c7e20c977e242f6cae69a0f7379f7bf38dc8f5b226afd21947686357241a76b1",
+      "src\\bsfm\\sampler\\rule.py": "d26ce474aee5aa85a05d46d28c47a5ac36b557e1e8742a95db8bcb2ecca3a816",
+      "src\\bsfm\\sampler\\run_chart.py": "c6ad9d8ed8f078be7a296a1ee3265bda177816985ad0d18825c2c14826365fad",
+      "src\\bsfm\\sampler\\run_controller.py": "3cb1573b0dab9f702b10bb8521a9693e0c3e8a491242c3d2fa110fb16fba77b2",
+      "src\\bsfm\\sampler\\run_genesis.py": "b0cdb278f0e335ac1d7aa6cbb273844502542a43c2efbd8e507c415c704188f2",
+      "src\\bsfm\\sampler\\run_incremental.py": "930a544824b36c120156e8413c009d1494ce8a4b368512c60b7c32dffb92a681",
+      "src\\bsfm\\sampler\\run_initialization.py": "c11930951d93d3fcc9eb95023933f5d413eb1544112f6c95aac7e35f117e9fbb",
+      "src\\bsfm\\sampler\\run_inputs.py": "16648ab5f6019abf8b2502cc5600c771f2d252a93cfc7fff465c07d0e76e39c1",
+      "src\\bsfm\\sampler\\run_linux_environment.py": "8388e58b958eabdacd24a9d2b074c594208eca169ac47e8b16c51cda87c6e066",
+      "src\\bsfm\\sampler\\run_linux_storage.py": "2f06557eb8b80b781245a5619b4bec575c2387fb72746133ae7dba7548580bcb",
+      "src\\bsfm\\sampler\\run_periodic.py": "db3486059aad8d4a0faa245255045f871a13fa70b20c41147e9470fef855dc5b",
+      "src\\bsfm\\sampler\\run_readaptation.py": "38b023c2404f50af733bdfc1c153e10315326bc2651ef9fb830c1a4375a8f4a8",
+      "src\\bsfm\\sampler\\run_receipts.py": "82c15f73ce3eb88544e656fbd0f20bed2c91cbc799ad66c1ee21b3d93589d286",
+      "src\\bsfm\\sampler\\run_storage.py": "26c41b7ed37343eb068edfb3fac9b6aa37f5f4595d134e1a4f2fd3dcf274f3c6",
+      "src\\bsfm\\sampler\\run_transactions.py": "db73737ff297221655ce8ff32c933cbded65d552d8c046383af968506f1fde12",
+      "src\\bsfm\\sampler\\shrinkage.py": "8e97942a1eb2070de7534cebb933edd3b607cdff8eb3e61872312c00e88c4bd5",
+      "src\\bsfm\\sampler\\spectral.py": "548677908b03e4f4e94008f9ecf98acdd3f2a30f6634d41449d8fd0797392c56",
+      "src\\bsfm\\sampler\\split_kernels.py": "bd5296b9e3fd1b9f543d9597d1a6dea5aecb043e7c229d7879f390237bf59ff8",
+      "src\\bsfm\\sampler\\warp.py": "aaf3fbd1738e353ac5ded06a1bf4c658e8d96ef219c2e4ab5572629faa248b19",
+      "src\\bsfm\\sampler\\__init__.py": "c5426eeed5f8c731ffedf56a9135880b030caa0b8915bfae812fc963a41ef732"
+    },
+    "fixture_sha256": {
+      "sampler_layer3.json": "3288983f27d0949a6ed0c478421bac559ba88e3e6bbd7a1a81cf9e9cf0b9731b",
+      "sampler_layer5.json": "ae3224bc2b43aa4b0910aa838dde2f8fb3061ef980fa77e902831a5f7190e559"
+    },
+    "fixtures_unchanged": true,
+    "external_receipt": {
+      "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\fixture-reconciliation-20261104.json",
+      "bytes": 20048,
+      "sha256": "10fa1ea218c3c82fe2749a7c0bea134ee5ce9fd10af6e1b85e73fb5283431a14"
+    },
+    "auditor_sha256": "ab0f69ebc75709b3c8e90d47ceab537b53e7e78668473a5e03ce1729151f9826",
+    "saved_fixture_status": "NOT_EXACT; not relabeled as a saved-fixture pass",
+    "interpretation": "In these bounded cases, the authenticated historical functions reproduce exactly the same saved-reference discrepancies as the current implementation. Underlying platform/compiler rounding cause is not isolated. Layer-5 differing leaf is HMCState.logdensity_grad; its old values are only hashed, so their difference magnitude is unavailable."
   }
 }

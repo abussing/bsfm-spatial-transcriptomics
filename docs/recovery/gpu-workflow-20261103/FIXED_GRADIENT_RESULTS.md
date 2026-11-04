@@ -32,6 +32,34 @@ SHA-256 `b08135bdbdc7e8567435a42d71e5d9dedc6070fc1f84a5951c66857da6d73e87`).
 It includes full external receipt/log hashes and submission commands. The complete
 source-map amendment is in `docs/sampler/LAYER3_SOURCE_MAP.csv`.
 
+## Saved-reference reconciliation, 2026-11-04
+
+The existing `check_transition_lineage.py` now also compares authenticated
+historical/current Layer-3 and Layer-5 results with the untouched saved fixtures.
+The fresh CPU run passed six exact same-runtime checks in 348.2 seconds: target,
+gradient, features, eta and RNG for two seeds; 50- and 100-step adaptation;
+Gaussian/canonical split transitions; and literal full Gibbs chronology,
+state, diagnostics and RNG. Full evidence is appended to `TRANSITION_LINEAGE.json`.
+
+Both historical and current code differ from the saved fixtures in exactly the
+same places and by the same amounts. Layer-3 differences are confined to
+analytic/reference gradient entries, maximum absolute difference 2.77556e-17.
+Layer 5 matches every stored numeric value and all but one logical leaf hash:
+`canonical_transition/2`, the HMCState log-density gradient. That saved leaf
+contains only a hash, so its numerical error magnitude cannot be recovered from
+this fixture. All sampled-position values, tuning values and recorded leapfrog
+counts match. The exact low-level rounding cause is not established.
+
+These bounded discrepancies are therefore not evidence of a consolidation-induced
+numerical change. They remain failed cross-machine saved-bit comparisons, not
+passing tests. No fixture, tolerance or sampler code was changed. The formerly
+separate source-map failure was corrected by explicitly authenticating the GPU
+roundoff amendment. The test named `fresh_process_exact` also compares against
+the old saved fixture; its failure alone does not establish a disagreement
+between two current-machine processes. Prior fresh-process restart evidence
+remains separately recorded. This classification supports continued acceptance
+review; it is not an exhaustive mathematical or GPU performance guarantee.
+
 ## Bounded timings
 
 Real input: 3,379 training cells, 166 active vertices, 371 mesh modes, K12/L14,
