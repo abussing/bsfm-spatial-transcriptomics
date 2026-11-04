@@ -157,3 +157,35 @@ The permanent angle test now invokes the actual Python `build()` command path,
 passes the real JSON configuration to the actual R builder prefix, verifies
 double 25 in fmesher options, and rejects a test-only mutant with the conversion
 removed. It stops before mesh construction. See the [acceptance test record](audits/october26_acceptance_20261102/README.md).
+
+## Runtime relocation (2026-11-04)
+
+The existing `build` function accepts optional keyword arguments `runtime_lock`
+and `rscript`. Existing calls retain the committed runtime lock and its recorded
+executable path. To relocate the same executable, supply `rscript` with its new
+path; it must still match the selected lock's `R.bytes` and `R.sha256`. To use a
+separately validated platform environment, explicitly supply its runtime lock.
+No executable is selected from PATH and no hash check is bypassed.
+
+```python
+build(cells, inherited_vertices, inherited_triangles, environment, config, output,
+      runtime_lock=validated_runtime_lock, rscript=local_rscript)
+```
+
+The returned construction record now includes the selected lock and executable
+paths, sizes and hashes. `environment` still identifies the isolated `r-library`;
+the unchanged R bridge checks package isolation and the configured fmesher
+version. Executable authentication alone does not validate all package versions,
+the R distribution, or cross-platform mesh output. Use the environment validation
+records separately; a hand-written lock is not evidence of environment validation.
+
+The R builder, adaptation, FEM, projections and inherited-boundary requirement
+are unchanged. Generic boundary generation remains a separate unresolved input
+policy; this change does not infer one from a new dataset. The module CLI remains
+the historical regression command, not a new competing launcher.
+
+Validation: eight Python tests passed; one actual R/fmesher boundary test skipped
+because the recorded accepted local environment was unavailable. The new test
+uses real executable-file hashing and mocked process execution to check relocation,
+unchanged argument order/thread settings, receipt identities and rejection of a
+modified executable before launch. No new mesh or HPC job was generated.

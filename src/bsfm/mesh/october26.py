@@ -149,14 +149,22 @@ def dense_mm(path):
     return a.toarray() if sparse.issparse(a) else np.asarray(a)
 
 
-def build(cells, inherited_vertices, inherited_triangles, environment, config, destination):
-    """One construction, with the historical bounded h adaptation inside R."""
+def build(cells, inherited_vertices, inherited_triangles, environment, config, destination,
+          *, runtime_lock=None, rscript=None):
+    """One construction, with the historical bounded h adaptation inside R.
+
+    An explicit lock selects an independently validated runtime. An optional
+    executable path relocates that runtime without changing its pinned identity.
+    Neither option establishes package or cross-platform mesh equivalence.
+    """
     destination = Path(destination).resolve()
     require(not destination.exists(), 'Refusing existing mesh output')
-    runtime = read_json(REPO/'environment/mesh/runtime-lock.json')['R']
-    require(file_record(runtime['path']) == {k: runtime[k] for k in ('bytes', 'sha256')},
+    lock = Path(runtime_lock) if runtime_lock is not None else REPO/'environment/mesh/runtime-lock.json'
+    runtime = read_json(lock)['R']
+    executable = str(Path(rscript).resolve()) if rscript is not None else runtime['path']
+    require(file_record(executable) == {k: runtime[k] for k in ('bytes', 'sha256')},
             'R runtime executable identity')
-    command = [runtime['path'], '--vanilla', str(Path(__file__).with_name('october26_builder.R')),
+    command = [executable, '--vanilla', str(Path(__file__).with_name('october26_builder.R')),
                str(Path(environment).resolve()), str(Path(config).resolve()),
                str(Path(cells).resolve()), str(Path(inherited_vertices).resolve()),
                str(Path(inherited_triangles).resolve()), str(destination)]
@@ -171,6 +179,8 @@ def build(cells, inherited_vertices, inherited_triangles, environment, config, d
     require(proc.returncode == 0 and b'stack imbalance' not in log.lower(),
             f'Construction failed (exit {proc.returncode}): {log[-2000:]!r}')
     return dict(command=command, seconds=time.perf_counter()-start, exit_code=proc.returncode,
+                runtime_lock=dict(path=str(lock.resolve()), **file_record(lock)),
+                runtime_executable=dict(path=executable, **file_record(executable)),
                 log=file_record(destination.parent/'construction.log'))
 
 

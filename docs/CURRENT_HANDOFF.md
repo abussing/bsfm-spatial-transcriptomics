@@ -6,7 +6,12 @@ Generic response preparation now optionally emits the existing GPINIT contract
 using `--gpinit-contract`; see the dataset guide. Both existing CLIs are tested
 together on a small synthetic all-cell dataset. Saved seeds exactly match direct
 initialization and all 14 initialization tests pass. No GPINIT fitting code was
-changed. Next: mesh runtime/boundary portability, separately from experiments.
+changed. The existing mesh builder now accepts explicit runtime-lock selection
+and executable relocation with unchanged executable identity checks. Eight
+mesh tests pass; one actual R integration check is skipped for unavailable local
+environment. R geometry and numerical code are unchanged. Next: resolve the
+generic inherited-boundary input policy, separately from experiments; runtime
+relocation alone does not establish platform environment/mesh equivalence.
 
 Continue from [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md), the single current method
 map. Extend existing layer boundaries; do not introduce a parallel pipeline

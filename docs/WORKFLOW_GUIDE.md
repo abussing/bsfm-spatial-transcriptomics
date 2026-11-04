@@ -27,7 +27,7 @@ contracts; update this guide in place rather than adding competing current guide
 | Expression eligibility | `preprocessing.gene_selection.expression_eligible`: explicit detection, level and nonconstancy thresholds | Thresholds depend on response units; no implicit transfer between normalization methods |
 | Spatial selection | [Recovered rule](recovery/gene-panel-20261104/README.md); `select_spatial_genes` and CLI reproduce all 91 genes | `spatial_screen` supplies GP fits and technical-section medians; unknown biological replication requires an explicit policy |
 | Centering | `dataset.prepare_response` exports named training/scoring arrays using training-only means; arbitrary group/gene counts pass sampler contract | Single-sample preparation; mesh and GPINIT still separate |
-| Mesh | [Accepted builder](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` accepts cell/boundary paths | Machine-local runtime lock; generic boundary preparation and dataset CLI needed. S10 `reproduce` is only a regression |
+| Mesh | [Accepted builder](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` accepts cell/boundary paths and explicit authenticated runtime relocation | Generic boundary preparation and dataset integration needed. Platform environment validation remains separate. S10 `reproduce` is only a regression |
 | GP initialization | [GP smooth/SVD](initialization/C3_GP_SVD.md); existing dataset CLI exports its contract via `--gpinit-contract`; both CLIs tested together | Environment provisioning and full sampler assembly remain separate; no initializer rewrite |
 | Quadrature | `sampler.registry_rule.load_registry_rule(path, expected_sha256=..., order=L)` derives tensor shapes from L | Existing L4/L14/L16 arrays verified exactly. Other orders need authenticated tables. Target still scientifically fixes ell_eta=.14 |
 | GPU sampler | Periodic controllers, compact checkpoints, exact restart and original numerical kernels | S10 experiment wrapper embeds paths, K, L, type loops, split names and schedules; generic target/launcher needed |
@@ -102,7 +102,9 @@ has no training observations. It supports arbitrary group counts and names.
    a second preparation interface; replication policy remains explicit.
 3. Generic preparation now connects to the unchanged GPINIT command through its
    existing authenticated contract (14 initialization tests pass). Next expose
-   mesh runtime/boundary configuration while preserving accepted geometry rules.
+   boundary configuration while preserving accepted geometry rules. Runtime-lock
+   selection/relocation now works through the existing builder; eight Python
+   checks pass and one R integration check is skipped for unavailable environment.
 4. Generalize configuration at existing assembly/GPU launcher boundaries while
    preserving numerical kernels, saving and restart contracts. Validate on a
    second dataset before claiming generic execution.
