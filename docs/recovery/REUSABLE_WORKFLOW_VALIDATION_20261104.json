@@ -83,5 +83,368 @@
       "tests/test_registry_rule.py",
       "tests/test_spatial_screen.py"
     ]
+  },
+  "runtime_main_promotion": {
+    "date": "2026-11-04",
+    "base_main": "90860ef",
+    "review_source": "1bb4493",
+    "status": "PASS_WITH_RECORDED_PLATFORM_SKIPS_AND_HISTORICAL_FIXTURE_LIMITS",
+    "scope": "Promote existing reviewed runtime subset; no numerical implementation rewrite, new HPC job, or generic GPU launcher claim.",
+    "source_modules_byte_exact_to_review": 22,
+    "inventory": [
+      {
+        "path": "src/bsfm/sampler/compact_checkpoint.py",
+        "bytes": 1536,
+        "sha256": "a4e6821801251b8e225b63dfa17f9399eb3c015567f7df95f9c07c26e8b3e468",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/field_kernels.py",
+        "bytes": 9434,
+        "sha256": "2255b653e49f1fd1a5a2feb3a1899835da4b197565fab9c6da9578efbb500d63",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/flat_control.py",
+        "bytes": 6286,
+        "sha256": "014a48982173b22c45b456ff37d89596c2c67d270c38e0c184940665061f5da2",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/gradient_accumulation.py",
+        "bytes": 1084,
+        "sha256": "7d4f8876be8340eb6de209f2d90f325c15b1a019158b7866a71dc4a0086567d5",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/holdout_prediction.py",
+        "bytes": 3960,
+        "sha256": "cc5e1c819b48e7e6899b175cda6a8244b229377a90714229d6e6782912fb9b31",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/layer4.py",
+        "bytes": 7242,
+        "sha256": "fd1c8f560aebf3e9cbdc777524a70c1684c50b06650c2f4c6761f9d1460052b9",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/layer5.py",
+        "bytes": 11401,
+        "sha256": "e48acaff932409d14a719835cf57762981beb4ec8e304d9547a238fb537c50e8",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/predictive_summary.py",
+        "bytes": 1389,
+        "sha256": "05f471067bc15cba1b8cd1744bb5aca891b9047b21d948b293270c7af95cfe2e",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_chart.py",
+        "bytes": 6537,
+        "sha256": "c6ad9d8ed8f078be7a296a1ee3265bda177816985ad0d18825c2c14826365fad",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_controller.py",
+        "bytes": 10041,
+        "sha256": "3cb1573b0dab9f702b10bb8521a9693e0c3e8a491242c3d2fa110fb16fba77b2",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_genesis.py",
+        "bytes": 7795,
+        "sha256": "b0cdb278f0e335ac1d7aa6cbb273844502542a43c2efbd8e507c415c704188f2",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_incremental.py",
+        "bytes": 7933,
+        "sha256": "930a544824b36c120156e8413c009d1494ce8a4b368512c60b7c32dffb92a681",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_initialization.py",
+        "bytes": 6393,
+        "sha256": "c11930951d93d3fcc9eb95023933f5d413eb1544112f6c95aac7e35f117e9fbb",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_inputs.py",
+        "bytes": 10275,
+        "sha256": "16648ab5f6019abf8b2502cc5600c771f2d252a93cfc7fff465c07d0e76e39c1",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_linux_environment.py",
+        "bytes": 7219,
+        "sha256": "8388e58b958eabdacd24a9d2b074c594208eca169ac47e8b16c51cda87c6e066",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_linux_storage.py",
+        "bytes": 1819,
+        "sha256": "2f06557eb8b80b781245a5619b4bec575c2387fb72746133ae7dba7548580bcb",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_periodic.py",
+        "bytes": 10783,
+        "sha256": "db3486059aad8d4a0faa245255045f871a13fa70b20c41147e9470fef855dc5b",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_readaptation.py",
+        "bytes": 4824,
+        "sha256": "38b023c2404f50af733bdfc1c153e10315326bc2651ef9fb830c1a4375a8f4a8",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_receipts.py",
+        "bytes": 628,
+        "sha256": "82c15f73ce3eb88544e656fbd0f20bed2c91cbc799ad66c1ee21b3d93589d286",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_storage.py",
+        "bytes": 4116,
+        "sha256": "26c41b7ed37343eb068edfb3fac9b6aa37f5f4595d134e1a4f2fd3dcf274f3c6",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/run_transactions.py",
+        "bytes": 9496,
+        "sha256": "db73737ff297221655ce8ff32c933cbded65d552d8c046383af968506f1fde12",
+        "review_blob_equal": true
+      },
+      {
+        "path": "src/bsfm/sampler/split_kernels.py",
+        "bytes": 5958,
+        "sha256": "bd5296b9e3fd1b9f543d9597d1a6dea5aecb043e7c229d7879f390237bf59ff8",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/layer9_crash_worker.py",
+        "bytes": 458,
+        "sha256": "5d2375aaad6aaecfdcc77762e6eabcd8c809bd813b30a6a308b96354bc663c95",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/sampler_layer9_support.py",
+        "bytes": 4240,
+        "sha256": "2af065a75a7d77e3155c6d9eccc7ddcba4fa29223a823023b0bf18d16694ce7d",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/test_gpu_acceptance_roundoff.py",
+        "bytes": 636,
+        "sha256": "c4b5777d7ec2c447d215f3fee9a265ad2609a74743e6c2ea9f0bee8788c123fa",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/test_gradient_accumulation.py",
+        "bytes": 1725,
+        "sha256": "047260d5a6070d4292be2d47eef794daaca2913d1ee91a67c86f50399d145ca7",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/test_meeting_extensions.py",
+        "bytes": 7546,
+        "sha256": "08886b21ba27fcf8848ccfb4ce2852c3491d78ba2d5d0f379eef28dd0e4c6abc",
+        "review_blob_equal": false
+      },
+      {
+        "path": "tests/test_periodic_saving.py",
+        "bytes": 7209,
+        "sha256": "9448a25e779b4030af322816e89cf1bf3479196dc1ad155c93abf277efe00744",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/test_sampler_incremental.py",
+        "bytes": 3974,
+        "sha256": "cf4ecbc459d97ff3138e334758ea7f54ad5192bfb2b935e13e02c9bfa5ca5650",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/test_sampler_incremental_bookkeeping.py",
+        "bytes": 2324,
+        "sha256": "a35d4ad98a4a3b16d7cba9547ea1b8a7fa0a815310982311e1bcae6d7ef6f0da",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/test_sampler_layer5.py",
+        "bytes": 15508,
+        "sha256": "b68e1ce4d44f6aaaf70f830bd5de550587309b7fcb20ecd25587b879ca392ecb",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/test_sampler_layer9.py",
+        "bytes": 18848,
+        "sha256": "a6a58e12c7c72b9024091aa1868c95465d409bfd9b06ea96ca34a4afd937f2dd",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/test_sampler_layer9_chart.py",
+        "bytes": 2749,
+        "sha256": "6738ceb30c79a147f5f8dd71cd3db0b385409dcca79f2d6e8d1608923c94a585",
+        "review_blob_equal": true
+      },
+      {
+        "path": "tests/test_sampler_layer9_portability.py",
+        "bytes": 7698,
+        "sha256": "6f947c8e08d7ce4d21976f118cba468c51d348ac0677f288f030adb04b2f36ba",
+        "review_blob_equal": false
+      },
+      {
+        "path": "tests/test_sampler_layer9_receipts.py",
+        "bytes": 1840,
+        "sha256": "ef9149e99a613e155e25a0caef7d77ce525ab882f7466b16b2957369b6421a23",
+        "review_blob_equal": true
+      },
+      {
+        "path": "docs/sampler/LAYER3_SOURCE_MAP.csv",
+        "bytes": 14461,
+        "sha256": "342f47f8de2a566c99e5f9e11241e7b493981019229ffd13f78f5d96f7d1569c",
+        "review_blob_equal": true
+      },
+      {
+        "path": "docs/sampler/LAYER5.md",
+        "bytes": 10263,
+        "sha256": "5c33cbad9ebfa3fd2385b857df4f7dd9d8abb97c6d8fd06fea91aa66fb02159f",
+        "review_blob_equal": false
+      },
+      {
+        "path": "docs/sampler/LAYER5_SOURCE_MAP.csv",
+        "bytes": 1257,
+        "sha256": "d68e2f57678d8b2c32cf16f0a1ad063a610c35ce540c2056c6e9bd0df345f11b",
+        "review_blob_equal": true
+      },
+      {
+        "path": "docs/environment/layer9-linux-20261103/job22013408-build-report.json",
+        "bytes": 5453,
+        "sha256": "ecf2249f60a21eb32bee284194e1b438ab33ef9a04fb09f2fe4babbffe855dc8",
+        "review_blob_equal": true
+      },
+      {
+        "path": "docs/environment/layer9-linux-20261103/job22013408-package-validation.json",
+        "bytes": 1562,
+        "sha256": "917bd900dc3bfa133fae03ad5713ca01c2ee609b413f83d229362b5db227040d",
+        "review_blob_equal": true
+      },
+      {
+        "path": "docs/sampler/review-layer9-20261103/LINUX_ENVIRONMENT_PROPOSAL.json",
+        "bytes": 11145,
+        "sha256": "f1a86a48cedc4fa3a4247a0d442419645bc8b3243171073b8710cf478673ccf5",
+        "review_blob_equal": true
+      },
+      {
+        "path": ".gitattributes",
+        "bytes": 551,
+        "sha256": "3840004f994a3e6445368ae4716272956342a1bef5f791371be0eea80bcb69b1",
+        "review_blob_equal": false
+      },
+      {
+        "path": "README.md",
+        "bytes": 1625,
+        "sha256": "7e2abdde28e34bd79b7d56404c74135f69956ff0208017e465d8d597eb4e24af",
+        "review_blob_equal": false
+      },
+      {
+        "path": "docs/CURRENT_HANDOFF.md",
+        "bytes": 8310,
+        "sha256": "1ce96f808897651a69153e73309200852244ed3c8cde6911aded1c2c30894c67",
+        "review_blob_equal": false
+      },
+      {
+        "path": "docs/WORKFLOW_GUIDE.md",
+        "bytes": 12129,
+        "sha256": "d73346e31fc451b977c6829e22cba275b711cfac92d9129f1302cdd1d3607983",
+        "review_blob_equal": false
+      }
+    ],
+    "inventory_excludes": "This receipt to avoid self-reference",
+    "test_changes": [
+      "Meeting extension tests use existing shared registry loader instead of experiment-only smoke_rule import.",
+      "Process-death test uses os._exit in actual lock owner; Windows venv launcher PID 24592 differed from Python PID 32760. No storage implementation change."
+    ],
+    "tests": {
+      "unique_passed_after_correction": 33,
+      "linux_only_skipped": 2,
+      "initial_suite": {
+        "run": 24,
+        "passed": 21,
+        "errors": 1,
+        "skipped": 2
+      },
+      "corrected_portability_suite": {
+        "run": 10,
+        "passed": 8,
+        "skipped": 2
+      },
+      "integration_suite": {
+        "run": 10,
+        "passed": 10
+      },
+      "layer3_provenance": {
+        "run": 1,
+        "passed": 1
+      }
+    },
+    "preserved_failures": [
+      "Original process-death test killed venv redirector instead of lock-owning process; reproduced independently before correcting test.",
+      "First Layer-3 provenance invocation used incorrect test class name; corrected invocation passed.",
+      "Prior saved Windows fixture mismatches remain unchanged; same-runtime historical/current reconciliation recorded at review 1bb4493."
+    ],
+    "environment": {
+      "python": "3.12.0",
+      "jax": "0.7.0",
+      "blackjax": "1.3",
+      "backend": "CPU",
+      "x64": true,
+      "blas_threads": 1,
+      "periodic_template": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\synthetic-template"
+    },
+    "prior_gpu_evidence": {
+      "revision": "1bb4493",
+      "paths": [
+        "docs/recovery/gpu-workflow-20261103/FIXED_GRADIENT_FINAL_EVIDENCE.json",
+        "docs/recovery/gpu-workflow-20261103/PERIODIC_FINAL_EVIDENCE.json",
+        "docs/recovery/gpu-workflow-20261103/TRANSITION_LINEAGE.json"
+      ]
+    },
+    "logs": [
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\main-runtime-promotion-tests.log",
+        "bytes": 13194,
+        "sha256": "45b517da7cd009e2bda8d1e61955efeec3cfe5f802c188ba219e3e2399063bbd"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\main-writer-death-retry.log",
+        "bytes": 10540,
+        "sha256": "0bba75d648fae6333780d214232629c8ef06bc70d5fd2f5e76e54a0e3cfc3d43"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\main-portability-corrected.log",
+        "bytes": 4044,
+        "sha256": "633ecb0d652ed55d22e9f1ee7e98d6476849897a62eebffad84ca2e94a0b4dfb"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\main-runtime-integration-tests.log",
+        "bytes": 5936,
+        "sha256": "386629aef9bf944709397f2ec317448ae0f2942f7846e434b2eec7405fc870ea"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\main-layer3-provenance.log",
+        "bytes": 1640,
+        "sha256": "f1fbb15e8848cf3bdf5c5bf2a2f358de9f0bac4cfd3ca1062741e712473c7edc"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\main-layer3-provenance-corrected.log",
+        "bytes": 1214,
+        "sha256": "301952e54ab99a70e4cc79837d5c533f9ad99627abf1322366be6b3f500b60e6"
+      }
+    ],
+    "remaining": "GPU environment authenticator/launcher still embedded in pinned S10 experiment adapter; generic assembly unfinished. No new GPU performance or convergence result."
   }
 }

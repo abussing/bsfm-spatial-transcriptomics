@@ -17,9 +17,9 @@ provenance, preprocessing, configurable registry loading, the GPINIT input
 contract connection and mesh runtime/boundary support. The promotion preserves
 all existing main sampler numerical kernels and the GP/SVD fitting code.
 
-GPU orchestration, periodic storage and experimental launchers remain on the
-review branch. Their recorded execution evidence is not a blanket acceptance
-of that branch. The old `wip/layer9-orchestration-20261103` branch at
+The reviewed runtime subset from `1bb4493` is now on main: GPU kernel corrections,
+controllers, periodic storage/restart and prediction primitives. Experiment
+launchers remain on the review branch. This is not blanket acceptance of that branch. The old `wip/layer9-orchestration-20261103` branch at
 `a87532ec30d6daacada3245e2cbeb105da4435ce` is historical evidence, not the work
 to promote. Inspect local changes before updating any checkout.
 
@@ -27,8 +27,8 @@ The [workflow guide](WORKFLOW_GUIDE.md) owns the implementation map and remainin
 work. The existing mesh module now contains the geometry-only outer-boundary
 producer; its S10 vertices and triangles reproduce saved arrays exactly. See the
 [existing mesh guide](mesh/OCTOBER26_CANONICALIZATION.md) for the interface,
-source, validation and limitations. Current task: finish GPU orchestration acceptance before promotion; geometry
-export/assembly integration remains the next reusable-interface task. Do not substitute the older boundary-carrier triangles
+source, validation and limitations. Next connect the existing geometry export/assembly interfaces and extract the
+shared GPU environment/launcher boundary documented in the workflow guide. Do not substitute the older boundary-carrier triangles
 as the final mesh. A complete generic run command is not implemented yet.
 
 ## Where to find verified methods and evidence
@@ -61,9 +61,10 @@ Gibbs state/RNG. Both implementations show the same saved-reference differences:
 Layer-3 gradients at most 2.77556e-17; Layer 5 only one gradient hash, with all
 stored numeric values matching. Fixtures and tolerances are unchanged. These
 bounded failures are not consolidation-induced changes; the precise low-level
-rounding cause remains unisolated. Next assemble the GPU-runtime promotion scope
-against its recorded environment, restart and interface evidence. No new GPU
-execution or blanket full-branch acceptance is claimed.
+rounding cause remains unisolated. The runtime promotion preserves reviewed source
+bytes and records its exact inventory and fresh main-checkout tests in the
+[existing validation receipt](recovery/REUSABLE_WORKFLOW_VALIDATION_20261104.json).
+No new GPU execution or blanket full-branch acceptance is claimed.
 
 ## External artifacts and environments
 

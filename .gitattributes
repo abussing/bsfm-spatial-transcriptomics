@@ -12,3 +12,7 @@
 
 # Historical captures are immutable evidence; preserve their original bytes.
 docs/recovery/evidence/** -text
+
+# Authenticated Linux runtime receipts retain their recorded bytes.
+docs/environment/layer9-linux-20261103/job* -text
+docs/sampler/review-layer9-20261103/LINUX_ENVIRONMENT_PROPOSAL.json -text

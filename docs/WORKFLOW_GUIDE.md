@@ -6,9 +6,9 @@ groups, units, populations and settings. Regression fixtures test preservation
 of a recipe, rather than defining the only possible dataset.
 
 This is the current workflow map, updated 2026-11-04. The reusable-method subset was promoted to main from review commit `147f79e`.
-GPU orchestration remains on that review branch; main still has its existing
-Layers 1?8 kernels. Configurable quadrature loading alone does not generalize
-all main sampler shape checks beyond the canonical L16 contract. The complete
+The runtime subset from review commit `1bb4493` is also promoted: GPU gradient
+accumulation and acceptance-roundoff corrections, quadrature-derived joint-eta
+dimensions, run controllers, periodic storage and prediction primitives. The complete
 new-dataset workflow is **not yet available as one command**. Existing S10 runs
 and exact source checkouts remain unchanged.
 
@@ -33,8 +33,42 @@ contracts; update this guide in place rather than adding competing current guide
 | Mesh | [Accepted builder](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` accepts cell/boundary paths and explicit authenticated runtime relocation | Recovered boundary-carrier function available; final dataset/mesh assembly remains separate. Platform environment validation remains separate. S10 `reproduce` is only a regression |
 | GP initialization | [GP smooth/SVD](initialization/C3_GP_SVD.md); existing dataset CLI exports its contract via `--gpinit-contract`; both CLIs tested together | Environment provisioning and full sampler assembly remain separate; no initializer rewrite |
 | Quadrature | `sampler.registry_rule.load_registry_rule(path, expected_sha256=..., order=L)` derives tensor shapes from L | Existing L4/L14/L16 arrays verified exactly. Other orders need authenticated tables. Target still scientifically fixes ell_eta=.14 |
-| GPU sampler | Main has accepted Layers 1?8 kernels; periodic controllers, compact checkpoints and GPU orchestration remain on the review branch | S10 experiment wrapper embeds paths, K, L, type loops, split names and schedules; generic target/launcher needed |
-| Prediction | Review-branch `holdout_prediction` and `predictive_summary` implement conditional prediction/mixture score; not promoted to main | Sidecar and geometry/split lookup are S10-specific; generic reporting needed |
+| GPU sampler | Main contains reviewed GPU kernel corrections, periodic controllers, compact checkpoints and restart | S10 experiment wrapper embeds paths, K, L, type loops, split names and schedules; generic target/launcher needed |
+| Prediction | `holdout_prediction` and `predictive_summary` preserve the tested conditional prediction/mixture score | Sidecar and geometry/split lookup are S10-specific; generic reporting needed |
+
+## Runtime interfaces and acceptance scope
+
+`run_controller.RunController` composes initialization, tuning and Gibbs sweeps;
+`run_readaptation.ReadaptationController` retunes from an authenticated parent.
+`run_periodic.PeriodicRunController` and `PeriodicReadaptationController` publish
+compact checkpoint/draw/diagnostic boundaries at the explicit save cadence.
+Interrupted unpublished sweeps are recomputed; published boundaries are never
+replayed. `run_incremental` preserves a checked in-memory transaction prefix.
+These are existing implementations promoted from `1bb4493`, not rewritten kernels.
+
+Callers supply a bound target, initialization arrays, explicit run specification,
+input receipt and environment-authentication callback. K follows factor identities;
+L follows an authenticated registry. Schedules and save cadence are explicit.
+The target acceptance remains 0.9. GPU execution requires x64 and the existing
+`BSFM_EXPERIMENTAL_CUDA=1` opt-in; that flag alone is not environment validation.
+`run_inputs.canonical_controller` is still the registered S10 CPU adapter.
+The validated GPU environment authenticator and launcher remain in the
+[pinned S10 adapter](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/1bb4493/docs/holdouts/s10-grid-20261103/gpu_run.py).
+Extracting its shared environment/assembly boundary is unfinished; do not treat
+the CPU adapter as a generic GPU command or silently fall back to CPU.
+
+Evidence retained at pinned revisions rather than duplicated here:
+
+- [GPU accumulation and real K12/L14 replay gates](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/1bb4493/docs/recovery/gpu-workflow-20261103/FIXED_GRADIENT_FINAL_EVIDENCE.json).
+- [Periodic GPU state/RNG equality, interruption and scorer restart](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/1bb4493/docs/recovery/gpu-workflow-20261103/PERIODIC_FINAL_EVIDENCE.json).
+- [Historical/current numerical reconciliation](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/1bb4493/docs/recovery/gpu-workflow-20261103/FIXED_GRADIENT_RESULTS.md#saved-reference-reconciliation-2026-11-04).
+- [Main promotion inventory and local checks](recovery/REUSABLE_WORKFLOW_VALIDATION_20261104.json).
+
+Old saved-reference bitwise failures remain recorded: both historical and current
+implementations have the same discrepancies in the tested runtime. No fixtures
+or tolerances were changed. Local CPU checks do not establish GPU speed, arbitrary
+hardware equivalence, posterior convergence or a complete new-dataset workflow.
+Immutable running checkouts and their continuation contracts are unchanged.
 
 ## Reproduce the panel with the reusable selector
 

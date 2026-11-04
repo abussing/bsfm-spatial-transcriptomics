@@ -120,7 +120,8 @@ class JointEtaConditional(_Binding):
         for k, pos in enumerate(positions):
             validate_chart_state(self.target, pos, state, k)
         features = np.stack([self.target.features(pos)[2] for pos in positions])
-        shape = (len(positions), self.target.inputs.arrays['Y'].shape[1], 1024)
+        feature_columns = 2 * self.target.rule.arrays['omega'].shape[0]
+        shape = (len(positions), self.target.inputs.arrays['Y'].shape[1], feature_columns)
         array(features, 'canonical finite features', shape)
         record = self._record(state)
         record.update(features_sha256=logical_hash(features),
@@ -133,7 +134,7 @@ class JointEtaConditional(_Binding):
             features=features, tolerance=POSTERIOR_RMS_TOLERANCE,
             maximum_iterations=MAXIMUM_PCG_ITERATIONS)
         array(eta, 'joint eta draw', state.eta.shape)
-        array(beta, 'feature coefficients', (len(positions), 1024))
+        array(beta, 'feature coefficients', (len(positions), feature_columns))
         if (not diagnostics.converged
                 or not np.isfinite(list(asdict(diagnostics).values())).all()
                 or diagnostics.posterior_mahalanobis_RMS_error_upper_bound > POSTERIOR_RMS_TOLERANCE):

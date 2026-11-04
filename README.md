@@ -15,9 +15,9 @@ shared methods should not require dataset-specific rewrites.
 
 The consolidated baseline includes accepted sampler Layers 1?8, SCTransform
 preprocessing, the October 26 mesh builder and GP/SVD initialization. Main also contains the tested reusable preparation, screening, initialization
-contract and mesh-boundary interfaces. GPU orchestration and periodic
-saving/restart remain on the separately identified review branch; they have
-execution evidence but are not yet promoted to main.
+contract and mesh-boundary interfaces. Main now includes the reviewed GPU kernel
+corrections, run controllers and periodic saving/restart implementation. Their
+validation scope and remaining launcher coupling are recorded in the workflow guide.
 A complete generic new-dataset run command remains unfinished.
 
 Use the existing numerical implementations and their linked contracts. Historical

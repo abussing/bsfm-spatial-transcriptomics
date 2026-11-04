@@ -1,5 +1,18 @@
 # Split BlackJAX transitions and window adaptation
 
+## GPU provenance amendment, 2026-11-04
+
+Main now includes the reviewed GPU-only acceptance roundoff guard from `1bb4493`.
+The source map authenticates the amended full file/body; the provenance test
+removes only that exact guard and verifies the remaining historical body hash.
+`make_logdensity` remains body-exact. The guard only bounds overshoot through
+eight float64 epsilons; all other invalid values remain invalid.
+
+See the [current runtime scope](../WORKFLOW_GUIDE.md#runtime-interfaces-and-acceptance-scope)
+for GPU execution evidence and saved-reference reconciliation. Fixtures and
+tolerances are unchanged. The following baseline describes original CPU acceptance;
+it does not supersede the later scoped GPU evidence.
+
 Baseline: `68c0f2214849daf051a29db08acf55429fd246ed`, the handoff-only
 checkpoint following accepted Layer 4 at `b028663b027d60e2914c70542a6d82246834a2ee`.
 Layer 5 is the accepted, implemented and validated canonical split field/hyper
