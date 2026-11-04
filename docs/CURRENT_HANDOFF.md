@@ -20,12 +20,12 @@ review work with it. Its commit `a87532ec30d6daacada3245e2cbeb105da4435ce` is
 historical evidence only.
 
 The [workflow guide](WORKFLOW_GUIDE.md) owns the implementation map and remaining
-work. Immediate next implementation: conservatively port the recovered outer-
-boundary geometry producer and compare it with saved S10 geometry. The
-[existing mesh guide](mesh/OCTOBER26_CANONICALIZATION.md) contains the source rule,
-hashes and completed saved-boundary checks. Do not revive the older final-mesh
-pipeline or substitute a new hull rule. A complete generic run command is not
-implemented yet.
+work. The existing mesh module now contains the geometry-only outer-boundary
+producer; its S10 vertices and triangles reproduce saved arrays exactly. See the
+[existing mesh guide](mesh/OCTOBER26_CANONICALIZATION.md) for the interface,
+source, validation and limitations. Next connect the existing geometry export
+and assembly interfaces. Do not substitute the older boundary-carrier triangles
+as the final mesh. A complete generic run command is not implemented yet.
 
 ## Where to find verified methods and evidence
 
@@ -39,9 +39,9 @@ implemented yet.
 | GPU execution/restart | [Periodic saving](recovery/gpu-workflow-20261103/PERIODIC_SAVING.md) and [completed gate evidence](recovery/gpu-workflow-20261103/PERIODIC_FINAL_EVIDENCE.json) |
 
 Latest bounded local checks: 14 initialization tests and nine preprocessing
-checks passed; eight mesh checks passed and one actual R integration test was
-skipped because the recorded accepted environment was unavailable. Boundary
-source recovery is not validation of a new producer. Executable relocation is
+checks passed; nine mesh checks passed and one actual R integration test was
+skipped because the recorded accepted environment was unavailable. The recovered boundary carrier passed the bounded S10 comparison; this is not
+validation of arbitrary new tissue geometry. Executable relocation is
 not environment or cross-platform mesh reproduction. Linux R mesh completion
 remains unestablished by these checks.
 

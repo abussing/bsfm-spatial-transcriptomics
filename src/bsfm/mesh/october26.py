@@ -18,6 +18,7 @@ from scipy import sparse
 from scipy.linalg import eigh
 from scipy.io import mmread
 from scipy.special import logsumexp
+from scipy.spatial import ConvexHull, Delaunay, cKDTree
 
 from .identities import REPO, file_record, logical, read_json, require, write_json
 from .projectors import active, project, validate
@@ -32,6 +33,80 @@ def normalize_glia(coordinates):
     scale = float(np.ptp(xy, axis=0).max())
     require(scale > 0, 'Zero coordinate span')
     return (xy-origin)/scale, origin, scale
+
+
+def inherited_geometry(coordinates):
+    """Recover the old outer-boundary carrier, not a replacement final mesh.
+
+    Geometry-only port of authenticated build_section_mesh.py:117-215; see the
+    existing mesh guide. Input is the full declared normalized geometry. Output
+    vertices/triangles supply build()'s inherited boundary; no FEM or Y is made.
+    """
+    xy = np.asarray(coordinates, dtype=np.float64)
+    require(xy.ndim == 2 and xy.shape[1] == 2 and len(xy) >= 3
+            and np.isfinite(xy).all(), 'Finite two-dimensional geometry required')
+    levels = ((.070,.045),(.180,.080),(.450,.140),(1.,.280))
+    targets = np.asarray((.060,.105,.180,.350))
+    tree = cKDTree(xy)
+    lower, upper = xy.min(0)-1., xy.max(0)+1.
+    accepted = []
+    previous = -np.inf
+    for distance, spacing in levels:
+        dy = spacing*np.sqrt(3.)/2.
+        rows = []
+        for row, y in enumerate(np.arange(lower[1],upper[1]+dy*.5,dy)):
+            xs = np.arange(lower[0]-spacing,upper[0]+spacing,spacing)
+            xs = xs + (.5*spacing if row%2 else 0.)
+            rows.append(np.column_stack((xs,np.full_like(xs,y))))
+        grid = np.vstack(rows)
+        dist = tree.query(grid,workers=-1)[0]
+        band = grid[(dist<=distance)&(dist>previous)]
+        if accepted:
+            fine = cKDTree(np.vstack(accepted))
+            band = band[fine.query(band,workers=-1)[0]>=.42*spacing]
+        accepted.append(band)
+        previous = distance
+    def deduplicate(points):
+        _,first = np.unique(np.rint(points/1e-10).astype(np.int64),axis=0,return_index=True)
+        return points[np.sort(first)]
+    points = deduplicate(np.vstack((*accepted,xy[ConvexHull(xy).vertices])))
+    remaining = 0
+    for iteration in range(17):
+        triangulation = Delaunay(points,qhull_options='Qbb Qc Qz Q12')
+        cells = triangulation.find_simplex(xy,tol=1e-12)
+        require(np.all(cells>=0),'Observations outside inherited geometry')
+        triangles = triangulation.simplices.copy()
+        q = points[triangles]
+        dist = tree.query(q.mean(1),workers=-1)[0]
+        edges = np.stack((np.linalg.norm(q[:,0]-q[:,1],axis=1),
+                          np.linalg.norm(q[:,1]-q[:,2],axis=1),
+                          np.linalg.norm(q[:,2]-q[:,0],axis=1)),axis=1)
+        area2 = np.abs((q[:,1,0]-q[:,0,0])*(q[:,2,1]-q[:,0,1])
+                       -(q[:,1,1]-q[:,0,1])*(q[:,2,0]-q[:,0,0]))
+        nondegenerate = area2>2e-12
+        require(np.all(nondegenerate[np.unique(cells)]),'Observation in degenerate triangle')
+        keep = (dist<=1.+1e-12)&nondegenerate
+        keep[np.unique(cells)] = True
+        bands = np.minimum(np.searchsorted([x[0] for x in levels],dist,side='left'),3)
+        ratio = float(np.max(edges[keep].max(1)/targets[bands[keep]]))
+        bad = keep&(edges.max(1)>1.75*targets[bands]*(1.+1e-10))
+        if not np.any(bad) or iteration==16:
+            remaining = int(bad.sum())
+            triangles = triangles[keep]
+            break
+        pairs = np.asarray(((0,1),(1,2),(2,0)),dtype=np.int64)[np.argmax(edges[bad],axis=1)]
+        endpoints = np.take_along_axis(triangles[bad],pairs,axis=1)
+        midpoints = points[endpoints].mean(axis=1)
+        affected = np.flatnonzero(bad[cells])
+        additions = np.vstack((midpoints,xy[affected])) if len(affected) else midpoints
+        points = deduplicate(np.vstack((points,additions)))
+    used = np.unique(triangles)
+    remap = np.full(len(points),-1,np.int64)
+    remap[used] = np.arange(len(used))
+    return points[used], remap[triangles], dict(
+        refinement_iterations=iteration,remaining_oversize_triangles=remaining,
+        maximum_edge_to_nominal_target_ratio=ratio,
+        purpose='inherited boundary carrier only; pass to accepted fmesher builder')
 
 
 def historical_half_indices(xy, cell_type):

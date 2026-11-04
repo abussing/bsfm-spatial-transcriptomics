@@ -180,8 +180,8 @@ the R distribution, or cross-platform mesh output. Use the environment validatio
 records separately; a hand-written lock is not evidence of environment validation.
 
 The R builder, adaptation, FEM, projections and inherited-boundary requirement
-are unchanged. Generic boundary generation remains a separate unresolved input
-policy; this change does not infer one from a new dataset. The module CLI remains
+are unchanged. Boundary production is now available through the recovered geometry-only
+function documented below; runtime relocation itself does not define geometry. The module CLI remains
 the historical regression command, not a new competing launcher.
 
 Validation: eight Python tests passed; one actual R/fmesher boundary test skipped
@@ -221,8 +221,8 @@ Its geometry-only sequence (lines 117–215) is:
 
 The older builder also writes FEM and response artifacts. Those operations are
 not needed to recover its boundary and must not become a second final-mesh
-pipeline. A conservative geometry-only port and bounded saved-geometry comparison
-are still needed before this producer can be used for a new dataset. In particular,
+pipeline. The geometry-only port and bounded saved-geometry comparison described below
+now establish this producer under the recovered recipe. In particular,
 1.0 is part of the recovered rule in normalized coordinates, not a newly selected
 universal physical padding or an exact constant-offset polygon construction.
 Disconnected-region topology still needs explicit validation on the new input.
@@ -244,3 +244,41 @@ Independent saved-artifact checks, without rebuilding either mesh:
   These are saved-geometry checks, not execution provenance for the old producer
   or validation of a new implementation. Boundary vertex arrays themselves
   differ because the accepted mesh subdivides edges.
+
+### Existing-module interface and bounded reproduction
+
+`bsfm.mesh.october26.inherited_geometry(normalized_coordinates)` returns
+`vertices, triangles, report`. Supply the full declared geometry in the same
+minimum/common-maximum-span coordinate system used by the accepted mesh. No
+expression, gene identifiers, group names or dataset names enter this function.
+Its constants preserve the recovered boundary recipe above; they are not fitted
+from expression or presented as a universally optimal mesh design.
+
+Write the returned vertices with CSV header `x,y` and the zero-based triangles
+with header `v1,v2,v3` and integer formatting, then pass those paths as
+`inherited_vertices` and `inherited_triangles` to the existing `build()` function.
+Use fresh paths and retain the report with their hashes. The accepted builder
+extracts their boundary and constructs the final mesh; these intermediate
+triangles must not be substituted as the final mesh. Nonzero unresolved-edge
+counts in the report require review rather than an unqualified success claim.
+Degenerate point geometry can fail the underlying convex-hull construction.
+
+Local bounded reproduction on 2026-11-04 used all 9,422 rows of F
+`source_geometry/S10__WT5/cells.csv` (SHA256
+`ccf6e21a44aa8594f7a1debb3cfc7b99938c5d366fcd90b6b4a661a350c27124`).
+Both complete output arrays matched the authenticated source CSVs listed above
+**exactly**, including order: 639 vertices, 1,251 triangles, one refinement
+iteration, zero unresolved triangles and maximum edge/target ratio
+1.583333333333333. No historical Python source was executed, no final fmesher
+mesh was rebuilt and no expression data were processed.
+
+Nine mesh tests pass; the existing actual R integration test remains skipped
+for unavailable recorded environment. The new test checks deterministic output,
+input immutability, cell coverage, affine projector reproduction and closed
+boundary-edge incidence for two synthetic geometries, plus invalid input
+rejection. All 12 pre-existing Python mesh function ASTs are unchanged from
+`e730742`; the R builder is unchanged. New function AST SHA256 (Python
+`ast.dump(..., include_attributes=False)`):
+`19ce8f96bd4cf1ee09b6d2259fbc195d7425cac21d7e0c553327677761fa825d`.
+This validates the recovered carrier geometry, not final-mesh reproduction on
+Linux or scientific performance on arbitrary tissue topology.
