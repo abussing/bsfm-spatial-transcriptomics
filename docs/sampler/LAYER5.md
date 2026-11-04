@@ -1,5 +1,24 @@
 # Split BlackJAX transitions and window adaptation
 
+## Review-branch provenance amendment, 2026-11-04
+
+The baseline below describes the original CPU acceptance. This review branch
+later added the GPU-only acceptance-rate roundoff guard documented in
+[GPU roundoff retry](../holdouts/s10-grid-20261103/GPU_RUNNING.md).
+The current source map now records the actual port file/body hashes and marks
+`build_split` as amended rather than falsely claiming an exact historical body.
+`make_logdensity` remains body-exact. The provenance test authenticates the
+complete current file and body, checks the exact GPU-guard AST and location,
+removes only that guard from a copy, and requires the remaining body to match
+the original historical hash. The original source identities are unchanged.
+
+This repairs a stale provenance assertion, not the sampler or a numerical
+tolerance. The guard's independent test checks its exact eight-epsilon limit
+and preservation of invalid values. Saved-reference numerical failures remain
+separate unresolved acceptance evidence; this amendment does not waive them.
+The corresponding current main still has its original CPU split implementation
+and source map until GPU changes are separately promoted.
+
 Baseline: `68c0f2214849daf051a29db08acf55429fd246ed`, the handoff-only
 checkpoint following accepted Layer 4 at `b028663b027d60e2914c70542a6d82246834a2ee`.
 Layer 5 is the accepted, implemented and validated canonical split field/hyper

@@ -16,5 +16,28 @@
     "sparse period and parent binding",
     "unsaved sweep and readaptation chronology",
     "pointwise mixture density averaging"
-  ]
+  ],
+  "acceptance_followup_20261104": {
+    "tests": 11,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "seconds": 153.23399999999674,
+    "log_sha256": "afecc0304e39d0024541c848d57eaa6542604411431c64ec577e05219ea41b33",
+    "scope": "Windows CPU provenance amendment and focused GPU-guard/gradient/periodic mechanics; not a GPU execution",
+    "test_names": [
+      "test_sampler_layer5.Layer5Tests.test_source_bodies_provenance",
+      "test_gpu_acceptance_roundoff",
+      "test_gradient_accumulation",
+      "test_periodic_saving"
+    ],
+    "receipt_sha256": "7288326f58d24590b7b3c79746ffe659a520f1f56c932d564ef59fa29a1f4e82",
+    "source_sha256": {
+      "src\\bsfm\\sampler\\split_kernels.py": "bd5296b9e3fd1b9f543d9597d1a6dea5aecb043e7c229d7879f390237bf59ff8",
+      "src\\bsfm\\sampler\\run_periodic.py": "db3486059aad8d4a0faa245255045f871a13fa70b20c41147e9470fef855dc5b",
+      "tests\\test_sampler_layer5.py": "b68e1ce4d44f6aaaf70f830bd5de550587309b7fcb20ecd25587b879ca392ecb",
+      "docs\\sampler\\LAYER5_SOURCE_MAP.csv": "d68e2f57678d8b2c32cf16f0a1ad063a610c35ce540c2056c6e9bd0df345f11b"
+    },
+    "remaining": "Saved-reference numerical failures are not rerun or waived; complete GPU branch promotion remains pending."
+  }
 }

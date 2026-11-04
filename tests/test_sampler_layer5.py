@@ -58,7 +58,22 @@ class Layer5Tests(unittest.TestCase):
             b=(ROOT/r['port_path']).read_bytes()
             self.assertEqual(hashlib.sha256(b).hexdigest(),r['port_file_sha256'])
             n=next(n for n in ast.parse(b).body if isinstance(n,ast.FunctionDef) and n.name==r['port_function'])
-            self.assertEqual(body_ast_sha256(n),r['source_body_ast_sha256'])
+            self.assertEqual(body_ast_sha256(n),r['port_body_ast_sha256'])
+            if r['port_function']=='build_split':
+                self.assertEqual(r['body_ast_exact'],'False')
+                original=copy.deepcopy(n)
+                one=next(x for x in original.body if isinstance(x,ast.FunctionDef) and x.name=='one')
+                expected=ast.parse("if jax.default_backend()=='gpu':\n    ac=gpu_acceptance_roundoff(ac)").body[0]
+                guards=[x for x in one.body if ast.dump(x,include_attributes=False)==ast.dump(expected,include_attributes=False)]
+                self.assertEqual(len(guards),1)
+                guard=guards[0];index=one.body.index(guard)
+                self.assertIsInstance(one.body[index-1],ast.Assign)
+                self.assertEqual(ast.unparse(one.body[index-1].targets[0]),'ac')
+                one.body.remove(guard)
+                self.assertEqual(body_ast_sha256(original),r['source_body_ast_sha256'])
+            else:
+                self.assertEqual(r['body_ast_exact'],'True')
+                self.assertEqual(body_ast_sha256(n),r['source_body_ast_sha256'])
             self.assertEqual([n.lineno,n.end_lineno],[int(r['port_start']),int(r['port_end'])])
 
     def test_analytic_gradient_bridge_matches_layer3(self):
