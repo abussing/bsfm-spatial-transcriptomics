@@ -27,8 +27,8 @@ The [workflow guide](WORKFLOW_GUIDE.md) owns the implementation map and remainin
 work. The existing mesh module now contains the geometry-only outer-boundary
 producer; its S10 vertices and triangles reproduce saved arrays exactly. See the
 [existing mesh guide](mesh/OCTOBER26_CANONICALIZATION.md) for the interface,
-source, validation and limitations. Next connect the existing geometry export
-and assembly interfaces. Do not substitute the older boundary-carrier triangles
+source, validation and limitations. Current task: finish GPU orchestration acceptance before promotion; geometry
+export/assembly integration remains the next reusable-interface task. Do not substitute the older boundary-carrier triangles
 as the final mesh. A complete generic run command is not implemented yet.
 
 ## Where to find verified methods and evidence
@@ -48,6 +48,16 @@ skipped because the recorded accepted environment was unavailable. The recovered
 validation of arbitrary new tissue geometry. Executable relocation is
 not environment or cross-platform mesh reproduction. Linux R mesh completion
 remains unestablished by these checks.
+
+GPU acceptance follow-up: the stale Layer-5 provenance assertion is corrected
+on review commit `59d8416`. It authenticates the exact GPU-only roundoff guard
+and the otherwise unchanged historical split body. Eleven fresh local checks
+passed, including gradient checks, periodic/every-sweep exact endpoints,
+interrupted recomputation, committed non-replay and parent binding. See the
+[pinned receipt](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/59d8416/docs/recovery/gpu-workflow-20261103/PERIODIC_LOCAL_VALIDATION.json).
+No sampler code changed. Remaining acceptance issue: reconcile saved-reference
+numerical failures with same-runtime equivalence evidence without weakening
+fixtures. This local pass is not a new GPU execution or full-branch acceptance.
 
 ## External artifacts and environments
 
