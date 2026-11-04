@@ -33,9 +33,11 @@ authentication tests pass; no new GPU execution is claimed. The existing mesh mo
 and the runtime loader joins generic prepared/GPINIT artifacts with explicit
 recipes. Thirteen assembly/mesh tests pass; one R integration is skipped. The
 synthetic GP fit uses one thread because unchanged four-thread GPINIT also crashes
-in this local Windows environment; the accepted config is unchanged. Next
-generalize the scientific launcher and validate the shared path on GPU. See the workflow guide. Do not substitute the older boundary-carrier triangles
-as the final mesh. A complete generic run command is not implemented yet.
+in this local Windows environment; the accepted config is unchanged. The shared `python -m bsfm.sampler.run` command now handles explicit deep/flat
+recipes, phased retuning, periodic saving and same-run resume. Small real CPU
+transitions passed for both models; fresh shared-command GPU validation is next. See the workflow guide. Do not substitute the older boundary-carrier triangles
+as the final mesh. The shared command consumes prepared artifacts; raw preprocessing and mesh
+construction remain separate stages. No new HPC job has been submitted.
 
 ## Where to find verified methods and evidence
 

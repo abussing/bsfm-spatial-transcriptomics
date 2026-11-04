@@ -8,8 +8,9 @@ of a recipe, rather than defining the only possible dataset.
 This is the current workflow map, updated 2026-11-04. The reusable-method subset was promoted to main from review commit `147f79e`.
 The runtime subset from review commit `1bb4493` is also promoted: GPU gradient
 accumulation and acceptance-roundoff corrections, quadrature-derived joint-eta
-dimensions, run controllers, periodic storage and prediction primitives. The complete
-new-dataset workflow is **not yet available as one command**. Existing S10 runs
+dimensions, run controllers, periodic storage and prediction primitives. A shared command now runs prepared artifacts; raw-data preparation and mesh
+construction remain explicit preceding stages. Fresh GPU validation of the new
+command is still pending. Existing S10 runs
 and exact source checkouts remain unchanged.
 
 The core sequence is input, normalization, gene selection, mesh, initialization,
@@ -33,7 +34,7 @@ contracts; update this guide in place rather than adding competing current guide
 | Mesh | [Accepted builder](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` accepts cell/boundary paths and explicit authenticated runtime relocation | `sampler_geometry` assembles pinned final builder outputs with unchanged FEM routines; actual R environment validation remains separate. S10 `reproduce` is only a regression |
 | GP initialization | [GP smooth/SVD](initialization/C3_GP_SVD.md); existing dataset CLI exports its contract via `--gpinit-contract`; both CLIs tested together | Prepared arrays, certificate and output hashes now join in `run_inputs.load_inputs`; accepted four-thread Windows runtime currently fails local checks; no initializer rewrite |
 | Quadrature | `sampler.registry_rule.load_registry_rule(path, expected_sha256=..., order=L)` derives tensor shapes from L | Existing L4/L14/L16 arrays verified exactly. Other orders need authenticated tables. Target still scientifically fixes ell_eta=.14 |
-| GPU sampler | Main contains reviewed GPU kernel corrections, periodic controllers, compact checkpoints and restart | Shared GPU authentication and generic prepared-input assembly available; scientific launcher and fresh GPU execution validation remain |
+| GPU sampler | Main contains reviewed GPU kernel corrections, periodic controllers, compact checkpoints and restart | Shared GPU authentication, generic prepared-input assembly and `python -m bsfm.sampler.run` available; fresh GPU execution validation remains |
 | Prediction | `holdout_prediction` and `predictive_summary` preserve the tested conditional prediction/mixture score | Sidecar and geometry/split lookup are S10-specific; generic reporting needed |
 
 ## Runtime interfaces and acceptance scope
@@ -85,8 +86,8 @@ It is scoped to the recorded shared environment; this does not provision a new
 CUDA environment or validate arbitrary GPU models. Six synthetic local tests
 cover dispatch, tampering, devices and failure behavior. No new GPU execution
 has validated the extraction yet. Immutable old runs keep their original adapter
-and environment identities. The generic dataset/mesh/GPINIT connection below is available; a shared
-scientific launcher remains unfinished.
+and environment identities. The generic dataset/mesh/GPINIT connection and the shared command below are
+available. Fresh GPU execution validation of that composition remains pending.
 
 Evidence retained at pinned revisions rather than duplicated here:
 
@@ -100,6 +101,64 @@ implementations have the same discrepancies in the tested runtime. No fixtures
 or tolerances were changed. Local CPU checks do not establish GPU speed, arbitrary
 hardware equivalence, posterior convergence or a complete new-dataset workflow.
 Immutable running checkouts and their continuation contracts are unchanged.
+
+## Run and resume prepared artifacts
+
+From a clean checkout with its validated runtime active:
+
+```text
+python -m bsfm.sampler.run --recipe config/sampler/YOUR_RUN.json --output /external/run-root --commit FULL_COMMIT_SHA
+```
+
+Create and commit the recipe before execution. `--commit` must equal the full
+checkout HEAD. Output must be outside the repository. This command does not
+submit a scheduler job, install software or preprocess data. HPC execution still
+requires a committed job specification and explicit authorization.
+
+The recipe contains exactly these fields:
+
+| Field | Meaning |
+| --- | --- |
+| `schema` | `bsfm.sampler-run.v1` |
+| `backend` | Explicit `gpu` or `cpu`; GPU requests cannot fall back to CPU |
+| `model` | `deep` or `flat`; use a distinct recipe/output root for each comparison arm |
+| `chain_id`, `factor_ids`, `seed` | Explicit chain, ordered factor identities (K), RNG seed |
+| `files` | Pinned artifact records described below |
+| `dataset_recipe` | Prepared-input recipe below; null selects the original S10 registration adapter |
+| `gpu_runtime` | Full GPU authenticator arguments; null for CPU |
+| `phases` | Ordered records containing `run_id`, `warmup_steps`, `sweeps`, `save_every` |
+
+Each phase performs the specified NUTS tuning per factor followed by the specified
+Gibbs sweeps. The first phase initializes; subsequent phases use the existing
+readaptation controller and the completed parent's exact state/RNG. For example,
+phases `(bridge, 50, 50, 10)` then `(production, 100, 1000, 10)` express the previously
+requested initial tuning, bridge sweeps, retuning and production schedule. These
+are illustrative explicit choices, not defaults or authorization to launch.
+The minimum tuning length remains 20. The periodic controller's existing zero-
+settling restriction remains; bridge phases are separate runs. Only the last
+phase supplies final production draws; do not pool earlier bridge draws.
+
+Relative artifact and GPU deployment paths resolve against the recipe directory.
+When embedding `config/sampler/hpc-gpu-runtime.json`, adjust its receipt paths to
+that directory or use absolute deployment paths. The command sets x64, explicit
+JAX CPU/GPU platforms and thread counts before importing JAX. GPU keeps a CPU
+host device available for the existing callback preflight. Environment, artifact,
+recipe and software identities are bound into each existing run contract.
+
+Repeat the same command to resume. It authenticates completed parents and does
+not retune or replay committed work. Changing the recipe, commit or runtime is
+not same-run resume and is rejected by the immutable contracts. Each phase writes
+to `OUTPUT/RUN_ID/segments/segment`; `boundaries/SWEEP/` holds the existing compact
+checkpoint, retained draw, diagnostics and receipt. Saving remains first, every
+configured cadence and final sweep. Per-sweep diagnostics cover unsaved sweeps;
+interruption may recompute them from the last committed boundary.
+
+Local tests performed real K2/L4 deep and flat transitions: 20-step tuning,
+one bridge sweep, 20-step retuning and two final sweeps. Completed reruns could
+invoke neither tuning nor sweeps; changed recipes were rejected. Git/environment
+attestation and artifact loading were explicitly mocked in this launcher test;
+those boundaries have their separate tests. Nine unique launcher/authentication
+checks pass. This is not a fresh GPU or real-dataset execution result.
 
 ## Prepared artifacts to sampler inputs
 
@@ -227,9 +286,9 @@ has no training observations. It supports arbitrary group counts and names.
    one R integration skipped. Runtime relocation remains authenticated. The final geometry-to-sampler assembly now uses the existing FEM routines;
    actual R environment restoration remains separate.
 4. The prepared-artifact assembly now accepts an explicit dataset recipe.
-   Generalize the remaining scientific launcher boundary while
-   preserving numerical kernels, saving and restart contracts. Validate on a
-   second dataset before claiming generic execution.
+   The shared command composes existing periodic deep/flat and readaptation
+   controllers. Next validate this command on the recorded GPU environment;
+   validate a second dataset before claiming end-to-end generic execution.
 5. Return to downstream scientific experiments separately after core integration.
 
 Six focused tests pass: exact 91-gene recovery, same-type recurrence and duplicate

@@ -572,5 +572,45 @@
         "sha256": "500c09dacbc55ab9b096d34fdc0f32fa9ab33bd55d13460b6f0dc15d08a58f59"
       }
     ]
+  },
+  "shared_run_command": {
+    "date": "2026-11-04",
+    "status": "PASS_SYNTHETIC_CPU_COMPOSITION",
+    "base_commit": "c7043af",
+    "unique_checks_passed": 9,
+    "scope": "Existing periodic controllers, real K2/L4 deep and flat initialization/tuning/sweeps/readaptation. Each: 20 tuning, 1 bridge sweep, 20 retuning, 2 final sweeps. Completed rerun forbids sweep/adaptation calls; changed recipe rejected. GPU environment tests mocked, no GPU execution.",
+    "attestation_limits": "Launcher test mocks Git/environment authentication and input loading with explicit synthetic fixture. Actual CLI --help checked; CPU/GPU configuration checked with execution mocked.",
+    "preservation": "No existing numerical kernel, controller or storage implementation changed. Only new command and package description.",
+    "command": "python -m bsfm.sampler.run --recipe TRACKED_JSON --output EXTERNAL_ROOT --commit FULL_SHA",
+    "inventory": [
+      {
+        "path": "src/bsfm/sampler/run.py",
+        "bytes": 8074,
+        "sha256": "501ea22049cf3409934c0fbc1411097bbc938cac0caae02c51289a1575d56681"
+      },
+      {
+        "path": "src/bsfm/sampler/__init__.py",
+        "bytes": 79,
+        "sha256": "1bebd6c60fb41d03b7042b774844ec8ad5897810f8dc71a554ba94adc3302401"
+      },
+      {
+        "path": "tests/test_run_recipe.py",
+        "bytes": 5061,
+        "sha256": "24721beec749dcd1ce9d1a6d5b066353926f467e121139884f85b019f3869072"
+      }
+    ],
+    "logs": [
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\shared-run-command-tests.log",
+        "bytes": 5796,
+        "sha256": "4cf4121f08d041a805be1703f360e846b8b52d0fcd180201c80d2e65cd484dad"
+      },
+      {
+        "path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\gpu-workflow-audit\\shared-run-command-cli-tests.log",
+        "bytes": 1440,
+        "sha256": "7c583987a6e7d32d66b61ddabd63ff09fa951d5416595a610fe45fe7c94abf42"
+      }
+    ],
+    "next": "Committed bounded GPU validation specification and approval before submission; no new HPC job authorized by these local results."
   }
 }

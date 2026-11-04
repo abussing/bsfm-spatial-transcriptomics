@@ -18,7 +18,9 @@ preprocessing, the October 26 mesh builder and GP/SVD initialization. Main also 
 contract and mesh-boundary interfaces. Main now includes the reviewed GPU kernel
 corrections, run controllers and periodic saving/restart implementation. Their
 validation scope and remaining launcher coupling are recorded in the workflow guide.
-A complete generic new-dataset run command remains unfinished.
+The shared `python -m bsfm.sampler.run` command consumes explicit prepared-artifact
+recipes. Its small CPU composition tests pass; fresh GPU execution validation
+remains pending. See the workflow guide for preparation stages and recipe fields.
 
 Use the existing numerical implementations and their linked contracts. Historical
 implementations are evidence, not alternative entry points. Large data, meshes,
