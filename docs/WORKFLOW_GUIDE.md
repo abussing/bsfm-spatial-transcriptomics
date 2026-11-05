@@ -159,6 +159,9 @@ invoke neither tuning nor sweeps; changed recipes were rejected. Git/environment
 attestation and artifact loading were explicitly mocked in this launcher test;
 those boundaries have their separate tests. Nine unique launcher/authentication
 checks pass. This is not a fresh GPU or real-dataset execution result.
+The [prepared bounded GPU specification](environment/shared-run-gpu-20261105/RUN_SPEC.json)
+uses committed deep/flat validation recipes, pinned synthetic artifacts and actual
+CLI authentication. It remains unsubmitted pending approval and HPC transfer.
 
 ## Prepared artifacts to sampler inputs
 

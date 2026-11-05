@@ -1,6 +1,6 @@
 # Current BSFM handoff
 
-Updated 2026-11-04. This is a continuation map, not a chronological work log.
+Updated 2026-11-05. This is a continuation map, not a chronological work log.
 Read [AGENTS.md](../AGENTS.md) and the [workflow guide](WORKFLOW_GUIDE.md).
 
 ## Current work and authority
@@ -35,7 +35,11 @@ recipes. Thirteen assembly/mesh tests pass; one R integration is skipped. The
 synthetic GP fit uses one thread because unchanged four-thread GPINIT also crashes
 in this local Windows environment; the accepted config is unchanged. The shared `python -m bsfm.sampler.run` command now handles explicit deep/flat
 recipes, phased retuning, periodic saving and same-run resume. Small real CPU
-transitions passed for both models; fresh shared-command GPU validation is next. See the workflow guide. Do not substitute the older boundary-carrier triangles
+transitions passed for both models. The [bounded GPU validation specification](environment/shared-run-gpu-20261105/RUN_SPEC.json)
+and pinned deep/flat recipes are prepared: one V100, four CPUs, 16 GiB, 30 minutes,
+synthetic inputs only. All 16 fixture files and runtime input joins passed local
+checks. Explicit submission approval is pending. The HPC connection timed out on
+2026-11-05; neither the new fixture nor source has been mirrored yet. See the workflow guide. Do not substitute the older boundary-carrier triangles
 as the final mesh. The shared command consumes prepared artifacts; raw preprocessing and mesh
 construction remain separate stages. No new HPC job has been submitted.
 

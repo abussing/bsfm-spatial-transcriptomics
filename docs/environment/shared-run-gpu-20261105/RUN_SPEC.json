@@ -1,0 +1,77 @@
+{
+  "schema": "bsfm.bounded-hpc-validation.v1",
+  "status": "prepared_not_submitted",
+  "purpose": "Validate actual shared CLI, environment and artifact joins on GPU for synthetic deep/flat runs and fresh-process completed non-replay",
+  "code_commit": "Exact commit containing this specification supplied to sbatch; recorded by validator",
+  "resources": {
+    "partition": "v100-16gb-hiprio",
+    "nodes": 1,
+    "tasks": 1,
+    "gpus": 1,
+    "cpus_per_task": 4,
+    "memory": "16G",
+    "time_limit": "00:30:00"
+  },
+  "environment": "/work/abussing/arka_trying_gpu_again/env",
+  "modules": [
+    "gcc/12.2.0",
+    "mpfr/4.1.0",
+    "cuda/12.3"
+  ],
+  "workload": {
+    "cells": 24,
+    "genes": 2,
+    "groups": 2,
+    "factors": 2,
+    "quadrature_order": 4,
+    "feature_columns": 64,
+    "models": [
+      "deep",
+      "flat"
+    ],
+    "per_model": {
+      "initial_tuning_per_factor": 20,
+      "bridge_sweeps": 1,
+      "retuning_per_factor": 20,
+      "production_sweeps": 2,
+      "save_every": 2
+    },
+    "repeat": "Each completed command repeated in a fresh process; zero new transitions or adaptation expected"
+  },
+  "acceptance": [
+    "Actual clean exact commit and GPU environment authentication pass, no mocks",
+    "All 16 mirrored synthetic input file hashes match committed inventory",
+    "Both deep and flat phases complete",
+    "Complete output file inventory unchanged after fresh-process rerun",
+    "Preserve logs and machine-readable report; record failures without tolerance changes"
+  ],
+  "excluded": [
+    "real scientific data",
+    "SCT or GPINIT fitting on HPC",
+    "mesh generation",
+    "environment installation",
+    "modifying or canceling existing jobs",
+    "posterior convergence claims",
+    "uncommitted interruption/replay validation"
+  ],
+  "output": "/work/abussing/bsfm-consolidation/evidence/shared-run-gpu-JOBID",
+  "submission_gate": "AGENTS.md rule 6: commit this specification and obtain explicit user approval before sbatch.",
+  "local_preflight": {
+    "status": "PASS",
+    "checks": [
+      "All 16 fixture files matched committed inventory",
+      "Both recipes passed shared command schema validation",
+      "Both file closures loaded through generic runtime input joins with local path relocation only",
+      "K2/24 cells/2 groups/2 genes/L4 dimensions confirmed",
+      "GPU runtime and P100 receipt hashes matched",
+      "Validator Python syntax checked"
+    ],
+    "limitation": "No GPU execution, scheduling or network transfer established"
+  },
+  "deployment": {
+    "fixture_mirrored": false,
+    "source_mirrored": false,
+    "last_connection": "Existing session closed; fresh plink connection to login.rci.sc.edu:222 timed out on 2026-11-05",
+    "job_submitted": false
+  }
+}

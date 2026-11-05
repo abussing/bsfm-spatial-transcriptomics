@@ -1,0 +1,90 @@
+{
+  "schema": "bsfm.synthetic-fixture-inventory.v1",
+  "producer_commit": "3863dfe152df8da3cdb1bbdf8f40db9e040c6c3c",
+  "producer": "tests/test_dataset_sampler_inputs.py:DatasetSamplerInputs.setUpClass",
+  "scope": "24 synthetic cells, 2 groups, 2 genes, K2, L4; GPINIT one-thread test configuration; synthetic final mesh, not R output from a real tissue",
+  "hpc_root": "/work/abussing/bsfm-consolidation/evidence/shared-command-gpu-fixture-20261104",
+  "archive_sha256": "3d20faaa491e9e050a8f3b4fdd830cfba190385034807f043a609598f15c8bf6",
+  "files": [
+    {
+      "path": "dataset/dataset.json",
+      "bytes": 638,
+      "sha256": "d87754ee42c3aea0ddb38ac1dc9403e575b00acf8d9a0478740da6315d5ada32"
+    },
+    {
+      "path": "dataset/dataset.npz",
+      "bytes": 2560,
+      "sha256": "ba244fb8d41d79374d78dbf4b01100c38aae8d9b35fdfb19dd7e1e46a1b316ad"
+    },
+    {
+      "path": "final-mesh/A_proj.mtx",
+      "bytes": 1857,
+      "sha256": "cfea96c51909f16f2c3f742a1a91900717e2bd03a0471f94844b7e0c2e449d74"
+    },
+    {
+      "path": "final-mesh/geometry.json",
+      "bytes": 127,
+      "sha256": "a0ca1b5e67cc8e0903d5b30c91baaefb2d77f7e0e94ff2167031228efe88be33"
+    },
+    {
+      "path": "final-mesh/mesh_loc.csv",
+      "bytes": 260,
+      "sha256": "93131f6c2a9172c83f3ea5daef40a42745b760d709b0a046264b635139191e6f"
+    },
+    {
+      "path": "final-mesh/mesh_tv.csv",
+      "bytes": 38,
+      "sha256": "7e2cbcd384196f51d67d4175128c65e65c849f8b7e1d4369624c0bffafe6b1f2"
+    },
+    {
+      "path": "gp-config.json",
+      "bytes": 1160,
+      "sha256": "6001e3b62fadce9d0e7366c0c12c41e1053d6a2afde7188b6e49bb298580fbfb"
+    },
+    {
+      "path": "prepared/gpinit-input.json",
+      "bytes": 1659,
+      "sha256": "7f79af6fd5b49adcf00154c7a93ee22bdce90f52b0ad3dbedb31f67dfa6a5d18"
+    },
+    {
+      "path": "prepared/response.json",
+      "bytes": 1979,
+      "sha256": "1cae030863c33c986efa8d2612b5f0b08dbdd894258c082bfb7528b0dcb5dd49"
+    },
+    {
+      "path": "prepared/scoring.npz",
+      "bytes": 1409,
+      "sha256": "d7838f6f162f46bbd230275bb026bdda062123b731a9e79fd9b586f8f002a502"
+    },
+    {
+      "path": "prepared/training.npz",
+      "bytes": 2280,
+      "sha256": "e293bddeca4a68b361c3a29e3ffc2d5c9776d4419998c11febe960fe7e1b869e"
+    },
+    {
+      "path": "rule.json",
+      "bytes": 5984,
+      "sha256": "5ebf7561ee4a72b609ebd4639d584d11360f93dd07ebf5ab4f53db75c2165168"
+    },
+    {
+      "path": "seeds/certificate.json",
+      "bytes": 4935,
+      "sha256": "4826f0c791c9d36e013e39c28d1409f0b5c6a60817050b53f36d2d7cfa40eadb"
+    },
+    {
+      "path": "seeds/gpinit.npz",
+      "bytes": 2206,
+      "sha256": "f594c88f6372372e9dd0628346a2297c8b915fd86b787dc89649002a5fd877a8"
+    },
+    {
+      "path": "selection.json",
+      "bytes": 387,
+      "sha256": "8dd5ea4002ad485773ae8217cded9745d2965b03d14710578ab0aac8e9071278"
+    },
+    {
+      "path": "warp.npz",
+      "bytes": 3036,
+      "sha256": "0aeee0e649eca1193d399e2b03c873c287ed0baa207646255d009283ffed571d"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema": "bsfm.sampler-run.v1",
+  "backend": "gpu",
+  "model": "flat",
+  "chain_id": "synthetic-flat",
+  "factor_ids": [
+    "factor-a",
+    "factor-b"
+  ],
+  "seed": 491,
+  "files": {
+    "prepared": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/shared-command-gpu-fixture-20261104/prepared/training.npz",
+      "bytes": 2280,
+      "sha256": "e293bddeca4a68b361c3a29e3ffc2d5c9776d4419998c11febe960fe7e1b869e"
+    },
+    "contract": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/shared-command-gpu-fixture-20261104/prepared/gpinit-input.json",
+      "bytes": 1659,
+      "sha256": "7f79af6fd5b49adcf00154c7a93ee22bdce90f52b0ad3dbedb31f67dfa6a5d18"
+    },
+    "response_manifest": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/shared-command-gpu-fixture-20261104/prepared/response.json",
+      "bytes": 1979,
+      "sha256": "1cae030863c33c986efa8d2612b5f0b08dbdd894258c082bfb7528b0dcb5dd49"
+    },
+    "mesh": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/shared-command-gpu-fixture-20261104/warp.npz",
+      "bytes": 3036,
+      "sha256": "0aeee0e649eca1193d399e2b03c873c287ed0baa207646255d009283ffed571d"
+    },
+    "gpinit": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/shared-command-gpu-fixture-20261104/seeds/gpinit.npz",
+      "bytes": 2206,
+      "sha256": "f594c88f6372372e9dd0628346a2297c8b915fd86b787dc89649002a5fd877a8"
+    },
+    "certificate": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/shared-command-gpu-fixture-20261104/seeds/certificate.json",
+      "bytes": 4935,
+      "sha256": "4826f0c791c9d36e013e39c28d1409f0b5c6a60817050b53f36d2d7cfa40eadb"
+    },
+    "rule": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/shared-command-gpu-fixture-20261104/rule.json",
+      "bytes": 5984,
+      "sha256": "5ebf7561ee4a72b609ebd4639d584d11360f93dd07ebf5ab4f53db75c2165168"
+    }
+  },
+  "dataset_recipe": {
+    "schema": "bsfm.dataset-run-inputs.v1",
+    "sample": "new-tissue",
+    "coordinate_system": "october26_glial_min_max_span",
+    "quadrature_order": 4
+  },
+  "gpu_runtime": {
+    "receipt": "../../docs/environment/gpu-runtime-20261103/GPU_RUNTIME_RECEIPT.json",
+    "expected_sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c",
+    "prefix": "/work/abussing/arka_trying_gpu_again/env",
+    "site_packages": "/work/abussing/arka_trying_gpu_again/env/lib/python3.11/site-packages",
+    "libdevice": "/work/apps/cuda/12.3/nvvm/libdevice/libdevice.10.bc",
+    "p100_receipt": "../../docs/environment/gpu-runtime-20261103/P100_VALIDATION_RECEIPT.json",
+    "p100_sha256": "22e6dacda6e253146fcce99c9aaef13dcdf982f5cdd8c83412544149eeae0652",
+    "blas_threads": 1
+  },
+  "phases": [
+    {
+      "run_id": "bridge",
+      "warmup_steps": 20,
+      "sweeps": 1,
+      "save_every": 2
+    },
+    {
+      "run_id": "production",
+      "warmup_steps": 20,
+      "sweeps": 2,
+      "save_every": 2
+    }
+  ]
+}
