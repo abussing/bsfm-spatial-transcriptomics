@@ -38,10 +38,14 @@ recipes, phased retuning, periodic saving and same-run resume. Small real CPU
 transitions passed for both models. The [bounded GPU validation specification](environment/shared-run-gpu-20261105/RUN_SPEC.json)
 and pinned deep/flat recipes are prepared: one V100, four CPUs, 16 GiB, 30 minutes,
 synthetic inputs only. All 16 fixture files and runtime input joins passed local
-checks. Explicit submission approval is pending. The HPC connection timed out on
-2026-11-05; neither the new fixture nor source has been mirrored yet. See the workflow guide. Do not substitute the older boundary-carrier triangles
+checks. After explicit approval, job `22020867` was submitted on 2026-11-05 from
+clean commit `de816792848ee47720fee7cd5233e50a0aeaafce`. Source and all 16 fixture
+files are mirrored and hash-verified on HPC. GPU validation results are not yet
+available. The first attempt (`22020849`) failed before validation because node398
+has no shared `/work` mount; the identical retry excludes that node. The specification records
+the exact checkout, output and scheduler log paths. See the workflow guide. Do not substitute the older boundary-carrier triangles
 as the final mesh. The shared command consumes prepared artifacts; raw preprocessing and mesh
-construction remain separate stages. No new HPC job has been submitted.
+construction remain separate stages. This job uses synthetic inputs only.
 
 ## Where to find verified methods and evidence
 

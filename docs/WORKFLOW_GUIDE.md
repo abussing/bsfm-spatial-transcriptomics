@@ -161,7 +161,11 @@ those boundaries have their separate tests. Nine unique launcher/authentication
 checks pass. This is not a fresh GPU or real-dataset execution result.
 The [prepared bounded GPU specification](environment/shared-run-gpu-20261105/RUN_SPEC.json)
 uses committed deep/flat validation recipes, pinned synthetic artifacts and actual
-CLI authentication. It remains unsubmitted pending approval and HPC transfer.
+CLI authentication. Approved job `22020867` was submitted from clean commit
+`de816792848ee47720fee7cd5233e50a0aeaafce` after source and fixture verification
+on HPC. The first attempt failed on node398, where the shared `/work` mount is
+absent; the identical retry excludes that node. Validation remains unestablished
+until its report is inspected. The specification records output and log paths.
 
 ## Prepared artifacts to sampler inputs
 

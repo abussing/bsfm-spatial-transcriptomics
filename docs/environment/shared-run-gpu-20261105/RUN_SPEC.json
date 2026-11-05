@@ -1,6 +1,6 @@
 {
   "schema": "bsfm.bounded-hpc-validation.v1",
-  "status": "prepared_not_submitted",
+  "status": "submitted",
   "purpose": "Validate actual shared CLI, environment and artifact joins on GPU for synthetic deep/flat runs and fresh-process completed non-replay",
   "code_commit": "Exact commit containing this specification supplied to sbatch; recorded by validator",
   "resources": {
@@ -69,9 +69,33 @@
     "limitation": "No GPU execution, scheduling or network transfer established"
   },
   "deployment": {
-    "fixture_mirrored": false,
-    "source_mirrored": false,
-    "last_connection": "Existing session closed; fresh plink connection to login.rci.sc.edu:222 timed out on 2026-11-05",
-    "job_submitted": false
+    "fixture_mirrored": true,
+    "source_mirrored": true,
+    "last_connection": "Authenticated interactive SSH with Duo on 2026-11-05",
+    "job_submitted": true,
+    "job_id": "22020867",
+    "submission_override": "--exclude=node398; original script, source, workload and resource limits unchanged",
+    "previous_attempt": {
+      "job_id": "22020849",
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "elapsed": "00:00:02",
+      "node": "node398",
+      "diagnosis": "Read-only SSH inspection confirmed /work is an empty root-filesystem directory on node398, with no /work/abussing. Slurm could not create the log; validator output is absent. node394 can see the source and evidence paths.",
+      "sampler_validation": "Not reached"
+    },
+    "submitted_commit": "de816792848ee47720fee7cd5233e50a0aeaafce",
+    "approval": "User explicitly approved this bounded validation before submission",
+    "checkout": "/work/abussing/bsfm-consolidation/checkouts/de816792848ee47720fee7cd5233e50a0aeaafce",
+    "checkout_clean": true,
+    "bundle_sha256": "d87a1f510c598b09d8ec8ea21f4044e9b560a8ced6cb554afbb0c233ca2e0047",
+    "fixture_archive_sha256": "3d20faaa491e9e050a8f3b4fdd830cfba190385034807f043a609598f15c8bf6",
+    "fixture_verified_files": 16,
+    "fixture_verified_bytes": 30515,
+    "verification": "Both transfer hashes, Git bundle prerequisites, exact clean checkout and complete extracted fixture inventory verified on HPC before sbatch",
+    "last_observed_state": "SUBMITTED",
+    "validation_result": "Not yet available; submission does not establish GPU validation",
+    "output": "/work/abussing/bsfm-consolidation/evidence/shared-run-gpu-22020867",
+    "scheduler_log": "/work/abussing/bsfm-consolidation/evidence/shared-run-gpu-22020867.log"
   }
 }
