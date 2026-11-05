@@ -8,6 +8,11 @@ import json
 import importlib.metadata
 from pathlib import Path
 import warnings
+import hashlib
+import os
+import platform
+import tempfile
+from concurrent.futures import ProcessPoolExecutor, as_completed
 import numpy as np
 from .dataset import load_dataset,file_hash,validate
 from .gene_selection import expression_eligible
@@ -96,11 +101,124 @@ def aggregate_animals(rows):
     return [dict(gene=g,celltype=t,animal=a,spatial_fraction=float(np.median(v))) for (g,t,a),v in sorted(grouped.items())]
 
 
+def _json_bytes(value):
+    return (json.dumps(value,sort_keys=True,allow_nan=False)+'\n').encode('utf-8')
+
+
+def _publish(path,value):
+    """Atomic file publication; caller holds the checkpoint-directory lock."""
+    raw=_json_bytes(value)
+    if path.exists():
+        if path.read_bytes()!=raw:raise ValueError('Existing output differs: '+str(path))
+        return
+    fd,name=tempfile.mkstemp(prefix='.pending-',dir=path.parent)
+    try:
+        with os.fdopen(fd,'wb') as f:f.write(raw);f.flush();os.fsync(f.fileno())
+        os.replace(name,path)
+    finally:
+        if os.path.exists(name):os.unlink(name)
+
+
+def _load_worker(dataset,manifest):
+    global _worker_data,_worker_metadata
+    _worker_data,_worker_metadata=load_dataset(dataset,expected_manifest_sha256=manifest)
+
+
+def _screen_worker(spec):
+    return screen_sample(_worker_data,_worker_metadata,**spec)
+
+
+def screen_batched(dataset,manifest,recipe_path,checkpoint,*,batch_size,workers,output):
+    """Partition genes only; every batch keeps all groups and identical RNG draws.
+
+    Completed batches survive interruption. Only unpublished batches may be
+    recomputed. A stale .lock directory after forced termination needs explicit
+    removal after confirming that the previous process and its workers stopped.
+    """
+    if type(batch_size) is not int or batch_size<1 or type(workers) is not int or workers<1:
+        raise ValueError('Positive batch size and workers required')
+    recipe_path=Path(recipe_path);checkpoint=Path(checkpoint);output=Path(output)
+    recipe=json.loads(recipe_path.read_text(encoding='utf-8'))
+    genes=recipe['genes'];groups=recipe['groups']
+    if not genes or len(set(genes))!=len(genes):raise ValueError('Unique nonempty gene list required')
+    if not groups or len(set(groups))!=len(groups):raise ValueError('Unique nonempty groups required')
+    data,metadata=load_dataset(dataset,expected_manifest_sha256=manifest)
+    versions={p:importlib.metadata.version(p) for p in ('numpy','scipy','scikit-learn','threadpoolctl')}
+    contract=dict(schema='bsfm.gp-screen-batches.v1',dataset_manifest_sha256=manifest,
+                  recipe_sha256=file_hash(recipe_path),source_sha256=file_hash(__file__),
+                  dependency_sources={name:file_hash(Path(__file__).with_name(name))
+                                      for name in ('dataset.py','gene_selection.py','normalization.py')},
+                  versions=versions,python=platform.python_version(),platform=platform.platform(),
+                  batch_size=batch_size)
+    identity=hashlib.sha256(_json_bytes(contract)).hexdigest()
+    checkpoint.mkdir(parents=True,exist_ok=True)
+    lock=checkpoint/'.lock';lock.mkdir(exist_ok=False)
+    try:
+        _publish(checkpoint/'contract.json',contract)
+        chunks=[genes[i:i+batch_size] for i in range(0,len(genes),batch_size)]
+        reports={};pending=[]
+        def accept(index,envelope):
+            report=envelope['report']
+            if envelope['contract_sha256']!=identity or envelope['index']!=index:
+                raise ValueError('Batch identity differs')
+            if hashlib.sha256(_json_bytes(report)).hexdigest()!=envelope['report_sha256']:
+                raise ValueError('Batch checksum differs')
+            expected=[(recipe['sample'],gene,group) for group in groups for gene in chunks[index]]
+            if [(r['sample'],r['gene'],r['celltype']) for r in report['rows']]!=expected:
+                raise ValueError('Batch rows differ')
+            reports[index]=report
+        def save(index,report):
+            envelope=dict(contract_sha256=identity,index=index,report=report,
+                          report_sha256=hashlib.sha256(_json_bytes(report)).hexdigest())
+            accept(index,envelope)
+            _publish(checkpoint/f'batch-{index:06d}.json',envelope)
+            print(f'BATCH {index+1}/{len(chunks)} COMPLETE',flush=True)
+        for index,chunk in enumerate(chunks):
+            path=checkpoint/f'batch-{index:06d}.json'
+            if path.exists():accept(index,json.loads(path.read_text(encoding='utf-8')))
+            else:pending.append((index,dict(recipe,genes=chunk)))
+        print(f'RESUME {len(reports)}/{len(chunks)} batches already complete',flush=True)
+        if workers==1:
+            for index,spec in pending:save(index,screen_sample(data,metadata,**spec))
+        elif pending:
+            del data
+            with ProcessPoolExecutor(max_workers=workers,initializer=_load_worker,
+                                     initargs=(str(dataset),manifest)) as pool:
+                tasks={pool.submit(_screen_worker,spec):index for index,spec in pending}
+                try:
+                    for future in as_completed(tasks):save(tasks[future],future.result())
+                except BaseException:
+                    for future in tasks:future.cancel()
+                    raise
+        base={k:v for k,v in reports[0].items() if k!='rows'}
+        rows={}
+        for report in reports.values():
+            if {k:v for k,v in report.items() if k!='rows'}!=base:
+                raise ValueError('Batch geometry, sampling or configuration differs')
+            rows.update({(r['gene'],r['celltype']):r for r in report['rows']})
+        result=dict(base,rows=[rows[g,t] for t in groups for g in genes],
+                    dataset_manifest_sha256=manifest,recipe_sha256=contract['recipe_sha256'],
+                    source_sha256=contract['source_sha256'],versions=versions,
+                    batch_contract_sha256=identity)
+        _publish(output,result)
+        return result
+    finally:
+        lock.rmdir()
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--dataset',type=Path,required=True);p.add_argument('--manifest-sha256',required=True)
     p.add_argument('--recipe',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--checkpoint-dir',type=Path)
+    p.add_argument('--batch-size',type=int,default=16)
+    p.add_argument('--workers',type=int,default=1)
     a=p.parse_args()
+    if a.checkpoint_dir is not None:
+        screen_batched(a.dataset,a.manifest_sha256,a.recipe,a.checkpoint_dir,
+                       batch_size=a.batch_size,workers=a.workers,output=a.output)
+        return
+    if a.workers!=1:p.error('--workers requires --checkpoint-dir')
     if a.output.exists():raise FileExistsError(a.output)
     d,m=load_dataset(a.dataset,expected_manifest_sha256=a.manifest_sha256)
     recipe=json.loads(a.recipe.read_text(encoding='utf-8'))

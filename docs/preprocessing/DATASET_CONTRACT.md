@@ -186,3 +186,27 @@ each group's fit or exclusion status. It uses no held-out or model-comparison
 score. The existing `--animal-summary` mode and Johnston recipe are unchanged.
 A full screen must finish before its final panel is passed to preparation and
 GPINIT; a timing pilot is not a gene-selection result.
+
+### Resumable spatial screening
+
+The existing screen CLI accepts `--checkpoint-dir /external/batches --batch-size 16
+--workers 8`. These arguments split only the ordered gene list. Every batch uses
+all configured groups, the same fixed geometry and the same per-group RNG draws.
+The original `screen_sample` fitting function is unchanged. Worker count is an
+execution choice, not part of the scientific sampling configuration.
+
+Each completed batch is published atomically and checksummed. Resume binds the
+dataset, recipe, source dependencies, numerical runtime and batch size; it reuses
+completed batches without refitting. Only a complete batch collection produces
+the final screening JSON. With eight workers, interruption can require repeating
+up to eight unfinished batches. After forced termination, confirm the old job and
+all workers have stopped before removing its stale `.lock` directory; never run
+two writers against the same checkpoint directory. Completed output is reusable
+only if its exact content agrees. Input, source or environment changes require a
+new output directory.
+
+The [existing validation receipt](DATASET_LAYER_VALIDATION.json) contains the
+successful Linux pilot, exact input hashes and prepared full-run specification.
+The full run records all genes' fit or exclusion results. Passing the 0.10 spatial
+fraction gate does not automatically choose the final modeling panel: the user
+will inspect the strongest within-cell-type signals before choosing that panel.

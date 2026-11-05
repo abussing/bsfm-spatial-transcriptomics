@@ -111,9 +111,14 @@ Axolotl import is now hash-verified on HPC at
 `/work/abussing/bsfm-consolidation/evidence/axolotl-screening-20261105/dataset-v1`.
 The approved six-fit screening pilot is job `22021229`, submitted from clean
 commit `07b884f7bf22190b7c83c07e8381e17d8252753e` on `defq-48core` with two CPUs,
-8 GiB and ten minutes. Last observed pending for priority; no HPC pilot result
-is established yet. Its exact source, inputs and output path are recorded in the
-dataset validation receipt. The local six-fit pilot passed in about 46 seconds.
+8 GiB and ten minutes. It passed all ten tests and six fits, completing in 80
+seconds on node284. The local six-fit pilot took about 46 seconds; spatial
+fractions differ by at most 3.11e-15 across the two environments. The existing
+screen CLI now supports resumable gene batches, preserving the GP fitting
+function unchanged. Thirteen focused tests pass. The full-run specification is
+prepared in the dataset validation receipt: eight CPUs, 32 GiB, up to 24 hours,
+16 genes per saved batch. Submission awaits explicit resource approval. No
+top-N panel is imposed; inspect within-type spatial strengths after screening.
 The full screen has not started. The imported bundle's original local path,
 hashes, 16,586 genes, 4,410 cells and six groups are recorded in the
 [import receipt](preprocessing/DATASET_LAYER_VALIDATION.json). It reuses the
