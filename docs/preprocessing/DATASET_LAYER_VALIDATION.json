@@ -160,7 +160,7 @@
       "comparison_scope": "Six AACS fits only; tiny cross-platform differences retained, no bitwise cross-platform claim"
     },
     "full_hpc_run_spec": {
-      "status": "PREPARED_NOT_SUBMITTED",
+      "status": "SUBMITTED",
       "purpose": "Screen within-cell-type spatial variation for all genes in all six axolotl groups; retain all fit/exclusion records for later ranking and user panel choice",
       "partition": "defq-48core",
       "nodes": 1,
@@ -180,7 +180,7 @@
       "expression_eligible_gene_union": 5305,
       "maximum_fitting_cells_per_group": 1500,
       "settings": "Unchanged recovered GP kernel, optimizer and within-group sampled cells; gene batching only",
-      "source_commit": "Exact clean commit containing this specification, recorded on submission",
+      "source_commit": "cc8276b3162ac1917b6c7b7caf14ffefc69cc161",
       "script": "docs/preprocessing/axolotl-screen-20261105.sbatch",
       "submission_arguments": [
         "--partition=defq-48core",
@@ -190,7 +190,7 @@
         "--job-name=bsfm-ax-full",
         "--output=/work/abussing/bsfm-consolidation/evidence/axolotl-full-screen-%j.log",
         "docs/preprocessing/axolotl-screen-20261105.sbatch",
-        "EXACT_COMMIT",
+        "cc8276b3162ac1917b6c7b7caf14ffefc69cc161",
         "full"
       ],
       "inputs": {
@@ -209,7 +209,7 @@
         "gcc/12.2.0",
         "mpfr/4.1.0"
       ],
-      "output": "/work/abussing/bsfm-consolidation/evidence/axolotl-full-screen-EXACT_COMMIT",
+      "output": "/work/abussing/bsfm-consolidation/evidence/axolotl-full-screen-cc8276b3162ac1917b6c7b7caf14ffefc69cc161",
       "retention": "Atomically publish each completed batch; immutable contract binds input, recipe, source dependencies, runtime and batch size. Same-source resume authenticates and reuses completed batches. Up to eight unfinished batches can require recomputation. After forced termination, remove only stale .lock after verifying all previous processes stopped. No automatic lock deletion.",
       "preflight": "Run 13 focused tests in the allocation before the full screen",
       "local_validation": {
@@ -232,7 +232,13 @@
         "Environment installation",
         "Changes to existing jobs"
       ],
-      "approval": "Prepared for explicit resource approval under AGENTS.md rule 6; not submitted"
+      "approval": "User explicitly approved full gene screen: 8 CPUs, 32 GiB, 24 hours on defq-48core",
+      "job_id": "22021465",
+      "checkout": "/work/abussing/bsfm-consolidation/checkouts/cc8276b3162ac1917b6c7b7caf14ffefc69cc161",
+      "checkout_clean": true,
+      "scheduler_log": "/work/abussing/bsfm-consolidation/evidence/axolotl-full-screen-22021465.log",
+      "deployment": "Exact source bundle and full recipe verified on HPC; existing dataset hashes authenticated before pilot and rechecked by full runner",
+      "validation_result": "Not yet available"
     }
   }
 }
