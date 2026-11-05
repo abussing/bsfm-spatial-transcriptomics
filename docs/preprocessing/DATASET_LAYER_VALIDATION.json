@@ -33,5 +33,114 @@
     "src/bsfm/preprocessing/import_rdata.py": "72b1b17287950a6f76828500ffa386496088505afc1815f012179fe938928269",
     "src/bsfm/preprocessing/export_rdata.R": "06e5dddfa82a3e8f25bed1e2babbe87abb387e835fb5fbaa039113afae847ec3",
     "config/datasets/axolotl-artista.json": "374521fe6fb0e9969d4d753f7f402e22ca13bbe36dcf448af730701cc4875090"
+  },
+  "single_sample_screening": {
+    "scope": "All six axolotl cell types; expression eligibility and six-fit local timing pilot, not a final panel",
+    "status": "PILOT_PASS_FULL_SCREEN_NOT_STARTED",
+    "groups": {
+      "CP": 2183,
+      "EGC": 3434,
+      "Immature_Neuron": 3863,
+      "Mature_Neuron": 3929,
+      "NBL": 3760,
+      "VLMC": 2140
+    },
+    "candidate_union": 5305,
+    "eligible_blocks": 19309,
+    "pilot_gene": "AACS",
+    "pilot_choice": "First lexicographic gene eligible in all six groups; no spatial score used",
+    "pilot_seconds": 45.98400000005495,
+    "pilot_fit_count": 6,
+    "versions": {
+      "numpy": "2.1.3",
+      "scipy": "1.14.1",
+      "scikit-learn": "1.4.2",
+      "threadpoolctl": "3.5.0"
+    },
+    "tests": {
+      "passed": 10,
+      "command": "python -m unittest test_single_sample_selection test_dataset_preprocessing test_spatial_screen -v",
+      "includes": "Original 91-gene exact recovery, historical GP equivalence and new single-sample selection checks"
+    },
+    "external_root": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\axolotl-audit-20261104\\screening-20261105",
+    "external_files": {
+      "pilot-recipe.json": {
+        "bytes": 79258,
+        "sha256": "079ce873a4f45d4ee835cca6a0353e2da953a63f9573df5aacde4fa00b2085c1"
+      },
+      "full-screen-recipe.json": {
+        "bytes": 406183,
+        "sha256": "56c2569d9fc4edf05dd0c8017cf579bfc8894e1beec1c1417c6b5239343ea0f5"
+      },
+      "preflight.json": {
+        "bytes": 712,
+        "sha256": "ae5392ed56e9970851e88ed12a7f59e2c0c52cb10cb213bfffa0df8b8c40142c"
+      },
+      "pilot-screen.json": {
+        "bytes": 59318,
+        "sha256": "1998c532b144b623d15be3ce7250bd9514c9b857e9d92713c702ef6bb8cbabe8"
+      },
+      "pilot-selection.json": {
+        "bytes": 2278,
+        "sha256": "efe5448ae40522f1d33ef0b23ea0cd97ac0aa06e9fe9e0e6ab9bc08f64c8a07a"
+      },
+      "pilot-timing.json": {
+        "bytes": 726,
+        "sha256": "c117c06d53dd1859859d718665dc9542f47f9272ba4e18fa3cc33b1fa2dacdd6"
+      },
+      "pilot.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "source_files": {
+      "src/bsfm/preprocessing/gene_selection.py": "f72dc3ec3fba2ae6025593cba6d4a57150f2ea4261c4a39be25b59720dd117a2",
+      "src/bsfm/preprocessing/spatial_screen.py": "1afbe0393959495485bf434f4dba0341c6f33459601ecc0c920dbd5cd4aa4b66",
+      "config/preprocessing/axolotl-gp-screen.json": "f14a5da9d8a614922eee1ae0fa9d3c98619be3f5e2d0e28a83f27aec4799097d",
+      "config/preprocessing/axolotl-gene-selection.json": "74d610437af630f5f28a555f8e05545fa3c02f7df090eb60d432538533a14cd1"
+    },
+    "next_hpc_run_spec": {
+      "status": "PREPARED_NOT_SUBMITTED",
+      "purpose": "Check the existing GP-screen CLI and selector on the six-fit real axolotl timing pilot in the available Linux environment before planning the full screen",
+      "partition": "defq-48core",
+      "nodes": 1,
+      "tasks": 1,
+      "cpus": 2,
+      "memory": "8G",
+      "time_limit": "00:10:00",
+      "gpus": 0,
+      "maximum_gp_fits": 6,
+      "source_commit": "Exact clean commit containing this specification, recorded at submission",
+      "environment": "/work/abussing/arka_trying_gpu_again/env",
+      "modules": [
+        "gcc/12.2.0",
+        "mpfr/4.1.0"
+      ],
+      "threads": 1,
+      "inputs": {
+        "dataset_manifest_sha256": "a04f87fd3fdf9ca8eafebf8528d194efafed52edd08212ddbcd2e6e44fc41663",
+        "dataset_payload_sha256": "6b39b91fb1ea8dac783473728178b10b739e4ac1e3c3d137450f28a2d5ddc0a8",
+        "pilot_recipe_sha256": "079ce873a4f45d4ee835cca6a0353e2da953a63f9573df5aacde4fa00b2085c1"
+      },
+      "steps": [
+        "Verify complete input hashes and exact clean source commit",
+        "Record numerical package versions; require numpy 2.1.3, scipy 1.14.1 and scikit-learn 1.4.2; record threadpoolctl 3.6.0 versus local 3.5.0",
+        "Run test_single_sample_selection, test_dataset_preprocessing and test_spatial_screen in the recorded environment",
+        "Run bsfm.preprocessing.spatial_screen with the pinned pilot recipe using all six groups and AACS only",
+        "Run bsfm.preprocessing.gene_selection with --sample-screen and the committed axolotl selection recipe",
+        "Retain logs, exact commands, timings, output hashes and numerical comparison with the local pilot; report differences rather than relax tolerances"
+      ],
+      "excluded": [
+        "Full gene screen",
+        "Mesh generation",
+        "GPINIT",
+        "Gibbs sampling",
+        "Environment installation",
+        "Modification of existing jobs"
+      ],
+      "approval": "Requires user approval under AGENTS.md rule 6 before submission",
+      "deployment": "Axolotl dataset and pilot recipe must be hash-verified on HPC; not yet transferred",
+      "script": "docs/preprocessing/axolotl-screen-20261105.sbatch"
+    }
   }
 }

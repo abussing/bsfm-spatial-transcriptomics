@@ -1,0 +1,11 @@
+{
+  "cap": 1500,
+  "seed": 0,
+  "threads": 1,
+  "expression_units": "log2(1 + library-scaled count_use)",
+  "expression": {"minimum_detection": 0.3, "minimum_q90": 1.0, "nonconstant_tolerance": 1e-12},
+  "minimum_nonzero": 10,
+  "constant_variance_tolerance": 1e-12,
+  "kernel": {"constant": 1.0, "constant_bounds": [0.01,100.0], "length_scale": 0.3, "length_scale_bounds": [0.02,3.0], "nu": 2.5, "noise": 0.5, "noise_bounds": [0.001,100.0]},
+  "regressor": {"normalize_y": true, "n_restarts_optimizer": 0, "alpha": 1e-6}
+}

@@ -159,6 +159,30 @@ normalization is not relabeled training-only for future holdout evaluation.
 Keep three separate recipe decisions: response transformation, expression
 eligibility, and spatial gene selection. CELINA's test-specific gene filters are
 useful provenance, not an automatic replacement of the recovered BSFM rule.
-Unknown animal identity and single-group recurrence need an explicit adaptation;
-do not invent independent animals from cell types. No axolotl fitting group or
-panel is selected by this document.
+Do not invent independent animals from cell types. The user has selected all six
+supplied cell types and all 4,410 cells for the first axolotl analysis, with an
+explicit within-sample spatial screen. No region restriction or holdout is used.
+
+The [screen configuration](../../config/preprocessing/axolotl-gp-screen.json)
+retains the recovered GP kernel, optimizer, seed, one thread and maximum 1,500
+fitting cells per group. Eligibility requires detection in at least 30% of that
+group, nonconstant expression and q90 >= 1 in the declared log2 response. Here
+q90=1 means one library-scaled count; this is an explicit axolotl eligibility
+choice, not a claim of equivalence with an SCT threshold. The saved response is
+not transformed again. All 16,586 genes are evaluated for eligibility; 5,305
+qualify in at least one type before any spatial fit. This is not a final panel.
+
+The [selection recipe](../../config/preprocessing/axolotl-gene-selection.json)
+retains genes with fitted signal/(signal+noise) >= 0.10 in at least one configured
+type. The existing selector now accepts the existing GP-screen JSON directly:
+
+```text
+python -m bsfm.preprocessing.gene_selection --sample-screen /external/screen.json --recipe config/preprocessing/axolotl-gene-selection.json --output /external/selected-genes.json
+```
+
+This explicit single-sample mode reports no cross-animal recurrence assessment.
+It rejects duplicate, mixed-sample and incomplete gene/group tables and records
+each group's fit or exclusion status. It uses no held-out or model-comparison
+score. The existing `--animal-summary` mode and Johnston recipe are unchanged.
+A full screen must finish before its final panel is passed to preparation and
+GPINIT; a timing pilot is not a gene-selection result.

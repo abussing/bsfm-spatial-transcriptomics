@@ -110,8 +110,13 @@ for their distinct validation scopes and preserved failures.
 Axolotl import is local, not confirmed mirrored to HPC. Its exact bundle path,
 hashes, 16,586 genes, 4,410 cells and six groups are recorded in the
 [import receipt](preprocessing/DATASET_LAYER_VALIDATION.json). It reuses the
-existing normalized response without another transformation. No axolotl fitting
-group, gene panel or scientific run has been selected by this cleanup.
+existing normalized response without another transformation. The user subsequently
+selected all six cell types, all 4,410 cells and within-sample spatial screening.
+The existing selector supports this explicit mode without fabricating animal
+identities; the Johnston recurrence rule is unchanged. See the dataset guide for
+recipes and response-unit-specific eligibility. The expression filter leaves
+5,305 candidate genes in at least one type; the final spatial panel and sampler
+fit remain unfinished.
 
 ## Existing experiment outputs (not live job status)
 

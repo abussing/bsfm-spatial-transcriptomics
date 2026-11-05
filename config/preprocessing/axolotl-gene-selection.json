@@ -1,0 +1,8 @@
+{
+  "rationale": "User selected all six supplied cell types and within-sample spatial screening. Retain a gene if its fitted signal/(signal+noise) is at least 0.10 in any configured type. This retains the recovered spatial criterion without claiming recurrence across independent animals. No held-out prediction or deep-versus-flat advantage enters selection.",
+  "selection": {
+    "sample": "artista_data",
+    "spatial_fraction_threshold": 0.1,
+    "allowed_celltypes": ["CP", "EGC", "Immature_Neuron", "Mature_Neuron", "NBL", "VLMC"]
+  }
+}
