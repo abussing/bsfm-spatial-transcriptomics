@@ -107,7 +107,14 @@ Windows environments or guessed package substitutions. See the [Linux review
 results](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/147f79e/docs/sampler/linux-review-20261103/REVIEW_RESULTS.md) and GPU evidence above
 for their distinct validation scopes and preserved failures.
 
-Axolotl import is local, not confirmed mirrored to HPC. Its exact bundle path,
+Axolotl import is now hash-verified on HPC at
+`/work/abussing/bsfm-consolidation/evidence/axolotl-screening-20261105/dataset-v1`.
+The approved six-fit screening pilot is job `22021229`, submitted from clean
+commit `07b884f7bf22190b7c83c07e8381e17d8252753e` on `defq-48core` with two CPUs,
+8 GiB and ten minutes. Last observed pending for priority; no HPC pilot result
+is established yet. Its exact source, inputs and output path are recorded in the
+dataset validation receipt. The local six-fit pilot passed in about 46 seconds.
+The full screen has not started. The imported bundle's original local path,
 hashes, 16,586 genes, 4,410 cells and six groups are recorded in the
 [import receipt](preprocessing/DATASET_LAYER_VALIDATION.json). It reuses the
 existing normalized response without another transformation. The user subsequently

@@ -100,7 +100,7 @@
       "config/preprocessing/axolotl-gene-selection.json": "74d610437af630f5f28a555f8e05545fa3c02f7df090eb60d432538533a14cd1"
     },
     "next_hpc_run_spec": {
-      "status": "PREPARED_NOT_SUBMITTED",
+      "status": "SUBMITTED",
       "purpose": "Check the existing GP-screen CLI and selector on the six-fit real axolotl timing pilot in the available Linux environment before planning the full screen",
       "partition": "defq-48core",
       "nodes": 1,
@@ -110,7 +110,7 @@
       "time_limit": "00:10:00",
       "gpus": 0,
       "maximum_gp_fits": 6,
-      "source_commit": "Exact clean commit containing this specification, recorded at submission",
+      "source_commit": "07b884f7bf22190b7c83c07e8381e17d8252753e",
       "environment": "/work/abussing/arka_trying_gpu_again/env",
       "modules": [
         "gcc/12.2.0",
@@ -138,9 +138,13 @@
         "Environment installation",
         "Modification of existing jobs"
       ],
-      "approval": "Requires user approval under AGENTS.md rule 6 before submission",
-      "deployment": "Axolotl dataset and pilot recipe must be hash-verified on HPC; not yet transferred",
-      "script": "docs/preprocessing/axolotl-screen-20261105.sbatch"
+      "approval": "User approved the prepared pilot on 2026-11-05",
+      "deployment": "Source and all three pinned input files verified on HPC before submission; clean exact checkout",
+      "script": "docs/preprocessing/axolotl-screen-20261105.sbatch",
+      "job_id": "22021229",
+      "input_root": "/work/abussing/bsfm-consolidation/evidence/axolotl-screening-20261105",
+      "transfer_archive_sha256": "b3426963c8dc3fab077e64681083f4e59f8c341326ecb472c471b26d5ebdc5ea",
+      "output": "/work/abussing/bsfm-consolidation/evidence/axolotl-screen-pilot-22021229"
     }
   }
 }
