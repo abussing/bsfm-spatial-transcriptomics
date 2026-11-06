@@ -34,4 +34,10 @@
     Adaptation to new datasets must handle biological replication and response
     units explicitly. Do not select genes for favorable deep-versus-flat test
     outcomes. Record remaining workflow gaps in docs/WORKFLOW_GUIDE.md.
-
+15. Keep the guidebook dataset-independent: explain each reusable method once.
+    Dataset recipes may record identities, units and explicit settings, not analysis
+    narratives. Keep plots, rankings, gene examples, job progress and detailed run
+    receipts external. Track only compact evidence references and required execution
+    specifications. Update current guidance in place; do not append session history.
+    Preserve scientific decisions and test-consumed provenance; Git history already
+    retains development chronology.

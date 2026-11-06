@@ -1,9 +1,7 @@
 # Recovered 91-gene selection rationale
 
-Recovered 2026-11-04 from the historical HPC production directory, following the
-user's request to reuse the scientific selection rationale for axolotl. This
-closes the prior evidence gap for the final panel-selection rule. It does not
-change the canonical ordered panel or certify all upstream screening fits.
+This reference records the provenance of the frozen panel and its regression
+rule. It does not define a universal panel or certify all upstream screening fits.
 
 ## Actual final rule and reason
 
@@ -58,13 +56,16 @@ that documentation gap; no historical user conversation or threshold-selection
 optimization has been recovered. Independence from future held-out expression
 remains unestablished.
 
-## Applying the rationale to axolotl
+## Screening implementation provenance
 
-The inspected `artista_data.RData` contains 4,410 observations, six broad cluster
-labels, 17 finer annotations, coordinates, raw counts and a 16,586-gene
-`scater_norm` matrix. It has no identified animal/section field. Do not pretend
-cell types are independent animals, or transfer the SCT-unit expression cutoff
-to an unverified normalization scale. A one-group adaptation must explicitly
-replace the two-animal recurrence requirement. Identify the response scale and
-choose the group before freezing a new screening specification; for a predictive
-benchmark, screen using training observations only.
+The reusable GP screen was recovered from `review.py`, `fit_one`, lines 167-213,
+in `E:/johnston_brain/artifacts/GENE_REVIEW_20261004/`, source SHA256
+`8b590e72c4333a1241d5d3fca110cabc1b0cb43da7b5d3b8a8d96788b953173f`.
+Its Matérn-2.5 kernel, bounds, standardization, jitter, optimizer settings and
+fixed per-group sampling are preserved. Technical-section median aggregation is
+also captured in `historical_gp_extension.py`. These source identities document
+lineage; historical scripts are not alternative runnable entry points.
+
+For a new dataset, use the [dataset guide](../../preprocessing/DATASET_CONTRACT.md).
+Declare response units, modeling groups and whether biological replication exists.
+Do not transfer response-unit thresholds blindly or invent independent animals.

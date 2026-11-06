@@ -1,30 +1,19 @@
 # BSFM Spatial Transcriptomics
 
-Scientific rationale and reusable implementations for the Bayesian spatial
-factor model: input, normalization, gene selection, mesh, initialization,
-GPU sampling and saved outputs. Dataset recipes supply identities and settings;
-shared methods should not require dataset-specific rewrites.
+A reusable workflow for Bayesian spatial factor modeling: input, normalization,
+gene selection, mesh construction, initialization, GPU sampling and saved outputs.
 
-## Start here
-
-- [Workflow guide](docs/WORKFLOW_GUIDE.md): current method map, interfaces,
-  rationale links and remaining integration gaps.
-- [Current handoff](docs/CURRENT_HANDOFF.md): active work, branch status,
-  artifact locations and operational continuation.
+- [Workflow guide](docs/WORKFLOW_GUIDE.md): methods, interfaces and known limitations.
+- [Dataset contract](docs/preprocessing/DATASET_CONTRACT.md): import, response preparation and gene screening.
+- [Current handoff](docs/CURRENT_HANDOFF.md): repository authority and environment/artifact navigation.
 - [Working rules](AGENTS.md): preservation, provenance and execution requirements.
 
-The consolidated baseline includes accepted sampler Layers 1?8, SCTransform
-preprocessing, the October 26 mesh builder and GP/SVD initialization. Main also contains the tested reusable preparation, screening, initialization
-contract and mesh-boundary interfaces. Main now includes the reviewed GPU kernel
-corrections, run controllers and periodic saving/restart implementation. Their
-validation scope and remaining launcher coupling are recorded in the workflow guide.
-The shared `python -m bsfm.sampler.run` command consumes explicit prepared-artifact
-recipes. Its small CPU composition tests pass; fresh GPU execution validation
-remains pending. See the workflow guide for preparation stages and recipe fields.
+Reusable implementations live in `src/`; explicit dataset and runtime recipes live
+in `config/`. Tests and pinned scientific contracts establish the scope of each
+implementation. Data, analysis reports, plots, logs and posterior outputs stay
+outside Git, with compact location/hash references where needed for reproduction.
 
-Use the existing numerical implementations and their linked contracts. Historical
-implementations are evidence, not alternative entry points. Large data, meshes,
-environments and posterior outputs stay external with recorded identities.
-Historical audits and scientific results retain their original validation scope;
-consult the current guide and handoff rather than treating old status prose as
-current instructions.
+The guidebook explains methods across datasets. It is not an analysis notebook or
+a project diary. Historical recovery evidence is provenance, not another pipeline;
+use the current interfaces linked above. See the workflow guide before claiming
+that a particular environment or end-to-end analysis has been validated.

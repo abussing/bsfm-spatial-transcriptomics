@@ -2,7 +2,7 @@
   "schema": "bsfm.external-artifact-inventory.v1",
   "inspection_date": "2026-11-02",
   "canonical_baseline": "49f33c441e1cde9e1b8139ffef0103993eaa0222",
-  "scope": "Machine-specific inventory reconciled on original Windows desktop; bounded laptop/HPC absence findings retained. No canonical artifact transfer or regeneration performed.",
+  "scope": "Historical source inventory below; original absence/build-status statements are not live status. The verified mirror entry supersedes pre-transfer absence claims. Dataset-specific results are indexed externally.",
   "artifacts": [
     {
       "id": "linux-r-mesh-sources",
@@ -280,5 +280,13 @@
     "status": "stopped_no_durable_allocation",
     "payload_bytes_transferred": 0,
     "canonical_code_blocker": false
-  }
+  },
+  "canonical_mirror": {
+    "path": "/work/abussing/bsfm-consolidation/canonical-artifacts-20261103",
+    "inventory": "source-inventory.json",
+    "receipt": "transfer-receipt.json",
+    "receipt_sha256": "5ed5813756a19c73f672c6873b6f41093521ea1dd4a46d8a075ff18d13bb4f60",
+    "restoration": "Verify receipt; resolve original paths through inventory. Do not repeat full payload recovery solely because a source-machine path is absent."
+  },
+  "dataset_evidence_index": "preprocessing/DATASET_LAYER_VALIDATION.json"
 }

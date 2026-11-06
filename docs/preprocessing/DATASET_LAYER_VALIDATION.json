@@ -1,106 +1,18 @@
 {
-  "status": "PASS",
-  "scope": "Real axolotl import and independent R/CSV sampled readback; no fitting",
-  "dataset_path": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\axolotl-audit-20261104\\dataset-v1",
+  "schema": "bsfm.preprocessing-evidence-index.v1",
+  "scope": "Frozen recipe bindings and external evidence pointers. Do not append analysis results or execution history.",
   "manifest_sha256": "a04f87fd3fdf9ca8eafebf8528d194efafed52edd08212ddbcd2e6e44fc41663",
   "artifact_sha256": "6b39b91fb1ea8dac783473728178b10b739e4ac1e3c3d137450f28a2d5ddc0a8",
-  "dimensions": {
-    "genes": 16586,
-    "cells": 4410
+  "dataset_path_hpc": "/work/abussing/bsfm-consolidation/evidence/axolotl-screening-20261105/dataset-v1",
+  "detailed_receipt": {
+    "path_hpc": "/work/abussing/bsfm-consolidation/evidence/axolotl-expression-review-20261106/dataset-layer-validation-89818ec.json",
+    "sha256": "077d64109d1422d7420710098d0813d9ffe91dc45a12caab7e551901b7fcda10",
+    "bytes": 20224,
+    "git_fallback": "https://github.com/abussing/bsfm-spatial-transcriptomics/blob/89818ec27be1e43af61edc4afcf93d700c422516/docs/preprocessing/DATASET_LAYER_VALIDATION.json"
   },
-  "groups": {
-    "CP": 382,
-    "EGC": 1190,
-    "Immature_Neuron": 1626,
-    "Mature_Neuron": 201,
-    "NBL": 606,
-    "VLMC": 405
-  },
-  "readback_entries": 25,
-  "max_readback_error": 4.218847493575595e-15,
-  "readback_sha256": "54ae3f3891fa4f54a0e3c30c53107bd34aeaf8778b0a9bc455b57d9ab24179f6",
-  "normalization": {
-    "response": "uncentered_normalized",
-    "method": "imported_library_size_log2",
-    "units": "log2(1 + library-scaled count_use)",
-    "population": "all 4410 source observations; existing full-data transformation",
-    "evidence": "2026-11-04 inspection: count_use and scater_norm have identical dimensions and gene names; per-cell inverse-log2/count ratio constant to floating precision; scaled column totals equal approximately 10397; maximum reconstructed-response error 1.776357e-15. This verifies numerical representation, not the original scater execution history."
-  },
-  "tests_passed": 4,
-  "code_state": "uncommitted implementation at validation; source file hashes below",
-  "source_files": {
-    "src/bsfm/preprocessing/dataset.py": "5b09dfe31b3ef317c32ca12e9dc6d14efed9f5b09cce86a49b71469168f49c82",
-    "src/bsfm/preprocessing/import_rdata.py": "72b1b17287950a6f76828500ffa386496088505afc1815f012179fe938928269",
-    "src/bsfm/preprocessing/export_rdata.R": "06e5dddfa82a3e8f25bed1e2babbe87abb387e835fb5fbaa039113afae847ec3",
-    "config/datasets/axolotl-artista.json": "374521fe6fb0e9969d4d753f7f402e22ca13bbe36dcf448af730701cc4875090"
-  },
+  "recipe_bindings_note": "Legacy single_sample_screening keys are consumed by axolotl-screen-20261105.sbatch. They are frozen run specifications, not universal defaults or renewed execution approval.",
   "single_sample_screening": {
-    "scope": "All six axolotl cell types; expression eligibility and six-fit local timing pilot, not a final panel",
-    "status": "PILOT_PASS_FULL_SCREEN_NOT_STARTED",
-    "groups": {
-      "CP": 2183,
-      "EGC": 3434,
-      "Immature_Neuron": 3863,
-      "Mature_Neuron": 3929,
-      "NBL": 3760,
-      "VLMC": 2140
-    },
-    "candidate_union": 5305,
-    "eligible_blocks": 19309,
-    "pilot_gene": "AACS",
-    "pilot_choice": "First lexicographic gene eligible in all six groups; no spatial score used",
-    "pilot_seconds": 45.98400000005495,
-    "pilot_fit_count": 6,
-    "versions": {
-      "numpy": "2.1.3",
-      "scipy": "1.14.1",
-      "scikit-learn": "1.4.2",
-      "threadpoolctl": "3.5.0"
-    },
-    "tests": {
-      "passed": 10,
-      "command": "python -m unittest test_single_sample_selection test_dataset_preprocessing test_spatial_screen -v",
-      "includes": "Original 91-gene exact recovery, historical GP equivalence and new single-sample selection checks"
-    },
-    "external_root": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\axolotl-audit-20261104\\screening-20261105",
-    "external_files": {
-      "pilot-recipe.json": {
-        "bytes": 79258,
-        "sha256": "079ce873a4f45d4ee835cca6a0353e2da953a63f9573df5aacde4fa00b2085c1"
-      },
-      "full-screen-recipe.json": {
-        "bytes": 406183,
-        "sha256": "56c2569d9fc4edf05dd0c8017cf579bfc8894e1beec1c1417c6b5239343ea0f5"
-      },
-      "preflight.json": {
-        "bytes": 712,
-        "sha256": "ae5392ed56e9970851e88ed12a7f59e2c0c52cb10cb213bfffa0df8b8c40142c"
-      },
-      "pilot-screen.json": {
-        "bytes": 59318,
-        "sha256": "1998c532b144b623d15be3ce7250bd9514c9b857e9d92713c702ef6bb8cbabe8"
-      },
-      "pilot-selection.json": {
-        "bytes": 2278,
-        "sha256": "efe5448ae40522f1d33ef0b23ea0cd97ac0aa06e9fe9e0e6ab9bc08f64c8a07a"
-      },
-      "pilot-timing.json": {
-        "bytes": 726,
-        "sha256": "c117c06d53dd1859859d718665dc9542f47f9272ba4e18fa3cc33b1fa2dacdd6"
-      },
-      "pilot.log": {
-        "bytes": 0,
-        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      }
-    },
-    "source_files": {
-      "src/bsfm/preprocessing/gene_selection.py": "f72dc3ec3fba2ae6025593cba6d4a57150f2ea4261c4a39be25b59720dd117a2",
-      "src/bsfm/preprocessing/spatial_screen.py": "1afbe0393959495485bf434f4dba0341c6f33459601ecc0c920dbd5cd4aa4b66",
-      "config/preprocessing/axolotl-gp-screen.json": "f14a5da9d8a614922eee1ae0fa9d3c98619be3f5e2d0e28a83f27aec4799097d",
-      "config/preprocessing/axolotl-gene-selection.json": "74d610437af630f5f28a555f8e05545fa3c02f7df090eb60d432538533a14cd1"
-    },
     "next_hpc_run_spec": {
-      "status": "PASS",
       "purpose": "Check the existing GP-screen CLI and selector on the six-fit real axolotl timing pilot in the available Linux environment before planning the full screen",
       "partition": "defq-48core",
       "nodes": 1,
@@ -109,58 +21,21 @@
       "memory": "8G",
       "time_limit": "00:10:00",
       "gpus": 0,
-      "maximum_gp_fits": 6,
       "source_commit": "07b884f7bf22190b7c83c07e8381e17d8252753e",
       "environment": "/work/abussing/arka_trying_gpu_again/env",
       "modules": [
         "gcc/12.2.0",
         "mpfr/4.1.0"
       ],
-      "threads": 1,
       "inputs": {
         "dataset_manifest_sha256": "a04f87fd3fdf9ca8eafebf8528d194efafed52edd08212ddbcd2e6e44fc41663",
         "dataset_payload_sha256": "6b39b91fb1ea8dac783473728178b10b739e4ac1e3c3d137450f28a2d5ddc0a8",
         "pilot_recipe_sha256": "079ce873a4f45d4ee835cca6a0353e2da953a63f9573df5aacde4fa00b2085c1"
       },
-      "steps": [
-        "Verify complete input hashes and exact clean source commit",
-        "Record numerical package versions; require numpy 2.1.3, scipy 1.14.1 and scikit-learn 1.4.2; record threadpoolctl 3.6.0 versus local 3.5.0",
-        "Run test_single_sample_selection, test_dataset_preprocessing and test_spatial_screen in the recorded environment",
-        "Run bsfm.preprocessing.spatial_screen with the pinned pilot recipe using all six groups and AACS only",
-        "Run bsfm.preprocessing.gene_selection with --sample-screen and the committed axolotl selection recipe",
-        "Retain logs, exact commands, timings, output hashes and numerical comparison with the local pilot; report differences rather than relax tolerances"
-      ],
-      "excluded": [
-        "Full gene screen",
-        "Mesh generation",
-        "GPINIT",
-        "Gibbs sampling",
-        "Environment installation",
-        "Modification of existing jobs"
-      ],
-      "approval": "User approved the prepared pilot on 2026-11-05",
-      "deployment": "Source and all three pinned input files verified on HPC before submission; clean exact checkout",
       "script": "docs/preprocessing/axolotl-screen-20261105.sbatch",
-      "job_id": "22021229",
-      "input_root": "/work/abussing/bsfm-consolidation/evidence/axolotl-screening-20261105",
-      "transfer_archive_sha256": "b3426963c8dc3fab077e64681083f4e59f8c341326ecb472c471b26d5ebdc5ea",
-      "output": "/work/abussing/bsfm-consolidation/evidence/axolotl-screen-pilot-22021229",
-      "elapsed": "00:01:20",
-      "node": "node284",
-      "exit_code": "0:0",
-      "tests_passed": 10,
-      "screen_seconds": 65.78142714872956,
-      "validation_sha256": "932001e9705e99e553e452978d690b97acb0bd969a1023f74dbb483157450966",
-      "local_hpc_max_absolute_difference": {
-        "spatial_fraction": 3.1086244689504383e-15,
-        "length_scale": 4.2334191707738e-14,
-        "signal_variance": 3.3029134982598407e-15,
-        "noise_variance": 6.972200594645983e-14
-      },
-      "comparison_scope": "Six AACS fits only; tiny cross-platform differences retained, no bitwise cross-platform claim"
+      "output": "/work/abussing/bsfm-consolidation/evidence/axolotl-screen-pilot-22021229"
     },
     "full_hpc_run_spec": {
-      "status": "PASS",
       "purpose": "Screen within-cell-type spatial variation for all genes in all six axolotl groups; retain all fit/exclusion records for later ranking and user panel choice",
       "partition": "defq-48core",
       "nodes": 1,
@@ -172,14 +47,6 @@
       "workers": 8,
       "threads_per_worker": 1,
       "genes_per_batch": 16,
-      "batches": 1037,
-      "candidate_genes": 16586,
-      "cells": 4410,
-      "groups": 6,
-      "eligible_gene_group_blocks": 19309,
-      "expression_eligible_gene_union": 5305,
-      "maximum_fitting_cells_per_group": 1500,
-      "settings": "Unchanged recovered GP kernel, optimizer and within-group sampled cells; gene batching only",
       "source_commit": "cc8276b3162ac1917b6c7b7caf14ffefc69cc161",
       "script": "docs/preprocessing/axolotl-screen-20261105.sbatch",
       "submission_arguments": [
@@ -209,203 +76,7 @@
         "gcc/12.2.0",
         "mpfr/4.1.0"
       ],
-      "output": "/work/abussing/bsfm-consolidation/evidence/axolotl-full-screen-cc8276b3162ac1917b6c7b7caf14ffefc69cc161",
-      "retention": "Atomically publish each completed batch; immutable contract binds input, recipe, source dependencies, runtime and batch size. Same-source resume authenticates and reuses completed batches. Up to eight unfinished batches can require recomputation. After forced termination, remove only stale .lock after verifying all previous processes stopped. No automatic lock deletion.",
-      "preflight": "Run 13 focused tests in the allocation before the full screen",
-      "local_validation": {
-        "tests_passed": 13,
-        "checks": [
-          "Two-worker versus unbatched exact rows, sampled cells and geometry",
-          "Completed resume performs no fits",
-          "Interrupted batch preserves completed work and recomputes only unfinished work",
-          "Corrupt cache, changed recipe and active lock rejected",
-          "Original 91-gene regression and historical GP same-runtime agreement preserved"
-        ],
-        "screen_sample_ast_unchanged": true
-      },
-      "final_panel": "Not selected by this run; retain per-cell-type spatial fractions for later ranking, no top-N cap",
-      "excluded": [
-        "Mesh generation",
-        "GPINIT",
-        "Gibbs sampling",
-        "Renormalization",
-        "Environment installation",
-        "Changes to existing jobs"
-      ],
-      "approval": "User explicitly approved full gene screen: 8 CPUs, 32 GiB, 24 hours on defq-48core",
-      "job_id": "22021465",
-      "checkout": "/work/abussing/bsfm-consolidation/checkouts/cc8276b3162ac1917b6c7b7caf14ffefc69cc161",
-      "checkout_clean": true,
-      "scheduler_log": "/work/abussing/bsfm-consolidation/evidence/axolotl-full-screen-22021465.log",
-      "deployment": "Exact source bundle and full recipe verified on HPC; existing dataset hashes authenticated before pilot and rechecked by full runner",
-      "validation_result": "PASS; 13 tests, all 1037 batches, 99516 gene/type records and 19309 GP fits completed",
-      "elapsed": "03:06:54",
-      "node": "node331",
-      "exit_code": "0:0",
-      "passing_gene_union": 1674,
-      "screen_sha256": "7f6aac9c2908f4961345c16333955f1eef07987c657cc84fcdd55c47e210f7fb"
-    },
-    "ranked_review": {
-      "date": "2026-11-06",
-      "rule": "Among FIT rows with spatial_fraction >= 0.10, rank independently within each cell type by descending spatial_fraction; exact gene name breaks ties. Display first 12 per type; no final panel selected.",
-      "entries": 72,
-      "unique_genes": 46,
-      "warning_entries": 4,
-      "bound_flag_policy": "Display recorded optimizer warnings without excluding rows",
-      "expression_maps": "Observed imported log2 response, not GP/BSFM predictions; each gene uses zero to full-sample maximum across all its appearances; no clipping",
-      "source_screen_sha256": "7f6aac9c2908f4961345c16333955f1eef07987c657cc84fcdd55c47e210f7fb",
-      "local_root": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\axolotl-audit-20261104\\gene-review-20261106",
-      "files": {
-        "top-ranked.json": {
-          "bytes": 33552,
-          "sha256": "62341f74e8a23d38a68f6fa0ae733450c9d2a91bd7d664eebf11637cae6fc987"
-        },
-        "top-ranked-by-celltype.csv": {
-          "bytes": 8796,
-          "sha256": "c217d776f1eb020c446b96735b53eba9f5491112e8fe3ad79171ba25161f169e"
-        },
-        "review.html": {
-          "bytes": 5473174,
-          "sha256": "d92ba406e127a9a85f7ba7179c62a8ab6005d5af904a1bcf3c02c273f7ff549a"
-        },
-        "leaders.png": {
-          "bytes": 423633,
-          "sha256": "4df53e37a89b6dd479d90922f797b7e9769375a81096e8c8d609083f67c32d07"
-        },
-        "make_review.py": {
-          "bytes": 6885,
-          "sha256": "a4fb8b9a5a5ea30201b23b6fff33c11b14d57c4955f0828be67f6d2524a65db2"
-        }
-      },
-      "checks": [
-        "Source screen SHA-256 verified on HPC before ranked extraction",
-        "Local dataset authenticated against pinned manifest/payload",
-        "Rank order, group identity and threshold checked",
-        "Top-three PNG visually inspected"
-      ],
-      "scope": "Review artifact only; no refitting, parameter changes or final gene-panel decision",
-      "centered_display_revision": {
-        "reason": "Original full-sample zero-to-maximum colors obscured within-type spatial variation; user requested clearer visualization",
-        "primary_report": "review-centered.html",
-        "mapping": "Observed normalized expression minus gene/type mean; blue below mean, red above; symmetric per-panel 98th percentile absolute-deviation limits; end colors saturate values beyond limits. No smoothing or refitting.",
-        "comparison": "CP overview and zoom share limits. Different gene/type panels have different labeled limits; not for absolute amplitude comparisons. Original raw-expression report retained.",
-        "cp_example": {
-          "gene": "AMEX60DD017849",
-          "cells": 382,
-          "color_saturated_cells": 8
-        },
-        "files": {
-          "review-centered.html": {
-            "bytes": 6964148,
-            "sha256": "0d809b3d46ebf05f47ef49f10d006ac78f0ae1d5635b5e4deeee480d98176d63"
-          },
-          "leaders-centered.png": {
-            "bytes": 335927,
-            "sha256": "b11c3df6626989d364db8e2ecfb045e30a64d5b7b88e1b23b3a7a030f3e0a261"
-          },
-          "CP-AMEX60DD017849-centered.png": {
-            "bytes": 114391,
-            "sha256": "74f914f7fa96e6f1b7d15666499f9283aa632a13e14d22456460429279932994"
-          },
-          "make_review_centered.py": {
-            "bytes": 7903,
-            "sha256": "213ed4ae782ff8af6355ad79137c7af4c474d72eb66674458b315b48448ccd56"
-          },
-          "plot_centered.R": {
-            "bytes": 2417,
-            "sha256": "8784848ef53286eb74275ac6954461096a124a8f7879906a59a203e32a54a9a9"
-          }
-        }
-      }
-    },
-    "expression_support_review": {
-      "date": "2026-11-06",
-      "method": "Saved-kernel conditioning and expression/count support review; no hyperparameter reoptimization",
-      "local_root": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\axolotl-audit-20261104\\gene-review-20261106",
-      "hpc_root": "/work/abussing/bsfm-consolidation/evidence/axolotl-expression-review-20261106",
-      "screen_sha256": "7f6aac9c2908f4961345c16333955f1eef07987c657cc84fcdd55c47e210f7fb",
-      "dataset_manifest_sha256": "a04f87fd3fdf9ca8eafebf8528d194efafed52edd08212ddbcd2e6e44fc41663",
-      "recipe_sha256": "56c2569d9fc4edf05dd0c8017cf579bfc8894e1beec1c1417c6b5239343ea0f5",
-      "source_sha256": "6cdcaedb34947853369928bc41f79f0202a341a3604b4c3e48219d4faa0b05c1",
-      "versions": {
-        "numpy": "2.1.3",
-        "scipy": "1.14.1",
-        "scikit-learn": "1.4.2",
-        "threadpoolctl": "3.5.0"
-      },
-      "source_counts": {
-        "path": "E:/axolotl/artista_data.RData",
-        "field": "data_use$count_use",
-        "sha256": "37287f741ddbd899ff7590143c8985d2d20588e6b32bab0879e93298c589c8cf",
-        "interpretation": "Input integer counts; not asserted to be UMIs"
-      },
-      "pairs": 3647,
-      "genes": 1674,
-      "tests": {
-        "passed": 15,
-        "modules": [
-          "test_spatial_screen",
-          "test_screen_batches",
-          "test_dataset_preprocessing",
-          "test_single_sample_selection"
-        ],
-        "checks": [
-          "Original screen_sample AST unchanged",
-          "Saved-kernel mean agrees with separately optimized GP at rtol/atol 1e-12",
-          "Optimizer invocation prohibited in reconstruction test",
-          "Affine response scaling preserved",
-          "Held-out response perturbation leaves review unchanged",
-          "Changed training membership rejected",
-          "Zero and low-count summaries checked",
-          "Existing 91-gene selection and batch/resume tests pass",
-          "Screen, dataset and source RData hashes authenticated",
-          "All count/source normalized means, positive medians and detection fractions agree with imported response to 1e-12",
-          "Source counts checked finite, nonnegative integer with identical positive masks to normalized response"
-        ]
-      },
-      "interpretation": "Spatial fraction, fitted spatial amplitude, detection and count support remain separate metrics. Interactive thresholds are exploratory; no final panel or new canonical cutoff.",
-      "files": {
-        "expression-spatial-review.json": {
-          "bytes": 3407394,
-          "sha256": "d67bcdfc750576a1d9072948180d970d078eefad8043f3fb28e32f66ab9fa494"
-        },
-        "expression-spatial-review.csv": {
-          "bytes": 1645804,
-          "sha256": "6e101b901e2e149e6afb712c2c1ddd32375da45eaee5859a316e4889964b84bd"
-        },
-        "expression-review-summary.json": {
-          "bytes": 99949,
-          "sha256": "05708a01982ef4ea97dcd2470e5ece18d20ab65af113dcd8dcca8f42ad33bb70"
-        },
-        "expression-review.html": {
-          "bytes": 3842545,
-          "sha256": "2ed3a4dd927823ba0730177af21990d823077df32b2c96a49bb99786f2e39ec0"
-        },
-        "expression-review.png": {
-          "bytes": 143902,
-          "sha256": "157d781e4aa023c21f6ea4bd2448f8443c346854ff37dae2e75122d1757541ff"
-        },
-        "count-support.csv": {
-          "bytes": 601297,
-          "sha256": "4e65ab09dfae885d9b0f0eb3778b8f4e019bcb94bb4b9e1535a3049f9902748f"
-        },
-        "candidate-pairs.csv": {
-          "bytes": 82788,
-          "sha256": "a5175eb66891bdf59ffbed44385fe0447058303a1df14121b1f7b2219f0fd282"
-        },
-        "count_support.R": {
-          "bytes": 1195,
-          "sha256": "df1a5288124f481015356dda9d1ef1792e7970a75d93f58b927f0cce607c03da"
-        },
-        "build_expression_review.py": {
-          "bytes": 10611,
-          "sha256": "16e9b941e6043b26c1a201be97fa2d378e608bf5c647fd3e97957e2fd574f120"
-        },
-        "plot_expression_review.R": {
-          "bytes": 979,
-          "sha256": "f87772d2f3f3a9cd2d249abd8a60cb990e5c13d15cfcb8418f579b2a7febb816"
-        }
-      }
+      "output": "/work/abussing/bsfm-consolidation/evidence/axolotl-full-screen-cc8276b3162ac1917b6c7b7caf14ffefc69cc161"
     }
   }
 }
