@@ -129,6 +129,12 @@ from explicit factor IDs and must match the initializer. Existing saved-genesis
 restoration is reused. No HDF5 or scikit-learn import enters sampler loading.
 This interface does not make imported normalization eligible for holdout scoring.
 
+For HPC initialization, `environment/hpc/initialize.sbatch COMMIT PLAN` invokes
+the same GP/SVD CLI. The tracked JSON plan pins input files, ordered genes/groups,
+factor count, initialization seed/subset size and output destination. Authenticate
+the resulting certificate and freeze its output hashes in the sampler recipe
+before GPU submission. Scheduler resources and approval remain explicit.
+
 ## Validation scope and remaining gaps
 
 Bounded synthetic GPU validation covers deep/flat phased execution and completed
