@@ -283,7 +283,40 @@
         "Rank order, group identity and threshold checked",
         "Top-three PNG visually inspected"
       ],
-      "scope": "Review artifact only; no refitting, parameter changes or final gene-panel decision"
+      "scope": "Review artifact only; no refitting, parameter changes or final gene-panel decision",
+      "centered_display_revision": {
+        "reason": "Original full-sample zero-to-maximum colors obscured within-type spatial variation; user requested clearer visualization",
+        "primary_report": "review-centered.html",
+        "mapping": "Observed normalized expression minus gene/type mean; blue below mean, red above; symmetric per-panel 98th percentile absolute-deviation limits; end colors saturate values beyond limits. No smoothing or refitting.",
+        "comparison": "CP overview and zoom share limits. Different gene/type panels have different labeled limits; not for absolute amplitude comparisons. Original raw-expression report retained.",
+        "cp_example": {
+          "gene": "AMEX60DD017849",
+          "cells": 382,
+          "color_saturated_cells": 8
+        },
+        "files": {
+          "review-centered.html": {
+            "bytes": 6964148,
+            "sha256": "0d809b3d46ebf05f47ef49f10d006ac78f0ae1d5635b5e4deeee480d98176d63"
+          },
+          "leaders-centered.png": {
+            "bytes": 335927,
+            "sha256": "b11c3df6626989d364db8e2ecfb045e30a64d5b7b88e1b23b3a7a030f3e0a261"
+          },
+          "CP-AMEX60DD017849-centered.png": {
+            "bytes": 114391,
+            "sha256": "74f914f7fa96e6f1b7d15666499f9283aa632a13e14d22456460429279932994"
+          },
+          "make_review_centered.py": {
+            "bytes": 7903,
+            "sha256": "213ed4ae782ff8af6355ad79137c7af4c474d72eb66674458b315b48448ccd56"
+          },
+          "plot_centered.R": {
+            "bytes": 2417,
+            "sha256": "8784848ef53286eb74275ac6954461096a124a8f7879906a59a203e32a54a9a9"
+          }
+        }
+      }
     }
   }
 }
