@@ -1,6 +1,6 @@
 # Current BSFM handoff
 
-Updated 2026-11-05. This is a continuation map, not a chronological work log.
+Updated 2026-11-06. This is a continuation map, not a chronological work log.
 Read [AGENTS.md](../AGENTS.md) and the [workflow guide](WORKFLOW_GUIDE.md).
 
 ## Current work and authority
@@ -29,7 +29,7 @@ producer; its S10 vertices and triangles reproduce saved arrays exactly. See the
 [existing mesh guide](mesh/OCTOBER26_CANONICALIZATION.md) for the interface,
 source, validation and limitations. Shared GPU environment authentication is now extracted and connected to the
 existing runtime entry, with deployment paths in a separate recipe. Six synthetic
-authentication tests pass; no new GPU execution is claimed. The existing mesh module now assembles final builder outputs into warp arrays,
+authentication tests pass; the shared-command GPU validation below also passed. The existing mesh module now assembles final builder outputs into warp arrays,
 and the runtime loader joins generic prepared/GPINIT artifacts with explicit
 recipes. Thirteen assembly/mesh tests pass; one R integration is skipped. The
 synthetic GP fit uses one thread because unchanged four-thread GPINIT also crashes
@@ -40,8 +40,10 @@ and pinned deep/flat recipes are prepared: one V100, four CPUs, 16 GiB, 30 minut
 synthetic inputs only. All 16 fixture files and runtime input joins passed local
 checks. After explicit approval, job `22020867` was submitted on 2026-11-05 from
 clean commit `de816792848ee47720fee7cd5233e50a0aeaafce`. Source and all 16 fixture
-files are mirrored and hash-verified on HPC. GPU validation results are not yet
-available. The first attempt (`22020849`) failed before validation because node398
+files are mirrored and hash-verified on HPC. GPU validation passed in 5 minutes
+47 seconds on node386: both deep and flat phased runs completed, and fresh-process
+completed restarts preserved outputs without replay. This is bounded synthetic
+execution evidence, not scientific fit quality. The first attempt (`22020849`) failed before validation because node398
 has no shared `/work` mount; the identical retry excludes that node. The specification records
 the exact checkout, output and scheduler log paths. See the workflow guide. Do not substitute the older boundary-carrier triangles
 as the final mesh. The shared command consumes prepared artifacts; raw preprocessing and mesh
@@ -119,8 +121,13 @@ function unchanged. Thirteen focused tests pass. The full-run specification is
 recorded in the dataset validation receipt: eight CPUs, 32 GiB, up to 24 hours,
 16 genes per saved batch. After explicit approval, full-screen job `22021465`
 was submitted from clean commit `cc8276b3162ac1917b6c7b7caf14ffefc69cc161` on
-`defq-48core`. No full-screen result is established yet. No
-top-N panel is imposed; inspect within-type spatial strengths after screening.
+`defq-48core`. It completed successfully in 3 hours 6 minutes 54 seconds:
+1,037 batches, 19,309 GP fits and 1,674 genes passing the spatial gate in at least
+one type. The user chose within-cell-type spatial fraction as the primary ranking.
+A review of the top 12 per type covers 46 unique genes; four of 72 entries have
+recorded minimum-length-scale warnings and remain visible. The existing dataset
+receipt records the external HTML, image and CSV paths and hashes. No final
+top-N panel is imposed; inspect these expression maps before choosing the panel.
 The receipt records the job's output and scheduler log paths. The imported bundle's original local path,
 hashes, 16,586 genes, 4,410 cells and six groups are recorded in the
 [import receipt](preprocessing/DATASET_LAYER_VALIDATION.json). It reuses the

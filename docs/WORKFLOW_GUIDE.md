@@ -10,7 +10,7 @@ The runtime subset from review commit `1bb4493` is also promoted: GPU gradient
 accumulation and acceptance-roundoff corrections, quadrature-derived joint-eta
 dimensions, run controllers, periodic storage and prediction primitives. A shared command now runs prepared artifacts; raw-data preparation and mesh
 construction remain explicit preceding stages. Fresh GPU validation of the new
-command is still pending. Existing S10 runs
+command passed for bounded synthetic deep/flat phased runs and completed restart. Existing S10 runs
 and exact source checkouts remain unchanged.
 
 The core sequence is input, normalization, gene selection, mesh, initialization,
@@ -84,10 +84,10 @@ interpreter/libdevice hashes, one V100/P100, float64 and explicit BLAS threads.
 It adds receipt pins, site-package containment and duplicate-package rejection.
 It is scoped to the recorded shared environment; this does not provision a new
 CUDA environment or validate arbitrary GPU models. Six synthetic local tests
-cover dispatch, tampering, devices and failure behavior. No new GPU execution
-has validated the extraction yet. Immutable old runs keep their original adapter
+cover dispatch, tampering, devices and failure behavior. The bounded shared-command
+GPU validation also passed on node386. Immutable old runs keep their original adapter
 and environment identities. The generic dataset/mesh/GPINIT connection and the shared command below are
-available. Fresh GPU execution validation of that composition remains pending.
+available and checked together on the small synthetic GPU case described below.
 
 Evidence retained at pinned revisions rather than duplicated here:
 
@@ -164,8 +164,11 @@ uses committed deep/flat validation recipes, pinned synthetic artifacts and actu
 CLI authentication. Approved job `22020867` was submitted from clean commit
 `de816792848ee47720fee7cd5233e50a0aeaafce` after source and fixture verification
 on HPC. The first attempt failed on node398, where the shared `/work` mount is
-absent; the identical retry excludes that node. Validation remains unestablished
-until its report is inspected. The specification records output and log paths.
+absent; the identical retry excluded that node and passed in 5 minutes 47 seconds.
+Both models completed tuning, bridge, retuning and production, and fresh-process
+completed restarts preserved output inventories without replay. The specification
+records output/log paths and the PASS report hash. This does not establish a
+scientific axolotl sampler fit or posterior convergence.
 
 ## Prepared artifacts to sampler inputs
 

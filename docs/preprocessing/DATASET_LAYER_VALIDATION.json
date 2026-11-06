@@ -160,7 +160,7 @@
       "comparison_scope": "Six AACS fits only; tiny cross-platform differences retained, no bitwise cross-platform claim"
     },
     "full_hpc_run_spec": {
-      "status": "SUBMITTED",
+      "status": "PASS",
       "purpose": "Screen within-cell-type spatial variation for all genes in all six axolotl groups; retain all fit/exclusion records for later ranking and user panel choice",
       "partition": "defq-48core",
       "nodes": 1,
@@ -238,7 +238,52 @@
       "checkout_clean": true,
       "scheduler_log": "/work/abussing/bsfm-consolidation/evidence/axolotl-full-screen-22021465.log",
       "deployment": "Exact source bundle and full recipe verified on HPC; existing dataset hashes authenticated before pilot and rechecked by full runner",
-      "validation_result": "Not yet available"
+      "validation_result": "PASS; 13 tests, all 1037 batches, 99516 gene/type records and 19309 GP fits completed",
+      "elapsed": "03:06:54",
+      "node": "node331",
+      "exit_code": "0:0",
+      "passing_gene_union": 1674,
+      "screen_sha256": "7f6aac9c2908f4961345c16333955f1eef07987c657cc84fcdd55c47e210f7fb"
+    },
+    "ranked_review": {
+      "date": "2026-11-06",
+      "rule": "Among FIT rows with spatial_fraction >= 0.10, rank independently within each cell type by descending spatial_fraction; exact gene name breaks ties. Display first 12 per type; no final panel selected.",
+      "entries": 72,
+      "unique_genes": 46,
+      "warning_entries": 4,
+      "bound_flag_policy": "Display recorded optimizer warnings without excluding rows",
+      "expression_maps": "Observed imported log2 response, not GP/BSFM predictions; each gene uses zero to full-sample maximum across all its appearances; no clipping",
+      "source_screen_sha256": "7f6aac9c2908f4961345c16333955f1eef07987c657cc84fcdd55c47e210f7fb",
+      "local_root": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\axolotl-audit-20261104\\gene-review-20261106",
+      "files": {
+        "top-ranked.json": {
+          "bytes": 33552,
+          "sha256": "62341f74e8a23d38a68f6fa0ae733450c9d2a91bd7d664eebf11637cae6fc987"
+        },
+        "top-ranked-by-celltype.csv": {
+          "bytes": 8796,
+          "sha256": "c217d776f1eb020c446b96735b53eba9f5491112e8fe3ad79171ba25161f169e"
+        },
+        "review.html": {
+          "bytes": 5473174,
+          "sha256": "d92ba406e127a9a85f7ba7179c62a8ab6005d5af904a1bcf3c02c273f7ff549a"
+        },
+        "leaders.png": {
+          "bytes": 423633,
+          "sha256": "4df53e37a89b6dd479d90922f797b7e9769375a81096e8c8d609083f67c32d07"
+        },
+        "make_review.py": {
+          "bytes": 6885,
+          "sha256": "a4fb8b9a5a5ea30201b23b6fff33c11b14d57c4955f0828be67f6d2524a65db2"
+        }
+      },
+      "checks": [
+        "Source screen SHA-256 verified on HPC before ranked extraction",
+        "Local dataset authenticated against pinned manifest/payload",
+        "Rank order, group identity and threshold checked",
+        "Top-three PNG visually inspected"
+      ],
+      "scope": "Review artifact only; no refitting, parameter changes or final gene-panel decision"
     }
   }
 }

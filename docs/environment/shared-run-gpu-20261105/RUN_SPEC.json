@@ -1,6 +1,6 @@
 {
   "schema": "bsfm.bounded-hpc-validation.v1",
-  "status": "submitted",
+  "status": "PASS",
   "purpose": "Validate actual shared CLI, environment and artifact joins on GPU for synthetic deep/flat runs and fresh-process completed non-replay",
   "code_commit": "Exact commit containing this specification supplied to sbatch; recorded by validator",
   "resources": {
@@ -93,9 +93,13 @@
     "fixture_verified_files": 16,
     "fixture_verified_bytes": 30515,
     "verification": "Both transfer hashes, Git bundle prerequisites, exact clean checkout and complete extracted fixture inventory verified on HPC before sbatch",
-    "last_observed_state": "SUBMITTED",
-    "validation_result": "Not yet available; submission does not establish GPU validation",
+    "last_observed_state": "COMPLETED",
+    "validation_result": "PASS: deep and flat phased runs and fresh-process completed non-replay",
     "output": "/work/abussing/bsfm-consolidation/evidence/shared-run-gpu-22020867",
-    "scheduler_log": "/work/abussing/bsfm-consolidation/evidence/shared-run-gpu-22020867.log"
+    "scheduler_log": "/work/abussing/bsfm-consolidation/evidence/shared-run-gpu-22020867.log",
+    "elapsed": "00:05:47",
+    "node": "node386",
+    "exit_code": "0:0",
+    "validation_sha256": "37e5e352a035fc416f90dfdb781bdb12ebbbb2f93f86d8de854a1f7e351a7750"
   }
 }
