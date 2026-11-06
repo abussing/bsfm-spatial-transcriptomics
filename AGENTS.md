@@ -10,12 +10,14 @@
    judgment-dependent decisions.
 5. Recover design intent and implementation lineage before selecting among
    historical candidates.
-6. Do not submit HPC jobs without a committed run specification and explicit
-   user approval.
+6. HPC jobs require an explicit, frozen external run specification and user
+   authorization. Pin the source Git commit and artifact hashes in that manifest;
+   do not commit individual analysis specifications to this repository.
 7. Never edit scientific source code only on the HPC. HPC runs must identify an
    exact Git commit and frozen configuration.
 8. Keep raw data, transformed matrices, environments, checkpoints, posterior
-   draws, and large logs outside Git. Track their schemas, locations, and hashes.
+   draws, and logs outside Git. Keep per-analysis paths and hashes in external
+   manifests; Git owns reusable schemas and fixed method-validation evidence.
 9. Make one conceptual change per commit when practical, with a plain-language
    explanation of why it was made.
 10. Update repository documentation whenever a consequential decision changes.
@@ -24,7 +26,7 @@
     test. Open-ended scientific redesign requires explicit user approval.
 12. The repository must explain and implement reusable workflows for new datasets.
     Put dataset paths, gene panels, group labels, K, quadrature order and run
-    lengths in explicit recipes. Derive dimensions from authenticated inputs.
+    lengths in explicit external recipes. Derive dimensions from authenticated inputs.
     Fixed mathematical choices require a linked rationale and scope.
 13. Distinguish reusable methods, dataset recipes and historical regressions.
     Preserve verified recipes and checkpoint identities while generalizing.
@@ -35,9 +37,10 @@
     units explicitly. Do not select genes for favorable deep-versus-flat test
     outcomes. Record remaining workflow gaps in docs/WORKFLOW_GUIDE.md.
 15. Keep the guidebook dataset-independent: explain each reusable method once.
-    Dataset recipes may record identities, units and explicit settings, not analysis
-    narratives. Keep plots, rankings, gene examples, job progress and detailed run
-    receipts external. Track only compact evidence references and required execution
-    specifications. Update current guidance in place; do not append session history.
-    Preserve scientific decisions and test-consumed provenance; Git history already
-    retains development chronology.
+    Individual dataset imports, panels, run recipes, job scripts, rankings, plots,
+    logs and receipts belong in external analysis directories, not Git. A new
+    analysis must not require a repository change. Commit only reusable methods,
+    interfaces, environment definitions, scientific rationale and focused tests.
+    Synthetic examples and fixed evidence needed to validate a method are allowed;
+    they must not grow into an analysis diary. Update guidance in place.
+    Preserve historical scientific provenance and existing checkpoint identities.

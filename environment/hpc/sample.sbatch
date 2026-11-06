@@ -7,7 +7,7 @@
 #SBATCH --time=24:00:00
 set -euo pipefail
 commit="${1:?exact committed source required}"
-recipe="${2:?committed sampler recipe required}"
+recipe="${2:?frozen sampler recipe required}"
 output="${3:?external output directory required}"
 module load gcc/12.2.0 mpfr/4.1.0 cuda/12.3
 cd "/work/abussing/bsfm-consolidation/checkouts/$commit"

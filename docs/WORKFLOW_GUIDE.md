@@ -44,13 +44,19 @@ fails on CPU rather than silently falling back.
 From a clean checkout with its validated runtime active:
 
 ```text
-python -m bsfm.sampler.run --recipe config/sampler/YOUR_RUN.json --output /external/run-root --commit FULL_COMMIT_SHA
+python -m bsfm.sampler.run --recipe /external/analysis/run.json --output /external/run-root --commit FULL_COMMIT_SHA
 ```
 
-Create and commit the recipe before execution. `--commit` must equal the full
+Freeze the recipe in the external analysis directory before execution. `--commit` must equal the full
 checkout HEAD. Output must be outside the repository. This command does not
 submit a scheduler job, install software or preprocess data. HPC execution still
-requires a committed job specification and explicit authorization.
+requires a frozen external job specification and explicit authorization.
+New datasets and runs do not require a Git commit. Keep their manifests, panels,
+resource settings and results together externally, pinned to the source commit.
+Archive the exact recipe bytes and their SHA-256 with the submission receipt.
+The runner binds the recipe hash into each phase and rejects changes on resume.
+Legacy tracked recipes remain supported for historical runs; use their original
+source commit rather than relocating an active run or editing its configuration.
 
 The recipe contains exactly these fields:
 
@@ -130,7 +136,7 @@ restoration is reused. No HDF5 or scikit-learn import enters sampler loading.
 This interface does not make imported normalization eligible for holdout scoring.
 
 For HPC initialization, `environment/hpc/initialize.sbatch COMMIT PLAN` invokes
-the same GP/SVD CLI. The tracked JSON plan pins input files, ordered genes/groups,
+the same GP/SVD CLI. The external JSON plan pins input files, ordered genes/groups,
 factor count, initialization seed/subset size and output destination. Authenticate
 the resulting certificate and freeze its output hashes in the sampler recipe
 before GPU submission. Scheduler resources and approval remain explicit.

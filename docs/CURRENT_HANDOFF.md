@@ -19,7 +19,7 @@ Promotion provenance is in [the existing validation record](recovery/REUSABLE_WO
 ## Environments and artifacts
 
 HPC: `abussing@login.rci.sc.edu`, SSH port `222`, interactive Duo. Never store
-credentials. HPC submissions require a committed specification and explicit
+credentials. HPC submissions require a frozen external specification and explicit
 authorization. Preserve immutable run checkouts and checkpoint identities.
 
 Use [the external artifact index](external-artifacts.json) for the verified

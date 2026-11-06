@@ -45,7 +45,7 @@ class RunRecipeTests(unittest.TestCase):
 
     def test_repository_and_recipe_rejections(self):
         with tempfile.TemporaryDirectory() as tmp:
-            with self.assertRaisesRegex(ValueError,'tracked'):
+            with self.assertRaisesRegex(ValueError,'file required'):
                 check_repository(Path(tmp)/'untracked.json','0'*40)
         base=dict(schema='bsfm.sampler-run.v1',backend='cpu',model='deep',chain_id='chain',
             factor_ids=['one'],seed=1,files={},dataset_recipe=None,gpu_runtime=None,
@@ -57,6 +57,16 @@ class RunRecipeTests(unittest.TestCase):
         for changes in [dict(run_id='../escape'),dict(warmup_steps=0),dict(sweeps=True),dict(save_every=0)]:
             bad=copy.deepcopy(base);bad['phases'][0].update(changes)
             with self.assertRaises(ValueError):validate_recipe(bad)
+
+    def test_external_recipe_still_requires_clean_exact_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            recipe=Path(tmp)/'run.json';recipe.write_text('{}')
+            with patch('bsfm.sampler.run.subprocess.check_output',side_effect=['a'*40+'\n','']):
+                check_repository(recipe,'a'*40)
+            for responses in [('b'*40+'\n',),('a'*40+'\n',' M source.py')]:
+                with patch('bsfm.sampler.run.subprocess.check_output',side_effect=responses):
+                    with self.assertRaisesRegex(ValueError,'Clean exact'):
+                        check_repository(recipe,'a'*40)
 
     def test_cli_configures_explicit_gpu_before_execution(self):
         import os

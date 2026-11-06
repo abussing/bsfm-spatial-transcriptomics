@@ -6,7 +6,7 @@
 #SBATCH --time=00:30:00
 set -euo pipefail
 commit="${1:?exact committed source required}"
-plan="${2:?committed run plan required}"
+plan="${2:?external run plan required}"
 module load gcc/12.2.0 mpfr/4.1.0
 cd "/work/abussing/bsfm-consolidation/checkouts/$commit"
 export PYTHONPATH="$PWD/src" PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1
@@ -18,7 +18,7 @@ from bsfm.initialization.gp_svd import load_input
 commit,plan=sys.argv[1:]
 assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==commit
 assert not subprocess.check_output(['git','status','--porcelain'],text=True).strip()
-subprocess.run(['git','ls-files','--error-unmatch','--',plan],check=True)
+assert Path(plan).is_file(), 'Run plan file required'
 spec=json.loads(Path(plan).read_text());init=spec['initialization']
 for record in spec['inputs'].values():
     p=Path(record['path'])

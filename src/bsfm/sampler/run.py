@@ -1,4 +1,4 @@
-"""Run a committed dataset recipe through the existing periodic controllers.
+"""Run a frozen dataset recipe through the existing periodic controllers.
 
 No scheduler submission, preprocessing, or environment installation. Each phase
 after the first retunes from its completed parent; only the final phase is the
@@ -49,16 +49,17 @@ def validate_recipe(recipe):
 def check_repository(recipe_path,commit):
     from .run_inputs import REPO
     recipe_path=Path(recipe_path).resolve()
-    if not recipe_path.is_relative_to(REPO.resolve()):raise ValueError('Run recipe must be tracked in the source checkout')
+    if not recipe_path.is_file():raise ValueError('Run recipe file required')
     def git(*args):
         return subprocess.check_output(['git',*args],cwd=REPO,text=True).strip()
     if git('rev-parse','HEAD')!=commit or git('status','--porcelain'):
         raise ValueError('Clean exact generating commit required')
-    git('ls-files','--error-unmatch','--',recipe_path.relative_to(REPO.resolve()).as_posix())
+    if recipe_path.is_relative_to(REPO.resolve()):
+        git('ls-files','--error-unmatch','--',recipe_path.relative_to(REPO.resolve()).as_posix())
 
 
 def run_recipe(path,output,*,commit):
-    """Authenticate one committed recipe and run/resume its ordered phases."""
+    """Authenticate one frozen recipe and run/resume its ordered phases."""
     from . import run_inputs
     from .checkpoint_contract import digest
     from .run_storage import file_record,read_json,safe
@@ -69,7 +70,7 @@ def run_recipe(path,output,*,commit):
         raise ValueError('Sampler outputs must stay outside the source checkout')
     check_repository(path,commit)
     recipe=read_json(path);validate_recipe(recipe); recipe_record=file_record(path)
-    # Relative deployment paths are relative to the committed recipe, not cwd.
+    # Relative deployment paths are relative to the frozen recipe, not cwd.
     def resolve(value):return str((path.parent/Path(value)).resolve())
     files=copy.deepcopy(recipe['files'])
     for record in files.values():record['path']=resolve(record['path'])
