@@ -206,6 +206,92 @@ def screen_batched(dataset,manifest,recipe_path,checkpoint,*,batch_size,workers,
         lock.rmdir()
 
 
+def expression_summary(y):
+    """Nonnegative, uncentered response summaries; units are not raw counts."""
+    y=np.asarray(y,dtype=float)
+    if y.ndim!=1 or not len(y) or not np.isfinite(y).all() or np.any(y<0):
+        raise ValueError('Finite nonnegative response vector required')
+    positive=y[y>0]
+    return dict(detection_fraction=float(np.mean(y>0)),zero_fraction=float(np.mean(y==0)),
+                mean_expression=float(y.mean()),median_expression=float(np.median(y)),
+                positive_median=float(np.median(positive)) if len(positive) else None,
+                expression_q90=float(np.quantile(y,.9)),
+                observed_q90_q10=float(np.quantile(y,.9)-np.quantile(y,.1)))
+
+
+def fixed_screen_mean(X,y,train,row,config):
+    """Condition the saved optimized kernel, with NO hyperparameter optimization.
+
+    X/y cover the reviewed population; train indexes its original fitting cells.
+    White noise contributes to the training covariance, not cross-cell mean.
+    sklearn restores the original response units after normalize_y=True.
+    """
+    from sklearn.gaussian_process import GaussianProcessRegressor
+    from sklearn.gaussian_process.kernels import ConstantKernel,Matern,WhiteKernel
+    from threadpoolctl import threadpool_limits
+    X=np.asarray(X,dtype=float);y=np.asarray(y,dtype=float);train=np.asarray(train)
+    if (X.shape!=(len(y),2) or train.ndim!=1 or train.dtype.kind not in 'iu'
+        or not len(train) or len(set(train.tolist()))!=len(train)
+        or np.any(train<0) or np.any(train>=len(y)) or not np.isfinite(X).all()
+        or not np.isfinite(y).all()):raise ValueError('Invalid GP review population')
+    if config['regressor']!={'normalize_y':True,'n_restarts_optimizer':0,'alpha':1e-6}:
+        raise ValueError('Unreviewed GP screening regressor settings')
+    values=[row[k] for k in ('signal_variance','length_scale','noise_variance')]
+    if not np.isfinite(values).all() or min(values)<=0:raise ValueError('Invalid saved GP parameters')
+    kernel=ConstantKernel(values[0],'fixed')*Matern(values[1],'fixed',nu=config['kernel']['nu'])+WhiteKernel(values[2],'fixed')
+    with threadpool_limits(limits=1):
+        gp=GaussianProcessRegressor(kernel=kernel,optimizer=None,**config['regressor'])
+        gp.fit(X[train],y[train])
+        mean=gp.predict(X)
+    return mean
+
+
+def review_screen(data,metadata,screen,recipe,*,minimum_spatial_fraction):
+    """Review every passing gene/type without imposing a final panel or score.
+
+    Reconstruct exact training membership and geometry before conditioning saved
+    kernels. Summaries use screening cells only, not held-out expression. This
+    is descriptive in-sample fitted amplitude, not predictive validation.
+    """
+    validate(data,metadata)
+    if not np.isfinite(minimum_spatial_fraction) or not 0<=minimum_spatial_fraction<=1:
+        raise ValueError('Spatial fraction threshold must lie in [0,1]')
+    if screen['config']!=recipe['config'] or metadata['normalization']['units']!=screen['config']['expression_units']:
+        raise ValueError('Screen/recipe/response units differ')
+    sample=recipe['sample'];groups=recipe['groups'];genes=recipe['genes']
+    expected=[(sample,g,t) for t in groups for g in genes]
+    if [(r['sample'],r['gene'],r['celltype']) for r in screen['rows']]!=expected:
+        raise ValueError('Screen rows do not match recipe')
+    pop=np.flatnonzero((data['sample_names']==sample)&np.isin(data['group_names'],groups))
+    origin=data['coordinates'][pop].min(0);span=float(np.ptp(data['coordinates'][pop],axis=0).max())
+    if screen['coordinate_transform']!=dict(origin=origin.tolist(),span=span):
+        raise ValueError('Screen geometry differs')
+    X=(data['coordinates']-origin)/span;lookup={g:i for i,g in enumerate(data['gene_names'])}
+    rng=np.random.RandomState(recipe['config']['seed']);out=[]
+    for group in groups:
+        own=pop[(data['group_names'][pop]==group)&np.isin(data['cell_names'][pop],recipe['training_cells'])]
+        own=own[np.argsort(data['source_row_indices'][own],kind='stable')]
+        train=rng.choice(own,min(recipe['config']['cap'],len(own)),replace=False)
+        if train.tolist()!=screen['training_dataset_indices'][group]:raise ValueError('Screen training cells differ')
+        local={int(v):i for i,v in enumerate(own)};indices=np.array([local[int(v)] for v in train])
+        selected=[r for r in screen['rows'] if r['celltype']==group and r['status']=='FIT'
+                  and r['spatial_fraction']>=minimum_spatial_fraction]
+        for i,r in enumerate(selected):
+            if r['n_population']!=len(own) or r['n_fit']!=len(train):raise ValueError('Screen cell counts differ')
+            y=data['expression'][lookup[r['gene']],own]
+            mean=fixed_screen_mean(X[own],y,indices,r,recipe['config'])
+            lo,hi=np.quantile(mean,[.1,.9])
+            out.append(dict(r,**expression_summary(y),spatial_mean_q10=float(lo),
+                            spatial_mean_q90=float(hi),spatial_amplitude=float(hi-lo),
+                            spatial_signal_sd=float(np.sqrt(r['signal_variance'])*np.std(y[indices]))))
+            if (i+1)%100==0:print(f'REVIEW {group} {i+1}/{len(selected)}',flush=True)
+        print(f'REVIEW {group} COMPLETE {len(selected)}',flush=True)
+    return dict(schema='bsfm.gp-screen-review.v1',rows=out,expression_units=metadata['normalization']['units'],
+                minimum_spatial_fraction=minimum_spatial_fraction,final_panel_selected=False,
+                amplitude='q90 minus q10 of conditional spatial mean at screening cells; saved kernel; optimizer=None',
+                scope='Descriptive in-sample review, not held-out predictive performance or raw-count support')
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--dataset',type=Path,required=True);p.add_argument('--manifest-sha256',required=True)
@@ -213,7 +299,26 @@ def main():
     p.add_argument('--checkpoint-dir',type=Path)
     p.add_argument('--batch-size',type=int,default=16)
     p.add_argument('--workers',type=int,default=1)
+    p.add_argument('--review-screen',type=Path)
+    p.add_argument('--screen-sha256')
+    p.add_argument('--minimum-spatial-fraction',type=float)
     a=p.parse_args()
+    if a.review_screen is not None:
+        if a.checkpoint_dir is not None or a.workers!=1:p.error('Review uses one process and no screening checkpoint')
+        if a.minimum_spatial_fraction is None or not a.screen_sha256:p.error('Review requires screen hash and explicit spatial threshold')
+        if a.output.exists():raise FileExistsError(a.output)
+        if file_hash(a.review_screen)!=a.screen_sha256:raise ValueError('Screen bytes changed')
+        screen=json.loads(a.review_screen.read_text(encoding='utf-8'))
+        if screen['dataset_manifest_sha256']!=a.manifest_sha256 or screen['recipe_sha256']!=file_hash(a.recipe):
+            raise ValueError('Screen inputs differ')
+        d,m=load_dataset(a.dataset,expected_manifest_sha256=a.manifest_sha256)
+        result=review_screen(d,m,screen,json.loads(a.recipe.read_text(encoding='utf-8')),
+                             minimum_spatial_fraction=a.minimum_spatial_fraction)
+        result.update(screen_sha256=a.screen_sha256,dataset_manifest_sha256=a.manifest_sha256,
+                      recipe_sha256=file_hash(a.recipe),source_sha256=file_hash(__file__),
+                      versions={p:importlib.metadata.version(p) for p in ('numpy','scipy','scikit-learn','threadpoolctl')})
+        with a.output.open('x',encoding='utf-8') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
+        return
     if a.checkpoint_dir is not None:
         screen_batched(a.dataset,a.manifest_sha256,a.recipe,a.checkpoint_dir,
                        batch_size=a.batch_size,workers=a.workers,output=a.output)

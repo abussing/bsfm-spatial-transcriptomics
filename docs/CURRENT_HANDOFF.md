@@ -127,7 +127,12 @@ one type. The user chose within-cell-type spatial fraction as the primary rankin
 A review of the top 12 per type covers 46 unique genes; four of 72 entries have
 recorded minimum-length-scale warnings and remain visible. The existing dataset
 receipt records the external HTML, image and CSV paths and hashes. No final
-top-N panel is imposed; inspect these expression maps before choosing the panel.
+top-N panel is imposed. The user additionally requires substantial expression and
+acceptable sparsity: assess these within each type alongside spatial fraction,
+not by color contrast alone. The existing screen module now reconstructs fitted
+spatial amplitude from saved kernels without reoptimizing. The dataset guide
+defines the review metrics and the validation receipt records external results.
+Inspect count support and spatial maps before choosing thresholds or a final panel.
 The receipt records the job's output and scheduler log paths. The imported bundle's original local path,
 hashes, 16,586 genes, 4,410 cells and six groups are recorded in the
 [import receipt](preprocessing/DATASET_LAYER_VALIDATION.json). It reuses the

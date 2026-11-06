@@ -210,3 +210,31 @@ successful Linux pilot, exact input hashes and prepared full-run specification.
 The full run records all genes' fit or exclusion results. Passing the 0.10 spatial
 fraction gate does not automatically choose the final modeling panel: the user
 will inspect the strongest within-cell-type signals before choosing that panel.
+
+### Expression strength and spatial amplitude review
+
+The spatial fraction gate is a candidate screen, not a final expression-quality
+decision. Review each gene within each type using detection/zero fraction, mean
+response, median positive response, and q90 minus q10 of its fitted spatial mean.
+High fraction can coexist with weak expression or a small absolute spatial change.
+Do not multiply these measures into an unexplained score, impose a universal
+cutoff across response units, or discard a coherent region-specific gene solely
+because it has zeros elsewhere. Inspect spatial maps alongside these summaries.
+
+The existing screen CLI accepts `--review-screen SCREEN.json --screen-sha256 HASH
+--minimum-spatial-fraction 0.1`, together with its existing dataset, manifest,
+recipe and fresh output arguments. It verifies screen/input hashes, geometry,
+ordered rows and original fitting-cell membership. Saved signal/noise/length
+parameters are conditioned with `optimizer=None`; no GP hyperparameters are
+reoptimized. Fitted-mean q10/q90 are calculated over screening cells, in original
+response units. This is descriptive in-sample amplitude, not predictive validation.
+Signal SD additionally rescales the saved standardized signal variance using the
+original fitting-response SD; it is distinct from the fitted-mean amplitude.
+
+Positive expression in a transformed matrix is not raw molecular support. When
+source counts are available, join their exact gene/cell/type identities and inspect
+positive-count median, singleton fraction among detections, and fractions above
+explicit count levels. For axolotl the authenticated `count_use` matrix supports
+this review, but counts are not asserted to be UMIs. The imported log2 response is
+unchanged. No final panel, new hard expression cutoff, or fitted BSFM result is
+implied by this review. Existing Johnston and axolotl screening recipes remain intact.

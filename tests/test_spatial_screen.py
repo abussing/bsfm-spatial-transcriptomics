@@ -2,12 +2,14 @@ import json
 from pathlib import Path
 import unittest
 import warnings
+from unittest.mock import patch
 
 import numpy as np
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import ConstantKernel, Matern, WhiteKernel
 from threadpoolctl import threadpool_limits
-from bsfm.preprocessing.spatial_screen import screen_sample, aggregate_animals
+from bsfm.preprocessing.spatial_screen import (screen_sample, aggregate_animals,
+    expression_summary, fixed_screen_mean, review_screen)
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -32,6 +34,37 @@ def fixture():
 
 
 class SpatialScreenTests(unittest.TestCase):
+    def test_review_recovers_original_mean_and_response_units(self):
+        d,m,spec=fixture();screen=screen_sample(d,m,**spec)
+        train=np.array(screen['training_dataset_indices']['type'])
+        X=(d['coordinates']-d['coordinates'].min(0))/np.ptp(d['coordinates'],axis=0).max()
+        kernel=ConstantKernel(1.,(.01,100.))*Matern(.3,(.02,3.),nu=2.5)+WhiteKernel(.5,(.001,100.))
+        with threadpool_limits(limits=1),warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            gp=GaussianProcessRegressor(kernel=kernel,**spec['config']['regressor']).fit(X[train],d['expression'][0,train])
+            expected=gp.predict(X)
+        with patch.object(GaussianProcessRegressor,'_constrained_optimization',side_effect=AssertionError('Unexpected reoptimization')):
+            actual=fixed_screen_mean(X,d['expression'][0],train,screen['rows'][0],spec['config'])
+        np.testing.assert_allclose(actual,expected,rtol=1e-12,atol=1e-12)
+        scaled=fixed_screen_mean(X,7*d['expression'][0]+3,train,screen['rows'][0],spec['config'])
+        np.testing.assert_allclose(scaled,7*actual+3,rtol=1e-12,atol=1e-12)
+        result=review_screen(d,m,screen,spec,minimum_spatial_fraction=0)
+        self.assertAlmostEqual(result['rows'][0]['spatial_amplitude'],float(np.diff(np.quantile(expected[:28],[.1,.9]))[0]))
+        # Held-out responses must not affect the summaries or reconstructed mean.
+        d['expression'][:,28:]+=100
+        self.assertEqual(result,review_screen(d,m,screen,spec,minimum_spatial_fraction=0))
+        screen['training_dataset_indices']['type'].reverse()
+        with self.assertRaises(ValueError):review_screen(d,m,screen,spec,minimum_spatial_fraction=0)
+
+    def test_expression_review_zeros_and_strength_are_distinct(self):
+        low=expression_summary([0,0,1,1]);high=expression_summary([0,0,8,8])
+        self.assertEqual(low['detection_fraction'],high['detection_fraction'])
+        self.assertEqual(high['positive_median'],8)
+        self.assertEqual(high['mean_expression'],4)
+        self.assertIsNone(expression_summary([0,0])['positive_median'])
+        for invalid in ([-1,2],[np.nan,1],[],[[1,2]]):
+            with self.assertRaises(ValueError):expression_summary(invalid)
+
     def test_historical_gp_same_runtime_and_heldout_independence(self):
         d,m,spec=fixture()
         result=screen_sample(d,m,**spec)

@@ -317,6 +317,95 @@
           }
         }
       }
+    },
+    "expression_support_review": {
+      "date": "2026-11-06",
+      "method": "Saved-kernel conditioning and expression/count support review; no hyperparameter reoptimization",
+      "local_root": "C:\\Users\\andyb\\Desktop\\BSFM_ENVIRONMENTS\\axolotl-audit-20261104\\gene-review-20261106",
+      "hpc_root": "/work/abussing/bsfm-consolidation/evidence/axolotl-expression-review-20261106",
+      "screen_sha256": "7f6aac9c2908f4961345c16333955f1eef07987c657cc84fcdd55c47e210f7fb",
+      "dataset_manifest_sha256": "a04f87fd3fdf9ca8eafebf8528d194efafed52edd08212ddbcd2e6e44fc41663",
+      "recipe_sha256": "56c2569d9fc4edf05dd0c8017cf579bfc8894e1beec1c1417c6b5239343ea0f5",
+      "source_sha256": "6cdcaedb34947853369928bc41f79f0202a341a3604b4c3e48219d4faa0b05c1",
+      "versions": {
+        "numpy": "2.1.3",
+        "scipy": "1.14.1",
+        "scikit-learn": "1.4.2",
+        "threadpoolctl": "3.5.0"
+      },
+      "source_counts": {
+        "path": "E:/axolotl/artista_data.RData",
+        "field": "data_use$count_use",
+        "sha256": "37287f741ddbd899ff7590143c8985d2d20588e6b32bab0879e93298c589c8cf",
+        "interpretation": "Input integer counts; not asserted to be UMIs"
+      },
+      "pairs": 3647,
+      "genes": 1674,
+      "tests": {
+        "passed": 15,
+        "modules": [
+          "test_spatial_screen",
+          "test_screen_batches",
+          "test_dataset_preprocessing",
+          "test_single_sample_selection"
+        ],
+        "checks": [
+          "Original screen_sample AST unchanged",
+          "Saved-kernel mean agrees with separately optimized GP at rtol/atol 1e-12",
+          "Optimizer invocation prohibited in reconstruction test",
+          "Affine response scaling preserved",
+          "Held-out response perturbation leaves review unchanged",
+          "Changed training membership rejected",
+          "Zero and low-count summaries checked",
+          "Existing 91-gene selection and batch/resume tests pass",
+          "Screen, dataset and source RData hashes authenticated",
+          "All count/source normalized means, positive medians and detection fractions agree with imported response to 1e-12",
+          "Source counts checked finite, nonnegative integer with identical positive masks to normalized response"
+        ]
+      },
+      "interpretation": "Spatial fraction, fitted spatial amplitude, detection and count support remain separate metrics. Interactive thresholds are exploratory; no final panel or new canonical cutoff.",
+      "files": {
+        "expression-spatial-review.json": {
+          "bytes": 3407394,
+          "sha256": "d67bcdfc750576a1d9072948180d970d078eefad8043f3fb28e32f66ab9fa494"
+        },
+        "expression-spatial-review.csv": {
+          "bytes": 1645804,
+          "sha256": "6e101b901e2e149e6afb712c2c1ddd32375da45eaee5859a316e4889964b84bd"
+        },
+        "expression-review-summary.json": {
+          "bytes": 99949,
+          "sha256": "05708a01982ef4ea97dcd2470e5ece18d20ab65af113dcd8dcca8f42ad33bb70"
+        },
+        "expression-review.html": {
+          "bytes": 3842545,
+          "sha256": "2ed3a4dd927823ba0730177af21990d823077df32b2c96a49bb99786f2e39ec0"
+        },
+        "expression-review.png": {
+          "bytes": 143902,
+          "sha256": "157d781e4aa023c21f6ea4bd2448f8443c346854ff37dae2e75122d1757541ff"
+        },
+        "count-support.csv": {
+          "bytes": 601297,
+          "sha256": "4e65ab09dfae885d9b0f0eb3778b8f4e019bcb94bb4b9e1535a3049f9902748f"
+        },
+        "candidate-pairs.csv": {
+          "bytes": 82788,
+          "sha256": "a5175eb66891bdf59ffbed44385fe0447058303a1df14121b1f7b2219f0fd282"
+        },
+        "count_support.R": {
+          "bytes": 1195,
+          "sha256": "df1a5288124f481015356dda9d1ef1792e7970a75d93f58b927f0cce607c03da"
+        },
+        "build_expression_review.py": {
+          "bytes": 10611,
+          "sha256": "16e9b941e6043b26c1a201be97fa2d378e608bf5c647fd3e97957e2fd574f120"
+        },
+        "plot_expression_review.R": {
+          "bytes": 979,
+          "sha256": "f87772d2f3f3a9cd2d249abd8a60cb990e5c13d15cfcb8418f579b2a7febb816"
+        }
+      }
     }
   }
 }
