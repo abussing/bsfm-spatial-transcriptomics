@@ -135,6 +135,10 @@ factor count, initialization seed/subset size and output destination. Authentica
 the resulting certificate and freeze its output hashes in the sampler recipe
 before GPU submission. Scheduler resources and approval remain explicit.
 
+For GPU sampling, `environment/hpc/sample.sbatch COMMIT RECIPE OUTPUT` invokes
+the same sampler command in the authenticated HPC CUDA environment. Pass the
+approved partition and resource limits to `sbatch`; outputs remain external.
+
 ## Validation scope and remaining gaps
 
 Bounded synthetic GPU validation covers deep/flat phased execution and completed

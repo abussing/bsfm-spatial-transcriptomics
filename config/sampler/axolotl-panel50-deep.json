@@ -1,0 +1,88 @@
+{
+  "schema": "bsfm.sampler-run.v1",
+  "backend": "gpu",
+  "model": "deep",
+  "chain_id": "axolotl-panel50-deep",
+  "factor_ids": [
+    "factor-01",
+    "factor-02",
+    "factor-03",
+    "factor-04",
+    "factor-05",
+    "factor-06",
+    "factor-07",
+    "factor-08",
+    "factor-09",
+    "factor-10",
+    "factor-11",
+    "factor-12"
+  ],
+  "seed": 2026110602,
+  "files": {
+    "prepared": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/axolotl-fit50-20261106/prepared/training.npz",
+      "bytes": 1118081,
+      "sha256": "26856b751c5e0b583c7ff8d8b72c907f16300aff92a3f0129bbecf3a90ffd93a"
+    },
+    "contract": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/axolotl-fit50-20261106/prepared/gpinit-input.json",
+      "bytes": 11581,
+      "sha256": "e2208d884c6e366b21f57e6ccdab127e5f08107347bb61575230e20b055479a0"
+    },
+    "response_manifest": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/axolotl-fit50-20261106/prepared/response.json",
+      "bytes": 107248,
+      "sha256": "b7a5529dc814bcd486a355c93b736263d083f04588b0d685f2c52ffc53c6e96f"
+    },
+    "mesh": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/axolotl-fit50-20261106/warp.npz",
+      "bytes": 5011063,
+      "sha256": "22291ec9255a96660dd9735561e7d4ae23b02e95e33519296842cb6479e54ce2"
+    },
+    "rule": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/axolotl-fit50-20261106/L14_ell14.json",
+      "bytes": 51516,
+      "sha256": "bb74643b60140962a919bca252465149f450fd89f376bab66db653b23c30a5bf"
+    },
+    "gpinit": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/axolotl-fit50-20261106/gpinit/gpinit.npz",
+      "bytes": 438406,
+      "sha256": "b0f1863d9715dfb76ba8af155d8e6e928f4870909fefca7b36c599d6531950ed"
+    },
+    "certificate": {
+      "path": "/work/abussing/bsfm-consolidation/evidence/axolotl-fit50-20261106/gpinit/certificate.json",
+      "bytes": 33341,
+      "sha256": "64d2cdd24132213a054defdfc88e7d01126ddd85cf5dcfaab93e578a282cdadf"
+    }
+  },
+  "dataset_recipe": {
+    "schema": "bsfm.dataset-run-inputs.v1",
+    "sample": "artista_data",
+    "coordinate_system": "october26_glial_min_max_span",
+    "quadrature_order": 14
+  },
+  "gpu_runtime": {
+    "receipt": "../../docs/environment/gpu-runtime-20261103/GPU_RUNTIME_RECEIPT.json",
+    "expected_sha256": "0a30456adb2d7c06b6b541430400762fb7a49c1d0bb79456fc6aa2dbb63b8a3c",
+    "prefix": "/work/abussing/arka_trying_gpu_again/env",
+    "site_packages": "/work/abussing/arka_trying_gpu_again/env/lib/python3.11/site-packages",
+    "libdevice": "/work/apps/cuda/12.3/nvvm/libdevice/libdevice.10.bc",
+    "p100_receipt": "../../docs/environment/gpu-runtime-20261103/P100_VALIDATION_RECEIPT.json",
+    "p100_sha256": "22e6dacda6e253146fcce99c9aaef13dcdf982f5cdd8c83412544149eeae0652",
+    "blas_threads": 1
+  },
+  "phases": [
+    {
+      "run_id": "bridge",
+      "warmup_steps": 50,
+      "sweeps": 50,
+      "save_every": 10
+    },
+    {
+      "run_id": "production",
+      "warmup_steps": 100,
+      "sweeps": 1000,
+      "save_every": 10
+    }
+  ]
+}
