@@ -13,7 +13,7 @@ from .checkpoint_contract import digest
 from .compact_checkpoint import load_compact, save_compact
 from .retained_contract import retain_at
 from .retained_records import make_completed, load_record, validate_audit
-from .retained_diagnostics import encode
+from .retained_diagnostics import encode, decode
 from .run_controller import RunController, validate_spec
 from .run_readaptation import ReadaptationController
 from .run_genesis import boundary
@@ -48,6 +48,9 @@ class PeriodicMixin:
             if file_record(path/name)!=receipt['files'][name]:
                 raise ValueError('Periodic payload changed')
         rows=read_json(path/'diagnostics.json')
+        cap=self.store.input_receipt.get('pcg_maximum_iterations',80)
+        if any(p['iterations']>cap for row in rows for p in decode(row['pcg'])):
+            raise ValueError('PCG diagnostics exceed frozen run iteration budget')
         if [r['sweep'] for r in rows]!=list(range(prior['n']+1,n+1)):
             raise ValueError('Missing periodic sweep diagnostics')
         b=prior['boundary']

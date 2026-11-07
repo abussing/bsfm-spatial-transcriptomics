@@ -108,7 +108,7 @@ def validate_diagnostics(encoded, factor_ids, *, failed=False):
     for row in d['pcg']:
         exact_keys(row, JointEtaDiagnostics.__dataclass_fields__)
         if (row['converged'] is not True or row['requested_posterior_mahalanobis_RMS_tolerance'] != 1e-10
-                or not 0 <= row['iterations'] <= 80
+                or type(row['iterations']) is not int or not 0 <= row['iterations'] <= 4096
                 or not 0 <= row['posterior_mahalanobis_RMS_error_upper_bound'] <= 1e-10
                 or not all(np.isfinite(v) for v in row.values())):
             raise ValueError('Invalid completed PCG result; record failure separately')

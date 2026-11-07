@@ -46,7 +46,12 @@ class RunRecipeTests(unittest.TestCase):
                         imported['pcg_maximum_iterations']=320
                         imported['phases']=imported['phases'][:1]
                         fork=root/'fork.json';fork.write_text(json.dumps(imported))
-                        with patch('bsfm.sampler.run_controller.RunController._adapt_endpoint',side_effect=AssertionError('Retune')):
+                        from dataclasses import replace
+                        from bsfm.sampler.joint_eta_kernels import sample_joint_eta_pcg
+                        def report_long_solve(*args,**kwargs):
+                            a,b,diagnostics=sample_joint_eta_pcg(*args,**kwargs)
+                            return a,b,replace(diagnostics,iterations=81)
+                        with patch('bsfm.sampler.run_controller.RunController._adapt_endpoint',side_effect=AssertionError('Retune')), patch('bsfm.sampler.layer4.sample_joint_eta_pcg',side_effect=report_long_solve):
                             result2=run_recipe(fork,root/'fork',commit='8'*40)
                             self.assertEqual(result2['phases'][0]['result']['completed'],1)
                         import numpy as np
