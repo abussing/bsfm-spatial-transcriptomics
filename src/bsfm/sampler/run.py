@@ -16,8 +16,14 @@ import subprocess
 def validate_recipe(recipe):
     required={'schema','backend','model','chain_id','factor_ids','seed','files',
               'dataset_recipe','gpu_runtime','phases'}
-    if set(recipe)!=required or recipe['schema']!='bsfm.sampler-run.v1':
+    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint'} or recipe['schema']!='bsfm.sampler-run.v1':
         raise ValueError('Exact sampler run recipe fields required')
+    if 'pcg_maximum_iterations' in recipe:
+        cap=recipe['pcg_maximum_iterations']
+        if type(cap) is not int or not 1 <= cap <= 4096:raise ValueError('Invalid PCG iteration budget')
+    if 'initial_endpoint' in recipe:
+        r=recipe['initial_endpoint']
+        if not isinstance(r,dict) or set(r)!={'path','bytes','sha256'}:raise ValueError('Pinned initial endpoint required')
     if recipe['backend'] not in ('cpu','gpu') or recipe['model'] not in ('deep','flat'):
         raise ValueError('Explicit CPU/GPU backend and deep/flat model required')
     if (recipe['backend']=='gpu') != isinstance(recipe['gpu_runtime'],dict):
@@ -84,16 +90,24 @@ def run_recipe(path,output,*,commit):
         preflight_gpu_callback()
     first=recipe['phases'][0]
     genesis=output/first['run_id']/'segments/segment/genesis/endpoint.npz'
+    source=copy.deepcopy(recipe.get('initial_endpoint'))
+    if source is not None:
+        source['path']=resolve(source['path'])
+        if Path(source['path']).is_relative_to(output):raise ValueError('Imported endpoint must be outside new output root')
+        run_inputs.authenticate_files({'initial_endpoint':source})
     target,loading,eta,binding=run_inputs.load_inputs(files,recipe['factor_ids'],
-        genesis_path=genesis if genesis.exists() else None,dataset_recipe=recipe['dataset_recipe'])
+        genesis_path=genesis if genesis.exists() else (source['path'] if source else None),dataset_recipe=recipe['dataset_recipe'])
     if recipe['model']=='flat':
         from .flat_control import FlatTarget,FlatTransition
         target=FlatTarget(target.inputs,target.geometry,target.rule,factor_ids=target.factor_ids)
     binding=dict(binding,launcher_recipe=recipe_record,model=recipe['model'],target_identity=target.identity)
+    if source is not None:binding['initial_endpoint']=source
+    if 'pcg_maximum_iterations' in recipe:binding['pcg_maximum_iterations']=recipe['pcg_maximum_iterations']
     def authenticate():
         check_repository(path,commit)
         if file_record(path)!=recipe_record:raise ValueError('Run recipe changed')
         run_inputs.authenticate_files(files)
+        if source is not None:run_inputs.authenticate_files({'initial_endpoint':source})
         if run_inputs.authenticate_environment(gpu_runtime=gpu)!=env:raise ValueError('Environment changed')
         target._validate_identities()
     parent=None;results=[]
@@ -109,8 +123,14 @@ def run_recipe(path,output,*,commit):
         spec['software']=dict(git_commit=commit,clean_tree=True,run_config_sha256=digest(spec),
             environment_lock_sha256=env['lock']['sha256'],environment_identity=digest(env))
         cls=PeriodicRunController if parent is None else PeriodicReadaptationController
+        if parent is None and source is not None:
+            from .run_continuation import ImportedEndpointController
+            cls=ImportedEndpointController
         controller=cls(output/phase['run_id'],target,loading,eta,spec,phase_binding,
                        authenticate=authenticate,**({} if parent is None else dict(parent=parent)))
+        if 'pcg_maximum_iterations' in recipe:
+            from .layer4 import JointEtaConditional
+            controller.layer.joint_eta=JointEtaConditional(target,maximum_iterations=recipe['pcg_maximum_iterations'])
         if recipe['model']=='flat':controller.layer.split=FlatTransition(target)
         print('PHASE',phase['run_id'],recipe['model'],recipe['backend'],flush=True)
         results.append(dict(run_id=phase['run_id'],result=controller.run()))

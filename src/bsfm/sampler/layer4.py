@@ -111,6 +111,12 @@ class CenteredHyperTarget(_Binding):
 
 class JointEtaConditional(_Binding):
     """Return one all-factor draw without mutating any GaussianState array."""
+    def __init__(self, target, *, maximum_iterations=MAXIMUM_PCG_ITERATIONS):
+        super().__init__(target)
+        if type(maximum_iterations) is not int or not 1 <= maximum_iterations <= 4096:
+            raise ValueError('PCG iteration budget must be an integer in [1,4096]')
+        self.maximum_iterations = maximum_iterations
+
     def draw(self, positions, state, rng, *, state_factor_ids):
         self._check(state, state_factor_ids)
         if not isinstance(rng, np.random.Generator):
@@ -132,7 +138,7 @@ class JointEtaConditional(_Binding):
             alpha=state.alpha, sigma2=state.sigma2,
             cell_id=self.target.inputs.arrays['cell_id'], zeta=state.zeta,
             features=features, tolerance=POSTERIOR_RMS_TOLERANCE,
-            maximum_iterations=MAXIMUM_PCG_ITERATIONS)
+            maximum_iterations=self.maximum_iterations)
         array(eta, 'joint eta draw', state.eta.shape)
         array(beta, 'feature coefficients', (len(positions), feature_columns))
         if (not diagnostics.converged

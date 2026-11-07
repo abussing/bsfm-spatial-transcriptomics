@@ -106,7 +106,8 @@ eta result is returned; RNG consumption up to that failure is retained as in
 the source. GaussianState is never updated by these methods. Invalid identity
 or state inputs are rejected before consuming RNG.
 
-The public contract fixes the maximum at **80 PCG iterations** and the reported
+The legacy default is **80 PCG iterations**; an explicit run recipe may increase
+the computational ceiling without changing the stopping tolerance. The reported
 posterior-Mahalanobis RMS beta-solve bound at **1e-10**. For Q >= I,
 `e.T Q e = residual.T Q^-1 residual <= ||residual||^2`, so the historical bound
 is `||residual||/sqrt(K*R)`. It uses the recursive PCG residual, unchanged from

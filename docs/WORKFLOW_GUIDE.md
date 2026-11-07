@@ -71,6 +71,19 @@ The recipe contains exactly these fields:
 | `gpu_runtime` | Full GPU authenticator arguments; null for CPU |
 | `phases` | Ordered records containing `run_id`, `warmup_steps`, `sweeps`, `save_every` |
 
+Optional `pcg_maximum_iterations` sets a computational ceiling (integer 1?4096;
+legacy default 80). The posterior RMS tolerance remains 1e-10. A larger ceiling
+does not force extra iterations after convergence and does not change the model.
+If the ceiling is reached, diagnose the same saved state before changing accuracy.
+
+Optional `initial_endpoint` pins an existing pre-sweep `endpoint.npz` by path,
+bytes and SHA-256. Use a **new output root** and source commit for an explicitly
+changed computational policy. The loader authenticates its original contract,
+exact spectral chart, state, tuning and RNG streams; it imports completed tuning
+without repeating it. The first phase's seed and tuning length must match the
+source endpoint. Existing runs and their software/recipe identities stay intact.
+This imports pre-sweep endpoints only; it is not a general checkpoint migration.
+
 Each phase performs the specified NUTS tuning per factor followed by the specified
 Gibbs sweeps. The first phase initializes; subsequent phases use the existing
 readaptation controller and the completed parent's exact state/RNG. Specify tuning, bridge and production lengths in the recipe; no schedule is

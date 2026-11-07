@@ -39,6 +39,27 @@ class RunRecipeTests(unittest.TestCase):
                         self.assertEqual(run_recipe(path,root/'outputs',commit='9'*40),result)
                     child=json.loads((root/'outputs/production/input-receipt.json').read_text())
                     self.assertIn('readaptation_parent',child)
+                    if model=='deep':
+                        source=root/'outputs/bridge/segments/segment/genesis/endpoint.npz'
+                        imported=copy.deepcopy(recipe)
+                        imported['initial_endpoint']=dict(path=str(source),**file_record(source))
+                        imported['pcg_maximum_iterations']=320
+                        imported['phases']=imported['phases'][:1]
+                        fork=root/'fork.json';fork.write_text(json.dumps(imported))
+                        with patch('bsfm.sampler.run_controller.RunController._adapt_endpoint',side_effect=AssertionError('Retune')):
+                            result2=run_recipe(fork,root/'fork',commit='8'*40)
+                            self.assertEqual(result2['phases'][0]['result']['completed'],1)
+                        import numpy as np
+                        from bsfm.sampler.run_genesis import load_genesis
+                        old=root/'outputs/bridge/segments/segment/boundaries/000000000001/record.npz'
+                        new=root/'fork/bridge/segments/segment/boundaries/000000000001/record.npz'
+                        with np.load(old) as a,np.load(new) as b:
+                            for key in a.files:
+                                if key!='metadata':np.testing.assert_array_equal(a[key],b[key])
+                        source_bytes=source.read_bytes();source.write_bytes(source_bytes+b'changed')
+                        with self.assertRaisesRegex(ValueError,'Input file changed'):
+                            run_recipe(fork,root/'fork',commit='8'*40)
+                        source.write_bytes(source_bytes)
                     changed=copy.deepcopy(recipe);changed['phases'][1]['sweeps']=3
                     path.write_text(json.dumps(changed))
                     with self.assertRaises(ValueError):run_recipe(path,root/'outputs',commit='9'*40)
