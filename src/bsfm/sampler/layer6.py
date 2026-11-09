@@ -166,10 +166,7 @@ class GibbsSweep:
             p = current[i].values
             work.alpha[i] = float(np.exp(np.asarray(p[0])))
             work.zeta[i] = float(jax.nn.sigmoid(jnp.asarray(p[1])))
-            warp[i] = dict(factor_id=target.factor_ids[i], ell_eta=ELL_ETA,
-                           ell_W=float(np.exp(np.asarray(p[2]))),
-                           sigma_W=float(np.exp(np.asarray(
-                               jnp.asarray(p[3])+(jnp.asarray(p[2])-.5*np.log(10.))))))
+            warp[i] = dict(factor_id=target.factor_ids[i], **target.hyperparameters(current[i]))
             # Layer 3 reuses the same u/ct: alpha/zeta changes do not enter
             # those statistics, and no eta changes before this one draw.
             work.eta[i], eta_audit = target.draw_eta(

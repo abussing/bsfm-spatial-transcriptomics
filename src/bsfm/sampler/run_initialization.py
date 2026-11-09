@@ -55,6 +55,11 @@ def initialize(target, loading, eta, *, seed):
         state.loading,state.eta,state.alpha,gauge,np.full(k,.2),'gpinit_initial')
     positions=[]; sigma=.31622776601683794
     for i,fid in enumerate(target.factor_ids):
+        if getattr(target, 'learned_range', False):
+            positions.append(target.range_position(fid, log_alpha=np.log(state.alpha[i]),
+                logit_zeta=np.log(state.zeta[i]/(1-state.zeta[i])),
+                log_ell_eta=np.log(target.range_prior['initial'])))
+            continue
         chol=np.asarray(target.geometry.geometry(0.)[0])
         center=np.mean(target.inputs.arrays['slocs'],axis=0)
         idx=target.geometry.arrays['active_indices']

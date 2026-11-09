@@ -13,8 +13,9 @@ from test_meeting_extensions import setup
 
 class RunRecipeTests(unittest.TestCase):
     def test_deep_and_flat_phases_and_completed_nonreplay(self):
-        for model in ('deep','flat'):
-            with self.subTest(model=model),tempfile.TemporaryDirectory() as tmp:
+        for mode in ('deep','flat','flat_learned_range'):
+            model='flat' if mode=='flat_learned_range' else mode
+            with self.subTest(model=mode),tempfile.TemporaryDirectory() as tmp:
                 root=Path(tmp); c=setup(root/'fixture','deep')
                 payload=root/'input';payload.write_bytes(b'authenticated synthetic fixture')
                 files={'fixture':dict(path='input',**file_record(payload))}
@@ -23,6 +24,8 @@ class RunRecipeTests(unittest.TestCase):
                     dataset_recipe=None,gpu_runtime=None,phases=[
                         dict(run_id='bridge',warmup_steps=20,sweeps=1,save_every=2),
                         dict(run_id='production',warmup_steps=20,sweeps=2,save_every=2)])
+                if mode=='flat_learned_range':
+                    recipe['flat_range_prior']=dict(median=.18,log_sd=.25,initial=.14)
                 path=root/'run.json';path.write_text(json.dumps(recipe))
                 env=dict(lock=dict(sha256='a'*64),backend='cpu',test_only=True)
                 with patch('bsfm.sampler.run.check_repository'), \

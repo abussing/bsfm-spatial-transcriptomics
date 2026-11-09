@@ -75,7 +75,16 @@ class SplitTransition(_Binding):
             if not (jax.default_backend() == 'gpu' and jax.config.x64_enabled
                     and os.environ.get('BSFM_EXPERIMENTAL_CUDA') == '1'):
                 raise ValueError('Non-CPU execution requires explicit experimental CUDA/x64 opt-in')
-        self.dimension = 4 + 2*len(target.geometry.arrays['active_indices'])
+        self.dimension = target.position_dimension
+        if getattr(target, 'learned_range', False):
+            # Checkpoint validation uses this class without making transitions.
+            # A stationary three-coordinate target has no centered-warp block.
+            self.centered = None
+            def require_flat(*args, **kwargs):
+                raise ValueError('Learned stationary range requires FlatTransition')
+            self._runner = dict(transition=require_flat, adapt=require_flat)
+            self._prepared = WeakKeyDictionary()
+            return
         self.centered = CenteredHyperTarget(target)
         self._runner = build_split(make_logdensity(target._kernels),
                                   self.centered._kernels, self.dimension,

@@ -137,7 +137,7 @@ def _validate_payload(data, target, contract):
     state = GaussianState(**{n: data[n].copy(order='K') for n in STATE_ARRAYS},
                           input_identity_json=target.inputs.identity_json)
     state.validate(target.inputs, factors=k)
-    dimension = 4+2*len(target.geometry.arrays['active_indices'])
+    dimension = target.position_dimension
     array(data['positions'], 'positions', (k, dimension))
     array(data['field_steps'], 'field steps', (k,), positive=True)
     array(data['hyper_steps'], 'hyper steps', (k,), positive=True)

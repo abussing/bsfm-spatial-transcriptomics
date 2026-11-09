@@ -9,8 +9,12 @@ from scipy.linalg import cho_factor, cho_solve, solve_triangular
 from .spectral import spectral_modal_geometry
 
 
-def features(w, rule):
-    phase = np.asarray(w) @ rule.arrays['omega'].T
+def features(w, rule, ell_eta=.14):
+    if not np.isfinite(ell_eta) or ell_eta<=0:
+        raise ValueError('Positive finite factor range required')
+    # Preserve the exact historical arithmetic for the fixed reference range.
+    omega = rule.arrays['omega'] if ell_eta == .14 else (.14/ell_eta)*rule.arrays['omega']
+    phase = np.asarray(w) @ omega.T
     scale = rule.arrays['sqrt_weights'][None, :]
     return np.concatenate((np.cos(phase)*scale, np.sin(phase)*scale), axis=1)
 
@@ -59,14 +63,22 @@ def predict_record(target, arrays, query_projector, query_locations, query_types
     n=len(query_types); g=len(target.inputs.arrays['gene_names'])
     mean=np.zeros((g,n)); variance=np.broadcast_to(arrays['sigma2'][:,None],(g,n)).copy()
     flat=__import__('json').loads(target.identity).get('model')=='flat'
+    ranges = np.asarray(arrays['ell_eta'])
+    if ranges.shape!=(factors,) or not np.isfinite(ranges).all() or np.any(ranges<=0):
+        raise ValueError('One positive saved range per factor required')
+    if not getattr(target, 'learned_range', False) and not np.array_equal(ranges, np.full(factors,.14)):
+        raise ValueError('Fixed-range target and saved ranges disagree')
+    if getattr(target, 'learned_range', False):
+        if arrays['positions'].shape!=(factors,3) or not np.array_equal(ranges,np.exp(arrays['positions'][:,2])):
+            raise ValueError('Saved flat ranges disagree with sampled positions')
     for k in range(factors):
         if flat:
             w=np.asarray(query_locations)-target.inputs.arrays['slocs'].mean(axis=0)
         else:
             w=conditional_warp(target.geometry, arrays['W_active'][k],
                 float(np.log(arrays['ell_U'][k])), float(arrays['sigma_U'][k]), query_projector, rng)
-        fm,fv=conditional_factor(features(arrays['W_cell'][k],target.rule), arrays['eta'][k],
-            features(w,target.rule),float(arrays['alpha'][k]),float(arrays['zeta'][k]))
+        fm,fv=conditional_factor(features(arrays['W_cell'][k],target.rule,float(ranges[k])), arrays['eta'][k],
+            features(w,target.rule,float(ranges[k])),float(arrays['alpha'][k]),float(arrays['zeta'][k]))
         for c in range(arrays['loading'].shape[0]):
             rows=np.flatnonzero(query_types==c)
             lam=arrays['loading'][c,:,k]

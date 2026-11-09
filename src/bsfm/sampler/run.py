@@ -16,7 +16,7 @@ import subprocess
 def validate_recipe(recipe):
     required={'schema','backend','model','chain_id','factor_ids','seed','files',
               'dataset_recipe','gpu_runtime','phases'}
-    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint'} or recipe['schema']!='bsfm.sampler-run.v1':
+    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint','flat_range_prior'} or recipe['schema']!='bsfm.sampler-run.v1':
         raise ValueError('Exact sampler run recipe fields required')
     if 'pcg_maximum_iterations' in recipe:
         cap=recipe['pcg_maximum_iterations']
@@ -26,6 +26,11 @@ def validate_recipe(recipe):
         if not isinstance(r,dict) or set(r)!={'path','bytes','sha256'}:raise ValueError('Pinned initial endpoint required')
     if recipe['backend'] not in ('cpu','gpu') or recipe['model'] not in ('deep','flat'):
         raise ValueError('Explicit CPU/GPU backend and deep/flat model required')
+    if 'flat_range_prior' in recipe:
+        from .range_spec import validate_range_prior
+        if recipe['model'] != 'flat':
+            raise ValueError('Flat range prior is only supported for the flat model')
+        validate_range_prior(recipe['flat_range_prior'])
     if (recipe['backend']=='gpu') != isinstance(recipe['gpu_runtime'],dict):
         raise ValueError('GPU requires an explicit runtime recipe; CPU requires null')
     if recipe['backend']=='cpu' and recipe['gpu_runtime'] is not None:
@@ -99,7 +104,8 @@ def run_recipe(path,output,*,commit):
         genesis_path=genesis if genesis.exists() else (source['path'] if source else None),dataset_recipe=recipe['dataset_recipe'])
     if recipe['model']=='flat':
         from .flat_control import FlatTarget,FlatTransition
-        target=FlatTarget(target.inputs,target.geometry,target.rule,factor_ids=target.factor_ids)
+        target=FlatTarget(target.inputs,target.geometry,target.rule,factor_ids=target.factor_ids,
+                          range_prior=recipe.get('flat_range_prior'))
     binding=dict(binding,launcher_recipe=recipe_record,model=recipe['model'],target_identity=target.identity)
     if source is not None:binding['initial_endpoint']=source
     if 'pcg_maximum_iterations' in recipe:binding['pcg_maximum_iterations']=recipe['pcg_maximum_iterations']

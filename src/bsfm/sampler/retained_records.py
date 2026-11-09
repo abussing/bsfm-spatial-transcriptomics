@@ -2,13 +2,12 @@
 import hashlib
 from pathlib import Path
 import numpy as np
-import jax.numpy as jnp
 from .contracts import GaussianState, array, logical_hash
 from .conjugate import compute_Yhat
 from .field_target import FieldPosition
 from .chart import validate_chart_state
 from .layer4 import STATE_ARRAYS, state_hashes
-from .layer6 import SweepResult, ELL_ETA
+from .layer6 import SweepResult
 from .checkpoint_contract import digest, require_hash
 from .checkpoint_rng import json_text, parse_json, exact_keys
 from .retained_contract import RECORD_SCHEMA, validate_retained_contract, retain_at, count
@@ -78,7 +77,7 @@ def make_completed(target, contract, b_sigma2, result, *, sweep, retained_index,
     if retained:
         arrays={name:np.array(getattr(state,name),copy=True) for name in STATE_ARRAYS}
         wc,wa=physical_arrays(target,result.positions)
-        arrays.update(ell_eta=np.full(k,ELL_ETA),
+        arrays.update(ell_eta=np.asarray([v['ell_eta'] for v in result.warp_summaries],np.float64),
             ell_U=np.asarray([v['ell_W'] for v in result.warp_summaries],np.float64),
             sigma_U=np.asarray([v['sigma_W'] for v in result.warp_summaries],np.float64),
             W_cell=wc,W_active=wa,positions=np.stack([p.values for p in result.positions]),
@@ -137,7 +136,7 @@ def load_record(path, *, target, contract, b_sigma2):
         k=len(target.factor_ids);n=target.inputs.arrays['Y'].shape[1];a=len(target.geometry.arrays['active_indices'])
         state=GaussianState(**{v:data[v] for v in STATE_ARRAYS},input_identity_json=target.inputs.identity_json)
         slices=state.validate(target.inputs,factors=k)
-        array(data['positions'],'positions',(k,4+2*a))
+        array(data['positions'],'positions',(k,target.position_dimension))
         positions=tuple(FieldPosition(data['positions'][i],fid,target.identity) for i,fid in enumerate(target.factor_ids))
         for i,p in enumerate(positions): validate_chart_state(target,p,state,i)
         for key in ('ell_eta','ell_U','sigma_U'): array(data[key],key,(k,),positive=True)
@@ -145,15 +144,13 @@ def load_record(path, *, target, contract, b_sigma2):
         if (data['sweep'].dtype!=np.int64 or data['sweep'].shape!=() or int(data['sweep'])!=m['sweep']
                 or data['permutation'].dtype!=np.int64 or not np.array_equal(data['permutation'],np.arange(k))):
             raise ValueError('Native factor/sweep order corrupted')
-        if not np.array_equal(data['ell_eta'],np.full(k,ELL_ETA)): raise ValueError('Fixed factor range changed')
         for i,row in enumerate(d['warp']):
             exact_keys(row,('factor_id','ell_eta','ell_W','sigma_W'))
-            if (row['factor_id']!=target.factor_ids[i] or row['ell_eta']!=ELL_ETA
-                    or data['ell_U'][i]!=row['ell_W'] or data['sigma_U'][i]!=row['sigma_W']
-                    or data['ell_U'][i]!=float(np.exp(data['positions'][i,2]))
-                    or data['sigma_U'][i]!=float(np.exp(np.asarray(jnp.asarray(data['positions'][i,3])+
-                        (jnp.asarray(data['positions'][i,2])-.5*np.log(10.)))))):
-                raise ValueError('Warp parameter ordering mismatch')
+            expected = target.hyperparameters(positions[i])
+            if (row != dict(factor_id=target.factor_ids[i], **expected)
+                    or data['ell_eta'][i]!=expected['ell_eta']
+                    or data['ell_U'][i]!=expected['ell_W'] or data['sigma_U'][i]!=expected['sigma_W']):
+                raise ValueError('Factor range/warp parameter ordering mismatch')
         wc,wa=physical_arrays(target,positions)
         if not np.array_equal(wc,data['W_cell']) or not np.array_equal(wa,data['W_active']):
             raise ValueError('Physical warp reconstruction mismatch')

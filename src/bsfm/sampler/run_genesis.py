@@ -94,7 +94,7 @@ def load_genesis(path,target,contract):
         a=d['spectral_'+key];v=np.asarray(v)
         if a.dtype!=v.dtype or a.shape!=v.shape or not np.array_equal(a,v):raise ValueError('Exact spectral chart mismatch')
     state=GaussianState(**{n:d[n] for n in STATE_ARRAYS},input_identity_json=target.inputs.identity_json)
-    k=len(target.factor_ids);dimension=4+2*len(target.geometry.arrays['active_indices'])
+    k=len(target.factor_ids);dimension=target.position_dimension
     array(d['positions'],'genesis positions',(k,dimension))
     array(d['field_steps'],'genesis field steps',(k,),positive=True)
     array(d['hyper_steps'],'genesis hyper steps',(k,),positive=True)

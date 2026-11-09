@@ -37,9 +37,10 @@ def software_record(record, expected_sha256):
     return parse_json(json_text(record))
 
 
-def fixed_requirements():
+def fixed_requirements(target=None):
     return dict(chronology_schema='bsfm.layer6-complete-sweep.v1', n_inner=N_INNER,
-                sharing=SHARING, ell_eta=ELL_ETA, sigma2_prior_shape=SIGMA2_PRIOR_SHAPE,
+                sharing=SHARING, ell_eta=ELL_ETA if target is None else target.range_contract,
+                sigma2_prior_shape=SIGMA2_PRIOR_SHAPE,
                 layer6_source_sha256=hashlib.sha256(Path(__file__).with_name('layer6.py').read_bytes()).hexdigest())
 
 
@@ -58,7 +59,7 @@ def build_checkpoint_contract(target, *, b_sigma2, software, expected_software_s
         input_identity=target.inputs.identity_json, geometry_identity=target.geometry.identity_json,
         rule_identity=target.rule.identity_json, spectral_identity=target.geometry.spectral_identity,
         factor_ids=list(target.factor_ids), b_sigma2_sha256=logical_hash(b_sigma2),
-        fixed=fixed_requirements(), software=software_record(software, expected_software_sha256),
+        fixed=fixed_requirements(target), software=software_record(software, expected_software_sha256),
         software_sha256=expected_software_sha256)
     return CheckpointContract(json_text(record), digest(record))
 

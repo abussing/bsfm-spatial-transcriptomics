@@ -15,8 +15,8 @@ Analysis results and execution histories belong outside the guidebook.
 | Centering and preparation | `dataset.prepare_response`: training-only group means, exact cell/gene ordering and GPINIT contract export |
 | Mesh | [Accepted mesh method](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` and `sampler_geometry` |
 | Initialization | [GP smooth/SVD method](initialization/C3_GP_SVD.md); `initialization.gp_svd` |
-| Quadrature | `sampler.registry_rule.load_registry_rule`: explicit order and authenticated tables; the accepted target fixes ell_eta=0.14 |
-| Fit and resume | `sampler.run`: explicit deep/flat, CPU/GPU, factor count, phases and periodic save cadence |
+| Quadrature | `sampler.registry_rule.load_registry_rule`: explicit order and authenticated reference tables at ell_eta=0.14; deep fixes the outer range, learned-range flat rescales frequencies per factor |
+| Fit and resume | `sampler.run`: explicit deep/flat, CPU/GPU, factor count, phases and periodic save cadence; [stationary control and range prior](sampler/FLAT_CONTROL.md) |
 | Prediction | `holdout_prediction` and `predictive_summary`; experimental split design is separate from core preparation |
 
 The [modeling decisions](decisions/MODELING_RESPONSE_HANDOFF.md) and
@@ -75,6 +75,14 @@ Optional `pcg_maximum_iterations` sets a computational ceiling (integer 1?4096;
 legacy default 80). The posterior RMS tolerance remains 1e-10. A larger ceiling
 does not force extra iterations after convergence and does not change the model.
 If the ceiling is reached, diagnose the same saved state before changing accuracy.
+
+For stationary comparisons with learned spatial scales, supply optional
+`flat_range_prior: {"median": 0.18, "log_sd": 0.25, "initial": 0.14}` with
+`model: flat`. All three positive values must be explicit; choose them in the
+prepared tissue units before fitting. Each factor learns its own range, which
+is saved and used in prediction. Omitting this field preserves **fixed-range
+flat** at 0.14. These are distinct baselines; see the
+[control specification](sampler/FLAT_CONTROL.md). Deep does not accept this option.
 
 Optional `initial_endpoint` pins an existing pre-sweep `endpoint.npz` by path,
 bytes and SHA-256. Use a **new output root** and source commit for an explicitly

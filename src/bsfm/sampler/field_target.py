@@ -38,6 +38,21 @@ class FieldPosition:
 
 
 class DirectWTarget:
+    @property
+    def position_dimension(self):
+        return 4 + 2*len(self.geometry.arrays['active_indices'])
+
+    @property
+    def range_contract(self):
+        return .14
+
+    def hyperparameters(self, position):
+        self._check_position(position)
+        p = position.values
+        return dict(ell_eta=.14, ell_W=float(np.exp(np.asarray(p[2]))),
+                    sigma_W=float(np.exp(np.asarray(
+                        jnp.asarray(p[3])+(jnp.asarray(p[2])-.5*np.log(10.))))))
+
     def __init__(self, inputs, geometry, rule, *, factor_ids):
         self.inputs,self.geometry,self.rule=inputs,geometry,rule
         if (not isinstance(factor_ids,tuple) or not factor_ids
