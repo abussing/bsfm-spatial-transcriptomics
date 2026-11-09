@@ -1,45 +1,12 @@
 # Canonical BSFM sampler architecture
 
-Status: **selected by explicit user decision; first Gaussian/shrinkage/PX layer
-implemented and validated; full sampler not yet ported**. See the bounded
-[layer-1 report](../sampler/LAYER1.md) and [source map](../sampler/LAYER1_SOURCE_MAP.csv).
-The deterministic full-spectrum warp/active-marginalization Layer 2 is implemented
-and validated; see the [layer-2 report](../sampler/LAYER2.md). Its CPU validation does
-not select a GPU production environment or implement the remaining sampler.
-The frozen L16/direct-W factor target Layer 3 is implemented and validated; see its
-[implementation and validation report](../sampler/LAYER3.md). It reuses the
-accepted CPU environment and does not implement NUTS, factor chronology or a
-complete sampler. No scientific choice in this architecture is changed.
-Layer 4 is the accepted canonical [implementation](../sampler/LAYER4.md) of the
-fixed-physical-W conditional/rewhitening and joint-eta PCG draw, validated on
-Windows CPU. It does not implement NUTS, adaptation, sweep chronology, checkpoints,
-a GPU capability or HPC workflow, and is not a mixing study or scientific fit.
-The full sampler is not yet ported; K and production run lengths remain unresolved.
-
-Layer 5 is [accepted, implemented and validated](../sampler/LAYER5.md): the selected split
-BlackJAX transition/window-adaptation layer only, with unchanged historical
-settings and no eta draw. Validation is Windows CPU only; it does not establish
-GPU/HPC readiness. Layer 5 alone does not include whole-sweep chronology,
-checkpoint/restart, retained draws, production diagnostics or a launcher.
-
-Layer 6 is [accepted, implemented and validated](../sampler/LAYER6.md): one complete sweep
-composed from the accepted numerical layers. A shared exact chart contract
-and authenticated public prepared-context boundary avoid inverse-roundtrip bit
-mismatches without altering accepted numerical kernels.
-This layer does not supply a production sampler, warmup controller,
-checkpoint/restart, retained draws, launcher or platform/GPU validation.
-
-Layer 7 is [implemented and validated](../sampler/LAYER7.md): the accepted canonical
-complete atomic checkpoint
-and frozen-tuning restart, with explicit global-RNG installation after validation.
-Legacy incomplete-checkpoint conversion is excluded. Retained draws, diagnostic
-aggregation, readaptation/run orchestration and platform/GPU validation remain.
-
-Layer 8 is [accepted, implemented and validated](../sampler/LAYER8.md): separate reconstructable
-retained inference records, crash-safe incremental publication and raw offline
-diagnostic aggregation. Checkpoints remain exact-continuation state only.
-No scientific convergence thresholds, factor alignment, run configuration,
-production orchestration or platform capability is selected by this layer.
+This records the selected scientific architecture. Current implementation,
+GPU execution, periodic restart and prediction interfaces are owned by the
+[workflow guide](../WORKFLOW_GUIDE.md). The [historical layer-by-layer implementation
+status](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/decisions/BSFM_SAMPLER_ARCHITECTURE.md)
+is preserved separately; its statements about unfinished layers describe their
+original checkpoints, not current availability. The scientific decisions below
+remain in force except where an explicit later method contract states otherwise.
 
 Decision date: 2026-11-02. Recovery baseline:
 `10cb6e27168aae7581831a6591089b4d88629c49`.

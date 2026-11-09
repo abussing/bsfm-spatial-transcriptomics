@@ -5,23 +5,37 @@ groups and genes, prepare the mesh and response, initialize, fit, and summarize
 saved draws. Recipes provide inputs and settings; the methods remain shared.
 Analysis results and execution histories belong outside the guidebook.
 
-## Methods and interfaces
+## Canonical route for a new dataset
 
-| Stage | Implementation and rationale |
+Declare the population, modeling groups, response units, gene-selection criteria,
+K, quadrature order, tuning/production lengths and save cadence in external recipes.
+For a fit without labels, assign every modeled cell to one group; preparation then
+subtracts one training mean per gene and the sampler uses one loading matrix.
+For an ordinary full-population fit, use all selected cells as training cells and
+an empty held-out list. Hole design is a separate experiment, not a preparation
+requirement. Existing normalization is reused only after its meaning is verified.
+
+| Stage | Canonical implementation and result |
 | --- | --- |
-| Import and response identity | [Dataset contract](preprocessing/DATASET_CONTRACT.md); `preprocessing.dataset` and explicit source adapters |
+| Import and response identity | [Dataset contract](preprocessing/DATASET_CONTRACT.md); explicit source adapter and `preprocessing.dataset.write_dataset` produce authenticated `dataset.npz` and `dataset.json` |
 | Normalization | [SCT design](decisions/SCTRANSFORM_DESIGN.md), `sct_core.R`; alternatively explicit library scaling/log base in `preprocessing.normalization`; verified imported responses are not transformed again |
-| Population and gene selection | Dataset recipes declare groups; `gene_selection` and `spatial_screen` implement expression eligibility, GP screening and optional biological recurrence; the dataset guide explains expression support and amplitude review |
-| Centering and preparation | `dataset.prepare_response`: training-only group means, exact cell/gene ordering and GPINIT contract export |
-| Mesh | [Accepted mesh method](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.build` and `sampler_geometry` |
-| Initialization | [GP smooth/SVD method](initialization/C3_GP_SVD.md); `initialization.gp_svd` |
-| Quadrature | `sampler.registry_rule.load_registry_rule`: explicit order and authenticated reference tables at ell_eta=0.14; deep fixes the outer range, learned-range flat rescales frequencies per factor |
-| Fit and resume | `sampler.run`: explicit deep/flat, CPU/GPU, factor count, phases and periodic save cadence; [stationary control and range prior](sampler/FLAT_CONTROL.md) |
-| Prediction | `holdout_prediction` and `predictive_summary`; experimental split design is separate from core preparation |
+| Population and gene selection | `spatial_screen` and `gene_selection`: expression eligibility, spatial GP screening, expression/amplitude review and optional biological recurrence; freeze the justified panel externally using the [selection instructions](preprocessing/DATASET_CONTRACT.md#normalization-and-gene-selection) |
+| Centering and preparation | `python -m bsfm.preprocessing.dataset ... --gpinit-contract`: training-only group means, ordered `training.npz`, `response.json` and `gpinit-input.json`; [arguments](preprocessing/DATASET_CONTRACT.md#prepare-a-response-using-explicit-names) |
+| Mesh | [Accepted mesh method](mesh/OCTOBER26_CANONICALIZATION.md); `mesh.october26.inherited_geometry` supplies the boundary carrier, `build` constructs the final mesh, and `sampler_geometry` produces the sampler's geometry arrays |
+| Initialization | `python -m bsfm.initialization.gp_svd ...`: [GP smooth/SVD method](initialization/C3_GP_SVD.md), producing `gpinit.npz` and its certificate; [arguments](preprocessing/DATASET_CONTRACT.md#connect-to-the-existing-initializer) |
+| Quadrature | `sampler.registry_rule.load_registry_rule`: authenticate the explicit order's table; deep fixes outer ell_eta=0.14, learned-range flat rescales frequencies per factor |
+| GPU fit and resume | `sampler.run` and `environment/hpc/sample.sbatch`: use the seven authenticated artifacts below, explicit phases and periodic saves; [stationary control](sampler/FLAT_CONTROL.md) |
+| Saved output and prediction | Native retained records reconstruct the fitted response; `holdout_prediction` and `predictive_summary` condition on omitted locations when the experiment requires them |
 
 The [modeling decisions](decisions/MODELING_RESPONSE_HANDOFF.md) and
 [sampler architecture](decisions/BSFM_SAMPLER_ARCHITECTURE.md) own scientific
 choices. Historical recipes and fixtures test preservation, not universal defaults.
+An accepted method is identified by its decision, promoted implementation and
+scoped validation. A recovered candidate, a passing test or a recent run alone
+does not select a method. The rejected M3/Phase-0 mesh redesign is not a second
+supported builder. Keep unresolved choices explicit rather than promoting them
+from old logs. [Historical evidence](recovery/README.md) is available when auditing
+lineage; it is not required reading to start a new dataset.
 
 ## Runtime contract
 

@@ -247,7 +247,7 @@ The acquisition environment also reported its equivalent short path
 | --- | --- | ---: | --- |
 | bsfm-b3-s00-metadata.txt | [s00_and_preparation_summary.txt](evidence/sctransform_b3/s00_and_preparation_summary.txt) | 74706 | e5f049a487a68c38d04873855b54df0b5042b1ebe8c0d10998a7369ff3f8b008 |
 | bsfm-b3-all19-metadata.txt | [all_19_section_contracts_and_certificates.txt](evidence/sctransform_b3/all_19_section_contracts_and_certificates.txt) | 444006 | 7fe50386f3660c2b7ed60e9d3f5517c096c57373c597823fc9948d5c1eeb7717 |
-| bsfm-b3-package-metadata.txt | [package_manifests_and_launch_contract.txt](evidence/sctransform_b3/package_manifests_and_launch_contract.txt) | 157048 | 25a9e7b01d2a0d4a543c584434ba82b4a10971c9ef3278d4a560880b54ee3b81 |
+| bsfm-b3-package-metadata.txt | [package_manifests_and_launch_contract.txt](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b3/package_manifests_and_launch_contract.txt) | 157048 | 25a9e7b01d2a0d4a543c584434ba82b4a10971c9ef3278d4a560880b54ee3b81 |
 
 Combined size: **675760 bytes**, below 2 MiB (2097152 bytes).
 All files retain their original UTF-16LE BOM/encoding and line endings.
@@ -520,9 +520,9 @@ captures, not source files or scientific artifacts inside them.
 
 | Original basename | Preserved location | Bytes | Capture SHA-256 |
 | --- | --- | ---: | --- |
-| bsfm-b4-root-listing.txt | [Git: root listing](evidence/sctransform_b4/bsfm-b4-root-listing.txt) | 2938 | ac89b61748b25593e1b2b5d5c68c220dab0a4dad8c7dde4a435ab7a053c1a5f0 |
+| bsfm-b4-root-listing.txt | [Git: root listing](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b4/bsfm-b4-root-listing.txt) | 2938 | ac89b61748b25593e1b2b5d5c68c220dab0a4dad8c7dde4a435ab7a053c1a5f0 |
 | bsfm-b4-root-metadata.txt | [Git: README and indexes](evidence/sctransform_b4/bsfm-b4-root-metadata.txt) | 121256 | ceb96e0967a6b307eaa3486f1f56cd397ca1e164cbb492ca8833c5b15aae5b59 |
-| bsfm-b4-readiness-and-source-index.txt | [Git: readiness records and source hash](evidence/sctransform_b4/bsfm-b4-readiness-and-source-index.txt) | 33896 | 5a4699bcb15757276fd61a750d26ce77e5d2585a64fb6b9e4c0ae88c5964d9f4 |
+| bsfm-b4-readiness-and-source-index.txt | [Git: readiness records and source hash](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b4/bsfm-b4-readiness-and-source-index.txt) | 33896 | 5a4699bcb15757276fd61a750d26ce77e5d2585a64fb6b9e4c0ae88c5964d9f4 |
 | bsfm-b4-source-declarations.txt | External path D below | 2892 | e142643c73f9a7c2ec75c638b760fc5073802e95fadeb2fb3f0dc60845f9683f |
 | bsfm-b4-preparation-source-excerpt.txt | External path X below | 19484 | 3a4140ada8241aecad31b4702bd4c0754a38caff471f8c19114535a96ab06da3 |
 
@@ -761,7 +761,7 @@ preparing this checkpoint.
 
 Seven existing captures were copied byte-for-byte from
 `C:\Users\Data Viz\AppData\Local\Temp\` into
-[evidence/sctransform_b5/](evidence/sctransform_b5/). Their combined size is
+[evidence/sctransform_b5/](https://github.com/abussing/bsfm-spatial-transcriptomics/tree/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b5). Their combined size is
 **946055 bytes**, below 2 MiB (2097152 bytes). Original encodings/BOMs and line
 endings are retained. Directory-local `.gitattributes` disables text conversion
 for both TXT and JSON captures. The SHA-256 values below identify these captures,
@@ -866,7 +866,7 @@ distinct from capture hashes and from historically recorded scientific hashes.
 | gene_review_results_20261005.tar.gz | 102728274 | 4183 | b286e99695cf1f24fd2da4490017dce16ebe98ab83cd45b7a50a30a89247b903 |
 
 The complete inventories, including each member path and uncompressed size, are
-in [bsfm-b5b-archive-listings.txt](evidence/sctransform_b5/bsfm-b5b-archive-listings.txt).
+in [bsfm-b5b-archive-listings.txt](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b5/bsfm-b5b-archive-listings.txt).
 Neither lists sct_section.R, any .R/.r member, an SCT/Seurat/normalization-named
 source, session/version/environment/package-version member, sct.log, sct_work,
 region_story, hipp_build_* or the reused SCT CSV names. The nine exact source
@@ -900,7 +900,7 @@ Only these 21 exact CPU-bundle provenance members were streamed:
 - BUNDLE_HASHES.json: 15469 bytes, SHA-256 b138dc9868bbf7ee951d507f7933d90d6728dcb095d3014ccee53f4615f2655f.
 - sections/<section_id>/READY.json for all 19 exact B4 section IDs: 11437 bytes
   total, 539-643 bytes each. Every individual path/size/hash is preserved in
-  [bsfm-b5b-member-inventory.json](evidence/sctransform_b5/bsfm-b5b-member-inventory.json)
+  [bsfm-b5b-member-inventory.json](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b5/bsfm-b5b-member-inventory.json)
   and agrees with the B4 section table's readiness hash.
 
 All 21 are individually below 512 KiB; largest is 15469 bytes. Their exact bytes
@@ -953,7 +953,7 @@ alternatives, and the recorded grep outcome was no match, not a syntax error.
 
 The exact B5b listing and selected-member stream commands, including the literal
 21-member allowlist, are preserved in
-[bsfm-b5b-acquisition-commands.json](evidence/sctransform_b5/bsfm-b5b-acquisition-commands.json).
+[bsfm-b5b-acquisition-commands.json](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b5/bsfm-b5b-acquisition-commands.json).
 The listing used stat -c '%s', sha256sum and tar --numeric-owner --full-time -tvzf
 on only the two named archives. The stream used tar -xOzf on each exact member,
 base64 -w0 for byte preservation, and pipefail plus a per-member status marker.
@@ -998,7 +998,7 @@ for all five paths below; the corresponding E: checks still returned false:
 These are local access observations, not source inspection, execution or scientific
 verification. No directory contents or implementation files were opened. This
 availability change is preserved separately in
-[bsfm-b5-local-drive-attached.json](evidence/sctransform_b5/bsfm-b5-local-drive-attached.json).
+[bsfm-b5-local-drive-attached.json](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b5/bsfm-b5-local-drive-attached.json).
 The initial unavailable E: observations remain historical facts; they no longer
 justify assuming that the known local evidence cannot be accessed. Targeted local
 recovery is now possible, while historical normalization remains uncertified and
@@ -1037,10 +1037,10 @@ Only filename-linked writers, two directly connected count writers, associated
 small records and the root README were read. No expression CSV contents, count
 matrices, NPZ/H5AD/RDS/Seurat/model objects or unrelated algorithms were inspected.
 
-The complete [inspected-file inventory](evidence/sctransform_b6/bsfm-b6-inspected-file-inventory.csv)
+The complete [inspected-file inventory](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b6/bsfm-b6-inspected-file-inventory.csv)
 contains 63 distinct paths, source byte sizes/hashes and inspection scope (some
 paths have both locator and complete-read entries). The
-[source capture index](evidence/sctransform_b6/SOURCE_CAPTURE_INDEX.csv) supplies
+[source capture index](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b6/SOURCE_CAPTURE_INDEX.csv) supplies
 exact stable external capture paths and original line ranges for nine complete
 sources and three locator-only sources. Hashes identify original source bytes;
 capture-file hashes separately identify the JSON/text envelopes. No source bytes
@@ -1132,7 +1132,7 @@ Stable external evidence base:
 
 All 13 original B6 captures (4197831 bytes combined) were copied byte-for-byte
 from Temp to that directory and verified by SHA-256. The
-[capture manifest](evidence/sctransform_b6/CAPTURE_MANIFEST.csv) records every
+[capture manifest](https://github.com/abussing/bsfm-spatial-transcriptomics/blob/7b9925b8514cb1c9bcf6b516c30273c6e8b71024/docs/recovery/evidence/sctransform_b6/CAPTURE_MANIFEST.csv) records every
 original capture's exact stable path, byte size, hash and Git treatment. All
 legacy source/code captures, including the output-line locator, remain outside
 Git. Their stable locations replace reliance on temporary storage.

@@ -1,4 +1,0 @@
-# Preserve original capture bytes under the root -text evidence rule.
-# Recognize the original CRLF endings; authored documents remain LF.
-*.json whitespace=cr-at-eol
-M3_REPORT.md whitespace=cr-at-eol

@@ -1,6 +1,11 @@
-# Layer 9A: evidence and proposed orchestration contract
+# Historical Layer 9A orchestration design
 
-Status: **approved orchestration design; implementation not authorized or validated**. Inspection date:
+This is the 2026-11-03 design snapshot, not the current execution guide.
+Use [current run and resume interfaces](../WORKFLOW_GUIDE.md#run-and-resume-prepared-artifacts)
+for the promoted implementation, readaptation and periodic saving. The original
+authorization limits and unresolved statements below retain their dated scope.
+
+Original status: **approved orchestration design; implementation not authorized or validated**. Inspection date:
 2026-11-03. Accepted baseline, main and origin/main:
 `0317d8dfa0115d11499ae2ddc3f34e624ceb21e5` (Layer 8). This report does not
 authorize a scientific run, select K or run lengths, or change Layers 1–8.
