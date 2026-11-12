@@ -77,4 +77,5 @@ class ReadaptationController(RunController):
         endpoint = Endpoint(source.state, source.positions, source.tuning, source.eta_rng,
             source.gauge_rng, keys[0], source.numpy_global_state, source.b_sigma2, evidence)
         fault('after_initialization')
-        return adapt(self.target, endpoint, tuple(keys[1:]), steps=self.spec['warmup_steps'], split=self.layer.split)
+        return adapt(self.target, endpoint, tuple(keys[1:]), steps=self.spec['warmup_steps'], split=self.layer.split,
+                     record_context=self.store.input_receipt.get('diagnostics')=='adaptation_study_v1')

@@ -68,6 +68,24 @@ class RunRecipeTests(unittest.TestCase):
                         with self.assertRaisesRegex(ValueError,'Input file changed'):
                             run_recipe(fork,root/'fork',commit='8'*40)
                         source.write_bytes(source_bytes)
+                        # A published checkpoint may seed an inherited-tuning
+                        # phase even though its original run had a longer plan.
+                        parent=root/'outputs/production';segment=parent/'segments/segment'
+                        paths=dict(spec=parent/'run-spec.json',inputs=parent/'input-receipt.json',
+                            genesis=segment/'genesis/endpoint.npz',genesis_receipt=segment/'genesis/receipt.json',
+                            boundary_receipt=segment/'boundaries/000000000001/receipt.json')
+                        inherited=copy.deepcopy(recipe)
+                        inherited['initial_checkpoint']={k:dict(path=str(p),**file_record(p)) for k,p in paths.items()}
+                        inherited['phases']=[dict(run_id='settle',warmup_steps=0,sweeps=1,save_every=1)]
+                        inherit_path=root/'inherit.json';inherit_path.write_text(json.dumps(inherited))
+                        with patch('bsfm.sampler.run_controller.RunController._adapt_endpoint',side_effect=AssertionError('Retune')):
+                            first=run_recipe(inherit_path,root/'inherit',commit='7'*40)
+                            with patch('bsfm.sampler.layer6.GibbsSweep.sweep',side_effect=AssertionError('Replay')):
+                                self.assertEqual(first,run_recipe(inherit_path,root/'inherit',commit='7'*40))
+                        from bsfm.sampler.run_chart import geometry_from_genesis
+                        restored=geometry_from_genesis(c.target.geometry.arrays,json.loads(c.target.geometry.identity_json),
+                            root/'inherit/settle/segments/segment/genesis/endpoint.npz')
+                        self.assertEqual(restored.spectral_identity,c.target.geometry.spectral_identity)
                     changed=copy.deepcopy(recipe);changed['phases'][1]['sweeps']=3
                     path.write_text(json.dumps(changed))
                     with self.assertRaises(ValueError):run_recipe(path,root/'outputs',commit='9'*40)
@@ -96,6 +114,11 @@ class RunRecipeTests(unittest.TestCase):
                 with patch('bsfm.sampler.run.subprocess.check_output',side_effect=responses):
                     with self.assertRaisesRegex(ValueError,'Clean exact'):
                         check_repository(recipe,'a'*40)
+
+    def test_checkpoint_recipe_validation_does_not_import_jax(self):
+        import subprocess,sys
+        code="from bsfm.sampler.run import validate_checkpoint_source; import sys; validate_checkpoint_source({k:dict(path='x',bytes=1,sha256='a'*64) for k in ('spec','inputs','genesis','genesis_receipt','boundary_receipt')}); assert 'jax' not in sys.modules"
+        subprocess.run([sys.executable,'-c',code],check=True)
 
     def test_cli_configures_explicit_gpu_before_execution(self):
         import os

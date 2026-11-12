@@ -23,6 +23,21 @@ from .run_transactions import tuning_identity
 
 
 class PeriodicMixin:
+    def _health(self,chain):
+        if self.store.input_receipt.get('diagnostics')!='adaptation_study_v1':return None
+        from .run_health import review_windows
+        from .run_storage import advisory
+        rows=[]
+        for path in reversed(sorted((self.store.segment/'boundaries').iterdir())):
+            if int(path.name)>chain['n']:continue
+            rows=read_json(path/'diagnostics.json')+rows
+            if len(rows)>=50:break
+        health=review_windows(rows)
+        health.update(completed=chain['n'],head=chain['head'])
+        advisory(self.store.root/'health.json',health)
+        print('HEALTH',chain['n'],health['status'],flush=True)
+        if health['status']=='review_required':return health
+
     def _due(self, n):
         return retain_at(self.store.records, n)
 
@@ -102,6 +117,8 @@ class PeriodicMixin:
         with writer(self.store.root):
             self.authenticate();self.store.setup();genesis,gid=self._genesis(fault)
             chain=self._recover(self._scan(genesis,gid))
+            health=self._health(chain)
+            if health is not None:return health
             e=copy.deepcopy(chain['endpoint']);np.random.set_state(e.numpy_global_state)
             rows=[]
             for n in range(chain['n']+1,self.spec['final_sweep']+1):
@@ -121,6 +138,9 @@ class PeriodicMixin:
                     factors=[dict(index=r['factor_index'],acceptance=np.asarray(r['transition'].info.block_acceptance).tolist(),
                                   divergent=np.asarray(r['transition'].info.block_divergent).tolist(),
                                   leapfrogs=np.asarray(r['transition'].info.block_leapfrogs).tolist()) for r in result.factor_diagnostics]))
+                if self.store.input_receipt.get('diagnostics')=='adaptation_study_v1':
+                    from .run_health import sweep_measurements
+                    rows[-1]['measurements']=sweep_measurements(result,elapsed)
                 e=Endpoint(result.state,result.positions,e.tuning,e.eta_rng,e.gauge_rng,
                            result.master_key,np.random.get_state(),self.scale,{})
                 print('SWEEP',n,'seconds',round(elapsed,3),'save',self._due(n),flush=True)
@@ -144,6 +164,8 @@ class PeriodicMixin:
                 publish(path,self.store.segment/'boundaries'/f'{n:012d}')
                 chain=candidate;rows=[]
                 fault('after_boundary_publish')
+                health=self._health(chain)
+                if health is not None:return health
             self.authenticate()
             closure=dict(schema='bsfm.periodic-completion.v1',completed=chain['n'],retained=chain['retained'],
                          head=chain['head'],spec_sha256=self.store.spec_hash,convergence='not_assessed')

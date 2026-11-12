@@ -80,7 +80,7 @@ def initialize(target, loading, eta, *, seed):
     return Endpoint(state,tuple(positions),(),eta_rng,gauge,keys[0],np.random.get_state(),b,evidence),tuple(keys[1:])
 
 
-def adapt(target, endpoint, warm_keys, *, steps, split=None):
+def adapt(target, endpoint, warm_keys, *, steps, split=None, record_context=False):
     """Natural factor order; keep each endpoint and draw one eta before next."""
     if type(steps) is not int or steps<MIN_ADAPTATION_STEPS:raise ValueError('Warmup requires >=20 steps')
     if len(warm_keys)!=len(target.factor_ids):raise ValueError('Missing ordered warmup keys')
@@ -91,6 +91,10 @@ def adapt(target, endpoint, warm_keys, *, steps, split=None):
     before=stream_audit(endpoint.eta_rng,endpoint.gauge_rng,endpoint.master_key,np.random.get_state())
     for i,fid in enumerate(target.factor_ids):
         state_before=state_hashes(work)
+        context=None
+        if record_context:
+            prepared=split.prepare_context(ps[i],work,state_factor_ids=target.factor_ids)
+            context=dict(position=encode(ps[i].values),u=encode(prepared.u),ct=encode(prepared.ct),penalty=float(prepared.penalty))
         print('FACTOR WARMUP BEGIN',i+1,'/',len(target.factor_ids),fid,'steps',steps,flush=True)
         result=split.adapt(warm_keys[i],ps[i],work,state_factor_ids=target.factor_ids,steps=steps)
         ps[i]=result.endpoint.position;tuning.append(result.tuning)
@@ -102,6 +106,7 @@ def adapt(target, endpoint, warm_keys, *, steps, split=None):
         histories.append(dict(factor_id=fid,state_before=state_before,state_after=state_hashes(work),
             key=np.asarray(warm_keys[i]).tolist(),history=encode(result.history),
             endpoint_audit=result.endpoint.audit,eta_audit=eta_audit))
+        if context is not None:histories[-1]['conditional_replay']=context
         print('FACTOR WARMUP COMPLETE',i+1,'/',len(target.factor_ids),fid,flush=True)
     after=stream_audit(endpoint.eta_rng,endpoint.gauge_rng,endpoint.master_key,np.random.get_state())
     for key in ('numpy_global_sha256','gauge_rng_sha256','jax_key_data'):

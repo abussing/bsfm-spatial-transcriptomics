@@ -27,8 +27,9 @@ def validate_spec(spec):
     if spec['schema']!='bsfm.local-run.v1' or spec['mode']!='exact_resume':raise ValueError('Only exact same-run resume supported; readaptation deferred')
     for n in ('run_id','segment_id','chain_id'):
         if not isinstance(spec[n],str) or not re.fullmatch('[A-Za-z0-9_-]+',spec[n]):raise ValueError('Explicit safe run/segment/chain identity required')
-    for n,minimum in [('seed',0),('warmup_steps',20),('settling_sweeps',0),('production_sweeps',1),('save_every',1),('checkpoint_every',1),('final_sweep',1)]:
+    for n,minimum in [('seed',0),('warmup_steps',0),('settling_sweeps',0),('production_sweeps',1),('save_every',1),('checkpoint_every',1),('final_sweep',1)]:
         if type(spec[n]) is not int or spec[n]<minimum:raise ValueError('Invalid explicit run count: '+n)
+    if 0 < spec['warmup_steps'] < 20:raise ValueError('Adaptation requires at least 20 steps')
     if spec['final_sweep']!=spec['settling_sweeps']+spec['production_sweeps']:raise ValueError('Run-length mismatch')
     return spec
 
@@ -42,6 +43,8 @@ class RunController:
     """
     def __init__(self,root,target,loading,eta,spec,input_receipt,*,authenticate):
         self.spec=validate_spec(spec);self.target=target;self.loading=loading;self.eta=eta
+        if spec['warmup_steps']==0 and 'initial_checkpoint' not in input_receipt:
+            raise ValueError('Zero warmup requires an authenticated inherited checkpoint')
         if spec['factor_ids']!=list(target.factor_ids) or spec['input_sha256']!=digest(input_receipt):raise ValueError('Run inputs/factors mismatch')
         self.authenticate=authenticate
         self.scale=.25*np.var(target.inputs.arrays['Y'],axis=1)
@@ -54,7 +57,8 @@ class RunController:
     def _adapt_endpoint(self, fault):
         e, keys = initialize(self.target, self.loading, self.eta, seed=self.spec['seed'])
         fault('after_initialization')
-        return adapt(self.target, e, keys, steps=self.spec['warmup_steps'], split=self.layer.split)
+        return adapt(self.target, e, keys, steps=self.spec['warmup_steps'], split=self.layer.split,
+                     record_context=self.store.input_receipt.get('diagnostics')=='adaptation_study_v1')
 
     def _genesis(self,fault):
         s=self.store;final=s.segment/'genesis'

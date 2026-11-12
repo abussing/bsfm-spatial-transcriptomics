@@ -24,7 +24,7 @@ def geometry_from_genesis(data, expected, path):
     metadata=arrays.pop('metadata')
     if metadata.shape!=() or metadata.dtype.kind!='U':raise ValueError('Genesis metadata encoding')
     record=parse_json(str(metadata))
-    if (record['schema']!='bsfm.pre-sweep-endpoint.v1'
+    if (record['schema'] not in ('bsfm.pre-sweep-endpoint.v1','bsfm.inherited-endpoint.v1')
             or record['logical_sha256']!=digest({k:v for k,v in record.items() if k!='logical_sha256'})
             or {k:descriptor(v) for k,v in arrays.items()}!=record['arrays']):
         raise ValueError('Saved genesis integrity')

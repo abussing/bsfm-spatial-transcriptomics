@@ -106,11 +106,38 @@ without repeating it. The first phase's seed and tuning length must match the
 source endpoint. Existing runs and their software/recipe identities stay intact.
 This imports pre-sweep endpoints only; it is not a general checkpoint migration.
 
+To continue a deliberately stopped periodic run under a new schedule, optional
+`initial_checkpoint` pins five records (`path`, `bytes`, `sha256` each): `spec`
+(`run-spec.json`), `inputs` (`input-receipt.json`), `genesis` (`endpoint.npz`),
+`genesis_receipt`, and `boundary_receipt` at the chosen published sweep. Use a
+separate output root and omit `initial_endpoint`. The complete published prefix
+is authenticated under its original contracts; the parent need not be finished
+and is never marked complete. Seed, target, exact spectral chart and runtime/device
+identity must agree. The first phase must have `warmup_steps: 0`: it inherits
+state, tuning and RNG streams without initialization or adaptation. Later phases
+use the existing completed-parent readaptation interface. This is an explicit new
+lineage, not permission to alter a same-run checkpoint or pool earlier draws.
+
+Optional `diagnostics: adaptation_study_v1` records per-sweep parameter traces,
+block energies, endpoint gradient norms, gauge-invariant loading strengths and
+sweep times, alongside existing acceptance, divergence, trajectory and PCG
+records. Retuning also saves exact incoming conditional arrays/positions for
+replay; existing warmup histories retain positions, gradients and adapted mass.
+Both blocks' adaptation histories can be audited from these records without
+changing their transitions. Complete states and warps remain at the save cadence.
+This policy stops at a published boundary if the same factor/block has >5%
+divergences or mean acceptance <0.6 in both consecutive 25-sweep windows. It does
+not automatically retune or advance to the next phase after stopping. Depth-cap
+frequency is an efficiency warning only. These explicit review heuristics are
+not convergence criteria; conditional energies from changing Gibbs targets must
+not be used as one fixed-target E-BFMI series.
+
 Each phase performs the specified NUTS tuning per factor followed by the specified
 Gibbs sweeps. The first phase initializes; subsequent phases use the existing
 readaptation controller and the completed parent's exact state/RNG. Specify tuning, bridge and production lengths in the recipe; no schedule is
 implied by the command.
-The minimum tuning length remains 20. The periodic controller's existing zero-
+The minimum nonzero tuning length remains 20; zero is permitted only for the
+first checkpoint-inheritance phase above. The periodic controller's existing zero-
 settling restriction remains; bridge phases are separate runs. Only the last
 phase supplies final production draws; do not pool earlier bridge draws.
 

@@ -32,6 +32,16 @@ def validate_endpoint(e,target,contract):
         if e.positions[i].factor_id!=fid or e.tuning[i].factor_id!=fid:raise ValueError('Genesis factor order')
         split.validate_inputs(e.master_key,e.positions[i],e.state,e.tuning[i],state_factor_ids=target.factor_ids)
     v=e.evidence
+    if v.get('schema')=='bsfm.inherited-endpoint.v1':
+        from .run_transactions import tuning_identity
+        exact_keys(v,('schema','initialization','adaptation_steps','source_boundary','source_tuning','source'))
+        exact_keys(v['initialization'],('seed',))
+        if (v['adaptation_steps']!=0 or type(v['initialization']['seed']) is not int
+                or v['source_boundary']!=boundary(e,target)
+                or v['source_tuning']!=tuning_identity(e.tuning)
+                or v['source'].get('schema')!='bsfm.checkpoint-fork-source.v1'):
+            raise ValueError('Inherited endpoint state/RNG/tuning changed')
+        return boundary(e,target)
     exact_keys(v,('initialization','adaptation_steps','target_acceptance','factors','rng_before','rng_after'))
     if type(v['adaptation_steps']) is not int or v['adaptation_steps']<20 or v['target_acceptance']!=.9:
         raise ValueError('Incomplete/changed genesis warmup')
@@ -66,7 +76,8 @@ def save_genesis(path,e,target,contract):
         inverse_mass=np.stack([t.inverse_mass_matrix for t in e.tuning]),master_key=kd,
         numpy_global_keys=e.numpy_global_state[1].copy())
     data.update({'spectral_'+k:np.array(v,copy=True,order='K') for k,v in target.geometry.spectral.items() if k!='audit'})
-    m=dict(schema='bsfm.pre-sweep-endpoint.v1',contract=contract.json,contract_sha256=contract.sha256,
+    schema='bsfm.inherited-endpoint.v1' if e.evidence.get('schema')=='bsfm.inherited-endpoint.v1' else 'bsfm.pre-sweep-endpoint.v1'
+    m=dict(schema=schema,contract=contract.json,contract_sha256=contract.sha256,
         factor_ids=list(target.factor_ids),boundary=b,evidence=e.evidence,
         rng=dict(eta=generator_record(e.eta_rng),gauge=generator_record(e.gauge_rng),
                  numpy_global=global_record(e.numpy_global_state),jax=kr),
@@ -82,7 +93,9 @@ def load_genesis(path,target,contract):
     raw=d.pop('metadata')
     if raw.shape!=() or raw.dtype.kind!='U':raise ValueError('Genesis metadata')
     m=parse_json(str(raw));exact_keys(m,('schema','contract','contract_sha256','factor_ids','boundary','evidence','rng','spectral_audit','arrays','logical_sha256'))
-    if m['schema']!='bsfm.pre-sweep-endpoint.v1' or m['logical_sha256']!=digest({k:v for k,v in m.items() if k!='logical_sha256'}):raise ValueError('Genesis identity')
+    if m['schema'] not in ('bsfm.pre-sweep-endpoint.v1','bsfm.inherited-endpoint.v1') or m['logical_sha256']!=digest({k:v for k,v in m.items() if k!='logical_sha256'}):raise ValueError('Genesis identity')
+    if (m['schema']=='bsfm.inherited-endpoint.v1') != (m['evidence'].get('schema')=='bsfm.inherited-endpoint.v1'):
+        raise ValueError('Endpoint evidence/schema mismatch')
     expected=set(STATE_ARRAYS)|{'positions','b_sigma2','field_steps','hyper_steps','inverse_mass','master_key','numpy_global_keys'}|{'spectral_'+k for k in target.geometry.spectral if k!='audit'}
     if set(d)!=expected or set(m['arrays'])!=expected:raise ValueError('Missing/extra genesis fields')
     if m['contract']!=contract.json or m['contract_sha256']!=contract.sha256 or m['factor_ids']!=list(target.factor_ids):raise ValueError('Genesis contract/factor mismatch')

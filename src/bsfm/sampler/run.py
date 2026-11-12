@@ -13,11 +13,27 @@ import re
 import subprocess
 
 
+def validate_checkpoint_source(source):
+    # Keep recipe validation free of JAX imports: main configures the backend
+    # only after validation and before importing numerical modules.
+    roles={'spec','inputs','genesis','genesis_receipt','boundary_receipt'}
+    if not isinstance(source,dict) or set(source)!=roles:
+        raise ValueError('Checkpoint fork requires five pinned source records')
+    for record in source.values():
+        if not isinstance(record,dict) or set(record)!={'path','bytes','sha256'}:
+            raise ValueError('Pinned checkpoint source record required')
+
+
 def validate_recipe(recipe):
     required={'schema','backend','model','chain_id','factor_ids','seed','files',
               'dataset_recipe','gpu_runtime','phases'}
-    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint','flat_range_prior'} or recipe['schema']!='bsfm.sampler-run.v1':
+    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint','initial_checkpoint','diagnostics','flat_range_prior'} or recipe['schema']!='bsfm.sampler-run.v1':
         raise ValueError('Exact sampler run recipe fields required')
+    if 'diagnostics' in recipe and recipe['diagnostics']!='adaptation_study_v1':
+        raise ValueError('Unknown diagnostic policy')
+    if 'initial_checkpoint' in recipe:
+        validate_checkpoint_source(recipe['initial_checkpoint'])
+        if 'initial_endpoint' in recipe:raise ValueError('Choose one source endpoint')
     if 'pcg_maximum_iterations' in recipe:
         cap=recipe['pcg_maximum_iterations']
         if type(cap) is not int or not 1 <= cap <= 4096:raise ValueError('Invalid PCG iteration budget')
@@ -46,11 +62,13 @@ def validate_recipe(recipe):
     phases=recipe['phases']
     if not isinstance(phases,list) or not phases:raise ValueError('At least one explicit phase required')
     names=[]
-    for phase in phases:
+    for index,phase in enumerate(phases):
         if set(phase)!={'run_id','warmup_steps','sweeps','save_every'}:
             raise ValueError('Explicit phase identity, tuning, sweep and save counts required')
         names.append(phase['run_id'])
-        for key,minimum in [('warmup_steps',20),('sweeps',1),('save_every',1)]:
+        inherited=index==0 and 'initial_checkpoint' in recipe
+        if inherited and phase['warmup_steps']!=0:raise ValueError('Checkpoint fork must first inherit tuning with zero warmup')
+        for key,minimum in [('warmup_steps',0 if inherited else 20),('sweeps',1),('save_every',1)]:
             if type(phase[key]) is not int or phase[key]<minimum:raise ValueError('Invalid phase '+key)
     for name in names+[recipe['chain_id']]:
         if not isinstance(name,str) or not re.fullmatch('[A-Za-z0-9_-]+',name):raise ValueError('Safe run/chain identities required')
@@ -96,24 +114,31 @@ def run_recipe(path,output,*,commit):
     first=recipe['phases'][0]
     genesis=output/first['run_id']/'segments/segment/genesis/endpoint.npz'
     source=copy.deepcopy(recipe.get('initial_endpoint'))
+    checkpoint=copy.deepcopy(recipe.get('initial_checkpoint'))
+    if checkpoint is not None:
+        for record in checkpoint.values():record['path']=resolve(record['path'])
+        run_inputs.authenticate_files(checkpoint)
     if source is not None:
         source['path']=resolve(source['path'])
         if Path(source['path']).is_relative_to(output):raise ValueError('Imported endpoint must be outside new output root')
         run_inputs.authenticate_files({'initial_endpoint':source})
     target,loading,eta,binding=run_inputs.load_inputs(files,recipe['factor_ids'],
-        genesis_path=genesis if genesis.exists() else (source['path'] if source else None),dataset_recipe=recipe['dataset_recipe'])
+        genesis_path=genesis if genesis.exists() else (checkpoint['genesis']['path'] if checkpoint else (source['path'] if source else None)),dataset_recipe=recipe['dataset_recipe'])
     if recipe['model']=='flat':
         from .flat_control import FlatTarget,FlatTransition
         target=FlatTarget(target.inputs,target.geometry,target.rule,factor_ids=target.factor_ids,
                           range_prior=recipe.get('flat_range_prior'))
     binding=dict(binding,launcher_recipe=recipe_record,model=recipe['model'],target_identity=target.identity)
     if source is not None:binding['initial_endpoint']=source
+    if checkpoint is not None:binding['initial_checkpoint']=checkpoint
+    if 'diagnostics' in recipe:binding['diagnostics']=recipe['diagnostics']
     if 'pcg_maximum_iterations' in recipe:binding['pcg_maximum_iterations']=recipe['pcg_maximum_iterations']
     def authenticate():
         check_repository(path,commit)
         if file_record(path)!=recipe_record:raise ValueError('Run recipe changed')
         run_inputs.authenticate_files(files)
         if source is not None:run_inputs.authenticate_files({'initial_endpoint':source})
+        if checkpoint is not None:run_inputs.authenticate_files(checkpoint)
         if run_inputs.authenticate_environment(gpu_runtime=gpu)!=env:raise ValueError('Environment changed')
         target._validate_identities()
     parent=None;results=[]
@@ -132,6 +157,9 @@ def run_recipe(path,output,*,commit):
         if parent is None and source is not None:
             from .run_continuation import ImportedEndpointController
             cls=ImportedEndpointController
+        if parent is None and checkpoint is not None:
+            from .run_checkpoint_fork import CheckpointForkController
+            cls=CheckpointForkController
         controller=cls(output/phase['run_id'],target,loading,eta,spec,phase_binding,
                        authenticate=authenticate,**({} if parent is None else dict(parent=parent)))
         if 'pcg_maximum_iterations' in recipe:
@@ -140,6 +168,9 @@ def run_recipe(path,output,*,commit):
         if recipe['model']=='flat':controller.layer.split=FlatTransition(target)
         print('PHASE',phase['run_id'],recipe['model'],recipe['backend'],flush=True)
         results.append(dict(run_id=phase['run_id'],result=controller.run()))
+        if results[-1]['result'].get('status')=='review_required':
+            return dict(schema='bsfm.recipe-review.v1',status='review_required',phases=results,
+                        convergence='not_assessed',action='preserve checkpoints; no automatic retuning')
         parent=controller
     return dict(schema='bsfm.recipe-completion.v1',phases=results,
                 production_run_id=recipe['phases'][-1]['run_id'],
@@ -159,7 +190,9 @@ def main():
     if recipe['backend']=='gpu':os.environ['BSFM_EXPERIMENTAL_CUDA']='1'
     threads=recipe['gpu_runtime']['blas_threads'] if recipe['backend']=='gpu' else 1
     for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS'):os.environ[name]=str(threads)
-    print(json.dumps(run_recipe(args.recipe,args.output,commit=args.commit),sort_keys=True),flush=True)
+    result=run_recipe(args.recipe,args.output,commit=args.commit)
+    print(json.dumps(result,sort_keys=True),flush=True)
+    if result.get('status')=='review_required':raise SystemExit(42)
 
 
 if __name__=='__main__':main()
