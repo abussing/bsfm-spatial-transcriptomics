@@ -76,6 +76,7 @@ class RunRecipeTests(unittest.TestCase):
                             boundary_receipt=segment/'boundaries/000000000001/receipt.json')
                         inherited=copy.deepcopy(recipe)
                         inherited['initial_checkpoint']={k:dict(path=str(p),**file_record(p)) for k,p in paths.items()}
+                        inherited['checkpoint_field_step_scales']={fid:.5 for fid in inherited['factor_ids']}
                         inherited['phases']=[dict(run_id='settle',warmup_steps=0,sweeps=1,save_every=1)]
                         inherit_path=root/'inherit.json';inherit_path.write_text(json.dumps(inherited))
                         with patch('bsfm.sampler.run_controller.RunController._adapt_endpoint',side_effect=AssertionError('Retune')):
@@ -98,6 +99,11 @@ class RunRecipeTests(unittest.TestCase):
             factor_ids=['one'],seed=1,files={},dataset_recipe=None,gpu_runtime=None,
             phases=[dict(run_id='production',warmup_steps=20,sweeps=2,save_every=1)])
         validate_recipe(base)
+        with self.assertRaises(ValueError):validate_recipe(dict(base,checkpoint_field_step_scales={'one':.5}))
+        from bsfm.sampler.run import validate_field_step_scales
+        validate_field_step_scales({'one':.5},['one'])
+        for scales in [{},{'other':.5},{'one':True},{'one':0},{'one':-1},{'one':1.1},{'one':float('nan')},{'one':float('inf')}]:
+            with self.assertRaises(ValueError):validate_field_step_scales(scales,['one'])
         for changes in [dict(backend='gpu'),dict(model='unknown'),dict(seed=True),
                         dict(factor_ids=['one','one']),dict(phases=[]),dict(chain_id='../escape')]:
             with self.subTest(changes=changes),self.assertRaises(ValueError):validate_recipe(dict(base,**changes))

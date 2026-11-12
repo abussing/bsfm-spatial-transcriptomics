@@ -118,6 +118,18 @@ state, tuning and RNG streams without initialization or adaptation. Later phases
 use the existing completed-parent readaptation interface. This is an explicit new
 lineage, not permission to alter a same-run checkpoint or pool earlier draws.
 
+For a reviewed reduction after diagnostic replay, optional
+`checkpoint_field_step_scales` maps **every** factor ID to a finite multiplier in
+`(0,1]`; use 1 for unaffected factors. It requires `initial_checkpoint` and applies
+once to the inherited first-phase field steps. The new genesis records original
+tuning and the explicit scales. Mass matrices, hyperparameter steps, state and RNG
+streams are inherited exactly. Resume never applies the reduction a second time;
+later explicit adaptation phases estimate their own tuning. This changes the
+computational schedule under a new recipe/output root, not the posterior target.
+It is not an automatic tuning policy or a substitute for assessment through Gibbs
+updates: fixed-conditional adaptation can work well during tuning and fail as the
+other Gibbs quantities change.
+
 Optional `diagnostics: adaptation_study_v1` records per-sweep parameter traces,
 block energies, endpoint gradient norms, gauge-invariant loading strengths and
 sweep times, alongside existing acceptance, divergence, trajectory and PCG

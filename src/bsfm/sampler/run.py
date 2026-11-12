@@ -7,6 +7,7 @@ production result. Repeating the command resumes the same immutable run.
 import argparse
 import copy
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -24,10 +25,18 @@ def validate_checkpoint_source(source):
             raise ValueError('Pinned checkpoint source record required')
 
 
+def validate_field_step_scales(scales, factor_ids):
+    """Explicit reviewed reductions; no backend imports or adaptive policy."""
+    if (not isinstance(scales,dict) or set(scales)!=set(factor_ids)
+            or any(type(v) not in (int,float) or not math.isfinite(v) or not 0<v<=1
+                   for v in scales.values())):
+        raise ValueError('One finite field step scale in (0,1] per factor required')
+
+
 def validate_recipe(recipe):
     required={'schema','backend','model','chain_id','factor_ids','seed','files',
               'dataset_recipe','gpu_runtime','phases'}
-    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint','initial_checkpoint','diagnostics','flat_range_prior'} or recipe['schema']!='bsfm.sampler-run.v1':
+    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint','initial_checkpoint','checkpoint_field_step_scales','diagnostics','flat_range_prior'} or recipe['schema']!='bsfm.sampler-run.v1':
         raise ValueError('Exact sampler run recipe fields required')
     if 'diagnostics' in recipe and recipe['diagnostics']!='adaptation_study_v1':
         raise ValueError('Unknown diagnostic policy')
@@ -57,6 +66,10 @@ def validate_recipe(recipe):
     ids=recipe['factor_ids']
     if not isinstance(ids,list) or not ids or any(not isinstance(x,str) or not x for x in ids) or len(set(ids))!=len(ids):
         raise ValueError('Explicit ordered unique factor IDs required')
+    if 'checkpoint_field_step_scales' in recipe:
+        if 'initial_checkpoint' not in recipe:
+            raise ValueError('Reviewed field step reduction requires initial_checkpoint')
+        validate_field_step_scales(recipe['checkpoint_field_step_scales'],ids)
     if type(recipe['seed']) is not int or not 0<=recipe['seed']<=2**32-3004:
         raise ValueError('Seed and sampler offsets must fit uint32')
     phases=recipe['phases']
@@ -131,6 +144,8 @@ def run_recipe(path,output,*,commit):
     binding=dict(binding,launcher_recipe=recipe_record,model=recipe['model'],target_identity=target.identity)
     if source is not None:binding['initial_endpoint']=source
     if checkpoint is not None:binding['initial_checkpoint']=checkpoint
+    if 'checkpoint_field_step_scales' in recipe:
+        binding['checkpoint_field_step_scales']=copy.deepcopy(recipe['checkpoint_field_step_scales'])
     if 'diagnostics' in recipe:binding['diagnostics']=recipe['diagnostics']
     if 'pcg_maximum_iterations' in recipe:binding['pcg_maximum_iterations']=recipe['pcg_maximum_iterations']
     def authenticate():

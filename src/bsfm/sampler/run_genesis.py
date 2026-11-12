@@ -1,5 +1,6 @@
 """Versioned pre-sweep endpoint, deliberately not a Layer-7 sweep-zero checkpoint."""
 import hashlib
+import copy
 import numpy as np
 from .contracts import GaussianState, logical_hash, array
 from .conjugate import compute_Yhat
@@ -34,11 +35,22 @@ def validate_endpoint(e,target,contract):
     v=e.evidence
     if v.get('schema')=='bsfm.inherited-endpoint.v1':
         from .run_transactions import tuning_identity
-        exact_keys(v,('schema','initialization','adaptation_steps','source_boundary','source_tuning','source'))
+        keys=('schema','initialization','adaptation_steps','source_boundary','source_tuning','source')
+        if 'field_step_scales' in v:keys+=('field_step_scales',)
+        exact_keys(v,keys)
+        expected_tuning=copy.deepcopy(v['source_tuning'])
+        if 'field_step_scales' in v:
+            from .run import validate_field_step_scales
+            validate_field_step_scales(v['field_step_scales'],target.factor_ids)
+            if not isinstance(expected_tuning,list) or len(expected_tuning)!=k:
+                raise ValueError('Incomplete source tuning')
+            for i,row in enumerate(expected_tuning):
+                if row['factor_id']!=target.factor_ids[i]:raise ValueError('Source tuning factor order')
+                row['step']*=v['field_step_scales'][row['factor_id']]
         exact_keys(v['initialization'],('seed',))
         if (v['adaptation_steps']!=0 or type(v['initialization']['seed']) is not int
                 or v['source_boundary']!=boundary(e,target)
-                or v['source_tuning']!=tuning_identity(e.tuning)
+                or expected_tuning!=tuning_identity(e.tuning)
                 or v['source'].get('schema')!='bsfm.checkpoint-fork-source.v1'):
             raise ValueError('Inherited endpoint state/RNG/tuning changed')
         return boundary(e,target)

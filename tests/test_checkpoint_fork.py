@@ -34,11 +34,12 @@ class ForkTests(unittest.TestCase):
             boundary_receipt=s/'boundaries/000000000001/receipt.json')
         cls.source={k:dict(path=str(p),**file_record(p)) for k,p in paths.items()}
 
-    def make(self,name,diagnostics=False):
+    def make(self,name,diagnostics=False,scales=None):
         p=self.parent;spec=copy.deepcopy(p.spec)
         spec.update(run_id='settle',warmup_steps=0,final_sweep=2,production_sweeps=2)
         binding=dict(p.store.input_receipt,initial_checkpoint=self.source)
         if diagnostics:binding['diagnostics']='adaptation_study_v1'
+        if scales is not None:binding['checkpoint_field_step_scales']=scales
         spec['input_sha256']=digest(binding)
         return CheckpointForkController(self.root/name,p.target,p.loading,p.eta,spec,binding,authenticate=p.authenticate)
 
@@ -94,6 +95,40 @@ class ForkTests(unittest.TestCase):
         self.assertEqual(boundary(ae,a.target),boundary(be,b.target))
         row=read_json(b.store.segment/'boundaries/000000000002/diagnostics.json')[0]
         self.assertEqual(len(row['measurements']['factors']),len(b.target.factor_ids))
+
+    def test_reviewed_reduction_preserves_state_rng_and_resumes_once(self):
+        scales={fid:(.5 if i==0 else 1.) for i,fid in enumerate(self.parent.target.factor_ids)}
+        reference=self.make('scaled-reference',True,scales);reference.run()
+        c=self.make('scaled-interrupted',True,scales)
+        def stop(stage):
+            if stage=='after_boundary_publish':raise Stop()
+        with self.assertRaises(Stop):c.run(fault=stop)
+        c=self.make('scaled-interrupted',True,scales);c.run()
+        inherited,_=load_genesis(c.store.segment/'genesis/endpoint.npz',c.target,c.cp)
+        original=load_compact(self.parent.store.segment/'boundaries/000000000001/checkpoint.npz',target=c.target,contract=self.parent.cp)
+        self.assertEqual(boundary(inherited,c.target),boundary(original,c.target))
+        for old,new in zip(original.tuning,inherited.tuning):
+            self.assertEqual(new.step_size,old.step_size*scales[old.factor_id])
+            self.assertEqual(new.hyper_step_size,old.hyper_step_size)
+            np.testing.assert_array_equal(new.inverse_mass_matrix,old.inverse_mass_matrix)
+        for n in (1,2):
+            # Instrumentation includes real elapsed seconds, so receipts differ.
+            # The scientific state and all RNG streams must still agree exactly.
+            path=f'boundaries/{n:012d}/checkpoint.npz'
+            actual=load_compact(c.store.segment/path,target=c.target,contract=c.cp)
+            expected=load_compact(reference.store.segment/path,target=c.target,contract=reference.cp)
+            self.assertEqual(boundary(actual,c.target),boundary(expected,c.target))
+        with patch.object(c.layer,'sweep',side_effect=AssertionError('Replay')):c.run()
+        # Published adjusted genesis remains usable as an authenticated source.
+        source={key:dict(path=str(path),**file_record(path)) for key,path in dict(
+            spec=c.store.root/'run-spec.json',inputs=c.store.root/'input-receipt.json',
+            genesis=c.store.segment/'genesis/endpoint.npz',genesis_receipt=c.store.segment/'genesis/receipt.json',
+            boundary_receipt=c.store.segment/'boundaries/000000000002/receipt.json').items()}
+        endpoint,_=source_endpoint(source,c.target,c.loading,c.eta,seed=c.spec['seed'],
+            environment_identity=c.spec['software']['environment_identity'],output=self.root/'next-source-check')
+        self.assertEqual(boundary(endpoint,c.target),boundary(parent_endpoint(c)[0],c.target))
+        changed=dict(scales);changed[c.target.factor_ids[0]]=.25
+        with self.assertRaises(ValueError):self.make('scaled-interrupted',True,changed).run()
 
     def test_warmup_context_capture_preserves_endpoint_and_streams(self):
         from bsfm.sampler.run_initialization import initialize,adapt

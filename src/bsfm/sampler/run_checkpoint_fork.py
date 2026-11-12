@@ -1,10 +1,12 @@
 """Fork a published periodic boundary without completing or editing its parent.
 
 The source chain is checked under its original contracts. The new lineage keeps
-state, tuning and every RNG stream, and explicitly performs no initialization or
-adaptation. It may subsequently feed the existing readaptation controller.
+state and every RNG stream, with an optional explicit field-step reduction.
+It performs no initialization or adaptation and may subsequently feed the
+existing readaptation controller.
 """
 import copy
+from dataclasses import replace
 from pathlib import Path
 from .checkpoint_contract import digest
 from .run_genesis import load_genesis, boundary
@@ -13,7 +15,7 @@ from .run_inputs import authenticate_files
 from .run_periodic import PeriodicRunController
 from .run_storage import file_record, read_json, safe, writer
 from .run_transactions import tuning_identity
-from .run import validate_checkpoint_source as validate_source
+from .run import validate_checkpoint_source as validate_source, validate_field_step_scales
 
 
 def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output):
@@ -68,7 +70,13 @@ class CheckpointForkController(PeriodicRunController):
         evidence=dict(schema='bsfm.inherited-endpoint.v1',initialization=dict(seed=self.spec['seed']),
             adaptation_steps=0,source_boundary=boundary(source,self.target),
             source_tuning=tuning_identity(source.tuning),source=binding)
-        return Endpoint(source.state,source.positions,source.tuning,source.eta_rng,source.gauge_rng,
+        tuning=source.tuning
+        scales=self.store.input_receipt.get('checkpoint_field_step_scales')
+        if scales is not None:
+            validate_field_step_scales(scales,self.target.factor_ids)
+            tuning=tuple(replace(t,step_size=t.step_size*scales[t.factor_id]) for t in tuning)
+            evidence['field_step_scales']=copy.deepcopy(scales)
+        return Endpoint(source.state,source.positions,tuning,source.eta_rng,source.gauge_rng,
             source.master_key,source.numpy_global_state,source.b_sigma2,evidence)
 
     def _genesis(self,fault):
