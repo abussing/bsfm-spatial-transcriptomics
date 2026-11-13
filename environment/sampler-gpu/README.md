@@ -36,12 +36,20 @@ interpreter/RECORD hashes and the source commit outside Git. It does not import 
 run numerical work, request a GPU or submit a job. Do not use the installation
 receipt as an argument to the production runtime authenticator.
 
+Installation disables pip bytecode compilation, and validation disables Python
+cache writes. Some wheels contain a hashed bytecode file that pip would otherwise
+overwrite while retaining its old RECORD digest. The verifier still authenticates
+every hashed payload, including those caches; it does not ignore mismatches.
+Before requesting a GPU, run the validation command below with the additional
+`--installation-only` flag and a separate output directory. That mode checks all
+installed payloads without importing JAX or running numerical work.
+
 For device validation, freeze an external job specification and obtain the
 required job authorization. On one allocated GPU, using the candidate Python:
 
 ```bash
 export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1
-python -I environment/sampler-gpu/validate.py --commit FULL_COMMIT_SHA \
+python -I -B environment/sampler-gpu/validate.py --commit FULL_COMMIT_SHA \
   --installation /external/new-install-evidence/installation.json \
   --installation-sha256 RECEIPT_SHA256 --output /external/new-validation-output
 ```

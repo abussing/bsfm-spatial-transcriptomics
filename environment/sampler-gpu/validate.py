@@ -1,4 +1,9 @@
 """Candidate GPU numerical/controller checks; never grants production admission."""
+import sys
+
+# -I ignores PYTHONDONTWRITEBYTECODE. Keep authenticated wheel caches unchanged.
+sys.dont_write_bytecode = True
+
 import argparse
 import base64
 import csv
@@ -9,7 +14,6 @@ import os
 from pathlib import Path
 import site
 import subprocess
-import sys
 import traceback
 import unittest
 
@@ -35,6 +39,8 @@ def main():
     p.add_argument('--installation', type=Path, required=True)
     p.add_argument('--installation-sha256', required=True)
     p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--installation-only', action='store_true',
+                   help='Check installation integrity without importing JAX or using a GPU')
     args = p.parse_args()
     output = args.output.resolve()
     if output.is_relative_to(ROOT):
@@ -84,6 +90,10 @@ def main():
         if records != receipt['record_hashes']:
             raise ValueError('Package RECORD files changed')
         report.update(installation_sha256=args.installation_sha256, payload_files_checked=checked)
+        if args.installation_only:
+            report.update(status='INSTALLATION_VERIFIED',
+                          scope='Installation identity and payload checks only; no numerical execution')
+            return
         os.environ.update(JAX_PLATFORMS='cuda,cpu', JAX_ENABLE_X64='true',
                           BSFM_EXPERIMENTAL_CUDA='1', OPENBLAS_NUM_THREADS='1',
                           MKL_NUM_THREADS='1', OMP_NUM_THREADS='1',

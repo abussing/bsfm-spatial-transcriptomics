@@ -8,7 +8,7 @@ here="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 repo="$(cd -- "$here/../.." && pwd)"
 export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1
 unset PYTHONPATH PYTHONHOME
-"$base_python" -I - "$prefix" "$evidence" "$repo" <<'PY'
+"$base_python" -I -B - "$prefix" "$evidence" "$repo" <<'PY'
 import pathlib, platform, subprocess, sys
 if sys.version_info[:3] != (3,11,14) or platform.system() != 'Linux' or platform.machine() != 'x86_64':
     raise SystemExit('Linux x86_64 Python 3.11.14 required')
@@ -26,12 +26,12 @@ mkdir -p -- "$evidence"
 exec > >(tee "$evidence/build.log") 2>&1
 git -C "$repo" rev-parse HEAD > "$evidence/source-commit.txt"
 cp -- "$here/requirements.lock" "$evidence/requirements.lock"
-"$base_python" -I -m venv "$prefix"
-"$prefix/bin/python" -I -m pip --isolated install --require-hashes --no-deps --force-reinstall \
+"$base_python" -I -B -m venv "$prefix"
+"$prefix/bin/python" -I -B -m pip --isolated install --require-hashes --no-deps --force-reinstall --no-compile \
   --only-binary=:all: --report "$evidence/install.json" -r "$here/requirements.lock"
-"$prefix/bin/python" -I -m pip --isolated check
-"$prefix/bin/python" -I -m pip --isolated inspect > "$evidence/installed.json"
-"$prefix/bin/python" -I - "$evidence" <<'PY'
+"$prefix/bin/python" -I -B -m pip --isolated check
+"$prefix/bin/python" -I -B -m pip --isolated inspect > "$evidence/installed.json"
+"$prefix/bin/python" -I -B - "$evidence" <<'PY'
 import hashlib, importlib.metadata as md, json, pathlib, site, sys
 root=pathlib.Path(sys.prefix).resolve(); out=pathlib.Path(sys.argv[1])
 norm=lambda s:s.lower().replace('_','-').replace('.','-')
