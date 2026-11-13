@@ -64,7 +64,7 @@ the existing deployment receipt as an installer:
 | Source | Authenticate a clean checkout at an exact Git commit. A private repository needs GitHub access or a verified Git bundle from an authenticated clone. |
 | Inputs | Transfer the seven prepared artifacts and their receipts; verify hashes and ordered identities. Moving a fit does not itself require repeating SCT, mesh construction or GPINIT. Building new inputs requires those stages' separate environments. |
 | Environment | `config/sampler/hpc-gpu-runtime.json` and its referenced receipt identify the existing installation. They are **not a standalone GPU package/build lock**. Authentication currently requires that installation's entire package inventory and interpreter/file identities. Earlier layer CPU/Windows locks do not specify the complete GPU runtime. |
-| Launch | `environment/hpc/sample.sbatch` and `initialize.sbatch` currently encode USC module names, paths and interpreter locations. A destination-specific external wrapper must invoke the same canonical CLI with explicit paths, modules and resources; the scripts are not portable unchanged. |
+| Launch | `environment/hpc/sample.sbatch` and `initialize.sbatch` take explicit checkout, interpreter and module settings, described below. They invoke the same canonical CLIs and reject a dirty or incorrect source commit. Scheduler account, partition and resources belong in the external deployment manifest. |
 | Hardware validation | The authenticator currently permits V100/P100 only. Other devices require a reviewed validation interface and actual execution evidence, not merely an edited device name, receipt or opt-in flag. The linked shared-command GPU regression also relies on externally stored fixture files. |
 | Restart | Existing checkpoint imports require matching runtime/device and spectral identities. A different cluster/runtime is not automatically an exact continuation; begin a separately validated run or establish an explicit migration contract. |
 
@@ -246,6 +246,26 @@ before GPU submission. Scheduler resources and approval remain explicit.
 For GPU sampling, `environment/hpc/sample.sbatch COMMIT RECIPE OUTPUT` invokes
 the same sampler command in the authenticated HPC CUDA environment. Pass the
 approved partition and resource limits to `sbatch`; outputs remain external.
+
+Both launchers require these exported deployment settings (absolute Linux paths):
+
+```bash
+export BSFM_CHECKOUT=/path/to/clean/pinned/checkout
+export BSFM_PYTHON=/path/to/isolated/environment/bin/python
+export BSFM_MODULES='site/module-version'  # explicitly empty if no modules are needed
+export BSFM_CUDA_HOME=/path/to/cuda/toolkit # sampler only; must contain nvvm/libdevice/libdevice.10.bc
+sbatch --account=ACCOUNT --partition=PARTITION --time=APPROVED_LIMIT \
+  "$BSFM_CHECKOUT/environment/hpc/sample.sbatch" FULL_COMMIT_SHA /external/run.json /external/output
+```
+
+Use `initialize.sbatch FULL_COMMIT_SHA /external/plan.json` for initialization,
+with that stage's authenticated Python environment. Module names are whitespace-
+separated, loaded in order; no site module is implied. Slurm must export the
+settings to the job (its normal `--export=ALL` behavior). The launchers locate their
+shared setup in the checkout, including when Slurm executes a spooled script.
+They preserve the existing sampler's x64, CUDA, BLAS-thread and preallocation
+settings. Shell handoff tests cover spooling, quoted paths and rejection of
+incorrect source/deployment settings; they do not validate a new GPU environment.
 
 ## Validation scope and remaining gaps
 

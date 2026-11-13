@@ -7,11 +7,11 @@
 set -euo pipefail
 commit="${1:?exact committed source required}"
 plan="${2:?external run plan required}"
-module load gcc/12.2.0 mpfr/4.1.0
-cd "/work/abussing/bsfm-consolidation/checkouts/$commit"
-export PYTHONPATH="$PWD/src" PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1
+: "${BSFM_CHECKOUT:?set the absolute path of the pinned checkout}"
+case "$BSFM_CHECKOUT" in /*) ;; *) echo 'BSFM_CHECKOUT must be absolute' >&2; exit 2;; esac
+source "$BSFM_CHECKOUT/environment/hpc/runtime.sh"
 export OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4
-exec /work/abussing/arka_trying_gpu_again/env/bin/python -u - "$commit" "$plan" <<'PY'
+exec "$BSFM_PYTHON" -u - "$commit" "$plan" <<'PY'
 import hashlib,json,subprocess,sys
 from pathlib import Path
 from bsfm.initialization.gp_svd import load_input
