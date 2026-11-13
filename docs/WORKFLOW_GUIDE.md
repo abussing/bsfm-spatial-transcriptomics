@@ -63,7 +63,7 @@ the existing deployment receipt as an installer:
 | --- | --- |
 | Source | Authenticate a clean checkout at an exact Git commit. A private repository needs GitHub access or a verified Git bundle from an authenticated clone. |
 | Inputs | Transfer the seven prepared artifacts and their receipts; verify hashes and ordered identities. Moving a fit does not itself require repeating SCT, mesh construction or GPINIT. Building new inputs requires those stages' separate environments. |
-| Environment | The [candidate Linux GPU wheel lock and installer](../environment/sampler-gpu/README.md) restore an isolated package set; the Python base and GPU driver remain explicit deployment inputs. Installation is not GPU validation. `config/sampler/hpc-gpu-runtime.json` still authenticates the older validated installation's entire package inventory and interpreter/file identities; it is not an installer or a receipt for this candidate. |
+| Environment | The [candidate Linux Python/wheel locks and installer](../environment/sampler-gpu/README.md) restore an isolated package set. The host and GPU driver remain explicit deployment inputs. Installation is not GPU validation. `config/sampler/hpc-gpu-runtime.json` still authenticates the older validated installation's entire package inventory and interpreter/file identities; it is not an installer or a receipt for this candidate. |
 | Launch | `environment/hpc/sample.sbatch` and `initialize.sbatch` take explicit checkout, interpreter and module settings, described below. They invoke the same canonical CLIs and reject a dirty or incorrect source commit. Scheduler account, partition and resources belong in the external deployment manifest. |
 | Hardware validation | The authenticator currently permits V100/P100 only. Other devices require a reviewed validation interface and actual execution evidence, not merely an edited device name, receipt or opt-in flag. The linked shared-command GPU regression also relies on externally stored fixture files. |
 | Restart | Existing checkpoint imports require matching runtime/device and spectral identities. A different cluster/runtime is not automatically an exact continuation; begin a separately validated run or establish an explicit migration contract. |
@@ -74,8 +74,8 @@ Validate package integrity and isolation, then numerical checks and a small
 deep/flat execution with saved-output/restart checks on the allocated GPU before
 scientific fitting. Environment installation, passing execution checks, sampler
 mixing and scientific output reproducibility are separate claims. The remaining
-Python-base restoration and new-device-validation gaps must be closed to complete this
-route; changing paths alone cannot close them.
+new-device admission and actual-CLI validation gaps must be closed to complete
+this route; changing paths alone cannot close them.
 
 ## Run and resume prepared artifacts
 

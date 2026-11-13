@@ -12,15 +12,23 @@ existing GPU runtime. NVIDIA CUDA 12 dependencies are now explicit. Fastprogress
 with additional web dependencies. This is a new environment requiring validation,
 not a byte-identical restoration of the old one or an exact checkpoint migration.
 
-Provide an isolated Linux Python **3.11.14** base, recording its distribution's
-exact build/package lock externally. The base interpreter, system libraries,
-driver and GPU remain deployment inputs; the wheel lock does not supply them.
-From a clean committed checkout:
+`python-linux64.lock` supplies a SHA-256-pinned conda-forge Python **3.11.14**
+base and its 25 packages. Using an existing Conda installation (the installation
+check used Conda 25.7.0), create a new base outside the checkout, then create the
+isolated wheel environment from a clean committed checkout:
 
 ```bash
+conda create -y --prefix /external/new-python-base \
+  --file environment/sampler-gpu/python-linux64.lock
 bash environment/sampler-gpu/build.sh /absolute/base/bin/python \
   /external/new-environment /external/new-install-evidence
 ```
+
+In that second command, `/absolute/base/bin/python` means
+`/external/new-python-base/bin/python` when using the first command. Keep the
+Conda installation log and the base lock hash with deployment evidence. The
+host operating system, driver and GPU remain deployment inputs. The pinned base
+has been installed on Linux x86_64; that installation is not a GPU execution test.
 
 The script refuses existing destinations, installs only authenticated wheels,
 checks dependencies and package isolation, and writes logs, installation reports,
