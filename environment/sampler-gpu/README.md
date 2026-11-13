@@ -28,10 +28,22 @@ interpreter/RECORD hashes and the source commit outside Git. It does not import 
 run numerical work, request a GPU or submit a job. Do not use the installation
 receipt as an argument to the production runtime authenticator.
 
-For device validation, use a frozen external job specification: confirm one
-allocated GPU and float64, test independent dense target/gradient oracles and
-callback behavior, then deep and learned-range flat transitions, retained output,
-interrupted resume and completed non-replay. The new-device admission interface
-and actual execution evidence remain outstanding. Scientific fitting follows
-that validation, not installation alone. Keep CUDA-13 modules and unrelated
-library search paths out of a CUDA-12 candidate's validation process.
+For device validation, freeze an external job specification and obtain the
+required job authorization. On one allocated GPU, using the candidate Python:
+
+```bash
+export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1
+python -I environment/sampler-gpu/validate.py --commit FULL_COMMIT_SHA \
+  --installation /external/new-install-evidence/installation.json \
+  --installation-sha256 RECEIPT_SHA256 --output /external/new-validation-output
+```
+
+This checks interpreter/package payload integrity, one GPU and float64, the GPU
+callback, independent dense target/gradient oracles, and existing synthetic
+deep/flat controller, prediction and restart tests. `validation.json` and
+`tests.log` are external; retain scheduler stdout/stderr too. Tests reuse canonical
+transitions; test-only contracts do not authenticate a production CLI runtime.
+A passing report therefore **does not admit production** or prove scientific
+mixing. The new-device admission interface and actual-CLI validation remain
+outstanding. Keep CUDA-13 modules and unrelated library search paths out of a
+CUDA-12 candidate's validation process. The installer itself does not alter modules.
