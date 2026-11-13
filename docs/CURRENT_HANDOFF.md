@@ -29,7 +29,8 @@ The mirror's source inventory maps original paths to transferred payloads.
 
 Runtime pins live in `environment/` and `config/sampler/hpc-gpu-runtime.json`.
 Use validated platform-specific environments, not copied Windows environments.
-The workflow guide records unresolved portability limits.
+The workflow guide's [new-HPC deployment boundary](WORKFLOW_GUIDE.md#moving-to-another-hpc)
+records what is reusable and what still needs restoration or validation.
 
 Dataset-specific evidence is located through
 [the compact preprocessing index](preprocessing/DATASET_LAYER_VALIDATION.json).

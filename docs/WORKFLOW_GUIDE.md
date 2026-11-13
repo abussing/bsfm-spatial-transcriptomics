@@ -53,6 +53,30 @@ interpreter/libdevice, receipt and supported-device identities. It does not
 provision an environment or validate arbitrary hardware. An explicit GPU request
 fails on CPU rather than silently falling back.
 
+### Moving to another HPC
+
+The sampler interface is reusable; **GPU environment restoration on a new cluster
+is not yet a complete supported workflow**. Use this boundary rather than treating
+the existing deployment receipt as an installer:
+
+| Step | What is available; what must be established at the destination |
+| --- | --- |
+| Source | Authenticate a clean checkout at an exact Git commit. A private repository needs GitHub access or a verified Git bundle from an authenticated clone. |
+| Inputs | Transfer the seven prepared artifacts and their receipts; verify hashes and ordered identities. Moving a fit does not itself require repeating SCT, mesh construction or GPINIT. Building new inputs requires those stages' separate environments. |
+| Environment | `config/sampler/hpc-gpu-runtime.json` and its referenced receipt identify the existing installation. They are **not a standalone GPU package/build lock**. Authentication currently requires that installation's entire package inventory and interpreter/file identities. Earlier layer CPU/Windows locks do not specify the complete GPU runtime. |
+| Launch | `environment/hpc/sample.sbatch` and `initialize.sbatch` currently encode USC module names, paths and interpreter locations. A destination-specific external wrapper must invoke the same canonical CLI with explicit paths, modules and resources; the scripts are not portable unchanged. |
+| Hardware validation | The authenticator currently permits V100/P100 only. Other devices require a reviewed validation interface and actual execution evidence, not merely an edited device name, receipt or opt-in flag. The linked shared-command GPU regression also relies on externally stored fixture files. |
+| Restart | Existing checkpoint imports require matching runtime/device and spectral identities. A different cluster/runtime is not automatically an exact continuation; begin a separately validated run or establish an explicit migration contract. |
+
+Freeze destination paths, artifact hashes, environment build inputs, modules,
+scheduler resources and source commit in an **external deployment manifest**.
+Validate package integrity and isolation, then numerical checks and a small
+deep/flat execution with saved-output/restart checks on the allocated GPU before
+scientific fitting. Environment installation, passing execution checks, sampler
+mixing and scientific output reproducibility are separate claims. The remaining
+GPU build-lock and new-device-validation gaps must be closed to complete this
+route; changing paths alone cannot close them.
+
 ## Run and resume prepared artifacts
 
 From a clean checkout with its validated runtime active:
