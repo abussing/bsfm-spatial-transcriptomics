@@ -118,7 +118,8 @@ def run_recipe(path,output,*,commit):
     for record in files.values():record['path']=resolve(record['path'])
     gpu=copy.deepcopy(recipe['gpu_runtime'])
     if gpu is not None:
-        for key in ('receipt','prefix','site_packages','libdevice','p100_receipt'):
+        for key in ('receipt','prefix','site_packages','libdevice','p100_receipt',
+                    'installation','validation','validation_plan'):
             if gpu.get(key) is not None:gpu[key]=resolve(gpu[key])
     env=run_inputs.authenticate_environment(gpu_runtime=gpu)
     if recipe['backend']=='gpu':

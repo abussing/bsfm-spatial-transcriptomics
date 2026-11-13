@@ -5,19 +5,16 @@ import sys
 sys.dont_write_bytecode = True
 
 import argparse
-import base64
-import csv
-import hashlib
-import importlib.metadata as metadata
 import json
 import os
 from pathlib import Path
-import site
 import subprocess
 import traceback
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT/'src'))
+from bsfm.sampler.runtime_installation import verify_installation
 TESTS = (
     'test_gpu_acceptance_roundoff.GPUAcceptanceRoundoff',
     'test_meeting_extensions.MeetingExtensions',
@@ -26,11 +23,6 @@ TESTS = (
     'test_sampler_layer4.Layer4Tests.test_precision_and_block_preconditioner_independent_dense',
     'test_sampler_layer4.Layer4Tests.test_draw_matches_dense_algebra_identical_innovations',
 )
-
-
-def sha(path):
-    with Path(path).open('rb') as f:
-        return hashlib.file_digest(f, 'sha256').hexdigest()
 
 
 def main():
@@ -54,41 +46,8 @@ def main():
             raise ValueError('Wrong source commit')
         if subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip():
             raise ValueError('Dirty source checkout')
-        if sha(args.installation) != args.installation_sha256:
-            raise ValueError('Installation receipt changed')
-        receipt = json.loads(args.installation.read_text())
-        if (receipt['schema'] != 'bsfm.candidate-gpu-install.v1'
-                or receipt['lock_sha256'] != sha(Path(__file__).with_name('requirements.lock'))
-                or receipt['python'] != sys.version or receipt['python_sha256'] != sha(sys.executable)
-                or Path(receipt['prefix']).resolve() != Path(sys.prefix).resolve()
-                or site.ENABLE_USER_SITE):
-            raise ValueError('Candidate installation identity mismatch')
-        norm = lambda s: s.lower().replace('_', '-').replace('.', '-')
-        distributions = list(metadata.distributions())
-        actual = {norm(d.metadata['Name']): d.version for d in distributions}
-        if actual != receipt['packages'] or len(actual) != len(distributions):
-            raise ValueError('Package closure changed')
-        prefix = Path(sys.prefix).resolve()
-        records = {}
-        checked = 0
-        for d in distributions:
-            for f in d.files or []:
-                path = Path(d.locate_file(f))
-                if str(f).endswith('.dist-info/RECORD'):
-                    records[str(path.relative_to(prefix))] = sha(path)
-            for name, digest, size in csv.reader(d.read_text('RECORD').splitlines()):
-                if not digest:
-                    continue
-                path = Path(d.locate_file(name)).resolve()
-                algorithm, expected = digest.split('=', 1)
-                if not path.is_relative_to(prefix) or algorithm != 'sha256':
-                    raise ValueError('Foreign package payload or unsupported digest')
-                measured = base64.urlsafe_b64encode(bytes.fromhex(sha(path))).decode().rstrip('=')
-                if measured != expected or path.stat().st_size != int(size):
-                    raise ValueError('Installed package payload changed: ' + name)
-                checked += 1
-        if records != receipt['record_hashes']:
-            raise ValueError('Package RECORD files changed')
+        _, checked = verify_installation(args.installation, args.installation_sha256,
+                                         Path(__file__).with_name('requirements.lock'))
         report.update(installation_sha256=args.installation_sha256, payload_files_checked=checked)
         if args.installation_only:
             report.update(status='INSTALLATION_VERIFIED',

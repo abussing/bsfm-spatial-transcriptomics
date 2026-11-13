@@ -24,6 +24,9 @@ REPO=Path(__file__).resolve().parents[3]
 
 def authenticate_environment(*, gpu_runtime=None):
     if gpu_runtime is not None:
+        if 'schema' in gpu_runtime:
+            from .run_validated_gpu_environment import authenticate_validated_gpu_environment
+            return authenticate_validated_gpu_environment(**gpu_runtime)
         from .run_gpu_environment import authenticate_gpu_environment
         return authenticate_gpu_environment(**gpu_runtime)
     if sys.platform=='linux':

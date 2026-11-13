@@ -1,8 +1,9 @@
 # Candidate Linux GPU environment
 
-This is a reproducible **wheel installation**, not a production runtime receipt.
-The existing sampler authenticator still accepts only its separately validated
-V100/P100 environments. Installing this candidate does not bypass that gate.
+This provides a pinned wheel installation, numerical validation, and an explicit
+runtime interface for the normal sampler launcher. Installation alone does not
+authorize GPU execution. Existing V100/P100 recipes retain their original
+authenticator and checkpoint identities.
 
 `requirements.lock` pins the complete 30-wheel closure by URL and SHA-256 for
 Linux x86_64, CPython 3.11. It preserves JAX/JAXlib/CUDA plugin 0.7.0, BlackJAX 1.3,
@@ -59,7 +60,55 @@ callback, independent dense target/gradient oracles, and existing synthetic
 deep/flat controller, prediction and restart tests. `validation.json` and
 `tests.log` are external; retain scheduler stdout/stderr too. Tests reuse canonical
 transitions; test-only contracts do not authenticate a production CLI runtime.
-A passing report therefore **does not admit production** or prove scientific
-mixing. The new-device admission interface and actual-CLI validation remain
-outstanding. Keep CUDA-13 modules and unrelated library search paths out of a
+A passing report does not prove scientific mixing or completion of the normal
+command workflow. Keep CUDA-13 modules and unrelated library search paths out of a
 CUDA-12 candidate's validation process. The installer itself does not alter modules.
+
+## Connect the validated runtime to the sampler
+
+After numerical validation passes, use this explicit `gpu_runtime` object in an
+external sampler recipe (paths resolve relative to that recipe):
+
+```json
+{
+  "schema": "bsfm.validated-gpu-runtime.v1",
+  "installation": "/external/install/installation.json",
+  "installation_sha256": "INSTALLATION_SHA256",
+  "validation": "/external/numerical-check/validation.json",
+  "validation_sha256": "NUMERICAL_RECEIPT_SHA256",
+  "validation_plan": "/external/numerical-plan/run-spec.json",
+  "validation_plan_sha256": "FROZEN_PLAN_SHA256",
+  "libdevice": "/external/environment/lib/python3.11/site-packages/nvidia/cuda_nvcc/nvvm/libdevice/libdevice.10.bc",
+  "blas_threads": 1
+}
+```
+
+The authenticator requires all 12 checks in the v1 numerical validator to pass
+without skips, matching installation/plan identities and the exact tested GPU
+model. It rechecks the interpreter, wheel lock, package payloads, libdevice,
+float64, GPU backend and one BLAS thread. The pinned receipts are explicit trust
+inputs; retain the corresponding job logs and verify their origin. New-runtime
+identities differ from legacy identities: this is not cross-runtime exact resume.
+
+Before scientific fitting, test the actual launcher using two tiny frozen
+synthetic recipes, deep and **learned-range** flat. Reuse the existing
+[synthetic fixture inventory](../../docs/environment/shared-run-gpu-20261105/FIXTURE_INVENTORY.json)
+or regenerate that fixture with its named test producer; regenerated hashes must
+be frozen explicitly. Put both recipe records (`path`, `bytes`, `sha256`) under
+`recipes: {"deep": ..., "flat": ...}` in an external manifest with schema
+`bsfm.cli-validation-inputs.v1`. Freeze that manifest and all runtime/input hashes
+in the separately authorized job plan. With the deployment variables from the
+workflow guide set, run on one allocated GPU:
+
+```bash
+python -I -B environment/sampler-gpu/validate_cli.py --commit FULL_COMMIT_SHA \
+  --recipes /external/cli-recipes.json --recipes-sha256 MANIFEST_SHA256 \
+  --output /external/new-cli-validation
+```
+
+This invokes a spooled copy of `environment/hpc/sample.sbatch`, verifies phase and
+save counts, and reruns each completed command to check that neither tuning nor
+sweeps replay and the complete saved-file inventory stays unchanged. Logs and
+`validation.json` remain external. Passing numerical and CLI checks establishes
+bounded execution on that runtime, not scientific mixing or general numerical
+robustness for every dataset.

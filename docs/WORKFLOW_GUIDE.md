@@ -55,9 +55,9 @@ fails on CPU rather than silently falling back.
 
 ### Moving to another HPC
 
-The sampler interface is reusable; **GPU environment restoration on a new cluster
-is not yet a complete supported workflow**. Use this boundary rather than treating
-the existing deployment receipt as an installer:
+Use the pinned installer, numerical validator and normal-launcher validation
+below to establish a new GPU deployment. Treat the old deployment receipt as
+evidence for its own environment, not an installer for another cluster:
 
 | Step | What is available; what must be established at the destination |
 | --- | --- |
@@ -65,7 +65,7 @@ the existing deployment receipt as an installer:
 | Inputs | Transfer the seven prepared artifacts and their receipts; verify hashes and ordered identities. Moving a fit does not itself require repeating SCT, mesh construction or GPINIT. Building new inputs requires those stages' separate environments. |
 | Environment | The [candidate Linux Python/wheel locks and installer](../environment/sampler-gpu/README.md) restore an isolated package set. The host and GPU driver remain explicit deployment inputs. Installation is not GPU validation. `config/sampler/hpc-gpu-runtime.json` still authenticates the older validated installation's entire package inventory and interpreter/file identities; it is not an installer or a receipt for this candidate. |
 | Launch | `environment/hpc/sample.sbatch` and `initialize.sbatch` take explicit checkout, interpreter and module settings, described below. They invoke the same canonical CLIs and reject a dirty or incorrect source commit. Scheduler account, partition and resources belong in the external deployment manifest. |
-| Hardware validation | The authenticator currently permits V100/P100 only. Other devices require a reviewed validation interface and actual execution evidence, not merely an edited device name, receipt or opt-in flag. The linked shared-command GPU regression also relies on externally stored fixture files. |
+| Hardware validation | Legacy recipes retain the V100/P100 authenticator. The [validated-runtime recipe](../environment/sampler-gpu/README.md#connect-the-validated-runtime-to-the-sampler) binds a pinned installation, numerical validation plan/report and exact tested GPU model. Its separate CLI validator exercises the normal launcher and completed restart using externally pinned synthetic inputs. Both numerical and CLI evidence are required before scientific fitting. |
 | Restart | Existing checkpoint imports require matching runtime/device and spectral identities. A different cluster/runtime is not automatically an exact continuation; begin a separately validated run or establish an explicit migration contract. |
 
 Freeze destination paths, artifact hashes, environment build inputs, modules,
@@ -73,9 +73,9 @@ scheduler resources and source commit in an **external deployment manifest**.
 Validate package integrity and isolation, then numerical checks and a small
 deep/flat execution with saved-output/restart checks on the allocated GPU before
 scientific fitting. Environment installation, passing execution checks, sampler
-mixing and scientific output reproducibility are separate claims. The remaining
-new-device admission and actual-CLI validation gaps must be closed to complete
-this route; changing paths alone cannot close them.
+mixing and scientific output reproducibility are separate claims. Retain both
+numerical and actual-CLI validation receipts for each destination; changing paths
+alone does not establish either kind of validation.
 
 ## Run and resume prepared artifacts
 
