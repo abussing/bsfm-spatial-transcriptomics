@@ -1,0 +1,37 @@
+# Candidate Linux GPU environment
+
+This is a reproducible **wheel installation**, not a production runtime receipt.
+The existing sampler authenticator still accepts only its separately validated
+V100/P100 environments. Installing this candidate does not bypass that gate.
+
+`requirements.lock` pins the complete 30-wheel closure by URL and SHA-256 for
+Linux x86_64, CPython 3.11. It preserves JAX/JAXlib/CUDA plugin 0.7.0, BlackJAX 1.3,
+NumPy 2.1.3, SciPy 1.14.1, JAXopt 0.8.3, Optax 0.2.8 and cuDNN 9.8.0.87 from the
+existing GPU runtime. NVIDIA CUDA 12 dependencies are now explicit. Fastprogress
+1.0.3 comes from the accepted Layer-5 lock; the shared GPU environment had 1.1.5
+with additional web dependencies. This is a new environment requiring validation,
+not a byte-identical restoration of the old one or an exact checkpoint migration.
+
+Provide an isolated Linux Python **3.11.14** base, recording its distribution's
+exact build/package lock externally. The base interpreter, system libraries,
+driver and GPU remain deployment inputs; the wheel lock does not supply them.
+From a clean committed checkout:
+
+```bash
+bash environment/sampler-gpu/build.sh /absolute/base/bin/python \
+  /external/new-environment /external/new-install-evidence
+```
+
+The script refuses existing destinations, installs only authenticated wheels,
+checks dependencies and package isolation, and writes logs, installation reports,
+interpreter/RECORD hashes and the source commit outside Git. It does not import JAX,
+run numerical work, request a GPU or submit a job. Do not use the installation
+receipt as an argument to the production runtime authenticator.
+
+For device validation, use a frozen external job specification: confirm one
+allocated GPU and float64, test independent dense target/gradient oracles and
+callback behavior, then deep and learned-range flat transitions, retained output,
+interrupted resume and completed non-replay. The new-device admission interface
+and actual execution evidence remain outstanding. Scientific fitting follows
+that validation, not installation alone. Keep CUDA-13 modules and unrelated
+library search paths out of a CUDA-12 candidate's validation process.
