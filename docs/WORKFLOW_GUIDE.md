@@ -140,7 +140,11 @@ changing their transitions. Complete states and warps remain at the save cadence
 This policy stops at a published boundary if the same factor/block has >5%
 divergences or mean acceptance <0.6 in both consecutive 25-sweep windows. It does
 not automatically retune or advance to the next phase after stopping. Depth-cap
-frequency is an efficiency warning only. These explicit review heuristics are
+frequency is an efficiency warning only. Flat's joint alpha/zeta/range transition
+occupies the first diagnostic block; the second block is an inactive compatibility
+placeholder and is excluded from health review. Deep reviews both blocks. Active
+blocks are selected from the model, never inferred from zero acceptance or steps.
+These explicit review heuristics are
 not convergence criteria; conditional energies from changing Gibbs targets must
 not be used as one fixed-target E-BFMI series.
 

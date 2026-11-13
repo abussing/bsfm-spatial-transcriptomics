@@ -13,12 +13,17 @@ def sweep_measurements(result,elapsed):
             parameters=np.asarray(r['transition'].position.values[:4]).tolist()) for r in result.factor_diagnostics])
 
 
-def review_windows(rows,*,window=25):
+def review_windows(rows,*,window=25,active_blocks=('field','hyper')):
     """Require the SAME factor/block to fail in both consecutive full windows.
 
     Tree-limit hits remain an efficiency warning, even if frequent. Conditional
     energies are recorded but never combined into an invalid cross-Gibbs E-BFMI.
     """
+    names=('field','hyper')
+    if (not isinstance(active_blocks,tuple) or not active_blocks
+            or len(set(active_blocks))!=len(active_blocks)
+            or any(name not in names for name in active_blocks)):
+        raise ValueError('Explicit nonempty subset of sampler blocks required')
     if len(rows)<2*window:return dict(status='collecting',completed=len(rows),flags=[])
     recent=rows[-2*window:];ids=sorted(r['index'] for r in recent[0]['factors'])
     groups=[]
@@ -30,7 +35,8 @@ def review_windows(rows,*,window=25):
             cap=np.mean([np.asarray(r[i]['leapfrogs'])>=1023 for r in mapped],axis=0)) for i in ids})
     flags=[];summaries=[]
     for i in ids:
-        for b,name in enumerate(('field','hyper')):
+        for b,name in enumerate(names):
+            if name not in active_blocks:continue
             values={key:[float(g[i][key][b]) for g in groups] for key in ('acceptance','divergence','cap')}
             reasons=[]
             if all(v>.05 for v in values['divergence']):reasons.append('persistent_divergences')

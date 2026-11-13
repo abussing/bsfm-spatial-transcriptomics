@@ -32,7 +32,11 @@ class PeriodicMixin:
             if int(path.name)>chain['n']:continue
             rows=read_json(path/'diagnostics.json')+rows
             if len(rows)>=50:break
-        health=review_windows(rows)
+        from .flat_control import FlatTarget
+        # Flat samples alpha/zeta/(optional range) jointly in the first block.
+        # Its second slot is a compatibility placeholder, not a failed kernel.
+        active_blocks=('field',) if isinstance(self.target,FlatTarget) else ('field','hyper')
+        health=review_windows(rows,active_blocks=active_blocks)
         health.update(completed=chain['n'],head=chain['head'])
         advisory(self.store.root/'health.json',health)
         print('HEALTH',chain['n'],health['status'],flush=True)

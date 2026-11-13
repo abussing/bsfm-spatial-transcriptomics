@@ -147,6 +147,44 @@ class ForkTests(unittest.TestCase):
 
 
 class HealthTests(unittest.TestCase):
+    def test_periodic_health_selects_blocks_from_model(self):
+        from types import SimpleNamespace
+        from bsfm.sampler.flat_control import FlatTarget
+        from bsfm.sampler.run_periodic import PeriodicMixin
+        from bsfm.sampler.run_storage import write_json
+        rows=[dict(factors=[dict(index=0,acceptance=[.9,0.],
+                    divergent=[False,False],leapfrogs=[7,0])]) for _ in range(50)]
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);segment=root/'segments/segment'
+            dest=segment/'boundaries/000000000050';dest.mkdir(parents=True)
+            write_json(dest/'diagnostics.json',rows)
+            controller=PeriodicMixin()
+            controller.store=SimpleNamespace(input_receipt={'diagnostics':'adaptation_study_v1'},
+                                              root=root,segment=segment)
+            controller.target=object.__new__(FlatTarget)
+            self.assertIsNone(controller._health({'n':50,'head':'test'}))
+            controller.target=object()
+            self.assertEqual(controller._health({'n':50,'head':'test'})['flags'][0]['block'],'hyper')
+
+    def test_flat_placeholder_is_ignored_but_active_failures_still_stop(self):
+        rows=[dict(factors=[dict(index=0,acceptance=[.9,0.],
+                    divergent=[False,False],leapfrogs=[7,0])]) for _ in range(50)]
+        result=review_windows(rows,active_blocks=('field',))
+        self.assertEqual(result['status'],'no_persistent_guard_failure')
+        self.assertEqual([v['block'] for v in result['windows']],['field'])
+        # Deep still checks both blocks; a zero-step block is not auto-disabled.
+        self.assertEqual(review_windows(rows)['flags'][0]['block'],'hyper')
+        for row in rows:row['factors'][0]['acceptance'][0]=.2
+        self.assertEqual(review_windows(rows,active_blocks=('field',))['flags'][0]['reasons'],
+                         ['persistent_low_acceptance'])
+        for row in rows:
+            row['factors'][0]['acceptance'][0]=.9
+            row['factors'][0]['divergent'][0]=True
+        self.assertEqual(review_windows(rows,active_blocks=('field',))['flags'][0]['reasons'],
+                         ['persistent_divergences'])
+        for blocks in [(),('unused',),('field','field')]:
+            with self.assertRaises(ValueError):review_windows(rows,active_blocks=blocks)
+
     def test_caps_warn_but_persistent_block_failures_stop(self):
         rows=[dict(factors=[dict(index=1,acceptance=[.99,.99],divergent=[False,False],leapfrogs=[1023,3]),
                            dict(index=0,acceptance=[.9,.9],divergent=[False,False],leapfrogs=[7,3])]) for _ in range(50)]
