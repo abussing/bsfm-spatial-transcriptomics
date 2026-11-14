@@ -181,6 +181,25 @@ class ForkTests(unittest.TestCase):
                 source_endpoint(self.source,p.target,p.loading,p.eta,
                     **dict(args,environment_identity='b'*64),runtime_migration=migration)
 
+    def test_migration_bounds_recomputed_exponential_parameters(self):
+        p=self.parent
+        args=dict(seed=p.spec['seed'],environment_identity='a'*64,output=self.root/'parameter-roundoff')
+        migration=dict(schema='bsfm.checkpoint-runtime-migration.v1',
+            source_environment_identity='a'*64,destination_environment_identity='b'*64)
+        original=p.target.hyperparameters
+        def shifted(amount):
+            return lambda position:{key:value*(1+amount) for key,value in original(position).items()}
+        with patch.object(p.target,'hyperparameters',side_effect=shifted(2*np.finfo(float).eps)):
+            with self.assertRaisesRegex(ValueError,'parameter ordering mismatch'):
+                source_endpoint(self.source,p.target,p.loading,p.eta,**args)
+            _,binding=source_endpoint(self.source,p.target,p.loading,p.eta,
+                **dict(args,environment_identity='b'*64),runtime_migration=migration)
+            self.assertGreater(binding['physical_warp_reconstruction'][0]['parameter_max_relative_error'],0)
+        with patch.object(p.target,'hyperparameters',side_effect=shifted(1e-8)):
+            with self.assertRaisesRegex(ValueError,'derived parameter error'):
+                source_endpoint(self.source,p.target,p.loading,p.eta,
+                    **dict(args,environment_identity='b'*64),runtime_migration=migration)
+
     def test_reviewed_reduction_preserves_state_rng_and_resumes_once(self):
         scales={fid:(.5 if i==0 else 1.) for i,fid in enumerate(self.parent.target.factor_ids)}
         reference=self.make('scaled-reference',True,scales);reference.run()

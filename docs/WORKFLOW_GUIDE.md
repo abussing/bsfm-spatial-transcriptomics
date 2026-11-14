@@ -153,7 +153,11 @@ the target, spectral chart, state, tuning and RNG. No source files or receipts a
 rewritten. Saved arrays, hashes and contracts remain exact; recomputing physical
 warps on the destination may differ by at most the existing absolute `2e-10`
 dense-projector tolerance. The migration records the observed error at every
-source boundary. Recomputed modal logarithms use the existing saved-geometry
+source boundary.
+The derived ranges/scales also remain exact between saved arrays and diagnostic
+records; their independent exponential recomputation permits at most `16*eps`
+relative error (`eps` is float64 machine epsilon), recorded per boundary.
+Recomputed modal logarithms use the existing saved-geometry
 `2e-10` tolerance, with identical finite/negative-infinity structure; their error
 is recorded in the new input receipt. The saved spectral arrays are never
 recomputed or replaced. Original checkpoints store only a digest of fitted

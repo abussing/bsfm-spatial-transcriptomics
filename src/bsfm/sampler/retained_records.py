@@ -145,13 +145,20 @@ def load_record(path, *, target, contract, b_sigma2, migration_warp_audit=None, 
         if (data['sweep'].dtype!=np.int64 or data['sweep'].shape!=() or int(data['sweep'])!=m['sweep']
                 or data['permutation'].dtype!=np.int64 or not np.array_equal(data['permutation'],np.arange(k))):
             raise ValueError('Native factor/sweep order corrupted')
+        parameter_error=0.
         for i,row in enumerate(d['warp']):
             exact_keys(row,('factor_id','ell_eta','ell_W','sigma_W'))
             expected = target.hyperparameters(positions[i])
-            if (row != dict(factor_id=target.factor_ids[i], **expected)
-                    or data['ell_eta'][i]!=expected['ell_eta']
-                    or data['ell_U'][i]!=expected['ell_W'] or data['sigma_U'][i]!=expected['sigma_W']):
+            saved=dict(ell_eta=data['ell_eta'][i],ell_W=data['ell_U'][i],sigma_W=data['sigma_U'][i])
+            if row != dict(factor_id=target.factor_ids[i], **saved):
                 raise ValueError('Factor range/warp parameter ordering mismatch')
+            if migration_warp_audit is None:
+                if saved!=expected:raise ValueError('Factor range/warp parameter ordering mismatch')
+            else:
+                error=max(abs(expected[key]-value)/value for key,value in saved.items())
+                if not np.isfinite(error) or error>16*np.finfo(np.float64).eps:
+                    raise ValueError('Cross-runtime derived parameter error exceeds 16 eps')
+                parameter_error=max(parameter_error,error)
         wc,wa=physical_arrays(target,positions)
         if migration_warp_audit is None:
             if not np.array_equal(wc,data['W_cell']) or not np.array_equal(wa,data['W_active']):
@@ -164,7 +171,8 @@ def load_record(path, *, target, contract, b_sigma2, migration_warp_audit=None, 
             error=max(float(np.max(np.abs(wc-data['W_cell']))),float(np.max(np.abs(wa-data['W_active']))))
             if not np.isfinite(error) or error>2e-10:
                 raise ValueError('Cross-runtime physical warp error exceeds 2e-10: '+str(error))
-            migration_warp_audit.append(dict(sweep=m['sweep'],max_absolute_error=error,tolerance=2e-10))
+            migration_warp_audit.append(dict(sweep=m['sweep'],max_absolute_error=error,tolerance=2e-10,
+                parameter_max_relative_error=parameter_error,parameter_relative_tolerance=16*np.finfo(np.float64).eps))
         projector=target.geometry.arrays['projector'][:,target.geometry.arrays['active_indices']]
         error=max(float(np.max(np.abs(projector@data['W_active'][i]-data['W_cell'][i]))) for i in range(k))
         if error>2e-10: raise ValueError('Independent dense projector mismatch (historical 2e-10)')
