@@ -93,3 +93,12 @@ back, including this constant; no independent variance priors are substituted.
 The coordinate identity, covariance, density measure and full flat-target
 gradients are tested in `tests/test_variance_coordinates.py`. This algebraic
 validation alone is not evidence of a faster or production-ready sampler.
+
+For deep or flat failures, `sampler.transition_replay_audit` reconstructs one
+published factor transition from an authenticated earlier checkpoint and checks
+its acceptance, divergence and integration-step diagnostics against the original.
+It then records scalar curvature and fixed-duration energy-error refinement at
+that exact incoming conditional. Its external plan pins recipe, source checkpoint,
+expected diagnostics, factor and sweep. Outputs are diagnostics only. A replay
+mismatch fails before causal interpretation; local curvature and energy checks
+do not certify mixing or change production stop rules.
