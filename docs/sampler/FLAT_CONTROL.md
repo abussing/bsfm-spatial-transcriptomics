@@ -110,3 +110,10 @@ likelihood statistics, to separate coordinate geometry from a changed fitted
 field. The external plan authenticates early/late captured conditionals, recipe
 and genesis. Ritz estimates and counterfactuals are local diagnostics, not samples
 or a justification for altering priors, meshes or convergence criteria.
+Its optional `mode: metric` compares inherited tuning, a halved step, and a
+transported constant field metric at the same captured conditional. For
+`W=B z`, transport uses `D_new=T D_old T^T`, `T=B_new^-1 B_old`, with two warp
+columns and unchanged scalar coordinates. Hyperparameters are held fixed during
+each field trajectory, so this diagnostic uses ordinary Euclidean NUTS. It is
+not production integration, RMHMC, or evidence of full-Gibbs convergence. Seeds
+and diagnostic draw count must be frozen in the external plan.

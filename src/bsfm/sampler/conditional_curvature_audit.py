@@ -10,9 +10,64 @@ from pathlib import Path
 import numpy as np
 import jax
 import jax.numpy as jnp
+import blackjax
+import time
+from scipy.linalg import solve_triangular
 from . import run_inputs
 from .run import check_repository
 from .layer4 import CenteredHyperTarget
+from .split_kernels import make_logdensity
+
+
+def transport_field_inverse_mass(mass,reference_root,current_root):
+    """Keep physical-W inverse mass fixed under W=B z (row-major two columns).
+
+    Both roots are fixed conditioning quantities during the field transition.
+    This is a constant SPD metric for that conditional, not RMHMC or adaptation.
+    """
+    T=solve_triangular(current_root,reference_root,lower=True)
+    transform=np.eye(len(mass));transform[2:,2:]=np.kron(T,np.eye(2))
+    result=(transform*np.asarray(mass))@transform.T
+    return (result+result.T)/2
+
+
+def compare_metrics(target,captured,plan,output):
+    early,late=captured;indices=np.r_[0,1,np.arange(4,target.position_dimension)]
+    def root(q):
+        return np.exp(q[2]+q[3]-.5*np.log(10))*np.asarray(target.geometry.geometry(q[2])[0])
+    reference=root(early['position']);current=root(late['position'])
+    # The replayed pair has the same tuning. Reject a different-tuning comparison.
+    np.testing.assert_array_equal(early['inverse_mass'],late['inverse_mass'])
+    mass=late['inverse_mass'][indices]
+    transported=transport_field_inverse_mass(mass,reference,current)
+    np.linalg.cholesky(transported)
+    B=np.kron(current,np.eye(2));R=np.kron(reference,np.eye(2))
+    np.testing.assert_allclose(B@transported[2:,2:]@B.T,(R*mass[2:])@R.T,rtol=2e-10,atol=2e-10)
+    q=jnp.asarray(late['position']);args=tuple(jnp.asarray(late[k]) for k in ['u','ct','penalty'])
+    full=make_logdensity(target._kernels)
+    density=lambda x:full(q.at[indices].set(x),*args)
+    kernel=blackjax.nuts.build_kernel();records=[]
+    for name,m,h in [('inherited',mass,float(late['step'])),('half_step',mass,float(late['step'])/2),('transported',transported,float(late['step']))]:
+        step=jax.jit(lambda key,state:kernel(key,state,density,h,jnp.asarray(m),max_num_doublings=10))
+        # Compile separately; do not use this discarded transition as chain start.
+        initial=blackjax.nuts.init(q[indices],density)
+        begin=time.perf_counter();compiled=step(jax.random.PRNGKey(0),initial);jax.block_until_ready(compiled)
+        compile_seconds=time.perf_counter()-begin
+        for seed in plan['seeds']:
+            state=initial;key=jax.random.PRNGKey(seed);positions=[];accept=[];div=[];counts=[]
+            begin=time.perf_counter()
+            for _ in range(plan['draws']):
+                key,subkey=jax.random.split(key);state,info=step(subkey,state)
+                positions.append(np.asarray(state.position));accept.append(float(info.acceptance_rate));div.append(bool(info.is_divergent));counts.append(int(info.num_integration_steps))
+            elapsed=time.perf_counter()-begin
+            positions=np.array(positions);delta=positions-q[indices]
+            physical=(delta[:,2:].reshape(-1,len(current),2))
+            physical=np.einsum('ij,tjk->tik',current,physical)
+            record=dict(arm=name,seed=seed,draws=plan['draws'],acceptance=float(np.mean(accept)),divergences=int(sum(div)),median_steps=float(np.median(counts)),seconds=elapsed,compile_seconds=compile_seconds,physical_W_rms_displacement=float(np.sqrt(np.mean(physical**2))),scope='Short fixed-conditional kernel diagnostic; no burn-in or convergence claim')
+            np.savez_compressed(output/(name+'-'+str(seed)+'.npz'),positions=positions,acceptance=accept,divergences=div,steps=counts,inverse_mass=m)
+            records.append(record);print('METRIC',json.dumps(record),flush=True)
+            (output/'metric-report.json').write_text(json.dumps(dict(source_commit=plan['source_commit'],results=records),indent=2)+'\n')
+    return records
 
 
 def lanczos_extremes(product, dimension, steps=24, seed=817):
@@ -53,6 +108,9 @@ def run(path,commit):
     output=Path(plan['output']).resolve()
     if output.is_relative_to(run_inputs.REPO.resolve()) or output.exists():raise ValueError('Fresh external output required')
     output.mkdir(parents=True)
+    if plan.get('mode','curvature')=='metric':
+        return compare_metrics(target,captured,plan,output)
+    if plan.get('mode','curvature')!='curvature':raise ValueError('Unknown diagnostic mode')
     results=[]
     # Counterfactual isolates the whitening geometry, holding physical W and
     # all current likelihood statistics fixed. It is not a posterior draw.
