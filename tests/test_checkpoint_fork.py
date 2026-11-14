@@ -150,6 +150,37 @@ class ForkTests(unittest.TestCase):
                 source_endpoint(self.source,p.target,p.loading,p.eta,
                     **dict(args,environment_identity='b'*64),runtime_migration=migration)
 
+    def test_migration_audits_derived_fitted_digest_but_keeps_state_exact(self):
+        from contextlib import ExitStack
+        from bsfm.sampler.conjugate import compute_Yhat
+        p=self.parent
+        args=dict(seed=p.spec['seed'],environment_identity='a'*64,output=self.root/'fitted-roundoff')
+        migration=dict(schema='bsfm.checkpoint-runtime-migration.v1',
+            source_environment_identity='a'*64,destination_environment_identity='b'*64)
+        def shifted(*values):return compute_Yhat(*values)+1e-15
+        with ExitStack() as stack:
+            for module in ['run_genesis','checkpoint','retained_records']:
+                stack.enter_context(patch('bsfm.sampler.'+module+'.compute_Yhat',side_effect=shifted))
+            with self.assertRaisesRegex(ValueError,'Genesis boundary changed'):
+                source_endpoint(self.source,p.target,p.loading,p.eta,**args)
+            migrated,binding=source_endpoint(self.source,p.target,p.loading,p.eta,
+                **dict(args,environment_identity='b'*64),runtime_migration=migration)
+        original=load_compact(p.store.segment/'boundaries/000000000001/checkpoint.npz',target=p.target,contract=p.cp)
+        self.assertEqual(boundary(migrated,p.target),boundary(original,p.target))
+        self.assertEqual(migrated.boundary,original.boundary)
+        audit=binding['fitted_value_reconstruction']
+        self.assertEqual(len(audit),3)
+        self.assertTrue(all(not row['equal'] for row in audit))
+        from bsfm.sampler.migration_boundary import same_boundary
+        saved=boundary(original,p.target);changed=dict(saved,rng_after={'bad':'rng'})
+        self.assertFalse(same_boundary(changed,saved,migration_audit=[]))
+        changed=dict(saved,state_after={'bad':'state'})
+        self.assertFalse(same_boundary(changed,saved,migration_audit=[]))
+        with patch('bsfm.sampler.run_genesis.descriptor',return_value={}):
+            with self.assertRaisesRegex(ValueError,'array hash mismatch'):
+                source_endpoint(self.source,p.target,p.loading,p.eta,
+                    **dict(args,environment_identity='b'*64),runtime_migration=migration)
+
     def test_reviewed_reduction_preserves_state_rng_and_resumes_once(self):
         scales={fid:(.5 if i==0 else 1.) for i,fid in enumerate(self.parent.target.factor_ids)}
         reference=self.make('scaled-reference',True,scales);reference.run()

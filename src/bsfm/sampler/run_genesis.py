@@ -14,6 +14,7 @@ from .retained_records import descriptor
 from .retained_diagnostics import decode
 from .run_initialization import Endpoint
 from .run_storage import write_npz
+from .migration_boundary import same_boundary
 
 
 def boundary(endpoint,target):
@@ -24,7 +25,7 @@ def boundary(endpoint,target):
         target_sha256=hashlib.sha256(target.identity.encode()).hexdigest(),b_sigma2_sha256=logical_hash(e.b_sigma2))
 
 
-def validate_endpoint(e,target,contract):
+def validate_endpoint(e,target,contract,*,migration_boundary_audit=None):
     validate_contract(contract,target,e.b_sigma2)
     k=len(target.factor_ids)
     if len(e.positions)!=k or len(e.tuning)!=k:raise ValueError('Incomplete genesis tuning/positions')
@@ -49,7 +50,7 @@ def validate_endpoint(e,target,contract):
                 row['step']*=v['field_step_scales'][row['factor_id']]
         exact_keys(v['initialization'],('seed',))
         if (v['adaptation_steps']!=0 or type(v['initialization']['seed']) is not int
-                or v['source_boundary']!=boundary(e,target)
+                or not same_boundary(boundary(e,target),v['source_boundary'],migration_audit=migration_boundary_audit)
                 or expected_tuning!=tuning_identity(e.tuning)
                 or v['source'].get('schema')!='bsfm.checkpoint-fork-source.v1'):
             raise ValueError('Inherited endpoint state/RNG/tuning changed')
@@ -98,7 +99,7 @@ def save_genesis(path,e,target,contract):
     return load_genesis(path,target,contract)
 
 
-def load_genesis(path,target,contract):
+def load_genesis(path,target,contract,*,migration_boundary_audit=None):
     with np.load(path,allow_pickle=False) as z:
         if len(z.files)!=len(set(z.files)):raise ValueError('Duplicate genesis member')
         d={n:z[n].copy(order='K') for n in z.files}
@@ -132,5 +133,7 @@ def load_genesis(path,target,contract):
     exact_keys(m['rng'],('eta','gauge','numpy_global','jax'))
     e=Endpoint(state,tuple(positions),tuple(tuning),restore_generator(m['rng']['eta']),restore_generator(m['rng']['gauge']),
         restore_key(m['rng']['jax'],d['master_key']),restore_global(m['rng']['numpy_global'],d['numpy_global_keys']),d['b_sigma2'],m['evidence'])
-    if validate_endpoint(e,target,contract)!=m['boundary']:raise ValueError('Genesis boundary changed')
+    if not same_boundary(validate_endpoint(e,target,contract,migration_boundary_audit=migration_boundary_audit),
+                         m['boundary'],migration_audit=migration_boundary_audit):
+        raise ValueError('Genesis boundary changed')
     return e,m['logical_sha256']

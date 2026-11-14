@@ -11,7 +11,7 @@ from .run_storage import write_npz
 FORMAT = 'bsfm.compact-checkpoint.v1'
 
 
-def load_compact(path, *, target, contract):
+def load_compact(path, *, target, contract, migration_boundary_audit=None):
     with np.load(path, allow_pickle=False) as source:
         if len(source.files) != len(set(source.files)):
             raise ValueError('Duplicate checkpoint members')
@@ -23,7 +23,7 @@ def load_compact(path, *, target, contract):
         raise ValueError('Unexpected embedded spectral data')
     data.update({'spectral_'+k: np.array(v, copy=True, order='K')
                  for k, v in target.geometry.spectral.items() if k != 'audit'})
-    return _validate_payload(data, target, contract)
+    return _validate_payload(data, target, contract, migration_boundary_audit=migration_boundary_audit)
 
 
 def save_compact(path, **kwargs):

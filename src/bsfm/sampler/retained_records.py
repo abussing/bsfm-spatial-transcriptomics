@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 from .contracts import GaussianState, array, logical_hash
 from .conjugate import compute_Yhat
+from .migration_boundary import same_boundary
 from .field_target import FieldPosition
 from .chart import validate_chart_state
 from .layer4 import STATE_ARRAYS, state_hashes
@@ -98,7 +99,7 @@ def make_failure(contract, *, sweep, previous_sha256, events, partial_diagnostic
     return pack(meta,{})
 
 
-def load_record(path, *, target, contract, b_sigma2, migration_warp_audit=None):
+def load_record(path, *, target, contract, b_sigma2, migration_warp_audit=None, migration_boundary_audit=None):
     r=validate_retained_contract(contract,target,b_sigma2)
     with Path(path).open('rb') as stream:
         with np.load(stream,allow_pickle=False) as source:
@@ -168,7 +169,8 @@ def load_record(path, *, target, contract, b_sigma2, migration_warp_audit=None):
         error=max(float(np.max(np.abs(projector@data['W_active'][i]-data['W_cell'][i]))) for i in range(k))
         if error>2e-10: raise ValueError('Independent dense projector mismatch (historical 2e-10)')
         audit=d['sweep_audit']
-        if (state_hashes(state)!=audit['state_after'] or [logical_hash(p.values) for p in positions]!=audit['positions_after']
-                or logical_hash(compute_Yhat(state.loading,state.eta,slices))!=audit['fitted_Y_sha256']):
+        actual=dict(state_after=state_hashes(state),positions_after=[logical_hash(p.values) for p in positions],
+                    fitted_Y_sha256=logical_hash(compute_Yhat(state.loading,state.eta,slices)))
+        if not same_boundary(actual,{key:audit[key] for key in actual},migration_audit=migration_boundary_audit):
             raise ValueError('Retained state/boundary reconstruction mismatch')
     return m,data,d

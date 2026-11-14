@@ -156,7 +156,13 @@ dense-projector tolerance. The migration records the observed error at every
 source boundary. Recomputed modal logarithms use the existing saved-geometry
 `2e-10` tolerance, with identical finite/negative-infinity structure; their error
 is recorded in the new input receipt. The saved spectral arrays are never
-recomputed or replaced. Ordinary same-runtime reads keep their exact comparison.
+recomputed or replaced. Original checkpoints store only a digest of fitted
+expression, not that derived matrix. During migration, its source and recomputed
+destination digests are both recorded; exact underlying loading/eta, state,
+position and RNG hashes remain mandatory. A digest alone cannot establish a
+numerical error bound for this cross-BLAS recomputation. Original source boundary
+digests are preserved for receipt-chain verification. Ordinary same-runtime reads
+keep their exact fitted-expression comparison.
 The new genesis records both runtime identities and excludes parent
 draws. Subsequent trajectories can differ because floating-point computations
 change across devices; exact interrupted restart applies within the destination.

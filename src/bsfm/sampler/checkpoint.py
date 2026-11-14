@@ -12,6 +12,7 @@ from .field_target import FieldPosition
 from .layer4 import STATE_ARRAYS, state_hashes
 from .layer5 import SplitTransition, SplitTuning
 from .layer6 import SweepResult
+from .migration_boundary import same_boundary
 from .checkpoint_contract import (SCHEMA, CheckpointContract, build_checkpoint_contract,
                                   validate_contract, validate_progress, digest)
 from .checkpoint_rng import (json_text, parse_json, exact_keys, generator_record,
@@ -94,7 +95,7 @@ def _payload(target, contract, result, tuning, eta_rng, gauge_rng, b_sigma2, pro
     return data
 
 
-def _validate_payload(data, target, contract):
+def _validate_payload(data, target, contract, *, migration_boundary_audit=None):
     if 'metadata' not in data:
         raise ValueError('Missing checkpoint metadata')
     raw = data['metadata']
@@ -174,10 +175,10 @@ def _validate_payload(data, target, contract):
         raise ValueError('Completed sweep label required')
     boundary = _boundary(state, positions, target, data['b_sigma2'],
                          stream_audit(eta_rng, gauge_rng, key, global_state), label)
-    if json_text(meta['boundary']) != json_text(boundary):
+    if not same_boundary(boundary,meta['boundary'],migration_audit=migration_boundary_audit):
         raise ValueError('Completed boundary state/RNG/fitted value mismatch')
     return RestartState(state, tuple(positions), tuple(tuning), eta_rng, gauge_rng,
-        global_state, key, data['b_sigma2'].copy(), progress, contract, boundary, meta['logical_sha256'])
+        global_state, key, data['b_sigma2'].copy(), progress, contract, meta['boundary'], meta['logical_sha256'])
 
 
 def load_checkpoint(path, *, target, contract):
