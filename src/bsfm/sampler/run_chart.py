@@ -16,7 +16,7 @@ from bsfm.sampler.retained_records import descriptor
 from bsfm.sampler.run_storage import safe
 
 
-def geometry_from_genesis(data, expected, path):
+def geometry_from_genesis(data, expected, path, *, migration_audit=None):
     """Pre-target read; full genesis/RNG validation still follows in the controller."""
     with np.load(safe(path),allow_pickle=False) as z:
         if len(z.files)!=len(set(z.files)):raise ValueError('Duplicate genesis array')
@@ -36,10 +36,10 @@ def geometry_from_genesis(data, expected, path):
         if chart[k].shape!=():raise ValueError('Saved chart scalar shape')
         chart[k]=chart[k].item()
     chart['audit']=record['spectral_audit']
-    return restore_geometry(data,expected,chart,contract['spectral_identity'])
+    return restore_geometry(data,expected,chart,contract['spectral_identity'],migration_audit=migration_audit)
 
 
-def restore_geometry(data, expected, saved, expected_spectral_identity):
+def restore_geometry(data, expected, saved, expected_spectral_identity, *, migration_audit=None):
     arrays={k:np.array(v,copy=True,order='K') for k,v in data.items()}
     actual=mesh_identity(arrays,section=expected['section'],mesh_sha256=expected['mesh_sha256'])
     if actual!=expected:raise ValueError('Restored geometry input identity mismatch')
@@ -91,7 +91,16 @@ def restore_geometry(data, expected, saved, expected_spectral_identity):
     # Internal formula bindings use exact saved modal data, not recomputed data.
     d=np.asarray(chart['modal_diagonals'])
     logs=np.full_like(d,-np.inf);positive=d>0;logs[positive]=np.log(d[positive])
-    if not np.array_equal(logs,chart['log_modal_diagonals']):raise ValueError('Saved modal logarithms')
+    if migration_audit is None:
+        if not np.array_equal(logs,chart['log_modal_diagonals']):raise ValueError('Saved modal logarithms')
+    else:
+        if not isinstance(migration_audit,list):raise ValueError('Migration geometry audit list required')
+        saved_logs=np.asarray(chart['log_modal_diagonals'])
+        if (saved_logs.shape!=logs.shape or not np.array_equal(np.isneginf(logs),np.isneginf(saved_logs))
+                or not np.isfinite(saved_logs[positive]).all()):raise ValueError('Saved modal logarithm structure')
+        error=float(np.max(np.abs(logs[positive]-saved_logs[positive])))
+        if error>tolerance:raise ValueError('Cross-runtime modal logarithm reconstruction mismatch')
+        migration_audit.append(dict(quantity='modal_logarithms',max_absolute_error=error,tolerance=tolerance))
     variance=float(logsumexp(-logsumexp(chart['log_coefficients'][:,None]
         +chart['powers'][:,None]*chart['log_kappa_constant']+logs,axis=0))-chart['log_trace_mass'])
     if not np.isclose(variance,chart['log_reference_variance'],rtol=0,atol=tolerance):

@@ -89,10 +89,10 @@ def authenticate_files(files):
         if set(r)!= {'path','bytes','sha256'} or file_record(r['path'])!={k:r[k] for k in ('bytes','sha256')}:raise ValueError('Input file changed: '+name)
 
 
-def load_inputs(files,factor_ids,*,genesis_path=None,dataset_recipe=None):
+def load_inputs(files,factor_ids,*,genesis_path=None,dataset_recipe=None,migration_geometry_audit=None):
     """Caller supplies expected file hashes from accepted registration; paths relocatable."""
     if dataset_recipe is not None:
-        return _load_dataset_inputs(files,factor_ids,dataset_recipe,genesis_path)
+        return _load_dataset_inputs(files,factor_ids,dataset_recipe,genesis_path,migration_geometry_audit)
     required={'registration','prepared','contract','mesh','gpinit','certificate','response_manifest','response_validation'}
     if set(files)!=required:raise ValueError('Exact runtime artifact closure required')
     authenticate_files(files)
@@ -122,7 +122,7 @@ def load_inputs(files,factor_ids,*,genesis_path=None,dataset_recipe=None):
         geo=WarpGeometry.authenticate(geometry_data,expected_geometry)
     else:
         from .run_chart import geometry_from_genesis
-        geo=geometry_from_genesis(geometry_data,expected_geometry,genesis_path)
+        geo=geometry_from_genesis(geometry_data,expected_geometry,genesis_path,migration_audit=migration_geometry_audit)
     with np.load(files['gpinit']['path'],allow_pickle=False) as z:seeds={k:z[k].copy() for k in z.files}
     if {k:logical_hash(a) for k,a in seeds.items()}!=cert['output_logical_hashes']:raise ValueError('GPINIT output logical hashes')
     target=DirectWTarget(inputs,geo,load_rule(),factor_ids=tuple(factor_ids))
@@ -131,7 +131,7 @@ def load_inputs(files,factor_ids,*,genesis_path=None,dataset_recipe=None):
     return target,seeds['Lam_seed'],seeds['eta_seed'],binding
 
 
-def _load_dataset_inputs(files,factor_ids,recipe,genesis_path):
+def _load_dataset_inputs(files,factor_ids,recipe,genesis_path,migration_geometry_audit=None):
     """Join existing prepared response, GPINIT certificate and warp NPZ contracts."""
     if (set(recipe)!={'schema','sample','coordinate_system','quadrature_order'}
         or recipe['schema']!='bsfm.dataset-run-inputs.v1'
@@ -183,7 +183,7 @@ def _load_dataset_inputs(files,factor_ids,recipe,genesis_path):
         geo=WarpGeometry.authenticate(geometry_data,expected)
     else:
         from .run_chart import geometry_from_genesis
-        geo=geometry_from_genesis(geometry_data,expected,genesis_path)
+        geo=geometry_from_genesis(geometry_data,expected,genesis_path,migration_audit=migration_geometry_audit)
     from .registry_rule import load_registry_rule
     rule=load_registry_rule(files['rule']['path'],expected_sha256=files['rule']['sha256'],order=recipe['quadrature_order'])
     target=DirectWTarget(inputs,geo,rule,factor_ids=tuple(factor_ids))

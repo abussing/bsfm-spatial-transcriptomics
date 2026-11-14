@@ -153,8 +153,9 @@ def run_recipe(path,output,*,commit):
         source['path']=resolve(source['path'])
         if Path(source['path']).is_relative_to(output):raise ValueError('Imported endpoint must be outside new output root')
         run_inputs.authenticate_files({'initial_endpoint':source})
+    geometry_audit=[] if 'checkpoint_runtime_migration' in recipe else None
     target,loading,eta,binding=run_inputs.load_inputs(files,recipe['factor_ids'],
-        genesis_path=genesis if genesis.exists() else (checkpoint['genesis']['path'] if checkpoint else (source['path'] if source else None)),dataset_recipe=recipe['dataset_recipe'])
+        genesis_path=genesis if genesis.exists() else (checkpoint['genesis']['path'] if checkpoint else (source['path'] if source else None)),dataset_recipe=recipe['dataset_recipe'],migration_geometry_audit=geometry_audit)
     if recipe['model']=='flat':
         from .flat_control import FlatTarget,FlatTransition
         target=FlatTarget(target.inputs,target.geometry,target.rule,factor_ids=target.factor_ids,
@@ -167,6 +168,7 @@ def run_recipe(path,output,*,commit):
         if migration['destination_environment_identity']!=digest(env):
             raise ValueError('Runtime migration destination does not match authenticated runtime')
         binding['checkpoint_runtime_migration']=migration
+        binding['checkpoint_geometry_reconstruction']=geometry_audit
     if 'checkpoint_field_step_scales' in recipe:
         binding['checkpoint_field_step_scales']=copy.deepcopy(recipe['checkpoint_field_step_scales'])
     if 'diagnostics' in recipe:binding['diagnostics']=recipe['diagnostics']

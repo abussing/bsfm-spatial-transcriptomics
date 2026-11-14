@@ -32,6 +32,24 @@ class SavedChartTests(unittest.TestCase):
         g=self.geometry
         with self.assertRaises(ValueError):restore_geometry(g.arrays,json.loads(g.identity_json),g.spectral,'wrong')
 
+    def test_explicit_migration_bounds_log_roundoff_without_replacing_chart(self):
+        g=self.geometry;original=np.log;size=int(np.count_nonzero(g.spectral['modal_diagonals']))
+        def shifted(amount):
+            def log(value):
+                result=original(value)
+                return result+amount if np.asarray(value).shape==(size,) else result
+            return log
+        with patch('bsfm.sampler.run_chart.np.log',side_effect=shifted(1e-12)):
+            with self.assertRaisesRegex(ValueError,'Saved modal logarithms'):
+                restore_geometry(g.arrays,json.loads(g.identity_json),g.spectral,g.spectral_identity)
+            audit=[];r=restore_geometry(g.arrays,json.loads(g.identity_json),g.spectral,g.spectral_identity,migration_audit=audit)
+            self.assertEqual(r.spectral_identity,g.spectral_identity)
+            np.testing.assert_array_equal(r.spectral['log_modal_diagonals'],g.spectral['log_modal_diagonals'])
+            self.assertGreater(audit[0]['max_absolute_error'],0)
+        with patch('bsfm.sampler.run_chart.np.log',side_effect=shifted(1e-6)):
+            with self.assertRaises(ValueError):
+                restore_geometry(g.arrays,json.loads(g.identity_json),g.spectral,g.spectral_identity,migration_audit=[])
+
     def test_roundoff_negative_saved_mode_is_not_silently_accepted(self):
         g=self.geometry;s=copy.deepcopy(dict(g.spectral))
         d=s['modal_diagonals'];index=np.unravel_index(np.argmin(d),d.shape)
