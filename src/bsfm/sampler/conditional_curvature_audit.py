@@ -96,6 +96,8 @@ def run(path,commit):
     if plan['source_commit']!=commit:raise ValueError('Commit mismatch')
     run_inputs.authenticate_files(plan['files'])
     recipe=json.loads(Path(plan['files']['recipe']['path']).read_text())
+    if 'transition_policy' in recipe:
+        raise ValueError('This curvature audit expects original-coordinate tuning')
     run_inputs.authenticate_environment(gpu_runtime=recipe['gpu_runtime'])
     target,_,_,_=run_inputs.load_inputs(recipe['files'],recipe['factor_ids'],
         genesis_path=plan['files']['genesis']['path'],dataset_recipe=recipe['dataset_recipe'])

@@ -38,6 +38,8 @@ def run(path,commit):
     for case in plan['cases']:
         run_inputs.authenticate_files(dict(recipe=case['recipe'],expected=case['expected'],**case['source']))
         recipe=json.loads(Path(case['recipe']['path']).read_text())
+        if 'transition_policy' in recipe:
+            raise ValueError('This energy-replay audit expects original-coordinate tuning')
         env=run_inputs.authenticate_environment(gpu_runtime=recipe['gpu_runtime'])
         target,loading,eta,_=run_inputs.load_inputs(recipe['files'],recipe['factor_ids'],genesis_path=case['source']['genesis']['path'],dataset_recipe=recipe['dataset_recipe'])
         if recipe['model']=='flat':target=FlatTarget(target.inputs,target.geometry,target.rule,factor_ids=target.factor_ids,range_prior=recipe['flat_range_prior'])

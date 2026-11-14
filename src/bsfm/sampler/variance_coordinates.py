@@ -1,6 +1,6 @@
-"""Diagnostic-only coordinates for the existing alpha/zeta target.
+"""Exact coordinates for the existing alpha/zeta target.
 
-No production runner imports this module. The chart changes coordinates, not
+The opt-in flat_variances_v1 policy uses this chart. It changes coordinates, not
 the priors, covariance, Gibbs chronology, or persisted position convention.
 """
 import jax

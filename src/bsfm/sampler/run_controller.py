@@ -53,6 +53,9 @@ class RunController:
             save_every=spec['save_every'],settling_sweeps=spec['settling_sweeps'],final_sweep=spec['final_sweep'])
         self.store=Transactions(root,target,self.cp,self.rc,self.scale,spec,input_receipt)
         self.layer=GibbsSweep(target,b_sigma2=self.scale)
+        if 'transition_policy' in input_receipt:
+            from .coordinate_transition import policy_transition
+            self.layer.split=policy_transition(target,input_receipt['transition_policy'])
 
     def _adapt_endpoint(self, fault):
         e, keys = initialize(self.target, self.loading, self.eta, seed=self.spec['seed'])
@@ -65,6 +68,9 @@ class RunController:
         def read(path):
             if sorted(p.name for p in path.iterdir())!=['endpoint.npz','receipt.json']:raise ValueError('Incomplete genesis envelope')
             e,h=load_genesis(path/'endpoint.npz',self.target,self.cp)
+            for row in e.evidence.get('factors', []):
+                if row['endpoint_audit'].get('transition_policy') != s.input_receipt.get('transition_policy'):
+                    raise ValueError('Genesis tuning coordinate policy mismatch')
             if (e.evidence['adaptation_steps']!=self.spec['warmup_steps']
                     or e.evidence['initialization']['seed']!=self.spec['seed']):
                 raise ValueError('Genesis initialization/warmup differs from run specification')

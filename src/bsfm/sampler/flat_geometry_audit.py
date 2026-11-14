@@ -76,6 +76,8 @@ def run(plan_path,commit):
     for case in plan['cases']:
         run_inputs.authenticate_files({k:case[k] for k in ('recipe','conditional','genesis','source_report')})
         recipe=json.loads(Path(case['recipe']['path']).read_text())
+        if 'transition_policy' in recipe:
+            raise ValueError('This inherited-tuning comparison expects original-coordinate tuning')
         if recipe['model']!='flat' or not recipe.get('flat_range_prior'):
             raise ValueError('This audit requires learned-range flat')
         run_inputs.authenticate_environment(gpu_runtime=recipe['gpu_runtime'])

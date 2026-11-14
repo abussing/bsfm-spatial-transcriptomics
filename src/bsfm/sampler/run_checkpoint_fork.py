@@ -85,6 +85,11 @@ class CheckpointForkController(PeriodicRunController):
 
     def _adapt_endpoint(self,fault):
         if self.spec['warmup_steps']!=0:raise ValueError('Checkpoint inheritance must not retune implicitly')
+        inputs=self.store.input_receipt
+        authenticate_files(inputs['initial_checkpoint'])
+        source_policy=read_json(inputs['initial_checkpoint']['inputs']['path']).get('transition_policy')
+        if source_policy!=inputs.get('transition_policy'):
+            raise ValueError('Changed tuning coordinates require explicit checkpoint retuning')
         source,binding=source_endpoint(self.store.input_receipt['initial_checkpoint'],
             self.target,self.loading,self.eta,seed=self.spec['seed'],
             environment_identity=self.spec['software']['environment_identity'],output=self.store.root,
@@ -112,4 +117,31 @@ class CheckpointForkController(PeriodicRunController):
         expected=self._adapt_endpoint(fault)
         if endpoint.evidence!=expected.evidence:
             raise ValueError('Checkpoint fork source binding changed')
+        return endpoint,identity
+
+
+class CheckpointRetuningController(CheckpointForkController):
+    """Explicit new lineage: retune before any sweep, never inherit a foreign mass."""
+    def _source(self):
+        if (self.store.input_receipt.get('checkpoint_retune') is not True
+                or self.spec['warmup_steps'] < 20
+                or 'checkpoint_field_step_scales' in self.store.input_receipt):
+            raise ValueError('Explicit checkpoint retuning and >=20 warmup steps required')
+        return source_endpoint(self.store.input_receipt['initial_checkpoint'],
+            self.target,self.loading,self.eta,seed=self.spec['seed'],
+            environment_identity=self.spec['software']['environment_identity'],output=self.store.root,
+            runtime_migration=self.store.input_receipt.get('checkpoint_runtime_migration'))
+
+    def _adapt_endpoint(self,fault):
+        from .run_readaptation import adapt_from_endpoint
+        source,binding=self._source()
+        return adapt_from_endpoint(self,source,binding,fault)
+
+    def _migration_genesis(self,fault):
+        # Bypass inheritance's evidence reconstruction: never repeat adaptation
+        # when validating a published or prepared genesis after interruption.
+        endpoint,identity=PeriodicRunController._genesis(self,fault)
+        _,binding=self._source()
+        if endpoint.evidence['initialization'].get('parent')!=binding:
+            raise ValueError('Retuned checkpoint source binding changed')
         return endpoint,identity

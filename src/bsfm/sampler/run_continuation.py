@@ -22,6 +22,9 @@ class ImportedEndpointController(PeriodicRunController):
         contract=CheckpointContract(metadata['contract'],metadata['contract_sha256'])
         endpoint,_=load_genesis(record['path'],self.target,contract)
         evidence=endpoint.evidence
+        if ('transition_policy' in self.store.input_receipt
+                or any('transition_policy' in row['endpoint_audit'] for row in evidence.get('factors',[]))):
+            raise ValueError('Coordinate-policy tuning requires an authenticated checkpoint lineage, not a bare endpoint')
         if (evidence['adaptation_steps']!=self.spec['warmup_steps']
                 or evidence['initialization']['seed']!=self.spec['seed']
                 or not np.array_equal(endpoint.b_sigma2,self.scale)):

@@ -137,10 +137,52 @@ To continue a deliberately stopped periodic run under a new schedule, optional
 separate output root and omit `initial_endpoint`. The complete published prefix
 is authenticated under its original contracts; the parent need not be finished
 and is never marked complete. Seed, target, exact spectral chart and runtime/device
-identity must agree. The first phase must have `warmup_steps: 0`: it inherits
+identity must agree. By default the first phase has `warmup_steps: 0`: it inherits
 state, tuning and RNG streams without initialization or adaptation. Later phases
 use the existing completed-parent readaptation interface. This is an explicit new
 lineage, not permission to alter a same-run checkpoint or pool earlier draws.
+
+An explicit `checkpoint_retune: true` instead tunes immediately from that pinned
+boundary, before any Gibbs sweep. Its first phase requires at least 20 warmup
+steps and cannot use `checkpoint_field_step_scales`. It uses the existing
+readaptation key split (next master key plus K ordered warmup keys); it does not
+reinitialize or reseed. Published/prepared warmup endpoints are reused on restart.
+
+### Experimental NUTS coordinate policies
+
+Optional `transition_policy` selects computational coordinates while retaining
+the original likelihood, priors, PX updates and Gibbs chronology:
+
+- Flat: `{"name":"flat_variances_v1"}` samples log spatial variance
+  `s=log(alpha²*zeta)` and log nugget variance `n=log(alpha²*(1-zeta))`, plus
+  the existing range if enabled. The inverse map is
+  `log(alpha)=logaddexp(s,n)/2`, `logit(zeta)=s-n`; the full original density
+  includes the constant inverse-Jacobian determinant `1/2`.
+- Deep: `{"name":"deep_reference_warp_v1","reference_warp":[0.0,0.0]}`
+  declares an explicit reference pair `[log(ell_W),log(r_W)]` in the saved
+  spectral chart; the numbers here illustrate the schema, not a tuned choice.
+  With `W=B(x)z`, the field block samples `r=B(reference)^-1 W`. The reference
+  is fixed across factors, warmup and production. Its density includes
+  `2*(logdet B(reference)-logdet B(x))`. Hyperparameter updates still hold
+  physical W fixed. A diagonal inverse mass in r is equivalent to the constant
+  conditional mass `T D Tᵀ` in z, where `T=B(x)^-1 B(reference)`. This is ordinary
+  Euclidean NUTS; it is not RMHMC or adaptation during production.
+
+Tune in the selected coordinates. Stored positions, warmup state histories and
+their density/gradient values remain in original model coordinates; tuning
+mass, trajectory energies and momenta belong to the declared internal chart.
+The immutable input receipt binds the policy/reference, and transition audits
+identify both coordinate conventions. Use the normal controller/launcher so
+this binding accompanies every checkpoint; a bare tuning array is insufficient.
+Changing policy or reference on checkpoint import **requires explicit retuning**.
+Bare `initial_endpoint` imports cannot carry these policies. Same-run resume
+cannot change them. Omission preserves the existing sampler.
+
+These are opt-in computational alternatives under validation, not established
+production defaults. Tests cover density/Jacobian/gradient identities, physical
+warp preservation and interrupted Gibbs restart. Full-Gibbs mixing, robustness
+across datasets and predictive stability require separate assessment. Keep the
+existing health checks and exclude flagged parent draws from scientific results.
 
 For a deliberate move between validated GPU installations, optional
 `checkpoint_runtime_migration` contains `schema: bsfm.checkpoint-runtime-migration.v1`
@@ -215,7 +257,7 @@ Gibbs sweeps. The first phase initializes; subsequent phases use the existing
 readaptation controller and the completed parent's exact state/RNG. Specify tuning, bridge and production lengths in the recipe; no schedule is
 implied by the command.
 The minimum nonzero tuning length remains 20; zero is permitted only for the
-first checkpoint-inheritance phase above. The periodic controller's existing zero-
+first checkpoint-inheritance phase without retuning. The periodic controller's existing zero-
 settling restriction remains; bridge phases are separate runs. Only the last
 phase supplies final production draws; do not pool earlier bridge draws.
 

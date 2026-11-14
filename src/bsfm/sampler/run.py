@@ -47,7 +47,7 @@ def validate_runtime_migration(value):
 def validate_recipe(recipe):
     required={'schema','backend','model','chain_id','factor_ids','seed','files',
               'dataset_recipe','gpu_runtime','phases'}
-    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint','initial_checkpoint','checkpoint_field_step_scales','checkpoint_runtime_migration','diagnostics','flat_range_prior'} or recipe['schema']!='bsfm.sampler-run.v1':
+    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint','initial_checkpoint','checkpoint_field_step_scales','checkpoint_runtime_migration','diagnostics','flat_range_prior','transition_policy','checkpoint_retune'} or recipe['schema']!='bsfm.sampler-run.v1':
         raise ValueError('Exact sampler run recipe fields required')
     if 'diagnostics' in recipe and recipe['diagnostics']!='adaptation_study_v1':
         raise ValueError('Unknown diagnostic policy')
@@ -68,6 +68,15 @@ def validate_recipe(recipe):
         if not isinstance(r,dict) or set(r)!={'path','bytes','sha256'}:raise ValueError('Pinned initial endpoint required')
     if recipe['backend'] not in ('cpu','gpu') or recipe['model'] not in ('deep','flat'):
         raise ValueError('Explicit CPU/GPU backend and deep/flat model required')
+    if 'transition_policy' in recipe:
+        from .transition_policy import validate_transition_policy
+        validate_transition_policy(recipe['transition_policy'],recipe['model'])
+        if 'initial_endpoint' in recipe:
+            raise ValueError('Coordinate policies require a checkpoint fork with explicit retuning, not a bare endpoint import')
+    if 'checkpoint_retune' in recipe:
+        if (recipe['checkpoint_retune'] is not True or 'initial_checkpoint' not in recipe
+                or 'checkpoint_field_step_scales' in recipe):
+            raise ValueError('Checkpoint retuning requires a pinned source and no inherited step reductions')
     if 'flat_range_prior' in recipe:
         from .range_spec import validate_range_prior
         if recipe['model'] != 'flat':
@@ -96,7 +105,7 @@ def validate_recipe(recipe):
         if set(phase)!={'run_id','warmup_steps','sweeps','save_every'}:
             raise ValueError('Explicit phase identity, tuning, sweep and save counts required')
         names.append(phase['run_id'])
-        inherited=index==0 and 'initial_checkpoint' in recipe
+        inherited=index==0 and 'initial_checkpoint' in recipe and not recipe.get('checkpoint_retune',False)
         if inherited and phase['warmup_steps']!=0:raise ValueError('Checkpoint fork must first inherit tuning with zero warmup')
         for key,minimum in [('warmup_steps',0 if inherited else 20),('sweeps',1),('save_every',1)]:
             if type(phase[key]) is not int or phase[key]<minimum:raise ValueError('Invalid phase '+key)
@@ -173,6 +182,8 @@ def run_recipe(path,output,*,commit):
         binding['checkpoint_field_step_scales']=copy.deepcopy(recipe['checkpoint_field_step_scales'])
     if 'diagnostics' in recipe:binding['diagnostics']=recipe['diagnostics']
     if 'pcg_maximum_iterations' in recipe:binding['pcg_maximum_iterations']=recipe['pcg_maximum_iterations']
+    for key in ('transition_policy','checkpoint_retune'):
+        if key in recipe:binding[key]=copy.deepcopy(recipe[key])
     def authenticate():
         check_repository(path,commit)
         if file_record(path)!=recipe_record:raise ValueError('Run recipe changed')
@@ -198,14 +209,15 @@ def run_recipe(path,output,*,commit):
             from .run_continuation import ImportedEndpointController
             cls=ImportedEndpointController
         if parent is None and checkpoint is not None:
-            from .run_checkpoint_fork import CheckpointForkController
-            cls=CheckpointForkController
+            from .run_checkpoint_fork import CheckpointForkController,CheckpointRetuningController
+            cls=CheckpointRetuningController if recipe.get('checkpoint_retune',False) else CheckpointForkController
         controller=cls(output/phase['run_id'],target,loading,eta,spec,phase_binding,
                        authenticate=authenticate,**({} if parent is None else dict(parent=parent)))
         if 'pcg_maximum_iterations' in recipe:
             from .layer4 import JointEtaConditional
             controller.layer.joint_eta=JointEtaConditional(target,maximum_iterations=recipe['pcg_maximum_iterations'])
-        if recipe['model']=='flat':controller.layer.split=FlatTransition(target)
+        if recipe['model']=='flat' and 'transition_policy' not in recipe:
+            controller.layer.split=FlatTransition(target)
         print('PHASE',phase['run_id'],recipe['model'],recipe['backend'],flush=True)
         results.append(dict(run_id=phase['run_id'],result=controller.run()))
         if results[-1]['result'].get('status')=='review_required':

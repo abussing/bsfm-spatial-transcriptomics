@@ -66,16 +66,22 @@ class ReadaptationController(RunController):
         source, binding = parent_endpoint(self.parent)
         if self.store.input_receipt['readaptation_parent'] != binding:
             raise ValueError('Parent changed before child adaptation')
-        if not np.array_equal(source.b_sigma2, self.scale):
-            raise ValueError('Child changed fixed noise prior')
-        keys = jax.random.split(source.master_key, len(self.target.factor_ids)+1)
-        evidence = dict(schema='bsfm.readaptation-start.v1', seed=self.spec['seed'],
-            parent=binding, state_after=state_hashes(source.state),
-            warm_keys=[np.asarray(k).tolist() for k in keys[1:]],
-            rng_parent=stream_audit(source.eta_rng, source.gauge_rng, source.master_key, source.numpy_global_state),
-            rng_after=stream_audit(source.eta_rng, source.gauge_rng, keys[0], source.numpy_global_state))
-        endpoint = Endpoint(source.state, source.positions, source.tuning, source.eta_rng,
-            source.gauge_rng, keys[0], source.numpy_global_state, source.b_sigma2, evidence)
-        fault('after_initialization')
-        return adapt(self.target, endpoint, tuple(keys[1:]), steps=self.spec['warmup_steps'], split=self.layer.split,
-                     record_context=self.store.input_receipt.get('diagnostics')=='adaptation_study_v1')
+        return adapt_from_endpoint(self, source, binding, fault)
+
+
+def adapt_from_endpoint(controller, source, binding, fault):
+    """Fresh tuning with the documented parent-key split and no reseeding."""
+    self = controller
+    if not np.array_equal(source.b_sigma2, self.scale):
+        raise ValueError('Child changed fixed noise prior')
+    keys = jax.random.split(source.master_key, len(self.target.factor_ids)+1)
+    evidence = dict(schema='bsfm.readaptation-start.v1', seed=self.spec['seed'],
+        parent=binding, state_after=state_hashes(source.state),
+        warm_keys=[np.asarray(k).tolist() for k in keys[1:]],
+        rng_parent=stream_audit(source.eta_rng, source.gauge_rng, source.master_key, source.numpy_global_state),
+        rng_after=stream_audit(source.eta_rng, source.gauge_rng, keys[0], source.numpy_global_state))
+    endpoint = Endpoint(source.state, source.positions, source.tuning, source.eta_rng,
+        source.gauge_rng, keys[0], source.numpy_global_state, source.b_sigma2, evidence)
+    fault('after_initialization')
+    return adapt(self.target, endpoint, tuple(keys[1:]), steps=self.spec['warmup_steps'], split=self.layer.split,
+                 record_context=self.store.input_receipt.get('diagnostics')=='adaptation_study_v1')
