@@ -98,7 +98,7 @@ def make_failure(contract, *, sweep, previous_sha256, events, partial_diagnostic
     return pack(meta,{})
 
 
-def load_record(path, *, target, contract, b_sigma2):
+def load_record(path, *, target, contract, b_sigma2, migration_warp_audit=None):
     r=validate_retained_contract(contract,target,b_sigma2)
     with Path(path).open('rb') as stream:
         with np.load(stream,allow_pickle=False) as source:
@@ -152,8 +152,18 @@ def load_record(path, *, target, contract, b_sigma2):
                     or data['ell_U'][i]!=expected['ell_W'] or data['sigma_U'][i]!=expected['sigma_W']):
                 raise ValueError('Factor range/warp parameter ordering mismatch')
         wc,wa=physical_arrays(target,positions)
-        if not np.array_equal(wc,data['W_cell']) or not np.array_equal(wa,data['W_active']):
-            raise ValueError('Physical warp reconstruction mismatch')
+        if migration_warp_audit is None:
+            if not np.array_equal(wc,data['W_cell']) or not np.array_equal(wa,data['W_active']):
+                raise ValueError('Physical warp reconstruction mismatch')
+        else:
+            # All saved arrays and receipts above remain hash-exact. Only the
+            # independent recomputation on another processor admits roundoff,
+            # bounded by the existing dense-projector absolute tolerance.
+            if not isinstance(migration_warp_audit,list):raise ValueError('Migration audit list required')
+            error=max(float(np.max(np.abs(wc-data['W_cell']))),float(np.max(np.abs(wa-data['W_active']))))
+            if not np.isfinite(error) or error>2e-10:
+                raise ValueError('Cross-runtime physical warp error exceeds 2e-10: '+str(error))
+            migration_warp_audit.append(dict(sweep=m['sweep'],max_absolute_error=error,tolerance=2e-10))
         projector=target.geometry.arrays['projector'][:,target.geometry.arrays['active_indices']]
         error=max(float(np.max(np.abs(projector@data['W_active'][i]-data['W_cell'][i]))) for i in range(k))
         if error>2e-10: raise ValueError('Independent dense projector mismatch (historical 2e-10)')

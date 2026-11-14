@@ -129,6 +129,27 @@ class ForkTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 source_endpoint(self.source,c.target,c.loading,c.eta,**args,runtime_migration=changed)
 
+    def test_migration_only_bounds_derived_warp_roundoff(self):
+        from bsfm.sampler.retained_records import physical_arrays
+        p=self.parent
+        args=dict(seed=p.spec['seed'],environment_identity='a'*64,output=self.root/'roundoff')
+        migration=dict(schema='bsfm.checkpoint-runtime-migration.v1',
+            source_environment_identity='a'*64,destination_environment_identity='b'*64)
+        def shifted(amount):
+            def evaluate(*values):return tuple(v+amount for v in physical_arrays(*values))
+            return evaluate
+        with patch('bsfm.sampler.retained_records.physical_arrays',side_effect=shifted(1e-12)):
+            with self.assertRaisesRegex(ValueError,'Physical warp reconstruction'):
+                source_endpoint(self.source,p.target,p.loading,p.eta,**args)
+            _,binding=source_endpoint(self.source,p.target,p.loading,p.eta,
+                **dict(args,environment_identity='b'*64),runtime_migration=migration)
+            error=binding['physical_warp_reconstruction'][0]['max_absolute_error']
+            self.assertGreater(error,0);self.assertLess(error,2e-10)
+        with patch('bsfm.sampler.retained_records.physical_arrays',side_effect=shifted(1e-7)):
+            with self.assertRaisesRegex(ValueError,'exceeds 2e-10'):
+                source_endpoint(self.source,p.target,p.loading,p.eta,
+                    **dict(args,environment_identity='b'*64),runtime_migration=migration)
+
     def test_reviewed_reduction_preserves_state_rng_and_resumes_once(self):
         scales={fid:(.5 if i==0 else 1.) for i,fid in enumerate(self.parent.target.factor_ids)}
         reference=self.make('scaled-reference',True,scales);reference.run()

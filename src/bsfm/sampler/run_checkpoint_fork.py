@@ -43,6 +43,7 @@ def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output
         boundary_receipt=segment/'boundaries'/f'{selected:012d}'/'receipt.json')
     if paths!=expected:raise ValueError('Checkpoint source files do not belong to one published run')
     parent=PeriodicRunController(root,target,loading,eta,spec,inputs,authenticate=lambda:authenticate_files(source))
+    warp_audit=[] if runtime_migration is not None else None
     with writer(root):
         authenticate_files(source)
         genesis,logical=load_genesis(paths['genesis'],target,parent.cp)
@@ -57,7 +58,7 @@ def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output
         for path in sorted((segment/'boundaries').iterdir()):
             if not path.name.isdigit() or len(path.name)!=12:raise ValueError('Unexpected source boundary path')
             if int(path.name)>selected:break
-            chain=parent._read_boundary(path,chain)
+            chain=parent._read_boundary(path,chain,migration_warp_audit=warp_audit)
         if chain['n']!=selected:raise ValueError('Selected source boundary missing')
         authenticate_files(source)
     binding=dict(schema='bsfm.checkpoint-fork-source.v1',records=copy.deepcopy(source),
@@ -66,6 +67,7 @@ def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output
         pooling='source draws excluded; source run is not declared complete')
     if runtime_migration is not None:
         binding['runtime_migration']=copy.deepcopy(runtime_migration)
+        binding['physical_warp_reconstruction']=warp_audit
         binding['replay']='State, tuning and RNG imported exactly; subsequent cross-runtime trajectories need not be bitwise identical'
     return copy.deepcopy(chain['endpoint']),binding
 

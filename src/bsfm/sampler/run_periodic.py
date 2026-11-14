@@ -51,7 +51,7 @@ class PeriodicMixin:
                     record_head=self.rc.sha256, retained=0,
                     tuning=tuning_identity(genesis.tuning))
 
-    def _read_boundary(self, path, prior):
+    def _read_boundary(self, path, prior, *, migration_warp_audit=None):
         if sorted(p.name for p in path.iterdir()) != ['checkpoint.npz','diagnostics.json','receipt.json','record.npz']:
             raise ValueError('Incomplete periodic boundary')
         receipt=read_json(path/'receipt.json')
@@ -80,7 +80,8 @@ class PeriodicMixin:
             if audit['label']!=self.store.label(row['sweep']):raise ValueError('Sweep label mismatch')
             b=audit
         e=load_compact(path/'checkpoint.npz',target=self.target,contract=self.cp)
-        m,_,d=load_record(path/'record.npz',target=self.target,contract=self.rc,b_sigma2=self.scale)
+        m,_,d=load_record(path/'record.npz',target=self.target,contract=self.rc,b_sigma2=self.scale,
+                          migration_warp_audit=migration_warp_audit)
         if (e.progress['completed_local_sweep']!=n or m['sweep']!=n
                 or m['retained_index']!=prior['retained']+1 or m['previous_sha256']!=prior['record_head']
                 or d['sweep_audit']!=b or any(b.get(k)!=v for k,v in e.boundary.items())
