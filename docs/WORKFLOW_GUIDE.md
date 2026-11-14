@@ -157,6 +157,11 @@ source boundary.
 The derived ranges/scales also remain exact between saved arrays and diagnostic
 records; their independent exponential recomputation permits at most `16*eps`
 relative error (`eps` is float64 machine epsilon), recorded per boundary.
+Migration lineages also permit at most `16*eps` relative error when verifying
+saved alpha/zeta against their log/logit coordinates; the source import records
+each such discrepancy. This validation context extends through destination
+execution/restart without rewriting either representation. Non-migration chart
+checks retain their exact inverse-or-forward rule.
 Recomputed modal logarithms use the existing saved-geometry
 `2e-10` tolerance, with identical finite/negative-infinity structure; their error
 is recorded in the new input receipt. The saved spectral arrays are never

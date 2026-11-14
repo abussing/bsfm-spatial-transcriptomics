@@ -16,6 +16,7 @@ from .run_periodic import PeriodicRunController
 from .run_storage import file_record, read_json, safe, writer
 from .run_transactions import tuning_identity
 from .run import validate_checkpoint_source as validate_source, validate_field_step_scales, validate_runtime_migration
+from .migration_boundary import migration_chart_validation
 
 
 def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output,runtime_migration=None):
@@ -45,7 +46,8 @@ def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output
     parent=PeriodicRunController(root,target,loading,eta,spec,inputs,authenticate=lambda:authenticate_files(source))
     warp_audit=[] if runtime_migration is not None else None
     boundary_audit=[] if runtime_migration is not None else None
-    with writer(root):
+    chart_audit=[] if runtime_migration is not None else None
+    with writer(root), migration_chart_validation(chart_audit):
         authenticate_files(source)
         genesis,logical=load_genesis(paths['genesis'],target,parent.cp,migration_boundary_audit=boundary_audit)
         if (genesis.evidence['adaptation_steps']!=spec['warmup_steps']
@@ -70,11 +72,17 @@ def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output
         binding['runtime_migration']=copy.deepcopy(runtime_migration)
         binding['physical_warp_reconstruction']=warp_audit
         binding['fitted_value_reconstruction']=boundary_audit
+        binding['physical_parameter_reconstruction']=chart_audit
         binding['replay']='State, tuning and RNG imported exactly; subsequent cross-runtime trajectories need not be bitwise identical'
     return copy.deepcopy(chain['endpoint']),binding
 
 
 class CheckpointForkController(PeriodicRunController):
+    def run(self, **kwargs):
+        audit=[] if 'checkpoint_runtime_migration' in self.store.input_receipt else None
+        with migration_chart_validation(audit):
+            return super().run(**kwargs)
+
     def _adapt_endpoint(self,fault):
         if self.spec['warmup_steps']!=0:raise ValueError('Checkpoint inheritance must not retune implicitly')
         source,binding=source_endpoint(self.store.input_receipt['initial_checkpoint'],
@@ -94,6 +102,11 @@ class CheckpointForkController(PeriodicRunController):
             source.master_key,source.numpy_global_state,source.b_sigma2,evidence)
 
     def _genesis(self,fault):
+        audit=[] if 'checkpoint_runtime_migration' in self.store.input_receipt else None
+        with migration_chart_validation(audit):
+            return self._migration_genesis(fault)
+
+    def _migration_genesis(self,fault):
         endpoint,identity=super()._genesis(fault)
         # Even an already published child genesis cannot silently change its parent.
         expected=self._adapt_endpoint(fault)

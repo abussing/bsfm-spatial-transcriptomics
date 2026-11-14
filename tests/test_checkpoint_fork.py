@@ -251,6 +251,28 @@ class ForkTests(unittest.TestCase):
 
 
 class HealthTests(unittest.TestCase):
+    def test_chart_roundoff_is_bounded_scoped_and_does_not_modify_values(self):
+        from types import SimpleNamespace
+        from bsfm.sampler.chart import validate_chart_state
+        from bsfm.sampler.migration_boundary import migration_chart_validation,chart_migration_audit
+        from scipy.special import logit
+        target=SimpleNamespace(factor_ids=('a',),_check_position=lambda p:None)
+        state=SimpleNamespace(alpha=np.array([.7]),zeta=np.array([.4]))
+        position=SimpleNamespace(factor_id='a',values=np.array([np.log(.7),logit(.4)]))
+        original=position.values.copy();original_alpha=state.alpha.copy()
+        for _ in range(4):state.alpha[0]=np.nextafter(state.alpha[0],np.inf)
+        with self.assertRaises(ValueError):validate_chart_state(target,position,state,0)
+        audit=[]
+        with migration_chart_validation(audit):validate_chart_state(target,position,state,0)
+        self.assertEqual(len(audit),1);self.assertIsNone(chart_migration_audit.get())
+        np.testing.assert_array_equal(position.values,original)
+        self.assertNotEqual(state.alpha[0],original_alpha[0])
+        with self.assertRaises(ValueError):validate_chart_state(target,position,state,0)
+        state.alpha[0]*=1+1e-8
+        with migration_chart_validation([]),self.assertRaises(ValueError):
+            validate_chart_state(target,position,state,0)
+        self.assertIsNone(chart_migration_audit.get())
+
     def test_runtime_migration_recipe_requires_validated_destination_and_pinned_source(self):
         import json
         from bsfm.sampler.run import validate_recipe

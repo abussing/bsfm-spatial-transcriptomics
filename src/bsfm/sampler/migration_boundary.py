@@ -1,8 +1,25 @@
 """Audit a recomputed fitted-value digest only during explicit runtime migration."""
-from .checkpoint_contract import require_hash
+from contextlib import contextmanager
+from contextvars import ContextVar
+
+
+chart_migration_audit = ContextVar('bsfm_chart_migration_audit', default=None)
+
+
+@contextmanager
+def migration_chart_validation(audit):
+    """Explicit migration lineage only; ordinary chart checks stay exact."""
+    if audit is not None and not isinstance(audit,list):
+        raise ValueError('Migration chart audit list required')
+    token=chart_migration_audit.set(audit)
+    try:
+        yield
+    finally:
+        chart_migration_audit.reset(token)
 
 
 def same_boundary(actual, saved, *, migration_audit=None):
+    from .checkpoint_contract import require_hash
     if migration_audit is None:
         return actual == saved
     if not isinstance(migration_audit, list):
