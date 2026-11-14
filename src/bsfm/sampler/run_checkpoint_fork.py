@@ -15,10 +15,10 @@ from .run_inputs import authenticate_files
 from .run_periodic import PeriodicRunController
 from .run_storage import file_record, read_json, safe, writer
 from .run_transactions import tuning_identity
-from .run import validate_checkpoint_source as validate_source, validate_field_step_scales
+from .run import validate_checkpoint_source as validate_source, validate_field_step_scales, validate_runtime_migration
 
 
-def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output):
+def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output,runtime_migration=None):
     """Read only the authenticated published prefix ending at the pinned receipt."""
     validate_source(source);authenticate_files(source)
     paths={k:safe(safe(v['path']).resolve()) for k,v in source.items()}
@@ -26,7 +26,13 @@ def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output
     if root.is_relative_to(Path(output).resolve()) or Path(output).resolve().is_relative_to(root):
         raise ValueError('Checkpoint fork requires disjoint source and output roots')
     spec=read_json(paths['spec']);inputs=read_json(paths['inputs'])
-    if spec['seed']!=seed or spec['software']['environment_identity']!=environment_identity:
+    expected_environment=environment_identity
+    if runtime_migration is not None:
+        validate_runtime_migration(runtime_migration)
+        if runtime_migration['destination_environment_identity']!=environment_identity:
+            raise ValueError('Runtime migration destination identity mismatch')
+        expected_environment=runtime_migration['source_environment_identity']
+    if spec['seed']!=seed or spec['software']['environment_identity']!=expected_environment:
         raise ValueError('Checkpoint fork seed or runtime/device identity mismatch')
     segment=root/'segments'/spec['segment_id']
     selected=read_json(paths['boundary_receipt'])['sweep']
@@ -58,6 +64,9 @@ def source_endpoint(source,target,loading,eta,*,seed,environment_identity,output
         spec_sha256=parent.store.spec_hash,head=chain['head'],completed_sweep=selected,
         checkpoint_logical_sha256=chain['endpoint'].logical_sha256,
         pooling='source draws excluded; source run is not declared complete')
+    if runtime_migration is not None:
+        binding['runtime_migration']=copy.deepcopy(runtime_migration)
+        binding['replay']='State, tuning and RNG imported exactly; subsequent cross-runtime trajectories need not be bitwise identical'
     return copy.deepcopy(chain['endpoint']),binding
 
 
@@ -66,7 +75,8 @@ class CheckpointForkController(PeriodicRunController):
         if self.spec['warmup_steps']!=0:raise ValueError('Checkpoint inheritance must not retune implicitly')
         source,binding=source_endpoint(self.store.input_receipt['initial_checkpoint'],
             self.target,self.loading,self.eta,seed=self.spec['seed'],
-            environment_identity=self.spec['software']['environment_identity'],output=self.store.root)
+            environment_identity=self.spec['software']['environment_identity'],output=self.store.root,
+            runtime_migration=self.store.input_receipt.get('checkpoint_runtime_migration'))
         evidence=dict(schema='bsfm.inherited-endpoint.v1',initialization=dict(seed=self.spec['seed']),
             adaptation_steps=0,source_boundary=boundary(source,self.target),
             source_tuning=tuning_identity(source.tuning),source=binding)

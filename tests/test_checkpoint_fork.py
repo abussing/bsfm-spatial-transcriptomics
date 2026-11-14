@@ -25,6 +25,7 @@ class ForkTests(unittest.TestCase):
         cls.tmp=tempfile.TemporaryDirectory();cls.addClassCleanup(cls.tmp.cleanup)
         cls.root=Path(cls.tmp.name);base=setup(cls.root/'parent','deep')
         spec=copy.deepcopy(base.spec);spec.update(final_sweep=3,production_sweeps=3)
+        spec['software']['environment_identity']='a'*64
         cls.parent=PeriodicRunController(base.store.root,base.target,base.loading,base.eta,spec,
             base.store.input_receipt,authenticate=base.authenticate)
         cls.parent.run(stop_after=1)
@@ -96,6 +97,38 @@ class ForkTests(unittest.TestCase):
         row=read_json(b.store.segment/'boundaries/000000000002/diagnostics.json')[0]
         self.assertEqual(len(row['measurements']['factors']),len(b.target.factor_ids))
 
+    def test_explicit_runtime_migration_preserves_import_and_destination_restart(self):
+        migration=dict(schema='bsfm.checkpoint-runtime-migration.v1',
+            source_environment_identity='a'*64,destination_environment_identity='b'*64)
+        base=self.make('migration-base')
+        spec=copy.deepcopy(base.spec);spec['software']['environment_identity']='b'*64
+        binding=dict(base.store.input_receipt,checkpoint_runtime_migration=migration)
+        spec['input_sha256']=digest(binding)
+        def make(name):
+            return CheckpointForkController(self.root/name,base.target,base.loading,base.eta,
+                spec,binding,authenticate=base.authenticate)
+        reference=make('migration-reference');reference.run()
+        c=make('migration-interrupted')
+        def stop(stage):
+            if stage=='after_sweep':raise Stop()
+        with self.assertRaises(Stop):c.run(fault=stop)
+        c=make('migration-interrupted');c.run()
+        inherited,_=load_genesis(c.store.segment/'genesis/endpoint.npz',c.target,c.cp)
+        original=load_compact(self.parent.store.segment/'boundaries/000000000001/checkpoint.npz',
+            target=c.target,contract=self.parent.cp)
+        self.assertEqual(boundary(inherited,c.target),boundary(original,c.target))
+        from bsfm.sampler.run_transactions import tuning_identity
+        self.assertEqual(tuning_identity(inherited.tuning),tuning_identity(original.tuning))
+        self.assertEqual(inherited.evidence['source']['runtime_migration'],migration)
+        self.assertEqual(boundary(parent_endpoint(c)[0],c.target),
+                         boundary(parent_endpoint(reference)[0],c.target))
+        with patch.object(c.layer,'sweep',side_effect=AssertionError('Replay')):c.run()
+        args=dict(seed=c.spec['seed'],environment_identity='b'*64,output=self.root/'reject-migration')
+        for changed in (dict(migration,source_environment_identity='c'*64),
+                        dict(migration,destination_environment_identity='c'*64)):
+            with self.assertRaises(ValueError):
+                source_endpoint(self.source,c.target,c.loading,c.eta,**args,runtime_migration=changed)
+
     def test_reviewed_reduction_preserves_state_rng_and_resumes_once(self):
         scales={fid:(.5 if i==0 else 1.) for i,fid in enumerate(self.parent.target.factor_ids)}
         reference=self.make('scaled-reference',True,scales);reference.run()
@@ -147,6 +180,25 @@ class ForkTests(unittest.TestCase):
 
 
 class HealthTests(unittest.TestCase):
+    def test_runtime_migration_recipe_requires_validated_destination_and_pinned_source(self):
+        import json
+        from bsfm.sampler.run import validate_recipe
+        root=Path(__file__).resolve().parents[1]
+        recipe=json.loads((root/'config/sampler/shared-command-gpu-deep-validation.json').read_text())
+        recipe['gpu_runtime']={'schema':'bsfm.validated-gpu-runtime.v1','blas_threads':1}
+        recipe['initial_checkpoint']={k:dict(path='/source/'+k,bytes=1,sha256='c'*64)
+            for k in ('spec','inputs','genesis','genesis_receipt','boundary_receipt')}
+        recipe['phases'][0]['warmup_steps']=0
+        recipe['checkpoint_runtime_migration']=dict(schema='bsfm.checkpoint-runtime-migration.v1',
+            source_environment_identity='a'*64,destination_environment_identity='b'*64)
+        validate_recipe(recipe)
+        for field,value in [('initial_checkpoint',None),('gpu_runtime',{'blas_threads':1}),
+                            ('checkpoint_runtime_migration',{'source_environment_identity':'a'*64})]:
+            bad=copy.deepcopy(recipe)
+            if value is None:bad.pop(field)
+            else:bad[field]=value
+            with self.assertRaises(ValueError):validate_recipe(bad)
+
     def test_periodic_health_selects_blocks_from_model(self):
         from types import SimpleNamespace
         from bsfm.sampler.flat_control import FlatTarget

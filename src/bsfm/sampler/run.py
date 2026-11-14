@@ -33,16 +33,33 @@ def validate_field_step_scales(scales, factor_ids):
         raise ValueError('One finite field step scale in (0,1] per factor required')
 
 
+def validate_runtime_migration(value):
+    """An explicit new lineage, never an assertion of cross-device exact replay."""
+    keys={'schema','source_environment_identity','destination_environment_identity'}
+    if (not isinstance(value,dict) or set(value)!=keys
+        or value['schema']!='bsfm.checkpoint-runtime-migration.v1'
+        or any(not isinstance(value[k],str) or not re.fullmatch('[0-9a-f]{64}',value[k])
+               for k in keys-{'schema'})
+        or value['source_environment_identity']==value['destination_environment_identity']):
+        raise ValueError('Explicit distinct source/destination runtime SHA-256 identities required')
+
+
 def validate_recipe(recipe):
     required={'schema','backend','model','chain_id','factor_ids','seed','files',
               'dataset_recipe','gpu_runtime','phases'}
-    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint','initial_checkpoint','checkpoint_field_step_scales','diagnostics','flat_range_prior'} or recipe['schema']!='bsfm.sampler-run.v1':
+    if not required <= set(recipe) or set(recipe)-required-{'pcg_maximum_iterations','initial_endpoint','initial_checkpoint','checkpoint_field_step_scales','checkpoint_runtime_migration','diagnostics','flat_range_prior'} or recipe['schema']!='bsfm.sampler-run.v1':
         raise ValueError('Exact sampler run recipe fields required')
     if 'diagnostics' in recipe and recipe['diagnostics']!='adaptation_study_v1':
         raise ValueError('Unknown diagnostic policy')
     if 'initial_checkpoint' in recipe:
         validate_checkpoint_source(recipe['initial_checkpoint'])
         if 'initial_endpoint' in recipe:raise ValueError('Choose one source endpoint')
+    if 'checkpoint_runtime_migration' in recipe:
+        validate_runtime_migration(recipe['checkpoint_runtime_migration'])
+        if ('initial_checkpoint' not in recipe or recipe['backend']!='gpu'
+            or not isinstance(recipe['gpu_runtime'],dict)
+            or recipe['gpu_runtime'].get('schema')!='bsfm.validated-gpu-runtime.v1'):
+            raise ValueError('Runtime migration requires a pinned checkpoint and validated GPU destination')
     if 'pcg_maximum_iterations' in recipe:
         cap=recipe['pcg_maximum_iterations']
         if type(cap) is not int or not 1 <= cap <= 4096:raise ValueError('Invalid PCG iteration budget')
@@ -145,6 +162,11 @@ def run_recipe(path,output,*,commit):
     binding=dict(binding,launcher_recipe=recipe_record,model=recipe['model'],target_identity=target.identity)
     if source is not None:binding['initial_endpoint']=source
     if checkpoint is not None:binding['initial_checkpoint']=checkpoint
+    if 'checkpoint_runtime_migration' in recipe:
+        migration=copy.deepcopy(recipe['checkpoint_runtime_migration'])
+        if migration['destination_environment_identity']!=digest(env):
+            raise ValueError('Runtime migration destination does not match authenticated runtime')
+        binding['checkpoint_runtime_migration']=migration
     if 'checkpoint_field_step_scales' in recipe:
         binding['checkpoint_field_step_scales']=copy.deepcopy(recipe['checkpoint_field_step_scales'])
     if 'diagnostics' in recipe:binding['diagnostics']=recipe['diagnostics']

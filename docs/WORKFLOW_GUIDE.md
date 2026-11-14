@@ -66,7 +66,7 @@ evidence for its own environment, not an installer for another cluster:
 | Environment | The [candidate Linux Python/wheel locks and installer](../environment/sampler-gpu/README.md) restore an isolated package set. The host and GPU driver remain explicit deployment inputs. Installation is not GPU validation. `config/sampler/hpc-gpu-runtime.json` still authenticates the older validated installation's entire package inventory and interpreter/file identities; it is not an installer or a receipt for this candidate. |
 | Launch | `environment/hpc/sample.sbatch` and `initialize.sbatch` take explicit checkout, interpreter and module settings, described below. They invoke the same canonical CLIs and reject a dirty or incorrect source commit. Scheduler account, partition and resources belong in the external deployment manifest. |
 | Hardware validation | Legacy recipes retain the V100/P100 authenticator. The [validated-runtime recipe](../environment/sampler-gpu/README.md#connect-the-validated-runtime-to-the-sampler) binds a pinned installation, numerical validation plan/report and exact tested GPU model. Its separate CLI validator exercises the normal launcher and completed restart using externally pinned synthetic inputs. Both numerical and CLI evidence are required before scientific fitting. |
-| Restart | Existing checkpoint imports require matching runtime/device and spectral identities. A different cluster/runtime is not automatically an exact continuation; begin a separately validated run or establish an explicit migration contract. |
+| Restart | Ordinary checkpoint imports require matching runtime/device and spectral identities. The explicit runtime migration below creates a new lineage on a validated destination; it preserves the imported state, not bitwise cross-device future trajectories. |
 
 Freeze destination paths, artifact hashes, environment build inputs, modules,
 scheduler resources and source commit in an **external deployment manifest**.
@@ -141,6 +141,22 @@ identity must agree. The first phase must have `warmup_steps: 0`: it inherits
 state, tuning and RNG streams without initialization or adaptation. Later phases
 use the existing completed-parent readaptation interface. This is an explicit new
 lineage, not permission to alter a same-run checkpoint or pool earlier draws.
+
+For a deliberate move between validated GPU installations, optional
+`checkpoint_runtime_migration` contains `schema: bsfm.checkpoint-runtime-migration.v1`
+and the exact, distinct SHA-256 `source_environment_identity` and
+`destination_environment_identity`. It requires `initial_checkpoint` and the
+validated-runtime GPU recipe. The destination identity must equal the live
+authenticated runtime; the source must equal the pinned original run spec.
+The entire source prefix is still checked under its original contracts, including
+the target, spectral chart, state, tuning and RNG. No source files or receipts are
+rewritten. The new genesis records both runtime identities and excludes parent
+draws. Subsequent trajectories can differ because floating-point computations
+change across devices; exact interrupted restart applies within the destination.
+Before moving scientific runs, validate an imported synthetic checkpoint on the
+destination, including state/tuning/RNG equality at import, finite transitions,
+interrupted restart and completed non-replay. Preserve health checks and assess
+destination diagnostics before treating its draws as usable.
 
 For a reviewed reduction after diagnostic replay, optional
 `checkpoint_field_step_scales` maps **every** factor ID to a finite multiplier in
