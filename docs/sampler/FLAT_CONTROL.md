@@ -75,3 +75,21 @@ against dense conditioning, and periodic interruption/restart, retained ranges,
 RNG preservation, non-replay and retuning. Existing deep and fixed-flat tests
 guard their behavior. CPU checks alone do not certify a GPU deployment or
 scientific convergence. Keep deployment receipts and analysis recipes external.
+## Conditional geometry audit (experimental)
+
+`python -m bsfm.sampler.flat_geometry_audit --plan EXTERNAL_JSON --commit SHA`
+compares inherited tuning, ordinary diagonal retuning, and diagonal retuning in
+log spatial/nonspatial variance coordinates on authenticated saved flat
+conditionals. This is a diagnostic only: it does not alter the production runner,
+resume a scientific fit, or establish full-Gibbs mixing. The external plan pins
+each recipe, genesis, conditional NPZ and source report, plus seeds, warmup length,
+draw count, output and source commit. HPC authorization requirements still apply.
+
+The alternate coordinates are `s=log(alpha^2*zeta)` and
+`n=log(alpha^2*(1-zeta))`. The inverse is
+`log(alpha)=logaddexp(s,n)/2`, `logit(zeta)=s-n`, with constant absolute
+Jacobian determinant `1/2`. The complete existing density and priors are pulled
+back, including this constant; no independent variance priors are substituted.
+The coordinate identity, covariance, density measure and full flat-target
+gradients are tested in `tests/test_variance_coordinates.py`. This algebraic
+validation alone is not evidence of a faster or production-ready sampler.
