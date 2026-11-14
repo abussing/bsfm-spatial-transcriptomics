@@ -102,3 +102,11 @@ that exact incoming conditional. Its external plan pins recipe, source checkpoin
 expected diagnostics, factor and sweep. Outputs are diagnostics only. A replay
 mismatch fails before causal interpretation; local curvature and energy checks
 do not certify mixing or change production stop rules.
+
+`sampler.conditional_curvature_audit` can follow a replay with finite-difference
+Lanczos estimates of field curvature and directional gradient checks. An explicit
+counterfactual changes whitening hyperparameters while preserving physical W and
+likelihood statistics, to separate coordinate geometry from a changed fitted
+field. The external plan authenticates early/late captured conditionals, recipe
+and genesis. Ritz estimates and counterfactuals are local diagnostics, not samples
+or a justification for altering priors, meshes or convergence criteria.
