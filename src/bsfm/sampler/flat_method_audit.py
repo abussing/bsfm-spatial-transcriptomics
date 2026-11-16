@@ -140,6 +140,7 @@ def run(plan_path, commit):
         variance_vg=jax.jit(wrap_value_grad(target._kernels["value_grad"]))
         original_ld=make_logdensity(target._kernels)
         variance_ld=make_logdensity(dict(value_grad=wrap_value_grad(target._kernels["value_grad"])))
+        variance_value=jax.jit(lambda p,u,ct,penalty:variance_ld(p,u,ct,penalty))
         kernel=blackjax.nuts.build_kernel()
         methods=("original_joint","variance_joint","nugget_slice")
         transitions={}
@@ -202,6 +203,8 @@ def run(plan_path, commit):
                 v=to_variances(q)
                 fo,go=original_vg(q,*context)
                 fv,gv=variance_vg(v,*context)
+                if abs(float(variance_value(v,*context))-float(fv))>1e-8:
+                    raise RuntimeError("Value-only slice density differs")
                 jac=np.asarray(jax.jacfwd(to_original)(v))
                 fd=[]
                 for e in np.eye(3)*1e-5:
@@ -264,7 +267,7 @@ def run(plan_path, commit):
                 cost=dict(evaluations=0,expansions=0,shrinks=0)
                 if method=="nugget_slice":
                     def scalar(x):
-                        return variance_vg(p.at[1].set(x),*context)[0]
+                        return variance_value(p.at[1].set(x),*context)
                     x,cost=slice_one(scalar,float(p[1]),srng,
                         width=plan["slice_width"],max_steps=plan["slice_max_steps"],
                         max_shrink=plan["slice_max_shrink"])
