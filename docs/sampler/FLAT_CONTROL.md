@@ -196,3 +196,13 @@ normalizing-constant estimates, weight ESS and replicate moments. The proposal
 uses narrow and broad scales; posterior checks must examine weight concentration
 and replicate agreement. This is an independent numerical estimate, not proof
 that all modes have been discovered. It cannot by itself certify convergence.
+
+After explicit fixed-conditional distribution/efficiency gates,
+`sampler.flat_gibbs_method_audit` compares the same three methods from an identical
+checkpoint. Each arm tunes its initial conditionals and then restores the common
+starting state; warmup endpoints are not scientific draws. The diagnostic-only
+`DiagnosticNuggetSlice` adapter retains original positions at the Gibbs boundary,
+so the existing eta/context checks still apply. No production policy is added.
+Per-factor logs retain integration diagnostics, slice costs, nugget information,
+and covariance movement. External plans bound each arm and the whole job; partial
+arms are explicitly reported. This tests short-run robustness, not convergence.
