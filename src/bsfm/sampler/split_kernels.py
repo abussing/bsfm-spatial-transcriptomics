@@ -96,7 +96,8 @@ def build_split(ld, maps, dimension, target=.9, depth=10):
         assert float(jnp.max(hist.info.hyper_W_relative_error))<2e-8
         state=blackjax.nuts.init(p,lambda q:ld(q,u,ct,penalty))
         return (state,tuned),hist
-    return dict(transition=jax.jit(transition),adapt=adapt)
+    return dict(transition=jax.jit(transition),adapt=adapt,
+                audit_transition=jax.jit(one))
 
 
 # Selected driver analytic-gradient bridge; provenance in LAYER5_SOURCE_MAP.csv.

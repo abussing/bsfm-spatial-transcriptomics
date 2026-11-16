@@ -112,7 +112,9 @@ class GibbsSweep:
         return eta, diag
 
     def sweep(self, state, positions, tuning, *, eta_rng, gauge_rng, master_key,
-              state_factor_ids, label):
+              state_factor_ids, label, observer=None):
+        if observer is not None and not callable(observer):
+            raise TypeError("observer must be callable")
         self._validate(state, positions, tuning, eta_rng, gauge_rng, master_key,
                        state_factor_ids, label)
         before = rng_audit(eta_rng, gauge_rng, master_key)
@@ -129,33 +131,49 @@ class GibbsSweep:
         cell_slices = work.validate(target.inputs, factors=k)
         v = np.ones_like(y)
         sharing = np.full(k, contracts.SHARING)
+        def observe(event, **details):
+            # Audit only: detached snapshots, no access to the live RNG objects.
+            # The observer must not use global RNGs or mutate external state.
+            if observer is not None:
+                observer(event, copy.deepcopy(work), tuple(
+                    FieldPosition(np.array(p.values, copy=True), p.factor_id,
+                                  p.target_identity) for p in current), copy.deepcopy(details))
+
         pcgs = []
+        observe('sweep_start')
         for _inner in range(N_INNER):
             work.loading = sample_Lambda_twostage(
                 y, work.eta, work.sigma2, v, work.alpha, work.phi, work.tau,
                 sharing, cell_slices)
+            observe('after_loading', inner=_inner)
             work.eta, pcg = self._joint_eta(tuple(current), work, eta_rng)
             pcgs.append(pcg)
+            observe('after_joint_eta', inner=_inner, pcg=pcg)
             yhat = compute_Yhat(work.loading, work.eta, cell_slices)
             work.sigma2 = sample_sigma2_twostage(
                 y, yhat, v, SIGMA2_PRIOR_SHAPE, self._b_sigma2)
+            observe('after_noise', inner=_inner)
 
         qgk = compute_qgk(work.loading, sharing, c)
         work.phi = sample_phi(qgk, work.alpha, work.tau, c, g, k,
                              a_phi=contracts.A_PHI, b_phi=contracts.B_PHI)
+        observe('after_phi')
         work.delta, work.tau = sample_delta_tau(
             qgk, work.alpha, work.phi, work.delta, k, c, g,
             a_delta1=contracts.A_DELTA1, a_delta_gt1=contracts.A_DELTA_LATER)
+        observe('after_delta_tau')
         work.loading, work.eta, work.alpha, gauge = refresh_alpha_gauge(
             work.loading, work.eta, work.alpha, gauge_rng, sharing, label)
         for i in range(k):
             current[i].values[0] = np.log(work.alpha[i])
+        observe('after_px')
         yhat = compute_Yhat(work.loading, work.eta, cell_slices)
 
         order = tuple(int(i) for i in np.random.permutation(k))
         factors = []
         warp = [None]*k
         for i in order:
+            observe('before_factor', factor_index=i)
             # Rebuild current Yhat/context before the historical key split.
             context = self.split.prepare_context(current[i], work,
                                                  state_factor_ids=target.factor_ids)
@@ -167,6 +185,7 @@ class GibbsSweep:
             work.alpha[i] = float(np.exp(np.asarray(p[0])))
             work.zeta[i] = float(jax.nn.sigmoid(jnp.asarray(p[1])))
             warp[i] = dict(factor_id=target.factor_ids[i], **target.hyperparameters(current[i]))
+            observe('after_factor_transition', factor_index=i)
             # Layer 3 reuses the same u/ct: alpha/zeta changes do not enter
             # those statistics, and no eta changes before this one draw.
             work.eta[i], eta_audit = target.draw_eta(
@@ -175,6 +194,7 @@ class GibbsSweep:
                 if eta_audit[name] != result.audit['context'][name]:
                     raise RuntimeError('Post-transition eta context changed before draw')
             yhat = compute_Yhat(work.loading, work.eta, cell_slices)
+            observe('after_single_eta', factor_index=i)
             factors.append(dict(factor_index=i, factor_id=target.factor_ids[i],
                                 transition=result, eta_audit=eta_audit))
 

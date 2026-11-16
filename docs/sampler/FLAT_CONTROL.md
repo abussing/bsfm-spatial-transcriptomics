@@ -62,7 +62,7 @@ The range-dependent feature algebra and derivative already occur in the accepted
 [Layer-3 source map](LAYER3_SOURCE_MAP.csv). The historical
 `fixed_splusu_dynamic_target.py` source with SHA-256
 `b172a3732b30c2e15387ad898565a1c9971d902352d9bfd54485a7937295748e`
-contains the optional normal-in-log-range prior and gradient at lines 239–245.
+contains the optional normal-in-log-range prior and gradient at lines 239â€“245.
 The historical driver with SHA-256
 `eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49`
 declares median 0.18 and log SD 0.25 at lines 1734 and 1738. This recovers the
@@ -106,8 +106,8 @@ do not certify mixing or change production stop rules.
 `sampler.conditional_curvature_audit` can follow a replay with finite-difference
 Lanczos estimates of field curvature and directional gradient checks. An explicit
 counterfactual changes whitening hyperparameters while preserving physical W and
-likelihood statistics, to separate coordinate geometry from a changed fitted
-field. The external plan authenticates early/late captured conditionals, recipe
+likelihood statistics. This changes both the physical prior and the coordinate
+map; it does not isolate a coordinate-only cause. The external plan authenticates early/late captured conditionals, recipe
 and genesis. Ritz estimates and counterfactuals are local diagnostics, not samples
 or a justification for altering priors, meshes or convergence criteria.
 Its optional `mode: metric` compares inherited tuning, a halved step, and a
@@ -117,3 +117,26 @@ columns and unchanged scalar coordinates. Hyperparameters are held fixed during
 each field trajectory, so this diagnostic uses ordinary Euclidean NUTS. It is
 not production integration, RMHMC, or evidence of full-Gibbs convergence. Seeds
 and diagnostic draw count must be frozen in the external plan.
+
+For causal diagnosis, the replay plan can opt into `capture_boundaries: true`.
+`GibbsSweep.sweep(observer=...)` supplies detached snapshots after each loading,
+joint-factor, noise, shrinkage and PX update, and around each factor update.
+Observers must not consume global random numbers. The default path performs no
+snapshot work. The recorder saves only the selected factor's sufficient
+statistics, position, tuning and state hashes. The selected deep transition
+also exposes its field endpoint and fixed-physical-warp hyperparameter endpoint
+through the same kernel used in production. Capture remains provisional unless
+the published transition's diagnostics reproduce. No retuning or continuation
+is performed by this audit.
+
+`boundary_diagnostics.fixed_chart_field` permits separate prior and coordinate
+counterfactuals: hold the physical warp, likelihood statistics and physical
+prior fixed when changing the coordinate root; hold the coordinate root fixed
+when changing the physical prior. It includes the two-column log Jacobian.
+Transport inverse mass and momentum together for an equivalent physical kinetic
+law; an inherited diagonal metric is a separate experimental arm. Compare
+physical warp and finite-feature covariance changes, not raw whitened-coordinate
+differences across different roots. Fixed-duration energy probes are diagnostic
+paths, not the actual adaptive NUTS tree. Local improvements do not establish
+sustained Gibbs efficiency. Interactions between conditional changes remain
+possible and must not be forced into a single-update explanation.
