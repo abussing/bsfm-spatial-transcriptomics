@@ -156,3 +156,16 @@ removing its recording hooks must recover the preceding source byte for byte.
 Other source edits retain distinct identities and remain incompatible. This keeps
 old saved states readable without rewriting checkpoint contracts or changing the
 numerical sweep. The full executing Git commit remains recorded separately.
+
+`sampler.flat_path_audit` follows authenticated original-flat captures with
+finite-difference Hessians and matched fixed-duration leapfrog probes. It uses
+BlackJAX's inverse mass D: the scaled Hessian is sqrt(D) H sqrt(D). The value
+step*sqrt(maximum positive eigenvalue) is a local quadratic stability indicator;
+2 is not a universal nonlinear failure threshold. Negative curvature is retained.
+The full conditional includes loading penalties and priors. Probes retain common
+momenta and tuning, and test individual and combined changes in position, u, ct
+and loading penalty. Hybrid inputs need not be realizable Gibbs states; compare
+actual adjacent snapshots before attributing a cause. Original-coordinate 2D
+slices and same-duration quarter-step probes are explanatory diagnostics only,
+not new sampler settings, adaptive NUTS paths, or convergence evidence. External
+plans pin captures, source commit, step counts, slice bounds and a time limit.
