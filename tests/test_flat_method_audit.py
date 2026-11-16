@@ -1,7 +1,7 @@
 ﻿"""Independent distribution checks for the diagnostic scalar slice update."""
 import unittest
 import numpy as np
-from bsfm.sampler.flat_method_audit import slice_one, provisional_ess
+from bsfm.sampler.flat_method_audit import slice_one, provisional_ess, saved_tuning
 
 class FlatMethodAuditTests(unittest.TestCase):
     def test_narrow_and_broad_gaussian_invariant_moments(self):
@@ -56,3 +56,19 @@ class FlatMethodAuditTests(unittest.TestCase):
         self.assertLess(provisional_ess(slow),400)
         self.assertEqual(provisional_ess(np.ones(100)),0.)
 
+
+class SavedTuningTests(unittest.TestCase):
+    def test_selection_and_rejections(self):
+        row=dict(case=0,method="nugget_slice",start=1,status="complete",
+                 step=.2,inverse_mass=[1.,2.],endpoint=[99,99,99])
+        step,mass=saved_tuning(dict(chains=[row]),0,"nugget_slice",1)
+        self.assertEqual(step,.2)
+        np.testing.assert_array_equal(mass,[1,2])
+        for rows,case in [([row,row],0),([row],1)]:
+            with self.assertRaises(ValueError):
+                saved_tuning(dict(chains=rows),case,"nugget_slice",1)
+        for update in [dict(step=0),dict(step=float("nan")),
+                       dict(inverse_mass=[1.,1.,1.]),dict(inverse_mass=[1.,-1.]),
+                       dict(status="warmup_budget_exhausted")]:
+            with self.assertRaises(ValueError):
+                saved_tuning(dict(chains=[dict(row,**update)]),0,"nugget_slice",1)

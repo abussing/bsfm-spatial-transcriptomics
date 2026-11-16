@@ -69,6 +69,22 @@ def provisional_ess(x):
     return float(min(n,n/tau))
 
 
+def saved_tuning(result, case, method, start):
+    """Select one completed tuning without reusing its endpoint."""
+    rows=[r for r in result["chains"] if
+          (r["case"],r["method"],r["start"])==(case,method,start)]
+    if len(rows)!=1 or rows[0]["status"]!="complete":
+        raise ValueError("Unique completed tuning required")
+    step=float(rows[0]["step"])
+    mass=np.asarray(rows[0]["inverse_mass"],float)
+    dim=2 if method=="nugget_slice" else 3
+    if mass.shape!=(dim,) or not np.all(np.isfinite(mass)) or np.any(mass<=0):
+        raise ValueError("Invalid saved diagonal metric")
+    if not np.isfinite(step) or step<=0:
+        raise ValueError("Invalid saved step")
+    return step,mass
+
+
 def run(plan_path, commit):
     import jax
     import jax.numpy as jnp
@@ -135,6 +151,22 @@ def run(plan_path, commit):
                 states.append({k:z[k].copy() for k in z.files})
         if len(states)!=2:
             raise ValueError("Two fixed conditionals required")
+
+        transfer=plan.get("transfer_tuning")
+        tuning_result=None
+        if transfer is not None:
+            run_inputs.authenticate_files(dict(tuning=transfer["results"],plan=transfer["plan"]))
+            tuning_result=json.loads(Path(transfer["results"]["path"]).read_text())
+            old_plan=json.loads(Path(transfer["plan"]["path"]).read_text())
+            if "error" in tuning_result or old_plan["cases"]!=plan["cases"]:
+                raise ValueError("Tuning provenance does not match captures")
+            if tuning_result["source_commit"]!=old_plan["source_commit"]:
+                raise ValueError("Tuning source identity mismatch")
+            for name in ("max_tree_depth","slice_width","slice_max_steps",
+                         "slice_max_shrink","start_offsets"):
+                if old_plan[name]!=plan[name]:
+                    raise ValueError("Tuning comparison controls differ: "+name)
+            result["transfer_tuning"]=transfer
 
         original_vg=jax.jit(target._kernels["value_grad"])
         variance_vg=jax.jit(wrap_value_grad(target._kernels["value_grad"]))
@@ -280,6 +312,9 @@ def run(plan_path, commit):
             warm_start=time.monotonic()
             if inherited:
                 step=jnp.asarray(state["step"]);mass=jnp.asarray(state["inverse_mass"])
+            elif transfer is not None:
+                step,mass=saved_tuning(tuning_result,transfer["case"],method,start_index)
+                step=jnp.asarray(step);mass=jnp.asarray(mass)
             else:
                 indices=jnp.array([0,2]) if method=="nugget_slice" else jnp.arange(3)
                 ads=ai(p[indices],plan["initial_step"])
@@ -308,14 +343,15 @@ def run(plan_path, commit):
             np.savez_compressed(root/(tag+".npz"),original_positions=np.asarray(draws),
                                 covariance_and_logvariance_monitors=monitors)
             return dict(case=case,method=method,start=start_index,status="complete",
-                        inherited=inherited,draw_file=tag+".npz",draws=len(draws),
+                        inherited=inherited,tuning_case=None if transfer is None else transfer["case"],draw_file=tag+".npz",draws=len(draws),
                         warmup_seconds=warm_seconds,sampling_seconds=elapsed,
                         evaluations=evals-evals_before,step=float(step),inverse_mass=np.asarray(mass).tolist(),
                         warmup=warm_rows,sampling=rows,metrics=metrics,stiffness=stiffness)
 
-        for case in range(2):
-            result["inherited"].append(run_chain(case,"original_joint",0,True))
-            publish("inherited_complete")
+        if transfer is None:
+            for case in range(2):
+                result["inherited"].append(run_chain(case,"original_joint",0,True))
+                publish("inherited_complete")
         for start_index in range(len(plan["start_offsets"])):
             for case in range(2):
                 for method in methods:

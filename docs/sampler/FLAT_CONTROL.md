@@ -189,6 +189,13 @@ start agreement and an independent conditional-distribution check are required
 before a full-Gibbs pilot. The nugget information monitor uses inherited original
 mass/step settings for comparability and is not a global stability bound.
 
+An external `transfer_tuning` entry can authenticate a previous comparison's
+plan and results and reuse one case's saved step and diagonal metric at both
+captured conditionals. Each chain starts at its declared capture plus the fixed
+offset; no warmup endpoint is reused and no new adaptation occurs. Tree depth,
+slice controls and start offsets must match. This tests tuning transfer;
+short transient traces do not establish posterior convergence.
+
 The optional diagnostic mode `reference` uses multi-start mode searches followed
 by two independent scrambled Sobol integrations with a full-support Student-t
 mixture proposal. It records all proposal-weighted points, optimizer residuals,
