@@ -150,3 +150,9 @@ transition diagnostics, with an internal limit of at most 40 minutes. Cross-runt
 imports retain the migration checks; differing transitions remain explicitly
 unverified rather than being claimed as exact reproductions. Timing separates
 first compilation from warmed operations; neither pass adapts or continues a fit.
+
+Checkpoint chronology identity recognizes the exact observer-only source revision:
+removing its recording hooks must recover the preceding source byte for byte.
+Other source edits retain distinct identities and remain incompatible. This keeps
+old saved states readable without rewriting checkpoint contracts or changing the
+numerical sweep. The full executing Git commit remains recorded separately.

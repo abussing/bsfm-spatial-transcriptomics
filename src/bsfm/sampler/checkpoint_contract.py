@@ -37,11 +37,37 @@ def software_record(record, expected_sha256):
     return parse_json(json_text(record))
 
 
+def chronology_source_hash(source):
+    """Preserve the numerical chronology identity for the audited observer-only edit.
+
+    Only one exact recorded instrumentation version is eligible. Removing its
+    observer signature, validation, closure and calls must reconstruct the old
+    source byte for byte. Any other edit retains its own, incompatible identity.
+    The complete code version remains pinned separately in the software record.
+    """
+    raw = hashlib.sha256(source).hexdigest()
+    if raw != 'c7091fd46679d8681b1a34ecd365719a40bbb77e13e7ac0f04cd0cb5a21f9a9f':
+        return raw
+    text = source.decode('utf-8')
+    text = text.replace('state_factor_ids, label, observer=None):', 'state_factor_ids, label):')
+    text = text.replace('        if observer is not None and not callable(observer):\n'
+                        '            raise TypeError("observer must be callable")\n', '')
+    start = text.index('        def observe(event, **details):\n')
+    end = text.index('        pcgs = []\n', start)
+    text = text[:start] + text[end:]
+    text = ''.join(line for line in text.splitlines(keepends=True)
+                   if not line.lstrip().startswith('observe('))
+    recovered = hashlib.sha256(text.encode('utf-8')).hexdigest()
+    if recovered != '4bca79cfa48e10d7525d00593bb55e3e84aca5741f0bc9ee81588049c6538780':
+        raise ValueError('Observer-only chronology equivalence failed')
+    return recovered
+
+
 def fixed_requirements(target=None):
     return dict(chronology_schema='bsfm.layer6-complete-sweep.v1', n_inner=N_INNER,
                 sharing=SHARING, ell_eta=ELL_ETA if target is None else target.range_contract,
                 sigma2_prior_shape=SIGMA2_PRIOR_SHAPE,
-                layer6_source_sha256=hashlib.sha256(Path(__file__).with_name('layer6.py').read_bytes()).hexdigest())
+                layer6_source_sha256=chronology_source_hash(Path(__file__).with_name('layer6.py').read_bytes()))
 
 
 @dataclass(frozen=True)
