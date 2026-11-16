@@ -188,3 +188,11 @@ feature rule. Single-chain ESS estimates from these short tests are provisional;
 start agreement and an independent conditional-distribution check are required
 before a full-Gibbs pilot. The nugget information monitor uses inherited original
 mass/step settings for comparability and is not a global stability bound.
+
+The optional diagnostic mode `reference` uses multi-start mode searches followed
+by two independent scrambled Sobol integrations with a full-support Student-t
+mixture proposal. It records all proposal-weighted points, optimizer residuals,
+normalizing-constant estimates, weight ESS and replicate moments. The proposal
+uses narrow and broad scales; posterior checks must examine weight concentration
+and replicate agreement. This is an independent numerical estimate, not proof
+that all modes have been discovered. It cannot by itself certify convergence.

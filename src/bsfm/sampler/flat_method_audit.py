@@ -222,6 +222,22 @@ def run(plan_path, commit):
             raise RuntimeError("Real-state target validation failed")
         publish("target_verified")
         print("TARGET_VERIFIED",flush=True)
+        if plan.get("mode")=="reference":
+            from .conditional_reference import conditional_reference
+            result["reference"]=[]
+            for index,(state,context) in enumerate(zip(states,contexts)):
+                def vg(q):
+                    return original_vg(jnp.asarray(q),*context)
+                starts=[state["position"]+np.asarray(offset) for offset in plan["start_offsets"]]
+                summary,points,weights_ref=conditional_reference(vg,starts,
+                    seed=plan["seed"]+100*index,power=plan["reference_power"])
+                name=f"reference-case{index}.npz"
+                np.savez_compressed(root/name,original_positions=points,weights=weights_ref)
+                result["reference"].append(dict(case=index,file=name,**summary))
+                publish("reference_case_complete")
+                print("REFERENCE",index,"COMPLETE",flush=True)
+            publish("complete")
+            return
         # Compile each shape once; excluded from sampling times and samples.
         compile_start=time.monotonic()
         for method in methods:
