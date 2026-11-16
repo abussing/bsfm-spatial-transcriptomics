@@ -169,3 +169,22 @@ actual adjacent snapshots before attributing a cause. Original-coordinate 2D
 slices and same-duration quarter-step probes are explanatory diagnostics only,
 not new sampler settings, adaptive NUTS paths, or convergence evidence. External
 plans pin captures, source commit, step counts, slice bounds and a time limit.
+
+For short fixed-conditional method comparisons, `sampler.flat_method_audit`
+uses authenticated original-flat captures and preserves the full target. It
+compares joint NUTS in original and variance coordinates with a diagnostic
+nugget-slice / spatial-variance-and-range NUTS split. The existing exact variance
+chart retains the original priors and its constant Jacobian. This harness does
+not install a production policy or continue a scientific fit. Real-state density,
+derivative and measure checks must pass before sampling. Scalar slice updates use
+randomized finite stepping-out and shrinkage; width and work limits are explicit,
+and shrink exhaustion raises rather than emitting a fallback sample.
+
+External plans freeze starts, seeds, warmup, equal sampling-time budgets, NUTS
+tree cap, slice controls and a total deadline. Compilation, warmup and sampling
+costs are separated. Inherited original tuning is an additional diagnostic arm.
+Saved original-coordinate draws include covariance monitors from the actual finite
+feature rule. Single-chain ESS estimates from these short tests are provisional;
+start agreement and an independent conditional-distribution check are required
+before a full-Gibbs pilot. The nugget information monitor uses inherited original
+mass/step settings for comparability and is not a global stability bound.
