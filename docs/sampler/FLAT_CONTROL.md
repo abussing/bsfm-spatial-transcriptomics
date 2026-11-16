@@ -140,3 +140,13 @@ differences across different roots. Fixed-duration energy probes are diagnostic
 paths, not the actual adaptive NUTS tree. Local improvements do not establish
 sustained Gibbs efficiency. Interactions between conditional changes remain
 possible and must not be forced into a single-update explanation.
+
+For bounded original-flat diagnostics, `sampler.flat_replay_profile` replays a
+Gibbs prefix twice with identical saved state and RNG, times synchronized calls,
+and captures selected-factor conditional changes. It rejects alternate transition
+policies and uses only log amplitude, logit spatial fraction and log range.
+The external plan pins source commit, recipe, checkpoint prefix and expected
+transition diagnostics, with an internal limit of at most 40 minutes. Cross-runtime
+imports retain the migration checks; differing transitions remain explicitly
+unverified rather than being claimed as exact reproductions. Timing separates
+first compilation from warmed operations; neither pass adapts or continues a fit.
