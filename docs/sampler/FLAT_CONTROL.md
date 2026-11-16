@@ -62,7 +62,7 @@ The range-dependent feature algebra and derivative already occur in the accepted
 [Layer-3 source map](LAYER3_SOURCE_MAP.csv). The historical
 `fixed_splusu_dynamic_target.py` source with SHA-256
 `b172a3732b30c2e15387ad898565a1c9971d902352d9bfd54485a7937295748e`
-contains the optional normal-in-log-range prior and gradient at lines 239â€“245.
+contains the optional normal-in-log-range prior and gradient at lines 239Ã¢â‚¬â€œ245.
 The historical driver with SHA-256
 `eb452c4c419a7ab55658439fa0105ea609b9eecd6e09b1c27c976c8d5da41c49`
 declares median 0.18 and log SD 0.25 at lines 1734 and 1738. This recovers the
@@ -213,3 +213,18 @@ so the existing eta/context checks still apply. No production policy is added.
 Per-factor logs retain integration diagnostics, slice costs, nugget information,
 and covariance movement. External plans bound each arm and the whole job; partial
 arms are explicitly reported. This tests short-run robustness, not convergence.
+The diagnostic supports an explicit whole-job budget up to 3,450 seconds.
+An optional recovery policy permits up to three retunes, triggered by the
+existing two consecutive 25-sweep health windows. The same factor must fail both
+windows; the recovery count applies across the arm. Retunes use fresh auxiliary
+keys and restore the current Gibbs state; they do not replace it with conditional
+warmup endpoints. Every retune starts a separately labeled epoch. All timings
+include recovery costs; traces across adaptive epochs are not pooled as a
+stationary production posterior.
+
+Every complete sweep atomically saves a diagnostic endpoint with full state,
+tuning, positions and all RNG streams. Only the latest endpoint is replaced;
+pre-rewarm boundaries are retained separately. Array hashes, target identity,
+method, plan identity and RNG roundtrips are checked before publication.
+These files are diagnostic continuation material, not production checkpoints;
+the production reader intentionally does not accept them.
